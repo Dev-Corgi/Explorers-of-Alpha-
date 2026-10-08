@@ -17,6 +17,7 @@ OV29_NAMES = frozenset({"ov29", "overlay29", "overlay_0029"})
 OV36_NAMES = frozenset({"ov36", "overlay36", "overlay_0036"})
 OV31_NAMES = frozenset({"ov31", "overlay31", "overlay_0031"})
 OV11_NAMES = frozenset({"ov11", "overlay11", "overlay_0011"})
+OV17_NAMES = frozenset({"ov17", "overlay17", "overlay_0017"})
 ARM9_NAMES = frozenset({"arm9", "arm9.bin"})
 
 
@@ -33,6 +34,8 @@ def binary_load(profile: dict[str, Any], name: str) -> int:
         return int(profile.get("overlay31_load", 0x02382820))
     if name in OV11_NAMES:
         return int(profile.get("overlay11_load", 0x022DC240))
+    if name in OV17_NAMES:
+        return int(profile.get("overlay17_load", 0x0238A140))
     if name in ARM9_NAMES:
         return int(profile.get("arm9_load", 0x02000000))
     raise ValueError(f"unknown binary {name!r}")
@@ -45,6 +48,8 @@ def overlay_index(name: str) -> int:
         return 31
     if name in OV11_NAMES:
         return 11
+    if name in OV17_NAMES:
+        return 17
     if name in OV36_NAMES:
         return 36
     raise ValueError(f"not an overlay binary: {name!r}")
@@ -74,6 +79,11 @@ def write_rom_binary(rom: NintendoDSRom, config, name: str, data: bytes) -> None
 
         set_binary_in_rom(rom, config.bin_sections.overlay11, data)
         return
+    if name in OV17_NAMES:
+        from skytemple_files.common.util import set_binary_in_rom
+
+        set_binary_in_rom(rom, config.bin_sections.overlay17, data)
+        return
     if name in ARM9_NAMES:
         from skytemple_files.common.util import set_binary_in_rom
 
@@ -91,6 +101,8 @@ def overlay_filename(name: str) -> str:
         return "overlay_0031.bin"
     if name in OV11_NAMES:
         return "overlay_0011.bin"
+    if name in OV17_NAMES:
+        return "overlay_0017.bin"
     if name in ARM9_NAMES:
         return "arm9.bin"
     raise ValueError(f"unknown binary {name!r}")

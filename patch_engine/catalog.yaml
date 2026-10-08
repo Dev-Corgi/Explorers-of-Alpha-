@@ -211,7 +211,8 @@ notes:
     x7/8; Hardcore spawn density and trap period match Expert; Vanilla LS is cap-to-party-highest only;
     Hardcore LS always matches party max; Expert+ EXP cuts removed; no forced move ginseng-99; no Hardcore
     IsLevelResetDungeon early-out; floor event divisor always 10; no empty move-slot penalty; Special
-    Episode storage allowed on all difficulties.'
+    Episode storage allowed on all difficulties. Standby Exp. Share always uses 100%, including
+    when its options toggle is OFF or Porygon2 upgrades have not been bought.'
   control_mode_enhance: ov36 cave plus retargeted loads in Alpha's control mode code. Select is unchanged
     (camera mode). Start works on any teammate's turn. Manual rounds walk the party slots forward and
     wrap back to the leader before the enemy phase; auto returns to the vanilla ally batch and deferred

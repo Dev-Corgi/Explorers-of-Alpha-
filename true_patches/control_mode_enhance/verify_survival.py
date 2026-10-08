@@ -202,7 +202,7 @@ def main():
         current = struct.unpack_from('<I', current_data, address - source_base)[0]
         # The read-only fixture may already be a v14 build. The application
         # engine separately enforces hook ownership/expected words on rebuild.
-        assert current == hook['vanilla_word'] or current >> 24 in [0xEA, 0xEB], hook['name']
+        assert current in (hook['vanilla_word'], hook.get('patched_word')) or current >> 24 in [0xEA, 0xEB], hook['name']
     with tempfile.TemporaryDirectory(prefix='cme_survival_test_') as tmp:
         work = Path(tmp)
         shutil.copytree(MODULE / 'asm', work / 'asm')

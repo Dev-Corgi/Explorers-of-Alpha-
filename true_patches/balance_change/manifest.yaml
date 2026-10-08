@@ -1,5 +1,5 @@
 id: balance_change
-version: 11
+version: 12
 region: US
 description: >
   v11: the expanded fixed-room monster stats table is allocated and reserved
@@ -38,6 +38,8 @@ description: >
   ApplyFixedRoomStats is redirected there; BALANCE/fr_mst.bin mirrors it.
   Entries 35/55 stay at vanilla Alpha bytes (Registeel/Regidrago use append
   indices, not those slots).
+  v12: standby Exp. Share is always enabled at 100%, independent of the
+  options toggle and Porygon2 upgrade stage.
 
 kind: balance_change
 rom_profile: us_vanilla
@@ -97,6 +99,27 @@ boss_movesets:
 special_episode_storage_ok: true
 
 hooks:
+  - name: ExpSharePercentage
+    symbol: ExpSharePercentageSite
+    binary: arm9
+    vanilla_word: 0xE3A00032
+    patched_word: 0xE3A00064
+    chain: first
+
+  - name: ExpShareUpgrade
+    symbol: ExpShareUpgradeSite
+    binary: ov36
+    vanilla_word: 0xE0824003
+    patched_word: 0xE3A04064
+    chain: first
+
+  - name: ExpShareToggle
+    symbol: ExpShareToggleSite
+    binary: ov36
+    vanilla_word: 0xE3A01000
+    patched_word: 0xE3A01064
+    chain: first
+
   - name: GetMonsterMovesEntry
     symbol: GetMonsterMovesEntrySite
     binary: ov29

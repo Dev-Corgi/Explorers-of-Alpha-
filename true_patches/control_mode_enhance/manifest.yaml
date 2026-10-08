@@ -161,6 +161,7 @@ hooks:
     symbol: CmeLeaderSwitchFlagSite
     binary: ov17
     vanilla_word: 0xEBF30798
+    patched_word: 0xE3A00001
     chain: first
 
 cave:

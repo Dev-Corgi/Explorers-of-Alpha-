@@ -4,6 +4,7 @@ id: us_vanilla
 overlay29_load: 0x022DC240
 overlay31_load: 0x02382820
 overlay11_load: 0x022DC240
+overlay17_load: 0x0238A140
 overlay36_load: 0x023A7080
 overlay19_load: 0x0238A140
 arm9_load: 0x02000000
@@ -260,6 +261,9 @@ symbols:
   CmeDungeonStartSite: 0x022DF0F8
   CmeSpawnTeamSite: 0x022DF6A4
   CmeDungeonEndSite: 0x022E026C
+  ExpSharePercentageSite: 0x02097E34
+  ExpShareUpgradeSite: 0x023A9378
+  ExpShareToggleSite: 0x023A99A8
   CmeLeaderSwitchFlagSite: 0x0238AC2C
   CmeFaintSite: 0x022F8024
   CmeRecruitCheckSite: 0x0230DBD0

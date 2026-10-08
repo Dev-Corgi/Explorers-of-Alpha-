@@ -8,6 +8,9 @@ ov_36 equ 0x023A7080
 .definelabel DungeonPtr,               0x02353538
 .definelabel GetActiveTeamMember,      0x0205638C
 .definelabel IsGuestTeamMember,        0x02056228
+.definelabel ExpSharePercentageSite,   0x02097E34
+.definelabel ExpShareUpgradeSite,      0x023A9378
+.definelabel ExpShareToggleSite,       0x023A99A8
 
 ; arm9 rank-table readers. Replaced entirely; callers only need the level in r0.
 .definelabel GetOutlawLevelSite,       0x0204F88C

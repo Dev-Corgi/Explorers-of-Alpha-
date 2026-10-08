@@ -893,7 +893,9 @@ def verify_asm_module(
     ov36_load = int(profile.get("overlay36_load", 0x023A7080))
     arm9_load = int(profile.get("arm9_load", 0x02000000))
     ov11_load = int(profile.get("overlay11_load", 0x022DC240))
+    ov17_load = int(profile.get("overlay17_load", 0x0238A140))
     ov11 = bytes(rom.files[table[11].fileID])
+    ov17 = bytes(rom.files[table[17].fileID])
     ov29 = bytes(rom.files[table[29].fileID])
     ov31 = bytes(rom.files[table[31].fileID])
     ov36 = bytes(rom.files[table[36].fileID])
@@ -908,6 +910,8 @@ def verify_asm_module(
             blob, load = arm9, arm9_load
         elif bname in ("ov11", "overlay11", "overlay_0011"):
             blob, load = ov11, ov11_load
+        elif bname in ("ov17", "overlay17", "overlay_0017"):
+            blob, load = ov17, ov17_load
         elif bname in ("ov31", "overlay31"):
             blob, load = ov31, ov31_load
         elif bname in ("ov36", "overlay36", "overlay_0036"):

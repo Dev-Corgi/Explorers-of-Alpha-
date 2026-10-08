@@ -15,6 +15,15 @@
 
 .close
 
+.open "arm9.bin", arm9
+
+; Always enable standby Exp. Share at the full 100% rate, regardless of the
+; options toggle or Porygon2 upgrade stage.
+.org ExpSharePercentageSite
+	mov r0, #0x64
+
+.close
+
 .open "overlay_0029.bin", ov_29
 
 .org GetMonsterMovesEntrySite
@@ -29,6 +38,13 @@
 .close
 
 .open "overlay_0036.bin", ov_36
+
+; Alpha rewrites the percentage instruction's low byte during floor init.
+; Keep both the upgrade writer and the OFF writer at 100%.
+.org ExpShareUpgradeSite
+	mov r4, #100
+.org ExpShareToggleSite
+	mov r1, #100
 
 ; ---- in-place difficulty rebalance (Alpha ov36) ----
 
