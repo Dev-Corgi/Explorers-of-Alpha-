@@ -1,0 +1,39 @@
+=== Patch cluster 0x3B8100-0x3B8700 ===
+
+=== Hook target 0x57868 -> 0x3B81F0 context ===
+
+=== Vanilla caller context 0x57840-0x578A0 ===
+0x057840: mov     r0, #0
+0x057844: str     r0, [sp]
+0x057848: ldrsh   r1, [r8, #8]
+0x05784C: ldr     ip, [r4]
+0x057850: add     r0, sp, #8
+0x057854: smlabb  r1, r1, fp, ip
+0x057858: ldrsh   r1, [r1, #4]
+0x05785C: mov     r2, #0
+0x057860: add     r3, sp, #6
+0x057864: bl      #0x2052e2c
+0x057868: b       #0x23b81f0
+0x05786C: add     r3, r8, #0x4c
+0x057870: strb    r0, [r8, #2]
+0x057874: ldrsh   r0, [sp, #0x10]
+0x057878: strh    r0, [r8, #6]
+0x05787C: ldrsh   r0, [sp, #0x12]
+0x057880: strh    r0, [r8, #0xe]
+0x057884: ldrsh   r0, [sp, #0x12]
+0x057888: strh    r0, [r8, #0x10]
+0x05788C: ldrb    r0, [sp, #0x14]
+0x057890: strb    r0, [r8, #0x12]
+0x057894: ldrb    r0, [sp, #0x15]
+0x057898: strb    r0, [r8, #0x13]
+0x05789C: ldrb    r0, [sp, #0x16]
+0x0578A0: strb    r0, [r8, #0x14]
+0x0578A4: ldrb    r0, [sp, #0x17]
+0x0578A8: strb    r0, [r8, #0x15]
+0x0578AC: ldr     r0, [sp, #0x18]
+0x0578B0: str     r0, [r8, #0x18]
+0x0578B4: ldm     r5, {r0, r1, r2}
+0x0578B8: stm     r3, {r0, r1, r2}
+0x0578BC: ldrb    r2, [sp, #0x28]
+
+=== Search patch region for CheckTeamMemberIdx / perf flag calls ===

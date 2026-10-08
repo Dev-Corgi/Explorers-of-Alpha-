@@ -1,0 +1,157 @@
+==== 20 len 2823 ====
+## 분석 결과: Level Scaling이 게스트 포켓몬 레벨까지 포함하는 이유
+
+`unpacked` 바이너리(arm9 + overlay 29/36)와 SSBS 스크립트를 기준으로 보면, **게스트를 제외해야 하는데 파티 순회 루프 대부분에서 `CheckTeamMemberIdx`를 호출하지 않기 때문**입니다.
+
+---
+
+### Level Scaling이 어디서 동작하는지
+
+| 위치 | 역할 |
+|---|---|
+| **overlay 29** (`overlay_0029.bin`) | 던전 입장·적 스폰·파티 기준 레벨 계산의 본체 |
+| **overlay 36** (`overlay_0036.bin`) | EoA 전용 패치 코드 (arm9에서 분기) |
+| **arm9** (`arm9.bin`) | 파티 슬롯 0–3 순회, EoA 훅 |
+
+SSBS의 `flag_SetPerformance(55, …)`는 **설정 UI용**이고, 런타임에서는 아래를 봅니다.
+
+- `global + 0x748` — 난이도 (Vanilla / Difficult / Expert / Hardcore)
+- `global + 0x759` — Level Scaling 토글 캐시
+
+의도된 동작은 `enter13.ssbs` Q4 기준:
+
+- **Vanilla**: 적 레벨 = **플레이어(리더) 레벨**
+- **Difficult+**: 적 레벨 = **파티 최고 레벨** (Expert/Hardcore는 던전 레벨과 비교)
+
+---
+
+### 게스트 포켓몬 판별 방식 (바닐라 EoS)
+
+게스트는 **슬롯 번호 0–3이 아니라** `team_member + 0x8`의 **`member_idx`**로 구분합니다.
+
+```asm
+; CheckTeamMemberIdx @ arm9 0x56264
+; member_idx == 0x55AA 또는 0x5AA5 → 게스트 (return 1)
+```
+
+올바른 사용 예 (arm9 `0x57ECC`):
+
+```asm
+ldrsh r0, [r8, #8]      ; member_idx 로드
+bl    CheckTeamMemberIdx
+cmp   r0, #0
+; 게스트면 스킵
+```
+
+ov29에도 같은 패턴의 헬퍼가 있습니다 (`0x22F9C58`–`0x22F9C60`).
+
+---
+
+### 버그의 핵심: “최고 레벨” 수집 루프에 게스트 필터 없음
+
+**주요 버그 지점** — ov29 `0x22F79A4` (파일 offset `0x1B764`):
+
+```asm
+; 슬롯 0..3 순회
+bl   GetActiveTeamMember
+; active flag bit 0 확인
+; [member+1] == 0 확인
+; (던전 타입 필터 등)
+; ❌ ldrsh [member,#8] / CheckTeamMemberIdx 없음
+str  r6, [sp+0x44 + index*4]   ; 후보 목록에 추가
+```
+
+여기서 모인 후보로 `0x234EF24`에서 **최대 레벨**을 고르고, 그 값이 `[global_struct+0x20]`에 저장된 뒤 파티/적 레벨 조정에 쓰입니다.
+
+**게스트도 active 슬롯에 있으면 그대로 후보에 들어가고**, Difficult 이상에서 **게스트 레벨이 기준 레벨(max) 계산에 포함**됩니다.
+
+---
+
+### 부가 원인들
+
+**1. arm9 던전 입장 스케일링 (`0x585D8`)**  
+슬롯 0–3만 active bit로 거르고, **게스트 체크 없음**.
+
+**2. ov29 파티 레벨 적용 루프 (`0x22F7CE4`)**  
+`GetActiveTeamMember` → active bit → `[member+6]`(레벨)과 기준 레벨 비교/상향. **게스트 체크 없음**.
+
+**3. “게스트 체크”가 있는 것처럼 보이지만 실제로는 무효**
+
+arm9 `0x58674`:
+
+```asm
+mov   r5, r0          ; r5 = 슬롯 인덱스 (0,1,2,3)
+bl    #0x2056228      ; 0x55AA/0x5AA5와 비교하는 함수
+```
+
+`0x56228`도 `0x55AA`/`0x5AA5`와 비교하지만, 인자로 **슬롯 0–3**이 들어옵니다. 슬롯 번호는 절대 매직 값과 일치하지 않아 **항상 “비게스트”로 처리**됩니다.
+
+**4. comparator 쪽 부분 필터는 불충분**  
+ov29 `0x22F9C60` 근처 comparator에서 `CheckTeamMemberIdx`를 쓰는 경로가 있지만, **수집 루프(`0x22F79A4`) 이전에 게스트가 이미 후보에 들어간 뒤**이고, 다른 스케일링 경로는 이 체크를 아예 타지 않습니다.
+
+---
+
+### 요약
+
+| 항목 | 내용 |
+|---|---|
+| **직접 원인** | Level Scaling의 “파티 최고 레벨” 계산 루프(ov29 `0x22F79A4`)가 active 슬롯만 보고 **`member_idx` 게스트 판별(`0x55AA`/`0x5AA5`)을 하지 않음** |
+| **왜 게스트가 포함되나** | 게스트도 active team 슬롯에 올라가 있고, `[member+6]` 레벨이 max 계산·적용에 그대로 사용됨 |
+| **왜 부분 수정이 안 먹혔나** | arm9 `0x58680`은 슬롯 인덱스를 게스트 함수에 넘겨 **실질적으로 no-op** |
+| **올바른 수정 방향** | `0x22F79A4`, `0x585D8`, `0x22F7CE4` 등 모든 스케일링 순회에 `ldrsh [member,#8]` → `CheckTeamMemberIdx` → 게스트면 skip 추가 (이미 `0x57ED0`, `0x22F9C60`에 있는 패턴 재사용) |
+
+원하시면 다음 단계로 **어느 루프에 패치를 넣을지** ASM 패치 포인트까지 정리해 드리겠습니다.
+
+[REDACTED]
+
+==== 47 len 1325 ====
+`true_patches/level_scaling_guest_fix` 모듈을 만들었습니다. Level Scaling 계산에서 게스트 포켓몬(`member_idx` `0x55AA` / `0x5AA5`)을 제외합니다.
+
+## 패치 내용
+
+**5곳 훅** → ov36 cave 공통 헬퍼 `CheckTeamMemberIdx` 호출:
+
+| 위치 | 수정 내용 |
+|---|---|
+| **ov29 `0x22F7A0C`** | 최고 레벨 후보 수집 시 게스트면 목록에서 제외 |
+| **ov29 `0x22F7CEC`** | 파티 레벨 적용 루프에서 게스트 슬롯 스킵 |
+| **arm9 `0x58680`** | 슬롯 인덱스(0–3)로 잘못 검사하던 부분 → `member_idx` 기준으로 수정 |
+| **arm9 `0x58604`** | 던전 입장 스케일링 루프에서 게스트 스킵 |
+| **arm9 `0x57838`** | 던전 스탯 초기화 루프에서 게스트 스킵 |
+
+## 적용 방법
+
+```powershell
+cd c:\Working\SkyTemple
+python -c "
+from pathlib import Path
+from true_patches.engine.apply_module import apply_module
+apply_module(
+    'level_scaling_guest_fix',
+    Path('Vanilla Rom/Explorers of Alpha_Vanilla.nds'),
+    Path('Export Rom/Explorers of Alpha_Vanilla+level_scaling_guest_fix.nds'),
+    armips=Path('tools/armips.exe'),
+    force_reapply=True,
+)
+"
+```
+
+full_stack ROM 위에도 적용해 두었습니다:
+`Export Rom/Explorers of Alpha_Vanilla+full_stack+level_scaling.nds`
+
+`build_full_stack.py` 순서에도 `level_scaling_guest_fix`를 `status_adjust` 다음에 넣어 두었습니다.
+
+## 파일 구조
+
+```
+true_patches/level_scaling_guest_fix/
+├── manifest.yaml
+└── asm/
+    ├── main.asm
+    ├── LevelScalingGuestFix.asm
+    └── common/offsetsUS.asm
+```
+
+게임에서 Level Scaling 켠 뒤 게스트 동반 던전(예: 스토리 구간)에 들어가서, 적/기준 레벨이 **본대 포켓몬만** 반영되는지 확인해 보시면 됩니다.
+
+[REDACTED]

@@ -1,0 +1,13 @@
+=== filename hits ===
+C:\Working\SkyTemple\.venv\Lib\site-packages\skytemple_files\hardcoded\symbols\manual\enums.py
+C:\Working\SkyTemple\.venv\Lib\site-packages\pip\_vendor\chardet\enums.py
+
+=== content hits ===
+C:\Working\SkyTemple\.venv\Lib\site-packages\pmdsky_debug_py\eu.py
+C:\Working\SkyTemple\.venv\Lib\site-packages\pmdsky_debug_py\eu_itcm.py
+C:\Working\SkyTemple\.venv\Lib\site-packages\pmdsky_debug_py\jp.py
+C:\Working\SkyTemple\.venv\Lib\site-packages\pmdsky_debug_py\jp_itcm.py
+C:\Working\SkyTemple\.venv\Lib\site-packages\pmdsky_debug_py\na.py
+C:\Working\SkyTemple\.venv\Lib\site-packages\pmdsky_debug_py\na_itcm.py
+C:\Working\SkyTemple\.venv\Lib\site-packages\pmdsky_debug_py\protocol.py
+C:\Working\SkyTemple\.venv\Lib\site-packages\skytemple_files\data\md\protocol.py

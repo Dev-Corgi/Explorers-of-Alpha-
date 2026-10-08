@@ -1,0 +1,182 @@
+id: balance_change
+version: 11
+region: US
+description: >
+  v11: the expanded fixed-room monster stats table is allocated and reserved
+  inside loaded overlay36 memory; overlay10 is not extended into overlay29.
+  Bidoof's Wish movesets. Bidoof (special episode main character) starts with
+  Quick Attack / Iron Tail / Dig / Swagger; the guest and the boss Snover (Deep
+  Star Cave B1F, fixed rooms 30 and 42) use Ice Beam / Razor Leaf / Icy Wind /
+  Grass Whistle. Learnsets stay as they are.
+  Outlaws (the wanted Pokemon, hidden and fleeing variants, monster-house
+  leader, and minions) spawn at the active party's highest level + 10, capped
+  at 100. Guests are not part of that max. Their max HP is 2 * CalcStat
+  (V=0), capped at 32767. This reads team levels directly, so Alpha level
+  scaling does not change it.
+  After Wigglytuff registers the team, ProcessSpecial 71 kit 8 also gives
+  Lens Scarf (No-Aim Scope) and Bright Ribbon (Gold Ribbon).
+  Porygon2 statues on SCRIPT/D* mid-group rest maps (P21+; same as
+  D10P21A/enter02.ssb) use the save-only talk script. Story dungeon Enter
+  maps (P11*, Foggy Forest and the like), Hidden Land / Temporal Tower /
+  Sky Peak bases, and challenge hubs keep their vanilla menus. Town and
+  overworld statues are unchanged.
+  v8 difficulty rebalance (Alpha ov36): enemy fx Vanilla 0.8x / Difficult&Expert
+  1.0x / Hardcore 1.2x; remove Difficult +0x1A..1D x7/8; Hardcore spawn density
+  and trap period match Expert; Vanilla LS is cap-to-party-highest only (no 0.8x);
+  Hardcore LS always matches party max; EXP/economy Expert+ cuts removed; no
+  forced move ginseng-99; no Hardcore IsLevelResetDungeon early-out; floor event
+  divisor always 10; no empty move-slot x1/4; Special Episode storage OK on all
+  difficulties.
+  v9: every m_level.bin species uses Pikachu's (index 25) experience_required
+  curve for levels 1-100; growth bytes unchanged. BALANCE and UTILITY.
+  v10: shared Strong Enemy stats_entry groups (Darkrai/Cresselia, Squirtle/
+  Arceus, Deoxys/Marshadow, Weezing/Omastar/Crobat, Mew/Shaymin/Jirachi,
+  Sableye/Registeel, Regieleki/Regidrago) get independent rows; each row's
+  level is matched so CalcStat Atk+Def+SpA+SpD equals the table combat sum
+  (table HP unchanged except Registeel/Regidrago clones, which get CalcStat
+  HP). Expanded table is appended to overlay10 on the cartridge and
+  ApplyFixedRoomStats is redirected there; BALANCE/fr_mst.bin mirrors it.
+  Entries 35/55 stay at vanilla Alpha bytes (Registeel/Regidrago use append
+  indices, not those slots).
+
+kind: balance_change
+rom_profile: us_vanilla
+
+symbol_imports:
+  - BaseStats_CalcStat
+
+# arm9 SPECIAL_EPISODE_MAIN_CHARACTERS entries.
+special_episode_pcs:
+  - name: Bidoof (Bidoof's Wish)
+    index: 3
+    poke_id: 434
+    old_moves: [154, 217, 0, 0]    # Tackle, Growl
+    moves: [190, 1, 8, 24]         # Quick Attack, Iron Tail, Dig, Swagger
+
+# arm9 GUEST_MONSTER_DATA entries.
+guests:
+  - name: Snover (Bidoof's Wish guest)
+    index: 3
+    poke_id: 501
+    old_moves: [101, 97, 84, 24]   # Powder Snow, Icy Wind, Grass Whistle, Swagger
+    moves: [345, 251, 97, 84]      # Ice Beam, Razor Leaf, Icy Wind, Grass Whistle
+  - name: Snover (Bidoof's Wish guest, copy)
+    index: 17
+    poke_id: 501
+    old_moves: [101, 97, 84, 24]
+    moves: [345, 251, 97, 84]
+
+# Enemies spawned while the floor is one of these fixed rooms get this moveset
+# from GetMonsterMoves instead of the level-up one. Either gender id matches.
+# SCRIPT/D* mid-group rest Porygon2 (entid 554) talk scripts only.
+# P11* story dungeon Enter maps and hub/base statues are skipped.
+rest_statue_save_only:
+  template: SCRIPT/D10P21A/enter02.ssb
+
+# ProcessSpecial(71, 8, 0) after the Treasure Bag. Item ids are vanilla
+# (48 = No-Aim Scope / Lens Scarf, 32 = Gold Ribbon / Bright Ribbon).
+guild_register_items:
+  special: 71
+  kit: 8
+  add:
+    - id: 48
+      count: 1
+      name: Lens Scarf
+    - id: 32
+      count: 1
+      name: Bright Ribbon
+
+boss_movesets:
+  - name: Snover (Bidoof's Wish boss)
+    species: 501
+    fixed_rooms: [30, 42]
+    moves: [345, 251, 97, 84]
+
+# Special Episode (and hub) storage: Expert/Hardcore BranchPerformance pair
+# before MENU_STORAGE is retargeted so storage always opens.
+special_episode_storage_ok: true
+
+hooks:
+  - name: GetMonsterMovesEntry
+    symbol: GetMonsterMovesEntrySite
+    binary: ov29
+    vanilla_word: 0xE92D47F8
+    chain: first
+    target_symbol: BalanceChange_GetMonsterMoves
+
+  - name: GetOutlawLevel
+    symbol: GetOutlawLevelSite
+    binary: arm9
+    vanilla_word: 0xE92D4008
+    chain: first
+    target_symbol: BalanceChange_OutlawLevel
+
+  - name: GetOutlawLeaderLevel
+    symbol: GetOutlawLeaderLevelSite
+    binary: arm9
+    vanilla_word: 0xE92D4008
+    chain: first
+    target_symbol: BalanceChange_OutlawLevel
+
+  - name: GetOutlawMinionLevel
+    symbol: GetOutlawMinionLevelSite
+    binary: arm9
+    vanilla_word: 0xE92D4008
+    chain: first
+    target_symbol: BalanceChange_OutlawLevel
+
+  - name: OutlawSpawnLevel
+    symbol: OutlawSpawnLevelSite
+    binary: ov29
+    vanilla_word: 0xE1C410B4
+    chain: first
+    target_symbol: BalanceChange_StoreOutlawLevel
+
+  - name: OutlawHp
+    symbol: OutlawHpSite
+    binary: ov29
+    vanilla_word: 0xE1D521F2
+    chain: first
+    target_symbol: BalanceChange_OutlawHp
+
+  - name: DiffRebalance_ApplyEnemyMults
+    symbol: DiffRebalance_ApplyEnemyMultsSite
+    binary: ov36
+    vanilla_word: 0xEB000B1B
+    chain: first
+    target_symbol: DiffRebalance_ApplyEnemyMults
+
+  - name: DiffRebalance_A5Mult
+    symbol: DiffRebalance_A5MultSite
+    binary: ov36
+    vanilla_word: 0x03A03D05
+    chain: first
+    target_symbol: DiffRebalance_A5Mult
+
+  - name: DiffRebalance_VanillaLS
+    symbol: DiffRebalance_VanillaLSSite
+    binary: ov36
+    vanilla_word: 0xE3A00000
+    chain: first
+    target_symbol: DiffRebalance_VanillaLS
+
+  - name: DiffRebalance_EHLSStore
+    symbol: DiffRebalance_EHLSStoreSite
+    binary: ov36
+    vanilla_word: 0xE1540007
+    chain: first
+    target_symbol: DiffRebalance_EHLSStore
+
+cave:
+  binary: ov36
+  estimated_bytes: 1536
+  alignment: 4
+  base_label: BalanceChangeCodeAddress
+
+asm:
+  entry: asm/main.asm
+
+verify:
+  - type: hooks_are_branch
+  - type: cave_nonempty
+    overlay: ov36

@@ -1,0 +1,330 @@
+id	name	vanilla	gen9
+1	Iron Tail	40	100
+2	Ice Ball	1	30
+7	Vital Throw	0	70
+8	Dig	10	80
+9	Thrash	20	50
+16	Bubble	4	40
+18	Cut	10	50
+19	Rage	1	20
+25	Snore	20	50
+28	Rock Throw	5	50
+30	Rock Slide	14	75
+31	Weather Ball	5	50
+32	Whirlpool	2	35
+36	Air Cutter	2	60
+38	Pursuit	9	40
+39	Double Slap	6	15
+41	Overheat	25	130
+42	Aurora Beam	10	65
+44	Octazooka	10	65
+46	Astonish	6	30
+48	Return	5	102
+50	Strength	0	80
+52	Flame Wheel	12	60
+53	Flamethrower	12	90
+54	Techno Blast	20	120
+55	Mind Crush	20	80
+57	Gust	4	40
+60	Razor Wind	15	80
+62	Crunch	16	80
+63	Bite	7	60
+64	Thunder	30	110
+65	Thunder Punch	13	75
+67	Facade	12	70
+68	Karate Chop	10	50
+69	Clamp	4	35
+71	Constrict	2	10
+72	Brick Break	14	75
+73	Rock Tomb	10	60
+75	Focus Punch	45	150
+76	Giga Drain	13	75
+77	Reversal	8	100
+78	Smelling Salts	12	70
+80	Leech Life	13	80
+81	Slash	12	70
+82	Silver Wind	6	60
+86	Play Rough	16	90
+87	Crabhammer	18	100
+90	Cross Chop	30	100
+91	Outrage	20	50
+92	Low Kick	7	80
+93	Ancient Power	12	60
+96	Rapid Spin	3	50
+97	Icy Wind	5	55
+100	Sky Attack	20	140
+101	Powder Snow	6	40
+103	Meteor Mash	30	90
+105	Rollout	1	30
+107	Psybeam	9	65
+109	Psychic	22	90
+110	Psycho Boost	50	140
+112	Uproar	11	90
+113	Water Spout	50	150
+114	Signal Beam	10	75
+116	Submission	15	80
+118	Earthquake	15	100
+120	Lick	3	30
+121	Flail	2	100
+123	Self-Destruct	0	120
+125	Bind	3	15
+126	Shadow Punch	7	60
+127	Shadow Ball	11	80
+129	Thunderbolt	15	90
+131	Thunder Energy	40	150
+132	Extreme Speed	16	80
+133	Extrasensory	16	80
+135	Absorb	2	20
+136	Sky Uppercut	16	85
+139	Headbutt	6	70
+140	Double-Edge	27	120
+143	Sand Tomb	4	35
+144	Spark	12	65
+145	Swift	8	60
+146	Psystrike	35	100
+147	Smog	4	30
+149	Sacred Fire	40	100
+150	Dragon Energy	40	150
+151	Solar Beam	20	120
+153	Fly	10	90
+154	Tackle	6	40
+155	Explosion	0	150
+156	Dive	10	80
+157	Fire Blast	30	110
+158	Waterfall	16	80
+159	Muddy Water	15	90
+161	Slam	16	80
+162	Twister	6	40
+163	Bullet Seed	6	25
+164	Twineedle	10	25
+166	Egg Bomb	20	100
+167	Feint Attack	6	60
+168	Sparkly Wind	6	60
+174	Peck	4	35
+175	Arm Thrust	6	15
+176	Horn Attack	7	65
+177	DiamondStorm	25	100
+178	Wing Attack	6	60
+179	Aerial Ace	10	60
+180	Icicle Spear	6	25
+182	Vine Whip	4	45
+188	Thunder Shock	2	40
+189	Shock Wave	9	60
+190	Quick Attack	4	40
+193	Tesla Cannon	30	120
+198	Poison Fang	10	50
+200	Poison Sting	3	15
+201	Spike Cannon	6	20
+203	Take Down	10	90
+204	Jump Kick	14	100
+205	Bounce	10	85
+206	High Jump Kick	16	130
+207	Tri Attack	10	80
+208	Dragon Claw	16	80
+210	Triple Kick	1	10
+211	Drill Peck	16	80
+213	Mud-Slap	2	20
+214	Thief	2	60
+219	Surf	12	90
+221	Needle Arm	40	60
+222	Double Kick	4	30
+226	Fake Out	8	40
+228	Pay Day	4	40
+230	Heat Wave	10	95
+234	Confusion	5	50
+235	Body Slam	12	85
+238	Frenzy Plant	45	150
+239	Hydro Cannon	40	150
+240	Hydro Pump	25	110
+241	Hyper Voice	18	90
+242	Hyper Beam	35	150
+243	Superpower	35	120
+244	Steel Wing	35	70
+245	Spit Up	20	100
+246	Dynamic Punch	10	100
+247	Spectral Thief	16	90
+248	Vise Grip	6	55
+249	Knock Off	6	65
+250	Pound	6	40
+251	Razor Leaf	4	55
+253	Petal Dance	20	50
+255	Bubble Beam	6	65
+256	Doom Desire	40	140
+260	Scratch	6	40
+261	Hyper Fang	16	80
+262	Ember	4	40
+263	Secret Power	14	70
+264	Dizzy Punch	6	70
+270	Blizzard	25	110
+271	Stomp	12	65
+272	Blast Burn	40	150
+275	Crush Claw	14	75
+276	Blaze Kick	20	85
+277	Present	0	60
+278	Eruption	40	150
+279	Sludge	10	65
+280	Sludge Bomb	18	90
+283	Poison Tail	10	50
+285	Bone Rush	6	25
+287	Covet	8	60
+289	Bone Club	12	65
+290	Bonemerang	10	50
+291	Fire Spin	2	35
+292	Fire Punch	14	75
+293	Night Daze	18	85
+294	Wrap	0	15
+296	Magnitude	0	70
+297	Magical Leaf	12	60
+299	Mud Shot	10	55
+300	Mach Punch	4	40
+303	Rolling Kick	20	60
+305	Headlong Rush	25	120
+306	Pin Missile	6	25
+308	Water Gun	4	40
+309	Mist Ball	25	95
+310	Water Pulse	12	60
+311	Fury Attack	6	15
+312	Fury Swipes	6	18
+320	Mega Drain	6	40
+321	Mega Kick	30	120
+322	Mega Punch	30	80
+323	Megahorn	38	120
+324	Hidden Power	12	60
+325	Metal Claw	10	50
+328	Frustration	5	102
+331	Soul Eater	13	75
+332	Acid	8	40
+335	Luster Purge	25	95
+336	Leaf Blade	14	90
+340	Revenge	0	60
+342	Dragon Breath	12	60
+344	Ice Punch	14	75
+345	Ice Beam	10	90
+346	Fury Cutter	2	40
+347	Comet Punch	6	18
+348	Skull Bash	10	130
+350	Rock Blast	6	25
+353	Aeroblast	35	100
+354	Volt Tackle	24	120
+355	regular attack	1	20
+357	Bide	2	0
+358	Revenge	2	60
+359	Avalanche	0	60
+360	Wide Slash	20	60
+361	Origin Pulse	40	110
+362	Precipice Blades	40	120
+364	Takeaway	2	40
+380	Wave Crash	36	120
+397	Echo	10	80
+402	Draining Kiss	6	50
+403	Raging Fury	20	50
+404	Dragon Ascent	50	120
+405	projectile	2	40
+411	Sludge Wave	10	95
+415	Low Sweep	10	65
+416	Scald	10	80
+418	Volt Switch	12	70
+419	Breaking Swipe	10	60
+420	Bulldoze	8	60
+422	Drill Run	13	80
+423	Dual Chop	4	40
+424	Snarl	10	55
+425	Flip Turn	12	60
+426	Hurricane	30	110
+427	Mystical Fire	12	75
+428	High Horsepower	16	95
+429	Dual Wingbeat	4	40
+430	Hammer Arm	30	100
+431	Iron Head	16	80
+432	Aqua Jet	4	40
+433	Aqua Tail	18	90
+435	Spacial Rend	25	100
+436	Dark Pulse	16	80
+437	Ominous Wind	6	60
+440	Close Combat	25	120
+441	Wood Hammer	36	120
+442	Air Slash	11	75
+443	Energy Ball	11	90
+445	Punishment	1	60
+446	Chatter	15	65
+451	Shadow Sneak	4	40
+452	Thunder Fang	12	65
+453	Rock Wrecker	35	150
+454	Focus Blast	25	120
+455	Giga Impact	35	150
+457	Trump Card	1	80
+458	Grass Knot	1	80
+459	Cross Poison	15	70
+460	Attack Order	11	90
+461	Ice Fang	10	65
+462	Ice Shard	4	40
+463	Psycho Cut	10	70
+467	Judgement	60	100
+468	Seed Flare	50	120
+469	Brine	10	65
+470	X-Scissor	40	80
+471	Natural Gift	1	80
+472	Payback	0	50
+473	Zen Headbutt	15	80
+474	Wring Out	1	120
+475	Gyro Ball	4	80
+476	Shadow Claw	13	70
+477	Shadow Force	20	120
+479	Vacuum Wave	4	40
+481	Stone Edge	38	100
+484	Earth Power	12	90
+485	Gunk Shot	22	120
+486	Seed Bomb	16	80
+487	Double Hit	4	35
+488	Assurance	10	60
+489	Charge Beam	8	50
+490	Pluck	10	60
+491	Night Slash	13	70
+494	Roar of Time	40	150
+495	Poison Jab	14	80
+497	Last Resort	50	140
+498	Dragon Rush	40	100
+500	Drain Punch	13	75
+501	Mud Bomb	12	65
+502	U-turn	12	70
+505	Crush Grip	60	120
+507	Force Palm	12	60
+508	Aura Sphere	16	80
+510	Bullet Punch	4	40
+511	Power Whip	35	120
+512	Power Gem	12	80
+515	Sucker Punch	15	70
+516	Feint	8	30
+517	Flare Blitz	42	120
+518	Brave Bird	42	120
+519	Lava Plume	15	80
+521	Discharge	9	80
+522	Fire Fang	12	65
+523	Magnet Bomb	12	60
+524	Magma Storm	55	100
+527	Mirror Shot	12	65
+529	Bug Bite	11	60
+530	Bug Buzz	16	90
+531	Wake-Up Slap	12	70
+533	Head Smash	50	150
+535	Avalanche	10	60
+536	Flash Cannon	15	80
+537	Leaf Storm	37	130
+538	Draco Meteor	30	130
+539	Dragon Pulse	18	85
+541	Rock Climb	12	90
+543	Hex	9	65
+544	Moonblast	15	95
+545	Triple Axel	1	20
+546	Dazzling Gleam	14	80
+547	Electro Ball	4	80
+548	Scorching Sands	10	70
+549	Psychic Fangs	14	85
+550	Liquidation	16	85
+551	Body Press	20	80
+553	Power-Up Punch	8	40
+554	Petal Blizzard	12	90
+555	Disarming Voice	4	40
+556	Icicle Crash	17	85
+557	Moon Slash	13	70
+558	Electroweb	5	55

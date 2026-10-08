@@ -1,0 +1,12 @@
+entries:
+  # Code stores these ids + 1. Display 19121 is requested with code 19122.
+  - id: 19121
+    text: "Hp Up"
+  - id: 19122
+    text: "Atk Up"
+  - id: 19123
+    text: "Def Up"
+  - id: 19124
+    text: "SpA Up"
+  - id: 19125
+    text: "SpD Up"

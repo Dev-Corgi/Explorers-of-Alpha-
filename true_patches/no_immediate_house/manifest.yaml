@@ -1,0 +1,33 @@
+id: no_immediate_house
+version: 1
+region: US
+description: >
+  On floor entry, if the leader is standing in the generated Monster House
+  room, clear that room's monster-house tiles so it does not activate.
+  Outlaw hideout floors (mission type 0xA subtype 7) are left alone.
+  Walking into a Monster House in some other room still triggers it.
+
+kind: asm
+rom_profile: us_vanilla
+
+hooks:
+  - name: FloorEntryMonsterHouse
+    symbol: FloorEntryMonsterHouseSite
+    binary: ov29
+    vanilla_word: 0xEB009752
+    chain: first
+    target_symbol: NoImmediateHouse_OnFloorEntry
+
+cave:
+  binary: ov36
+  estimated_bytes: 512
+  alignment: 4
+  base_label: NoImmediateHouseCodeAddress
+
+asm:
+  entry: asm/main.asm
+
+verify:
+  - type: hooks_are_branch
+  - type: cave_nonempty
+    overlay: ov36

@@ -1,0 +1,89 @@
+entries:
+  - id: 19082
+    text: "Use(3)"
+  - id: 19083
+    text: "Use(2)"
+  - id: 19084
+    text: "[CS:B]Use(1)[CR]"
+  - id: 7079
+    text: "[M:I1] Baton Orb"
+  - id: 7080
+    text: "[M:I1] Decay Orb"
+  - id: 7082
+    text: "[M:I1] Refresh Orb"
+  - id: 7084
+    text: "[M:I1] Terastal Orb"
+  - id: 7101
+    text: "[M:I1] Charge Orb"
+  - id: 7102
+    text: "[M:I1] Protect Orb"
+  - id: 7106
+    text: "[M:I1] PP-Save Orb"
+  - id: 7111
+    text: "[M:I1] Poison Orb"
+  - id: 7114
+    text: "[M:I1] Weakness Orb"
+  - id: 7124
+    text: "[M:I1] Wish Orb"
+  - id: 7125
+    text: "[M:I1] Mimic Orb"
+  - id: 7119
+    text: "[M:I1] Diet Orb"
+  - id: 7131
+    text: "[M:I1] Heal Orb"
+  - id: 11010
+    text: "An item that swaps the positions of\nPokémon in the same room.\n\n\n\n\n[BAR]\nRange:[CLUM_SET:36] Same room"
+  - id: 11011
+    text: "An item that lowers the Defense and\nSp. Def of enemies in the same room\nby 6 stages.\n\n\n\n[BAR]\nRange:[CLUM_SET:36] Enemies in the room"
+  - id: 11013
+    text: "An item that cures bad status\nconditions of allies in the same room.\n\n\n\n\n[BAR]\nRange:[CLUM_SET:36] Allies in the room"
+  - id: 11014
+    text: "An item that gives the user the\nCounter and Mirror Coat statuses.\n\n\n\n\n[BAR]\nRange:[CLUM_SET:36] User"
+  - id: 11015
+    text: "An item that changes the user's type\nto one chosen type, then fully\nrestores the user's HP.\n\n\n\n[BAR]\nRange:[CLUM_SET:36] User"
+  - id: 11032
+    text: "An item that triples the power of\nthe move the user uses on the\nnext turn.\n\n\n\n[BAR]\nRange:[CLUM_SET:36] User"
+  - id: 11033
+    text: "An item that gives Protect to the\nteam in the same room.\n\n\n\n\n[BAR]\nRange:[CLUM_SET:36] Team in the room"
+  - id: 11037
+    text: "An item that stops the team's moves\nfrom consuming PP on this floor.\n\n\n\n\n[BAR]\nRange:[CLUM_SET:36] Party on the floor"
+  - id: 11042
+    text: "An item that badly poisons every\nenemy on the floor.\n\n\n\n\n[BAR]\nRange:[CLUM_SET:36] All enemies on the floor"
+  - id: 11045
+    text: "An item that lowers the Attack and\nSp. Atk of enemies in the same room\nby 6 stages.\n\n\n\n[BAR]\nRange:[CLUM_SET:36] Enemies in the room"
+  - id: 11055
+    text: "An item that speeds up natural HP\nrecovery for allies in the same room.\n\n\n\n\n[BAR]\nRange:[CLUM_SET:36] Allies in the room"
+  - id: 11056
+    text: "An item that copies the last move\nused by the enemy in front.\n\n\n\n\n[BAR]\nRange:[CLUM_SET:36] Enemy in front"
+  - id: 11050
+    text: "An item that stops the team's Belly\nfrom decreasing on this floor.\n\n\n\n\n[BAR]\nRange:[CLUM_SET:36] Party on the floor"
+  - id: 11062
+    text: "An item that restores HP for the user\nand team members on the floor. The\namount depends on the weather.\n\n\n\n[BAR]\nRange:[CLUM_SET:36] Team on the floor"
+  - id: 12410
+    text: "Swaps positions in the room."
+  - id: 12411
+    text: "Lowers foes' Defense and Sp. Def."
+  - id: 12413
+    text: "Cures allies' status conditions."
+  - id: 12414
+    text: "Grants Counter and Mirror Coat."
+  - id: 12415
+    text: "Changes the user's type."
+  - id: 12432
+    text: "Triples the next turn's move."
+  - id: 12433
+    text: "Protects the team in the room."
+  - id: 12437
+    text: "No PP cost on this floor."
+  - id: 12442
+    text: "Badly poisons enemies on the floor."
+  - id: 12445
+    text: "Lowers foes' Attack and Sp. Atk."
+  - id: 12455
+    text: "Speeds up allies' HP recovery."
+  - id: 12456
+    text: "Copies the foe's last move."
+  - id: 12450
+    text: "Belly does not decrease on this floor."
+  - id: 12462
+    text: "Restores HP based on the weather."

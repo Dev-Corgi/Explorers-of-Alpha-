@@ -1,0 +1,76 @@
+id: room_charge_pending
+version: 4
+region: US
+description: >
+  Legacy 2-turn room-wide attacks (status 0x173/0x174), charge-skip variant:
+  turn 1 sets Pending and skips ExecuteMoveEffect (no 0-damage miss / Wary Fighter);
+  RestoreChargeMovePp so PP is only net−1 on release (same as legacy room_charge);
+  turn 2 force-releases with full room damage. Cave in ov36; ov29 hooks only.
+  Based on room_charge v3 (MonsterCannotAttack cancel).
+
+kind: asm
+rom_profile: us_vanilla
+
+requires: []
+conflicts:
+  - room_charge
+  - room_charge_v3
+  - room_charge_v4
+
+optional_integrations:
+  - id: tm_read
+    note: "Apply room_charge_pending before tm_read; tm_read reads IsRoomChargeMove/GetRoomChargeState from build.state."
+  - id: z_move
+    note: "Apply z_move after room_charge_pending; ExecuteMoveEffect must chain append (engine v2)."
+
+hooks:
+  - name: ExecuteMoveEffectHook1
+    symbol: ExecuteMoveEffectHook1
+    replace: bl
+    chain: first
+    target_symbol: RoomChargeExecuteMoveEffectWrapper
+
+  - name: ExecuteMoveEffectHook2
+    symbol: ExecuteMoveEffectHook2
+    replace: bl
+    chain: first
+    target_symbol: RoomChargeExecuteMoveEffectWrapper
+
+  - name: ExecuteMonsterActionHook
+    symbol: ExecuteMonsterActionHook
+    vanilla_word: 0xE3A00001
+    chain: first
+    target_symbol: RoomChargeExecuteMonsterActionPrologue
+
+  - name: DealDamageHook
+    symbol: DealDamageHook
+    vanilla_word: 0xE92D43F8
+    chain: first
+    target_symbol: DealDamageRoomChargeWrapper
+
+  - name: DungeonRandOutcomeUserTargetInteraction
+    symbol: DungeonRandOutcomeUserTargetInteraction
+    vanilla_word: 0xE92D4070
+    chain: first
+    target_symbol: RoomChargeDungeonRandOutcomeGate
+
+cave:
+  binary: ov36
+  # Match room_charge_v4 fullstack slot (0x1A578..0x1A8F8); do not invade orb_charges_v2 @ 0x1A8F8.
+  estimated_bytes: 1024
+  alignment: 4
+  preferred: "0x1A578"
+  base_label: RoomChargeCodeFileOff
+  export_symbols:
+    IsRoomChargeMove: 0x48
+    GetRoomChargeState: 0xF4
+    RoomChargeExecuteMoveEffectWrapper: 0x2B4
+
+asm:
+  entry: asm/RoomCharge.asm
+
+verify:
+  - type: hook_is_branch
+    symbol: DealDamageHook
+  - type: cave_nonempty
+    overlay: ov36

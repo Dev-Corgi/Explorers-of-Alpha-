@@ -1,0 +1,156 @@
+id: belly_union
+version: 3
+region: US
+description: >
+  Team members share one belly, stored on the leader and copied to the party.
+  Food and other TryIncreaseBelly / TryDecreaseBelly changes update that value.
+  The end-of-turn walk drain runs only when the leader walks, so manual control
+  does not drain once per member. In manual state the walker is the Select
+  leader. Held items that modify the drain are summed across the party into
+  that one step. Munch Belt stays a no-op from better_equipment.
+  Diet Orb (orb_charges_v2) sets OrbFx_DietFlag. While that byte is
+  set, this shared walk drain does not run. A missing import is 0
+  and is not dereferenced.
+  v3: BellyUnion_IsTeam uses EntityIsValid plus the team-member flag.
+  The main-RAM window that treated valid team pointers as non-team is gone.
+
+kind: asm
+rom_profile: us_vanilla
+
+symbol_imports:
+  - CeLeader
+  - OrbFx_DietFlag
+
+hooks:
+  - name: BuDrainGate
+    symbol: BuDrainGateSite
+    binary: ov29
+    vanilla_word: 0xE5D40007
+    chain: append
+    target_symbol: BellyUnion_ShouldDrain
+
+  - name: BuTightScale
+    symbol: BuTightScaleSite
+    binary: ov29
+    vanilla_word: 0xE3500000
+    chain: first
+    target_symbol: BellyUnion_TightScale
+
+  - name: BuAfterBelly
+    symbol: BuAfterBellySite
+    binary: ov29
+    vanilla_word: 0xE1A00005
+    chain: first
+    target_symbol: BellyUnion_AfterBelly
+
+  - name: BuDecrease
+    symbol: BuDecreaseSite
+    binary: ov29
+    vanilla_word: 0xE92D41F8
+    chain: first
+    target_symbol: BellyUnion_Decrease
+
+  - name: BuIncrease
+    symbol: BuIncreaseSite
+    binary: ov29
+    vanilla_word: 0xE92D4FF0
+    chain: first
+    target_symbol: BellyUnion_Increase
+
+  - name: BuTeamInit
+    symbol: BuTeamInitSite
+    binary: ov29
+    vanilla_word: 0xE1C314BC
+    chain: first
+    target_symbol: BellyUnion_AfterTeamInit
+
+  - name: BuMonsterInit
+    symbol: BuMonsterInitSite
+    binary: ov29
+    vanilla_word: 0xE1C014BC
+    chain: first
+    target_symbol: BellyUnion_AfterMonsterInit
+
+  - name: BuSubInit
+    symbol: BuSubInitSite
+    binary: ov29
+    vanilla_word: 0xEB00761E
+    chain: first
+    target_symbol: BellyUnion_AfterSubInit
+
+  - name: BuHunger
+    symbol: BuHungerSite
+    binary: ov29
+    vanilla_word: 0xE1C344B8
+    chain: first
+    target_symbol: BellyUnion_AfterHunger
+
+  - name: BuFillA
+    symbol: BuFillASite
+    binary: ov29
+    vanilla_word: 0xE1C014B8
+    chain: first
+    target_symbol: BellyUnion_AfterFillR4
+
+  - name: BuFillB
+    symbol: BuFillBSite
+    binary: ov29
+    vanilla_word: 0xE1C014B8
+    chain: first
+    target_symbol: BellyUnion_AfterFillR4
+
+  - name: BuFillC
+    symbol: BuFillCSite
+    binary: ov29
+    vanilla_word: 0xE1C014B8
+    chain: first
+    target_symbol: BellyUnion_AfterFillR4
+
+  - name: BuMoveFill
+    symbol: BuMoveFillSite
+    binary: ov29
+    vanilla_word: 0xE1C124B8
+    chain: first
+    target_symbol: BellyUnion_AfterMoveFill
+
+  - name: BuMoveWrite
+    symbol: BuMoveWriteSite
+    binary: ov29
+    vanilla_word: 0xE1C124B8
+    chain: first
+    target_symbol: BellyUnion_AfterMoveWrite
+
+  - name: BuMoveSet
+    symbol: BuMoveSetSite
+    binary: ov29
+    vanilla_word: 0xE1C014B8
+    chain: first
+    target_symbol: BellyUnion_AfterMoveSet
+
+  - name: BuSkipDrain
+    symbol: BuSkipDrainSite
+    binary: ov36
+    vanilla_word: 0x1AFCE4A8
+    chain: first
+    target_symbol: BellyUnion_SkipDrain
+
+  - name: BuItemActive
+    symbol: ItemIsActive_09
+    binary: ov29
+    chain: append
+    prior_label: PriorItemIsActive
+    target_symbol: BellyUnion_ItemIsActive
+
+cave:
+  binary: ov36
+  estimated_bytes: 2176
+  alignment: 4
+  base_label: BellyUnionCodeAddress
+
+asm:
+  entry: asm/main.asm
+
+verify:
+  - type: hooks_are_branch
+  - type: cave_nonempty
+    overlay: ov36

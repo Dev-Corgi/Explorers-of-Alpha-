@@ -1,0 +1,21 @@
+id: shop_sell_price
+version: 1
+region: US
+description: >
+  Kecleon shop sell prices — set item_p.sell_price from buy_price (25% with
+  2-significant-digit floor). Patches BALANCE and UTILITY copies (Alpha).
+
+kind: data
+rom_profile: us_vanilla
+
+data:
+  handler: shop_sell_price_item_p
+  files:
+    - BALANCE/item_p.bin
+    - UTILITY/item_p.bin
+  rule:
+    divisor: 4
+    significant_digits_floor: 2
+
+verify:
+  - type: shop_sell_price_item_p

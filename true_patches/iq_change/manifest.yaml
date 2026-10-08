@@ -1,0 +1,194 @@
+id: iq_change
+version: 19
+region: US
+description: >
+  Nonsleeper -> Status-Resistence (bad status inflict -> random Atk/SpA/Def/SpD +2).
+  Critical Dodger (IQ 0x40) -> critical hits against it deal 1.2x instead of the crit
+  multiplier (normal 1.25x on Alpha, 1.5x with damage_formula; Sniper 2x).
+  Counter Basher (IQ 0x31) -> no physical full counter; instead counters special
+  hits for 1/4 of the damage at the Counter Hitter roll chance.
+  Deep Breather is vanilla again (one random under-max move).
+  v2: sleep boost hooks TryInflictSleep real success (was wrapper already-asleep msg).
+  v3: Status-Resistence boost +1 -> +2 stages.
+  v8: Counter Basher uses Counter Hitter IQ gates (not vanilla CB/AoE hooks).
+  v9: Counter Basher inflicts custom Mini Mirror Coat status + special reflect handler.
+  v10: Deep Breather inline effect patch (replaces broken ov36 hook/cave rewrite).
+  v11: Deep Breather loop branch fix — all valid move slots get +1 PP, not first only.
+  v12: Counter Basher rewritten in ApplyDamageAndEffects counter section; removed v8/v9
+    hooks (they targeted PP Saver, Gap Prober, ability/exclusive-item 0x54, etc.).
+  v13: Deep Breather hooked in its real function (0x022FAA58); removed v10/v11 inline
+    patches, which were in the Sleep Talk / Snore handler.
+  v14: Critical Dodger rehooked on CalcDamage's crit multiplier loads (0x0230CEC8 Sniper,
+    0x0230CEE0 normal); removed the hooks that disabled Aggressor (IQ 0x22, 0x0230BE78)
+    and patched CalcRecoilDamageFixed (0x0230D1F0).
+  v15: Deep Breather restored to vanilla (removed all-moves +1 PP hook and the
+    wrong string-10080 overwrite).
+  v16: Exp bonuses in AddExpSpecial apply to the whole party when the recipient
+    is a team member: Exp. Elite, Wonder Chest, Miracle Chest, exclusive Exp boost.
+  v17: Intimidator still stops a close-range move, but only while the user is at
+    low HP (under 1/4), and the chance is 20% instead of 12%.
+  v18: Critical Dodger and special Counter Basher were moved to r11 after a
+    wrong sb=r11 reading. That is the opposite of vanilla.
+  v19: Defender is r9 (CalcDamage mov r9, r1; SpecialCounter mov r0, r9).
+    r11 is not the entity. IqSkillIsEnabled(r11) data-aborts on melonDS.
+
+kind: asm
+rom_profile: us_vanilla
+
+hooks:
+  - name: NonsleeperSleepImmunityBranch
+    symbol: NonsleeperSleepImmunityBranch
+    binary: ov29
+    vanilla_word: 0x0A000007
+    chain: first
+    target_symbol: IqChange_NonsleeperPatch
+
+  - name: CalcDamageCritMulSniper
+    symbol: CalcDamageCritMulSniper
+    binary: ov29
+    vanilla_word: 0xE59F21A4
+    chain: first
+    target_symbol: IqChange_CritMulSniper
+
+  - name: CalcDamageCritMulNormal
+    symbol: CalcDamageCritMulNormal
+    binary: ov29
+    vanilla_word: 0xE59F2190
+    chain: first
+    target_symbol: IqChange_CritMulNormal
+
+  - name: TryInflictBurnSuccess
+    symbol: TryInflictBurnSuccess
+    binary: ov29
+    vanilla_word: 0xE3A00001
+    chain: first
+    target_symbol: IqChange_PostBurnSuccess
+
+  - name: TryInflictPoisonSuccess
+    symbol: TryInflictPoisonSuccess
+    binary: ov29
+    vanilla_word: 0xE3A00001
+    chain: first
+    target_symbol: IqChange_PostPoisonSuccess
+
+  - name: TryInflictBadPoisonSuccess
+    symbol: TryInflictBadPoisonSuccess
+    binary: ov29
+    vanilla_word: 0xE3A00001
+    chain: first
+    target_symbol: IqChange_PostBadPoisonSuccess
+
+  - name: TryInflictParalysisSuccess
+    symbol: TryInflictParalysisSuccess
+    binary: ov29
+    vanilla_word: 0xE3A00001
+    chain: first
+    target_symbol: IqChange_PostParalysisSuccess
+
+  - name: TryInflictConfusionSuccess
+    symbol: TryInflictConfusionSuccess
+    binary: ov29
+    vanilla_word: 0xE3A00001
+    chain: first
+    target_symbol: IqChange_PostConfusionSuccess
+
+  - name: TryInflictCringeSuccess
+    symbol: TryInflictCringeSuccess
+    binary: ov29
+    vanilla_word: 0xE3A00001
+    chain: first
+    target_symbol: IqChange_PostCringeSuccess
+
+  - name: TryInflictSleepSuccess
+    symbol: TryInflictSleepSuccess
+    binary: ov29
+    vanilla_word: 0xE3500000
+    chain: first
+    target_symbol: IqChange_PostSleepSuccess
+
+  - name: TryInflictNightmareSuccess
+    symbol: TryInflictNightmareSuccess
+    binary: ov29
+    vanilla_word: 0xE28DD004
+    chain: first
+    target_symbol: IqChange_PostNightmareSuccess
+
+  - name: TryInflictFrozenSuccess
+    symbol: TryInflictFrozenSuccess
+    binary: ov29
+    vanilla_word: 0xE1A00007
+    chain: first
+    target_symbol: IqChange_PostFrozenSuccess
+
+  - name: TryInflictPetrifiedSuccess
+    symbol: TryInflictPetrifiedSuccess
+    binary: ov29
+    vanilla_word: 0xE8BD83F8
+    chain: first
+    target_symbol: IqChange_PostPetrifiedSuccess
+
+  - name: CounterBasherPhysicalRoll
+    symbol: CounterBasherPhysicalRoll
+    binary: ov29
+    vanilla_word: 0xEBFFE5BC
+    chain: first
+    target_symbol: CounterHitterPhysicalRoll
+
+  - name: SpecialCounterStatusCheck
+    symbol: SpecialCounterStatusCheck
+    binary: ov29
+    vanilla_word: 0xE3500008
+    chain: first
+    target_symbol: IqChange_SpecialCounter
+
+  - name: AddExpIqCheck
+    symbol: AddExpIqCheck
+    binary: ov29
+    vanilla_word: 0xEBFFFE7A
+    chain: first
+    target_symbol: IqChange_PartyExpIq
+
+  - name: AddExpChestWonder
+    symbol: AddExpChestWonder
+    binary: ov29
+    vanilla_word: 0xEB00003F
+    chain: first
+    target_symbol: IqChange_PartyExpChest
+
+  - name: AddExpChestMiracle
+    symbol: AddExpChestMiracle
+    binary: ov29
+    vanilla_word: 0xEB000031
+    chain: first
+    target_symbol: IqChange_PartyExpChest
+
+  - name: AddExpExclusiveBoost
+    symbol: AddExpExclusiveBoost
+    binary: ov29
+    vanilla_word: 0xE59710B4
+    chain: first
+    target_symbol: IqChange_PartyExpExclusive
+
+  - name: IntimidatorRollLoad
+    symbol: IntimidatorRollLoad
+    binary: ov29
+    vanilla_word: 0xE59D1014
+    chain: first
+    target_symbol: IqChange_IntimidatorChance
+
+cave:
+  binary: ov36
+  estimated_bytes: 1024
+  alignment: 4
+  base_label: IqChangeCodeAddress
+
+asm:
+  entry: asm/main.asm
+
+strings:
+  yaml: strings.yaml
+
+verify:
+  - type: hooks_are_branch
+  - type: cave_nonempty
+    overlay: ov29

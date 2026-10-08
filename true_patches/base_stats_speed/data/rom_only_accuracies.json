@@ -1,0 +1,47 @@
+[
+  {
+    "id": 331,
+    "name": "Soul Eater",
+    "accuracy": 95
+  },
+  {
+    "id": 355,
+    "name": "regular attack",
+    "accuracy": 125
+  },
+  {
+    "id": 356,
+    "name": "is watching",
+    "accuracy": 84
+  },
+  {
+    "id": 360,
+    "name": "Wide Slash",
+    "accuracy": 95
+  },
+  {
+    "id": 393,
+    "name": "HP Gauge",
+    "accuracy": 100
+  },
+  {
+    "id": 398,
+    "name": "Famish",
+    "accuracy": 100
+  },
+  {
+    "id": 400,
+    "name": "Camaraderie",
+    "accuracy": 125
+  },
+  {
+    "id": 405,
+    "name": "projectile",
+    "accuracy": 100
+  },
+  {
+    "id": 557,
+    "name": "Moon Slash",
+    "accuracy": 90
+  }
+]

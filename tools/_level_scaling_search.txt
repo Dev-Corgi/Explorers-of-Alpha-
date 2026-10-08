@@ -1,0 +1,23 @@
+=== Relevant pmdsky symbols ===
+
+=== arm9 sizes: base=0xDCD48 eoa=0x2EAC00 ===
+EoA-only tail size: 0x20DEB8 starting at 0xDCD48
+
+=== Scanning for mov #55 / cmp #55 in EoA arm9 ===
+  thumb mov r0, #55 @ 0x114C30
+  thumb mov r0, #55 @ 0x11A028
+  thumb mov r2, #55 @ 0x16C1BC
+  thumb mov r0, #55 @ 0x2409A4
+  thumb mov r0, #55 @ 0x240B90
+  thumb mov r0, #55 @ 0x241634
+  thumb mov r0, #55 @ 0x243758
+  thumb mov r0, #55 @ 0x2B37B8
+  thumb mov r3, #55 @ 0x2C1708
+  thumb mov r0, #55 @ 0x2E2F2C
+  thumb mov r0, #55 @ 0x2E2F74
+  thumb mov r0, #55 @ 0x2E2F9C
+  thumb mov r0, #55 @ 0x2E5E84
+
+=== Guest symbol literal refs in EoA arm9 ===
+
+=== Changed regions in overlapping arm9 (first 20) ===

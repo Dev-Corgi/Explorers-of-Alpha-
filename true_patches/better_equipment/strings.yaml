@@ -1,0 +1,144 @@
+entries:
+  - id: 6791
+    text: "[M:I4]Twist Band"
+  - id: 10722
+    text: "A held item that prevents Attack, Special\nAttack, Defense, and Special Defense from\nbeing reduced. Attack and Special Attack\ndrops from the holder's own moves, such as\n[LS:10187]Overheat[LE], are not prevented.\nIf one team member holds it, the whole\nteam is protected.\n\nSelect detail:[CLUM_SET:70][M:B4] or [M:B5]/View detail: [M:B2]"
+  - id: 12122
+    text: "Stops Atk, Def, Sp. Atk, and Sp. Def drops."
+
+  - id: 10725
+    text: "Held item that prevents the Pokémon's\nitems from getting sticky and gunked up\nby a trap.\nIf one team member holds it, the whole\nteam is protected."
+  - id: 12125
+    text: "Keeps the team's items from stickiness."
+
+  - id: 10729
+    text: "A held item that prevents the Pokémon\nfrom getting a [LS:13598]Confused[LE] status.\nIf one team member holds it, the whole\nteam is protected.\n\n\n\nSelect detail:[CLUM_SET:70][M:B4] or [M:B5]/View detail: [M:B2]"
+  - id: 12129
+    text: "Prevents the team's confusion."
+
+  - id: 10731
+    text: "A held item that prevents a [LS:13572]Poisoned[LE]\nstatus or a [LS:13574]Badly Poisoned[LE] status from\nbeing inflicted on the Pokémon.\nIf one team member holds it, the whole\nteam is protected.\n\nSelect detail:[CLUM_SET:70][M:B4] or [M:B5]/View detail: [M:B2]"
+  - id: 12131
+    text: "Prevents the team's poisoning."
+
+  - id: 10732
+    text: "A held item that prevents a\n[LS:13558]Sleep[LE] status condition, a\n[LS:13562]Nightmare[LE] status, a [LS:13566]Napping[LE]\nstatus, or a [LS:13564]Yawning[LE] status\nfrom being inflicted on the\nPokémon.\nIf one team member holds it, the whole\nteam is protected.\nSelect detail:[CLUM_SET:70][M:B4] or [M:B5]/View detail: [M:B2]"
+  - id: 12132
+    text: "Prevents the team's sleep."
+
+  - id: 10735
+    text: "A held item that prevents the Pokémon\nfrom awakening sleeping enemies. It\nworks only on enemies that are asleep\nfrom the start.\nIf one team member holds it, the whole\nteam is protected."
+  - id: 12135
+    text: "Lets the team leave sleepers asleep."
+
+  - id: 10739
+    text: "A held item that prevents traps from\nactivating when the Pokémon steps on\nthem.\nIf one team member holds it, the whole\nteam is protected."
+  - id: 12139
+    text: "Stops traps from springing on the team."
+
+  - id: 10743
+    text: "A held item that stops the holder's\nabilities from activating."
+  - id: 12143
+    text: "Stops the holder's abilities."
+
+  - id: 6818
+    text: "[M:I4]Focus Scarf"
+  - id: 10749
+    text: "A held item that ignores type weaknesses\nwhen the holder takes damage."
+  - id: 12149
+    text: "Ignores type weaknesses when hit."
+
+  - id: 6805
+    text: "[M:I4]Bright Ribbon"
+  - id: 10736
+    text: "A held item that raises the holder's\nevasion by 2 ranks."
+  - id: 12136
+    text: "Raises evasion by 2 ranks."
+
+  - id: 6796
+    text: "[M:I4]PP Scarf"
+  - id: 10727
+    text: "A held item that restores 1 PP to a\nrandom move at the start of each floor.\nThis stacks with the Deep Breather IQ skill."
+  - id: 12127
+    text: "Restores 1 PP to a random move per floor."
+
+  - id: 6820
+    text: "[M:I10]Wish Scarf"
+  - id: 10751
+    text: "A held item that restores the holder's HP\nby 1/8 of the damage dealt when the\nholder attacks."
+  - id: 12151
+    text: "Heals 1/8 of damage dealt."
+
+  - id: 6793
+    text: "[M:I4]Expert Band"
+  - id: 10724
+    text: "A held item that raises the power of the\nholder's super-effective moves to 1.5x."
+  - id: 12124
+    text: "Super-effective moves have 1.5x power."
+
+  - id: 6819
+    text: "[M:I4]Z-Scarf"
+  - id: 10750
+    text: "A held item that doubles Z-Gauge gain.\nIf one team member holds it, the whole\nteam gains Z-Gauge twice as fast."
+  - id: 12150
+    text: "Doubles the team's Z-Gauge gain."
+
+  - id: 6809
+    text: "[M:I4]Rhythm Scarf"
+  - id: 10740
+    text: "A held item that raises power by 25% each\ntime the same attacking move is used, up\nto 2x. Any other move resets the bonus."
+  - id: 12140
+    text: "Same move: +25% power, up to 2x."
+
+  - id: 6821
+    text: "[M:I9]Lens Scarf"
+  - id: 10752
+    text: "A held item that raises the holder's\naccuracy by 2 ranks."
+  - id: 12152
+    text: "Raises accuracy by 2 ranks."
+
+  - id: 6822
+    text: "[M:I4]Life Band"
+  - id: 10753
+    text: "A held item that raises the holder's move\npower to 1.5x. Each attack also costs 10%\nof the holder's max HP."
+  - id: 12153
+    text: "1.5x power, costs 10% HP."
+
+  - id: 10730
+    text: "A held item that raises the holder's\n[CS:E]Attack[CR] by 2 ranks."
+  - id: 12130
+    text: "Raises Attack by 2 ranks."
+
+  - id: 10741
+    text: "A held item that raises the holder's\n[CS:E]Defense[CR] by 2 ranks."
+  - id: 12141
+    text: "Raises Defense by 2 ranks."
+
+  - id: 10744
+    text: "A held item that raises the holder's\n[CS:E]Special Attack[CR] by 2 ranks."
+  - id: 12144
+    text: "Raises Special Attack by 2 ranks."
+
+  - id: 10745
+    text: "A held item that raises the holder's\n[CS:E]Special Defense[CR] by 2 ranks."
+  - id: 12145
+    text: "Raises Special Defense by 2 ranks."
+
+  - id: 6823
+    text: "[M:I4]Consistent Band"
+  - id: 10754
+    text: "A held item that makes resisted moves\ndeal at least normal damage."
+  - id: 12154
+    text: "Resisted moves deal normal damage."
+
+  - id: 10756
+    text: "A held item that shields the Pokémon\nfrom weather, as if it's always in [LS:2646]Clear[LE]\nconditions.\nIf one team member holds it, the whole\nteam is protected.\n\n\nSelect detail:[CLUM_SET:70][M:B4] or [M:B5]/View detail: [M:B2]"
+  - id: 12156
+    text: "Treats the team's weather as Clear."
+
+  - id: 6795
+    text: "[M:I4]Distribute Band"
+  - id: 10726
+    text: "A held item that copies any stat rank\nchange on the holder to every ally in\nthe same room. An enemy holder copies it\nto enemies in the same room.\nIf two or more on that side hold it,\nthe effect does not activate."
+  - id: 12126
+    text: "Shares rank changes in the room. Off if two or more hold it."

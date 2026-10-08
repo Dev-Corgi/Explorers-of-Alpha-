@@ -1,0 +1,85 @@
+; ov29 MAX_HP_CAP / heal-HP 999 pools -> 32767
+.org 0x022E342C
+	.word 32767
+.org 0x022E3DD0
+	.word 32767
+.org 0x022EEEDC
+	.word 32767
+.org 0x022F5DAC
+	.word 32767
+.org 0x022F8FF0
+	.word 32767
+.org 0x022FB674
+	.word 32767
+.org 0x022FB838
+	.word 32767
+.org 0x022FB91C
+	.word 32767
+.org 0x022FD310
+	.word 32767
+.org 0x022FD9D0
+	.word 32767
+.org 0x02300814
+	.word 32767
+.org 0x023016A4
+	.word 32767
+.org 0x02301758
+	.word 32767
+.org 0x02302A30
+	.word 32767
+.org 0x02302BFC
+	.word 32767
+.org 0x02303274
+	.word 32767
+.org 0x023034C8
+	.word 32767
+.org 0x02309FD4
+	.word 32767
+.org 0x0230B7B8
+	.word 32767
+.org 0x0230BBA8
+	.word 32767
+.org 0x02310AB4
+	.word 32767
+.org 0x02311814
+	.word 32767
+.org 0x023152E0
+	.word 32767
+.org 0x023155F4
+	.word 32767
+.org 0x02318454
+	.word 32767
+.org 0x0231E8EC
+	.word 32767
+.org 0x02324020
+	.word 32767
+.org 0x02326400
+	.word 32767
+.org 0x02327644
+	.word 32767
+.org 0x02327E8C
+	.word 32767
+.org 0x02328008
+	.word 32767
+.org 0x02328070
+	.word 32767
+.org 0x023289F4
+	.word 32767
+.org 0x02329238
+	.word 32767
+.org 0x0232B364
+	.word 32767
+.org 0x0232B42C
+	.word 32767
+.org 0x0232C278
+	.word 32767
+.org 0x0232D734
+	.word 32767
+.org 0x0232DF30
+	.word 32767
+.org 0x0232E24C
+	.word 32767
+.org 0x0232E55C
+	.word 32767
+.org 0x02335F30
+	.word 32767

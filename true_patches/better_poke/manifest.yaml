@@ -1,0 +1,40 @@
+id: better_poke
+version: 1
+region: US
+description: >
+  Picking up Poke on a dungeon floor restores 5 belly to the Pokemon
+  that picked it up. Leader and ally ground pickups are both covered.
+  Spending, shops, and bag conversion are unchanged.
+
+kind: asm
+rom_profile: us_vanilla
+
+hooks:
+  - name: LeaderPokePickup
+    symbol: LeaderPokePickupSite
+    binary: ov29
+    vanilla_word: 0xEBF326EA
+    chain: first
+    target_symbol: BetterPoke_OnLeaderPickup
+  - name: AllyPokePickup
+    symbol: AllyPokePickupSite
+    binary: ov29
+    vanilla_word: 0xEBF3FE9F
+    chain: first
+    target_symbol: BetterPoke_OnAllyPickup
+
+cave:
+  binary: ov36
+  estimated_bytes: 256
+  alignment: 4
+  base_label: BetterPokeCodeAddress
+
+asm:
+  entry: asm/main.asm
+
+verify:
+  - type: hooks_are_branch
+  - type: cave_nonempty
+    overlay: ov36
+
+notes: "v1: ground Poke pickup (leader and ally) calls TryIncreaseBelly for 5."

@@ -1,0 +1,516 @@
+Alpha desc entries in cluster: 246
+
+=== First 123 descs vs vanilla enum ===
+0x01 (  1) Stench
+         May terrify an attacking foe.
+0x02 (  2) Thick Fat
+         Makes the Pokémon resistant to Fire- and Ice-type moves.
+0x03 (  3) Rain Dish
+         Boosts the Pokémon's natural [CS:E]HP[CR] healing when it is raining.
+0x04 (  4) Drizzle
+         Changes the weather to a rain condition.
+0x05 (  5) Arena Trap
+         Immobilizes any attacker except Flying-type and levitating foes.
+0x06 (  6) Intimidate
+         Reduces the Physical Attack power of attackers.
+0x07 (  7) Rock Head
+         Protects the Pokémon from the recoil damage of moves such as [CS:M]Take Down[CR].
+0x08 (  8) Air Lock
+         Changes the weather to a clear condition.
+0x09 (  9) Hyper Cutter
+         Prevents the Pokémon's Attack from being reduced.
+0x0A ( 10) Shadow Tag
+         Immobilizes attackers.
+0x0B ( 11) Speed Boost
+         Accelerates the Pokémon's Movement Speed.
+0x0C ( 12) Royal Majesty  [RENAMED from Battle Armor]
+         Halves damage taken by the Pokémon at full HP.
+0x0D ( 13) Sturdy
+         At full HP, moves that would KO the Pokémon leave it with 1 HP. Blocks OHKO moves.
+0x0E ( 14) Suction Cups
+         Prevents the Pokémon from being forcibly moved.
+0x0F ( 15) Healthy Body  [RENAMED from Clear Body]
+         Protects the Pokémon from stat reduction inflicted by foes.
+0x10 ( 16) Torrent
+         Boosts the power of the Pokémon's Water-type moves when in a pinch.
+0x11 ( 17) Guts
+         Boosts the Pokémon's Attack when it has any status problems.
+0x12 ( 18) Rough Skin
+         Inflicts damage on an attacker who lands a direct-contact attack.
+0x13 ( 19) Battle Armor  [RENAMED from Shell Armor]
+         Blocks critical hits on the Pokémon.
+0x14 ( 20) Natural Cure
+         Helps the Pokémon recover from status problems more quickly.
+0x15 ( 21) Damp
+         Prevents explosions on the dungeon floor.
+0x16 ( 22) Limber
+         Prevents the Pokémon from being paralyzed.
+0x17 ( 23) Magnet Pull
+         Immobilizes Steel-type attackers.
+0x18 ( 24) Adaptate  [RENAMED from White Smoke]
+         Normal-type attacking moves become the user's second type and deal more damage.
+0x19 ( 25) Synchronize
+         Shares status problems with any foes in reach.
+0x1A ( 26) Overgrow
+         Boosts the power of the Pokémon's Grass-type moves when in a pinch.
+0x1B ( 27) Swift Swim
+         Raises the number of moves the Pokémon attempts per turn when it is raining.
+0x1C ( 28) Sand Stream
+         Changes the weather to a sandstorm condition.
+0x1D ( 29) Sand Veil
+         Boosts the Pokémon's evasiveness during a sandstorm.
+0x1E ( 30) Keen Eye
+         Prevents the Pokémon's accuracy from being reduced.
+0x1F ( 31) Inner Focus
+         Protects the Pokémon from cringing and Intimidator.
+0x20 ( 32) Static
+         Paralyzes an attacker who lands a direct-contact attack.
+0x21 ( 33) Shed Skin
+         Helps the Pokémon recover more easily from status problems.
+0x22 ( 34) Huge Power
+         Occasionally boosts the Pokémon's Attack.
+0x23 ( 35) Volt Absorb
+         Restores the Pokémon's [CS:E]HP[CR] if the Pokémon is hit by an Electric-type move.
+0x24 ( 36) Water Absorb
+         Restores the Pokémon's [CS:E]HP[CR] if the Pokémon is hit by a Water-type move.
+0x25 ( 37) Forecast
+         Changes the Pokémon's type based on the weather.
+0x26 ( 38) Serene Grace
+         Improves the chances that the Pokémon's moves deliver any added effect.
+0x27 ( 39) Poison Point
+         Poisons an attacker who lands a direct-contact attack.
+0x28 ( 40) Trace
+         Changes the Pokémon's ability to match that of an attacking foe.
+0x29 ( 41) Oblivious
+         Protects the Pokémon from infatuation.
+0x2A ( 42) Truant
+         Attacking or using an Orb pauses the Pokémon, but damage taken is reduced while Paused.
+0x2B ( 43) Run Away
+         Causes the Pokémon to become terrified when [CS:E]HP[CR] gets low. Doesn't affect leaders.
+0x2C ( 44) Sticky Hold
+         Prevents the Pokémon's hold item from being taken.
+0x2D ( 45) Cloud Nine
+         Shields the team from weather.
+0x2E ( 46) Illuminate
+         A wild Pokémon appears in dungeon if attacked.
+0x2F ( 47) Early Bird
+         Helps the Pokémon awaken more quickly from sleep.
+0x30 ( 48) Hustle
+         Boosts the Pokémon's Physical Attacks but reduces its accuracy with them.
+0x31 ( 49) Drought
+         Changes the weather to a sunny condition.
+0x32 ( 50) LightningRod
+         Draws Electric-type moves to the Pokémon without harm and boosts Special Attack.
+0x33 ( 51) CompoundEyes
+         Boosts the Pokémon's accuracy.
+0x34 ( 52) Marvel Scale
+         Boosts the Pokémon's Defense when it has any status problems.
+0x35 ( 53) Wonder Guard
+         Protects the Pokémon from all move damage except when super effective.
+0x36 ( 54) Insomnia
+         Protects the Pokémon from being made to sleep.
+0x37 ( 55) Levitate
+         Keeps all Ground-type moves from hitting the Pokémon.
+0x38 ( 56) Plus
+         Boosts the Pokémon's Special Attack when a Pokémon with the Minus ability is nearby.
+0x39 ( 57) Pressure
+         Forces a foe to use more [CS:E]PP[CR] than usual for a move that hits the Pokémon.
+0x3A ( 58) Liquid Ooze
+         Inflicts damage on a foe that tries to drain the Pokémon's [CS:E]HP[CR] with an attack.
+0x3B ( 59) Color Change
+         Changes the Pokémon's type to match that of the move that hit it last.
+0x3C ( 60) Soundproof
+         Protects the Pokémon from the effects of any sound-based move.
+0x3D ( 61) Effect Spore
+         Poisons, paralyzes, or causes sleep in attackers who land direct-contact attacks.
+0x3E ( 62) Flame Body
+         Burns an attacker who lands a direct-contact attack.
+0x3F ( 63) Minus
+         Boosts the Pokémon's Special Attack when a Pokémon with the Plus ability is nearby.
+0x40 ( 64) Own Tempo
+         Protects the Pokémon from confusion.
+0x41 ( 65) Magma Armor
+         Protects the Pokémon from freezing and frostbite.
+0x42 ( 66) Water Veil
+         Protects the Pokémon from burns.
+0x43 ( 67) Swarm
+         Boosts the power of the Pokémon's Bug-type moves moves when in a pinch.
+0x44 ( 68) Cute Charm
+         Makes an attacker of the opposite gender who lands a direct attack infatuated.
+0x45 ( 69) Immunity
+         Protects the Pokémon from becoming poisoned or badly poisoned.
+0x46 ( 70) Blaze
+         Boosts the power of the Pokémon's Fire-type moves moves when in a pinch.
+0x47 ( 71) Pickup
+         Enables the Pokémon to find items occasionally when it is not holding anything.
+0x48 ( 72) Flash Fire
+         Lets Pokémon avoid damage of Fire-type attacks, then boosts its own Fire-type attacks.
+0x49 ( 73) Vital Spirit
+         Protects the Pokémon from being made to sleep.
+0x4A ( 74) Chlorophyll
+         Raises the number of moves the Pokémon attempts per turn when it is sunny.
+0x4B ( 75) Strong Jaws  [RENAMED from Pure Power]
+         Boosts the power the Pokémon uses for biting moves like [CS:M]Crunch[CR].
+0x4C ( 76) Shield Dust
+         Blocks the added effects from any moves that hit the Pokémon.
+0x4D ( 77) Ice Body
+         Frostbites an attacker who lands a direct contact attack.
+0x4E ( 78) Stall
+         Restricts from targeting distant foes (if not leader), and reduces damage taken.
+0x4F ( 79) Anger Point
+         Boosts the Pokémon's next Attack when it suffers a critical hit.
+0x50 ( 80) Tinted Lens
+         Boosts damage that the Pokémon inflicts with moves that are not very effective.
+0x51 ( 81) Hydration
+         Helps the Pokémon recover from status problems when it is raining.
+0x52 ( 82) Frisk
+         Deals more damage if the foe holds an item, and shows if so with regular attack.
+0x53 ( 83) Mold Breaker
+         Moves can be used regardless of enemy Abilities.
+0x54 ( 84) Unburden
+         Raises the number of moves the Pokémon attempts per turn when not holding an item.
+0x55 ( 85) Dry Skin
+         Weakens Pokémon in sun and to Fire-type moves; rain and Water-type moves heal [CS:E]HP[CR].
+0x56 ( 86) Anticipation
+         Deals massive damage with regular attack if the foe has Super-Effective moves.
+0x57 ( 87) Scrappy
+         Increases the damage inflicted on Ghost types with Normal- and Fighting-type moves.
+0x58 ( 88) Super Luck
+         Improves the chances of the Pokémon making critical hits.
+0x59 ( 89) Gluttony
+         Speeds up the Belly's food consumption but increases max Belly size.
+0x5A ( 90) Solar Power
+         Boosts Special Attack in sunny weather, though the Pokémon also loses [CS:E]HP[CR].
+0x5B ( 91) Skill Link
+         Enables the Pokémon to always attempt the top number of hits with multistrike moves.
+0x5C ( 92) Reckless
+         Boosts the Pokémon's power with recoiling attacks like [CS:M]Flare Blitz[CR] or [CS:M]Head Smash[CR].
+0x5D ( 93) Sniper
+         Boosts the damage the Pokémon inflicts with critical hits.
+0x5E ( 94) Slow Start
+         Limits the Pokémon's Movement Speed at the start.
+0x5F ( 95) Heatproof
+         Halves the damage the Pokémon suffers from Fire-type attacks.
+0x60 ( 96) Download
+         Boosts the Pokémon's Attack or Special Attack when it attacks.
+0x61 ( 97) Simple
+         Makes any modification to the Pokémon's stats more extreme.
+0x62 ( 98) Tangled Feet
+         Boosts the Pokémon's evasiveness when it is confused or cross-eyed.
+0x63 ( 99) Adaptability
+         Boosts the power of the Pokémon's moves that match its type.
+0x64 (100) Technician
+         Boosts the damage the Pokémon inflicts with moves with a power of [M:S3][M:S3] or lower.
+         tags: ['[M:S3]', '[M:S3]']
+0x65 (101) Iron Fist
+         Boosts the power the Pokémon uses for punching moves like [CS:M]Fire Punch[CR].
+0x66 (102) Motor Drive
+         Lets Pokémon avoid damage of Electric-type attacks, then boosts its Movement Speed.
+0x67 (103) Unaware
+         Enables the Pokémon to ignore a foe's stat modifications.
+0x68 (104) Rivalry
+         Boosts Pokémon's Attack when facing same gender and reduces it when not the same.
+0x69 (105) Bad Dreams
+         Enables Pokémon to inflict damage on sleeping foes in the same room.
+0x6A (106) No Guard
+         Allows Pokémon to ignore stat modifications to accuracy and evasiveness.
+0x6B (107) Normalize
+         Changes the Pokémon moves into Normal-type and deals more damage with it.
+0x6C (108) Sharpness  [RENAMED from Solid Rock]
+         Boosts the power the Pokémon uses for slashing moves like [CS:M]Leaf Blade[CR].
+0x6D (109) Quick Feet
+         Boosts the Pokémon's Movement Speed when it has any status problems.
+0x6E (110) Solid Guard  [RENAMED from Filter]
+         Reduces the damage that the Pokémon suffers from super-effective moves.
+0x6F (111) Klutz
+         Deals more damage if holding an item but prevents it from activating.
+0x70 (112) Steadfast
+         Boosts the Pokémon's Movement Speed when it is cross-eyed or cringing.
+0x71 (113) Flower Gift
+         Boosts the team's Attack and Special Attack in sunny weather.
+0x72 (114) Poison Heal
+         Enables the Pokémon to recover [CS:E]HP[CR] when poisoned rather than taking damage.
+0x73 (115) Magic Guard
+         Protects the Pokémon from all damage except from direct attacks.
+0x74 (116) Multitype
+         Enables [CS:E]Arceus[CR]' type-change with [CS:U]Trinity Star[CR]. [CS:E]Arceus[CR] also matches typing with the type of moves it uses. Increases damage inflicted by all of [CS:E]Arceus[CR]' moves.
+0x75 (117) Honey Gather
+         Improves the chances of finding Nectar in Treasure Boxes.
+0x76 (118) Aftermath
+         Causes the Pokémon to explode upon fainting.
+0x77 (119) Snow Cloak
+         Boosts the Pokémon's evasiveness if it is hailing or snowing.
+0x78 (120) Snow Warning
+         Changes the weather to a hail condition.
+0x79 (121) Forewarn
+         Enables the Pokémon to evade attacks occasionally.
+0x7A (122) Storm Drain
+         Draws Water-type moves to the Pokémon without harm and boosts Special Attack.
+0x7B (123) Leaf Guard
+         Protects the Pokémon from status problems in sunny weather.
+
+=== Extended Alpha abilities after vanilla 123 ===
+0x7C (124)? idx_guess Illusion
+         Appears disguised as an enemy Pokémon and becomes stronger while under the illusion.
+0x7D (125)? idx_guess Poison Touch
+         Adds a chance to poison a target when landing a direct-contact attack.
+0x7E (126)? idx_guess Triage
+         Boosts the amount of [CS:E]HP[CR] that [CS:M]Absorb[CR] and other [CS:E]HP[CR]-draining moves restore.
+0x7F (127)? idx_guess Corrosion
+         Bypasses Steel's immunity to Poison. Poisoning also ignores type immunities.
+0x80 (128)? idx_guess Contrary
+         Makes stat changes have the opposite effect.
+0x81 (129)? idx_guess Overcoat
+         Protects the Pokémon from weather damage and powder moves like [CS:M]Spore[CR].
+0x82 (130)? idx_guess Regenerator
+         Restores HP upon switching floors.
+0x83 (131)? idx_guess Sand Rush
+         Raises the number of moves the Pokémon attempts per turn under a Sandstorm.
+0x84 (132)? idx_guess Analytic
+         Boosts the Pokémon's power with ranged moves like [CS:M]Ember[CR] or [CS:M]Shock Wave[CR].
+0x85 (133)? idx_guess Infiltrator
+         The Pokémon's moves are uneffected by Reflect, Light Screen, Mist and Safeguard.
+0x86 (134)? idx_guess Magic Bounce
+         Bounces back status moves targeting the Pokémon at the enemies.
+0x87 (135)? idx_guess Armor Tail
+         Protects from all moves labeled as 2-tiles or line of sight range.
+0x88 (136)? idx_guess Prankster
+         Raises the number of moves the Pokémon attempts per turn with status moves.
+0x89 (137)? idx_guess Sand Force
+         Boosts Ground, Rock and Steel-type moves in sandstorm.
+0x8A (138)? idx_guess Marvel Veil
+         Halves damage inflicted by Physical moves to the Pokémon.
+0x8B (139)? idx_guess Wonder Veil
+         Halves damage inflicted by Special moves to the Pokémon.
+0x8C (140)? idx_guess Bulletproof
+         Nullifies damage from projectiles and moves like [CS:M]Sludge Bomb[CR] or [CS:M]Energy Ball[CR].
+0x8D (141)? idx_guess Sky Pact
+         Raises the number of moves the Pokémon attempts per turn with Flying-type moves.
+0x8E (142)? idx_guess Mega Launcher
+         Boosts the Pokémon's power with pulse or beam moves.
+0x8F (143)? idx_guess Tough Claws
+         Powers up the Pokémon's in front moves like [CS:M]Tackle[CR] and [CS:M]Grass Knot[CR].
+0x90 (144)? idx_guess Slush Rush
+         Raises the number of moves the Pokémon attempts per turn under a Hailstorm.
+0x91 (145)? idx_guess Unseen Fist
+         Physical moves used by the Pokémon bypass all screens and protections.
+0x92 (146)? idx_guess Queenly Majesty
+         Protects from from all moves labeled as 2-tiles or line of sight range.
+0x93 (147)? idx_guess Sound Waves
+         Boosts the Pokémon's power with sound moves like [CS:M]Hyper Voice[CR].
+0x94 (148)? idx_guess Cursed Body
+         May seal one of an enemy's known moves when it attacks.
+0x95 (149)? idx_guess Defiant
+         Sharply raises the Pokémon's Attack when its stats are lowered.
+0x96 (150)? idx_guess Competitive
+         Sharply raises  the Pokémon's Special Attack when its stats are lowered.
+0x97 (151)? idx_guess Perish Body
+         May afflict attacking enemies with the Apocalypse status condition.
+0x98 (152)? idx_guess Guiding Star
+         Boosts the Pokémon's party accuracy.
+0x99 (153)? idx_guess Mirror Armor
+         Bounces back stat reductions targeting the Pokémon at the enemies.
+0x9A (154)? idx_guess Cheek Pouch
+         Any Berry or Apple eaten will recover some [CS:E]HP[CR].
+0x9B (155)? idx_guess Water Bubble
+         Protects from burns and doubles damage with Water-type moves.
+0x9C (156)? idx_guess Overload
+         Charges up the Pokémon when it's hit by an attack.
+0x9D (157)? idx_guess Flower Veil
+         Protects nearby Grass type allies from bad stats conditions and stat drops.
+0x9E (158)? idx_guess Pastel Veil
+         Protects nearby Fairy type allies from bad stats conditions and stat drops.
+0x9F (159)? idx_guess Neutralizing Gas
+         Abilities from all nearby Pokémon are disabled.
+0xA0 (160)? idx_guess Sap Sipper
+         Lets Pokémon avoid damage of Grass-type attacks, then boosts its Attack.
+0xA1 (161)? idx_guess Sheer Force
+         Boosts the power of attacks with added effects, but removes the added effects.
+0xA2 (162)? idx_guess Unnerve
+         Prevents nearby enemy Pokémon from eating Seeds, Berries, or Health Drinks.
+0xA3 (163)? idx_guess Friend Guard
+         Nearby allies take less damage from moves.
+0xA4 (164)? idx_guess Protean
+         Changes the Pokémon's type to match that of the move it used last.
+0xA5 (165)? idx_guess Imposter
+         Transforms the user into one of the floor's Pokémon, copying its moves, stats and typing.
+0xA6 (166)? idx_guess Justified
+         Boosts Attack when hit by Dark-type attacks.
+0xA7 (167)? idx_guess Pickpocket
+         Steals an item when hit by another Pokémon.
+0xA8 (168)? idx_guess Berserk
+         Raises Sp. Atk when dropped below half its Max HP by a move.
+0xA9 (169)? idx_guess Moxie
+         May raise its Atk when it defeats an enemy.
+0xAA (170)? idx_guess Hubris
+         May raise its Sp. Atk when it defeats an enemy.
+0xAB (171)? idx_guess Mummy
+         Changes the attacker's first ability with this one upon making contact.
+0xAC (172)? idx_guess Teravolt
+         Moves can be used regardless of enemy Abilities. Boosts Electric-type attacks.
+0xAD (173)? idx_guess Turboblaze
+         Moves can be used regardless of enemy Abilities. Boosts Fire-type attacks.
+0xAE (174)? idx_guess Wonder Skin
+         Enables the Pokémon to evade status moves more frequently.
+0xAF (175)? idx_guess Fairy Aura
+         Powers up each Pokémon's Fairy-type moves.
+0xB0 (176)? idx_guess Dark Aura
+         Powers up each Pokémon's Dark-type moves.
+0xB1 (177)? idx_guess Apex Aura
+         Reverses all Auras and boosts Ground-type moves.
+0xB2 (178)? idx_guess Power Construct
+         Changes [CS:K]Zygarde[CR] into Complete Form when its HP drop below half.
+0xB3 (179)? idx_guess Gooey
+         Slows down the attacker upon making contact.
+0xB4 (180)? idx_guess Grass Pelt
+         Deals more damage and takes less damage if the last move used is Grass-type.
+0xB5 (181)? idx_guess Magician
+         Steals an item when attacking another Pokémon.
+0xB6 (182)? idx_guess Stance Change
+         Changes forms depending on how it battles.
+0xB7 (183)? idx_guess Parental Bond
+         When attacking, [CS:K]Kangaskhan[CR]'s young will unleash an additional instance of attack.
+0xB8 (184)? idx_guess Symbiosis
+         Any item held by the Pokémon benefits all party members.
+0xB9 (185)? idx_guess Battery
+         Raises power of  allies' special moves.
+0xBA (186)? idx_guess Beast Boost
+         May raise its most proficient stat when it defeats an enemy.
+0xBB (187)? idx_guess Toxic Chain
+         Adds a chance to badly poison a target when landing any attack.
+0xBC (188)? idx_guess Comatose
+         Immune to all status conditions. The Pokémon is always treated as Asleep.
+0xBD (189)? idx_guess Disguise
+         Takes no damage from the first damaging move it takes each floor.
+0xBE (190)? idx_guess Dancer
+         Raises the number of moves the Pokémon attempts per turn with dancing moves.
+0xBF (191)? idx_guess Emergency Exit
+         Teleports away when dropped below half its Max HP by a move.
+0xC0 (192)? idx_guess Liquid Voice
+         All voice-moves are treated as Water-type.
+0xC1 (193)? idx_guess Long Reach
+         Promotes all "Enemy in front" moves into "Line of Sight" moves
+0xC2 (194)? idx_guess Merciless
+         Moves always deal Critical Hits on Poisoned and Badly Poisoned targets.
+0xC3 (195)? idx_guess Stakeout
+         Boosts the Pokémon's power with gap-closing moves like [CS:M]Double-Edge[CR].
+0xC4 (196)? idx_guess Stamina
+         Raises its Defense upon taking direct damage.
+0xC5 (197)? idx_guess Electric Surge
+         Creates an Electric Terrain, which boosts Electric-type attacks.
+0xC6 (198)? idx_guess Psychic Surge
+         Creates a Psychic Terrain, which boosts Psychic-type attacks.
+0xC7 (199)? idx_guess Grassy Surge
+         Creates a Grassy Terrain, which boosts Grass-type attacks.
+0xC8 (200)? idx_guess Misty Surge
+         Creates a Misty Terrain, which weakens Dragon-type attacks.
+0xC9 (201)? idx_guess Full-Metal Body
+         Prevents other Pokémon from lowering its stats. Ignores other Pokémon stat changes.
+0xCA (202)? idx_guess Shadow Shield
+         Halves damage taken and increases damage dealt by the Pokémon at full HP.
+0xCB (203)? idx_guess Neuroforce
+         Boosts damage that the Pokémon inflicts with moves that are super effective.
+0xCC (204)? idx_guess RKS System
+         Changes [CS:K]Silvally[CR]'s type when it uses [CS:M]Multi-Attack[CR].
+0xCD (205)? idx_guess Schooling
+         The Pokémon is schooling when healthy, solo when in a pinch.
+0xCE (206)? idx_guess Shields Down
+         Switches forms depending on its HP. [CS:K]Core Form[CR]: Deals and takes more damage. [CS:K]Meteor Form[CR]: Immune to all status conditions but moves slower.
+0xCF (207)? idx_guess Soul-Heart
+         Raises its Sp. Atk when it defeats an enemy.
+0xD0 (208)? idx_guess Steelworker
+         Boosts damage dealt by Steel-type moves.
+0xD1 (209)? idx_guess Water Compaction
+         Lets Pokémon avoid damage of Water-type attacks, then boosts Defense.
+0xD2 (210)? idx_guess Gorilla Tactics
+         Powers up all moves but gets afflicted with an Encore afterwards.
+0xD3 (211)? idx_guess Ripen
+         Ripens Berries and expands their effect to the whole party.
+0xD4 (212)? idx_guess Wind Power
+         Immune to all Wind moves, boosts Sp. Atk instead of taking damage.
+0xD5 (213)? idx_guess Wind Rider
+         Immune to all Wind moves, then boosts Atk instead of taking damage.
+0xD6 (214)? idx_guess Power Spot
+         Powers up each Pokémon's moves.
+0xD7 (215)? idx_guess Cud Chew
+         Has a chance to not consume the berry when eating.
+0xD8 (216)? idx_guess Mind's Eye
+         Increases the damage inflicted on Ghost types with Normal- and Fighting-type moves.
+0xD9 (217)? idx_guess Rocky Payload
+         Boosts damage dealt by Rock-type moves.
+0xDA (218)? idx_guess Well-Baked Body
+         Lets Pokémon avoid damage of Fire-type attacks, then boosts Defense.
+0xDB (219)? idx_guess Moody
+         Raises one stat and lowers another periodically.
+0xDC (220)? idx_guess Defeatist
+         When in a pinch, the Pokémon does less damage.
+0xDD (221)? idx_guess Quick Draw
+         Raises the number of moves the Pokémon attempts per turn with [CS:M]Line of Sight[CR] moves.
+0xDE (222)? idx_guess Innards Out
+         Causes the Pokémon to deal massive damage upon fainting.
+0xDF (223)? idx_guess Curious Medecine
+         Resets all stat changes upon interacting with its target.
+0xE0 (224)? idx_guess Dauntless Shield
+         Boosts Defense before being attacked.
+0xE1 (225)? idx_guess Intrepid Sword
+         Boosts Attack before attacking.
+0xE2 (226)? idx_guess Gulp Missile
+         Catches prey upon using [CS:M]Surf[CR] or [CS:M]Dive[CR]. Spits it when attacked.
+0xE3 (227)? idx_guess Hunger Switch
+         Changes forms depending on its belly.
+0xE4 (228)? idx_guess Sand Spit
+         Creates a sandstorm when hit by an attack, then raises defenses.
+0xE5 (229)? idx_guess Steam Engine
+         Drastically raises Movement Speed when hit by a Fire- or Water-type move.
+0xE6 (230)? idx_guess Beads of Ruin
+         Lowers Special Defense of all Pokémon without a [CS:E]Ruin[CR] ability.
+0xE7 (231)? idx_guess Sword of Ruin
+         Lowers Defense of all Pokémon without a [CS:E]Ruin[CR] ability.
+0xE8 (232)? idx_guess Tablets of Ruin
+         Lowers Attack of all Pokémon without a [CS:E]Ruin[CR] ability.
+0xE9 (233)? idx_guess Vessel of Ruin
+         Lowers Special Attack of all Pokémon without a [CS:E]Ruin[CR] ability.
+0xEA (234)? idx_guess Good as Gold
+         Immune to all Status moves except its own.
+0xEB (235)? idx_guess Hadron Engine
+         Creates an Electric Terrain and boosts its Special Attack.
+0xEC (236)? idx_guess Orichalcum Pulse
+         Changes the weather to a sunny condition and boosts its Attack.
+0xED (237)? idx_guess Anger Shell
+         Boosts all damages dealt when in a pinch.
+0xEE (238)? idx_guess Ice Face
+         Switches forms depending on its condition. [CS:K]Ice Face[CR]: Immune to the first physical move it takes each floor, fully immune under Snow or Hail. [CS:K]Noice Face[CR]: Moves and attacks twice as fast as it usually d
+0xEF (239)? idx_guess Thermal Exchange
+         Immune to burns. Raises Attack when hit by a Fire-type move.
+0xF0 (240)? idx_guess Zero to Hero
+         Switches into its Hero form upon using a switching move successfully.
+0xF1 (241)? idx_guess Supreme Overlord
+         The more KOs there has been on the floor, the more damage it deals.
+0xF2 (242)? idx_guess Purifying Salt
+         Immune to all status conditions and resists Ghost-type moves.
+0xF3 (243)? idx_guess Earth Eater
+         Restores the Pokémon's [CS:E]HP[CR] if the Pokémon is hit by a Ground-type move.
+0xF4 (244)? idx_guess Commander
+         Boosts the ally [CS:K]Dondozo[CR] if this Ability is on the leader.
+0xF5 (245)? idx_guess Tera Overload
+         Effect varies depending on [CS:K]Terapagos[CR] form. [CS:K]Terastal[CR]: Resists all moves when at full HP. [CS:K]Stellar[CR]: Disables all floor conditions, Terrain and Weather alike.
+0xF6 (246)? idx_guess Omniscience
+         When attacking, changes into a favorable typing and deals more damage. When attacked, changes into a resistant typing and takes less damage. Immune to stat drops and critical hits.
+
+TECH RAW[33303]: '[CS:E]Technician[CR]: Boosts the damage\nthe Pokémon inflicts with moves\nthat have low attack power.'
+
+TECH RAW[38097]: '[CS:E]Technician[CR]: Boosts the damage\nthe Pokémon inflicts with moves\nwith a power of [M:S3][M:S3] or lower.'
+
+TECH RAW[38292]: "[CN][CS:K]Scyther[CR][BAR]\n[CS:J]Type[CR]: Bug/Flying\n[CS:J]Final Type[CR]: Bug/Steel\n[CS:H]Abilities[CR]:\n[CS:E]Swarm[CR]: Boosts the power of the Pokémon's\nBug-type moves moves when in a pinch.\n[CS:E]Technician[CR]: Boosts the damage the Pokémon\ninflicts with moves with [M:S3][M:S3]-power or less.\n[CS:I]IQ Group[CR]: D\n[CS:S]Stats Curve[CR]: Offensive\n[CS:M]Moves[CR]: Pursuit/Quick Attack/Leer\n[CS:M]Egg Move[CR]: Bug Bite"
+
+TECH RAW[38296]: '[CN][CS:K]Aipom[CR][BAR]\n[CS:J]Type[CR]: Normal\n[CS:J]Final Type[CR]: Normal\n[CS:H]Abilities[CR]:\n[CS:E]Technician[CR]: Boosts the damage the Pokémon\ninflicts with moves with [M:S3][M:S3]-power or less.\n[CS:E]Pickup[CR]: Enables the Pokémon to find\nitems when it is not holding anything.\n[CS:I]IQ Group[CR]: F\n[CS:S]Stats Curve[CR]: Offensive\n[CS:M]Moves[CR]: Scratch/Sand Attack/Tail Whip\n[CS:M]Egg Move[CR]: Mud Bomb'
+
+TECH RAW[38309]: '[CN][CS:K]Meowth[CR][BAR]\n[CS:J]Type[CR]: Normal\n[CS:J]Final Type[CR]: Normal\n[CS:H]Abilities[CR]:\n[CS:E]Pickup[CR]: Enables the Pokémon to find\nitems when it is not holding anything.\n[CS:E]Technician[CR]: Boosts the damage the Pokémon\ninflicts with moves with [M:S3][M:S3]-power or less.\n[CS:I]IQ Group[CR]: G\n[CS:S]Stats Curve[CR]: Balanced\n[CS:M]Moves[CR]: Fake Out/Scratch/Growl\n[CS:M]Egg Move[CR]: Punishment'
+
+TECH RAW[38330]: '[CN][CS:K]Meowth[CR][BAR]\n[CS:J]Type[CR]: Dark\n[CS:J]Final Type[CR]: Dark\n[CS:H]Abilities[CR]:\n[CS:E]Pickup[CR]: Enables the Pokémon to find\nitems when it is not holding anything.\n[CS:E]Technician[CR]: Boosts the damage the Pokémon\ninflicts with moves with [M:S3][M:S3]-power or less.\n[CS:I]IQ Group[CR]: G\n[CS:S]Stats Curve[CR]: Balanced\n[CS:M]Moves[CR]: Growl/Scratch/Fake Out\n[CS:M]Egg Move[CR]: Punishment'
+
+TECH RAW[38349]: '[CN][CS:K]Smeargle[CR][BAR]\n[CS:J]Type[CR]: Normal\n[CS:H]Abilities[CR]:\n[CS:E]Own Tempo[CR]: Protects the Pokémon from\nconfusion.\n[CS:E]Technician[CR]: Boosts the damage the Pokémon\ninflicts with moves with [M:S3][M:S3]-power or less.\n[CS:I]IQ Group[CR]: F\n[CS:S]Stats Curve[CR]: Balanced\n[CS:M]Moves[CR]: Sketch\n[CS:M]Gimmick[CR]: Sketch\nGood luck!'
+
+OV29@0x7adc int16 Technician threshold = 12289
+TECH DESC[33303]: '[CS:E]Technician[CR]: Boosts the damage\nthe Pokémon inflicts with moves\nthat have low attack power.'
+TECH DESC[38097]: '[CS:E]Technician[CR]: Boosts the damage\nthe Pokémon inflicts with moves\nwith a power of [M:S3][M:S3] or lower.'

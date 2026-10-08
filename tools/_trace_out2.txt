@@ -1,0 +1,130 @@
+﻿========================================================================
+ROM: 4273 - Pokemon Mystery Dungeon - Explorers of Sky (US)(XenoPhobia)-patched_orbs_roomcharge_nodarkness_berryboost.nds
+========================================================================
+ITEM_CATEGORY_ACTIONS[9] (Orbs) default dungeon action: 49
+
+Path                   Site         Description
+------------------------------------------------------------------------
+Bag submenu USE        02310F40  Player bag -> Use (menu_state+0xD2 == 1)
+                                    -> bl UseItem -> action resolver -> RunDungeonScript (orb effect e.g. Cleanse)
+  02310F40: bl #0x2322374
+  02310F44: mov r1, #0
+  02310F48: mov r0, r5
+
+Bag submenu other      02310FF0  Player bag -> Look / Place / etc. (D2 != 1)
+                                    -> 230FB90 or 230FC24 branch ??not the primary Use path
+  02310FF0: bl #0x230fb90
+  02310FF4: add sp, sp, #0x34
+  02310FF8: pop {r3, r4, r5, r6, r7, r8, sb, sl, pc}
+
+Orb PLACE on floor     0230FD00  Action 49 place branch
+                                    -> 230FC24 -> TryWarp (monster warp helper) + floor orb setup ??NOT bag Use
+  0230FD00: bl #0x2320d08
+  0230FD04: mov r0, r5
+  0230FD08: bl #0x22f42f8
+
+Action 49 USE branch   022FEF64  Category-9 default action 49
+                                    -> 22FEDBC -> UseItem (same script path as bag Use)
+  022FEF64: bl #0x2322374
+  022FEF68: mov r6, #1
+  022FEF6C: b #0x22fef88
+
+Alt UseItem + RemoveUsedItem 0231AC48  231A9F8 item-use helper
+                                    -> UseItem then RemoveUsedItem on success
+  0231AC48: bl #0x22eb60c
+  0231AC4C: mov r0, r7
+  0231AC50: bl #0x23026fc
+
+ApplyItemEffect        0231B68C  Effect bytecode (floor / AI / misc)
+                                    -> NOT primary dungeon bag Use for orbs
+  0231B68C: push {r3, r4, r5, r6, r7, r8, sb, sl, lr}
+  0231B690: sub sp, sp, #0x5c
+  0231B694: movs sb, r0
+
+========================================================================
+All bl UseItem (02322374) callers: 12
+========================================================================
+  022F6130
+  022F6128: mov r3, fp
+  022F612C: str r4, [sp, #4]
+  022F6130: bl #0x2322374
+  022F6134: mov r0, sl
+  022F6138: bl #0x22f528c
+
+  022FEF64
+  022FEF5C: mov r2, r1
+  022FEF60: mov r3, #1
+  022FEF64: bl #0x2322374
+  022FEF68: mov r6, #1
+  022FEF6C: b #0x22fef88
+
+  022FF13C
+  022FF134: mov r2, r1
+  022FF138: mov r3, #1
+  022FF13C: bl #0x2322374
+  022FF140: mov r0, #0xff
+  022FF144: strb r0, [sl, #0x178]
+
+  02310F40
+  02310F38: mov r3, r1
+  02310F3C: stm sp, {r1, r6}
+  02310F40: bl #0x2322374
+  02310F44: mov r1, #0
+  02310F48: mov r0, r5
+
+  0231ABF4
+  0231ABEC: mov r3, r1
+  0231ABF0: stm sp, {r1, r4}
+  0231ABF4: bl #0x2322374
+  0231ABF8: mov r4, #0
+  0231ABFC: b #0x231ac24
+
+  0231AC14
+  0231AC0C: mov r3, r1
+  0231AC10: stm sp, {r1, r4}
+  0231AC14: bl #0x2322374
+  0231AC18: mov r4, r0
+  0231AC1C: b #0x231ac24
+
+  023213D0
+  023213C8: mov r3, r7
+  023213CC: mov r0, sl
+  023213D0: bl #0x2322374
+  023213D4: mov r4, r0
+  023213D8: mov r0, #0
+
+  02321400
+  023213F8: mov r3, r7
+  023213FC: str r6, [sp, #4]
+  02321400: bl #0x2322374
+  02321404: mov r4, r0
+  02321408: mov r0, sl
+
+  02321758
+  02321750: mov r2, r8
+  02321754: mov r3, r7
+  02321758: bl #0x2322374
+  0232175C: str r0, [sp, #0x10]
+  02321760: b #0x232177c
+
+  023217DC
+  023217D4: mov r3, r7
+  023217D8: str r4, [sp, #4]
+  023217DC: bl #0x2322374
+  023217E0: str r0, [sp, #0x10]
+  023217E4: ldr r0, [sp, #0x14]
+
+  02321944
+  0232193C: mov r2, r8
+  02321940: mov r3, r7
+  02321944: bl #0x2322374
+  02321948: b #0x232198c
+  0232194C: ldr r0, [pc, #0x114]
+
+  02321988
+  02321980: mov r1, #0
+  02321984: str r4, [sp, #4]
+  02321988: bl #0x2322374
+  0232198C: mov r0, #1
+  02321990: bl #0x22e38e0
+

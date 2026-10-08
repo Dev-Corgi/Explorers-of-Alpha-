@@ -1,0 +1,70 @@
+0x022F9058 nearest: (36669900, 'CreateMonsterSummaryFromMonster', 'Creates a snapshot of the condition of a monster struct in a monster_summary struct.\\n\\nr0: [output] monster_summary\\nr1: monster')
+func 0x22f9058-0x22f9144
+022F9058  E92D4030  push 0x4030
+022F905C  E24DD00C  
+022F9060  E59140B4  ldr r4, [r1, #+0xb4]
+022F9064  E1A05000  
+022F9068  E1D400F2  ldrsh r0, [r4, #0x2]
+022F906C  E1C500B0  strh r0, [r5, #0x0]
+022F9070  E1D100B4  ldrh r0, [r1, #0x4]
+022F9074  E1C500B2  strh r0, [r5, #0x2]
+022F9078  E1D100B6  ldrh r0, [r1, #0x6]
+022F907C  E1C500B4  strh r0, [r5, #0x4]
+022F9080  E5D40100  ldrb r0, [r4, #+0x100]
+022F9084  E3500000  
+022F9088  11D401F4  ldrsh r0, [r4, #0x14]
+022F908C  01D401F2  ldrsh r0, [r4, #0x12]
+022F9090  E1C500B6  strh r0, [r5, #0x6]
+022F9094  E5D4100A  ldrb r1, [r4, #+0xa]
+022F9098  E28D0000  
+022F909C  E1C510BC  strh r1, [r5, #0xc]
+022F90A0  E1D410F2  ldrsh r1, [r4, #0x2]
+022F90A4  E5D4200A  ldrb r2, [r4, #+0xa]
+022F90A8  EBF569BB  bl 0x0205379c
+022F90AC  E59D0000  ldr r0, [r13, #+0x0]
+022F90B0  E2843F49  
+022F90B4  E5850010  str r0, [r5, #+0x10]
+022F90B8  E5D4001A  ldrb r0, [r4, #+0x1a]
+022F90BC  E2852022  
+022F90C0  E3A01011  
+022F90C4  E5C50008  strb r0, [r5, #+0x8]
+022F90C8  E5D4001B  ldrb r0, [r4, #+0x1b]
+022F90CC  E5C50009  strb r0, [r5, #+0x9]
+022F90D0  E5D4001C  ldrb r0, [r4, #+0x1c]
+022F90D4  E5C5000A  strb r0, [r5, #+0xa]
+022F90D8  E5D4001D  ldrb r0, [r4, #+0x1d]
+022F90DC  E5C5000B  strb r0, [r5, #+0xb]
+022F90E0  E1D406B2  ldrh r0, [r4, #0x62]
+022F90E4  E1C501BC  strh r0, [r5, #0x1c]
+022F90E8  E1D406B4  ldrh r0, [r4, #0x64]
+022F90EC  E1C501BE  strh r0, [r5, #0x1e]
+022F90F0  E1D406B6  ldrh r0, [r4, #0x66]
+022F90F4  E1C502B0  strh r0, [r5, #0x20]
+022F90F8  E0D300B2  ldrh r0, [r3, #0x2]
+022F90FC  E2511001  
+022F9100  E0C200B2  strh r0, [r2, #0x2]
+022F9104  1AFFFFFB  b 0x022f90f8
+022F9108  E2840C01  
+022F910C  E1D014B6  ldrh r1, [r0, #0x46]
+022F9110  E1C511B4  strh r1, [r5, #0x14]
+022F9114  E1D014B8  ldrh r1, [r0, #0x48]
+022F9118  E1C511B6  strh r1, [r5, #0x16]
+022F911C  E1D014BA  ldrh r1, [r0, #0x4a]
+022F9120  E1C511B8  strh r1, [r5, #0x18]
+022F9124  E1D004BC  ldrh r0, [r0, #0x4c]
+022F9128  E1C501BA  strh r0, [r5, #0x1a]
+022F912C  E1D404B4  ldrh r0, [r4, #0x44]
+022F9130  E1C504B4  strh r0, [r5, #0x44]
+022F9134  E1D404B6  ldrh r0, [r4, #0x46]
+022F9138  E1C504B6  strh r0, [r5, #0x46]
+022F913C  E28DD00C  
+022F9140  E8BD8030  pop 0x8030
+
+Notable HP-related insns:
+  022F9078  ldrh r0, [r1, #0x6]
+  022F908C  ldrsh r0, [r4, #0x12]
+  022F9090  strh r0, [r5, #0x6]
+  022F90E0  ldrh r0, [r4, #0x62]
+  022F90E8  ldrh r0, [r4, #0x64]
+  022F90F0  ldrh r0, [r4, #0x66]
+team-ish 0x22fefa4 UpdateTeamInfoBox

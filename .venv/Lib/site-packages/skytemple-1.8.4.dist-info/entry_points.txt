@@ -1,0 +1,23 @@
+[console_scripts]
+skytemple = skytemple.main:main
+
+[skytemple.module]
+bgp = skytemple.module.bgp.module:BgpModule
+dungeon = skytemple.module.dungeon.module:DungeonModule
+dungeon_graphics = skytemple.module.dungeon_graphics.module:DungeonGraphicsModule
+gfxcrunch = skytemple.module.gfxcrunch.module:GfxcrunchModule
+lists = skytemple.module.lists.module:ListsModule
+map_bg = skytemple.module.map_bg.module:MapBgModule
+misc_graphics = skytemple.module.misc_graphics.module:MiscGraphicsModule
+monster = skytemple.module.monster.module:MonsterModule
+moves_items = skytemple.module.moves_items.module:MovesItemsModule
+music = skytemple.module.music.module:MusicModule
+patch = skytemple.module.patch.module:PatchModule
+portrait = skytemple.module.portrait.module:PortraitModule
+rom = skytemple.module.rom.module:RomModule
+script = skytemple.module.script.module:ScriptModule
+sprite = skytemple.module.sprite.module:SpriteModule
+spritecollab = skytemple.module.spritecollab.module:SpritecollabModule
+strings = skytemple.module.strings.module:StringsModule
+symbols = skytemple.module.symbols.module:SymbolsModule
+tiled_img = skytemple.module.tiled_img.module:TiledImgModule

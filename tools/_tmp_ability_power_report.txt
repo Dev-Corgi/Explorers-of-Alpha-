@@ -1,0 +1,468 @@
+=== Exact known ability name string indices (124) ===
+[27841] Cleanse
+[28909] Blaze
+[28948] Guts
+[33081] Thick Fat
+[33085] Intimidate
+[33095] Torrent
+[33096] Guts
+[33105] Overgrow
+[33113] Huge Power
+[33114] Volt Absorb
+[33115] Water Absorb
+[33127] Hustle
+[33131] Marvel Scale
+[33135] Plus
+[33142] Minus
+[33146] Swarm
+[33149] Blaze
+[33151] Flash Fire
+[33158] Anger Point
+[33159] Tinted Lens
+[33162] Mold Breaker
+[33164] Dry Skin
+[33166] Scrappy
+[33169] Solar Power
+[33171] Reckless
+[33172] Sniper
+[33173] Slow Start
+[33174] Heatproof
+[33175] Download
+[33178] Adaptability
+[33179] Technician
+[33180] Iron Fist
+[33181] Motor Drive
+[33182] Unaware
+[33183] Rivalry
+[33186] Normalize
+[33187] Sharpness
+[33188] Quick Feet
+[33192] Flower Gift
+[33201] Storm Drain
+  DESC[33204]: '[CS:E]Stench[CR]: May terrify an attacking\nfoe.'
+[37743] Thick Fat
+[37747] Intimidate
+[37757] Torrent
+[37758] Guts
+[37767] Overgrow
+[37775] Huge Power
+[37776] Volt Absorb
+[37777] Water Absorb
+[37789] Hustle
+[37793] Marvel Scale
+[37797] Plus
+[37804] Minus
+[37808] Swarm
+[37811] Blaze
+[37813] Flash Fire
+[37820] Anger Point
+[37821] Tinted Lens
+[37824] Mold Breaker
+[37826] Dry Skin
+[37828] Scrappy
+[37831] Solar Power
+[37833] Reckless
+[37834] Sniper
+[37835] Slow Start
+[37836] Heatproof
+[37837] Download
+[37840] Adaptability
+[37841] Technician
+[37842] Iron Fist
+[37843] Motor Drive
+[37844] Unaware
+[37845] Rivalry
+[37848] Normalize
+[37849] Sharpness
+[37850] Quick Feet
+[37854] Flower Gift
+[37863] Storm Drain
+[37874] Analytic
+[37879] Sand Force
+[37884] Mega Launcher
+[37885] Tough Claws
+[37891] Defiant
+[37892] Competitive
+[37897] Water Bubble
+[37902] Sap Sipper
+[37903] Sheer Force
+[37905] Friend Guard
+[37908] Justified
+[37911] Moxie
+[37914] Teravolt
+[37915] Turboblaze
+[37917] Fairy Aura
+[37918] Dark Aura
+[37925] Parental Bond
+[37927] Battery
+[37928] Beast Boost
+[37929] Toxic Chain
+[37938] Stakeout
+[37946] Neuroforce
+[37950] Soul-Heart
+[37951] Steelworker
+[37954] Gorilla Tactics
+[37956] Wind Power
+[37957] Wind Rider
+[37958] Power Spot
+[37959] Cud Chew
+[37960] Mind's Eye
+[37961] Rocky Payload
+[37962] Well-Baked Body
+[37964] Defeatist
+[37974] Beads of Ruin
+[37975] Sword of Ruin
+[37976] Tablets of Ruin
+[37977] Vessel of Ruin
+[37978] Good as Gold
+[37979] Hadron Engine
+[37980] Orichalcum Pulse
+[37981] Anger Shell
+[37983] Thermal Exchange
+[37984] Zero to Hero
+[37985] Supreme Overlord
+[37986] Purifying Salt
+[37987] Earth Eater
+[37988] Commander
+
+=== Descriptions matching power/damage regex ===
+[20711] [CS:O]Sand Force[CR] boosts the power of the\nmove!
+[20712] [CS:O]Strong Jaws[CR] boosts the power of biting\nmoves!
+[20713] [CS:O]Sharpness[CR] boosts the power of slashing\nmoves!
+[20714] [CS:O]Analytic[CR] boosts the power of ranged\nmoves!
+[20715] [CS:O]Marvel Veil[CR] halves the power of physical\nmoves!
+[20716] [CS:O]Wonder Veil[CR] halves the power of special\nmoves!
+[20717] [CS:O]Mega Launcher[CR] boosts the power of the\nmove!
+[20718] [CS:O]Tough Claws[CR] boosts the power of the\nmove!
+[20729] [CS:O]Sound Waves[CR] boosts the power of the\nmove!
+[21821] fainted from a move's recoil damage.
+[21937] The sun blazes, which boosts the power\nof Fire-type moves and weakens\nWater-type moves.
+[21941] The weather grows cloudy and dark,\nwhich weakens the power of all types\nof moves except for the Normal and\nthe Ghost type.
+[21943] The weather turns rainy, which boosts\nthe power of Water-type moves and\nweakens Fire-type moves.
+[21947] The weather grows foggy, which\nweakens the power of Electric-type\nand Flying-type moves.
+[21951] The floor is put under the influence of\n[CS:J]Mud Sport[CR], which halves the power of\nElectric-type moves.
+[21953] The floor is put under the influence of\n[CS:J]Water Sport[CR], which halves the power of\nFire-type moves.
+[22229] [string:1] took [digits_c:0] recoil damage\nfrom the move!
+[29374] The Pokémon's battle performance is\nerratic, so the positive and negative\neffects of types influence the power\nof moves more intensely. This affects\nthe power of moves that the Pokémon\nuses, as well as the power of moves\nthat hit the Pokémon!
+[29454] "Basic Information"[CS:E][BAR][CR]\nInflicts damage on the target. The user\nbecomes [LS:13634]Enraged[LE], boosting its [CS:E]Attack[CR]\nby 1 level upon taking damage.\nWhen used by [CS:K]Annihilape[CR], this move\nwill also halve the damages taken by\nenemy attacks.\nSelect detail:[CLUM_SET:70][M:B4] or [M:B5]/View detail: [M:B2]\nDetailed Information:[CLUM_SET:108][M:B20]\n[C]\n"Detailed Information"[CS:E][BAR][CR]\nRange:[CLUM_SET:36] User\nType:[CLUM_SET:36] Normal/Physical\nHit Ratio[CLUM_SET:54]:[CLU
+[29492] "Basic Information"[CS:E][BAR][CR]\nInflicts damage on the target. It will\ninflict double damage on an [LS:13624]Airborne[LE] target.\n\n\n\n\nSelect detail:[CLUM_SET:70][M:B4] or [M:B5]/View detail: [M:B2]\nDetailed Information:[CLUM_SET:108][M:B20]\n[C]\n"Detailed Information"[CS:E][BAR][CR]\nRange:[CLUM_SET:36] Enemy in front\nType:[CLUM_SET:36] Flying/Special\nHit Ratio[CLUM_SET:54]:[CLUM_SET:62][move_hit_ratio]\nPower[CLUM_SET:54]:[CLUM_SET:62][move_power]\n\n\n\nBasic Information:[CLUM_SET:100][M:B20]
+[29502] "Basic Information"[CS:E][BAR][CR]\nInflicts damage on the target and double\ndamage if the user has a [LS:13570]Burn[LE] status,\na [LS:13572]Poisoned[LE] status, or a [LS:13574]Badly Poisoned[LE]\nstatus.\n\n\nSelect detail:[CLUM_SET:70][M:B4] or [M:B5]/View detail: [M:B2]\nDetailed Information:[CLUM_SET:108][M:B20]\n[C]\n"Detailed Information"[CS:E][BAR][CR]\nRange:[CLUM_SET:36] Enemy in front\nType:[CLUM_SET:36] Normal/Physical\nHit Ratio[CLUM_SET:54]:[CLUM_SET:62][move_hit_ratio]\nPower[CLUM_SET:54]:[CLU
+[29511] "Basic Information"[CS:E][BAR][CR]\nInflicts damage on the target, then\nrestores the user's [CS:E]HP[CR] based on the\ndamage inflicted.\n\n\n\n\nDetailed Information:[CLUM_SET:108][M:B20]\n[C]\n"Detailed Information"[CS:E][BAR][CR]\nRange:[CLUM_SET:36] Enemy in front\nType:[CLUM_SET:36] Grass/Special\nHit Ratio[CLUM_SET:54]:[CLUM_SET:62][move_hit_ratio]\nPower[CLUM_SET:54]:[CLUM_SET:62][move_power]\n\n\n\nBasic Information:[CLUM_SET:100][M:B20]
+[29553] "Basic Information"[CS:E][BAR][CR]\nDamages all Pokémon in the room\nexcept the user. It will inflict double\ndamage on a [LS:13630]Digging[LE] target.\n\n\n\nSelect detail:[CLUM_SET:70][M:B4] or [M:B5]/View detail: [M:B2]\nDetailed Information:[CLUM_SET:108][M:B20]\n[C]\n"Detailed Information"[CS:E][BAR][CR]\nRange:[CLUM_SET:36] All in the room except user\nType:[CLUM_SET:36] Ground/Physical\nHit Ratio[CLUM_SET:54]:[CLUM_SET:62][move_hit_ratio]\nPower[CLUM_SET:54]:[CLUM_SET:62][move_power]\n\n\n\nBasic Informati
+[29563] "Basic Information"[CS:E][BAR][CR]\nGives the user a [LS:13632]Charging[LE] status, which\nboosts the power of any Electric-type\nmove used on the next turn. It also\nboosts the user's [CS:E]Special Defense[CR] by\n1 level.\n\nSelect detail:[CLUM_SET:70][M:B4] or [M:B5]/View detail: [M:B2]\nDetailed Information:[CLUM_SET:108][M:B20]\n[C]\n"Detailed Information"[CS:E][BAR][CR]\nRange:[CLUM_SET:36] User\nType:[CLUM_SET:36] Electric/Other\nHit Ratio[CLUM_SET:54]:[CLUM_SET:62][move_hit_ratio]\nPower[CLUM_SET:54]:
+[29595] "Basic Information"[CS:E][BAR][CR]\nBoosts the user's [CS:E]Defense[CR] and\n[CS:E]Special Defense[CR]. It also stores\npower that can be used to boost\nthe power of the moves [LS:10391]Spit Up[LE]\nand [LS:10382]Swallow[LE]. You can stockpile\npower up to 3 times.\nSelect detail:[CLUM_SET:70][M:B4] or [M:B5]/View detail: [M:B2]\nDetailed Information:[CLUM_SET:108][M:B20]\n[C]\n"Detailed Information"[CS:E][BAR][CR]\nRange:[CLUM_SET:36] User\nType:[CLUM_SET:36] Normal/Other\nHit Ratio[CLUM_SET:54]:[CLUM_SET:6
+[29597] "Basic Information"[CS:E][BAR][CR]\nInflicts damage on the target. It may\nalso afflict the targeted enemy with a\n[LS:13596]Cringe[LE] status condition, which makes its\nactions fail. It will inflict double\ndamage on an [LS:13624]Airborne[LE] target.\n\nSelect detail:[CLUM_SET:70][M:B4] or [M:B5]/View detail: [M:B2]\nDetailed Information:[CLUM_SET:108][M:B20]\n[C]\n"Detailed Information"[CS:E][BAR][CR]\nRange:[CLUM_SET:36] Enemy in front\nType:[CLUM_SET:36] Dragon/Special\nHit Ratio[CLUM_SET:54]:[CLUM_SET:
+[29647] "Basic Information"[CS:E][BAR][CR]\nChanges the dungeon floor's status to\n[LS:2662]Mud Sport[LE]. A floor under the influence\nof [LS:2662]Mud Sport[LE] halves the power of all\nElectric-type moves.\n\n\nSelect detail:[CLUM_SET:70][M:B4] or [M:B5]/View detail: [M:B2]\nDetailed Information:[CLUM_SET:108][M:B20]\n[C]\n"Detailed Information"[CS:E][BAR][CR]\nRange:[CLUM_SET:36] Floor\nType:[CLUM_SET:36] Ground/Other\nHit Ratio[CLUM_SET:54]:[CLUM_SET:62][move_hit_ratio]\nPower[CLUM_SET:54]:[CLUM_SET:62]No Damage\n
+[29654] "Basic Information"[CS:E][BAR][CR]\nInflicts damage on enemies in the room.\nIt will inflict double damage on a \n[LS:13628]Diving[LE] target.\n\n\n\nSelect detail:[CLUM_SET:70][M:B4] or [M:B5]/View detail: [M:B2]\nDetailed Information:[CLUM_SET:108][M:B20]\n[C]\n"Detailed Information"[CS:E][BAR][CR]\nRange:[CLUM_SET:36] All enemies in the room\nType:[CLUM_SET:36] Water/Special\nHit Ratio[CLUM_SET:54]:[CLUM_SET:62][move_hit_ratio]\nPower[CLUM_SET:54]:[CLUM_SET:62][move_power]\n\n\n\nBasic Information:[CLUM_SET:10
+[29677] "Basic Information"[CS:E][BAR][CR]\nInflicts damage on the target, even at a\ndistance, but it also afflicts the user\nwith a [LS:13600]Paused[LE] status condition.\nThe power of the move is so huge that\nthe walls around the target will shatter\nupon hitting it.\nSelect detail:[CLUM_SET:70][M:B4] or [M:B5]/View detail: [M:B2]\nDetailed Information:[CLUM_SET:108][M:B20]\n[C]\n"Detailed Information"[CS:E][BAR][CR]\nRange:[CLUM_SET:36] Line of sight\nType:[CLUM_SET:36] Normal/Special\nHit Ratio[CLUM_SET:54]:[C
+[29694] "Basic Information"[CS:E][BAR][CR]\nGives the user and team members in the\nroom the [LS:13644]Light Screen[LE] status, which \nhalves the damage from [LS:13764]Special Attacks[LE].\n\n\n\nSelect detail:[CLUM_SET:70][M:B4] or [M:B5]/View detail: [M:B2]\nDetailed Information:[CLUM_SET:108][M:B20]\n[C]\n"Detailed Information"[CS:E][BAR][CR]\nRange:[CLUM_SET:36] All team members in the room\nType:[CLUM_SET:36] Psychic/Other\nHit Ratio[CLUM_SET:54]:[CLUM_SET:62][move_hit_ratio]\nPower[CLUM_SET:54]:[CLUM_SET:62]No
+[29731] "Basic Information"[CS:E][BAR][CR]\nInflicts random amounts of damage on\nall Pokémon in the room except the\nuser. It will inflict double damage on a\nPokémon with a [LS:13630]Digging[LE] status.\n\n\nSelect detail:[CLUM_SET:70][M:B4] or [M:B5]/View detail: [M:B2]\nDetailed Information:[CLUM_SET:108][M:B20]\n[C]\n"Detailed Information"[CS:E][BAR][CR]\nRange:[CLUM_SET:36] All in the room except user\nType:[CLUM_SET:36] Ground/Physical\nHit Ratio[CLUM_SET:54]:[CLUM_SET:62][move_hit_ratio]\nPower[CLUM_SET:54]:[
+[29742] "Basic Information"[CS:E][BAR][CR]\nChanges the dungeon floor's status to\n[LS:2664]Water Sport[LE]. A floor under the\ninfluence of [LS:2664]Water Sport[LE] halves the\npower of all Fire-type moves.\n\n\nSelect detail:[CLUM_SET:70][M:B4] or [M:B5]/View detail: [M:B2]\nDetailed Information:[CLUM_SET:108][M:B20]\n[C]\n"Detailed Information"[CS:E][BAR][CR]\nRange:[CLUM_SET:36] Floor\nType:[CLUM_SET:36] Water/Other\nHit Ratio[CLUM_SET:54]:[CLUM_SET:62][move_hit_ratio]\nPower[CLUM_SET:54]:[CLUM_SET:62]No Damage\n\n
+[29752] "Basic Information"[CS:E][BAR][CR]\nGives the Pokémon that uses this move\na [LS:13700]Set Damage[LE] status, which makes all\ndamage inflicted by the user remain at\na set amount.\n\n\nSelect detail:[CLUM_SET:70][M:B4] or [M:B5]/View detail: [M:B2]\nDetailed Information:[CLUM_SET:108][M:B20]\n[C]\n"Detailed Information"[CS:E][BAR][CR]\nRange:[CLUM_SET:36] User\nType:[CLUM_SET:36] Psychic/Other\nHit Ratio[CLUM_SET:54]:[CLUM_SET:62][move_hit_ratio]\nPower[CLUM_SET:54]:[CLUM_SET:62]No Damage\n\n\n\nBasic Informatio
+[29890] "Basic Information"[CS:E][BAR][CR]\nInflicts damage on the target, even at a\ndistance, then closes the gap with it.\nHowever it afflicts the user with a\n[LS:13600]Paused[LE] status condition.\nThe power of the move is so huge that\nthe walls around the target will shatter\nupon hitting it.\nSelect detail:[CLUM_SET:70][M:B4] or [M:B5]/View detail: [M:B2]\n[C]\n"Detailed Information"[CS:E][BAR][CR]\nRange:[CLUM_SET:36] Line of Sight\nType:[CLUM_SET:36] Normal/Physical\nHit Ratio[CLUM_SET:54]:[CLUM_SET:62][mo
+[29904] "Basic Information"[CS:E][BAR][CR]\nInflicts damage on the target. It will\ninflict double damage if the target's [CS:E]HP[CR]\nis down to half or lower.\n\n\n\n\nDetailed Information:[CLUM_SET:108][M:B20]\n[C]\n"Detailed Information"[CS:E][BAR][CR]\nRange:[CLUM_SET:36] Enemy in front\nType:[CLUM_SET:36] Water/Special\nHit Ratio[CLUM_SET:54]:[CLUM_SET:62][move_hit_ratio]\nPower[CLUM_SET:54]:[CLUM_SET:62][move_power]\n\n\n\nBasic Information:[CLUM_SET:100][M:B20]
+[29910] "Basic Information"[CS:E][BAR][CR]\nInflicts damage on the target and deals\ndouble damage if the user is\nslower than the target.\n\n\n\nSelect detail:[CLUM_SET:70][M:B4] or [M:B5]/View detail: [M:B2]\nDetailed Information:[CLUM_SET:108][M:B20]\n[C]\n"Detailed Information"[CS:E][BAR][CR]\nRange:[CLUM_SET:36] Enemy in front\nType:[CLUM_SET:36] Steel/Physical\nHit Ratio[CLUM_SET:54]:[CLUM_SET:62][move_hit_ratio]\nPower[CLUM_SET:54]:[CLUM_SET:62][move_power]\n\n\n\nBasic Information:[CLUM_SET:100][M:B20]
+[29982] "Basic Information"[CS:E][BAR][CR]\nInflicts damage on the target and deals\ndouble damage if the user is\nfaster than the target.\n\n\n\nSelect detail:[CLUM_SET:70][M:B4] or [M:B5]/View detail: [M:B2]\nDetailed Information:[CLUM_SET:108][M:B20]\n[C]\n"Detailed Information"[CS:E][BAR][CR]\nRange:[CLUM_SET:36] Enemy in front\nType:[CLUM_SET:36] Electric/Special\nHit Ratio[CLUM_SET:54]:[CLUM_SET:62][move_hit_ratio]\nPower[CLUM_SET:54]:[CLUM_SET:62][move_power]\n\n\n\nBasic Information:[CLUM_SET:100][M:B20]
+[30037] The ultimate globe, it holds the power\nto pass through space and time itself.\nA held item that boosts the power of\nthe Pokémon's moves. The effect\nis a significant increase in the\npower of moves used.\n\n\nThis is one of the eight [CS:G]Ultimate Items[CR]!
+[30082] A drink that boosts the level of\nwhatever move the user currently has\nat the top of their Moves Menu. Moves\naffected by a level up can see their\n[CS:G]max PP[CR] value increased, as well as\ntheir [CS:G]Base Power[CR] and [CS:G]Accuracy[CR]. This\ndrink won't affect certain kinds of\nmoves, so be careful! It also slightly\nfills the Pokémon's [CS:E]Belly[CR].
+[30092] A drink that upgrades the topmost move\nin the list to Level[M:T6]. Moves that\nreached this level will see an increase\nin [CS:G]max PP[CR] and [CS:G]Base Power[CR] to their limit\nif applicable. This drink won't affect\ncertain kinds of moves, so be careful!\nIt also slightly fills the Pokémon's\n[CS:E]Belly[CR].
+[30196] Teaches the move [LS:10388]Hyper Beam[LE], but\nwon't if the Pokémon knows the move.[CS:E][BAR][CR]\nInflicts damage on the target, even at a\ndistance, but it also afflicts the user\nwith a [LS:13600]Paused[LE] status condition.\nThe power of the move is so huge that\nthe walls around the target will shatter\nupon hitting it.\nSelect detail:[CLUM_SET:70][M:B4] or [M:B5]/View detail: [M:B2]\n[C]\n[equip_list]
+[30197] Teaches the move [LS:10405]Light Screen[LE], but\nwon't if the Pokémon knows the move.[CS:E][BAR][CR]\nMove gives the move-using Pokémon\nthe [LS:13644]Light Screen[LE] status, which halves\nthe damage from [LS:13764]Special Attack moves[LE].\n\n\n\nSelect detail:[CLUM_SET:70][M:B4] or [M:B5]/View detail: [M:B2]\n[C]\n[equip_list]
+[30200] Teaches the move [LS:10222]Giga Drain[LE], but\nwon't if the Pokémon knows the move.[CS:E][BAR][CR]\nMove inflicts damage on the target, then\nrestores the user's [CS:E]HP[CR] based on the\ndamage inflicted.\n\n\n\nSelect detail:[CLUM_SET:70][M:B4] or [M:B5]/View detail: [M:B2]\n[C]\n[equip_list]
+[30207] Teaches the move [LS:10264]Earthquake[LE], but\nwon't if the Pokémon knows the move.[CS:E][BAR][CR]\nMove damages all Pokémon in the room\nexcept the user. It will inflict double\ndamage on a [LS:13630]Digging[LE] target.\n\n\n\nSelect detail:[CLUM_SET:70][M:B4] or [M:B5]/View detail: [M:B2]\n[C]\n[equip_list]
+[30223] Teaches the move [LS:10213]Facade[LE], but\nwon't if the Pokémon knows the move.[CS:E][BAR][CR]\nMove inflicts damage on the target and\ndouble damage if the user has a [LS:13570]Burn[LE],\n[LS:13572]Poisoned[LE], or [LS:13574]Badly Poisoned[LE] status.\n\n\n\nSelect detail:[CLUM_SET:70][M:B4] or [M:B5]/View detail: [M:B2]\n[C]\n[equip_list]
+[30236] Teaches the move [LS:10615]Brine[LE], but\nwon't if the Pokémon knows the move.[CS:E][BAR][CR]\nMove inflicts damage on the target. It\nwill deal double damage if the target's\n[CS:E]HP[CR] is down to half or lower.\n\n\n\nSelect detail:[CLUM_SET:70][M:B4] or [M:B5]/View detail: [M:B2]\n[C]\n[equip_list]
+[30241] Teaches the move [LS:10646]Drain Punch[LE], but\nwon't if the Pokémon knows the move.[CS:E][BAR][CR]\nMove inflicts damage on the target, then\nrestores the user's [CS:E]HP[CR] based on the\ndamage inflicted.\n\n\n\nSelect detail:[CLUM_SET:70][M:B4] or [M:B5]/View detail: [M:B2]\n[C]\n[equip_list]
+[30249] Teaches the move [LS:10601]Giga Impact[LE], but\nwon't if the Pokémon knows the move.[CS:E][BAR][CR]\nInflicts damage on the target, even at a\ndistance, then closes the gap with it.\nHowever it afflicts the user with a\n[LS:13600]Paused[LE] status condition.\nThe power of the move is so huge that\nthe walls around the target will shatter\nupon hitting it.\n[C]\n[equip_list]
+[30258] Teaches the move [LS:10681]Avalanche[LE]. \nIt can't be used if the move is known.[CS:E][BAR][CR]\nMove inflicts damage on the target. It\nwill deal double damage if the target's\n[CS:E]HP[CR] is down to half or lower.\n\n\n\nSelect detail:[CLUM_SET:70][M:B4] or [M:B5]/View detail: [M:B2]\n[C]\n[equip_list]
+[30260] Teaches the move [LS:10621]Gyro Ball[LE], but\nwon't if the Pokémon knows the move.[CS:E][BAR][CR]\nMove inflicts damage on the target and\ndeals double damage if the user is\nslower than the target.\n\n\n\nSelect detail:[CLUM_SET:70][M:B4] or [M:B5]/View detail: [M:B2]\n[C]\n[equip_list]
+[30271] Teaches the move [LS:10477]Soul Eater[LE], but\nwon't if the Pokémon knows the move.[CS:E][BAR][CR]\nMove inflicts damage on the target, then\nrestores the user's [CS:E]HP[CR] based on the\ndamage inflicted.\n\n\n\nSelect detail:[CLUM_SET:70][M:B4] or [M:B5]/View detail: [M:B2]\n[C]\n[equip_list]
+[30281] Teaches the move [LS:10365]Surf[LE], but\nwon't if the Pokémon knows the move.\nIt's reusable, and it can't be used\nin a dungeon.[CS:E][BAR][CR]\nMove inflicts damage on the target. It\nwill inflict double damage on a [LS:13628]Diving[LE]\ntarget.\n\nSelect detail:[CLUM_SET:70][M:B4] or [M:B5]/View detail: [M:B2]\n[C]\n[equip_list]
+[30294] Teaches the move [LS:10657]Power Whip[LE], but\nwon't if the Pokémon knows the move.[CS:E][BAR][CR]\nMove inflicts damage on enemies on the\n3 tiles in front of the user--diagonally\nand directly in front.\n\n\n\nSelect detail:[CLUM_SET:70][M:B4] or [M:B5]/View detail: [M:B2]\n[C]\n[equip_list]
+[30343] A drink that upgrades the topmost move\nin the list to Level[M:I59]. Moves that\nreached this level can see their [CS:G]max PP[CR]\nvalue as well as their [CS:G]Base Power[CR]\nor [CS:G]Accuracy[CR] increase further.\nThis drink won't affect certain kinds\nof moves, so be careful!\nIt also slightly fills the Pokémon's\n[CS:E]Belly[CR].
+[30473] Rarity: [M:S3][M:S3][M:S3]\nItem for: [CS:K]Suicune[CR]\nHalves damage [LS:13764]Special Attack moves[LE]\ndo to the Pokémon. Its effect doesn't\nadd to that of the [LS:13644]Light Screen[LE] status.\nKeep it in the Treasure Bag to give its\nbenefit to the team's [CS:K]Suicune[CR].\n\nSelect detail:[CLUM_SET:70][M:B4] or [M:B5]/View detail: [M:B2]\n[C]\nIt is among the rarest of items,\ndedicated exclusively to [CS:K]Suicune[CR],\nwho is rumored to slumber silently\nwithin some dungeon.
+[30477] Rarity: [M:S3][M:S3][M:S3]\nItem for: [CS:K]Regirock[CR]\nHalves damage [LS:13766]Physical Attacks[LE]\ndo to the Pokémon. Its effect doesn't\nadd to that of the [LS:13640]Reflect[LE] status.\nKeep it in the Treasure Bag to give its\nbenefit to the team's [CS:K]Regirock[CR].\n\nSelect detail:[CLUM_SET:70][M:B4] or [M:B5]/View detail: [M:B2]\n[C]\nIt is among the rarest of items,\ndedicated exclusively to [CS:K]Regirock[CR],\nwho is rumored to slumber silently\nwithin some dungeon.
+[30478] Rarity: [M:S3][M:S3][M:S3]\nItem for: [CS:K]Regice[CR]\nHalves damage [LS:13764]Special Attack moves[LE]\ndo to the Pokémon. Its effect doesn't\nadd to that of the [LS:13644]Light Screen[LE] status.\nKeep it in the Treasure Bag to give its\nbenefit to the team's [CS:K]Regice[CR].\n\nSelect detail:[CLUM_SET:70][M:B4] or [M:B5]/View detail: [M:B2]\n[C]\nIt is among the rarest of items,\ndedicated exclusively to [CS:K]Regice[CR],\nwho is rumored to slumber silently\nwithin some dungeon.
+[30492] Rarity: [M:S3][M:S3][M:S3]\nItem for: [CS:K]Dialga[CR]\nHalves the damage the Pokémon takes\nfrom moves and attacks.\nKeep it in the Treasure Bag to give its\nbenefit to the team's [CS:K]Dialga[CR].\n[C]\nIt is among the rarest of items,\ndedicated exclusively to [CS:K]Dialga[CR],\nwho is rumored to slumber silently\nwithin some dungeon.
+[30975] Rarity: [M:S3][M:S3][M:S3]\nItem for: [CS:K]Riolu[CR]\nIncreases the damage inflicted on \nGhost-type enemies with Normal- and \nFighting-type moves.\nKeep it in the Treasure Bag to give its\nbenefit to all of these team members:\n[CS:K]Riolu[CR] and [CS:K]Lucario[CR].\n[C]\nYou can get an [CS:Z]Emit Ring[CR] at the\n[CS:E]Croagunk[CR] Swap Shop by swapping:\na [LS:11683]Riolu Tail[LE], a [LS:11684]Riolu Card[LE],\nand a [LS:11685]Valiant Rock[LE]. That's the easy way!\n\nAn item with a [M:S3][M:S3][M:S3]-rar
+[30995] Rarity: [M:S3][M:S3][M:S3]\nItem for: [CS:K]Vulpix[CR]\nHalves damage received from\n[LS:13764]Special Attacks[LE]. It cannot be coupled\nwith [LS:13644]Light Screen[LE] status.\nKeep it in the Treasure Bag to give its\nbenefit to all of these team members:\n[CS:K]Vulpix[CR] and [CS:K]Ninetales[CR].\nSelect detail:[CLUM_SET:70][M:B4] or [M:B5]/View detail: [M:B2]\n[C]\nYou can get a [CS:Z]Glowing Bow[CR] at the\n[CS:E]Croagunk[CR] Swap Shop by swapping:\na [LS:11703]Vulpix Tail[LE], a [LS:11704]Vulpix Card[
+[31071] Rarity: [M:S3][M:S3][M:S3]\nItem for: [CS:K]Farfetch'd[CR]\nIncreases the damage inflicted on \nGhost-type enemies with Normal- and \nFighting-type moves.\nKeep it in the Treasure Bag to give its\nbenefit to all of these team members:\n[CS:K]Farfetch'd[CR].\n[C]\nFinding a [CS:Z]Bullseye Bow[CR] at the [CS:E]Croagunk[CR]\nSwap Shop is very lucky! Make sure you\nget it before someone else does!\nAn item with a [M:S3][M:S3][M:S3]-rarity rating is\nvery hard to get. It's beyond valuable!
+[31123] Rarity: [M:S3][M:S3][M:S3]\nItem for: [CS:K]Hoothoot[CR]\nIncreases the damage inflicted on \nGhost-type enemies with Normal- and \nFighting-type moves.\nKeep it in the Treasure Bag to give its\nbenefit to all of these team members:\n[CS:K]Hoothoot[CR] and [CS:K]Noctowl[CR].\n[C]\nFinding [CS:Z]Expose Specs[CR] at the [CS:E]Croagunk[CR]\nSwap Shop is very lucky! Make sure you\nget this item before someone else does!\nAn item with a [M:S3][M:S3][M:S3]-rarity rating is\nvery hard to get. It's beyond valuable!
+[31135] Rarity: [M:S3][M:S3][M:S3]\nItem for: [CS:K]Flaaffy[CR]\nHalves damage received from\n[LS:13764]Special Attacks[LE]. Cannot\nbe coupled with [LS:13644]Light Screen[LE] status.\nKeep it in the Treasure Bag to give its\nbenefit to all of these team members:\n[CS:K]Mareep[CR], [CS:K]Flaaffy[CR], and [CS:K]Ampharos[CR].\nSelect detail:[CLUM_SET:70][M:B4] or [M:B5]/View detail: [M:B2]\n[C]\nFinding a [CS:Z]Fluffy Scarf[CR] at the [CS:E]Croagunk[CR]\nSwap Shop is very lucky! Make sure you\nget it before someone e
+[31149] Rarity: [M:S3][M:S3][M:S3]\nItem for: [CS:K]Slowking[CR]\nHalves damage received from\n[LS:13764]Special Attacks[LE]. It cannot be coupled\nwith [LS:13644]Light Screen[LE] status.\nKeep it in the Treasure Bag to give its\nbenefit to all of these team members:\n[CS:K]Slowpoke[CR], [CS:K]Slowbro[CR], and [CS:K]Slowking[CR].\nSelect detail:[CLUM_SET:70][M:B4] or [M:B5]/View detail: [M:B2]\n[C]\nFinding a [CS:Z]King Cap[CR] at the [CS:E]Croagunk[CR]\nSwap Shop is very lucky! Make sure you\nget it before someone
+[31347] Rarity: [M:S3][M:S3][M:S3][M:S3][M:S3]\nItem for: [CS:K]Arceus[CR]\nHalves the damage the Pokémon takes\nfrom moves and attacks. Slightly boosts\nthe [CS:E]Attack[CR] and [CS:E]Special Attack[CR] as well.\nKeep it in the Treasure Bag to give its\nbenefit to all of these team members:\n[CS:K]Arceus[CR].\nSelect detail:[CLUM_SET:70][M:B4] or [M:B5]/View detail: [M:B2]\n[C]\nIt is among the rarest of items,\ndedicated exclusively to [CS:K]Arceus[CR],\nwho is rumored to slumber silently\nwithin some dungeon.
+[31391] An item to be held by [CS:K]Dialga[CR].\nThis large glowing gem wells with\npower and allows [CS:K]Dialga[CR] to change\nform when it holds it.\nIt also boosts the power of [CS:K]Dialga[CR]'s\nDragon- and Steel-type moves when\nequipped.
+[31392] An item to be held by [CS:K]Palkia[CR].\nThis large glowing orb wells with\npower and allows [CS:K]Palkia[CR] to change\nform when it holds it.\nIt also boosts the power of [CS:K]Palkia[CR]'s\nDragon- and Water-type moves when\nequipped.
+[31393] An item to be held by [CS:K]Giratina[CR].\nThis large glowing gem wells with\npower and allows [CS:K]Giratina[CR] to change\nform when it holds it.\nIt also boosts the power of [CS:K]Giratina[CR]'s\nDragon- and Ghost-type moves when\nequipped.
+[31437] Boosts power of moves.
+[31482] Powers up the topmost move.
+[32989] The amount of damage inflicted by the\nPokémon's moves and regular attack\nis fixed at a certain amount. This\nstatus lasts 2 to 4 turns.
+[33033] The Pokémon is using [LS:10306]Stockpile[LE] to\nstore power. The more it stores, the\nmore powerful the moves [LS:10391]Spit Up[LE] and\n[LS:10382]Swallow[LE] will become. The Pokémon\nwill lose its stored power when it\nmoves to the next floor.\n\n\nSelect detail:[CLUM_SET:70][M:B4] or [M:B5]/View detail: [M:B2]
+[33209] [CS:E]Intimidate[CR]: Reduces the Physical\nAttack power of attackers.
+[33210] [CS:E]Rock Head[CR]: Protects the Pokémon\nfrom the recoil damage of moves\nsuch as Take Down.
+[33215] [CS:E]Royal Majesty[CR]: Halves damage\ntaken by the Pokémon at full HP.
+[33219] [CS:E]Torrent[CR]: Boosts the power of\nthe Pokémon's Water-type moves\nwhen its [CS:E]HP[CR] is low.
+[33229] [CS:E]Overgrow[CR]: Boosts the power of\nthe Pokémon's Grass-type moves\nwhen its [CS:E]HP[CR] is low.
+[33270] [CS:E]Swarm[CR]: Boosts the power of the\nPokémon's Bug-type moves when\nits [CS:E]HP[CR] is low.
+[33273] [CS:E]Blaze[CR]: Boosts the power of the\nPokémon's Fire-type moves when\nits [CS:E]HP[CR] is low.
+[33278] [CS:E]Strong Jaws[CR]: Boosts the power\nthe Pokémon uses for biting\nmoves.
+[33281] [CS:E]Stall[CR]: Restricts from targeting\ndistant foes (if not leader), and\nreduces damage taken.
+[33290] [CS:E]Scrappy[CR]: Increases the damage\ninflicted on Ghost types with\nNormal- and Fighting-type moves.
+[33295] [CS:E]Reckless[CR]: Boosts the Pokémon's\npower with recoiling attacks but\nalso raises self-inflicted damage.
+[33298] [CS:E]Heatproof[CR]: Halves the damage the\nPokémon suffers from Fire-type\nattacks.
+[33302] [CS:E]Adaptability[CR]: Boosts the power of\nthe Pokémon's moves that match\nits type.
+[33303] [CS:E]Technician[CR]: Boosts the damage\nthe Pokémon inflicts with moves\nthat have low attack power.
+[33304] [CS:E]Iron Fist[CR]: Boosts the power the\nPokémon uses for punching\nmoves.
+[33311] [CS:E]Blade Mastery[CR]: Boosts the power\nthe Pokémon uses for slashing\nmoves.
+[33313] [CS:E]Solid Guard[CR]: Reduces the damage\nthat the Pokémon suffers from\nsuper-effective moves.
+[33319] [CS:E]Multitype[CR]: Enables [CS:E]Arceus[CR]'\ntype-change with [CS:U]Trinity Star[CR].\n[CS:E]Arceus[CR] also matches typing\nwith the type of moves it uses.\nIncreases damage inflicted by\nall of [CS:E]Arceus[CR]' moves.
+[35017] Teaches the move [LS:15731]Light Screen[LE].\nIt makes the user's status [LS:15733]Light Screen[LE].\nIt halves the damage from\n[LS:15732]Special Attack moves[LE].
+[35019] Teaches the move [LS:15731]Light Screen[LE].\n[C]\nIt makes the user's status [LS:15733]Light Screen[LE].\n[C]\nIt halves the damage from\n[LS:15732]Special Attack moves[LE].
+[35020] It makes the user's status [LS:15733]Light Screen[LE].\nIt halves the damage from\n[LS:15732]Special Attack moves[LE].
+[38004] [CS:E]Rock Head[CR]: Protects the Pokémon\nfrom the recoil damage of moves\nsuch as [CS:M]Take Down[CR].
+[38013] [CS:E]Torrent[CR]: Boosts the power of\nthe Pokémon's Water-type\nmoves when in a pinch.
+[38023] [CS:E]Overgrow[CR]: Boosts the power of\nthe Pokémon's Grass-type\nmoves when in a pinch.
+[38064] [CS:E]Swarm[CR]: Boosts the power of the\nPokémon's Bug-type moves\nmoves when in a pinch.
+[38067] [CS:E]Blaze[CR]: Boosts the power of the\nPokémon's Fire-type moves\nmoves when in a pinch.
+[38072] [CS:E]Strong Jaws[CR]: Boosts the power\nthe Pokémon uses for biting\nmoves like [CS:M]Crunch[CR].
+[38089] [CS:E]Reckless[CR]: Boosts the Pokémon's\npower with recoiling attacks like\n[CS:M]Flare Blitz[CR] or [CS:M]Head Smash[CR].
+[38098] [CS:E]Iron Fist[CR]: Boosts the power the\nPokémon uses for punching\nmoves like [CS:M]Fire Punch[CR].
+[38105] [CS:E]Sharpness[CR]: Boosts the power\nthe Pokémon uses for slashing\nmoves like [CS:M]Leaf Blade[CR].
+[38136] [CS:E]Marvel Veil[CR]: Halves damage\ninflicted by Physical moves to\nthe Pokémon.
+[38137] [CS:E]Wonder Veil[CR]: Halves damage\ninflicted by Special moves to\nthe Pokémon.
+[38141] [CS:E]Tough Claws[CR]: Powers up the\nPokémon's in front moves\nlike [CS:M]Tackle[CR] and [CS:M]Grass Knot[CR].
+[38143] [CS:E]Unseen Fist[CR]: Physical moves\nused by the Pokémon bypass all\nscreens and protections.
+[38145] [CS:E]Sound Waves[CR]: Boosts the\nPokémon's power with sound\nmoves like [CS:M]Hyper Voice[CR].
+[38153] [CS:E]Water Bubble[CR]: Protects from\nburns and doubles damage\nwith Water-type moves.
+[38159] [CS:E]Sheer Force[CR]: Boosts the power\nof attacks with added effects,\nbut removes the added effects.
+[38173] [CS:E]Fairy Aura[CR]: Powers up each\nPokémon's Fairy-type moves.
+[38174] [CS:E]Dark Aura[CR]: Powers up each\nPokémon's Dark-type moves.
+[38183] [CS:E]Battery[CR]: Raises power of \nallies' special moves.
+[38201] [CS:E]Shadow Shield[CR]: Halves damage\ntaken and increases damage dealt\nby the Pokémon at full HP.
+[38207] [CS:E]Steelworker[CR]: Boosts damage\ndealt by Steel-type moves.
+[38210] [CS:E]Gorilla Tactics[CR]: Powers up all\nmoves but gets afflicted with\nan Encore afterwards.
+[38214] [CS:E]Power Spot[CR]: Powers up each\nPokémon's moves.
+[38216] [CS:E]Mind's Eye[CR]: Increases the damage\ninflicted on Ghost types with\nNormal- and Fighting-type moves.
+[38217] [CS:E]Rocky Payload[CR]: Boosts damage\ndealt by Rock-type moves.
+[38253] [CN][CS:K]Torchic[CR][BAR]\n[CS:J]Type[CR]: Fire\n[CS:J]Final Type[CR]: Fire/Fighting\n[CS:H]Abilities[CR]:\n[CS:E]Blaze[CR]: Boosts the power of the Pokémon's\nFire-type moves moves when in a pinch.\n[CS:E]Limber[CR]: Prevents the Pokémon from being\nparalyzed.\n[CS:I]IQ Group[CR]: C\n[CS:S]Stats Curve[CR]: Offensive\n[CS:M]Moves[CR]: Ember/Growl/Scratch\n[CS:M]Egg Move[CR]: Reversal
+[38254] [CN][CS:K]Treecko[CR][BAR]\n[CS:J]Type[CR]: Grass\n[CS:J]Final Type[CR]: Grass/Dragon\n[CS:H]Abilities[CR]:\n[CS:E]Overgrow[CR]: Boosts the power of the Pokémon's\nGrass-type moves when in a pinch.\n[CS:E]Steadfast[CR]: Boosts the Pokémon's Movement\nSpeed when it is cross-eyed or cringing.\n[CS:I]IQ Group[CR]: D\n[CS:S]Stats Curve[CR]: Offensive\n[CS:M]Moves[CR]: Absorb/Leer/Pound\n[CS:M]Egg Move[CR]: Bite
+[38255] [CN][CS:K]Charmander[CR][BAR]\n[CS:J]Type[CR]: Fire\n[CS:J]Final Type[CR]: Fire/Dragon\n[CS:H]Abilities[CR]:\n[CS:E]Blaze[CR]: Boosts the power of the Pokémon's\nFire-type moves moves when in a pinch.\n[CS:E]Solar Power[CR]: Boosts Special Attack in sunny\nweather, though the Pokémon also loses [CS:E]HP[CR].\n[CS:I]IQ Group[CR]: C\n[CS:S]Stats Curve[CR]: Offensive\n[CS:M]Moves[CR]: Ember/Growl/Scratch\n[CS:M]Egg Move[CR]: Dragon Claw
+[38256] [CN][CS:K]Bulbasaur[CR][BAR]\n[CS:J]Type[CR]: Grass/Poison\n[CS:J]Final Type[CR]: Grass/Poison\n[CS:H]Abilities[CR]:\n[CS:E]Overgrow[CR]: Boosts the power of the Pokémon's\nGrass-type moves when in a pinch.\n[CS:E]Chlorophyll[CR]: Raises the number of moves the\nPokémon attempts per turn when it is sunny.\n[CS:I]IQ Group[CR]: F\n[CS:S]Stats Curve[CR]: Balanced\n[CS:M]Moves[CR]: Vine Whip/Growl/Tackle\n[CS:M]Egg Move[CR]: Sludge
+[38258] [CN][CS:K]Totodile[CR][BAR]\n[CS:J]Type[CR]: Water\n[CS:J]Final Type[CR]: Water\n[CS:H]Abilities[CR]:\n[CS:E]Torrent[CR]: Boosts the power of the Pokémon's\nWater-type moves when in a pinch.\n[CS:E]Strong Jaws[CR]: Boosts the power the Pokémon\nuses for biting moves like [CS:M]Crunch[CR].\n[CS:I]IQ Group[CR]: F\n[CS:S]Stats Curve[CR]: Physical\n[CS:M]Moves[CR]: Water Gun/Leer/Scratch\n[CS:M]Egg Move[CR]: Aerial Ace
+[38259] [CN][CS:K]Eevee[CR][BAR]\n[CS:J]Type[CR]: Normal\n[CS:J]Final Type[CR]: Varies\n[CS:H]Abilities[CR]:\n[CS:E]Anticipation[CR]: Deals massive damage with\nregular attack if the foe has effective moves.\n[CS:E]Adaptability[CR]: Boosts the power of the\nPokémon's moves that match its type.\n[CS:I]IQ Group[CR]: F\n[CS:S]Stats Curve[CR]: Balanced\n[CS:M]Moves[CR]: Tackle/Helping Hand/Tail Whip\n[CS:M]Egg Move[CR]: Flail
+[38260] [CN][CS:K]Piplup[CR][BAR]\n[CS:J]Type[CR]: Water\n[CS:J]Final Type[CR]: Water/Steel\n[CS:H]Abilities[CR]:\n[CS:E]Torrent[CR]: Boosts the power of the Pokémon's\nWater-type moves when in a pinch.\n[CS:E]Vital Spirit[CR]: Protects the Pokémon from\nbeing made to sleep.\n[CS:I]IQ Group[CR]: F\n[CS:S]Stats Curve[CR]: Special\n[CS:M]Moves[CR]: Bubble/Pound/Growl\n[CS:M]Egg Move[CR]: Double Hit
+[38261] [CN][CS:K]Chimchar[CR][BAR]\n[CS:J]Type[CR]: Fire\n[CS:J]Final Type[CR]: Fire/Fighting\n[CS:H]Abilities[CR]:\n[CS:E]Blaze[CR]: Boosts the power of the Pokémon's\nFire-type moves moves when in a pinch.\n[CS:E]Iron Fist[CR]: Boosts the power the Pokémon\nuses for punching moves like [CS:M]Fire Punch[CR].\n[CS:I]IQ Group[CR]: C\n[CS:S]Stats Curve[CR]: Offensive \n[CS:M]Moves[CR]: Ember/Scratch/Leer\n[CS:M]Egg Move[CR]: Double Kick
+[38264] [CN][CS:K]Cyndaquil[CR][BAR]\n[CS:J]Type[CR]: Fire\n[CS:J]Final Type[CR]: Fire/Ground \n[CS:H]Abilities[CR]:\n[CS:E]Blaze[CR]: Boosts the power of the Pokémon's\nFire-type moves moves when in a pinch.\n[CS:E]Healthy Body[CR]: Protects the Pokémon from\nstat reduction inflicted by foes.\n[CS:I]IQ Group[CR]: C\n[CS:S]Stats Curve[CR]: Offensive\n[CS:M]Moves[CR]: Ember/Tackle/Leer\n[CS:M]Egg Move[CR]: Mud-Slap
+[38265] [CN][CS:K]Turtwig[CR][BAR]\n[CS:J]Type[CR]: Grass\n[CS:J]Final Type[CR]: Grass/Ground\n[CS:H]Abilities[CR]:\n[CS:E]Overgrow[CR]: Boosts the power of the Pokémon's\nGrass-type moves when in a pinch.\n[CS:E]Battle Armor[CR]: Blocks critical hits on the\nPokémon.\n[CS:I]IQ Group[CR]: E\n[CS:S]Stats Curve[CR]: Defensive\n[CS:M]Moves[CR]: Absorb/Tackle/Withdraw\n[CS:M]Egg Move[CR]: Mud-Slap
+[38266] [CN][CS:K]Shinx[CR][BAR]\n[CS:J]Type[CR]: Electric\n[CS:J]Final Type[CR]: Electric/Dark\n[CS:H]Abilities[CR]:\n[CS:E]Guts[CR]: Boosts the Pokémon's Attack when\nit has any status problems.\n[CS:E]Intimidate[CR]: Reduces the Physical Attack\npower of attackers.\n[CS:I]IQ Group[CR]: C\n[CS:S]Stats Curve[CR]: Offensive\n[CS:M]Moves[CR]: Thunder Shock/Tackle/Leer\n[CS:M]Egg Move[CR]: Quick Attack
+[38267] [CN][CS:K]Riolu[CR][BAR]\n[CS:J]Type[CR]: Fighting\n[CS:J]Final Type[CR]: Fighting/Steel\n[CS:H]Abilities[CR]:\n[CS:E]Scrappy[CR]: Increases the damage inflicted on\nGhosts with Normal- and Fighting-type moves.\n[CS:E]Inner Focus[CR]: Protects the Pokémon from\ncringing and Intimidator.\n[CS:I]IQ Group[CR]: C\n[CS:S]Stats Curve[CR]: Offensive \n[CS:M]Moves[CR]: Quick Attack/Foresight/Endure\n[CS:M]Egg Move[CR]: Bite
+[38268] [CN][CS:K]Chikorita[CR][BAR]\n[CS:J]Type[CR]: Grass\n[CS:J]Final Type[CR]: Grass/Fairy\n[CS:H]Abilities[CR]:\n[CS:E]Overgrow[CR]: Boosts the power of the Pokémon's\nGrass-type moves when in a pinch.\n[CS:E]Leaf Guard[CR]: Protects the Pokémon from\nstatus problems in sunny weather.\n[CS:I]IQ Group[CR]: H\n[CS:S]Stats Curve[CR]: Defensive\n[CS:M]Moves[CR]: Vine Whip/Tackle/Growl\n[CS:M]Egg Move[CR]: Ancient Power
+[38269] [CN][CS:K]Phanpy[CR][BAR]\n[CS:J]Type[CR]: Ground\n[CS:J]Final Type[CR]: Ground\n[CS:H]Abilities[CR]:\n[CS:E]Reckless[CR]: Boosts the Pokémon's power\nwith recoiling attacks like [CS:M]Double-Edge[CR].\n[CS:E]Sand Rush[CR]: Raises the number of moves the\nPokémon attempts per turn under a Sandstorm.\n[CS:I]IQ Group[CR]: E\n[CS:S]Stats Curve[CR]: Physical\n[CS:M]Moves[CR]: Tackle/Growl/Defense Curl\n[CS:M]Egg Move[CR]: Ancient Power
+[38270] [CN][CS:K]Vulpix[CR][BAR]\n[CS:J]Type[CR]: Fire\n[CS:J]Final Type[CR]: Fire/Fairy\n[CS:H]Abilities[CR]:\n[CS:E]Flash Fire[CR]: Lets Pokémon absorb Fire-type\nattacks, then boosts its own Fire-type attacks.\n[CS:E]Cute Charm[CR]: Makes an attacker of the opposite\ngender who lands a direct attack infatuated.\n[CS:I]IQ Group[CR]: G\n[CS:S]Stats Curve[CR]: Special\n[CS:M]Moves[CR]: Ember/Howl/Tail Whip\n[CS:M]Egg Move[CR]: Feint Attack
+[38271] [CN][CS:K]Mudkip[CR][BAR]\n[CS:J]Type[CR]: Water\n[CS:J]Final Type[CR]: Water/Ground\n[CS:H]Abilities[CR]:\n[CS:E]Torrent[CR]: Boosts the power of the Pokémon's\nWater-type moves when in a pinch.\n[CS:E]Damp[CR]: Prevents explosions on the\ndungeon floor.\n[CS:I]IQ Group[CR]: F\n[CS:S]Stats Curve[CR]: Balanced\n[CS:M]Moves[CR]: Water Gun/Tackle/Growl\n[CS:M]Egg Move[CR]: Ancient Power
+[38272] [CN][CS:K]Squirtle[CR][BAR]\n[CS:J]Type[CR]: Water\n[CS:J]Final Type[CR]: Water\n[CS:H]Abilities[CR]:\n[CS:E]Torrent[CR]: Boosts the power of the Pokémon's\nWater-type moves when in a pinch.\n[CS:E]Rain Dish[CR]: Boosts the Pokémon's natural [CS:E]HP[CR]\nhealing when it is raining.\n[CS:I]IQ Group[CR]: E\n[CS:S]Stats Curve[CR]: Defensive\n[CS:M]Moves[CR]: Aqua Jet/Tackle/Tail Whip\n[CS:M]Egg Move[CR]: Zen Headbutt
+[38273] [CN][CS:K]Vulpix[CR][BAR]\n[CS:J]Type[CR]: Ice\n[CS:J]Final Type[CR]: Ice/Fairy\n[CS:H]Abilities[CR]:\n[CS:E]Snow Cloak[CR]: Boosts the Pokémon's evasiveness\nif it is hailing or snowing.\n[CS:E]Cute Charm[CR]: Makes an attacker of the opposite\ngender who lands a direct attack infatuated.\n[CS:I]IQ Group[CR]: G\n[CS:S]Stats Curve[CR]: Special\n[CS:M]Moves[CR]: Ice Shard/Howl/Tail Whip\n[CS:M]Egg Move[CR]: Feint Attack
+[38275] [CN][CS:K]Starly[CR][BAR]\n[CS:J]Type[CR]: Normal/Flying\n[CS:J]Final Type[CR]: Fighting/Flying\n[CS:H]Abilities[CR]:\n[CS:E]Keen Eye[CR]: Prevents the Pokémon's accuracy\nfrom being reduced.\n[CS:E]Reckless[CR]: Boosts the Pokémon's power\nwith recoiling attacks like [CS:M]Brave Bird[CR].\n[CS:I]IQ Group[CR]: D\n[CS:S]Stats Curve[CR]: Offensive\n[CS:M]Moves[CR]: Tackle/Quick Attack/Growl\n[CS:M]Egg Move[CR]: Astonish
+[38280] [CN][CS:K]Growlithe[CR][BAR]\n[CS:J]Type[CR]: Fire\n[CS:J]Final Type[CR]: Fire\n[CS:H]Abilities[CR]:\n[CS:E]Intimidate[CR]: Reduces the Physical Attack\npower of attackers.\n[CS:E]Flash Fire[CR]: Lets Pokémon absorb Fire-type\nattacks, then boosts its own Fire-type attacks.\n[CS:I]IQ Group[CR]: C\n[CS:S]Stats Curve[CR]: Balanced\n[CS:M]Moves[CR]: Ember/Bite/Roar\n[CS:M]Egg Move[CR]: Thunder Fang
+[38283] [CN][CS:K]Machop[CR][BAR]\n[CS:J]Type[CR]: Fighting\n[CS:J]Final Type[CR]: Fighting\n[CS:H]Abilities[CR]:\n[CS:E]Guts[CR]: Boosts the Pokémon's Attack when\nit has any status problems.\n[CS:E]No Guard[CR]: Allows Pokémon to ignore stat\nmodifications to accuracy and evasiveness.\n[CS:I]IQ Group[CR]: D\n[CS:S]Stats Curve[CR]: Physical\n[CS:M]Moves[CR]: Mach Punch/Low Kick/Leer\n[CS:M]Egg Move[CR]: Bullet Punch
+[38287] [CN][CS:K]Electrike[CR][BAR]\n[CS:J]Type[CR]: Electric\n[CS:J]Final Type[CR]: Electric\n[CS:H]Abilities[CR]:\n[CS:E]Intimidate[CR]: Reduces the Physical Attack\npower of attackers.\n[CS:E]LightningRod[CR]: Draws Electric-type\nmoves to the Pokémon without harm.\n[CS:I]IQ Group[CR]: F\n[CS:S]Stats Curve[CR]: Special\n[CS:M]Moves[CR]: Thunder Shock/Tackle/Thunder Wave\n[CS:M]Egg Move[CR]: Iron Tail
+[38292] [CN][CS:K]Scyther[CR][BAR]\n[CS:J]Type[CR]: Bug/Flying\n[CS:J]Final Type[CR]: Bug/Steel\n[CS:H]Abilities[CR]:\n[CS:E]Swarm[CR]: Boosts the power of the Pokémon's\nBug-type moves moves when in a pinch.\n[CS:E]Technician[CR]: Boosts the damage the Pokémon\ninflicts with moves with [M:S3][M:S3]-power or less.\n[CS:I]IQ Group[CR]: D\n[CS:S]Stats Curve[CR]: Offensive\n[CS:M]Moves[CR]: Pursuit/Quick Attack/Leer\n[CS:M]Egg Move[CR]: Bug Bite
+[38297] [CN][CS:K]Cranidos[CR][BAR]\n[CS:J]Type[CR]: Rock\n[CS:J]Final Type[CR]: Rock\n[CS:H]Abilities[CR]:\n[CS:E]Mold Breaker[CR]: Moves can be used regardless\nof enemy Abilities.\n[CS:E]Rock Head[CR]: Protects the Pokémon from the\nrecoil damage of moves such as [CS:M]Take Down[CR].\n[CS:I]IQ Group[CR]: C\n[CS:S]Stats Curve[CR]: Attack\n[CS:M]Moves[CR]: Rock Throw/Headbutt/Leer\n[CS:M]Egg Move[CR]: Iron Tail
+[38304] [CN][CS:K]Budew[CR][BAR]\n[CS:J]Type[CR]: Grass/Poison\n[CS:J]Final Type[CR]: Grass/Poison\n[CS:H]Abilities[CR]:\n[CS:E]Natural Cure[CR]: Helps the Pokémon recover\nfrom status problems more quickly.\n[CS:E]Poison Point[CR]: Poisons an attacker who\nlands a direct-contact attack.\n[CS:I]IQ Group[CR]: H\n[CS:S]Stats Curve[CR]: Special\n[CS:M]Moves[CR]: Absorb/Sludge/Cotton Spore\n[CS:M]Egg Move[CR]: Mud-Slap
+[38305] [CN][CS:K]Cubone[CR][BAR]\n[CS:J]Type[CR]: Ground\n[CS:J]Final Type[CR]: Ground or Fire/Ghost\n[CS:H]Abilities[CR]:\n[CS:E]Rock Head[CR]: Protects the Pokémon from the\nrecoil damage of moves such as [CS:M]Take Down[CR].\n[CS:E]LightningRod[CR]: Draws Electric-type\nmoves to the Pokémon without harm.\n[CS:I]IQ Group[CR]: F\n[CS:S]Stats Curve[CR]: Physical\n[CS:M]Moves[CR]: Mud-Slap/Tackle/Leer\n[CS:M]Egg Move[CR]: Punishment
+[38307] [CN][CS:K]Bagon[CR][BAR]\n[CS:J]Type[CR]: Dragon\n[CS:J]Final Type[CR]: Dragon/Flying\n[CS:H]Abilities[CR]:\n[CS:E]Rock Head[CR]: Protects the Pokémon from the\nrecoil damage of moves such as [CS:M]Take Down[CR].\n[CS:E]Reckless[CR]: Boosts the Pokémon's power\nwith recoiling attacks like [CS:M]Brave Bird[CR].\n[CS:I]IQ Group[CR]: F\n[CS:S]Stats Curve[CR]: Balanced\n[CS:M]Moves[CR]: Twister/Ember/Rage\n[CS:M]Egg Move[CR]: Aerial Ace
+[38313] [CN][CS:K]Ledyba[CR][BAR]\n[CS:J]Type[CR]: Bug/Flying\n[CS:J]Final Type[CR]: Bug/Fighting\n[CS:H]Abilities[CR]:\n[CS:E]Swarm[CR]: Boosts the power of the Pokémon's\nBug-type moves moves when in a pinch.\n[CS:E]Early Bird[CR]: Helps the Pokémon\nawaken more quickly from sleep.\n[CS:I]IQ Group[CR]: F\n[CS:S]Stats Curve[CR]: Balanced\n[CS:M]Moves[CR]: Bug Bite/Tackle/Bide\n[CS:M]Egg Move[CR]: Bullet Punch
+[38318] [CN][CS:K]Taillow[CR][BAR]\n[CS:J]Type[CR]: Normal/Flying\n[CS:J]Final Type[CR]: Normal/Flying\n[CS:H]Abilities[CR]:\n[CS:E]Guts[CR]: Boosts the Pokémon's Attack when\nit has any status problems.\n[CS:E]Scrappy[CR]: Increases the damage inflicted on\nGhosts with Normal- and Fighting-type moves.\n[CS:I]IQ Group[CR]: D\n[CS:S]Stats Curve[CR]: Balanced\n[CS:M]Moves[CR]: Quick Attack/Peck/Growl\n[CS:M]Egg Move[CR]: Astonish
+[38320] [CN][CS:K]Aron[CR][BAR]\n[CS:J]Type[CR]: Steel/Rock\n[CS:J]Final Type[CR]: Steel/Rock\n[CS:H]Abilities[CR]:\n[CS:E]Sturdy[CR]: At full HP, moves that would KO\nthe Pokémon leave it with 1 HP.\n[CS:E]Rock Head[CR]: Protects the Pokémon from the\nrecoil damage of moves such as [CS:M]Take Down[CR].\n[CS:I]IQ Group[CR]: E\n[CS:S]Stats Curve[CR]: Defensive\n[CS:M]Moves[CR]: Metal Claw/Tackle/Harden\n[CS:M]Egg Move[CR]: Rock Throw
+[38332] [CN][CS:K]Growlithe[CR][BAR]\n[CS:J]Type[CR]: Fire/Rock\n[CS:J]Final Type[CR]: Fire/Rock\n[CS:H]Abilities[CR]:\n[CS:E]Intimidate[CR]: Reduces the Physical Attack\npower of attackers.\n[CS:E]Rock Head[CR]: Protects the Pokémon from the\nrecoil damage of moves such as [CS:M]Take Down[CR].\n[CS:I]IQ Group[CR]: C\n[CS:S]Stats Curve[CR]: Balanced\n[CS:M]Moves[CR]: Ember/Bite/Roar\n[CS:M]Egg Move[CR]: Thunder Fang
+[38336] [CN][CS:K]Gligar[CR][BAR]\n[CS:J]Type[CR]: Ground/Flying\n[CS:J]Final Type[CR]: Ground/Flying\n[CS:H]Abilities[CR]:\n[CS:E]Immunity[CR]: Protects the Pokémon from\nbecoming poisoned or badly poisoned.\n[CS:E]Sand Veil[CR]: Boosts the Pokémon's evasiveness\nduring a sandstorm.\n[CS:I]IQ Group[CR]: D\n[CS:S]Stats Curve[CR]: Physical\n[CS:M]Moves[CR]: Mud-Slap/Poison Sting/Sand Attack\n[CS:M]Egg Move[CR]: Bug Bite
+[38339] [CN][CS:K]Bonsly[CR][BAR]\n[CS:J]Type[CR]: Rock\n[CS:J]Final Type[CR]: Rock\n[CS:H]Abilities[CR]:\n[CS:E]Sturdy[CR]: At full HP, moves that would KO\nthe Pokémon leave it with 1 HP.\n[CS:E]Rock Head[CR]: Protects the Pokémon from the\nrecoil damage of moves such as [CS:M]Take Down[CR].\n[CS:I]IQ Group[CR]: E\n[CS:S]Stats Curve[CR]: Balanced\n[CS:M]Moves[CR]: Tackle/Fake Tears/Copycat\n[CS:M]Egg Move[CR]: Brick Break
+[38340] [CN][CS:K]Mime Jr.[CR][BAR]\n[CS:J]Type[CR]: Psychic/Fairy\n[CS:J]Final Type[CR]: Psychic/Fairy\n[CS:H]Abilities[CR]:\n[CS:E]Soundproof[CR]: Protects the Pokémon from\nthe effects of any sound-based move.\n[CS:E]Solid Guard[CR]: Reduces the damage taken \nfrom super-effective moves.\n[CS:I]IQ Group[CR]: F\n[CS:S]Stats Curve[CR]: Balanced\n[CS:M]Moves[CR]: Tickle/Confusion/Barrier\n[CS:M]Egg Move[CR]: Wake-Up Slap
+
+=== Raw contexts: 'boosts the power' ===
+1]'s [CS:O]Queenly Majesty[CR] suppressed the ranged move!|[CS:O]Sand Force[CR] boosts the power of the move!|[CS:O]Strong Jaws[CR] boosts the power of biting moves!|[CS:O]Sharpness[CR] boosts the power of slashing moves!|[CS:O]Analytic[CR] boosts the power of ranged moves!|[CS:O]Marvel Veil[CR]
+---
+CS:O]Wonder Veil[CR] halves the power of special moves!|[CS:O]Mega Launcher[CR] boosts the power of the move!|[CS:O]Tough Claws[CR] boosts the power of the move!|[string:0] got frostbite!|[string:0] already has frostbite.|The magma's heat prevents [string:0] from getting frostbite!|[string:0]'s 
+---
+sion ongoing on this floor. Do you want to proceed anyway?|[CS:O]Sand Force[CR] boosts the power of the move!|[CS:O]Sound Waves[CR] boosts the power of the move!|[CS:O]Cursed Body[CR] sealed a move!|[CS:O]Defiant[CR] activated!|[CS:O]Competitive[CR] activated!|[CS:O]Perish Body[CR] laid a curse!
+---
+now|Clear|The weather is clear, warm, and pleasant.|Sunny|The sun blazes, which boosts the power of Fire-type moves and weakens Water-type moves.|Sandstorm|A sandstorm rages, which inflicts damage on all Pokémon except for Ground-type, Rock-type, and Steel-type Pokémon. It also boosts the [CS:E]
+---
+formation"[CS:E][BAR][CR] Gives the user a [LS:13632]Charging[LE] status, which boosts the power of any Electric-type move used on the next turn. It also boosts the user's [CS:E]Special Defense[CR] by 1 level.  Select detail:[CLUM_SET:70][M:B4] or [M:B5]/View detail: [M:B2] Detailed Information:
+---
+obe, it holds the power to pass through space and time itself. A held item that boosts the power of the Pokémon's moves. The effect is a significant increase in the power of moves used.   This is one of the eight [CS:G]Ultimate Items[CR]!|A held item that prevents any thrown item from hitting th
+---
+with power and allows [CS:K]Dialga[CR] to change form when it holds it. It also boosts the power of [CS:K]Dialga[CR]'s Dragon- and Steel-type moves when equipped.|An item to be held by [CS:K]Palkia[CR]. This large glowing orb wells with power and allows [CS:K]Palkia[CR] to change form when it ho
+---
+lds it. It also boosts the power of [CS:K]Palkia[CR]'s Dragon- and Water-type moves when equipped.|An item to be held by [CS:K]Giratina[CR]. This large glowing gem wells with power and allows [CS:K]Giratina[CR] to change form when i
+---
+t holds it. It also boosts the power of [CS:K]Giratina[CR]'s Dragon- and Ghost-type moves when equipped.|$$$|Hurl to attack enemy.|Hurl to attack enemy.|Hurl to attack enemy.|Hurl to attack enemy.|Hurl to attack enemy.|Hurl to attack en
+---
+]Healthy Body[CR]: Protects the Pokémon from stat reduction.|[CS:E]Torrent[CR]: Boosts the power of the Pokémon's Water-type moves when its [CS:E]HP[CR] is low.|[CS:E]Guts[CR]: Boosts the Pokémon's Attack when it has any status problems.|[CS:E]Rough Skin[CR]: Inflicts damage on an attacker who l
+---
+hronize[CR]: Shares status problems with any foes in reach.|[CS:E]Overgrow[CR]: Boosts the power of the Pokémon's Grass-type moves when its [CS:E]HP[CR] is low.|[CS:E]Swift Swim[CR]: Raises the number of moves the Pokémon attempts per turn when it is raining.|[CS:E]Sand Stream[CR]: Changes the w
+---
+eezing.|[CS:E]Water Veil[CR]: Protects the Pokémon from burns.|[CS:E]Swarm[CR]: Boosts the power of the Pokémon's Bug-type moves when its [CS:E]HP[CR] is low.|[CS:E]Cute Charm[CR]: Makes an attacker of the opposite gender who lands a direct attack infatuated.|[CS:E]Immunity[CR]: Protects the Pok
+---
+émon from becoming poisoned or badly poisoned.|[CS:E]Blaze[CR]: Boosts the power of the Pokémon's Fire-type moves when its [CS:E]HP[CR] is low.|[CS:E]Pickup[CR]: Enables the Pokémon to find items occasionally when it is not holding anything.|[CS:E]Flash Fire[CR]: Lets Pokémon avo
+---
+of moves the Pokémon attempts per turn when it is sunny.|[CS:E]Strong Jaws[CR]: Boosts the power the Pokémon uses for biting moves.|[CS:E]Shield Dust[CR]: Blocks the added effects from any moves that hit the Pokémon.|[CS:E]Ice Body[CR]: Promotes natural [CS:E]HP[CR] recovery when it is hailing.|
+---
+okémon's evasiveness when it is confused or cross-eyed.|[CS:E]Adaptability[CR]: Boosts the power of the Pokémon's moves that match its type.|[CS:E]Technician[CR]: Boosts the damage the Pokémon inflicts with moves that have low attack power.|[CS:E]Iron Fist[CR]: Boosts the power the Pokémon uses 
+---
+ moves into Normal-type and deals more damage with it.|[CS:E]Blade Mastery[CR]: Boosts the power the Pokémon uses for slashing moves.|[CS:E]Quick Feet[CR]: Boosts the Pokémon's Movement Speed when it has any status problems.|[CS:E]Solid Guard[CR]: Reduces the damage that the Pokémon suffers from
+---
+ Protects the Pokémon from stat reduction inflicted by foes.|[CS:E]Torrent[CR]: Boosts the power of the Pokémon's Water-type moves when in a pinch.|[CS:E]Guts[CR]: Boosts the Pokémon's Attack when it has any status problems.|[CS:E]Rough Skin[CR]: Inflicts damage on an attacker who lands a direct
+---
+hronize[CR]: Shares status problems with any foes in reach.|[CS:E]Overgrow[CR]: Boosts the power of the Pokémon's Grass-type moves when in a pinch.|[CS:E]Swift Swim[CR]: Raises the number of moves the Pokémon attempts per turn when it is raining.|[CS:E]Sand Stream[CR]: Changes the weather to a s
+---
+stbite.|[CS:E]Water Veil[CR]: Protects the Pokémon from burns.|[CS:E]Swarm[CR]: Boosts the power of the Pokémon's Bug-type moves moves when in a pinch.|[CS:E]Cute Charm[CR]: Makes an attacker of the opposite gender who lands a direct attack infatuated.|[CS:E]Immunity[CR]: Protects the Pokémon fr
+---
+om becoming poisoned or badly poisoned.|[CS:E]Blaze[CR]: Boosts the power of the Pokémon's Fire-type moves moves when in a pinch.|[CS:E]Pickup[CR]: Enables the Pokémon to find items occasionally when it is not holding anything.|[CS:E]Flash Fire[CR]: Lets Pokémon avoid dama
+---
+of moves the Pokémon attempts per turn when it is sunny.|[CS:E]Strong Jaws[CR]: Boosts the power the Pokémon uses for biting moves like [CS:M]Crunch[CR].|[CS:E]Shield Dust[CR]: Blocks the added effects from any moves that hit the Pokémon.|[CS:E]Ice Body[CR]: Frostbites an attacker who lands a di
+---
+okémon's evasiveness when it is confused or cross-eyed.|[CS:E]Adaptability[CR]: Boosts the power of the Pokémon's moves that match its type.|[CS:E]Technician[CR]: Boosts the damage the Pokémon inflicts with moves with a power of [M:S3][M:S3] or lower.|[CS:E]Iron Fist[CR]: Boosts the power the Po
+---
+émon moves into Normal-type and deals more damage with it.|[CS:E]Sharpness[CR]: Boosts the power the Pokémon uses for slashing moves like [CS:M]Leaf Blade[CR].|[CS:E]Quick Feet[CR]: Boosts the Pokémon's Movement Speed when it has any status problems.|[CS:E]Solid Guard[CR]: Reduces the damage tha
+---
+id damage of Grass-type attacks, then boosts its Attack.|[CS:E]Sheer Force[CR]: Boosts the power of attacks with added effects, but removes the added effects.|[CS:E]Unnerve[CR]: Prevents nearby enemy Pokémon from eating Seeds, Berries, or Health Drinks.|[CS:E]Friend Guard[CR]: Nearby allies take
+---
+ Fire [CS:J]Final Type[CR]: Fire/Fighting [CS:H]Abilities[CR]: [CS:E]Blaze[CR]: Boosts the power of the Pokémon's Fire-type moves moves when in a pinch. [CS:E]Limber[CR]: Prevents the Pokémon from being paralyzed. [CS:I]IQ Group[CR]: C [CS:S]Stats Curve[CR]: Offensive [CS:M]Moves[CR]: Ember/Grow
+---
+ass [CS:J]Final Type[CR]: Grass/Dragon [CS:H]Abilities[CR]: [CS:E]Overgrow[CR]: Boosts the power of the Pokémon's Grass-type moves when in a pinch. [CS:E]Steadfast[CR]: Boosts the Pokémon's Movement Speed when it is cross-eyed or cringing. [CS:I]IQ Group[CR]: D [CS:S]Stats Curve[CR]: Offensive [
+---
+]: Fire [CS:J]Final Type[CR]: Fire/Dragon [CS:H]Abilities[CR]: [CS:E]Blaze[CR]: Boosts the power of the Pokémon's Fire-type moves moves when in a pinch. [CS:E]Solar Power[CR]: Boosts Special Attack in sunny weather, though the Pokémon also loses [CS:E]HP[CR]. [CS:I]IQ Group[CR]: C [CS:S]Stats Cu
+---
+son [CS:J]Final Type[CR]: Grass/Poison [CS:H]Abilities[CR]: [CS:E]Overgrow[CR]: Boosts the power of the Pokémon's Grass-type moves when in a pinch. [CS:E]Chlorophyll[CR]: Raises the number of moves the Pokémon attempts per turn when it is sunny. [CS:I]IQ Group[CR]: F [CS:S]Stats Curve[CR]: Balan
+---
+[CR]: Water [CS:J]Final Type[CR]: Water [CS:H]Abilities[CR]: [CS:E]Torrent[CR]: Boosts the power of the Pokémon's Water-type moves when in a pinch. [CS:E]Strong Jaws[CR]: Boosts the power the Pokémon uses for biting moves like [CS:M]Crunch[CR]. [CS:I]IQ Group[CR]: F [CS:S]Stats Curve[CR]: Physic
+---
+age with regular attack if the foe has effective moves. [CS:E]Adaptability[CR]: Boosts the power of the Pokémon's moves that match its type. [CS:I]IQ Group[CR]: F [CS:S]Stats Curve[CR]: Balanced [CS:M]Moves[CR]: Tackle/Helping Hand/Tail Whip [CS:M]Egg Move[CR]: Flail|[CN][CS:K]Piplup[CR][BAR] [C
+---
+Water [CS:J]Final Type[CR]: Water/Steel [CS:H]Abilities[CR]: [CS:E]Torrent[CR]: Boosts the power of the Pokémon's Water-type moves when in a pinch. [CS:E]Vital Spirit[CR]: Protects the Pokémon from being made to sleep. [CS:I]IQ Group[CR]: F [CS:S]Stats Curve[CR]: Special [CS:M]Moves[CR]: Bubble/
+---
+ Fire [CS:J]Final Type[CR]: Fire/Fighting [CS:H]Abilities[CR]: [CS:E]Blaze[CR]: Boosts the power of the Pokémon's Fire-type moves moves when in a pinch. [CS:E]Iron Fist[CR]: Boosts the power the Pokémon uses for punching moves like [CS:M]Fire Punch[CR]. [CS:I]IQ Group[CR]: C [CS:S]Stats Curve[CR
+---
+: Fire [CS:J]Final Type[CR]: Fire/Ground  [CS:H]Abilities[CR]: [CS:E]Blaze[CR]: Boosts the power of the Pokémon's Fire-type moves moves when in a pinch. [CS:E]Healthy Body[CR]: Protects the Pokémon from stat reduction inflicted by foes. [CS:I]IQ Group[CR]: C [CS:S]Stats Curve[CR]: Offensive [CS:
+---
+ass [CS:J]Final Type[CR]: Grass/Ground [CS:H]Abilities[CR]: [CS:E]Overgrow[CR]: Boosts the power of the Pokémon's Grass-type moves when in a pinch. [CS:E]Battle Armor[CR]: Blocks critical hits on the Pokémon. [CS:I]IQ Group[CR]: E [CS:S]Stats Curve[CR]: Defensive [CS:M]Moves[CR]: Absorb/Tackle/W
+---
+rass [CS:J]Final Type[CR]: Grass/Fairy [CS:H]Abilities[CR]: [CS:E]Overgrow[CR]: Boosts the power of the Pokémon's Grass-type moves when in a pinch. [CS:E]Leaf Guard[CR]: Protects the Pokémon from status problems in sunny weather. [CS:I]IQ Group[CR]: H [CS:S]Stats Curve[CR]: Defensive [CS:M]Moves
+---
+ater [CS:J]Final Type[CR]: Water/Ground [CS:H]Abilities[CR]: [CS:E]Torrent[CR]: Boosts the power of the Pokémon's Water-type moves when in a pinch. [CS:E]Damp[CR]: Prevents explosions on the dungeon floor. [CS:I]IQ Group[CR]: F [CS:S]Stats Curve[CR]: Balanced [CS:M]Moves[CR]: Water Gun/Tackle/Gr
+---
+[CR]: Water [CS:J]Final Type[CR]: Water [CS:H]Abilities[CR]: [CS:E]Torrent[CR]: Boosts the power of the Pokémon's Water-type moves when in a pinch. [CS:E]Rain Dish[CR]: Boosts the Pokémon's natural [CS:E]HP[CR] healing when it is raining. [CS:I]IQ Group[CR]: E [CS:S]Stats Curve[CR]: Defensive [C
+---
+ug/Flying [CS:J]Final Type[CR]: Bug/Steel [CS:H]Abilities[CR]: [CS:E]Swarm[CR]: Boosts the power of the Pokémon's Bug-type moves moves when in a pinch. [CS:E]Technician[CR]: Boosts the damage the Pokémon inflicts with moves with [M:S3][M:S3]-power or less. [CS:I]IQ Group[CR]: D [CS:S]Stats Curve
+---
+Flying [CS:J]Final Type[CR]: Bug/Fighting [CS:H]Abilities[CR]: [CS:E]Swarm[CR]: Boosts the power of the Pokémon's Bug-type moves moves when in a pinch. [CS:E]Early Bird[CR]: Helps the Pokémon awaken more quickly from sleep. [CS:I]IQ Group[CR]: F [CS:S]Stats Curve[CR]: Balanced [CS:M]Moves[CR]: B
+---
+
+=== Raw contexts: power of ===
+the ranged move!|[CS:O]Sand Force[CR] boosts the power of the
+---
+move!|[CS:O]Strong Jaws[CR] boosts the power of biting
+---
+moves!|[CS:O]Sharpness[CR] boosts the power of slashing
+---
+moves!|[CS:O]Analytic[CR] boosts the power of ranged
+---
+moves!|[CS:O]Marvel Veil[CR] halves the power of physical
+---
+moves!|[CS:O]Wonder Veil[CR] halves the power of special
+---
+moves!|[CS:O]Mega Launcher[CR] boosts the power of the
+---
+move!|[CS:O]Tough Claws[CR] boosts the power of the
+---
+you want to proceed anyway?|[CS:O]Sand Force[CR] boosts the power of the
+---
+move!|[CS:O]Sound Waves[CR] boosts the power of the
+---
+The power of Water-type moves is boosted,
+---
+the power of Water-type moves and
+---
+power of my [move:1]!| Bah! I hardly see those
+---
+the power of moves that the Pokémon
+---
+uses, as well as the power of moves
+---
+boosts the power of any Electric-type
+---
+the power of the moves [LS:10391]Spit Up[LE]
+---
+The power of the move is so huge that
+---
+power of all Fire-type moves.
+---
+The power of the move is so huge that
+---
+power of moves used.
+---
+The power of the move is so huge that
+---
+The power of the move is so huge that
+---
+It also boosts the power of [CS:K]Dialga[CR]'s
+---
+It also boosts the power of [CS:K]Palkia[CR]'s
+---
+It also boosts the power of [CS:K]Giratina[CR]'s
+---
+ Attack.|Boosts Special Defense.|Boosts evasiveness.|Boosts power of moves.|Evades thrown items.|Bounces thrown items back.|Makes thrown items curve.|Zeroes throwing accuracy.|Makes throws go wild.|Boosts throwing accuracy.|Boost
+---
+Attack power of attackers.|[CS:E]Rock Head[CR]: Protects the Pokémon
+---
+Pokémon from burns.|[CS:E]Swarm[CR]: Boosts the power of the
+---
+poisoned.|[CS:E]Blaze[CR]: Boosts the power of the
+---
+Attack power of attackers.|[CS:E]Rock Head[CR]: Protects the Pokémon
+---
+Pokémon from burns.|[CS:E]Swarm[CR]: Boosts the power of the
+---
+poisoned.|[CS:E]Blaze[CR]: Boosts the power of the
+---
+with a power of [M:S3][M:S3] or lower.|[CS:E]Iron Fist[CR]: Boosts the power the
+---
+[CS:E]Blaze[CR]: Boosts the power of the Pokémon's
+---
+[CS:E]Overgrow[CR]: Boosts the power of the Pokémon's
+---
+[CS:E]Blaze[CR]: Boosts the power of the Pokémon's
+---
+[CS:E]Overgrow[CR]: Boosts the power of the Pokémon's
+---
+[CS:E]Torrent[CR]: Boosts the power of the Pokémon's
+---
+[CS:E]Adaptability[CR]: Boosts the power of the
+---
+[CS:E]Torrent[CR]: Boosts the power of the Pokémon's
+---
+[CS:E]Blaze[CR]: Boosts the power of the Pokémon's
+---
+[CS:E]Blaze[CR]: Boosts the power of the Pokémon's
+---
+[CS:E]Overgrow[CR]: Boosts the power of the Pokémon's
+---
+power of attackers.
+---
+[CS:E]Overgrow[CR]: Boosts the power of the Pokémon's
+---
+[CS:E]Torrent[CR]: Boosts the power of the Pokémon's
+---
+[CS:E]Torrent[CR]: Boosts the power of the Pokémon's
+---
+power of attackers.
+---
+power of attackers.
+---
+[CS:E]Swarm[CR]: Boosts the power of the Pokémon's
+---
+[CS:E]Swarm[CR]: Boosts the power of the Pokémon's
+---
+power of attackers.
+---

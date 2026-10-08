@@ -1,0 +1,545 @@
+id: status_adjust
+version: 26
+region: US
+description: >
+  Protect / Detect share Protect status. Inflict writes counter byte 1 (v23; was 2).
+  TickStatusAndHealthRegen decrements [monster+0xD6] at the start of the holder's
+  own turn and ends the status at 0, so 1 lasts the rest of this round only.
+  Endure also writes counter byte 1 (v24; was 2). Replaces random CalcStatusDuration+1.
+  v25: Counter (reflect status 4) and Mirror Coat (8) also write counter byte 1.
+  Counter shares its inflict path with Mini Counter and Metal Burst, so those
+  get the same 1-round duration.
+  Spite (DoMoveSpite) and Grudge (ExecuteMonsterAction, [monster+0x155] flag):
+  last-used move PP is halved (rounded down) instead of set to 0.
+  v21/v26: Reflect (physical) and Light Screen (special) multiply damage by 1/3
+  instead of the shared Alpha factor (~79.7%). v26 retargets Alpha's status beq
+  past the ov36 exclusive trampoline so the 1/3 mul always runs. Brick Break and
+  exclusive bypass 0x44 are unchanged. Duration is unchanged.
+  v22: dungeon stat stages (Atk, Sp. Atk, Def, Sp. Def, accuracy, evasion) move at most
+  6 steps from neutral each way: stage 4..16 around 10, instead of 0..20. The six
+  Boost/Lower functions clamp there, the raise-to-max effect stops at 16, and the AI
+  redundancy checks (StatusCheckerCheck / OnTarget) and random stat pick use the same limits.
+
+kind: asm
+rom_profile: us_vanilla
+
+hooks:
+  - name: CounterStatusDurationAddSite
+    symbol: CounterStatusDurationAddSite
+    binary: ov29
+    vanilla_word: 0xE2800001
+    chain: first
+    target_symbol: StatusAdjust_CounterForceDuration
+
+  - name: ProtectStatusDurationAddSite
+    symbol: ProtectStatusDurationAddSite
+    binary: ov29
+    vanilla_word: 0xE2803001
+    chain: first
+    target_symbol: StatusAdjust_ProtectForceDuration
+
+  - name: MirrorCoatStatusDurationAddSite
+    symbol: MirrorCoatStatusDurationAddSite
+    binary: ov29
+    vanilla_word: 0xE2801001
+    chain: first
+    target_symbol: StatusAdjust_MirrorCoatForceDuration
+
+  - name: EndureStatusDurationAddSite
+    symbol: EndureStatusDurationAddSite
+    binary: ov29
+    vanilla_word: 0xE2801001
+    chain: first
+    target_symbol: StatusAdjust_EndureForceDuration
+
+  - name: SpitePpZeroSite
+    symbol: SpitePpZeroSite
+    binary: ov29
+    vanilla_word: 0x15C81006
+    chain: first
+    target_symbol: StatusAdjust_SpitePpReduce
+
+  - name: GrudgePpZeroSite
+    symbol: GrudgePpZeroSite
+    binary: ov29
+    vanilla_word: 0x15CE1006
+    chain: first
+    target_symbol: StatusAdjust_GrudgePpReduce
+
+  - name: ReflectStatusBranch
+    symbol: ReflectStatusBranch
+    binary: ov29
+    vanilla_word: 0x0A0289A2
+    chain: first
+    target_symbol: ReflectDamageMulEntry
+
+  - name: ReflectDamageMulLoad
+    symbol: ReflectDamageMulLoad
+    binary: ov29
+    vanilla_word: 0xE59F2380
+    chain: first
+    target_symbol: StatusAdjust_ScreenThird
+
+  - name: LightScreenStatusBranch
+    symbol: LightScreenStatusBranch
+    binary: ov29
+    vanilla_word: 0x0A02899E
+    chain: first
+    target_symbol: LightScreenDamageMulEntry
+
+  - name: LightScreenDamageMulLoad
+    symbol: LightScreenDamageMulLoad
+    binary: ov29
+    vanilla_word: 0xE59F2334
+    chain: first
+    target_symbol: StatusAdjust_ScreenThird
+
+  # Stat stage limits 10 +- 6. Floor/Ceil keep r0 = current stage, r4 = new stage.
+  - name: StatStageLowerOffensiveFloor
+    symbol: StatStageLowerOffensiveFloor
+    binary: ov29
+    vanilla_word: 0x43A04000
+    chain: first
+    target_symbol: StatusAdjust_StageFloor
+
+  - name: StatStageLowerDefensiveFloor
+    symbol: StatStageLowerDefensiveFloor
+    binary: ov29
+    vanilla_word: 0x43A04000
+    chain: first
+    target_symbol: StatusAdjust_StageFloor
+
+  - name: StatStageBoostOffensiveCeil
+    symbol: StatStageBoostOffensiveCeil
+    binary: ov29
+    vanilla_word: 0xE3540014
+    chain: first
+    target_symbol: StatusAdjust_StageCeil
+
+  - name: StatStageBoostOffensiveCeilNop
+    symbol: StatStageBoostOffensiveCeilNop
+    binary: ov29
+    vanilla_word: 0xA3A04014
+    patched_word: 0xE1A00000
+    chain: first
+
+  - name: StatStageBoostDefensiveCeil
+    symbol: StatStageBoostDefensiveCeil
+    binary: ov29
+    vanilla_word: 0xE3540014
+    chain: first
+    target_symbol: StatusAdjust_StageCeil
+
+  - name: StatStageBoostDefensiveCeilNop
+    symbol: StatStageBoostDefensiveCeilNop
+    binary: ov29
+    vanilla_word: 0xA3A04014
+    patched_word: 0xE1A00000
+    chain: first
+
+  # Immediate edits (patched_word assumes STAT_STAGE_MIN 4, STAT_STAGE_MAX 16).
+  - name: StatStageBoostHitChanceMaxCheck
+    symbol: StatStageBoostHitChanceMaxCheck
+    binary: ov29
+    vanilla_word: 0xE3500014
+    patched_word: 0xE3500010
+    chain: first
+
+  - name: StatStageBoostHitChanceClampCmp
+    symbol: StatStageBoostHitChanceClampCmp
+    binary: ov29
+    vanilla_word: 0xE3500014
+    patched_word: 0xE3500010
+    chain: first
+
+  - name: StatStageBoostHitChanceClampMov
+    symbol: StatStageBoostHitChanceClampMov
+    binary: ov29
+    vanilla_word: 0xC3A00014
+    patched_word: 0xC3A00010
+    chain: first
+
+  - name: StatStageLowerHitChanceMinCheck
+    symbol: StatStageLowerHitChanceMinCheck
+    binary: ov29
+    vanilla_word: 0xE3500000
+    patched_word: 0xE3500004
+    chain: first
+
+  - name: StatStageLowerHitChanceClampCmp
+    symbol: StatStageLowerHitChanceClampCmp
+    binary: ov29
+    vanilla_word: 0xE3500000
+    patched_word: 0xE3500004
+    chain: first
+
+  - name: StatStageLowerHitChanceClampMov
+    symbol: StatStageLowerHitChanceClampMov
+    binary: ov29
+    vanilla_word: 0xB3A00000
+    patched_word: 0xB3A00004
+    chain: first
+
+  - name: StatStageMaxOffensiveAtk
+    symbol: StatStageMaxOffensiveAtk
+    binary: ov29
+    vanilla_word: 0xE2633014
+    patched_word: 0xE2633010
+    chain: first
+
+  - name: StatStageMaxOffensiveSpa
+    symbol: StatStageMaxOffensiveSpa
+    binary: ov29
+    vanilla_word: 0xE2633014
+    patched_word: 0xE2633010
+    chain: first
+
+  - name: StatStageAiSpAtkWeight
+    symbol: StatStageAiSpAtkWeight
+    binary: ov29
+    vanilla_word: 0xE3500014
+    patched_word: 0xE3500010
+    chain: first
+
+  - name: StatStageRandomPick1
+    symbol: StatStageRandomPick1
+    binary: ov29
+    vanilla_word: 0xE3510014
+    patched_word: 0xE3510010
+    chain: first
+
+  - name: StatStageRandomPick2
+    symbol: StatStageRandomPick2
+    binary: ov29
+    vanilla_word: 0xE3510014
+    patched_word: 0xE3510010
+    chain: first
+
+  - name: StatStageRandomPick3
+    symbol: StatStageRandomPick3
+    binary: ov29
+    vanilla_word: 0xE3510014
+    patched_word: 0xE3510010
+    chain: first
+
+  - name: StatStageRandomPick4
+    symbol: StatStageRandomPick4
+    binary: ov29
+    vanilla_word: 0xE3510014
+    patched_word: 0xE3510010
+    chain: first
+
+  - name: StatStageCheckSelf01
+    symbol: StatStageCheckSelf01
+    binary: ov29
+    vanilla_word: 0xE3500013
+    patched_word: 0xE350000F
+    chain: first
+
+  - name: StatStageCheckSelf02
+    symbol: StatStageCheckSelf02
+    binary: ov29
+    vanilla_word: 0xE3500013
+    patched_word: 0xE350000F
+    chain: first
+
+  - name: StatStageCheckSelf03
+    symbol: StatStageCheckSelf03
+    binary: ov29
+    vanilla_word: 0xE3500013
+    patched_word: 0xE350000F
+    chain: first
+
+  - name: StatStageCheckSelf04
+    symbol: StatStageCheckSelf04
+    binary: ov29
+    vanilla_word: 0xE3500013
+    patched_word: 0xE350000F
+    chain: first
+
+  - name: StatStageCheckSelf05
+    symbol: StatStageCheckSelf05
+    binary: ov29
+    vanilla_word: 0xE3500013
+    patched_word: 0xE350000F
+    chain: first
+
+  - name: StatStageCheckSelf06
+    symbol: StatStageCheckSelf06
+    binary: ov29
+    vanilla_word: 0xC3500013
+    patched_word: 0xC350000F
+    chain: first
+
+  - name: StatStageCheckSelf07
+    symbol: StatStageCheckSelf07
+    binary: ov29
+    vanilla_word: 0xE3500013
+    patched_word: 0xE350000F
+    chain: first
+
+  - name: StatStageCheckSelf08
+    symbol: StatStageCheckSelf08
+    binary: ov29
+    vanilla_word: 0xE3500013
+    patched_word: 0xE350000F
+    chain: first
+
+  - name: StatStageCheckSelf09
+    symbol: StatStageCheckSelf09
+    binary: ov29
+    vanilla_word: 0xC3500013
+    patched_word: 0xC350000F
+    chain: first
+
+  - name: StatStageCheckSelf10
+    symbol: StatStageCheckSelf10
+    binary: ov29
+    vanilla_word: 0xE3500013
+    patched_word: 0xE350000F
+    chain: first
+
+  - name: StatStageCheckSelf11
+    symbol: StatStageCheckSelf11
+    binary: ov29
+    vanilla_word: 0xE3500013
+    patched_word: 0xE350000F
+    chain: first
+
+  - name: StatStageCheckSelf12
+    symbol: StatStageCheckSelf12
+    binary: ov29
+    vanilla_word: 0xE3500014
+    patched_word: 0xE3500010
+    chain: first
+
+  - name: StatStageCheckSelf13
+    symbol: StatStageCheckSelf13
+    binary: ov29
+    vanilla_word: 0xE3500014
+    patched_word: 0xE3500010
+    chain: first
+
+  - name: StatStageCheckSelf14
+    symbol: StatStageCheckSelf14
+    binary: ov29
+    vanilla_word: 0xE3500014
+    patched_word: 0xE3500010
+    chain: first
+
+  - name: StatStageCheckSelf15
+    symbol: StatStageCheckSelf15
+    binary: ov29
+    vanilla_word: 0xE3500014
+    patched_word: 0xE3500010
+    chain: first
+
+  - name: StatStageCheckSelf16
+    symbol: StatStageCheckSelf16
+    binary: ov29
+    vanilla_word: 0xA3500014
+    patched_word: 0xA3500010
+    chain: first
+
+  - name: StatStageCheckSelf17
+    symbol: StatStageCheckSelf17
+    binary: ov29
+    vanilla_word: 0xE3500014
+    patched_word: 0xE3500010
+    chain: first
+
+  - name: StatStageCheckSelf18
+    symbol: StatStageCheckSelf18
+    binary: ov29
+    vanilla_word: 0xB3500014
+    patched_word: 0xB3500010
+    chain: first
+
+  - name: StatStageCheckSelf19
+    symbol: StatStageCheckSelf19
+    binary: ov29
+    vanilla_word: 0xE3500014
+    patched_word: 0xE3500010
+    chain: first
+
+  - name: StatStageCheckSelf20
+    symbol: StatStageCheckSelf20
+    binary: ov29
+    vanilla_word: 0xB3500014
+    patched_word: 0xB3500010
+    chain: first
+
+  - name: StatStageCheckSelf21
+    symbol: StatStageCheckSelf21
+    binary: ov29
+    vanilla_word: 0xE3500014
+    patched_word: 0xE3500010
+    chain: first
+
+  - name: StatStageCheckSelf22
+    symbol: StatStageCheckSelf22
+    binary: ov29
+    vanilla_word: 0xA3500014
+    patched_word: 0xA3500010
+    chain: first
+
+  - name: StatStageCheckSelf23
+    symbol: StatStageCheckSelf23
+    binary: ov29
+    vanilla_word: 0xA3500014
+    patched_word: 0xA3500010
+    chain: first
+
+  - name: StatStageCheckSelf24
+    symbol: StatStageCheckSelf24
+    binary: ov29
+    vanilla_word: 0xA3500014
+    patched_word: 0xA3500010
+    chain: first
+
+  - name: StatStageCheckSelf25
+    symbol: StatStageCheckSelf25
+    binary: ov29
+    vanilla_word: 0xE3500014
+    patched_word: 0xE3500010
+    chain: first
+
+  - name: StatStageCheckSelf26
+    symbol: StatStageCheckSelf26
+    binary: ov29
+    vanilla_word: 0xA3500014
+    patched_word: 0xA3500010
+    chain: first
+
+  - name: StatStageCheckSelf27
+    symbol: StatStageCheckSelf27
+    binary: ov29
+    vanilla_word: 0xA3500014
+    patched_word: 0xA3500010
+    chain: first
+
+  - name: StatStageCheckSelf28
+    symbol: StatStageCheckSelf28
+    binary: ov29
+    vanilla_word: 0xA3500014
+    patched_word: 0xA3500010
+    chain: first
+
+  - name: StatStageCheckSelf29
+    symbol: StatStageCheckSelf29
+    binary: ov29
+    vanilla_word: 0xE3500014
+    patched_word: 0xE3500010
+    chain: first
+
+  - name: StatStageCheckSelf30
+    symbol: StatStageCheckSelf30
+    binary: ov29
+    vanilla_word: 0xE3500014
+    patched_word: 0xE3500010
+    chain: first
+
+  - name: StatStageCheckTarget01
+    symbol: StatStageCheckTarget01
+    binary: ov29
+    vanilla_word: 0xE3500013
+    patched_word: 0xE350000F
+    chain: first
+
+  - name: StatStageCheckTarget02
+    symbol: StatStageCheckTarget02
+    binary: ov29
+    vanilla_word: 0xC3500013
+    patched_word: 0xC350000F
+    chain: first
+
+  - name: StatStageCheckTarget03
+    symbol: StatStageCheckTarget03
+    binary: ov29
+    vanilla_word: 0xE3500014
+    patched_word: 0xE3500010
+    chain: first
+
+  - name: StatStageCheckTarget04
+    symbol: StatStageCheckTarget04
+    binary: ov29
+    vanilla_word: 0xA3500014
+    patched_word: 0xA3500010
+    chain: first
+
+  - name: StatStageCheckTarget05
+    symbol: StatStageCheckTarget05
+    binary: ov29
+    vanilla_word: 0xE3500001
+    patched_word: 0xE3500005
+    chain: first
+
+  - name: StatStageCheckTarget06
+    symbol: StatStageCheckTarget06
+    binary: ov29
+    vanilla_word: 0xE3500001
+    patched_word: 0xE3500005
+    chain: first
+
+  - name: StatStageCheckTarget07
+    symbol: StatStageCheckTarget07
+    binary: ov29
+    vanilla_word: 0xE3500001
+    patched_word: 0xE3500005
+    chain: first
+
+  - name: StatStageCheckTarget08
+    symbol: StatStageCheckTarget08
+    binary: ov29
+    vanilla_word: 0xE3500001
+    patched_word: 0xE3500005
+    chain: first
+
+  - name: StatStageCheckTarget09
+    symbol: StatStageCheckTarget09
+    binary: ov29
+    vanilla_word: 0xE3500001
+    patched_word: 0xE3500005
+    chain: first
+
+  - name: StatStageCheckTarget10
+    symbol: StatStageCheckTarget10
+    binary: ov29
+    vanilla_word: 0xB3500001
+    patched_word: 0xB3500005
+    chain: first
+
+  - name: StatStageCheckTarget11
+    symbol: StatStageCheckTarget11
+    binary: ov29
+    vanilla_word: 0xE3500001
+    patched_word: 0xE3500005
+    chain: first
+
+  - name: StatStageCheckTarget12
+    symbol: StatStageCheckTarget12
+    binary: ov29
+    vanilla_word: 0xE3500001
+    patched_word: 0xE3500005
+    chain: first
+
+  - name: StatStageCheckTarget13
+    symbol: StatStageCheckTarget13
+    binary: ov29
+    vanilla_word: 0xE3500000
+    patched_word: 0xE3500004
+    chain: first
+
+cave:
+  binary: ov36
+  estimated_bytes: 224
+  alignment: 4
+  base_label: StatusAdjustCodeAddress
+
+asm:
+  entry: asm/main.asm
+
+verify:
+  - type: hooks_are_branch
+  - type: cave_nonempty
+    overlay: ov36

@@ -1,0 +1,88 @@
+﻿========================================================================
+1) ov29 dungeon lifecycle prologues (vanilla vs full_stack)
+========================================================================
+
+RunDungeon @ 0x022def38
+  vanilla: 0xe92d4ff8
+  patched: 0xea00f53a
+  patched branch/bl -> 0x0231c428
+
+RunDungeon+4 (body) @ 0x022def3c
+  vanilla: 0xe24dd0d0
+  patched: 0xe24dd0d0
+
+DungeonFree @ 0x022deab0
+  vanilla: 0xe92d4008
+  patched: 0xe92d4008
+
+AllocTopScreenStatus @ 0x022e7ec4
+  vanilla: 0xe92d4008
+  patched: 0xe92d4008
+
+--- disasm RunDungeon patched ---
+  0x022def38: b        #0x231c428
+  0x022def3c: sub      sp, sp, #0xd0
+  0x022def40: mov      sl, r0
+  0x022def44: ldrb     r5, [sl, #4]
+  0x022def48: mov      r8, #0
+  0x022def4c: mov      sb, r1
+  0x022def50: str      r8, [sp]
+  0x022def54: cmp      r5, #0
+
+--- disasm overlay36_loader stub ---
+  0x0231c3d4: push     {r0, r1, lr}
+  0x0231c3d8: mov      r0, #0x24
+  0x0231c3dc: bl       #0x2003ed0
+  0x0231c3e0: cmp      r0, #0
+  0x0231c3e4: bne      #0x231c3f0
+  0x0231c3e8: mov      r0, #0x24
+  0x0231c3ec: bl       #0x20040ac
+  0x0231c3f0: pop      {r0, r1, lr}
+  0x0231c3f4: bx       lr
+  0x0231c3f8: bl       #0x231c3d4
+  0x0231c3fc: push     {r3, r4, r5, r6, r7, r8, sb, sl, fp, lr}
+  0x0231c400: b        #0x22def3c
+  0x0231c404: push     {r0, r1, lr}
+  0x0231c408: mov      r0, #0x24
+  0x0231c40c: bl       #0x2003ed0
+  0x0231c410: cmp      r0, #0
+  0x0231c414: bne      #0x231c420
+  0x0231c418: mov      r0, #0x24
+  0x0231c41c: bl       #0x20040ac
+  0x0231c420: pop      {r0, r1, lr}
+  0x0231c424: bx       lr
+  0x0231c428: bl       #0x231c404
+  0x0231c42c: push     {r3, r4, r5, r6, r7, r8, sb, sl, fp, lr}
+  0x0231c430: b        #0x22def3c
+  0x0231c434: andeq    r0, r0, r0
+  0x0231c438: andeq    r0, r0, r0
+  0x0231c43c: andeq    r0, r0, r0
+  0x0231c440: andeq    r0, r0, r0
+  0x0231c444: andeq    r0, r0, r0
+  0x0231c448: andeq    r0, r0, r0
+  0x0231c44c: andeq    r0, r0, r0
+  0x0231c450: andeq    r0, r0, r0
+
+========================================================================
+2) LoadOverlay(36) / UnloadOverlay(36) usage in vanilla ov29
+========================================================================
+  ov29 BL LoadOverlay(36): 0 site(s)
+  ov29 BL UnloadOverlay(36): 0 site(s)
+  ov29 BL LoadOverlay(29): 0 site(s)
+  ov29 BL UnloadOverlay(29): 0 site(s)
+
+========================================================================
+python : Traceback (most recent call last):
+위치 C:\Users\82106\AppData\Local\Temp\ps-script-29d9f76a-3d16-4ea6-be07-49508e44d952.ps1:86 문자:1
++ python "c:\Working\SkyTemple\tools\_analyze_dungeon_exit_crash.py" 2> ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (Traceback (most recent call last)::String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+  File "c:\Working\SkyTemple\tools\_analyze_dungeon_exit_crash.py", line 193, in <module>
+    main()
+    ~~~~^^
+  File "c:\Working\SkyTemple\tools\_analyze_dungeon_exit_crash.py", line 122, in main
+    print("3) DungeonFree region \u2014 vanilla vs patched disasm")
+    ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeEncodeError: 'cp949' codec can't encode character '\u2014' in position 22: illegal multibyte sequence

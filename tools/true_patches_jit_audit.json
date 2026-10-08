@@ -1,0 +1,383 @@
+{
+  "rom": "C:\\Working\\SkyTemple\\Export Rom\\Explorers of Alpha_Vanilla+full_stack+korean+jit_compat.nds",
+  "sha256": "ededdf71a1fbd57d838eb3bcd0ad945390fc818b7f415b0add8671b31f2fa5a2",
+  "applied_modules": 26,
+  "code_caves": 25,
+  "roots": 765,
+  "conservatively_reachable_arm_words": 6286,
+  "words_by_module": {
+    "balance_change": 85,
+    "base_stats_speed": 650,
+    "belly_union": 327,
+    "berry_boost": 6,
+    "better_equipment": 713,
+    "better_food": 46,
+    "better_poke": 22,
+    "boost_ribbon": 132,
+    "control_mode_enhance": 498,
+    "damage_formula": 52,
+    "iq_change": 202,
+    "korean": 268,
+    "level_scaling_guest_fix": 71,
+    "no_immediate_house": 55,
+    "orb_charges_v2": 525,
+    "room_charge_pending": 226,
+    "spinda_ev_speed": 547,
+    "status_adjust": 30,
+    "tm_read": 408,
+    "utility_patch": 32,
+    "z_move_v2": 1391
+  },
+  "undecodable_words": [],
+  "special_instructions": [],
+  "pc_relative_unaligned_reads": [],
+  "pc_relative_stores": [],
+  "block_transfer_base_in_list_or_empty": [],
+  "constant_address_writes": [
+    [
+      "base_stats_speed",
+      "0x23ca5bc",
+      "0x23ca7f4",
+      4
+    ],
+    [
+      "belly_union",
+      "0x23cbc20",
+      "0x23cc104",
+      4
+    ],
+    [
+      "belly_union",
+      "0x23cbc28",
+      "0x23cc108",
+      4
+    ],
+    [
+      "belly_union",
+      "0x23cbc58",
+      "0x23cc10c",
+      4
+    ],
+    [
+      "belly_union",
+      "0x23cbc60",
+      "0x23cc110",
+      4
+    ],
+    [
+      "better_equipment",
+      "0x23c727c",
+      "0x23c7518",
+      4
+    ],
+    [
+      "better_equipment",
+      "0x23c7280",
+      "0x23c751c",
+      4
+    ],
+    [
+      "better_equipment",
+      "0x23c728c",
+      "0x23c7514",
+      4
+    ],
+    [
+      "better_equipment",
+      "0x23c7294",
+      "0x23c7520",
+      4
+    ],
+    [
+      "better_equipment",
+      "0x23c7298",
+      "0x23c7524",
+      4
+    ],
+    [
+      "better_equipment",
+      "0x23c729c",
+      "0x23c7528",
+      4
+    ],
+    [
+      "better_equipment",
+      "0x23c72a0",
+      "0x23c752c",
+      4
+    ],
+    [
+      "better_equipment",
+      "0x23c73e8",
+      "0x23c7510",
+      1
+    ],
+    [
+      "control_mode_enhance",
+      "0x23cb1c8",
+      "0x23cafb4",
+      4
+    ],
+    [
+      "control_mode_enhance",
+      "0x23cb220",
+      "0x23cafb0",
+      4
+    ],
+    [
+      "control_mode_enhance",
+      "0x23cb228",
+      "0x23cafb8",
+      4
+    ],
+    [
+      "control_mode_enhance",
+      "0x23cb230",
+      "0x23cafbc",
+      4
+    ],
+    [
+      "control_mode_enhance",
+      "0x23cb268",
+      "0x23cafbc",
+      4
+    ],
+    [
+      "control_mode_enhance",
+      "0x23cb2b0",
+      "0x23cafc0",
+      4
+    ],
+    [
+      "control_mode_enhance",
+      "0x23cb37c",
+      "0x23cafb0",
+      4
+    ],
+    [
+      "control_mode_enhance",
+      "0x23cb380",
+      "0x23cafb4",
+      4
+    ],
+    [
+      "control_mode_enhance",
+      "0x23cb384",
+      "0x23cafb8",
+      4
+    ],
+    [
+      "control_mode_enhance",
+      "0x23cb388",
+      "0x23cafbc",
+      4
+    ],
+    [
+      "control_mode_enhance",
+      "0x23cb38c",
+      "0x23cafc0",
+      4
+    ],
+    [
+      "control_mode_enhance",
+      "0x23cb5d4",
+      "0x235355c",
+      4
+    ],
+    [
+      "control_mode_enhance",
+      "0x23cb5dc",
+      "0x23cafb8",
+      4
+    ],
+    [
+      "orb_charges_v2",
+      "0x23c1cb8",
+      "0x23c1dec",
+      4
+    ],
+    [
+      "orb_charges_v2",
+      "0x23c1e88",
+      "0x23c22f8",
+      1
+    ],
+    [
+      "orb_charges_v2",
+      "0x23c1e98",
+      "0x23c19f8",
+      1
+    ],
+    [
+      "orb_charges_v2",
+      "0x23c221c",
+      "0x23c22f8",
+      1
+    ],
+    [
+      "orb_charges_v2",
+      "0x23c2224",
+      "0x23c19f8",
+      1
+    ],
+    [
+      "spinda_ev_speed",
+      "0x2094718",
+      "0x209515c",
+      1
+    ],
+    [
+      "spinda_ev_speed",
+      "0x209471c",
+      "0x209515d",
+      1
+    ],
+    [
+      "spinda_ev_speed",
+      "0x2094720",
+      "0x209515e",
+      1
+    ],
+    [
+      "spinda_ev_speed",
+      "0x2094724",
+      "0x209515f",
+      1
+    ],
+    [
+      "spinda_ev_speed",
+      "0x2094728",
+      "0x2095160",
+      1
+    ],
+    [
+      "spinda_ev_speed",
+      "0x209472c",
+      "0x2095161",
+      1
+    ],
+    [
+      "spinda_ev_speed",
+      "0x2094760",
+      "0x2095154",
+      4
+    ],
+    [
+      "spinda_ev_speed",
+      "0x20947c8",
+      "0x2095154",
+      4
+    ],
+    [
+      "spinda_ev_speed",
+      "0x2094880",
+      "0x2095158",
+      1
+    ],
+    [
+      "spinda_ev_speed",
+      "0x20948b4",
+      "0x20948c4",
+      1
+    ],
+    [
+      "spinda_ev_speed",
+      "0x2094ff4",
+      "0x20948c4",
+      1
+    ],
+    [
+      "tm_read",
+      "0x23c2dd4",
+      "0x23c2c11",
+      1
+    ],
+    [
+      "tm_read",
+      "0x23c2e30",
+      "0x23c2c11",
+      1
+    ],
+    [
+      "tm_read",
+      "0x23c2fb8",
+      "0x23c2c18",
+      4
+    ],
+    [
+      "tm_read",
+      "0x23c3064",
+      "0x23c2c11",
+      1
+    ],
+    [
+      "tm_read",
+      "0x23c3070",
+      "0x23c2c14",
+      4
+    ],
+    [
+      "tm_read",
+      "0x23c307c",
+      "0x23c2c18",
+      4
+    ],
+    [
+      "tm_read",
+      "0x23c3098",
+      "0x23c2c11",
+      1
+    ],
+    [
+      "tm_read",
+      "0x23c3188",
+      "0x23c2c0c",
+      4
+    ],
+    [
+      "z_move_v2",
+      "0x23c3ac0",
+      "0x23c3719",
+      1
+    ],
+    [
+      "z_move_v2",
+      "0x23c3b8c",
+      "0x23c3719",
+      1
+    ],
+    [
+      "z_move_v2",
+      "0x23c3b98",
+      "0x23c3724",
+      1
+    ],
+    [
+      "z_move_v2",
+      "0x23c3ba4",
+      "0x23c3728",
+      1
+    ],
+    [
+      "z_move_v2",
+      "0x23c3bb0",
+      "0x23c371c",
+      4
+    ],
+    [
+      "z_move_v2",
+      "0x23c3d18",
+      "0x23c3719",
+      1
+    ]
+  ],
+  "static_unaligned_word_reads": [],
+  "constant_write_vs_pc_literal_read_overlap": [],
+  "limitations": [
+    "Branch roots in overlay data can be false positives.",
+    "Indirect calls, heap pointers, runtime-generated item/waza code, IRQ timing and emulator JIT behavior are not fully analyzed.",
+    "A clean static audit does not prove crash-free JIT execution."
+  ],
+  "android_public_2_0_1_library_commit": "654270ec019d7311366c5efc09bb1359e8c6223e",
+  "root_cause_status": "not established; previous Korean-only candidate did not fix the user-reported JIT crashes"
+}

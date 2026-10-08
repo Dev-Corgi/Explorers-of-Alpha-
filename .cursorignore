@@ -1,0 +1,61 @@
+﻿# =============================================================================
+# SkyTemple .cursorignore
+# Generated from scan of unpacked/ (9,246 files) + project-wide patterns.
+# Purpose: keep AI indexing off binaries/build artifacts; keep editable source.
+# =============================================================================
+
+# --- ROM images ---
+*.nds
+*.srl
+
+# --- Compressed archives / resource containers (none found yet; keep for safety) ---
+*.narc
+*.carc
+*.cro
+
+# --- Nintendo DS graphics formats (none found yet; keep for safety) ---
+*.ncgr
+*.nclr
+*.ncer
+*.nsbtx
+
+# --- Build outputs & cache ---
+**/build/
+**/out/
+*.o
+*.elf
+*.map
+
+# --- unpacked/: CPU binaries, overlay code, ROM metadata ---
+unpacked/arm9.bin
+unpacked/arm7.bin
+unpacked/y9.bin
+unpacked/y7.bin
+unpacked/header.bin
+unpacked/banner.bin
+unpacked/overlay/
+
+# --- unpacked/nitrofs/: binary game assets (from extension scan) ---
+# Graphics / map chunks / sprites
+unpacked/nitrofs/**/*.wan
+unpacked/nitrofs/**/*.bpl
+unpacked/nitrofs/**/*.bma
+unpacked/nitrofs/**/*.bpc
+unpacked/nitrofs/**/*.bgp
+unpacked/nitrofs/**/*.wte
+unpacked/nitrofs/**/*.wtu
+unpacked/nitrofs/**/*.wat
+unpacked/nitrofs/**/*.pal
+unpacked/nitrofs/**/*.chr
+unpacked/nitrofs/**/*.w16
+unpacked/nitrofs/**/*.kao
+# Sound
+unpacked/nitrofs/**/*.swd
+unpacked/nitrofs/**/*.wba
+unpacked/nitrofs/**/*.str
+# Generic binary data tables inside NitroFS
+unpacked/nitrofs/**/*.bin
+#for archieve, just don't touch
+don't touch here (legacy)/*
+.venv/*
+Vanilla Rom/*

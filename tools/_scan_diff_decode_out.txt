@@ -1,0 +1,119 @@
+=== arm9: mov r0,#imm; bl sites (imm 55-59 or bl PERF) ===
+  0x0200ED98  imm=2 -> PERF
+  0x02016598  imm=59 -> 0x020156AC
+  0x020167C8  imm=59 -> 0x020156AC
+  0x02024CB8  imm=1 -> PERF
+  0x0203D6A4  imm=30 -> PERF
+  0x0203D6F0  imm=29 -> PERF
+  0x0203D750  imm=31 -> PERF
+  0x02042168  imm=3 -> PERF
+  0x0204E648  imm=4 -> PERF
+  0x0204E9FC  imm=1 -> PERF
+  0x0204EAC4  imm=7 -> PERF
+  0x0204EAD0  imm=5 -> PERF
+  0x0204EADC  imm=6 -> PERF
+  0x0204EAE8  imm=1 -> PERF
+  0x0204EC10  imm=25 -> PERF
+  0x0204F968  imm=27 -> PERF
+  0x0204F988  imm=28 -> PERF
+  0x02050B1C  imm=1 -> PERF
+  0x02050BC4  imm=22 -> PERF
+  0x02050CAC  imm=22 -> PERF
+  0x02050D34  imm=1 -> PERF
+  0x02058D4C  imm=3 -> PERF
+  0x02059DF8  imm=55 -> 0x0200D278
+  0x02059E24  imm=56 -> 0x0200D278
+  0x0205A254  imm=10 -> PERF
+  0x0205E5F4  imm=3 -> PERF
+  0x0206003C  imm=9 -> PERF
+  0x02062624  imm=6 -> PERF
+  0x0206266C  imm=9 -> PERF
+  0x02062AEC  imm=9 -> PERF
+  0x02062C08  imm=9 -> PERF
+  0x02067D2C  imm=22 -> PERF
+  0x02068080  imm=22 -> PERF
+  0x020681A4  imm=22 -> PERF
+=== ov29: mov r0,#imm; bl sites (imm 55-59 or bl PERF) ===
+  0x022E964C  imm=56 -> 0x022EAA98
+  0x0230217C  imm=3 -> PERF
+  0x0231F2E0  imm=59 -> 0x022E9FE0
+  0x0231F340  imm=59 -> 0x022E9FE0
+  0x0233A9E8  imm=56 -> 0x0208FEA4
+  0x0233C594  imm=56 -> 0x0208FEA4
+  0x02343430  imm=23 -> PERF
+  0x02344C88  imm=56 -> 0x022EAA98
+  0x0234D150  imm=26 -> PERF
+  0x0234F810  imm=29 -> PERF
+=== ov36: mov r0,#imm; bl sites (imm 55-59 or bl PERF) ===
+  0x023D443C  imm=58 -> 0x023D44E4
+
+=== ov36 bl into arm9 0x204xxxx-0x206xxxx (possible wrappers) sample ===
+  bl 0x0204B678  x74
+  bl 0x02052A24  x14
+  bl 0x020512B0  x12
+  bl 0x02052A04  x10
+  bl 0x0204C938  x6
+  bl 0x02054EC8  x4
+  bl 0x02054480  x4
+  bl 0x020514CC  x3
+  bl 0x02052B28  x2
+  bl 0x0204018C  x1
+  bl 0x020407C0  x1
+  bl 0x02051288  x1
+  bl 0x02051318  x1
+  bl 0x0204D208  x1
+  bl 0x0204CF9C  x1
+  bl 0x02051440  x1
+  bl 0x0205297C  x1
+  bl 0x02054BE0  x1
+  bl 0x02055148  x1
+  bl 0x0205638C  x1
+  bl 0x0204D7F4  x1
+  bl 0x0204D894  x1
+  bl 0x020556EC  x1
+
+=== ldrb/strb [rN, #0x759] and #0x748 in arm9/ov29/ov36 ===
+  ov29 0x022DEC70  ldrb ?, [?, #0x748] word=0xE5D00748
+  ov29 0x022DEC88  ldrb ?, [?, #0x748] word=0xE5D00748
+  ov29 0x022DEE40  ldrb ?, [?, #0x748] word=0xE5D00748
+  ov29 0x022DEEC8  ldrb ?, [?, #0x748] word=0xE5D00748
+  ov29 0x022DF9A0  ldrb ?, [?, #0x748] word=0xE5D00748
+  ov29 0x022E0828  ldrb ?, [?, #0x748] word=0xE5D00748
+  ov29 0x022E0844  ldrb ?, [?, #0x748] word=0xE5D00748
+  ov29 0x022E08A8  ldrb ?, [?, #0x748] word=0xE5D00748
+  ov29 0x022E1568  ldrb ?, [?, #0x748] word=0xE5D00748
+  ov29 0x022E5D90  ldrb ?, [?, #0x748] word=0xE5D00748
+  ov29 0x022F7C28  ldrb ?, [?, #0x748] word=0xE5D00748
+  ov29 0x022F8368  ldrb ?, [?, #0x748] word=0xE5D00748
+  (ov29 #0x748: 29 total)
+  ov29 0x022DF054  strb ?, [?, #0x759] word=0xE5C02759
+  ov29 0x022DF0A8  strb ?, [?, #0x759] word=0x15C01759
+  ov29 0x022F7C3C  ldrb ?, [?, #0x759] word=0x15D00759
+  (ov29 #0x759: 3 total)
+  ov29 0x022DF048  strb ?, [?, #0x75A] word=0xE5C0275A
+  ov29 0x022F8B0C  ldrb ?, [?, #0x75A] word=0xE5D0075A
+  (ov29 #0x75A: 2 total)
+  ov29 0x022DF060  strb ?, [?, #0x75B] word=0xE5C0275B
+  ov29 0x022DF0CC  strb ?, [?, #0x75B] word=0xE5C0175B
+  ov29 0x0230F308  ldrb ?, [?, #0x75B] word=0xE5D0975B
+  ov29 0x023451F4  ldrb ?, [?, #0x75B] word=0xE5D0075B
+  (ov29 #0x75B: 4 total)
+  ov29 0x022DF03C  strb ?, [?, #0x75C] word=0xE5C0275C
+  ov29 0x022F8540  ldrb ?, [?, #0x75C] word=0xE5D0075C
+  ov29 0x022FC644  ldrb ?, [?, #0x75C] word=0xE5D0075C
+  ov29 0x02309CC8  ldrb ?, [?, #0x75C] word=0xE5D0075C
+  ov29 0x0231DC34  ldrb ?, [?, #0x75C] word=0xE5D0075C
+  (ov29 #0x75C: 5 total)
+  ov36 0x023A9090  ldrb ?, [?, #0x748] word=0xE5D00748
+  ov36 0x023A90E0  ldrb ?, [?, #0x748] word=0xE5D00748
+  ov36 0x023A93A4  ldrb ?, [?, #0x748] word=0xE5D00748
+  ov36 0x023A94C0  ldrb ?, [?, #0x748] word=0xE5D00748
+  ov36 0x023A95FC  ldrb ?, [?, #0x748] word=0xE5D00748
+  ov36 0x023A9840  ldrb ?, [?, #0x748] word=0xE5D00748
+  ov36 0x023A989C  ldrb ?, [?, #0x748] word=0xE5D00748
+  ov36 0x023A9A58  ldrb ?, [?, #0x748] word=0xE5D00748
+  ov36 0x023A9A94  ldrb ?, [?, #0x748] word=0xE5D00748
+  ov36 0x023A9B30  ldrb ?, [?, #0x748] word=0xE5D00748
+  ov36 0x023A9B78  ldrb ?, [?, #0x748] word=0xE5D00748
+  ov36 0x023A9D08  ldrb ?, [?, #0x748] word=0xE5D00748
+  (ov36 #0x748: 47 total)

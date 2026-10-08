@@ -1,0 +1,645 @@
+﻿
+########## patched ##########
+TeamSync approx start 0x22fe048
+
+=== patched TeamSync ===
+022FE048  E92D4038  .word 0xe92d4038
+022FE04C  E1A04001  .word 0xe1a04001
+022FE050  EBF560CD  bl 0x0205638c
+022FE054  E1D411F0  .word 0xe1d411f0
+022FE058  E1A03000  .word 0xe1a03000
+022FE05C  E3A05000  .word 0xe3a05000
+022FE060  E1C310BE  strh r1, [r3, #+0xe]
+022FE064  E1D401F2  .word 0xe1d401f2
+022FE068  E1A00000  nop
+022FE06C  E5940020  ldr r0, [r4, #+0x20]
+022FE070  E5830018  str r0, [r3, #+0x18]
+022FE074  E0842005  .word 0xe0842005
+022FE078  E5D2001A  ldrb r0, [r2, #+0x1a]
+022FE07C  E0831005  .word 0xe0831005
+022FE080  E2855001  .word 0xe2855001
+022FE084  E5C10012  strb r0, [r1, #+0x12]
+022FE088  E5D2001C  ldrb r0, [r2, #+0x1c]
+022FE08C  E3550002  mov r0, #0x2
+022FE090  E5C10014  strb r0, [r1, #+0x14]
+022FE094  BAFFFFF6  blt 0x022fe074
+022FE098  E1D410F4  .word 0xe1d410f4
+022FE09C  E2410F8D  .word 0xe2410f8d
+022FE0A0  E1A00800  .word 0xe1a00800
+022FE0A4  E1A00840  .word 0xe1a00840
+022FE0A8  E1A00800  .word 0xe1a00800
+022FE0AC  E1A00820  .word 0xe1a00820
+022FE0B0  E3500002  mov r0, #0x2
+022FE0B4  959F00CC  ldrls r0, [r15, #+0xcc]
+022FE0B8  91C300BC  strhls r0, [r3, #+0xc]
+022FE0BC  9A000007  bls 0x022fe0e0
+022FE0C0  E2410F8D  .word 0xe2410f8d
+022FE0C4  E1A00800  .word 0xe1a00800
+022FE0C8  E1A00840  .word 0xe1a00840
+022FE0CC  E1A00800  .word 0xe1a00800
+022FE0D0  E1A00820  .word 0xe1a00820
+022FE0D4  E3500002  mov r0, #0x2
+022FE0D8  959F00A8  ldrls r0, [r15, #+0xa8]
+022FE0DC  91C300BC  strhls r0, [r3, #+0xc]
+022FE0E0  E2845F49  .word 0xe2845f49
+022FE0E4  E283201C  .word 0xe283201c
+022FE0E8  E3A01011  .word 0xe3a01011
+022FE0EC  E0D500B2  ldrh r0, [r5], ... 0xe0d500b2
+022FE0F0  E2511001  .word 0xe2511001
+022FE0F4  E0C200B2  strh r0, [r2], ... 0xe0c200b2
+022FE0F8  1AFFFFFB  bne 0x022fe0ec
+022FE0FC  E5D4100A  ldrb r1, [r4, #+0xa]
+022FE100  E2840090  .word 0xe2840090
+022FE104  E283504C  .word 0xe283504c
+022FE108  E5C31002  strb r1, [r3, #+0x2]
+022FE10C  E1D410FE  .word 0xe1d410fe
+022FE110  E284CC01  .word 0xe284cc01
+022FE114  E59FE074  ldr r14, [r15, #+0x74]
+022FE118  E1C310B6  strh r1, [r3, #+0x6]
+022FE11C  E8900007  .word 0xe8900007
+022FE120  E8850007  .word 0xe8850007
+022FE124  E5D400A8  ldrb r0, [r4, #+0xa8]
+022FE128  E5C30058  strb r0, [r3, #+0x58]
+022FE12C  E1D404B4  ldrh r0, [r4, #+0x44]
+022FE130  E1C305BA  strh r0, [r3, #+0x5a]
+022FE134  E1D404B6  ldrh r0, [r4, #+0x46]
+022FE138  E1C305BC  strh r0, [r3, #+0x5c]
+022FE13C  E1DC04B6  ldrh r0, [r12, #+0x46]
+
+=== patched InitTeamMember HP/V ===
+022FD4F0  E3560000  mov r0, #0x0
+022FD4F4  159F0294  ldrne r0, [r15, #+0x294]
+022FD4F8  E3A03000  .word 0xe3a03000
+022FD4FC  11C0A0B0  strhne r10, [r0, #+0x0]
+022FD500  11C090B2  strhne r9, [r0, #+0x2]
+022FD504  E1D500FE  .word 0xe1d500fe
+022FD508  E1C801B0  strh r0, [r8, #+0x10]
+022FD50C  EA0319A6  b 0x023c3bac
+022FD510  E1C801B2  strh r0, [r8, #+0x12]
+022FD514  E1C831B6  strh r3, [r8, #+0x16]
+022FD518  E5950018  ldr r0, [r5, #+0x18]
+022FD51C  E5880020  str r0, [r8, #+0x20]
+022FD520  E0852003  .word 0xe0852003
+022FD524  E5D20012  ldrb r0, [r2, #+0x12]
+022FD528  E0881003  .word 0xe0881003
+022FD52C  E2833001  .word 0xe2833001
+022FD530  E5C1001A  strb r0, [r1, #+0x1a]
+022FD534  E5D20014  ldrb r0, [r2, #+0x14]
+022FD538  E3530002  mov r0, #0x2
+022FD53C  E5C1001C  strb r0, [r1, #+0x1c]
+022FD540  BAFFFFF6  blt 0x022fd520
+022FD544  E285301C  .word 0xe285301c
+022FD548  E2882F49  .word 0xe2882f49
+022FD54C  E3A01011  .word 0xe3a01011
+
+=== patched RecruitInitV area ===
+02055B60  E3500000  mov r0, #0x0
+02055B64  E3A00000  .word 0xe3a00000
+02055B68  07C50004  .word 0x07c50004
+02055B6C  03A00001  .word 0x03a00001
+02055B70  E8BD8038  .word 0xe8bd8038
+02055B74  020B0A48  .word 0x020b0a48
+02055B78  E92D40F8  .word 0xe92d40f8
+02055B7C  E24DD058  .word 0xe24dd058
+02055B80  E59F413C  ldr r4, [r15, #+0x13c]
+02055B84  E3A0E001  .word 0xe3a0e001
+02055B88  E1A06001  .word 0xe1a06001
+02055B8C  E1A07000  .word 0xe1a07000
+02055B90  E3A0C000  .word 0xe3a0c000
+02055B94  E5944000  ldr r4, [r4, #+0x0]
+02055B98  E3A01044  .word 0xe3a01044
+02055B9C  E1A00006  .word 0xe1a00006
+02055BA0  E1A05003  .word 0xe1a05003
+02055BA4  E5CDE014  strb r14, [r13, #+0x14]
+02055BA8  E5CD2016  strb r2, [r13, #+0x16]
+02055BAC  E5CDC017  strb r12, [r13, #+0x17]
+02055BB0  E5CDE015  strb r14, [r13, #+0x15]
+02055BB4  E1044187  .word 0xe1044187
+02055BB8  EA0DB8BD  b 0x023c3eb4
+02055BBC  E1CD01BE  strh r0, [r13, #+0x1e]
+02055BC0  E1A00006  .word 0xe1a00006
+02055BC4  E3A01000  .word 0xe3a01000
+02055BC8  EBFFF37D  bl 0x020529c4
+02055BCC  E5CD0020  strb r0, [r13, #+0x20]
+02055BD0  E1A00006  .word 0xe1a00006
+02055BD4  E3A01001  .word 0xe3a01001
+02055BD8  EBFFF379  bl 0x020529c4
+02055BDC  E5CD0021  strb r0, [r13, #+0x21]
+02055BE0  E1A00006  .word 0xe1a00006
+02055BE4  E3A01000  .word 0xe3a01000
+02055BE8  EBFFF37D  bl 0x020529e4
+02055BEC  E5CD0022  strb r0, [r13, #+0x22]
+02055BF0  E1A00006  .word 0xe1a00006
+02055BF4  E3A01001  .word 0xe3a01001
+02055BF8  EBFFF379  bl 0x020529e4
+02055BFC  E5CD0023  strb r0, [r13, #+0x23]
+02055C00  E3A00000  .word 0xe3a00000
+02055C04  E3A02001  .word 0xe3a02001
+02055C08  E5CD001A  strb r0, [r13, #+0x1a]
+02055C0C  E5CD001B  strb r0, [r13, #+0x1b]
+02055C10  E28D0028  .word 0xe28d0028
+02055C14  E1A01006  .word 0xe1a01006
+02055C18  E1CD21BC  strh r2, [r13, #+0x1c]
+02055C1C  EB000CA3  bl 0x02058eb0
+02055C20  E3A02000  .word 0xe3a02000
+02055C24  E28D0036  .word 0xe28d0036
+02055C28  E1A01006  .word 0xe1a01006
+02055C2C  E1CD61B8  strh r6, [r13, #+0x18]
+02055C30  E58D2024  str r2, [r13, #+0x24]
+02055C34  E5CD2034  strb r2, [r13, #+0x34]
+02055C38  EBFFF8B4  bl 0x02053f10
+02055C3C  E3550000  mov r0, #0x0
+02055C40  0A000004  beq 0x02055c58
+02055C44  E28D004E  .word 0xe28d004e
+02055C48  E1A01005  .word 0xe1a01005
+02055C4C  E3A0200A  .word 0xe3a0200a
+02055C50  EBFF3D31  bl 0x0202511c
+02055C54  EA000006  b 0x02055c74
+02055C58  E28D0000  .word 0xe28d0000
+02055C5C  E1A01006  .word 0xe1a01006
+02055C60  EBFFF1CB  bl 0x02052394
+02055C64  E28D004E  .word 0xe28d004e
+02055C68  E28D1000  .word 0xe28d1000
+02055C6C  E3A0200A  .word 0xe3a0200a
+02055C70  EBFF3DA7  bl 0x02025314
+02055C74  E28D6014  .word 0xe28d6014
+02055C78  E3A05004  .word 0xe3a05004
+02055C7C  E8B6000F  .word 0xe8b6000f
+
+=== patched RecruitHpOverwrite area ===
+02048A80  020A286C  .word 0x020a286c
+02048A84  E92D4008  .word 0xe92d4008
+02048A88  EB000FAA  bl 0x0204c938
+02048A8C  E3500004  mov r0, #0x4
+02048A90  908FF100  .word 0x908ff100
+02048A94  EA000007  b 0x02048ab8
+02048A98  EA000006  b 0x02048ab8
+02048A9C  EA000005  b 0x02048ab8
+02048AA0  EA000004  b 0x02048ab8
+02048AA4  EA000003  b 0x02048ab8
+02048AA8  EAFFFFFF  b 0x02048aac
+02048AAC  E59F100C  ldr r1, [r15, #+0xc]
+02048AB0  E3A00004  .word 0xe3a00004
+02048AB4  EB000002  bl 0x02048ac4
+02048AB8  EB0037C3  bl 0x020569cc
+02048ABC  E8BD8008  .word 0xe8bd8008
+02048AC0  020A27F4  .word 0x020a27f4
+02048AC4  E92D4038  .word 0xe92d4038
+02048AC8  E1A05001  .word 0xe1a05001
+02048ACC  E1D510F0  .word 0xe1d510f0
+02048AD0  E5D52002  ldrb r2, [r5, #+0x2]
+02048AD4  E1A04000  .word 0xe1a04000
+02048AD8  E3A03000  .word 0xe3a03000
+02048ADC  EB003425  bl 0x02055b78
+02048AE0  E1A00004  .word 0xe1a00004
+02048AE4  EB0032AF  bl 0x020555a8
+02048AE8  E1D510FE  .word 0xe1d510fe
+02048AEC  E5D5200C  ldrb r2, [r5, #+0xc]
+02048AF0  E1A04000  .word 0xe1a04000
+02048AF4  EB002E73  bl 0x020544c8
+02048AF8  E1D501F2  .word 0xe1d501f2
+02048AFC  E3500000  mov r0, #0x0
+02048B00  E1A00000  nop
+02048B04  E1D521F0  .word 0xe1d521f0
+02048B08  E2840014  .word 0xe2840014
+02048B0C  E1C420B8  strh r2, [r4, #+0x8]
+02048B10  E1D410F4  .word 0xe1d410f4
+02048B14  EB0040E5  bl 0x02058eb0
+02048B18  E1D500B4  ldrh r0, [r5, #+0x4]
+02048B1C  E3500000  mov r0, #0x0
+02048B20  08BD8038  .word 0x08bd8038
+02048B24  E5D5000C  ldrb r0, [r5, #+0xc]
+02048B28  E2851004  .word 0xe2851004
+02048B2C  E3500000  mov r0, #0x0
+02048B30  E2840022  .word 0xe2840022
+02048B34  0A000001  beq 0x02048b40
+02048B38  EBFF2F5B  bl 0x020148ac
+02048B3C  E8BD8038  .word 0xe8bd8038
+02048B40  EBFF2F1C  bl 0x020147b8
+02048B44  E8BD8038  .word 0xe8bd8038
+02048B48  E92D4008  .word 0xe92d4008
+02048B4C  EB0007F4  bl 0x0204ab24
+02048B50  EB00093D  bl 0x0204b04c
+02048B54  EB002846  bl 0x02052c74
+02048B58  EBFF0FD7  bl 0x0200cabc
+02048B5C  EB001FDA  bl 0x02050acc
+02048B60  EB001172  bl 0x0204d130
+02048B64  EB004A43  bl 0x0205b478
+02048B68  EB004EFB  bl 0x0205c75c
+02048B6C  EBFF27D1  bl 0x02012ab8
+02048B70  E8BD8008  .word 0xe8bd8008
+02048B74  E92D4008  .word 0xe92d4008
+02048B78  E59F1028  ldr r1, [r15, #+0x28]
+02048B7C  E59F0028  ldr r0, [r15, #+0x28]
+
+=== patched ov29 all strh #0x10 ===
+022DC3E8  E1C211B0  strh r1, [r2, #+0x10]
+022DC4DC  E1C4C1B0  strh r12, [r4, #+0x10]
+022DCCCC  E1C651B0  strh r5, [r6, #+0x10]
+022DCFC4  E1C361B0  strh r6, [r3, #+0x10]
+022DCFD8  E1C321B0  strh r2, [r3, #+0x10]
+022DCFEC  E1C371B0  strh r7, [r3, #+0x10]
+022DCFF8  E1C361B0  strh r6, [r3, #+0x10]
+022E0518  E1C411B0  strh r1, [r4, #+0x10]
+022E3714  E1CD61B0  strh r6, [r13, #+0x10]
+022E3874  E1CDC1B0  strh r12, [r13, #+0x10]
+022E5C04  E1CD11B0  strh r1, [r13, #+0x10]
+022E5CF8  E1CD11B0  strh r1, [r13, #+0x10]
+022E6EA0  E1CD51B0  strh r5, [r13, #+0x10]
+022E8794  E1C011B0  strh r1, [r0, #+0x10]
+022E8CD4  E1C301B0  strh r0, [r3, #+0x10]
+022ED490  E1CD11B0  strh r1, [r13, #+0x10]
+022ED4F4  E1CDC1B0  strh r12, [r13, #+0x10]
+022ED560  E1CD31B0  strh r3, [r13, #+0x10]
+022ED5D8  E1CD71B0  strh r7, [r13, #+0x10]
+022ED64C  E1CD51B0  strh r5, [r13, #+0x10]
+022ED6D0  E1CD21B0  strh r2, [r13, #+0x10]
+022ED750  E1CD51B0  strh r5, [r13, #+0x10]
+022ED7D4  E1CD51B0  strh r5, [r13, #+0x10]
+022EEC98  E1CD01B0  strh r0, [r13, #+0x10]
+022EED9C  E1CD01B0  strh r0, [r13, #+0x10]
+022F2BD0  E1CD11B0  strh r1, [r13, #+0x10]
+022F2BE0  E1CD21B0  strh r2, [r13, #+0x10]
+022F2BF8  E1CD11B0  strh r1, [r13, #+0x10]
+022F2C04  E1CD11B0  strh r1, [r13, #+0x10]
+022F2C10  E1CD11B0  strh r1, [r13, #+0x10]
+022F2C1C  E1CD11B0  strh r1, [r13, #+0x10]
+022F2C28  E1CD11B0  strh r1, [r13, #+0x10]
+022F2C34  E1CD11B0  strh r1, [r13, #+0x10]
+022F2E1C  E1CD11B0  strh r1, [r13, #+0x10]
+022F2E34  E1CD01B0  strh r0, [r13, #+0x10]
+022F2E48  E1CD01B0  strh r0, [r13, #+0x10]
+022F2E5C  E1CD01B0  strh r0, [r13, #+0x10]
+022F2E70  E1CD01B0  strh r0, [r13, #+0x10]
+022F2E80  E1CD01B0  strh r0, [r13, #+0x10]
+022F2E8C  E1CD01B0  strh r0, [r13, #+0x10]
+022F2E98  E1CD01B0  strh r0, [r13, #+0x10]
+022F46E8  E1CD61B0  strh r6, [r13, #+0x10]
+022F5610  E1CD51B0  strh r5, [r13, #+0x10]
+022F6524  E1CD11B0  strh r1, [r13, #+0x10]
+022F695C  E1CD21B0  strh r2, [r13, #+0x10]
+022F805C  E1C721B0  strh r2, [r7, #+0x10]
+022F9BD8  E1CD01B0  strh r0, [r13, #+0x10]
+022FBEB4  E1CC51B0  strh r5, [r12, #+0x10]
+022FD044  E1CD21B0  strh r2, [r13, #+0x10]
+022FD290  E1C511B0  strh r1, [r5, #+0x10]
+022FD480  E1CD91B0  strh r9, [r13, #+0x10]
+022FD508  E1C801B0  strh r0, [r8, #+0x10]
+022FD868  E1CD61B0  strh r6, [r13, #+0x10]
+022FD9AC  E1C511B0  strh r1, [r5, #+0x10]
+022FDB4C  E1C411B0  strh r1, [r4, #+0x10]
+022FDC50  E1C021B0  strh r2, [r0, #+0x10]
+0230317C  E1C701B0  strh r0, [r7, #+0x10]
+023031B4  E1C721B0  strh r2, [r7, #+0x10]
+023033AC  E1C721B0  strh r2, [r7, #+0x10]
+02303DE8  E1CD31B0  strh r3, [r13, #+0x10]
+02309970  E1C401B0  strh r0, [r4, #+0x10]
+0230999C  E1C431B0  strh r3, [r4, #+0x10]
+023099D0  E1C431B0  strh r3, [r4, #+0x10]
+02309A20  E1C431B0  strh r3, [r4, #+0x10]
+02309E50  E1C411B0  strh r1, [r4, #+0x10]
+0230A11C  E1C411B0  strh r1, [r4, #+0x10]
+0230A370  E1C411B0  strh r1, [r4, #+0x10]
+0230BE68  01C501B0  strheq r0, [r5, #+0x10]
+0230D570  E1C511B0  strh r1, [r5, #+0x10]
+0230FE88  E1CD01B0  strh r0, [r13, #+0x10]
+02311248  E1C011B0  strh r1, [r0, #+0x10]
+02311258  E1C711B0  strh r1, [r7, #+0x10]
+023112A4  E1C711B0  strh r1, [r7, #+0x10]
+0231529C  E1C201B0  strh r0, [r2, #+0x10]
+023152CC  E1C211B0  strh r1, [r2, #+0x10]
+023153E0  E1C911B0  strh r1, [r9, #+0x10]
+0231541C  E1C911B0  strh r1, [r9, #+0x10]
+02316190  E1C401B0  strh r0, [r4, #+0x10]
+023161A0  01C401B0  strheq r0, [r4, #+0x10]
+02316934  E1CD01B0  strh r0, [r13, #+0x10]
+02316DD0  E1CD01B0  strh r0, [r13, #+0x10]
+0232634C  E1C421B0  strh r2, [r4, #+0x10]
+02326350  E1C021B0  strh r2, [r0, #+0x10]
+02326380  E1C431B0  strh r3, [r4, #+0x10]
+023263B4  E1C021B0  strh r2, [r0, #+0x10]
+02326A24  E1C4C1B0  strh r12, [r4, #+0x10]
+02335DF8  E1CD31B0  strh r3, [r13, #+0x10]
+02335E60  E1CD21B0  strh r2, [r13, #+0x10]
+02335ED0  E1CD21B0  strh r2, [r13, #+0x10]
+0233A7B4  E1C101B0  strh r0, [r1, #+0x10]
+0233A7C4  11C101B0  strhne r0, [r1, #+0x10]
+02344CC0  E1CD31B0  strh r3, [r13, #+0x10]
+02345DF4  E1CD11B0  strh r1, [r13, #+0x10]
+02345E74  E1CD11B0  strh r1, [r13, #+0x10]
+0234EE50  E1CC11B0  strh r1, [r12, #+0x10]
+
+=== patched ov29 strh #0xE/#0x12 (cur/max HP team/dungeon) ===
+022DC3E4  E1C210BE  strh r1, [r2, #+0xe]
+022DC3EC  E1C211B2  strh r1, [r2, #+0x12]
+022DC4D4  E1C4C0BE  strh r12, [r4, #+0xe]
+022DC4FC  E1C431B2  strh r3, [r4, #+0x12]
+022DCCE0  E1C6A1B2  strh r10, [r6, #+0x12]
+022DCCF4  E1C621B2  strh r2, [r6, #+0x12]
+022DCD08  E1C620BE  strh r2, [r6, #+0xe]
+022DCD6C  E1C620BE  strh r2, [r6, #+0xe]
+022DCDD0  E1C620BE  strh r2, [r6, #+0xe]
+022DCE28  E1C620BE  strh r2, [r6, #+0xe]
+022DCE34  E1C620BE  strh r2, [r6, #+0xe]
+022DCE8C  E1C620BE  strh r2, [r6, #+0xe]
+022DCE98  E1C620BE  strh r2, [r6, #+0xe]
+022DCF00  E1C620BE  strh r2, [r6, #+0xe]
+022DCF0C  E1C620BE  strh r2, [r6, #+0xe]
+022DCF64  E1C620BE  strh r2, [r6, #+0xe]
+022DCF70  E1C620BE  strh r2, [r6, #+0xe]
+022DD008  E1C300BE  strh r0, [r3, #+0xe]
+022DD01C  E1C300BE  strh r0, [r3, #+0xe]
+022DD02C  E1C301B2  strh r0, [r3, #+0x12]
+022DD040  E1C301B2  strh r0, [r3, #+0x12]
+022DD05C  E1C300BE  strh r0, [r3, #+0xe]
+022DD068  E1C300BE  strh r0, [r3, #+0xe]
+022DF9F4  E1CD21B2  strh r2, [r13, #+0x12]
+022E2B9C  E1C410BE  strh r1, [r4, #+0xe]
+022E2F28  E1C420BE  strh r2, [r4, #+0xe]
+022E3718  E1CD51B2  strh r5, [r13, #+0x12]
+022E386C  E1CD20BE  strh r2, [r13, #+0xe]
+022E3878  E1CDC1B2  strh r12, [r13, #+0x12]
+022E5C14  E1CD01B2  strh r0, [r13, #+0x12]
+022E5CA4  E1CD10BE  strh r1, [r13, #+0xe]
+022E5CF4  E1CD01B2  strh r0, [r13, #+0x12]
+022E6EA4  E1CD41B2  strh r4, [r13, #+0x12]
+022E6EA8  E1CD00BE  strh r0, [r13, #+0xe]
+022EAF98  E1C300BE  strh r0, [r3, #+0xe]
+022EBBDC  E1C410BE  strh r1, [r4, #+0xe]
+022EBC20  E1C410BE  strh r1, [r4, #+0xe]
+022ED48C  E1CD10BE  strh r1, [r13, #+0xe]
+022ED494  E1CD21B2  strh r2, [r13, #+0x12]
+022ED4F0  E1CD10BE  strh r1, [r13, #+0xe]
+022ED4F8  E1CD21B2  strh r2, [r13, #+0x12]
+022ED55C  E1CDC0BE  strh r12, [r13, #+0xe]
+022ED564  E1CD11B2  strh r1, [r13, #+0x12]
+022ED5D4  E1CD10BE  strh r1, [r13, #+0xe]
+022ED5DC  E1CD21B2  strh r2, [r13, #+0x12]
+022ED648  E1CD40BE  strh r4, [r13, #+0xe]
+022ED650  E1CD11B2  strh r1, [r13, #+0x12]
+022ED6CC  E1CD40BE  strh r4, [r13, #+0xe]
+022ED6D4  E1CD31B2  strh r3, [r13, #+0x12]
+022ED74C  E1CD10BE  strh r1, [r13, #+0xe]
+022ED754  E1CD21B2  strh r2, [r13, #+0x12]
+022ED7D0  E1CD40BE  strh r4, [r13, #+0xe]
+022ED7D8  E1CD11B2  strh r1, [r13, #+0x12]
+022EECAC  E1CD60BE  strh r6, [r13, #+0xe]
+022EEDA4  E1CD01B2  strh r0, [r13, #+0x12]
+022EEE18  E1CD20BE  strh r2, [r13, #+0xe]
+022F2C68  E1CD31B2  strh r3, [r13, #+0x12]
+022F2C84  E1CD11B2  strh r1, [r13, #+0x12]
+022F2CB8  E1CD21B2  strh r2, [r13, #+0x12]
+022F2D04  E1CDA1B2  strh r10, [r13, #+0x12]
+022F2D3C  E1CDA1B2  strh r10, [r13, #+0x12]
+022F2E40  E1CD31B2  strh r3, [r13, #+0x12]
+022F2EC4  E1CD01B2  strh r0, [r13, #+0x12]
+022F2EE4  E1CD21B2  strh r2, [r13, #+0x12]
+022F2F14  E1CD11B2  strh r1, [r13, #+0x12]
+022F2F34  E1CD01B2  strh r0, [r13, #+0x12]
+022F46DC  E1CD20BE  strh r2, [r13, #+0xe]
+022F5604  E1CD50BE  strh r5, [r13, #+0xe]
+022F56C4  E1CD30BE  strh r3, [r13, #+0xe]
+022F57A0  E1CD00BE  strh r0, [r13, #+0xe]
+022F6528  E1CD01B2  strh r0, [r13, #+0x12]
+022F6950  E1CD20BE  strh r2, [r13, #+0xe]
+022FA160  E1C510BE  strh r1, [r5, #+0xe]
+022FA16C  C1C500BE  strhgt r0, [r5, #+0xe]
+022FBEAC  E1CC51B2  strh r5, [r12, #+0x12]
+022FC038  E0C501B2  strh r0, [r5], ... 0xe0c501b2
+022FD040  E1CD30BE  strh r3, [r13, #+0xe]
+022FD104  E1C510BE  strh r1, [r5, #+0xe]
+022FD214  E1C511B2  strh r1, [r5, #+0x12]
+022FD220  C1C501B2  strhgt r0, [r5, #+0x12]
+022FD47C  E1CDA0BE  strh r10, [r13, #+0xe]
+022FD510  E1C801B2  strh r0, [r8, #+0x12]
+022FD5D8  E1C810BE  strh r1, [r8, #+0xe]
+022FDB28  E1C420BE  strh r2, [r4, #+0xe]
+022FDB44  E1C411B2  strh r1, [r4, #+0x12]
+022FDBD0  E1C030BE  strh r3, [r0, #+0xe]
+022FDC54  E1C021B2  strh r2, [r0, #+0x12]
+022FE060  E1C310BE  strh r1, [r3, #+0xe]
+023014E0  E1C101B2  strh r0, [r1, #+0x12]
+023014F0  A1C101B2  strhge r0, [r1, #+0x12]
+02303DD0  E1CD30BE  strh r3, [r13, #+0xe]
+02305148  E1C0B0BE  strh r11, [r0, #+0xe]
+0230527C  E1C200BE  strh r0, [r2, #+0xe]
+0230C2C8  E1C520BE  strh r2, [r5, #+0xe]
+0230C944  E1C501B2  strh r0, [r5, #+0x12]
+0230D56C  E1C500BE  strh r0, [r5, #+0xe]
+0230D578  E1C511B2  strh r1, [r5, #+0x12]
+0230FE90  E1CD01B2  strh r0, [r13, #+0x12]
+0230FF80  E1CD00BE  strh r0, [r13, #+0xe]
+023153D4  E1C911B2  strh r1, [r9, #+0x12]
+023153EC  C1C901B2  strhgt r0, [r9, #+0x12]
+02316950  E1CD01B2  strh r0, [r13, #+0x12]
+02316998  E1CD00BE  strh r0, [r13, #+0xe]
+02316DD8  E1CD01B2  strh r0, [r13, #+0x12]
+02316E18  E1CD00BE  strh r0, [r13, #+0xe]
+0231D1A4  E1C720BE  strh r2, [r7, #+0xe]
+0231D1B4  B1C700BE  strhlt r0, [r7, #+0xe]
+0231D1C4  C1C700BE  strhgt r0, [r7, #+0xe]
+02320580  E1CD10BE  strh r1, [r13, #+0xe]
+023208C0  E1CD10BE  strh r1, [r13, #+0xe]
+0232306C  01CD00BE  strheq r0, [r13, #+0xe]
+02325190  01CD00BE  strheq r0, [r13, #+0xe]
+023257AC  01CD00BE  strheq r0, [r13, #+0xe]
+023257D4  E1CD00BE  strh r0, [r13, #+0xe]
+02325A38  E1CD00BE  strh r0, [r13, #+0xe]
+0232A888  E1CD30BE  strh r3, [r13, #+0xe]
+02335DF4  E1CD20BE  strh r2, [r13, #+0xe]
+02335E04  E1CD31B2  strh r3, [r13, #+0x12]
+02335E64  E1CD10BE  strh r1, [r13, #+0xe]
+02335E6C  E1CD11B2  strh r1, [r13, #+0x12]
+02335ED4  E1CD10BE  strh r1, [r13, #+0xe]
+02335EDC  E1CD11B2  strh r1, [r13, #+0x12]
+023424F8  E1C130BE  strh r3, [r1, #+0xe]
+02343A20  E1CD00BE  strh r0, [r13, #+0xe]
+02344CC4  E1CD11B2  strh r1, [r13, #+0x12]
+02345A84  E1CDC0BE  strh r12, [r13, #+0xe]
+02345B78  E1CD00BE  strh r0, [r13, #+0xe]
+02345BC0  E1CD10BE  strh r1, [r13, #+0xe]
+02345DF8  E1CD01B2  strh r0, [r13, #+0x12]
+02345E78  E1CD01B2  strh r0, [r13, #+0x12]
+02349734  E1C230BE  strh r3, [r2, #+0xe]
+023497F0  11CCE0BE  strhne r14, [r12, #+0xe]
+02349828  E1C010BE  strh r1, [r0, #+0xe]
+02349854  11CCE0BE  strhne r14, [r12, #+0xe]
+
+=== patched arm9 strh #0xA/#0x10 ===
+02005F24  E1C010BA  strh r1, [r0, #+0xa]
+02006008  E1C410BA  strh r1, [r4, #+0xa]
+020061B0  E1C490BA  strh r9, [r4, #+0xa]
+020096D8  E1C240BA  strh r4, [r2, #+0xa]
+02009870  E1C230BA  strh r3, [r2, #+0xa]
+0200A618  E1C010BA  strh r1, [r0, #+0xa]
+0200A64C  E1C010BA  strh r1, [r0, #+0xa]
+0200A688  E1C010BA  strh r1, [r0, #+0xa]
+0200A6C4  E1C010BA  strh r1, [r0, #+0xa]
+0200A700  E1C010BA  strh r1, [r0, #+0xa]
+0200B8F0  E1C011B0  strh r1, [r0, #+0x10]
+0200B92C  E1C021B0  strh r2, [r0, #+0x10]
+0200B9A0  E1C031B0  strh r3, [r0, #+0x10]
+0200BB94  E1C021B0  strh r2, [r0, #+0x10]
+0200BC4C  E1C031B0  strh r3, [r0, #+0x10]
+02016680  E1C400BA  strh r0, [r4, #+0xa]
+020166E4  E1C430BA  strh r3, [r4, #+0xa]
+02016A2C  E1C400BA  strh r0, [r4, #+0xa]
+02016AC8  E1C420BA  strh r2, [r4, #+0xa]
+02017294  E1C420BA  strh r2, [r4, #+0xa]
+02017D4C  E1C010BA  strh r1, [r0, #+0xa]
+02017D5C  E1C011B0  strh r1, [r0, #+0x10]
+0201805C  E1C120BA  strh r2, [r1, #+0xa]
+020180DC  E1C140BA  strh r4, [r1, #+0xa]
+02018138  E1C120BA  strh r2, [r1, #+0xa]
+02018174  E1C010BA  strh r1, [r0, #+0xa]
+020181C0  E1C140BA  strh r4, [r1, #+0xa]
+0201838C  E1C450BA  strh r5, [r4, #+0xa]
+02018418  E1C040BA  strh r4, [r0, #+0xa]
+0201B6C8  E1C010BA  strh r1, [r0, #+0xa]
+0201B850  E1CD11B0  strh r1, [r13, #+0x10]
+0201B87C  E1CD11B0  strh r1, [r13, #+0x10]
+0201B988  E1CD30BA  strh r3, [r13, #+0xa]
+0201C01C  E1C010BA  strh r1, [r0, #+0xa]
+0201C048  E1C010BA  strh r1, [r0, #+0xa]
+0201C1A0  E1C040BA  strh r4, [r0, #+0xa]
+0201C4A8  E1C400BA  strh r0, [r4, #+0xa]
+0201C4B8  B1C400BA  strhlt r0, [r4, #+0xa]
+0201C53C  E1C400BA  strh r0, [r4, #+0xa]
+0201D284  E1C120BA  strh r2, [r1, #+0xa]
+0201D298  A1C120BA  strhge r2, [r1, #+0xa]
+0201D3A4  E1C120BA  strh r2, [r1, #+0xa]
+0201D3B0  E1C120BA  strh r2, [r1, #+0xa]
+0201E758  E1C401B0  strh r0, [r4, #+0x10]
+0201E940  E1C031B0  strh r3, [r0, #+0x10]
+0201EAAC  E1CD51B0  strh r5, [r13, #+0x10]
+0201EAF0  E1CD61B0  strh r6, [r13, #+0x10]
+0201EB28  E1CDB1B0  strh r11, [r13, #+0x10]
+0201EB60  E1CD51B0  strh r5, [r13, #+0x10]
+0201EBA4  E1CD01B0  strh r0, [r13, #+0x10]
+0201EBE4  E1CD51B0  strh r5, [r13, #+0x10]
+0201EC18  E1CD61B0  strh r6, [r13, #+0x10]
+0201EC60  E1CD01B0  strh r0, [r13, #+0x10]
+0201EF18  E1C010BA  strh r1, [r0, #+0xa]
+0201F088  E1C010BA  strh r1, [r0, #+0xa]
+02026FBC  E1C020BA  strh r2, [r0, #+0xa]
+020276AC  01C230BA  strheq r3, [r2, #+0xa]
+0202A288  E1C460BA  strh r6, [r4, #+0xa]
+0202A294  E1C460BA  strh r6, [r4, #+0xa]
+0203F214  E1C121B0  strh r2, [r1, #+0x10]
+0203F260  E1CD11B0  strh r1, [r13, #+0x10]
+0203F49C  11C321B0  strhne r2, [r3, #+0x10]
+02040904  E1CD00BA  strh r0, [r13, #+0xa]
+0204091C  E1CD00BA  strh r0, [r13, #+0xa]
+02040934  E1CD00BA  strh r0, [r13, #+0xa]
+02040944  E1CD60BA  strh r6, [r13, #+0xa]
+02041A7C  E1CD01B0  strh r0, [r13, #+0x10]
+020422B0  E1C021B0  strh r2, [r0, #+0x10]
+02042D58  E1C011B0  strh r1, [r0, #+0x10]
+02042D70  E1C101B0  strh r0, [r1, #+0x10]
+02042DB0  E1C101B0  strh r0, [r1, #+0x10]
+02042DE8  E1C101B0  strh r0, [r1, #+0x10]
+02043118  E1C101B0  strh r0, [r1, #+0x10]
+02043700  E1C101B0  strh r0, [r1, #+0x10]
+020437FC  E1C101B0  strh r0, [r1, #+0x10]
+02043B48  E1C101B0  strh r0, [r1, #+0x10]
+020441E0  E1C101B0  strh r0, [r1, #+0x10]
+020456C0  E1CD01B0  strh r0, [r13, #+0x10]
+02045C34  E1CD01B0  strh r0, [r13, #+0x10]
+020466F0  E1CD11B0  strh r1, [r13, #+0x10]
+0204761C  E1C310BA  strh r1, [r3, #+0xa]
+02052D24  E1C800BA  strh r0, [r8, #+0xa]
+02052E78  E1C510BA  strh r1, [r5, #+0xa]
+02052F14  E1C400BA  strh r0, [r4, #+0xa]
+020532CC  E1C601B0  strh r0, [r6, #+0x10]
+02053518  E1C500BA  strh r0, [r5, #+0xa]
+02055F6C  E1CC10BA  strh r1, [r12, #+0xa]
+02057724  E1C8A0BA  strh r10, [r8, #+0xa]
+02057888  E1C801B0  strh r0, [r8, #+0x10]
+02057A94  E1C560BA  strh r6, [r5, #+0xa]
+02057DE0  E1C450BA  strh r5, [r4, #+0xa]
+02057F9C  E1C780BA  strh r8, [r7, #+0xa]
+02058394  E1CDC0BA  strh r12, [r13, #+0xa]
+02059ED0  11C010BA  strhne r1, [r0, #+0xa]
+0205A00C  E1C400BA  strh r0, [r4, #+0xa]
+0205D5E0  E1C801B0  strh r0, [r8, #+0x10]
+.\.venv\Scripts\python.exe : Traceback (most recent call last):
+위치 C:\Users\82106\AppData\Local\Temp\ps-script-e7012655-252f-43e5-ae1e-6fe48ef1c2c8.ps1:86 문자:1
++ .\.venv\Scripts\python.exe tools\_tmp_recruit_hp_v2.py 2>&1 | Out-Fil ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (Traceback (most recent call last)::String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+  File "C:\Working\SkyTemple\tools\_tmp_recruit_hp_v2.py", line 203, in <module>
+    main()
+  File "C:\Working\SkyTemple\tools\_tmp_recruit_hp_v2.py", line 189, in main
+0205D814  E1C801B0  strh r0, [r8, #+0x10]
+0205D8E0  11C871B0  strhne r7, [r8, #+0x10]
+0205D930  E1C071B0  strh r7, [r0, #+0x10]
+0205DA0C  E1C151B0  strh r5, [r1, #+0x10]
+0205DA28  E1C101B0  strh r0, [r1, #+0x10]
+0205DA90  E1C141B0  strh r4, [r1, #+0x10]
+    scan_strh(arm9, ARM9, {0xA, 0x10}, f"{tag} arm9 strh #0xA/#0x10")
+  File "C:\Working\SkyTemple\tools\_tmp_recruit_hp_v2.py", line 132, in scan_strh
+0205DAAC  E1C101B0  strh r0, [r1, #+0x10]
+0205DB08  E1C151B0  strh r5, [r1, #+0x10]
+0205DB24  E1C101B0  strh r0, [r1, #+0x10]
+020601A4  E1C401B0  strh r0, [r4, #+0x10]
+0206326C  11C600BA  strhne r0, [r6, #+0xa]
+02065B84  E1C201B0  strh r0, [r2, #+0x10]
+02065C6C  E1C020BA  strh r2, [r0, #+0xa]
+02068EE0  E1CD21B0  strh r2, [r13, #+0x10]
+02069B10  E1CD21B0  strh r2, [r13, #+0x10]
+0206AF4C  E1C010BA  strh r1, [r0, #+0xa]
+0206B1A8  E1C420BA  strh r2, [r4, #+0xa]
+0206B1AC  E1C451B0  strh r5, [r4, #+0x10]
+0206B2C8  E1C541B0  strh r4, [r5, #+0x10]
+0206B4D0  E1C020BA  strh r2, [r0, #+0xa]
+0206B4D8  E1C021B0  strh r2, [r0, #+0x10]
+0206B600  E1C021B0  strh r2, [r0, #+0x10]
+0206BDE8  E1C410BA  strh r1, [r4, #+0xa]
+0206BF0C  E1C501B0  strh r0, [r5, #+0x10]
+0206C030  31C501B0  strhcc r0, [r5, #+0x10]
+0206D1A4  E1C900BA  strh r0, [r9, #+0xa]
+0206E354  E1CC20BA  strh r2, [r12, #+0xa]
+0206E880  E1C320BA  strh r2, [r3, #+0xa]
+0207005C  E1C121B0  strh r2, [r1, #+0x10]
+02070134  E1C011B0  strh r1, [r0, #+0x10]
+020703B0  E1C170BA  strh r7, [r1, #+0xa]
+02071A00  E1C230BA  strh r3, [r2, #+0xa]
+0207217C  E1C310BA  strh r1, [r3, #+0xa]
+020727B4  E1C310BA  strh r1, [r3, #+0xa]
+020727E0  E1C310BA  strh r1, [r3, #+0xa]
+020728F4  E1C130BA  strh r3, [r1, #+0xa]
+02072908  E1C120BA  strh r2, [r1, #+0xa]
+0207291C  E1C120BA  strh r2, [r1, #+0xa]
+02073914  E1C400BA  strh r0, [r4, #+0xa]
+02073934  E1C401B0  strh r0, [r4, #+0x10]
+02073BE8  E1C501B0  strh r0, [r5, #+0x10]
+02073BF8  E1C511B0  strh r1, [r5, #+0x10]
+02073CB8  E1C201B0  strh r0, [r2, #+0x10]
+020740DC  E1C431B0  strh r3, [r4, #+0x10]
+02074374  E1C900BA  strh r0, [r9, #+0xa]
+02076178  E1C021B0  strh r2, [r0, #+0x10]
+02076190  E1C020BA  strh r2, [r0, #+0xa]
+02076194  E1C021B0  strh r2, [r0, #+0x10]
+02076368  E1C020BA  strh r2, [r0, #+0xa]
+02076374  E1C021B0  strh r2, [r0, #+0x10]
+02076968  E1C101B0  strh r0, [r1, #+0x10]
+02076BEC  E1C100BA  strh r0, [r1, #+0xa]
+0207B508  E1C871B0  strh r7, [r8, #+0x10]
+0207D4D4  E1C0C0BA  strh r12, [r0, #+0xa]
+0207D814  E1C130BA  strh r3, [r1, #+0xa]
+0207D868  E1C130BA  strh r3, [r1, #+0xa]
+0207D8E8  E1C130BA  strh r3, [r1, #+0xa]
+0207EE44  E1C010BA  strh r1, [r0, #+0xa]
+0207EF18  E1C130BA  strh r3, [r1, #+0xa]
+02080FDC  E1C121B0  strh r2, [r1, #+0x10]
+02080FF0  21C121B0  strhcs r2, [r1, #+0x10]
+02081118  E1C1E0BA  strh r14, [r1, #+0xa]
+02081214  E1C011B0  strh r1, [r0, #+0x10]
+02081530  E1CCE1B0  strh r14, [r12, #+0x10]
+02087F68  E1CD90BA  strh r9, [r13, #+0xa]
+    s = halfword_op(word)
+  File "C:\Working\SkyTemple\tools\_tmp_recruit_hp_v2.py", line 46, in halfword_op
+    cs = "" if cond == 14 else conds[cond]
+IndexError: list index out of range

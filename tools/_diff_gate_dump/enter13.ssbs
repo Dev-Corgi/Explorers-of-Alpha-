@@ -1,0 +1,827 @@
+
+def 0 {
+    lives(ACTOR_PLAYER);
+    SetAnimation(2);
+    lives(ACTOR_ATTENDANT1);
+    SetAnimation(2);
+    message_Notice({
+        english="""
+            
+            [CN]All sorts of information is written here...
+        """,
+    });
+    message_Close();
+    message_ResetActor();
+    flag_Set($EVENT_LOCAL, 8);
+    message_Menu(MENU_GUILD_F_A_Q_BOARD);
+    Case(1, @label_0);
+    Case(2, @label_1);
+    Case(3, @label_2);
+    Case(4, @label_3);
+    Case(5, @label_4);
+    Case(6, @label_5);
+    Case(7, @label_6);
+    Case(8, @label_7);
+    Jump(@label_8);
+    @label_0;
+    message_Mail({
+        english="[CN]Q1: About Explorers of Alpha",
+    });
+    message_Mail({
+        english="""
+            Explorers of Alpha is the first difficulty and
+            Quality of Life hack based on Explorers of Sky.
+        """,
+    });
+    message_Mail({
+        english="""
+            The game is under development since mid-2020
+            and has received special attention in game and
+            level-design while being developed.
+        """,
+    });
+    message_Mail({
+        english="""
+            At first the aim of the hack was to have an
+            Arceus event as the final challenge of the
+            game, but it more turned out as THE QoL-hack.
+        """,
+    });
+    message_Mail({
+        english="""
+            Things to note about the game are that all the
+            stuff in it is original, and credited when it's
+            not, and that I wrote my own patches for it.
+        """,
+    });
+    message_Mail({
+        english="""
+            New events, features and adjustments are my
+            only doing, so if you see the same features in
+            similar hacks, they're likely taken from mine.
+        """,
+    });
+    message_Mail({
+        english="""
+            More than a SkyTemple patches showcase, it's
+            a QoL-hack with new events, quests, and
+            features you can expect from a polished hack.
+        """,
+    });
+    message_Mail({
+        english="...What a good read!",
+    });
+    JumpCommon(CORO_END_TALK);
+    @label_1;
+    message_Mail({
+        english="[CN]Q2: What are the different difficulties for?",
+    });
+    message_Mail({
+        english="""
+            [CN]In Alpha you can choose to play at different
+            [CN]levels of difficulty. The higher the difficulty,
+            [CN]the stronger the enemies are.
+        """,
+    });
+    message_Mail({
+        english="""
+            [CN]You may also lower the difficulty as you wish,
+            [CN]however you cannot return to a more difficult
+            [CN]setting if you do so in Hardcore or Expert.
+        """,
+    });
+    @label_15;
+    message_Mail({
+        english="[CN]Which difficulty do you want to check?",
+    });
+    message_SwitchMenu(0, 1);
+    CaseMenu({
+        english="Vanilla",
+    }, @label_9);
+    CaseMenu({
+        english="[CS:A]Difficult[CR]",
+    }, @label_10);
+    CaseMenu({
+        english="[CS:H]Expert[CR]",
+    }, @label_11);
+    CaseMenu({
+        english="[CS:B]Hardcore[CR]",
+    }, @label_12);
+    CaseMenu({
+        english="None",
+    }, @label_13);
+    Jump(@label_14);
+    @label_9;
+    message_Mail({
+        english="[CN]About Vanilla mode",
+    });
+    message_Mail({
+        english="""
+            [CN]More in line with the original game. If you
+            [CN]want to experience Alpha without ever feeling
+            [CN]the need to grind, this difficulty is for you.
+        """,
+    });
+    message_Mail({
+        english="""
+            [CN]Most of the added difficulty such as
+            [CN]Field Effects or dojo anti-abuse will
+            [CN]also be disabled for you.
+        """,
+    });
+    Jump(@label_15);
+    @label_10;
+    message_Mail({
+        english="[CS:A][CN]About Difficult mode[CR]",
+    });
+    message_Mail({
+        english="""
+            [CN]Slightly harder than your average Mystery
+            [CN]Dungeon game, with additions specifically
+            [CN]made for Explorers of Alpha available to you.
+        """,
+    });
+    Jump(@label_15);
+    @label_11;
+    message_Mail({
+        english="[CS:H][CN]About Expert mode[CR]",
+    });
+    message_Mail({
+        english="""
+            [CN]All the difficulty from previous versions with
+            [CN]Alpha 2.0 additions and rebalancing.
+        """,
+    });
+    message_Mail({
+        english="""
+            [CN]This used to be the original difficulty of the
+            [CN]game and is still the default one in Alpha 2.0.
+        """,
+    });
+    Jump(@label_15);
+    @label_12;
+    message_Mail({
+        english="[CS:B][CN]About Hardcore mode[CR]",
+    });
+    message_Mail({
+        english="""
+            [CN]Expert but everything goes wrong. This game
+            [CN]mode is designed to be a near impossible task.
+        """,
+    });
+    message_Mail({
+        english="""
+            [CN]Higher spawn rate, higher enemy density,
+            [CN]higher trap density, forced scaling in both
+            [CN]stats and moves, aggressive anti-cheat...
+        """,
+    });
+    message_Mail({
+        english="""
+            [CN]At many points it will feel like an unfair or
+            [CN]tedious challenge. This was the intent so
+            [CN]prepare yourself to lose many many times!
+        """,
+    });
+    Jump(@label_15);
+    @label_13;
+    message_Mail({
+        english="...What a good read!",
+    });
+    JumpCommon(CORO_END_TALK);
+    @label_14;
+    Jump(@label_13);
+    @label_2;
+    message_Mail({
+        english="[CN]Q3: How do special challenges work?",
+    });
+    message_Mail({
+        english="""
+            [CN]In Alpha you can take on different challenges.
+            [CN]They are here to offer a different way to play
+            [CN]the game, far from the usual PMD experience.
+        """,
+    });
+    message_Mail({
+        english="""
+            [CN]You can select one challenge, and toggle
+            [CN]different options for your challenge run.
+            [CN]Toggleable options are shown with a [M:S3] mark.
+        """,
+    });
+    message_Mail({
+        english="""
+            [CN]You can forfeit your challenge when you want.
+            [CN]If you do, however, you cannot select another
+            [CN]challenge until you finish the main story.
+        """,
+    });
+    message_Mail({
+        english="""
+            [CN]The challenge automatically ends after you
+            [CN]beat the game, so when the story is over.
+        """,
+    });
+    message_Mail({
+        english="""
+            [CN]Some challenges are unlocked again by beating
+            [CN]the corresponding endgame dungeon.
+        """,
+    });
+    @label_24;
+    message_Mail({
+        english="[CN]Which challenge do you want more details on?",
+    });
+    message_SwitchMenu(0, 1);
+    CaseMenu({
+        english="Glass Cannon",
+    }, @label_16);
+    CaseMenu({
+        english="Pacifist",
+    }, @label_17);
+    CaseMenu({
+        english="Time Attack",
+    }, @label_18);
+    CaseMenu({
+        english="One Item",
+    }, @label_19);
+    CaseMenu({
+        english="Speedrun",
+    }, @label_20);
+    CaseMenu({
+        english="[M:S3] Options",
+    }, @label_21);
+    CaseMenu({
+        english="None",
+    }, @label_22);
+    Jump(@label_23);
+    @label_16;
+    message_Mail({
+        english="""
+            [CN]Glass Cannon: you will always be at death's
+            [CN]doorstep! Your defensive stats are minimized,
+            [CN]but your offensive stats are maximized.
+        """,
+    });
+    Jump(@label_24);
+    @label_17;
+    message_Mail({
+        english="""
+            [CN]Pacifist: you cannot use attacking moves nor
+            [CN]use orbs, however your defensive stats are
+            [CN]maximized. Also called No Attack challenge.
+        """,
+    });
+    Jump(@label_24);
+    @label_18;
+    message_Mail({
+        english="""
+            [CN]Time Attack: you take damages as turns pass
+            [CN]and are prevented from healing by anything
+            [CN]except Reviver Seeds.
+        """,
+    });
+    Jump(@label_24);
+    @label_19;
+    message_Mail({
+        english="""
+            [CN]One Item: you travel with a one-item bag. You
+            [CN]can't have more items in the bag so think
+            [CN]carefully about what that one item will be.
+        """,
+    });
+    Jump(@label_24);
+    @label_20;
+    message_Mail({
+        english="""
+            [CN]Speedrun: the bag you get at the start has all
+            [CN]the needed items for a speedrun. Text is
+            [CN]instantaneous so you blast through cutscenes.
+        """,
+    });
+    message_Mail({
+        english="""
+            [CN]At any point, you can ask [CS:G]Porygon2[CR] to get useful
+            [CN]items such as Reviver Seeds or an item bag.
+        """,
+    });
+    Jump(@label_24);
+    @label_21;
+    message_Mail({
+        english="[CN]Know more about Challenge Options here",
+    });
+    message_SwitchMenu(0, 1);
+    CaseMenu({
+        english="[M:S3] Recruit 'em all",
+    }, @label_25);
+    CaseMenu({
+        english="[M:S3] Solo-run",
+    }, @label_26);
+    CaseMenu({
+        english="[M:S3] God Mode",
+    }, @label_27);
+    CaseMenu({
+        english="Check Challenges",
+    }, @label_24);
+    Jump(@label_22);
+    @label_25;
+    message_Mail({
+        english="""
+            [CN]Recruit 'em all: Recruitment is guaranteed
+            [CN]for species you haven't recruited yet,
+            [CN]impossible for other species.
+        """,
+    });
+    Jump(@label_21);
+    @label_26;
+    message_Mail({
+        english="""
+            [CN]Solo-run: You can freely choose to enter
+            [CN]dungeon with either your leader or partner.
+        """,
+    });
+    message_Mail({
+        english="""
+            [CN]Remember that you can use Chimecho's swap
+            [CN]members feature before Post-Game to enter
+            [CN]dungeon with the member you want.
+        """,
+    });
+    Jump(@label_21);
+    @label_27;
+    message_Mail({
+        english="""
+            [CN]God-Mode: available if you select Speedrun,
+            [CN]or 100% cleared the game by beating the final
+            [CN]dungeon new to 2.0.
+        """,
+    });
+    message_Mail({
+        english="""
+            [CN]This mode gives you passive Mobile Scarf,
+            [CN]double speed, X-Ray Specs, Goggle Specs
+            [CN]and Tight Belt effects.
+        """,
+    });
+    Jump(@label_21);
+    @label_22;
+    message_Mail({
+        english="...What a good read!",
+    });
+    JumpCommon(CORO_END_TALK);
+    Jump(@label_3);
+    @label_23;
+    Jump(@label_22);
+    @label_3;
+    message_Mail({
+        english="[CN]Q4: What’s the Level Scaling Option?",
+    });
+    message_Mail({
+        english="""
+            [CN]Level scaling is a toggleable option that affects
+            [CN]the enemy Pokémon's levels. The effect
+            [CN]differs based on the difficulty you set.
+        """,
+    });
+    message_Mail({
+        english="""
+            [CN]Vanilla: enemy levels will match your level
+            [CN]even if your level is lower than the enemy's.
+        """,
+    });
+    message_Mail({
+        english="""
+            [CS:A][CN]Difficult: Enemy levels will always match your
+            [CN]highest level Pokémon.[CR]
+        """,
+    });
+    message_Mail({
+        english="""
+            [CS:H][CN]Expert: Enemy levels match your highest level
+            [CN]Pokémon. If the dungeon level is higher, that
+            [CN]value is taken instead.[CR]
+        """,
+    });
+    message_Mail({
+        english="""
+            [CS:B][CN]Hardcore: Same as Expert, but you can't toggle
+            [CN]this option off. That's intended![CR]
+        """,
+    });
+    message_Mail({
+        english="...What a good read!",
+    });
+    JumpCommon(CORO_END_TALK);
+    @label_4;
+    message_Mail({
+        english="[CN]Q5: What does Sandbox Mode stand for?",
+    });
+    message_Mail({
+        english="""
+            [CN]Sandbox Mode is a mode added to help the
+            [CN]player to get rid of the grindy part of the
+            [CN]game, it's essentially a minimal grinding mode.
+        """,
+    });
+    message_Mail({
+        english="""
+            [CN]Once this option is unlocked, you are given
+            [CN]access to any basic supply you want via a new
+            [CN]option in both maingame and Special Episodes.
+        """,
+    });
+    message_Mail({
+        english="""
+            [CN]When toggled on, check with Porygon2 to
+            [CN]make use of Sandbox Mode features.
+        """,
+    });
+    message_Mail({
+        english="""
+            [CN]A shop is at your disposal in maingame which
+            [CN]sells useful items for very low cost.
+        """,
+    });
+    message_Mail({
+        english="""
+            [CN]A bag similar to the one in the Speedrun option
+            [CN]in Special Episodes serves the same purpose.
+        """,
+    });
+    message_Mail({
+        english="""
+            [CN]If not unlocked but enabled, please note
+            [CN]your save file will be deleted once you've
+            [CN]finished the full story. That's intended!
+        """,
+    });
+    message_Mail({
+        english="...What a good read!",
+    });
+    JumpCommon(CORO_END_TALK);
+    @label_5;
+    message_Mail({
+        english="[CN]Q6: About Exp. Share functionality?",
+    });
+    message_Mail({
+        english="""
+            [CN]Exp. Share is an added mechanic that allows
+            [CN]Pokémon you haven't brought into a dungeon to
+            [CN]receive Exp. from defeated enemies.
+        """,
+    });
+    message_Mail({
+        english="""
+            [CN]It can be bought and then upgraded by talking
+            [CN]to [CS:G]Porygon2[CR] at [CS:P]Crossroads[CR]. The upgrades
+            [CN]increase the share standby Pokémon receive.
+        """,
+    });
+    message_Mail({
+        english="...What a good read!",
+    });
+    JumpCommon(CORO_END_TALK);
+    @label_6;
+    message_Mail({
+        english="[CN]Q7: About [CS:G]Porygon2[CR]?",
+    });
+    message_Mail({
+        english="""
+            [CN][CS:G]Porygon2[CR] is a very rare Pokémon usually
+            [CN]not to be seen around these parts. As such,
+            [CN][CS:G]Porygon2[CR]'s services are very unique!
+        """,
+    });
+    message_Mail({
+        english="""
+            [CN]They are known to offer a large amount
+            [CN]of upgrades depending on your [CS:X]Explorer Rank[CR],
+            [CN]though they don't tell much about the detail.
+        """,
+    });
+    message_Mail({
+        english="""
+            [CN]Well... As far as we know, they pretty much
+            [CN]don't talk at all! The ones we found in Towns
+            [CN]and the others in Dungeons never replied!
+        """,
+    });
+    message_Mail({
+        english="""
+            [CN]However, we have written a notice relative
+            [CN]to the full array of utilities they provide and
+            [CN]the [CS:X]Rank[CR] necessary to unlock every single one.
+        """,
+    });
+    message_Mail({
+        english="""
+            [CS:X]Bronze Rank[CR] -> Daily Money Reward
+            [CS:X]Silver Rank[CR] -> Daily buyable Reviver Seeds
+            [CS:X]Gold Rank[CR] -> Exp. Boosters upgrades
+            [CS:X]Diamond Rank[CR] -> Berries recovery upgrades
+            [CS:X]Emerald Rank[CR] -> Stat Bands upgrades
+            [CS:X]Expert Rank[CR] -> Mission Board reset
+            [CS:X]Ace Rank[CR] -> Ammo upgrades
+            [CS:X]Master Rank[CR] -> Vitamins upgrades
+            [CS:X]Perfect Rank[CR] -> Gummies upgrades
+            [CS:X]Alpha Rank[CR] -> HP Boosters upgrades
+            [CS:X]Guildmaster Rank[CR] -> Rare Items shop
+            [CS:X]Earth Rank[CR] -> Overdrive Upgrades
+        """,
+    });
+    message_Mail({
+        english="...What a good read!",
+    });
+    JumpCommon(CORO_END_TALK);
+    @label_7;
+    message_Mail({
+        english="[CN]Credits for Explorers of Alpha",
+    });
+    message_SwitchMenu(0, 1);
+    CaseMenu({
+        english="CapyPara",
+    }, @label_28);
+    CaseMenu({
+        english="psy_commando",
+    }, @label_29);
+    CaseMenu({
+        english="UsernameFodder",
+    }, @label_30);
+    CaseMenu({
+        english="Audino",
+    }, @label_31);
+    CaseMenu({
+        english="Community",
+    }, @label_32);
+    CaseMenu({
+        english="Cipnit",
+    }, @label_33);
+    CaseMenu({
+        english="techticks",
+    }, @label_34);
+    CaseMenu({
+        english="Anonymous",
+    }, @label_35);
+    CaseMenu({
+        english="Nov",
+    }, @label_36);
+    CaseMenu({
+        english="End45",
+    }, @label_37);
+    CaseMenu({
+        english="Adex",
+    }, @label_38);
+    CaseMenu({
+        english="Fafnir",
+    }, @label_39);
+    CaseMenu({
+        english="Beta Testers",
+    }, @label_40);
+    CaseMenu({
+        english="Leave",
+    }, @label_41);
+    Jump(@label_42);
+    @label_28;
+    message_Mail({
+        english="""
+            CapyPara is SkyTemple's developer. I can't
+            thank him enough for having built a
+            community around this great tool!
+        """,
+    });
+    Jump(@label_7);
+    @label_29;
+    message_Mail({
+        english="""
+            Little know him but without the early days
+            research PsyCommando has made, the hack
+            wouldn't have been developed.
+        """,
+    });
+    Jump(@label_7);
+    @label_30;
+    message_Mail({
+        english="""
+            UsernameFodder made a Google Doc with
+            numerous lists sorted by index IDs that helped
+            me writing patches and scripts way faster.
+        """,
+    });
+    message_Mail({
+        english="""
+            With the help of a few other hackers, he
+            built up the pmdsky-debug repository, a
+            great help when working on my own ASM features.
+        """,
+    });
+    Jump(@label_7);
+    @label_31;
+    message_Mail({
+        english="""
+            Audino is the at the head of SpriteBot project,
+            and it provided a big load of resources in
+            sprites in portraits I used in the game.
+        """,
+    });
+    message_Mail({
+        english="""
+            It's a collaborative project, so I'm thanking all
+            the spriters that work hard to complete the
+            project in SkyTemple discord.
+        """,
+    });
+    Jump(@label_7);
+    @label_32;
+    message_Mail({
+        english="""
+            gromchurch has made the tilesets I used for
+            Sky Stairway Apex and Peak of Renewal.
+        """,
+    });
+    message_Mail({
+        english="""
+            NeroIntruder has worked on Alolan Vulpix and
+            Alolan Grimer evolution lines.
+        """,
+    });
+    message_Mail({
+        english="""
+            baronessfaron has worked on Sylveon,
+            Regidrago, Regieleki, H-Growlithe,
+            H-Arcanine, and G-Rapidash sprites.
+        """,
+    });
+    message_Mail({
+        english="""
+            Ernmuffin has worked on Alolan Marowak's
+            sprite but she's also very invested in the
+            SpriteBot project in general.
+        """,
+    });
+    message_Mail({
+        english="""
+            Lumi worked on Grovyle's new asset used in
+            Chapter 3. It served as a base for his other
+            new sprites throughout the game.
+        """,
+    });
+    message_Mail({
+        english="FunnyKecleonMeme made the Arceus sprite.",
+    });
+    Jump(@label_7);
+    @label_33;
+    message_Mail({
+        english="""
+            Cipnit/Jirt worked on Complete Team Control
+            patch and its dependancies provided in
+            SkyTemple's public patches.
+        """,
+    });
+    Jump(@label_7);
+    @label_34;
+    message_Mail({
+        english="""
+            techticks worked on an ASM Editor for
+            Explorers of Sky. It helped me building new
+            move effects for Alpha easily.
+        """,
+    });
+    Jump(@label_7);
+    @label_35;
+    message_Mail({
+        english="""
+            Anonymous has helped the community a lot with
+            his research. He helped me with my ASM
+            Patches and is always knowledgeable.
+        """,
+    });
+    message_Mail({
+        english="""
+            Fixed Room, Mission data, Shops, Processes,
+            numerous sprite assets, Bar lists and more
+            are editable thanks to him.
+        """,
+    });
+    message_Mail({
+        english="""
+            Experience Share, Entity Expansion, Move
+            and Item Effects documentation, but also
+            Fairy-type addition are his doing too.
+        """,
+    });
+    Jump(@label_7);
+    @label_36;
+    message_Mail({
+        english="""
+            Nov has been a fantastic help while working
+            on gameplay optimizations. She helped me a
+            lot when adding a new HUD to Alpha.
+        """,
+    });
+    message_Mail({
+        english="""
+            In fact, without her, the gorgeous dungeon UI
+            would have never existed! Oh and her help
+            was clutch when expanding the Abilities list!
+        """,
+    });
+    message_Mail({
+        english="""
+            She also helped me with Arceus' form change,
+            polishing the Field Effects mechanic, touching
+            the box placements and working with assets.
+        """,
+    });
+    Jump(@label_7);
+    @label_37;
+    message_Mail({
+        english="""
+            End45 is cracked. Without him, half of this
+            hack's features wouldn't be in.
+        """,
+    });
+    message_Mail({
+        english="""
+            Here is a list of everything he helped me
+            and the community with.
+        """,
+    });
+    message_Mail({
+        english="""
+            Edits of IQ Gain, Type Table, IQ Groups,
+            Exclusive Items, Move Shortcuts, and I'm not
+            taking in account all the help he provided me.
+        """,
+    });
+    message_Mail({
+        english="""
+            Always knowledgeable, he researched a ton of
+            stuff, helping others to succeed in their own
+            research and their own patches.
+        """,
+    });
+    message_Mail({
+        english="""
+            Without him, my Field Effects, HP Bar Fix,
+            Level Scaling code and most of my ASM
+            progress would have never happened.
+        """,
+    });
+    message_Mail({
+        english="""
+            I can't thank him enough for always being
+            here when I need help with some stuff.
+        """,
+    });
+    Jump(@label_7);
+    @label_38;
+    message_Mail({
+        english="""
+            Adex worked on the public special processes
+            repository. This one was a great help when
+            working on some unique features in the game.
+        """,
+    });
+    Jump(@label_7);
+    @label_39;
+    message_Mail({
+        english="""
+            Fafnir is an Alpha version 1.x player who
+            was a great help when working on the new
+            Alpha 2.0 experience.
+        """,
+    });
+    message_Mail({
+        english="""
+            Everything that's related to gameplay and
+            game design has been double-checked with
+            him, even some planned features.
+        """,
+    });
+    message_Mail({
+        english="""
+            He ultimately ended up helping me in the
+            beta testing phase of the game, cannot thank
+            him enough for sticking around for so long.
+        """,
+    });
+    Jump(@label_7);
+    @label_40;
+    message_Mail({
+        english="""
+            Big thanks to Nov, Fafnir, Tokie, Anpyron,
+            Mystaldi, Smash, aerophii, Kalor, Picalex
+            and Babou for beta-testing the game!
+        """,
+    });
+    Jump(@label_7);
+    @label_41;
+    message_Mail({
+        english="...What a good read!",
+    });
+    JumpCommon(CORO_END_TALK);
+    @label_42;
+    Jump(@label_41);
+    @label_8;
+    JumpCommon(CORO_END_TALK);
+}

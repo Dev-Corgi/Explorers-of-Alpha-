@@ -1,0 +1,96 @@
+id: korean
+version: 4
+region: US
+description: >
+  Korean text. Ports the unofficial Explorers of Sky Korean patch
+  (하늘의 탐험대 1-101b) to Explorers of Alpha. Each text_e.str and script
+  string takes the Korean translation only when its English text equals the
+  EoS English the translation was made from; other strings stay English.
+  The Korean glyph engine runs from an ov36 cave. Glyph bitmaps are loaded
+  with ov36 at 0x023E0000 (past ExtraSpace). FONT/ko_glyph.bin is the same
+  table. ARM9 PU region 2 is moved to 0x023F0000-0x023FFFFF so melonDS can
+  read those bitmaps. Name-keyboard assembly is included. Apply after every
+  other module.
+
+kind: korean
+rom_profile: us_vanilla
+
+cave:
+  binary: ov36
+  code_bytes: 1280
+  alignment: 4
+
+asm:
+  entry: asm/main.asm
+
+data:
+  text_e: data/text_e.json.gz
+  scripts: data/scripts.json.gz
+  ziti: data/ziti.bin
+
+# Every word the Korean patch changes in arm9. branch_to_cave sites branch into
+# the ov36 cave; all other words must equal the Korean patch after assembly.
+arm9_sites:
+  - {address: 0x020158E0, vanilla: 0xE4D68001, korean: 0xEA087046, branch_to_cave: true, name: KoDrawCharFetch}
+  - {address: 0x02015A30, vanilla: 0xEB003E92, korean: 0xEB003E93, name: KoDrawGlyphCall}
+  - {address: 0x020161E0, vanilla: 0xE4D40001, korean: 0xEA086DFE, branch_to_cave: true, name: KoWidthCharFetch}
+  - {address: 0x0201628C, vanilla: 0xE92D4008, korean: 0xEA086D82, branch_to_cave: true, name: KoWidthGlyphEntry}
+  - {address: 0x020206C8, vanilla: 0xE3500081, korean: 0xE3500088, name: KoLeadCheck}
+  - {address: 0x020206CC, vanilla: 0x3A000001, korean: 0xBA000007}
+  - {address: 0x020206D0, vanilla: 0xE3500084, korean: 0xE350009F}
+  - {address: 0x020206D4, vanilla: 0x9A000001, korean: 0xCA000005}
+  - {address: 0x020206D8, vanilla: 0xE3500087, korean: 0xE5D61001}
+  - {address: 0x020206DC, vanilla: 0x1A000003, korean: 0xEA0844D0, branch_to_cave: true, name: KoLeadTrailCheck}
+  - {address: 0x020206E0, vanilla: 0xE5F61001, korean: 0x12866001}
+  - {address: 0x020206E4, vanilla: 0xE1810400, korean: 0x11810400}
+  - {address: 0x020206E8, vanilla: 0xE1A00800, korean: 0x11A00800}
+  - {address: 0x020206EC, vanilla: 0xE1A00820, korean: 0x11A00820}
+  - {address: 0x02025480, vanilla: 0xE92D4008, korean: 0xE12FFF1E, name: KoGlyphPrep}
+  - {address: 0x02025484, vanilla: 0xE3500000, korean: 0xE3500B22}
+  - {address: 0x02025488, vanilla: 0x03A00000, korean: 0xB12FFF1E}
+  - {address: 0x0202548C, vanilla: 0x08BD8008, korean: 0xE3500C9F}
+  - {address: 0x02025490, vanilla: 0xE3A0C000, korean: 0xC12FFF1E}
+  - {address: 0x02025494, vanilla: 0xE3A0E0DB, korean: 0xEB0830D3, branch_to_cave: true, name: KoGlyphPrepLookup}
+  - {address: 0x02025498, vanilla: 0xE59F2050, korean: 0xE3A02000}
+  - {address: 0x0202549C, vanilla: 0xEA000009, korean: 0xE28D1E4D}
+  - {address: 0x020254A0, vanilla: 0xE08C100E, korean: 0xE7813002}
+  - {address: 0x020254A4, vanilla: 0xE0811FA1, korean: 0xE2822004}
+  - {address: 0x020254A8, vanilla: 0xE1A030C1, korean: 0xE3520F49}
+  - {address: 0x020254AC, vanilla: 0xE1A01103, korean: 0xDAFFFFFB}
+  - {address: 0x020254B0, vanilla: 0xE19210B1, korean: 0xE3A0E000}
+  - {address: 0x020254B4, vanilla: 0xE1510000, korean: 0xE2801004}
+  - {address: 0x020254B8, vanilla: 0x01A0C003, korean: 0xE2400004}
+  - {address: 0x020254BC, vanilla: 0x0A000003, korean: 0xE58F0000}
+  - {address: 0x020254C0, vanilla: 0xB283C001, korean: 0xEA08311F, branch_to_cave: true, name: KoGlyphPrepRender}
+  - {address: 0x020254C8, vanilla: 0xE15C000E, korean: 0xE51F000C}
+  - {address: 0x020254CC, vanilla: 0xBAFFFFF3, korean: 0xE59F300C}
+  - {address: 0x020254D0, vanilla: 0xE59F1018, korean: 0xE5933000}
+  - {address: 0x020254D4, vanilla: 0xE1A0210C, korean: 0xE5933000}
+  - {address: 0x020254D8, vanilla: 0xE19110B2, korean: 0xE58D301C}
+  - {address: 0x020254DC, vanilla: 0xE1510000, korean: 0xEAFFC1B8}
+  - {address: 0x020254E0, vanilla: 0x059F000C, korean: 0x020AF710}
+  - {address: 0x02025C7C, vanilla: 0xE92D4010, korean: 0xEA082ED9, branch_to_cave: true, name: KoFontLookupEntry}
+  - {address: 0x02025D38, vanilla: 0xE8BD8010, korean: 0xE8BD80F0, name: KoFontLookupExit}
+  - {address: 0x0203807C, vanilla: 0xE5D050FC, korean: 0xEA07E679, branch_to_cave: true, name: KoMeasureCharFetch}
+  - {address: 0x020892BC, vanilla: 0xE5100004, korean: 0xEA06A1DC, branch_to_cave: true, name: KoCopyCharFetch}
+  - {address: 0x0207A520, vanilla: 0x023E0021, korean: 0x023F001F, name: KoPuRegion2}
+
+# Text window layout constants for Korean glyph metrics.
+overlay_words:
+  - {overlay: 11, address: 0x02316918, vanilla: 0xE3A0B005, korean: 0xE3A0B000}
+  - {overlay: 11, address: 0x02316974, vanilla: 0xE3A01012, korean: 0xE3A0100B}
+  - {overlay: 11, address: 0x02316998, vanilla: 0xE3A01040, korean: 0xE3A01070}
+  - {overlay: 11, address: 0x0231699C, vanilla: 0xE287200A, korean: 0xE287200B}
+  - {overlay: 11, address: 0x023169E0, vanilla: 0xE3A010CC, korean: 0xE3A010D0}
+  - {overlay: 11, address: 0x023169E4, vanilla: 0xE287200A, korean: 0xE2872000}
+  - {overlay: 11, address: 0x023169EC, vanilla: 0xE2877014, korean: 0xE2877016}
+  - {overlay: 11, address: 0x02324BD0, vanilla: 0x141C0202, korean: 0x161C0102}
+  - {overlay: 14, address: 0x0238AD44, vanilla: 0xE3A01002, korean: 0xE3A01003}
+  - {overlay: 14, address: 0x0238AD70, vanilla: 0xE3A0107A, korean: 0xE3A0107B}
+  - {overlay: 14, address: 0x0238ADA8, vanilla: 0xE3A01002, korean: 0xE3A01003}
+  - {overlay: 14, address: 0x0238ADD4, vanilla: 0xE3A0107A, korean: 0xE3A0107B}
+
+# Font glyph edits from the Korean patch (applied only over vanilla bytes).
+file_patches:
+  - {file: FONT/kanji_rd.dat, offset: 0x1132, vanilla: "080200007800600050004e000900090006000000000000000000be00070200001c00220022001c0008003e000800080000", korean: "0a02100038005400100010003800440044004400380000000000be000a02380044004400440038001000fe001000100010"}
+  - {file: FONT/markfont.dat, offset: 0x91, vanilla: "0b", korean: "09"}

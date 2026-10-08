@@ -1,0 +1,64 @@
+Metadata-Version: 2.4
+Name: explorerscript
+Version: 0.2.4
+Summary: ExplorerScript and SSBScript: Script languages for decompiled SSB (Pokémon Mystery Dungeon Explorers of Sky)
+Author-email: "Marco \"Capypara\" Köpcke" <hello@capypara.de>
+License: MIT
+Project-URL: Homepage, https://skytemple.org
+Project-URL: Announcements, https://blog.skytemple.org
+Project-URL: Documentation, https://wiki.skytemple.org
+Project-URL: Repository, https://github.com/SkyTemple/ExplorerScript.git
+Project-URL: Issues, https://github.com/SkyTemple/ExplorerScript/issues
+Project-URL: Discord, https://discord.gg/skytemple
+Keywords: rom-hacking,game-modding,skytemple
+Classifier: Development Status :: 4 - Beta
+Classifier: Programming Language :: Python
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Programming Language :: Python :: 3.13
+Requires-Python: >=3.10
+Description-Content-Type: text/x-rst
+License-File: LICENSE
+Requires-Dist: igraph==0.11.8
+Requires-Dist: typing_extensions>=4.0; python_version < "3.10"
+Provides-Extra: pygments
+Requires-Dist: pygments>=2.6.1; extra == "pygments"
+Dynamic: license-file
+
+ExplorerScript
+==============
+
+|build| |docs| |pypi-version| |pypi-downloads| |pypi-license| |pypi-pyversions| |discord|
+
+.. |build| image:: https://img.shields.io/github/actions/workflow/status/SkyTemple/ExplorerScript/build-test-publish.yml
+    :target: https://pypi.org/project/explorerscript/
+    :alt: Build Status
+
+.. |docs| image:: https://readthedocs.org/projects/explorerscript/badge/?version=latest
+    :target: https://explorerscript.readthedocs.io/en/latest/?badge=latest
+    :alt: Documentation Status
+
+.. |pypi-version| image:: https://img.shields.io/pypi/v/explorerscript
+    :target: https://pypi.org/project/explorerscript/
+    :alt: Version
+
+.. |pypi-downloads| image:: https://img.shields.io/pypi/dm/explorerscript
+    :target: https://pypi.org/project/explorerscript/
+    :alt: Downloads
+
+.. |pypi-license| image:: https://img.shields.io/pypi/l/explorerscript
+    :alt: License (GPLv3)
+
+.. |pypi-pyversions| image:: https://img.shields.io/pypi/pyversions/explorerscript
+    :alt: Supported Python versions
+
+.. |discord| image:: https://img.shields.io/discord/710190644152369162?label=Discord
+    :target: https://discord.gg/skytemple
+    :alt: Discord
+
+A programming language + compiler/decompiler for creating scripts for Pokémon Mystery
+Dungeon Explorers of Sky.
+
+Documentation can be found at https://explorerscript.readthedocs.org (or in the docs directory).

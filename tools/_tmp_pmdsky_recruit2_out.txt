@@ -1,0 +1,66 @@
+0x02011528 ApplyGummiBoostsToGroundMonster: Applies the IQ boosts from eating a Gummi to the target monster. Basically a wrapper around\nApplyGummiBoostsGroundMode for struct ground_mo
+0x02011554 ApplyGummiBoostsToTeamMember: Applies the IQ boosts from eating a Gummi to the target monster. Basically a wrapper around\nApplyGummiBoostsGroundMode for struct team_memb
+0x0204fd8c GetNbPokemonJoined: Gets the number of different pok?mon that joined.\n\nreturn: the number of different pok?mon that joined
+0x0204fdfc SetPokemonJoined: Marks one pok?mon as joined.\n\nr0: monster ID
+0x0204ffec ComputeSpecialCounters: Computes the counters from the bit fields in the adventure log, as they are not updated automatically when bit fields are altered.\n\nAffect
+0x02050244 RecruitSpecialPokemonLog: Marks a specified special pok?mon as recruited in the adventure log.\n\nIrdkwia's notes: Useless in Sky\n\nr0: monster ID
+0x02051398 IsRecruitingAllowed: Note: unverified, ported from Irdkwia's notes\n\nr0: dungeon ID\nreturn: bool
+0x02051490 JoinedAtRangeCheck: Returns whether a certain joined_at field value is between dungeon_id::DUNGEON_JOINED_AT_BIDOOF and dungeon_id::DUNGEON_DUMMY_0xE3.\n\nIrdkw
+0x02051760 JoinedAtRangeCheck2: Returns whether a certain joined_at field value is equal to dungeon_id::DUNGEON_BEACH or is between dungeon_id::DUNGEON_DUMMY_0xEC and dunge
+0x02052a44 GetRecruitRate2: Note: unverified, ported from Irdkwia's notes\n\nr0: id\nreturn: recruit rate 2
+0x02052a60 GetRecruitRate1: Note: unverified, ported from Irdkwia's notes\n\nr0: id\nreturn: recruit rate 1
+0x02052e50 GuestMonsterToGroundMonster: Inits a ground_monster entry with the given guest_monster struct.\n\nr0: [output] ground_monster struct to init\nr1: guest_monster struct to
+0x02055148 IsMonsterOnTeam: Checks if a given monster is on the exploration team (not necessarily the active party)?\n\nIrdkwia's notes:\n  recruit_strategy=0: strict e
+0x02055274 GetNbRecruited: Note: unverified, ported from Irdkwia's notes\n\nr0: recruit_str
+0x02056264 CheckTeamMemberIdx: Checks if a team member's member index (team_member::member_idx) is equal to certain values.\n\nThis is known to return true for some or all
+0x020562cc SetActiveTeam: Sets the specified team to active in TEAM_MEMBER_TABLE.\n\nr0: team ID
+0x020569cc SetTeamSetupHeroAndPartnerOnly: Implements SPECIAL_PROC_SET_TEAM_SETUP_HERO_AND_PARTNER_ONLY (see ScriptSpecialProcessCall).\n\nNo params.
+0x02056ab0 SetTeamSetupHeroOnly: Implements SPECIAL_PROC_SET_TEAM_SETUP_HERO_ONLY (see ScriptSpecialProcessCall).\n\nNo params.
+0x02059334 WriteMonsterToSave: Note: unverified, ported from Irdkwia's notes\n\nr0: write_info\nr1: ground_monster
+0x02059444 ReadMonsterFromSave: Note: unverified, ported from Irdkwia's notes\n\nr0: read_info\nr1: ground_monster
+0x02059b18 GetEvolutionPossibilities: Note: unverified, ported from Irdkwia's notes\n\nr0: ground_monster\nr1: evo_struct_addr
+0x0205a210 GetMonsterEvoStatus: evo_status = 0: Not possible now\nevo_status = 1: Possible now\nevo_status = 2: No further\n\nNote: unverified, ported from Irdkwia's notes\
+0x0205ae28 CreateMonsterSummaryFromTeamMember: Creates a snapshot of the condition of a team_member struct in a monster_summary struct.\n\nr0: [output] monster_summary\nr1: team_member\nr
+0x0206a76c GetDungeonModeSpecial: Returns the status of the given dungeon, with some modifications.\n\nIf the dungeon ID is DUNGEON_BEACH, returns DMODE_REQUEST.\nIf it's DUN
+0x02075ba4 FX_InvAsync: 
+0x02075bd4 FX_DivAsync: 
+0x022e0928 StoryRestrictionsEnabled: Returns true if certain special restrictions are enabled.\n\nIf true, you will get kicked out of the dungeon if a team member that passes th
+0x022e803c GetSpecialRecruitmentSpecies: Returns an entry from RECRUITMENT_TABLE_SPECIES.\n\nNote: This indexes without doing bounds checking.\n\nr0: index into RECRUITMENT_TABLE_SP
+0x022e8080 PrepareMenuAcceptTeamMember: Implements SPECIAL_PROC_PREPARE_MENU_ACCEPT_TEAM_MEMBER (see ScriptSpecialProcessCall).\n\nr0: index into RECRUITMENT_TABLE_SPECIES
+0x022efa6c DebugRecruitingEnabled: Always returns true. Called by SpecificRecruitCheck.\n\nSeems to be a function used during development to disable recruiting. If it returns 
+0x022f73a8 JoinedAtRangeCheck2Veneer: Likely a linker-generated veneer for arm9::JoinedAtRangeCheck2.\n\nSee https://developer.arm.com/documentation/dui0474/k/image-structure-and
+0x022fbad0 IsSpecialStoryAlly: Checks if a monster is a special story ally.\n\nThis is a hard-coded check that looks at the monster's 'Joined At' field. If the value is in
+0x022fbaf0 IsExperienceLocked: Checks if a monster does not gain experience.\n\nThis basically just inverts IsSpecialStoryAlly, with the exception of also checking for the
+0x0230db14 SpecificRecruitCheck: Checks if a specific monster can be recruited. Called by RecruitCheck.\n\nWill return false if dungeon::recruiting_enabled is false, if the 
+0x0230dbd0 RecruitCheck: Determines if a defeated enemy will attempt to join the team\n\nr0: user entity pointer\nr1: target entity pointer\nreturn: True if the targ
+0x0230e064 TryRecruit: Asks the player if they would like to recruit the enemy that was just defeated and handles the recruitment if they accept.\n\nr0: user entit
+0x02346f14 AddHeldItemToBag: Adds the monster's held item to the bag. This is only called on monsters on the exploration team.\nmonster::is_not_team_member should be che
+0x02388c04 RecruitmentSearchMenuLoop: Called on each frame while the in-dungeon 'recruitment search' menu is open.\n\nreturn: int (Actually, this is probably some sort of enum sh
+0x0238a1c4 GetRecruitableMonsterAll: Note: unverified, ported from Irdkwia's notes\n\nreturn: int?
+0x0238a274 GetRecruitableMonsterList: Note: unverified, ported from Irdkwia's notes\n\nreturn: int?
+0x0238a31c GetRecruitableMonsterListRestricted: Note: unverified, ported from Irdkwia's notes\n\nreturn: int?
+total 41
+
+Near known sites:
+
+0x02048ac4
+  0x02048a84 InitSpecialEpisodeExtraPartner
+
+0x02052cf4
+
+0x02052e2c
+  0x02052e50 GuestMonsterToGroundMonster
+
+0x02053518
+
+0x02055b78
+
+0x020577bc
+
+0x022f7f80
+  0x022f7f30 HandleFaint
+
+0x022fd3b4
+  0x022fd3b4 InitTeamMember
+
+0x022fe048

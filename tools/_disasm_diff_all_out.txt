@@ -1,0 +1,1681 @@
+=== Callers of GetDifficulty (0x023ACCF8) ===
+  0x023A96A0
+    023A96A0  bl       #0x23accf8
+    023A96A4  cmp      r0, #1
+    023A96A8  beq      #0x23a96d4
+    023A96AC  mov      r1, #0x4e
+    023A96B0  mov      r2, #0x3e
+    023A96B4  bl       #0x204b678
+    023A96B8  cmp      r0, #1
+    023A96BC  beq      #0x23a96d4
+    023A96C0  mov      r1, #0x4e
+    023A96C4  mov      r2, #0x35
+    023A96C8  bl       #0x204b678
+    023A96CC  cmp      r0, #1
+    023A96D0  bne      #0x23a96e0
+    023A96D4  ldr      r4, [pc, #0x8b8]
+    023A96D8  mov      r5, #0x4b0
+    023A96DC  strh     r5, [r4]
+    023A96E0  bl       #0x204c938
+    023A96E4  mvn      r1, #0
+    023A96E8  cmp      r0, r1
+    023A96EC  bne      #0x23acae0
+    023A96F0  mov      r5, #0
+    023A96F4  ldr      r0, [r8]
+    023A96F8  add      r0, r0, r5, lsl #2
+    023A96FC  add      r0, r0, #0x12000
+  0x023A9A48
+    023A9A48  bl       #0x23accf8
+    023A9A4C  cmp      r0, #4
+    023A9A50  beq      #0x23a9b2c
+    023A9A54  ldr      r0, [r8]
+    023A9A58  ldrb     r0, [r0, #0x748]
+    023A9A5C  bl       #0x20512b0
+    023A9A60  mov      r1, r0
+    023A9A64  ldr      r0, [r8]
+    023A9A68  add      r0, r0, #0x700
+    023A9A6C  ldrh     r0, [r0, #0x84]
+    023A9A70  cmp      r0, r1
+    023A9A74  bne      #0x23a9b2c
+    023A9A78  mov      r0, #0
+    023A9A7C  mov      r1, #0x4e
+    023A9A80  mov      r2, #0x11
+    023A9A84  bl       #0x204b678
+    023A9A88  cmp      r0, #1
+    023A9A8C  beq      #0x23a9b2c
+    023A9A90  ldr      r0, [r8]
+    023A9A94  ldrb     r0, [r0, #0x748]
+    023A9A98  cmp      r0, #0x26
+    023A9A9C  beq      #0x23a9acc
+    023A9AA0  cmp      r0, #0x27
+    023A9AA4  beq      #0x23a9acc
+  0x023A9DB4
+    023A9DB4  bl       #0x23accf8
+    023A9DB8  cmp      r0, #3
+    023A9DBC  ldm      sp!, {r0}
+    023A9DC0  blt      #0x23a9f80
+    023A9DC4  moveq    r3, #0x140
+    023A9DC8  moveq    r1, #0x180
+    023A9DCC  movgt    r3, #0x180
+    023A9DD0  movgt    r1, #0x200
+    023A9DD4  str      r3, [r7, #0x34]
+    023A9DD8  str      r3, [r7, #0x38]
+    023A9DDC  str      r1, [r7, #0x3c]
+    023A9DE0  str      r1, [r7, #0x40]
+    023A9DE4  ldrh     r3, [r7, #2]
+    023A9DE8  mov      r1, #1
+    023A9DEC  strb     r1, [r7, #0xf9]
+    023A9DF0  ldrh     r0, [r7, #0x24]
+    023A9DF4  cmp      r0, #0x14
+    023A9DF8  subeq    r0, r0, #1
+    023A9DFC  strh     r0, [r7, #0x24]
+    023A9E00  ldrh     r0, [r7, #0x26]
+    023A9E04  cmp      r0, #0x14
+    023A9E08  subeq    r0, r0, #1
+    023A9E0C  strh     r0, [r7, #0x26]
+    023A9E10  ldrh     r0, [r7, #0x28]
+  0x023AA014
+    023AA014  bl       #0x23accf8
+    023AA018  cmp      r0, #3
+    023AA01C  ldm      sp!, {r0}
+    023AA020  blt      #0x23aa064
+    023AA024  push     {r1, r2, r3}
+    023AA028  bl       #0x20151c8
+    023AA02C  pop      {r1, r2, r3}
+    023AA030  cmp      r0, #2
+    023AA034  movne    r0, #0x63
+    023AA038  strbne   r0, [r3, #7]
+    023AA03C  push     {r1, r2, r3}
+    023AA040  mov      r0, r3
+    023AA044  bl       #0x2013a50
+    023AA048  pop      {r1, r2, r3}
+    023AA04C  strb     r0, [r3, #6]
+    023AA050  cmp      r6, #1
+    023AA054  ldrbeq   r0, [r3]
+    023AA058  orreq    r0, r0, #2
+    023AA05C  biceq    r0, r0, #4
+    023AA060  strbeq   r0, [r3]
+    023AA064  add      r6, r6, #1
+    023AA068  cmp      r6, #4
+    023AA06C  blt      #0x23a9ffc
+    023AA070  pop      {r0, r1, r2, r3, r4, r5, r6, r7, pc}
+  0x023AA084
+    023AA084  bl       #0x23accf8
+    023AA088  cmp      r0, #1
+    023AA08C  bne      #0x23aa0d8
+    023AA090  mov      r5, #0
+    023AA094  ldr      r0, [r8]
+    023AA098  add      r0, r0, r5, lsl #2
+    023AA09C  add      r0, r0, #0x12000
+    023AA0A0  ldr      r6, [r0, #0xb28]
+    023AA0A4  mov      r0, r6
+    023AA0A8  bl       #0x22e95f4
+    023AA0AC  cmp      r0, #1
+    023AA0B0  bne      #0x23aa0cc
+    023AA0B4  ldr      r2, [r6, #0xb4]
+    023AA0B8  ldr      r1, [pc, #0xa00]
+    023AA0BC  str      r1, [r2, #0x34]
+    023AA0C0  str      r1, [r2, #0x38]
+    023AA0C4  str      r1, [r2, #0x3c]
+    023AA0C8  str      r1, [r2, #0x40]
+    023AA0CC  add      r5, r5, #1
+    023AA0D0  cmp      r5, #4
+    023AA0D4  blt      #0x23aa094
+    023AA0D8  mov      r7, #0
+    023AA0DC  bl       #0x23accf8
+    023AA0E0  cmp      r0, #4
+  0x023AA0DC
+    023AA0DC  bl       #0x23accf8
+    023AA0E0  cmp      r0, #4
+    023AA0E4  beq      #0x23aa0f4
+    023AA0E8  cmp      r0, #3
+    023AA0EC  bne      #0x23aa1e0
+    023AA0F0  add      r7, r7, #0x1e
+    023AA0F4  mov      r5, #0
+    023AA0F8  mov      r0, #0
+    023AA0FC  mov      r1, #0x4e
+    023AA100  mov      r2, #0x11
+    023AA104  bl       #0x204b678
+    023AA108  cmp      r0, #1
+    023AA10C  addne    r7, r7, #0x5a
+    023AA110  bne      #0x23aa134
+    023AA114  mov      r1, #0x4e
+    023AA118  mov      r2, #0x12
+    023AA11C  bl       #0x204b678
+    023AA120  cmp      r0, #1
+    023AA124  beq      #0x23aa1e0
+    023AA128  ldr      r0, [r8]
+    023AA12C  ldrb     r0, [r0, #0x748]
+    023AA130  add      r7, r7, #0x96
+    023AA134  ldr      r0, [r8]
+    023AA138  add      r0, r0, r5, lsl #2
+  0x023AA1E4
+    023AA1E4  bl       #0x23accf8
+    023AA1E8  cmp      r0, #1
+    023AA1EC  beq      #0x23aa20c
+    023AA1F0  cmp      r0, #2
+    023AA1F4  beq      #0x23aa23c
+    023AA1F8  cmp      r0, #3
+    023AA1FC  beq      #0x23aa254
+    023AA200  cmp      r0, #4
+    023AA204  beq      #0x23aa26c
+    023AA208  b        #0x23aa294
+    023AA20C  mov      r0, #0x24
+    023AA210  strb     r0, [r6]
+    023AA214  mov      r0, #0x32
+    023AA218  ldr      r6, [pc, #0x8b0]
+    023AA21C  strb     r0, [r6]
+    023AA220  mov      r0, #0x19
+    023AA224  ldr      r6, [pc, #0x8a8]
+    023AA228  strb     r0, [r6]
+    023AA22C  mov      r0, #0x180
+    023AA230  ldr      r6, [pc, #0x8a0]
+    023AA234  strh     r0, [r6]
+    023AA238  b        #0x23aa294
+    023AA23C  mov      r0, #0x18
+    023AA240  strb     r0, [r6]
+  0x023AA31C
+    023AA31C  bl       #0x23accf8
+    023AA320  cmp      r0, #3
+    023AA324  moveq    r0, #0x118
+    023AA328  strheq   r0, [r5]
+    023AA32C  cmp      r0, #4
+    023AA330  moveq    r0, #0xc0
+    023AA334  strheq   r0, [r5]
+    023AA338  cmp      r0, #1
+    023AA33C  beq      #0x23acae0
+    023AA340  mov      r5, #0
+    023AA344  ldr      r0, [r8]
+    023AA348  add      r0, r0, r5, lsl #2
+    023AA34C  add      r0, r0, #0x12000
+    023AA350  ldr      r6, [r0, #0xb28]
+    023AA354  mov      r0, r6
+    023AA358  bl       #0x22e95f4
+    023AA35C  cmp      r0, #1
+    023AA360  bne      #0x23aa4dc
+    023AA364  ldr      r7, [r6, #0xb4]
+    023AA368  mov      r1, #1
+    023AA36C  mov      r3, #2
+    023AA370  ldr      r0, [r8]
+    023AA374  ldrb     r0, [r0, #0x748]
+    023AA378  cmp      r0, #0x13
+  0x023AA808
+    023AA808  bl       #0x23accf8
+    023AA80C  cmp      r0, #4
+    023AA810  push     {r0, r1, r2, r3, r4}
+    023AA814  moveq    r4, #5
+    023AA818  movne    r4, #0xa
+    023AA81C  mov      r1, r4
+    023AA820  ldr      r0, [r8]
+    023AA824  add      r0, r0, #0x700
+    023AA828  ldrh     r0, [r0, #0x84]
+    023AA82C  bl       #0x208fea4
+    023AA830  sub      r4, r4, #2
+    023AA834  cmp      r1, r4
+    023AA838  pop      {r0, r1, r2, r3, r4}
+    023AA83C  bne      #0x23aa52c
+    023AA840  mov      r1, #3
+    023AA844  add      r0, r7, #0x100
+    023AA848  strb     r1, [r0, #6]
+    023AA84C  ldr      r0, [pc, #0x2c8]
+    023AA850  mov      r1, r6
+    023AA854  bl       #0x23af080
+    023AA858  mov      r1, r6
+    023AA85C  mov      r0, #0
+    023AA860  mov      r2, #0
+    023AA864  bl       #0x22e2ad8
+  0x023AABF0
+    023AABF0  bl       #0x23accf8
+    023AABF4  cmp      r0, #1
+    023AABF8  beq      #0x23ac598
+    023AABFC  add      r3, r7, #0x100
+    023AAC00  ldrh     r1, [r7, #2]
+    023AAC04  cmp      r1, #0x28
+    023AAC08  beq      #0x23ab03c
+    023AAC0C  cmp      r1, #0x32
+    023AAC10  beq      #0x23ab078
+    023AAC14  cmp      r1, #0x33
+    023AAC18  beq      #0x23ab078
+    023AAC1C  ldr      r0, [pc, #0x35c]
+    023AAC20  cmp      r0, r1
+    023AAC24  beq      #0x23ab0d0
+    023AAC28  cmp      r1, #0x82
+    023AAC2C  beq      #0x23ab0f4
+    023AAC30  cmp      r1, #0x90
+    023AAC34  beq      #0x23ab150
+    023AAC38  cmp      r1, #0x91
+    023AAC3C  beq      #0x23ab174
+    023AAC40  cmp      r1, #0x92
+    023AAC44  beq      #0x23ab198
+    023AAC48  ldr      r0, [pc, #0x334]
+    023AAC4C  cmp      r0, r1
+  0x023ABC08
+    023ABC08  bl       #0x23accf8
+    023ABC0C  cmp      r0, #1
+    023ABC10  moveq    r1, #9
+    023ABC14  beq      #0x23abcb8
+    023ABC18  cmp      r0, #2
+    023ABC1C  moveq    r1, #0x1e
+    023ABC20  beq      #0x23abcb8
+    023ABC24  cmp      r0, #3
+    023ABC28  moveq    r1, #0x63
+    023ABC2C  strbeq   r1, [r7, #0x61]
+    023ABC30  moveq    r1, #1
+    023ABC34  strheq   r1, [r7, #0x62]
+    023ABC38  moveq    r1, #0
+    023ABC3C  strheq   r1, [r7, #0x64]
+    023ABC40  moveq    r1, #0x13
+    023ABC44  strheq   r1, [r7, #0x66]
+    023ABC48  strheq   r1, [r7, #0x68]
+    023ABC4C  cmp      r0, #4
+    023ABC50  moveq    r1, #0x67
+    023ABC54  strbeq   r1, [r7, #0x61]
+    023ABC58  moveq    r1, #1
+    023ABC5C  strheq   r1, [r7, #0x62]
+    023ABC60  moveq    r1, #0
+    023ABC64  strheq   r1, [r7, #0x64]
+  0x023AC410
+    023AC410  bl       #0x23accf8
+    023AC414  cmp      r0, #2
+    023AC418  beq      #0x23ac514
+    023AC41C  ldr      r0, [r8]
+    023AC420  ldrb     r0, [r0, #0x780]
+    023AC424  tst      r0, #3
+    023AC428  bne      #0x23ac514
+    023AC42C  ldr      r0, [r8]
+    023AC430  ldrb     r0, [r0, #0x748]
+    023AC434  cmp      r0, #2
+    023AC438  beq      #0x23ac514
+    023AC43C  cmp      r0, #5
+    023AC440  beq      #0x23ac514
+    023AC444  cmp      r0, #0x13
+    023AC448  beq      #0x23ac514
+    023AC44C  cmp      r0, #0x25
+    023AC450  beq      #0x23ac514
+    023AC454  cmp      r0, #0x28
+    023AC458  beq      #0x23ac514
+    023AC45C  cmp      r0, #0x31
+    023AC460  beq      #0x23ac514
+    023AC464  cmp      r0, #0x35
+    023AC468  beq      #0x23ac514
+    023AC46C  cmp      r0, #0x3d
+  0x023AC47C
+    023AC47C  bl       #0x23accf8
+    023AC480  cmp      r0, #2
+    023AC484  moveq    r2, #0xc
+    023AC488  cmp      r0, #3
+    023AC48C  moveq    r2, #0x19
+    023AC490  cmp      r0, #4
+    023AC494  moveq    r2, #0x32
+    023AC498  stmdb    sp!, {r2}
+    023AC49C  mov      r0, #0x64
+    023AC4A0  bl       #0x22eaa98
+    023AC4A4  ldm      sp!, {r2}
+    023AC4A8  cmp      r0, r2
+    023AC4AC  bge      #0x23ac514
+    023AC4B0  mov      r1, r6
+    023AC4B4  mov      r0, #1
+    023AC4B8  mov      r2, #0
+    023AC4BC  bl       #0x22e2ad8
+    023AC4C0  ldr      r0, [r8]
+    023AC4C4  add      r0, r0, #0x700
+    023AC4C8  ldrh     r0, [r0, #0x84]
+    023AC4CC  cmp      r0, #0x3e8
+    023AC4D0  beq      #0x23ac514
+    023AC4D4  mov      r0, r6
+    023AC4D8  mov      r1, r6
+  0x023AC548
+    023AC548  bl       #0x23accf8
+    023AC54C  cmp      r0, #2
+    023AC550  bne      #0x23ac60c
+    023AC554  ldrb     r3, [r7, #0x1a]
+    023AC558  rsb      r3, r3, r3, lsl #3
+    023AC55C  lsr      r3, r3, #3
+    023AC560  strb     r3, [r7, #0x1a]
+    023AC564  ldrb     r3, [r7, #0x1b]
+    023AC568  rsb      r3, r3, r3, lsl #3
+    023AC56C  lsr      r3, r3, #3
+    023AC570  strb     r3, [r7, #0x1b]
+    023AC574  ldrb     r3, [r7, #0x1c]
+    023AC578  rsb      r3, r3, r3, lsl #3
+    023AC57C  lsr      r3, r3, #3
+    023AC580  strb     r3, [r7, #0x1c]
+    023AC584  ldrb     r3, [r7, #0x1d]
+    023AC588  rsb      r3, r3, r3, lsl #3
+    023AC58C  lsr      r3, r3, #3
+    023AC590  strb     r3, [r7, #0x1d]
+    023AC594  b        #0x23ac60c
+    023AC598  ldr      r0, [r8]
+    023AC59C  ldrb     r0, [r0, #0x748]
+    023AC5A0  bl       #0x20512b0
+    023AC5A4  mov      r1, r0
+  0x023AC86C
+    023AC86C  bl       #0x23accf8
+    023AC870  cmp      r0, #2
+    023AC874  ble      #0x23ac100
+    023AC878  mov      r1, #0x180
+    023AC87C  str      r1, [r7, #0x34]
+    023AC880  str      r1, [r7, #0x38]
+    023AC884  mov      r1, #0x140
+    023AC888  str      r1, [r7, #0x3c]
+    023AC88C  str      r1, [r7, #0x40]
+    023AC890  mov      r1, #1
+    023AC894  strb     r1, [r7, #0xec]
+    023AC898  mov      r1, #3
+    023AC89C  strb     r1, [r7, #0xed]
+    023AC8A0  strb     r1, [r7, #0x110]
+    023AC8A4  strb     r1, [r7, #0x114]
+    023AC8A8  mov      r1, #0
+    023AC8AC  strb     r1, [r7, #0x119]
+    023AC8B0  strb     r1, [r7, #0x5e]
+    023AC8B4  strb     r1, [r7, #0x5f]
+    023AC8B8  mov      r3, #0xff
+    023AC8BC  b        #0x23ac100
+    023AC8C0  mov      r3, #0xff
+    023AC8C4  b        #0x23ac100
+    023AC8C8  mov      r1, #0x134
+  0x023AC940
+    023AC940  bl       #0x23accf8
+    023AC944  mov      r1, #0x14
+    023AC948  cmp      r0, #3
+    023AC94C  moveq    r1, #0xc
+    023AC950  cmp      r0, #4
+    023AC954  moveq    r1, #8
+    023AC958  push     {r0, r1, r2, r3}
+    023AC95C  bl       #0x208fea4
+    023AC960  cmp      r1, #1
+    023AC964  pop      {r0, r1, r2, r3}
+    023AC968  bne      #0x23ac9b4
+    023AC96C  ldr      r0, [r8]
+    023AC970  ldrb     r0, [r0, #0x780]
+    023AC974  tst      r0, #3
+    023AC978  bne      #0x23ac9b4
+    023AC97C  ldr      r0, [pc, #0x164]
+    023AC980  mov      r1, #0
+    023AC984  ldrb     r1, [r0]
+    023AC988  cmp      r1, #1
+    023AC98C  bne      #0x23ac9b4
+    023AC990  mov      r0, #0x1b
+    023AC994  mov      r1, r6
+    023AC998  bl       #0x23af080
+    023AC99C  ldr      r1, [pc, #0x208]
+  0x023B5F10
+    023B5F10  bl       #0x23accf8
+    023B5F14  cmp      r0, #2
+    023B5F18  pople    {r0, r1, r2, r3}
+    023B5F1C  ble      #0x2311120
+    023B5F20  cmp      r0, #3
+    023B5F24  lsrge    r4, r4, #1
+    023B5F28  mov      r0, #0
+    023B5F2C  mov      r1, #0x4e
+    023B5F30  mov      r2, #0xf
+    023B5F34  bl       #0x204b678
+    023B5F38  cmp      r0, #1
+    023B5F3C  lsreq    r4, r4, #1
+    023B5F40  mov      r0, #0
+    023B5F44  mov      r1, #0x4e
+    023B5F48  mov      r2, #0x13
+    023B5F4C  bl       #0x204b678
+    023B5F50  cmp      r0, #1
+    023B5F54  lsreq    r4, r4, #1
+    023B5F58  pop      {r0, r1, r2, r3}
+    023B5F5C  b        #0x2311120
+    023B5F60  eorseq   r3, r5, #56, #10
+    023B5F64  eoreq    fp, sl, #108, #8
+    023B5F68  lsreq    r4, r4, #1
+    023B5F6C  mov      r0, #0
+
+=== 0x0208FEA4 (Vanilla LS math helper) ===
+  0208FEA4  eor      ip, r0, r1
+  0208FEA8  and      ip, ip, #0x80000000
+  0208FEAC  cmp      r0, #0
+  0208FEB0  rsblt    r0, r0, #0
+  0208FEB4  addlt    ip, ip, #1
+  0208FEB8  cmp      r1, #0
+  0208FEBC  rsblt    r1, r1, #0
+  0208FEC0  beq      #0x209009c
+  0208FEC4  cmp      r0, r1
+  0208FEC8  movlo    r1, r0
+  0208FECC  movlo    r0, #0
+  0208FED0  blo      #0x209009c
+  0208FED4  mov      r2, #0x1c
+  0208FED8  lsr      r3, r0, #4
+  0208FEDC  cmp      r1, r3, lsr #12
+  0208FEE0  suble    r2, r2, #0x10
+
+=== All PERF list flag checks via LoadScriptVariableValueAtIndex: 34 ===
+  0x023A9A3C  LevelScaling (55)
+  0x023ACD08  Vanilla (56)
+  0x023ACD1C  Difficult (57)
+  0x023ACD34  Expert (58)
+  0x023ACD4C  Hardcore (59)
+  0x023AF780  Hardcore (59)
+  0x023AF7A0  Expert (58)
+  0x023B04B8  Vanilla (56)
+  0x023B5FC0  Vanilla (56)
+  0x023B5FD8  Difficult (57)
+  0x023B5FEC  Hardcore (59)
+  0x023BF16C  Vanilla (56)
+  0x023BF184  Difficult (57)
+  0x023BF284  Vanilla (56)
+  0x023BF298  Difficult (57)
+  0x023BFBAC  Vanilla (56)
+  0x023BFBC0  Difficult (57)
+  0x023D440C  Hardcore (59)
+  0x023D5A74  Vanilla (56)
+  0x023D5A88  Difficult (57)
+  0x023D8118  Hardcore (59)
+  0x023D917C  Vanilla (56)
+  0x023D9194  Difficult (57)
+  0x023D91B0  LevelScaling (55)
+  0x023D91F8  LevelScaling (55)
+  0x023D9220  LevelScaling (55)
+  0x023DA420  Vanilla (56)
+  0x023DAA10  Vanilla (56)
+  0x023DBC80  Hardcore (59)
+  0x023DBCAC  Vanilla (56)
+  0x023DC078  Vanilla (56)
+  0x023DC090  Difficult (57)
+  0x023DC0A8  Expert (58)
+  0x023DC108  LevelScaling (55)
+
+=== 15 clusters ===
+
+######## CLUSTER 0 flags=[LevelScaling] 0x023A99FC-0x023A9AFC ########
+  023A99FC  cmp      r2, #2
+  023A9A00  beq      #0x23a9a10
+  023A9A04  movgt    r2, #1
+  023A9A08  movlt    r2, #3
+  023A9A0C  strb     r2, [r0, r1]
+  023A9A10  add      r1, r1, #1
+  023A9A14  ldr      r3, [pc, #0x590]
+  023A9A18  cmp      r1, r3
+  023A9A1C  blt      #0x23a99f8
+  023A9A20  ldr      r0, [r8]
+  023A9A24  ldrb     r0, [r0, #0x780]
+  023A9A28  tst      r0, #3
+  023A9A2C  bne      #0x23a9b2c
+  023A9A30  mov      r0, #0
+  023A9A34  mov      r1, #0x4e
+  023A9A38  mov      r2, #0x37
+  023A9A3C  bl       #0x204b678
+  023A9A40  cmp      r0, #1
+  023A9A44  bne      #0x23a9b2c
+  023A9A48  bl       #0x23accf8
+  023A9A4C  cmp      r0, #4
+  023A9A50  beq      #0x23a9b2c
+  023A9A54  ldr      r0, [r8]
+  023A9A58  ldrb     r0, [r0, #0x748]
+  023A9A5C  bl       #0x20512b0
+  023A9A60  mov      r1, r0
+  023A9A64  ldr      r0, [r8]
+  023A9A68  add      r0, r0, #0x700
+  023A9A6C  ldrh     r0, [r0, #0x84]
+  023A9A70  cmp      r0, r1
+  023A9A74  bne      #0x23a9b2c
+  023A9A78  mov      r0, #0
+  023A9A7C  mov      r1, #0x4e
+  023A9A80  mov      r2, #0x11
+  023A9A84  bl       #0x204b678
+  023A9A88  cmp      r0, #1
+  023A9A8C  beq      #0x23a9b2c
+  023A9A90  ldr      r0, [r8]
+  023A9A94  ldrb     r0, [r0, #0x748]
+  023A9A98  cmp      r0, #0x26
+  023A9A9C  beq      #0x23a9acc
+  023A9AA0  cmp      r0, #0x27
+  023A9AA4  beq      #0x23a9acc
+  023A9AA8  cmp      r0, #0x28
+  023A9AAC  beq      #0x23a9acc
+  023A9AB0  cmp      r0, #0x29
+  023A9AB4  beq      #0x23a9acc
+  023A9AB8  cmp      r0, #0x2a
+  023A9ABC  beq      #0x23a9acc
+  023A9AC0  cmp      r0, #0x2b
+  023A9AC4  beq      #0x23a9acc
+  023A9AC8  b        #0x23a9b2c
+  023A9ACC  mov      r5, #0
+  023A9AD0  ldr      r0, [r8]
+  023A9AD4  add      r0, r0, r5, lsl #2
+  023A9AD8  add      r0, r0, #0x12000
+  023A9ADC  ldr      r6, [r0, #0xb28]
+  023A9AE0  mov      r0, r6
+  023A9AE4  bl       #0x22e95f4
+  023A9AE8  cmp      r0, #1
+  023A9AEC  bne      #0x23a9b20
+  023A9AF0  ldr      r2, [r6, #0xb4]
+  023A9AF4  mov      r1, #0x130
+  023A9AF8  str      r1, [r2, #0x34]
+
+######## CLUSTER 1 flags=[Vanilla,Difficult,Expert,Hardcore] 0x023ACCC8-0x023ACE0C ########
+  023ACCC8  cmpne    r1, #0xb7
+  023ACCCC  cmpne    r1, #0xb8
+  023ACCD0  cmpne    r1, #0xb9
+  023ACCD4  cmpne    r1, #0xba
+  023ACCD8  cmpne    r1, #0xbb
+  023ACCDC  cmpne    r1, #0xbc
+  023ACCE0  cmpne    r1, #0xbd
+  023ACCE4  cmpne    r1, #0xbe
+  023ACCE8  cmpne    r1, #0xbf
+  023ACCEC  moveq    r0, #1
+  023ACCF0  ldm      sp!, {r1}
+  023ACCF4  bx       lr
+  023ACCF8  push     {r1, r2, r3, lr}
+  023ACCFC  mov      r0, #0
+  023ACD00  mov      r1, #0x4e
+  023ACD04  mov      r2, #0x38
+  023ACD08  bl       #0x204b678
+  023ACD0C  cmp      r0, #1
+  023ACD10  beq      #0x23acd58
+  023ACD14  mov      r1, #0x4e
+  023ACD18  mov      r2, #0x39
+  023ACD1C  bl       #0x204b678
+  023ACD20  cmp      r0, #1
+  023ACD24  moveq    r0, #2
+  023ACD28  beq      #0x23acd58
+  023ACD2C  mov      r1, #0x4e
+  023ACD30  mov      r2, #0x3a
+  023ACD34  bl       #0x204b678
+  023ACD38  cmp      r0, #1
+  023ACD3C  moveq    r0, #3
+  023ACD40  beq      #0x23acd58
+  023ACD44  mov      r1, #0x4e
+  023ACD48  mov      r2, #0x3b
+  023ACD4C  bl       #0x204b678
+  023ACD50  cmp      r0, #1
+  023ACD54  moveq    r0, #4
+  023ACD58  pop      {r1, r2, r3, pc}
+  023ACD5C  andeq    r0, r0, r0
+  023ACD60  andeq    r0, r0, r0
+  023ACD64  andeq    r0, r0, r0
+  023ACD68  andeq    r0, r0, r0
+  023ACD6C  andeq    r0, r0, r0
+  023ACD70  andeq    r0, r0, r0
+  023ACD74  andeq    r0, r0, r0
+  023ACD78  andeq    r0, r0, r0
+  023ACD7C  andeq    r0, r0, r0
+  023ACD80  andeq    r0, r0, r0
+  023ACD84  andeq    r0, r0, r0
+  023ACD88  andeq    r0, r0, r0
+  023ACD8C  andeq    r0, r0, r0
+  023ACD90  andeq    r0, r0, r0
+  023ACD94  andeq    r0, r0, r0
+  023ACD98  andeq    r0, r0, r0
+  023ACD9C  andeq    r0, r0, r0
+  023ACDA0  andeq    r0, r0, r0
+  023ACDA4  andeq    r0, r0, r0
+  023ACDA8  andeq    r0, r0, r0
+  023ACDAC  andeq    r0, r0, r0
+  023ACDB0  andeq    r0, r0, r0
+  023ACDB4  andeq    r0, r0, r0
+  023ACDB8  andeq    r0, r0, r0
+  023ACDBC  andeq    r0, r0, r0
+  023ACDC0  andeq    r0, r0, r0
+  023ACDC4  andeq    r0, r0, r0
+  023ACDC8  andeq    r0, r0, r0
+  023ACDCC  andeq    r0, r0, r0
+  023ACDD0  andeq    r0, r0, r0
+  023ACDD4  andeq    r0, r0, r0
+  023ACDD8  andeq    r0, r0, r0
+  023ACDDC  andeq    r0, r0, r0
+  023ACDE0  andeq    r0, r0, r0
+  023ACDE4  andeq    r0, r0, r0
+  023ACDE8  andeq    r0, r0, r0
+  023ACDEC  andeq    r0, r0, r0
+  023ACDF0  andeq    r0, r0, r0
+  023ACDF4  andeq    r0, r0, r0
+  023ACDF8  andeq    r0, r0, r0
+  023ACDFC  andeq    r0, r0, r0
+  023ACE00  andeq    r0, r0, r0
+  023ACE04  andeq    r0, r0, r0
+  023ACE08  andeq    r0, r0, r0
+
+######## CLUSTER 2 flags=[Hardcore,Expert] 0x023AF740-0x023AF860 ########
+  023AF740  push     {r0, r1, r2, r3}
+  023AF744  mov      r0, sb
+  023AF748  mov      r1, sb
+  023AF74C  ldr      r2, [pc, #0x37c]
+  023AF750  mov      r3, #0
+  023AF754  bl       #0x2328e74
+  023AF758  mov      r0, sb
+  023AF75C  mov      r1, sb
+  023AF760  ldr      r2, [pc, #0x368]
+  023AF764  mov      r3, #0
+  023AF768  bl       #0x23256b4
+  023AF76C  pop      {r0, r1, r2, r3}
+  023AF770  push     {r0, r1, r2, r3}
+  023AF774  mov      r0, #0
+  023AF778  mov      r1, #0x4e
+  023AF77C  mov      r2, #0x3b
+  023AF780  bl       #0x204b678
+  023AF784  cmp      r0, #1
+  023AF788  pop      {r0, r1, r2, r3}
+  023AF78C  beq      #0x23af7b0
+  023AF790  push     {r0, r1, r2, r3}
+  023AF794  mov      r0, #0
+  023AF798  mov      r1, #0x4e
+  023AF79C  mov      r2, #0x3a
+  023AF7A0  bl       #0x204b678
+  023AF7A4  cmp      r0, #1
+  023AF7A8  pop      {r0, r1, r2, r3}
+  023AF7AC  bne      #0x23af7d8
+  023AF7B0  ldr      r1, [sb, #0xb4]
+  023AF7B4  ldr      r2, [pc, #0x318]
+  023AF7B8  add      r1, r1, r2
+  023AF7BC  ldrh     r0, [r1]
+  023AF7C0  cmp      r0, #0
+  023AF7C4  bne      #0x23af7d8
+  023AF7C8  add      r1, r1, #2
+  023AF7CC  ldrh     r0, [r1]
+  023AF7D0  cmp      r0, #0
+  023AF7D4  lsreq    r7, r7, #2
+  023AF7D8  mov      r0, sb
+  023AF7DC  mov      r1, #0x80
+  023AF7E0  bl       #0x2301d78
+  023AF7E4  cmp      r0, #1
+  023AF7E8  moveq    r0, #2
+  023AF7EC  beq      #0x23af814
+  023AF7F0  push     {r0, r1, r2, r3}
+  023AF7F4  mov      r0, #0
+  023AF7F8  mov      r1, #0x4e
+  023AF7FC  mov      r2, #0x3c
+  023AF800  bl       #0x204b678
+  023AF804  cmp      r0, #1
+  023AF808  pop      {r0, r1, r2, r3}
+  023AF80C  moveq    r0, #3
+  023AF810  movne    r0, #0
+  023AF814  ldr      r1, [pc, #0x2bc]
+  023AF818  strb     r0, [r1]
+  023AF81C  mov      r0, r4
+  023AF820  mov      r1, #0xc
+  023AF824  bl       #0x2301d78
+  023AF828  cmp      r0, #1
+  023AF82C  beq      #0x23afa74
+  023AF830  mov      r0, sb
+  023AF834  mov      r1, #0x1b
+  023AF838  bl       #0x2301d78
+  023AF83C  cmp      r0, #1
+  023AF840  beq      #0x23afaec
+  023AF844  mov      r0, r4
+  023AF848  mov      r1, #0x2a
+  023AF84C  bl       #0x2301d78
+  023AF850  cmp      r0, #1
+  023AF854  beq      #0x23afb04
+  023AF858  mov      r0, sb
+  023AF85C  mov      r1, #0x4a
+
+######## CLUSTER 3 flags=[Vanilla] 0x023B0478-0x023B0578 ########
+  023B0478  lsreq    r7, r7, #1
+  023B047C  b        #0x23b04a8
+  023B0480  ldrh     r5, [r8, #4]
+  023B0484  ldr      r0, [pc, #0x26c]
+  023B0488  cmp      r5, r0
+  023B048C  lsleq    r7, r7, #1
+  023B0490  ldr      r0, [pc, #0x264]
+  023B0494  cmp      r5, r0
+  023B0498  lsleq    r7, r7, #1
+  023B049C  ldr      r0, [pc, #0x25c]
+  023B04A0  cmp      r5, r0
+  023B04A4  lsleq    r7, r7, #1
+  023B04A8  push     {r0, r1, r2, r3}
+  023B04AC  mov      r0, #0
+  023B04B0  mov      r1, #0x4e
+  023B04B4  mov      r2, #0x38
+  023B04B8  bl       #0x204b678
+  023B04BC  cmp      r0, #1
+  023B04C0  pop      {r0, r1, r2, r3}
+  023B04C4  beq      #0x23b0528
+  023B04C8  ldr      r0, [pc, #0x234]
+  023B04CC  ldr      r0, [r0]
+  023B04D0  ldrb     r0, [r0, #0x748]
+  023B04D4  mov      r1, sb
+  023B04D8  bl       #0x23b0538
+  023B04DC  cmp      r0, #1
+  023B04E0  addeq    r7, r7, r7, lsl #1
+  023B04E4  lsreq    r7, r7, #1
+  023B04E8  beq      #0x23b0528
+  023B04EC  push     {r0, r1, r2, r3}
+  023B04F0  mov      r0, #0
+  023B04F4  mov      r1, #0x4e
+  023B04F8  mov      r2, #0x12
+  023B04FC  bl       #0x204b678
+  023B0500  cmp      r0, #1
+  023B0504  pop      {r0, r1, r2, r3}
+  023B0508  bne      #0x23b0528
+  023B050C  ldr      r1, [pc, #0x1f4]
+  023B0510  ldrb     r1, [r1]
+  023B0514  mov      r0, sb
+  023B0518  bl       #0x2301e50
+  023B051C  cmp      r0, #1
+  023B0520  addeq    r7, r7, r7, lsl #1
+  023B0524  lsreq    r7, r7, #1
+  023B0528  mov      r3, r7
+  023B052C  pop      {r0, r1, r2, r4, r5, r6, r7, r8, sb, lr}
+  023B0530  mov      r5, r2
+  023B0534  bx       lr
+  023B0538  push     {r2, r6, lr}
+  023B053C  mov      r6, r1
+  023B0540  cmp      r0, #0x46
+  023B0544  beq      #0x23b05e4
+  023B0548  cmp      r0, #0x48
+  023B054C  moveq    r2, #1
+  023B0550  beq      #0x23b05d4
+  023B0554  cmp      r0, #0x59
+  023B0558  beq      #0x23b05e4
+  023B055C  cmp      r0, #0x5e
+  023B0560  moveq    r2, #0xb
+  023B0564  beq      #0x23b05d4
+  023B0568  cmp      r0, #0x5f
+  023B056C  moveq    r2, #0xa
+  023B0570  beq      #0x23b05d4
+  023B0574  cmp      r0, #0x60
+
+######## CLUSTER 4 flags=[Vanilla,Difficult,Hardcore] 0x023B5F80-0x023B60AC ########
+  023B5F80  lsreq    r4, r4, #1
+  023B5F84  pop      {r0, r1, r2, r3}
+  023B5F88  b        #0x2311120
+  023B5F8C  eorseq   r3, r5, #56, #10
+  023B5F90  eoreq    fp, sl, #108, #8
+  023B5F94  cmp      r0, #6
+  023B5F98  lsreq    r4, r4, #2
+  023B5F9C  popeq    {r0, r1, r2, r3}
+  023B5FA0  beq      #0x2311120
+  023B5FA4  bl       #0x22e0864
+  023B5FA8  cmp      r0, #0
+  023B5FAC  popeq    {r0, r1, r2, r3}
+  023B5FB0  beq      #0x2311120
+  023B5FB4  mov      r0, #0
+  023B5FB8  mov      r1, #0x4e
+  023B5FBC  mov      r2, #0x38
+  023B5FC0  bl       #0x204b678
+  023B5FC4  cmp      r0, #1
+  023B5FC8  popeq    {r0, r1, r2, r3}
+  023B5FCC  beq      #0x2311120
+  023B5FD0  mov      r1, #0x4e
+  023B5FD4  mov      r2, #0x39
+  023B5FD8  bl       #0x204b678
+  023B5FDC  cmp      r0, #1
+  023B5FE0  popeq    {r0, r1, r2, r3}
+  023B5FE4  mov      r1, #0x4e
+  023B5FE8  mov      r2, #0x3b
+  023B5FEC  bl       #0x204b678
+  023B5FF0  cmp      r0, #1
+  023B5FF4  lsreq    r4, r4, #1
+  023B5FF8  mov      r0, #0
+  023B5FFC  mov      r1, #0x4e
+  023B6000  mov      r2, #0xf
+  023B6004  bl       #0x204b678
+  023B6008  cmp      r0, #1
+  023B600C  lsreq    r4, r4, #1
+  023B6010  mov      r0, #0
+  023B6014  mov      r1, #0x4e
+  023B6018  mov      r2, #0x13
+  023B601C  bl       #0x204b678
+  023B6020  cmp      r0, #1
+  023B6024  lsreq    r4, r4, #1
+  023B6028  pop      {r0, r1, r2, r3}
+  023B602C  b        #0x2311120
+  023B6030  eorseq   r3, r5, #56, #10
+  023B6034  cmp      r0, #1
+  023B6038  lsreq    r4, r4, #1
+  023B603C  pop      {r0, r1, r2, r3}
+  023B6040  b        #0x2311120
+  023B6044  eorseq   r3, r5, #56, #10
+  023B6048  andeq    r0, r0, r0
+  023B604C  andeq    r0, r0, r0
+  023B6050  andeq    r0, r0, r0
+  023B6054  andeq    r0, r0, r0
+  023B6058  andeq    r0, r0, r0
+  023B605C  andeq    r0, r0, r0
+  023B6060  andeq    r0, r0, r0
+  023B6064  andeq    r0, r0, r0
+  023B6068  andeq    r0, r0, r0
+  023B606C  andeq    r0, r0, r0
+  023B6070  andeq    r0, r0, r0
+  023B6074  andeq    r0, r0, r0
+  023B6078  andeq    r0, r0, r0
+  023B607C  andeq    r0, r0, r0
+  023B6080  andeq    r0, r0, r0
+  023B6084  andeq    r0, r0, r0
+  023B6088  andeq    r0, r0, r0
+  023B608C  andeq    r0, r0, r0
+  023B6090  andeq    r0, r0, r0
+  023B6094  andeq    r0, r0, r0
+  023B6098  andeq    r0, r0, r0
+  023B609C  andeq    r0, r0, r0
+  023B60A0  andeq    r0, r0, r0
+  023B60A4  andeq    r0, r0, r0
+  023B60A8  andeq    r0, r0, r0
+
+######## CLUSTER 5 flags=[Vanilla,Difficult,Vanilla,Difficult] 0x023BF12C-0x023BF358 ########
+  023BF12C  add      r5, r5, #1
+  023BF130  cmp      r5, #8
+  023BF134  blt      #0x23bf09c
+  023BF138  mov      r0, #0
+  023BF13C  pop      {r4, r5, r6, r7, r8, sb, ip, pc}
+  023BF140  mov      r0, #0
+  023BF144  ldr      r0, [pc, #0x1b4]
+  023BF148  ldr      r0, [r0]
+  023BF14C  ldrb     r0, [r0, #0x748]
+  023BF150  bl       #0x20514cc
+  023BF154  cmp      r0, #1
+  023BF158  bne      #0x23bf1a4
+  023BF15C  push     {r0, r1, r2, r3}
+  023BF160  mov      r0, #0
+  023BF164  mov      r1, #0x4e
+  023BF168  mov      r2, #0x38
+  023BF16C  bl       #0x204b678
+  023BF170  cmp      r0, #1
+  023BF174  popeq    {r0, r1, r2, r3}
+  023BF178  beq      #0x23bf1a4
+  023BF17C  mov      r1, #0x4e
+  023BF180  mov      r2, #0x39
+  023BF184  bl       #0x204b678
+  023BF188  cmp      r0, #1
+  023BF18C  pop      {r0, r1, r2, r3}
+  023BF190  beq      #0x23bf1a4
+  023BF194  mov      r0, sl
+  023BF198  bl       #0x23bf1ac
+  023BF19C  mov      r0, sb
+  023BF1A0  bl       #0x23bf1ac
+  023BF1A4  ldr      r0, [sp, #0x18]
+  023BF1A8  b        #0x230c33c
+  023BF1AC  ldr      r2, [r0, #0xb4]
+  023BF1B0  add      r2, r2, #0x1a
+  023BF1B4  mov      r1, #3
+  023BF1B8  mov      r0, #0
+  023BF1BC  mov      ip, r1
+  023BF1C0  ldrb     r3, [r2, r1]
+  023BF1C4  cmp      r3, r0
+  023BF1C8  movge    r0, r3
+  023BF1CC  movge    ip, r1
+  023BF1D0  subs     r1, r1, #1
+  023BF1D4  bpl      #0x23bf1c0
+  023BF1D8  ldr      r2, [sp, #0x18]
+  023BF1DC  and      r1, ip, #1
+  023BF1E0  cmp      r1, r2
+  023BF1E4  bxne     lr
+  023BF1E8  cmp      ip, #2
+  023BF1EC  addlt    r1, r3, r3, lsl #2
+  023BF1F0  lsrlt    r1, r1, #2
+  023BF1F4  addge    r1, r3, r3, lsl #3
+  023BF1F8  lsrge    r1, r1, #3
+  023BF1FC  sub      r2, r1, r3
+  023BF200  mov      r1, #0x90
+  023BF204  addge    r1, r1, #4
+  023BF208  ldr      r0, [sp, r1]
+  023BF20C  add      r0, r0, r2
+  023BF210  str      r0, [sp, r1]
+  023BF214  ldr      r1, [pc, #0xe8]
+  023BF218  ldrb     r1, [r1, ip]
+  023BF21C  ldrb     r3, [r5, r1]
+  023BF220  add      r3, r3, r2
+  023BF224  strb     r3, [r5, r1]
+  023BF228  bx       lr
+  023BF22C  mov      r0, r7
+  023BF230  ldr      ip, [pc, #0xd0]
+  023BF234  str      r6, [ip]
+  023BF238  bx       lr
+  023BF23C  push     {r0, r1, r2, r3, r4, r6, ip, lr}
+  023BF240  strh     r0, [r5]
+  023BF244  mov      r0, #0x22
+  023BF248  bl       #0x2003ed0
+  023BF24C  ldr      r4, [pc, #0xb4]
+  023BF250  ldr      r4, [r4]
+  023BF254  cmp      r0, #0
+  023BF258  cmpne    r4, #0
+  023BF25C  popeq    {r0, r1, r2, r3, r4, r6, ip, pc}
+  023BF260  ldr      r0, [pc, #0x98]
+  023BF264  ldr      r0, [r0]
+  023BF268  ldrb     r0, [r0, #0x748]
+  023BF26C  bl       #0x20514cc
+  023BF270  cmp      r0, #1
+  023BF274  popne    {r0, r1, r2, r3, r4, r6, ip, pc}
+  023BF278  mov      r0, #0
+  023BF27C  mov      r1, #0x4e
+  023BF280  mov      r2, #0x38
+  023BF284  bl       #0x204b678
+  023BF288  cmp      r0, #1
+  023BF28C  popeq    {r0, r1, r2, r3, r4, r6, ip, pc}
+  023BF290  mov      r1, #0x4e
+  023BF294  mov      r2, #0x39
+  023BF298  bl       #0x204b678
+  023BF29C  cmp      r0, #1
+  023BF2A0  popeq    {r0, r1, r2, r3, r4, r6, ip, pc}
+  023BF2A4  ldr      r2, [r4, #0xb4]
+  023BF2A8  add      r2, r2, #0x1a
+  023BF2AC  mov      r1, #3
+  023BF2B0  mov      r0, #0
+  023BF2B4  mov      ip, r1
+  023BF2B8  ldrb     r3, [r2, r1]
+  023BF2BC  cmp      r3, r0
+  023BF2C0  movge    r0, r3
+  023BF2C4  movge    ip, r1
+  023BF2C8  subs     r1, r1, #1
+  023BF2CC  bpl      #0x23bf2b8
+  023BF2D0  cmp      ip, #2
+  023BF2D4  lsl      ip, ip, #1
+  023BF2D8  add      ip, ip, #2
+  023BF2DC  ldrh     r0, [r5, ip]
+  023BF2E0  addlt    r1, r3, r3, lsl #2
+  023BF2E4  lsrlt    r1, r1, #2
+  023BF2E8  addge    r1, r3, r3, lsl #3
+  023BF2EC  lsrge    r1, r1, #3
+  023BF2F0  sub      r0, r1, r3
+  023BF2F4  strh     r0, [r5, ip]
+  023BF2F8  pop      {r0, r1, r2, r3, r4, r6, ip, pc}
+  023BF2FC  eorseq   r1, r5, #28, #14
+  023BF300  eorseq   r3, r5, #56, #10
+  023BF304  eorseq   r1, ip, #244, #8
+  023BF308  eorseq   r1, ip, #240, #8
+  023BF30C  mov      r0, sl
+  023BF310  mov      r1, r6
+  023BF314  bl       #0x22e28d4
+  023BF318  cmp      r0, #1
+  023BF31C  beq      #0x23204bc
+  023BF320  b        #0x23204b0
+  023BF324  mov      r0, sl
+  023BF328  mov      r1, r6
+  023BF32C  bl       #0x22e28d4
+  023BF330  cmp      r0, #1
+  023BF334  beq      #0x23207fc
+  023BF338  b        #0x23207f0
+  023BF33C  sub      sp, sp, #0x10
+  023BF340  ldr      r0, [pc, #0x10c]
+  023BF344  cmp      r5, r0
+  023BF348  bgt      #0x23bf3a4
+  023BF34C  mov      r0, r8
+  023BF350  mov      r1, r7
+  023BF354  mov      r2, #0x9d
+
+######## CLUSTER 6 flags=[Vanilla,Difficult] 0x023BFB6C-0x023BFC80 ########
+  023BFB6C  add      sp, sp, #0x240
+  023BFB70  b        #0x23c0310
+  023BFB74  andeq    r0, r0, r0
+  023BFB78  andeq    r0, r0, r0
+  023BFB7C  cmp      r7, #0x14
+  023BFB80  addlt    r7, r7, #1
+  023BFB84  blt      #0x23bfa48
+  023BFB88  b        #0x23c0310
+  023BFB8C  mov      r1, r8
+  023BFB90  push     {r0, r1, r2, r3}
+  023BFB94  ldrb     r0, [sl, #6]
+  023BFB98  cmp      r0, #1
+  023BFB9C  beq      #0x23bff80
+  023BFBA0  mov      r0, #0
+  023BFBA4  mov      r1, #0x4e
+  023BFBA8  mov      r2, #0x38
+  023BFBAC  bl       #0x204b678
+  023BFBB0  cmp      r0, #1
+  023BFBB4  beq      #0x23bfbd0
+  023BFBB8  mov      r1, #0x4e
+  023BFBBC  mov      r2, #0x39
+  023BFBC0  bl       #0x204b678
+  023BFBC4  cmp      r0, #1
+  023BFBC8  bne      #0x23bfce8
+  023BFBCC  b        #0x23bffbc
+  023BFBD0  pop      {r0, r1, r2, r3}
+  023BFBD4  cmp      r0, #0x258
+  023BFBD8  subgt    r0, r0, #0x258
+  023BFBDC  mov      r2, #0x25
+  023BFBE0  cmp      r0, r2
+  023BFBE4  cmpeq    r1, #1
+  023BFBE8  moveq    r0, #0x31
+  023BFBEC  addeq    r7, sl, r8
+  023BFBF0  beq      #0x22fdeb0
+  023BFBF4  add      r2, r2, #0xf3
+  023BFBF8  cmp      r0, r2
+  023BFBFC  cmpeq    r1, #1
+  023BFC00  moveq    r0, #0x54
+  023BFC04  addeq    r7, sl, r8
+  023BFC08  beq      #0x22fdeb0
+  023BFC0C  add      r2, r2, #1
+  023BFC10  cmp      r0, r2
+  023BFC14  cmpeq    r1, #1
+  023BFC18  moveq    r0, #0x54
+  023BFC1C  addeq    r7, sl, r8
+  023BFC20  beq      #0x22fdeb0
+  023BFC24  add      r2, r2, #1
+  023BFC28  cmp      r0, r2
+  023BFC2C  cmpeq    r1, #1
+  023BFC30  moveq    r0, #0x54
+  023BFC34  addeq    r7, sl, r8
+  023BFC38  beq      #0x22fdeb0
+  023BFC3C  add      r2, r2, #1
+  023BFC40  cmp      r0, r2
+  023BFC44  cmpeq    r1, #1
+  023BFC48  moveq    r0, #0xb
+  023BFC4C  addeq    r7, sl, r8
+  023BFC50  beq      #0x22fdeb0
+  023BFC54  add      r2, r2, #1
+  023BFC58  cmp      r0, r2
+  023BFC5C  cmpeq    r1, #1
+  023BFC60  moveq    r0, #0xb
+  023BFC64  addeq    r7, sl, r8
+  023BFC68  beq      #0x22fdeb0
+  023BFC6C  add      r2, r2, #1
+  023BFC70  cmp      r0, r2
+  023BFC74  cmpeq    r1, #1
+  023BFC78  moveq    r0, #0xb
+  023BFC7C  addeq    r7, sl, r8
+
+######## CLUSTER 7 flags=[Hardcore] 0x023D43CC-0x023D44CC ########
+  023D43CC  ldr      r0, [pc, #0xf4]
+  023D43D0  bl       #0x23d44e4
+  023D43D4  cmp      r0, #1
+  023D43D8  beq      #0x230b584
+  023D43DC  bne      #0x230b5cc
+  023D43E0  ldr      r0, [pc, #0xe4]
+  023D43E4  bl       #0x23d44e4
+  023D43E8  cmp      r0, #1
+  023D43EC  beq      #0x230b5a8
+  023D43F0  bne      #0x230b5bc
+  023D43F4  stmdb    sp!, {lr}
+  023D43F8  mov      r1, r0
+  023D43FC  push     {r0, r1, r2, r3, lr}
+  023D4400  mov      r0, #0
+  023D4404  mov      r1, #0x4e
+  023D4408  mov      r2, #0x3b
+  023D440C  bl       #0x204b678
+  023D4410  cmp      r0, #1
+  023D4414  pop      {r0, r1, r2, r3, lr}
+  023D4418  lsreq    r1, r1, #1
+  023D441C  mov      r0, #0x27
+  023D4420  bl       #0x23d44e4
+  023D4424  cmp      r0, #1
+  023D4428  subeq    r1, r1, #5
+  023D442C  mov      r0, #0x2b
+  023D4430  bl       #0x23d44e4
+  023D4434  cmp      r0, #1
+  023D4438  subeq    r1, r1, #5
+  023D443C  mov      r0, #0x3a
+  023D4440  bl       #0x23d44e4
+  023D4444  cmp      r0, #1
+  023D4448  subeq    r1, r1, #5
+  023D444C  mov      r0, #0xa6
+  023D4450  bl       #0x23d44e4
+  023D4454  cmp      r0, #1
+  023D4458  subeq    r1, r1, #5
+  023D445C  ldr      r0, [pc, #0x6c]
+  023D4460  bl       #0x23d44e4
+  023D4464  cmp      r0, #1
+  023D4468  subeq    r1, r1, #5
+  023D446C  ldr      r0, [pc, #0x60]
+  023D4470  bl       #0x23d44e4
+  023D4474  cmp      r0, #1
+  023D4478  subeq    r1, r1, #5
+  023D447C  ldr      r0, [pc, #0x54]
+  023D4480  bl       #0x23d44e4
+  023D4484  cmp      r0, #1
+  023D4488  subeq    r1, r1, #5
+  023D448C  cmp      r1, #8
+  023D4490  movlt    r1, #8
+  023D4494  mov      r0, r1
+  023D4498  ldm      sp!, {lr}
+  023D449C  bx       lr
+  023D44A0  mov      r1, r0
+  023D44A4  push     {r1, lr}
+  023D44A8  bl       #0x200ed84
+  023D44AC  pop      {r1, lr}
+  023D44B0  cmp      r0, r1
+  023D44B4  movgt    r0, r1
+  023D44B8  bx       lr
+  023D44BC  strheq   r0, [r0], -fp
+  023D44C0  eorseq   r4, sp, #220, #8
+  023D44C4  eoreq    sl, pc, #148, #24
+  023D44C8  strheq   r0, [r0], -sb
+
+######## CLUSTER 8 flags=[Vanilla,Difficult] 0x023D5A34-0x023D5B48 ########
+  023D5A34  mov      r0, #0x22
+  023D5A38  bl       #0x2003ed0
+  023D5A3C  ldr      r4, [pc, #0xabc]
+  023D5A40  ldr      r4, [r4]
+  023D5A44  cmp      r0, #0
+  023D5A48  cmpne    r4, #0
+  023D5A4C  popeq    {r0, r1, r2, r3, r4, r6, pc}
+  023D5A50  ldr      r0, [pc, #0xaa0]
+  023D5A54  ldr      r0, [r0]
+  023D5A58  ldrb     r0, [r0, #0x748]
+  023D5A5C  bl       #0x20514cc
+  023D5A60  cmp      r0, #1
+  023D5A64  popne    {r0, r1, r2, r3, r4, r6, pc}
+  023D5A68  mov      r0, #0
+  023D5A6C  mov      r1, #0x4e
+  023D5A70  mov      r2, #0x38
+  023D5A74  bl       #0x204b678
+  023D5A78  cmp      r0, #1
+  023D5A7C  popeq    {r0, r1, r2, r3, r4, r6, pc}
+  023D5A80  mov      r1, #0x4e
+  023D5A84  mov      r2, #0x39
+  023D5A88  bl       #0x204b678
+  023D5A8C  cmp      r0, #1
+  023D5A90  popeq    {r0, r1, r2, r3, r4, r6, pc}
+  023D5A94  ldr      r2, [r4, #0xb4]
+  023D5A98  add      r2, r2, #0x1a
+  023D5A9C  mov      r1, #3
+  023D5AA0  mov      r0, #0
+  023D5AA4  mov      ip, r1
+  023D5AA8  ldrb     r3, [r2, r1]
+  023D5AAC  cmp      r3, r0
+  023D5AB0  movge    r0, r3
+  023D5AB4  movge    ip, r1
+  023D5AB8  subs     r1, r1, #1
+  023D5ABC  bpl      #0x23d5aa8
+  023D5AC0  cmp      ip, #2
+  023D5AC4  lsl      ip, ip, #1
+  023D5AC8  add      ip, ip, #2
+  023D5ACC  ldrh     r0, [r5, ip]
+  023D5AD0  addlt    r1, r3, r3, lsl #2
+  023D5AD4  lsrlt    r1, r1, #2
+  023D5AD8  addge    r1, r3, r3, lsl #3
+  023D5ADC  lsrge    r1, r1, #3
+  023D5AE0  sub      r0, r1, r3
+  023D5AE4  strh     r0, [r5, ip]
+  023D5AE8  pop      {r0, r1, r2, r3, r4, r6, pc}
+  023D5AEC  sub      sp, sp, #0x10
+  023D5AF0  ldr      r0, [pc, #0xa0c]
+  023D5AF4  cmp      r5, r0
+  023D5AF8  bgt      #0x23d5b54
+  023D5AFC  mov      r0, r8
+  023D5B00  mov      r1, r7
+  023D5B04  mov      r2, #0x9d
+  023D5B08  mov      r3, #1
+  023D5B0C  bl       #0x2332a0c
+  023D5B10  cmp      r0, #0
+  023D5B14  beq      #0x23d5b54
+  023D5B18  ldr      r0, [r7, #0xb4]
+  023D5B1C  ldrb     r0, [r0, #0xd2]
+  023D5B20  cmp      r0, #0xb
+  023D5B24  beq      #0x23d5b54
+  023D5B28  ldr      r0, [pc, #0x9d8]
+  023D5B2C  bl       #0x20258c4
+  023D5B30  str      r0, [sp]
+  023D5B34  mov      r0, r7
+  023D5B38  mov      r1, r7
+  023D5B3C  mov      r2, #0xb
+  023D5B40  mov      r3, #0x80
+  023D5B44  bl       #0x2318bbc
+
+######## CLUSTER 9 flags=[Hardcore] 0x023D80D8-0x023D81D8 ########
+  023D80D8  andeq    r0, r0, r0
+  023D80DC  andeq    r0, r0, r0
+  023D80E0  andeq    r0, r0, r0
+  023D80E4  andeq    r0, r0, r0
+  023D80E8  andeq    r0, r0, r0
+  023D80EC  andeq    r0, r0, r0
+  023D80F0  andeq    r0, r0, r0
+  023D80F4  andeq    r0, r0, r0
+  023D80F8  andeq    r0, r0, r0
+  023D80FC  andeq    r0, r0, r0
+  023D8100  stmdb    sp!, {r5}
+  023D8104  mov      r5, lr
+  023D8108  push     {r0, r1, r2, r3}
+  023D810C  mov      r0, #0
+  023D8110  mov      r1, #0x4e
+  023D8114  mov      r2, #0x3b
+  023D8118  bl       #0x204b678
+  023D811C  cmp      r0, #1
+  023D8120  pop      {r0, r1, r2, r3}
+  023D8124  mov      lr, r5
+  023D8128  ldm      sp!, {r5}
+  023D812C  moveq    r0, #0
+  023D8130  beq      #0x2051390
+  023D8134  mov      r1, #0xc
+  023D8138  b        #0x2051384
+  023D813C  andeq    r0, r0, r0
+  023D8140  andeq    r0, r0, r0
+  023D8144  andeq    r0, r0, r0
+  023D8148  andeq    r0, r0, r0
+  023D814C  andeq    r0, r0, r0
+  023D8150  andeq    r0, r0, r0
+  023D8154  andeq    r0, r0, r0
+  023D8158  andeq    r0, r0, r0
+  023D815C  andeq    r0, r0, r0
+  023D8160  andeq    r0, r0, r0
+  023D8164  andeq    r0, r0, r0
+  023D8168  andeq    r0, r0, r0
+  023D816C  andeq    r0, r0, r0
+  023D8170  andeq    r0, r0, r0
+  023D8174  andeq    r0, r0, r0
+  023D8178  andeq    r0, r0, r0
+  023D817C  andeq    r0, r0, r0
+  023D8180  push     {r0, r2, r3, lr}
+  023D8184  ldr      r0, [pc, #0xc]
+  023D8188  mov      r1, #1
+  023D818C  bl       #0x2055148
+  023D8190  mov      r1, r0
+  023D8194  pop      {r0, r2, r3, pc}
+  023D8198  andeq    r0, r0, sb, lsl r2
+  023D819C  andeq    r0, r0, r0
+  023D81A0  andeq    r0, r0, r0
+  023D81A4  andeq    r0, r0, r0
+  023D81A8  andeq    r0, r0, r0
+  023D81AC  andeq    r0, r0, r0
+  023D81B0  andeq    r0, r0, r0
+  023D81B4  andeq    r0, r0, r0
+  023D81B8  andeq    r0, r0, r0
+  023D81BC  andeq    r0, r0, r0
+  023D81C0  andeq    r0, r0, r0
+  023D81C4  andeq    r0, r0, r0
+  023D81C8  andeq    r0, r0, r0
+  023D81CC  andeq    r0, r0, r0
+  023D81D0  andeq    r0, r0, r0
+  023D81D4  andeq    r0, r0, r0
+
+######## CLUSTER 10 flags=[Vanilla,Difficult,LevelScaling,LevelScaling,LevelScaling] 0x023D913C-0x023D92E0 ########
+  023D913C  blt      #0x23d90e8
+  023D9140  ldm      sp!, {pc}
+  023D9144  mov      r6, #0
+  023D9148  add      r3, r3, r3
+  023D914C  mov      r7, r3
+  023D9150  ldr      r4, [pc, #0x29c]
+  023D9154  ldr      r5, [r4]
+  023D9158  add      r5, r5, #1
+  023D915C  add      r5, r5, #0x164
+  023D9160  add      r5, r5, #0x2c800
+  023D9164  ldrb     r4, [r5]
+  023D9168  cmp      r4, #0
+  023D916C  beq      #0x23d9274
+  023D9170  mov      r0, #0
+  023D9174  mov      r1, #0x4e
+  023D9178  mov      r2, #0x38
+  023D917C  bl       #0x204b678
+  023D9180  cmp      r0, #1
+  023D9184  beq      #0x23d91a4
+  023D9188  mov      r0, #0
+  023D918C  mov      r1, #0x4e
+  023D9190  mov      r2, #0x39
+  023D9194  bl       #0x204b678
+  023D9198  cmp      r0, #1
+  023D919C  beq      #0x23d91ec
+  023D91A0  b        #0x23d9214
+  023D91A4  mov      r0, #0
+  023D91A8  mov      r1, #0x4e
+  023D91AC  mov      r2, #0x37
+  023D91B0  bl       #0x204b678
+  023D91B4  cmp      r0, #1
+  023D91B8  bne      #0x23d91c8
+  023D91BC  mov      r3, r7
+  023D91C0  cmp      r4, r3
+  023D91C4  movgt    r4, r3
+  023D91C8  mov      r0, #4
+  023D91CC  mul      r0, r4, r0
+  023D91D0  mov      r1, #0xa
+  023D91D4  bl       #0x208fea4
+  023D91D8  add      r4, r0, r0
+  023D91DC  cmp      r4, #1
+  023D91E0  movle    r4, #2
+  023D91E4  strb     r4, [r5]
+  023D91E8  b        #0x23d9274
+  023D91EC  mov      r0, #0
+  023D91F0  mov      r1, #0x4e
+  023D91F4  mov      r2, #0x37
+  023D91F8  bl       #0x204b678
+  023D91FC  cmp      r0, #1
+  023D9200  bne      #0x23d9274
+  023D9204  mov      r3, r7
+  023D9208  mov      r4, r3
+  023D920C  strb     r4, [r5]
+  023D9210  b        #0x23d9274
+  023D9214  mov      r0, #0
+  023D9218  mov      r1, #0x4e
+  023D921C  mov      r2, #0x37
+  023D9220  bl       #0x204b678
+  023D9224  cmp      r0, #1
+  023D9228  bne      #0x23d9274
+  023D922C  mov      r0, #0
+  023D9230  mov      r1, #0x4e
+  023D9234  mov      r2, #0x11
+  023D9238  bl       #0x204b678
+  023D923C  cmp      r0, #1
+  023D9240  bne      #0x23d926c
+  023D9244  ldr      r2, [pc, #0x1a8]
+  023D9248  ldr      r0, [r2]
+  023D924C  ldrb     r0, [r0, #0x748]
+  023D9250  cmp      r0, #0x2b
+  023D9254  bgt      #0x23d926c
+  023D9258  cmp      r0, #0x26
+  023D925C  blt      #0x23d926c
+  023D9260  mov      r2, #0xc8
+  023D9264  strb     r2, [r5]
+  023D9268  b        #0x23d9274
+  023D926C  cmp      r4, r7
+  023D9270  strblt   r7, [r5]
+  023D9274  add      r5, r5, #8
+  023D9278  add      r6, r6, #1
+  023D927C  cmp      r6, #0x10
+  023D9280  blt      #0x23d9164
+  023D9284  mov      r0, #0
+  023D9288  mov      r1, #0x4e
+  023D928C  mov      r2, #0x31
+  023D9290  bl       #0x204b678
+  023D9294  cmp      r0, #1
+  023D9298  bne      #0x23d9320
+  023D929C  mov      r6, #0
+  023D92A0  ldr      r4, [pc, #0x14c]
+  023D92A4  ldr      r5, [r4]
+  023D92A8  add      r5, r5, #6
+  023D92AC  add      r5, r5, #0x164
+  023D92B0  add      r5, r5, #0x2c800
+  023D92B4  ldrh     r1, [r5]
+  023D92B8  cmp      r1, #0x84
+  023D92BC  cmpne    r1, #0x2dc
+  023D92C0  ldreq    r4, [pc, #0x130]
+  023D92C4  ldrbeq   r4, [r4]
+  023D92C8  cmpeq    r4, #1
+  023D92CC  ldreq    r1, [pc, #0x128]
+  023D92D0  strheq   r1, [r5]
+  023D92D4  ldr      r2, [pc, #0x124]
+  023D92D8  cmp      r1, r2
+  023D92DC  beq      #0x23d9310
+
+######## CLUSTER 11 flags=[Vanilla] 0x023DA3E0-0x023DA4E0 ########
+  023DA3E0  mov      r0, #5
+  023DA3E4  bl       #0x22eaa98
+  023DA3E8  pop      {r1, r2, r3}
+  023DA3EC  mov      r2, #0xef
+  023DA3F0  cmp      r0, #0
+  023DA3F4  moveq    r2, #0x12
+  023DA3F8  cmp      r0, #1
+  023DA3FC  moveq    r2, #0x44
+  023DA400  cmp      r0, #2
+  023DA404  moveq    r2, #0x7a
+  023DA408  cmp      r0, #3
+  023DA40C  moveq    r2, #0xa6
+  023DA410  pop      {r0, pc}
+  023DA414  mov      r0, #0
+  023DA418  mov      r1, #0x4e
+  023DA41C  mov      r2, #0x38
+  023DA420  bl       #0x204b678
+  023DA424  cmp      r0, #1
+  023DA428  ldrheq   r0, [r6, #8]
+  023DA42C  addeq    r0, r0, r0, lsl #1
+  023DA430  lsreq    r0, r0, #2
+  023DA434  strheq   r0, [r6, #8]
+  023DA438  ldr      r3, [pc, #0x28]
+  023DA43C  ldrh     r3, [r3]
+  023DA440  strh     r3, [r6]
+  023DA444  pop      {r0, r1, r2, r3, r4, r5, r6, r7, pc}
+  023DA448  ldr      r3, [pc, #0x18]
+  023DA44C  ldrh     r3, [r3]
+  023DA450  mov      r0, r3
+  023DA454  pop      {r1, r2, r3, r4, r5, r6, r7, pc}
+  023DA458  ldr      r3, [pc, #8]
+  023DA45C  ldrh     r3, [r3]
+  023DA460  mov      r1, r3
+  023DA464  pop      {r0, r2, r3, r4, r5, r6, r7, pc}
+  023DA468  eorseq   sl, sp, #232, #8
+  023DA46C  eorseq   r3, r5, #56, #10
+  023DA470  ldrdeq   r0, r1, [r0], -sp
+  023DA474  andeq    r0, r0, sl, lsl #4
+  023DA478  andeq    r0, r0, fp, lsl #4
+  023DA47C  andeq    r0, r0, sp, lsl #4
+  023DA480  andeq    r0, r0, lr, lsl #4
+  023DA484  muleq    r0, lr, r1
+  023DA488  muleq    r0, pc, r1
+  023DA48C  andeq    r0, r0, pc, lsl #4
+  023DA490  andeq    r0, r0, r2, lsl r2
+  023DA494  andeq    r0, r0, r6, lsl r1
+  023DA498  andeq    r0, r0, r5, lsl r2
+  023DA49C  andeq    r0, r0, r5, lsl r1
+  023DA4A0  andeq    r0, r0, sp, ror r1
+  023DA4A4  strdeq   r0, r1, [r0], -sb
+  023DA4A8  strdeq   r0, r1, [r0], -r2
+  023DA4AC  andeq    r0, r0, pc, lsl r4
+  023DA4B0  strdeq   r0, r1, [r0], -sp
+  023DA4B4  andeq    r0, r0, r6, ror #2
+  023DA4B8  andeq    r0, r0, r3, lsl r1
+  023DA4BC  andeq    r0, r0, sl, ror #3
+  023DA4C0  andeq    r0, r0, pc, ror #5
+  023DA4C4  strdeq   r0, r1, [r0], -sl
+  023DA4C8  andeq    r0, r0, lr, ror #6
+  023DA4CC  andeq    r0, r0, ip, ror r4
+  023DA4D0  strdeq   r0, r1, [r0], -r5
+  023DA4D4  andeq    r0, r0, sl, ror #5
+  023DA4D8  andeq    r0, r0, r7, ror #6
+  023DA4DC  andeq    r0, r0, r2, lsr #3
+
+######## CLUSTER 12 flags=[Vanilla] 0x023DA9D0-0x023DAAD0 ########
+  023DA9D0  bl       #0x204d7f4
+  023DA9D4  mov      r1, #1
+  023DA9D8  bl       #0x204d894
+  023DA9DC  b        #0x22c0e90
+  023DA9E0  andeq    r0, r0, r0
+  023DA9E4  andeq    r0, r0, r0
+  023DA9E8  andeq    r0, r0, r0
+  023DA9EC  andeq    r0, r0, r0
+  023DA9F0  andeq    r0, r0, r0
+  023DA9F4  andeq    r0, r0, r0
+  023DA9F8  andeq    r0, r0, r0
+  023DA9FC  andeq    r0, r0, r0
+  023DAA00  push     {r0, r1, r2, r3, r4, r5, lr}
+  023DAA04  mov      r0, #0
+  023DAA08  mov      r1, #0x4e
+  023DAA0C  mov      r2, #0x38
+  023DAA10  bl       #0x204b678
+  023DAA14  cmp      r0, #1
+  023DAA18  popne    {r0, r1, r2, r3, r4, r5, pc}
+  023DAA1C  mov      r0, #1
+  023DAA20  strb     r0, [r5, #0x101]
+  023DAA24  mov      r0, #0
+  023DAA28  strb     r0, [r5, #0x152]
+  023DAA2C  pop      {r0, r1, r2, r3, r4, r5, pc}
+  023DAA30  andeq    r0, r0, r0
+  023DAA34  andeq    r0, r0, r0
+  023DAA38  mov      r0, sb
+  023DAA3C  mov      r1, #5
+  023DAA40  bl       #0x2301e50
+  023DAA44  cmp      r0, #0
+  023DAA48  beq      #0x23145f4
+  023DAA4C  cmp      r8, #0
+  023DAA50  beq      #0x23145ec
+  023DAA54  mov      r0, #0
+  023DAA58  mov      r1, sb
+  023DAA5C  mov      r2, #0
+  023DAA60  bl       #0x22e2ad8
+  023DAA64  mov      r0, sb
+  023DAA68  ldr      r1, [pc, #4]
+  023DAA6C  bl       #0x234b498
+  023DAA70  beq      #0x23145ec
+  023DAA74  andeq    r0, r0, sl, lsr ip
+  023DAA78  andeq    r0, r0, sl, lsr ip
+  023DAA7C  andeq    r0, r0, sl, lsr ip
+  023DAA80  mov      r0, r8
+  023DAA84  ldr      r1, [pc, #0x208]
+  023DAA88  bl       #0x230e578
+  023DAA8C  cmp      r0, #0
+  023DAA90  beq      #0x23daab0
+  023DAA94  mov      r0, r7
+  023DAA98  mov      r1, #0x11
+  023DAA9C  bl       #0x2301e50
+  023DAAA0  cmp      r0, #0
+  023DAAA4  ldrne    r0, [pc, #0x1ec]
+  023DAAA8  ldrshne  r0, [r0]
+  023DAAAC  addne    r6, r6, r0
+  023DAAB0  mov      r0, r8
+  023DAAB4  ldr      r1, [pc, #0x1e0]
+  023DAAB8  bl       #0x230e578
+  023DAABC  cmp      r0, #0
+  023DAAC0  beq      #0x23daae0
+  023DAAC4  mov      r0, r7
+  023DAAC8  mov      r1, #5
+  023DAACC  bl       #0x2301e50
+
+######## CLUSTER 13 flags=[Hardcore,Vanilla] 0x023DBC40-0x023DBD6C ########
+  023DBC40  cmp      r4, #0x14
+  023DBC44  ldrblt   r0, [r7, #0x10]
+  023DBC48  addlt    r0, r0, r0, lsl #1
+  023DBC4C  lsrlt    r0, r0, #1
+  023DBC50  strbgt   r0, [r7, #0x10]
+  023DBC54  cmp      r4, #5
+  023DBC58  ldrb     r0, [r7, #0xa]
+  023DBC5C  add      r0, r0, #5
+  023DBC60  strb     r0, [r7, #0xa]
+  023DBC64  pop      {r4, r5, r7, r8}
+  023DBC68  pop      {r0, r1, r2, r3}
+  023DBC6C  ldr      r7, [pc, #0x118]
+  023DBC70  push     {r0, r1, r2, r3}
+  023DBC74  mov      r0, #0
+  023DBC78  mov      r1, #0x4e
+  023DBC7C  mov      r2, #0x3b
+  023DBC80  bl       #0x204b678
+  023DBC84  cmp      r0, #1
+  023DBC88  popeq    {r0, r1, r2, r3}
+  023DBC8C  beq      #0x23dbd14
+  023DBC90  ldrb     r0, [r7, #0x16]
+  023DBC94  cmp      r0, #1
+  023DBC98  moveq    r0, #2
+  023DBC9C  strbeq   r0, [r7, #0x16]
+  023DBCA0  mov      r0, #0
+  023DBCA4  mov      r1, #0x4e
+  023DBCA8  mov      r2, #0x38
+  023DBCAC  bl       #0x204b678
+  023DBCB0  cmp      r0, #1
+  023DBCB4  popeq    {r0, r1, r2, r3}
+  023DBCB8  beq      #0x23dbcc4
+  023DBCBC  pop      {r0, r1, r2, r3}
+  023DBCC0  b        #0x23dbd68
+  023DBCC4  ldrb     r0, [r7, #6]
+  023DBCC8  cmp      r0, #1
+  023DBCCC  lsrgt    r0, r0, #1
+  023DBCD0  strbgt   r0, [r7, #6]
+  023DBCD4  ldrb     r0, [r7, #0x10]
+  023DBCD8  cmp      r0, #1
+  023DBCDC  lsrgt    r0, r0, #1
+  023DBCE0  strbgt   r0, [r7, #0x10]
+  023DBCE4  ldrb     r0, [r7, #8]
+  023DBCE8  cmp      r0, #4
+  023DBCEC  lsrge    r0, r0, #2
+  023DBCF0  strbge   r0, [r7, #8]
+  023DBCF4  ldrb     r0, [r7, #0xa]
+  023DBCF8  mov      r0, #0
+  023DBCFC  strb     r0, [r7, #0xa]
+  023DBD00  ldrh     r0, [r7, #0x1c]
+  023DBD04  cmp      r0, #1
+  023DBD08  lsrgt    r0, r0, #1
+  023DBD0C  strhgt   r0, [r7, #0x1c]
+  023DBD10  b        #0x23dbd68
+  023DBD14  ldrb     r0, [r7, #0x10]
+  023DBD18  mov      r1, #3
+  023DBD1C  mul      r0, r0, r1
+  023DBD20  lsr      r0, r0, #1
+  023DBD24  strb     r0, [r7, #0x10]
+  023DBD28  ldrb     r0, [r7, #8]
+  023DBD2C  mul      r0, r0, r1
+  023DBD30  lsr      r0, r0, #1
+  023DBD34  strb     r0, [r7, #8]
+  023DBD38  ldr      r2, [pc, #0x50]
+  023DBD3C  mov      r3, #0
+  023DBD40  ldrh     r0, [r7, #0x1c]
+  023DBD44  ldrh     r1, [r2, r3]
+  023DBD48  cmp      r0, r1
+  023DBD4C  addle    r3, r3, #2
+  023DBD50  ldrhle   r0, [r2, r3]
+  023DBD54  strhle   r0, [r7, #0x1c]
+  023DBD58  ble      #0x23dbd68
+  023DBD5C  cmp      r3, #3
+  023DBD60  addlt    r3, r3, #2
+  023DBD64  blt      #0x23dbd44
+  023DBD68  cmp      r8, #0xff
+
+######## CLUSTER 14 flags=[Vanilla,Difficult,Expert,LevelScaling] 0x023DC038-0x023DC1C8 ########
+  023DC038  mov      r3, #1
+  023DC03C  bl       #0x2335880
+  023DC040  sub      sp, sp, #0x40
+  023DC044  mov      r0, sp
+  023DC048  bl       #0x201e730
+  023DC04C  ldr      r0, [pc, #0x13c]
+  023DC050  ldrh     r0, [r0]
+  023DC054  strh     r0, [sp, #0x14]
+  023DC058  mov      r0, #0x1000
+  023DC05C  str      r0, [sp, #0x20]
+  023DC060  mov      r0, #0x28
+  023DC064  strh     r0, [sp, #0x2a]
+  023DC068  push     {r0, r1, r2}
+  023DC06C  mov      r0, #0
+  023DC070  mov      r1, #0x4e
+  023DC074  mov      r2, #0x38
+  023DC078  bl       #0x204b678
+  023DC07C  cmp      r0, #1
+  023DC080  moveq    r3, #0x20
+  023DC084  beq      #0x23dc0bc
+  023DC088  mov      r1, #0x4e
+  023DC08C  mov      r2, #0x39
+  023DC090  bl       #0x204b678
+  023DC094  cmp      r0, #1
+  023DC098  moveq    r3, #0x21
+  023DC09C  beq      #0x23dc0bc
+  023DC0A0  mov      r1, #0x4e
+  023DC0A4  mov      r2, #0x3a
+  023DC0A8  bl       #0x204b678
+  023DC0AC  cmp      r0, #1
+  023DC0B0  moveq    r3, #0x22
+  023DC0B4  beq      #0x23dc0bc
+  023DC0B8  mov      r3, #0x23
+  023DC0BC  pop      {r0, r1, r2}
+  023DC0C0  mov      r0, sp
+  023DC0C4  mov      r1, #0
+  023DC0C8  stmdb    sp!, {r1}
+  023DC0CC  mov      r2, #8
+  023DC0D0  bl       #0x2335988
+  023DC0D4  mov      r0, sp
+  023DC0D8  bl       #0x201e730
+  023DC0DC  ldr      r0, [pc, #0xac]
+  023DC0E0  ldrh     r0, [r0]
+  023DC0E4  strh     r0, [sp, #0x14]
+  023DC0E8  mov      r0, #0x1000
+  023DC0EC  str      r0, [sp, #0x20]
+  023DC0F0  mov      r0, #0x28
+  023DC0F4  strh     r0, [sp, #0x2a]
+  023DC0F8  push     {r0, r1, r2}
+  023DC0FC  mov      r0, #0
+  023DC100  mov      r1, #0x4e
+  023DC104  mov      r2, #0x37
+  023DC108  bl       #0x204b678
+  023DC10C  cmp      r0, #1
+  023DC110  popne    {r0, r1, r2}
+  023DC114  bne      #0x23dc13c
+  023DC118  pop      {r0, r1, r2}
+  023DC11C  mov      r0, sp
+  023DC120  mov      r1, #0
+  023DC124  stmdb    sp!, {r1}
+  023DC128  mov      r1, #0xa4
+  023DC12C  mov      r2, #8
+  023DC130  mov      r3, #0x1f
+  023DC134  bl       #0x2335988
+  023DC138  add      sp, sp, #4
+  023DC13C  mov      r0, sp
+  023DC140  bl       #0x201e730
+  023DC144  ldr      r0, [pc, #0x44]
+  023DC148  ldrh     r0, [r0]
+  023DC14C  strh     r0, [sp, #0x14]
+  023DC150  mov      r0, #0x1000
+  023DC154  str      r0, [sp, #0x20]
+  023DC158  mov      r0, #0x28
+  023DC15C  strh     r0, [sp, #0x2a]
+  023DC160  mov      r0, sp
+  023DC164  mov      r1, #0
+  023DC168  stmdb    sp!, {r1}
+  023DC16C  mov      r1, #0xdc
+  023DC170  mov      r2, #8
+  023DC174  mov      r3, #0x24
+  023DC178  bl       #0x2335988
+  023DC17C  add      sp, sp, #0x48
+  023DC180  b        #0x2335d68
+  023DC184  eorseq   ip, sp, #148, #2
+  023DC188  eorseq   ip, sp, #0x80000025
+  023DC18C  eorseq   ip, sp, #152, #2
+  023DC190  eorseq   ip, r7, #140, #20
+  023DC194  andeq    r0, r0, r0
+  023DC198  andeq    r0, r0, r0
+  023DC19C  andeq    r0, r0, r0
+  023DC1A0  andeq    r0, r0, r0
+  023DC1A4  andeq    r0, r0, r0
+  023DC1A8  andeq    r0, r0, r0
+  023DC1AC  andeq    r0, r0, r0
+  023DC1B0  andeq    r0, r0, r0
+  023DC1B4  andeq    r0, r0, r0
+  023DC1B8  andeq    r0, r0, r0
+  023DC1BC  andeq    r0, r0, r0
+  023DC1C0  andeq    r0, r0, r0
+  023DC1C4  andeq    r0, r0, r0

@@ -1,0 +1,273 @@
+Key symbol addresses:
+  GetPerformanceFlagWithChecks: missing
+  AddGuestMonster: missing
+  CheckTeamMemberIdx: missing
+  GetPartyMembers: missing
+  GuestMonsterToGroundMonster: missing
+
+=== Site 0x114C30 (EoA-tail) ===
+  0x114BF0: movs     r1, r0
+  0x114BF2: rev      r0, r0
+  0x114BF4: lsls     r2, r3, #1
+  0x114BF6: b        #0x211529c
+  0x114BF8: movs     r3, r0
+  0x114BFA: bge      #0x2114bfe
+  0x114BFC: lsls     r1, r4, #1
+  0x114BFE: b        #0x21152a4
+  0x114C00: movs     r4, r0
+  0x114C02: rev      r0, r0
+  0x114C04: lsls     r2, r7, #1
+  0x114C06: b        #0x21152ac
+  0x114C08: movs     r2, r0
+
+=== Site 0x11A028 (EoA-tail) ===
+  0x119FE8: movs     r1, r0
+  0x119FEA: adds     r3, #0xa0
+  0x119FEC: strh     r0, [r7, #6]
+  0x119FEE: subs     r0, #0xbd
+  0x119FF0: lsls     r4, r3, #5
+  0x119FF2: b        #0x2119b04
+  0x119FF4: movs     r4, r0
+  0x119FF6: b        #0x2119b1c
+  0x119FF8: movs     r0, r0
+  0x119FFA: b        #0x211a2a6
+  0x119FFC: ands     r0, r0
+  0x119FFE: adr      r1, #0x280
+  0x11A000: lsls     r4, r1, #1
+  0x11A002: b        #0x2119b34
+  0x11A004: asrs     r6, r0, #0x20
+  0x11A006: b        #0x211a34a
+  0x11A008: movs     r0, #4
+  0x11A00A: b        #0x211a34e
+  0x11A00C: adds     r0, #0
+  0x11A00E: b        #0x211a752
+
+=== Site 0x16C1BC (EoA-tail) ===
+  0x16C17C: movs     r0, r0
+  0x16C17E: b        #0x216bd22
+  0x16C180: movs     r3, r0
+  0x16C182: b        #0x216c826
+  0x16C184: beq      #0x216c198
+  0x16C186: lsls     r5, r1, #0xa
+  0x16C188: strh     r0, [r7, #6]
+  0x16C18A: lsrs     r5, r7, #2
+  0x16C18C: lsrs     r4, r3, #0xe
+  0x16C18E: add.w    r0, r0, r4, ror #4
+  0x16C192: b        #0x216bcd4
+  0x16C194: movs     r2, r0
+  0x16C196: b        #0x216c83a
+
+=== Site 0x2409A4 (EoA-tail) ===
+  0x240964: lsls     r4, r1, #3
+  0x240966: and.w    r0, r0, r5, lsl #3
+  0x24096A: and.w    r0, r0, sl, lsl #3
+  0x24096E: and.w    r0, r0, sb, lsl #3
+  0x240972: and.w    r0, r0, r2, lsl #3
+  0x240976: and.w    r0, r0, r3, lsl #3
+  0x24097A: and.w    r0, r0, r6, lsl #3
+  0x24097E: and.w    r0, r0, r5, lsl #3
+  0x240982: and.w    r0, r0, lr, ror #2
+  0x240986: and.w    r0, r0, r3, lsl #3
+  0x24098A: and.w    r0, r0, r2, lsl #3
+  0x24098E: and.w    r0, r0, fp, ror #2
+  0x240992: and.w    r3, r0, ip, lsl #4
+  0x240996: b        #0x22404d8
+  0x240998: movs     r1, r0
+  0x24099A: b        #0x2240c3e
+  0x24099C: lsls     r0, r7, #2
+  0x24099E: lsrs     r0, r0, #8
+  0x2409A0: lsls     r5, r7, #2
+  0x2409A2: and.w    r0, r0, r7, ror #8
+  0x2409A6: b        #0x2240e2c
+  0x2409A8: movs     r2, r0
+  0x2409AA: b        #0x2240c4e
+  0x2409AC: movs     r3, r1
+
+=== Site 0x240B90 (EoA-tail) ===
+  0x240B50: lsls     r5, r1, #1
+  0x240B52: lsrs     r0, r0, #8
+  0x240B54: lsls     r0, r2, #1
+  0x240B56: and.w    r0, r0, r7, lsr #8
+  0x240B5A: b        #0x2241060
+  0x240B5C: movs     r2, r0
+  0x240B5E: b        #0x2240e02
+  0x240B60: movs     r2, r1
+
+=== Site 0x241634 (EoA-tail) ===
+  0x2415F4: movs     r2, r0
+  0x2415F6: subs     r0, r0, r0
+  0x2415F8: ldr      r0, [r4]
+
+=== Site 0x243758 (EoA-tail) ===
+  0x243718: adds     r1, #0xb4
+  0x24371A: b        #0x2243ab8
+  0x24371C: adr      r2, #0x294
+
+=== Site 0x2B37B8 (EoA-tail) ===
+  0x2B3778: movs     r0, #1
+  0x2B377A: b        #0x22b371e
+  0x2B377C: movs     r2, r0
+  0x2B377E: b        #0x22b3e26
+  0x2B3780: movs     r2, r0
+  0x2B3782: lsrs     r0, r0, #8
+  0x2B3784: movs     r0, #1
+  0x2B3786: stm      r3!, {r5, r7}
+  0x2B3788: movs     r0, #3
+  0x2B378A: cbz      r0, #0x22b37f6
+  0x2B378C: movs     r0, #1
+  0x2B378E: b        #0x22b3712
+  0x2B3790: asrs     r1, r0, #0x20
+  0x2B3792: b        #0x22b3c98
+  0x2B3794: adds     r5, #0x90
+  0x2B3796: b        #0x22b32d8
+  0x2B3798: movs     r3, r0
+  0x2B379A: b        #0x22b3a40
+
+=== Site 0x2C1708 (EoA-tail) ===
+  0x2C16C8: cmp      r5, #0x41
+  0x2C16CA: adcs     r5, r2
+  0x2C16CC: ldrsh    r7, [r7, r7]
+  0x2C16CE: adds     r2, #0xff
+  0x2C16D0: adcs     r5, r2
+  0x2C16D2: strb     r1, [r5, r5]
+  0x2C16D4: ldrb     r7, [r7, #3]
+  0x2C16D6: mov      pc, pc
+  0x2C16D8: cmp      r0, #0x3c
+  0x2C16DA: adds     r2, #0x46
+  0x2C16DC: cmp      r5, #0xff
+  0x2C16DE: cmp      r5, #0xff
+  0x2C16E0: subs     r4, #0x55
+  0x2C16E2: subs     r4, #0x55
+  0x2C16E4: adds     r7, #0xff
+  0x2C16E6: subs     r4, #0xff
+  0x2C16E8: mov      r0, pc
+  0x2C16EA: mov      r6, sp
+  0x2C16EC: str      r7, [r7, r3]
+  0x2C16EE: str      r7, [r7, r3]
+  0x2C16F0: adds     r2, #0x46
+  0x2C16F2: adds     r2, #0x32
+  0x2C16F4: cmp      r0, #0xff
+  0x2C16F6: adds     r2, #0xff
+  0x2C16F8: mov      r5, sl
+  0x2C16FA: mov      r4, r7
+  0x2C16FC: adds     r2, #0xff
+  0x2C16FE: mov      pc, pc
+  0x2C1700: ldrh     r6, [r5, r1]
+  0x2C1702: ldrh     r5, [r2, r1]
+  0x2C1704: subs     r4, #0xff
+  0x2C1706: str      r7, [r7, #0x4c]
+  0x2C1708: movs     r3, #0x37 <--
+  0x2C170A: subs     r6, r3, #0
+  0x2C170C: movs     r3, #0xff
+  0x2C170E: movs     r3, #0xff
+  0x2C1710: mov      r2, fp
+  0x2C1712: subs     r4, #0x3c
+  0x2C1714: mov      pc, pc
+  0x2C1716: mov      pc, pc
+  0x2C1718: cmp      r1, #0x1e
+  0x2C171A: cmp      r1, #0x1e
+  0x2C171C: subs     r4, #0xff
+  0x2C171E: movs     r6, #0xff
+  0x2C1720: subs     r5, #0x46
+  0x2C1722: subs     r5, #0x32
+  0x2C1724: str      r7, [r7, #0x4c]
+  0x2C1726: ldr      r6, [pc, #0x3fc]
+  0x2C1728: movs     r3, #0x2d
+  0x2C172A: subs     r4, r2, #0
+  0x2C172C: asrs     r7, r7, #0x13
+  0x2C172E: cmp      r5, #0xff
+  0x2C1730: adds     r7, #0x23
+  0x2C1732: adds     r1, r3, r4
+  0x2C1734: lsrs     r7, r7, #0x1f
+  0x2C1736: adds     r2, #0xff
+  0x2C1738: adds     r2, #0x46
+  0x2C173A: adds     r2, #0x5a
+  0x2C173C: rors     r7, r7
+  0x2C173E: subs     r4, #0xff
+  0x2C1740: adds     r7, #0x23
+  0x2C1742: adds     r1, r3, r4
+  0x2C1744: lsrs     r7, r7, #0x1f
+  0x2C1746: adds     r2, #0xff
+  0x2C1748: mov      r2, r6
+  0x2C174A: ldrh     r2, [r6, r0]
+  0x2C174C: rors     r7, r7
+  0x2C174E: subs     r4, #0xff
+  0x2C1750: subs     r6, r3, #0
+  0x2C1752: adds     r2, #0x28
+  0x2C1754: subs     r7, r7, #3
+  0x2C1756: cmp      r0, #0xff
+  0x2C1758: adds     r2, #0x32
+  0x2C175A: mov      r4, r7
+  0x2C175C: adds     r2, #0xff
+  0x2C175E: subs     r4, #0xff
+  0x2C1760: mov      r6, r8
+  0x2C1762: str      r2, [r3, #0x44]
+  0x2C1764: mov      pc, pc
+  0x2C1766: str      r7, [r7, r3]
+  0x2C1768: adds     r2, #0x28
+  0x2C176A: subs     r6, r3, #0
+  0x2C176C: subs     r7, r7, #3
+  0x2C176E: cmp      r0, #0xff
+  0x2C1770: cmp      r0, #0x46
+  0x2C1772: cmp      r0, #0x3c
+  0x2C1774: subs     r4, #0xff
+  0x2C1776: mov      pc, pc
+  0x2C1778: subs     r4, #0x64
+  0x2C177A: subs     r4, #0x5a
+  0x2C177C: str      r7, [r7, r3]
+  0x2C177E: ldrh     r7, [r7, r3]
+  0x2C1780: subs     r7, r6, #0
+  0x2C1782: subs     r6, r3, #0
+  0x2C1784: strb     r7, [r7, r7]
+  0x2C1786: cmp      r0, #0xff
+
+=== Site 0x2E2F2C (EoA-tail) ===
+  0x2E2EEC: lsls     r0, r0, #1
+  0x2E2EEE: lsrs     r0, r0, #8
+  0x2E2EF0: movs     r0, r0
+  0x2E2EF2: b        #0x22e3636
+  0x2E2EF4: asrs     r6, r1, #1
+  0x2E2EF6: b        #0x22e363a
+  0x2E2EF8: movs     r0, #0x38
+  0x2E2EFA: b        #0x22e363e
+  0x2E2EFC: ldm      r1!, {r0, r2, r3, r4, r5}
+
+=== Site 0x2E2F74 (EoA-tail) ===
+  0x2E2F34: movs     r1, r0
+  0x2E2F36: b        #0x22e35da
+  0x2E2F38: movs     r2, r0
+  0x2E2F3A: subs     r0, r0, r0
+  0x2E2F3C: adds     r0, #7
+  0x2E2F3E: b        #0x22e3282
+  0x2E2F40: movs     r3, r0
+  0x2E2F42: b        #0x22e31ee
+  0x2E2F44: ands     r3, r0
+  0x2E2F46: stm      r1!, {r5, r7}
+  0x2E2F48: movs     r4, r0
+  0x2E2F4A: b        #0x22e368e
+  0x2E2F4C: lsls     r4, r2, #2
+  0x2E2F4E: b        #0x22e2f52
+  0x2E2F50: asrs     r2, r1, #0x20
+  0x2E2F52: b        #0x22e3696
+  0x2E2F54: blt      #0x22e2fbc
+
+=== Site 0x2E2F9C (EoA-tail) ===
+  0x2E2F5C: movs     r1, r0
+  0x2E2F5E: b        #0x22e360a
+  0x2E2F60: ands     r2, r0
+  0x2E2F62: blo      #0x22e2ea6
+  0x2E2F64: ands     r0, r0
+  0x2E2F66: b        #0x22e2af4
+  0x2E2F68: movs     r1, r4
+  0x2E2F6A: and.w    r0, r0, r0
+  0x2E2F6E: b        #0x22e36b2
+  0x2E2F70: asrs     r6, r1, #1
+  0x2E2F72: b        #0x22e36b6
+  0x2E2F74: movs     r0, #0x37
+  0x2E2F76: b        #0x22e36ba
+  0x2E2F78: ldm      r1, {r1, r2, r3, r4}
+
+=== Site 0x2E5E84 (EoA-tail) ===
+  0x2E5E44: asrs     r0, r0, #0x20
+  0x2E5E46: b        #0x22e658a
+  0x2E5E48: movs     r2, r0

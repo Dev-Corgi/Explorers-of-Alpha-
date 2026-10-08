@@ -1,0 +1,9 @@
+.definelabel KaOnKeySite, 0x020384D8
+.definelabel KaOnKeyResume, 0x020384DC
+.definelabel KaInsertOk, 0x020388DC
+.definelabel KaDelSite, 0x02038904
+.definelabel KaDelResume, 0x02038908
+.definelabel KaSound, 0x02017CCC
+.definelabel KaRedrawName, 0x02037F58
+.definelabel KaRedrawCursor, 0x02038ADC
+.definelabel KaKeyboard, 0x020AFDF0

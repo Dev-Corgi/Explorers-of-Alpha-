@@ -1,0 +1,223 @@
+
+def 0 {
+    lives(ACTOR_TALK_MAIN);
+    ExecuteCommon(CORO_LIVES_REPLY_NORMAL, 0);
+    lives(ACTOR_TALK_SUB);
+    ExecuteCommon(CORO_LIVES_REPLY_NORMAL, 0);
+    lives(ACTOR_ATTENDANT1);
+    SetAnimation(2);
+    se_Play(16130);
+    @label_11;
+    message_Mail({
+        english="[CN]What would you like to do?",
+    });
+    message_SwitchMenu(0, 1);
+    CaseMenu({
+        english="Check Game Options",
+    }, @label_0);
+    CaseMenu({
+        english="Check Storage",
+    }, @label_1);
+    CaseMenu({
+        english="Cancel",
+    }, @label_2);
+    Jump(@label_3);
+    @label_0;
+    message_Mail({
+        english="[CN]Which functionality do you want to check?",
+    });
+    message_SwitchMenu(1, 1);
+    CaseMenu({
+        english="Level Scaling",
+    }, @label_4);
+    CaseMenu({
+        english="Inverse Mode",
+    }, @label_5);
+    CaseMenu({
+        english="Game Difficulty",
+    }, @label_6);
+    Jump(@label_7);
+    @label_4;
+    message_Mail({
+        english="[CN]Do you want to [CS:G]enable[CR] Level Scaling?",
+    });
+    message_SwitchMenu(0, 1);
+    CaseMenu({
+        english="Yes",
+    }, @label_8);
+    CaseMenu({
+        english="No",
+    }, @label_9);
+    Jump(@label_10);
+    @label_8;
+    message_Mail({
+        english="[CN]Level Scaling is now [CS:G]enabled[CR] !",
+    });
+    flag_SetPerformance(55, 1);
+    Jump(@label_11);
+    @label_9;
+    message_Mail({
+        english="[CN]Level Scaling is now [CS:G]disabled[CR] !",
+    });
+    flag_SetPerformance(55, 0);
+    Jump(@label_11);
+    @label_10;
+    Jump(@label_0);
+    Jump(@label_12);
+    @label_5;
+    ProcessSpecial(PROCESS_SPECIAL_IS_RECURITABLE_IN_TEAM, 8, 0);
+    Case(1, @label_13);
+    Jump(@label_14);
+    @label_13;
+    message_Mail({
+        english="[CN]Do you want to [CS:G]enable[CR] Inverse mode?",
+    });
+    message_SwitchMenu(0, 1);
+    CaseMenu({
+        english="Yes",
+    }, @label_15);
+    CaseMenu({
+        english="No",
+    }, @label_16);
+    CaseMenu({
+        english="Info",
+    }, @label_17);
+    Jump(@label_18);
+    @label_15;
+    message_Mail({
+        english="[CN]Inverse mode is now [CS:G]enabled[CR] !",
+    });
+    flag_SetPerformance(60, 1);
+    Jump(@label_11);
+    @label_16;
+    message_Mail({
+        english="[CN]Inverse mode is now [CS:G]disabled[CR] !",
+    });
+    flag_SetPerformance(60, 0);
+    Jump(@label_11);
+    @label_17;
+    message_Mail({
+        english="""
+            Inverse Mode works similar to a normal mode,
+            with the difference lying in how weaknesses
+            and resistances are handled.
+        """,
+    });
+    message_Mail({
+        english="""
+            In Inverse Mode, weaknesses and resistances
+            swap places. So a Water-type becomes weak
+            to Fire but resists Grass.
+        """,
+    });
+    Jump(@label_13);
+    @label_18;
+    Jump(@label_0);
+    Jump(@label_19);
+    @label_14;
+    message_Mail({
+        english="[CN]This mode isn't available to you yet.",
+    });
+    @label_2;
+    JumpCommon(CORO_END_TALK);
+    @label_19;
+    Jump(@label_12);
+    @label_6;
+    message_Mail({
+        english="""
+            [CN]Choose your preferred difficulty.
+            [CN]Default difficulty is [CS:H]Expert[CR].
+        """,
+    });
+    message_SwitchMenu(1, 1);
+    CaseMenu({
+        english="Vanilla",
+    }, @label_20);
+    CaseMenu({
+        english="[CS:A]Difficult[CR]",
+    }, @label_21);
+    CaseMenu({
+        english="[CS:H]Expert[CR]",
+    }, @label_22);
+    CaseMenu({
+        english="[CS:B]Hardcore[CR]",
+    }, @label_23);
+    Jump(@label_24);
+    @label_20;
+    flag_SetPerformance(56, 1);
+    flag_SetPerformance(57, 0);
+    flag_SetPerformance(58, 0);
+    flag_SetPerformance(59, 0);
+    message_Mail({
+        english="[CN]Difficulty now set to Vanilla.",
+    });
+    Jump(@label_11);
+    @label_21;
+    flag_SetPerformance(56, 0);
+    flag_SetPerformance(57, 1);
+    flag_SetPerformance(58, 0);
+    flag_SetPerformance(59, 0);
+    message_Mail({
+        english="[CN]Difficulty now set to [CS:A]Difficult[CR].",
+    });
+    Jump(@label_11);
+    @label_22;
+    BranchPerformance(10, 1, @label_23);
+    BranchPerformance(56, 1, @label_25);
+    BranchPerformance(57, 1, @label_26);
+    Jump(@label_25);
+    @label_23;
+    BranchPerformance(10, 1, @label_0);
+    BranchPerformance(56, 1, @label_25);
+    BranchPerformance(57, 1, @label_26);
+    BranchPerformance(58, 1, @label_26);
+    flag_SetPerformance(56, 0);
+    flag_SetPerformance(57, 0);
+    flag_SetPerformance(58, 0);
+    flag_SetPerformance(59, 1);
+    message_Mail({
+        english="[CN]Difficulty now set to [CS:B]Hardcore[CR].",
+    });
+    Jump(@label_11);
+    @label_25;
+    flag_SetPerformance(56, 0);
+    flag_SetPerformance(57, 0);
+    flag_SetPerformance(58, 1);
+    flag_SetPerformance(59, 0);
+    message_Mail({
+        english="[CN]Difficulty now set to [CS:H]Expert[CR].",
+    });
+    Jump(@label_11);
+    @label_26;
+    message_Mail({
+        english="[CN]You cannot increase difficulty for now.",
+    });
+    Jump(@label_11);
+    Jump(@label_27);
+    @label_24;
+    Jump(@label_0);
+    @label_27;
+    Jump(@label_12);
+    @label_7;
+    Jump(@label_11);
+    @label_12;
+    Return();
+    @label_1;
+    BranchPerformance(58, 1, @label_28);
+    BranchPerformance(59, 1, @label_28);
+    message_Close();
+    message_Menu(MENU_STORAGE);
+    Jump(@label_2);
+    @label_28;
+    message_Mail({
+        english="""
+            Storage isn't available to you while in Special
+            Episodes if your difficulty is set to [CS:H]Expert[CR]
+            or higher.
+        """,
+    });
+    message_Close();
+    Jump(@label_2);
+    @label_3;
+    Jump(@label_2);
+}

@@ -1,0 +1,33 @@
+id: berry_boost
+version: 8
+region: US
+description: >
+  Berry stat boosts on eat — Pattern B (item_cd stubs + ov29 cave).
+  Dunlib stat APIs + status cure + ItemJumpAddress belly path.
+  text_e.str item descriptions.
+
+kind: berry_boost
+rom_profile: us_vanilla
+
+prebuild:
+  - script: generate_berry_stubs.py
+
+cave:
+  binary: ov36
+  estimated_bytes: 512
+  alignment: 4
+  base_label: BerryBoostCodeAddress
+
+overlay:
+  asm_dir: asm/overlay
+  entry: BerryBoostCave.asm
+
+item_cd:
+  yaml: berries.yaml
+
+strings:
+  yaml: strings.yaml
+
+verify:
+  - type: berry_caves_nonempty
+  - type: berry_pattern_b_unpatched_stat_entries

@@ -1,0 +1,28 @@
+id: difficulty_unlock
+version: 1
+region: US
+description: >
+  Allow free Expert/Hardcore difficulty switches before Darkrai clear.
+  Patches SCRIPT/COMMON/unionall.ssb only: replaces the two BranchPerformance(18)
+  upgrade gates with Jump-to-success (keeps other Performance-18 unlocks intact).
+
+kind: data
+rom_profile: us_vanilla
+
+requires: []
+conflicts: []
+
+data:
+  handler: difficulty_unlock_unionall
+  path: SCRIPT/COMMON/unionall.ssb
+  # BranchPerformance(18,1,target) → Jump(target); Jump(target)  (size-preserving)
+  patches:
+    - name: expert_gate
+      find: "2d0012000100d367"
+      replace: "8700d3678700d367"
+    - name: hardcore_gate
+      find: "2d0012000100fb67"
+      replace: "8700fb678700fb67"
+
+verify:
+  - type: difficulty_unlock_unionall

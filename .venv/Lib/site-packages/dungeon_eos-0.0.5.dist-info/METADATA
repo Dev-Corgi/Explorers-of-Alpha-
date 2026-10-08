@@ -1,0 +1,24 @@
+Metadata-Version: 2.1
+Name: dungeon-eos
+Version: 0.0.5
+Summary: A package that simulates PMD EoS dungeon generation. 
+Home-page: https://github.com/SkyTemple/dungeon_eos/
+Author: SkyTemple contributors
+Author-email: skytemple@capypara.de
+License: UNKNOWN
+Keywords: Dungeon,PMD,Explorers,Generator
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+License-File: LICENSE
+
+UNKNOWN
+

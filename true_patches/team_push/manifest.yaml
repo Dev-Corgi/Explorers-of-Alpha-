@@ -1,0 +1,14 @@
+id: team_push
+version: 2
+region: US
+description: >
+  Teammate push, copied from the SkyTemple patch that lived on
+  Explorers of Alpha_Vanilla.nds. While holding a direction, the leader
+  can push an adjacent ally. The log line is text_e string 19141,
+  "[string:0] pushed [string:1]!". LogMessageById subtracts 1, so the
+  cave passes message id 19142. The hook and overlay36 body stay at the
+  original addresses (ov29 0x022F2680, ov36 0x023A7E80). On a ROM that
+  already has those bytes, apply leaves them in place.
+
+kind: team_push
+rom_profile: us_vanilla

@@ -1,0 +1,16 @@
+entries:
+  - id: 9973
+    text: "Status-Resistence"
+  - id: 10042
+    text: |
+      When the Pokémon is inflicted with a
+      bad status condition, a random stat
+      among [CS:E]Attack[CR], [CS:E]Sp. Atk[CR], [CS:E]Defense[CR],
+      or [CS:E]Sp. Def[CR] rises by 2 stages.
+  - id: 10089
+    text: |
+      The Pokémon softens critical hits,
+      taking only 120% of normal damage
+      from them.
+  - id: 10074
+    text: "The Pokémon may strike back against\nattackers that hit it with special\nmoves, inflicting 1/4 of the damage\nit took.\n\n\n\n\nSelect detail:[CLUM_SET:70][M:B4] or [M:B5]/View detail: [M:B2]"

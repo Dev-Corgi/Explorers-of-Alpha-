@@ -1,0 +1,80 @@
+id: level_scaling_guest_fix
+version: 5
+region: US
+description: >
+  Level Scaling: exclude guest Pokémon (member_idx 0x55AA / 0x5AA5, or negative)
+  from the Alpha party-max loop in ov36 (slots 0–3, level byte +2, then doubled)
+  and from the arm9 dungeon-entry stat-init rewrite. Guests keep their table
+  level so base_stats_speed CalcStat matches the hero/partner path at that
+  level. The ov29 hooks that used to sit inside story-guest recruitment were
+  removed: those loops place Grovyle and Celebi, and skipping a guest
+  member_index there drops the next guest. Kecleon (383/384/983/984) skip the
+  Alpha spawn-list rewrite and share one GetMonsterLevelToSpawn lookup so
+  mappa Kecleon Level 100 reaches shop and floor spawns.
+
+kind: asm
+rom_profile: us_vanilla
+
+hooks:
+  - name: LevelScaleArm9PerSlotGuest
+    symbol: LevelScaleArm9PerSlotGuestSite
+    binary: arm9
+    vanilla_word: 0xEBFFF6E8
+    chain: first
+    target_symbol: LevelScaleGuestFix_Arm9PerSlot
+
+  - name: LevelScaleArm9DungeonEntryAfterGet
+    symbol: LevelScaleArm9DungeonEntryAfterGetSite
+    binary: arm9
+    vanilla_word: 0xE5D01000
+    chain: first
+    target_symbol: LevelScaleGuestFix_Arm9DungeonEntry
+
+  - name: LevelScaleArm9StatInitProcess
+    symbol: LevelScaleArm9StatInitProcessSite
+    binary: arm9
+    vanilla_word: 0xE5CD7006
+    chain: first
+    target_symbol: LevelScaleGuestFix_Arm9StatInit
+
+  - name: LevelScaleAlphaPartyMax
+    symbol: LevelScaleAlphaPartyMaxHook
+    binary: ov36
+    vanilla_word: 0xE5D04000
+    chain: first
+    target_symbol: LevelScaleGuestFix_AlphaPartyMax
+
+  - name: LevelScaleAlphaPartyMaxSlotLimit
+    symbol: LevelScaleAlphaPartyMaxSlotLimit
+    binary: ov36
+    vanilla_word: 0xE3510003
+    patched_word: 0xE3510004
+    chain: first
+
+  - name: LevelScaleAlphaSpawnSkip
+    symbol: LevelScaleAlphaSpawnLdrbSite
+    binary: ov36
+    vanilla_word: 0xE5D54000
+    chain: first
+    target_symbol: LevelScaleGuestFix_AlphaSpawnSkip
+
+  - name: GetMonsterLevelKecleonMatch
+    symbol: GetMonsterLevelCmpSite
+    binary: ov29
+    vanilla_word: 0xE1550000
+    chain: first
+    target_symbol: LevelScaleGuestFix_KecleonLevelMatch
+
+cave:
+  binary: ov36
+  estimated_bytes: 768
+  alignment: 4
+  base_label: LevelScaleGuestFixCodeAddress
+
+asm:
+  entry: asm/main.asm
+
+verify:
+  - type: hooks_are_branch
+  - type: cave_nonempty
+    overlay: ov36

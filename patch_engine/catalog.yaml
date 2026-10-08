@@ -1,0 +1,260 @@
+recommended_order:
+- team_push
+- fixed_room_orbs
+- shop_sell_price
+- difficulty_unlock
+- dinner_sprites
+- berry_boost
+- tm_read
+- z_move_v2
+- boost_ribbon
+- iq_change
+- status_adjust
+- level_scaling_guest_fix
+- damage_formula
+- size_adjust
+- no_immediate_house
+- utility_patch
+- better_poke
+- better_food
+- better_equipment
+- base_stats_speed
+- spinda_ev_speed
+- balance_change
+- control_mode_enhance
+- belly_union
+- korean
+modules:
+  team_push:
+    path: team_push
+    description: Teammate push. The leader can push an adjacent ally while holding the direction.
+    kind: team_push
+  fixed_room_orbs:
+    path: fixed_room_orbs
+    description: Orbs + warp + Trawl allowed in all fixed rooms (overlay10 data)
+    kind: data
+  shop_sell_price:
+    path: shop_sell_price
+    description: Shop sell = buy/4 (2 sig-digit floor) on BALANCE + UTILITY item_p
+    kind: data
+  difficulty_unlock:
+    path: difficulty_unlock
+    description: Free Expert/Hardcore difficulty switches (unionall Performance-18 gate bypass)
+    kind: data
+  dinner_sprites:
+    path: dinner_sprites
+    description: Guild dinner NPCs whose Alpha ground sprite grew use the vanilla Sky sprite again, so
+      the dinner scene fits in sprite memory
+    kind: data
+  orb_charges_v2:
+    path: orb_charges_v2
+    description: Orb charges v2 — charge=3 orbs only, compact table (~384B ov29 cave)
+    kind: asm
+  tm_read:
+    path: tm_read
+    description: TM Read submenu action + charge tracking + bag name suffix
+    kind: tm_read
+  berry_boost:
+    path: berry_boost
+    description: Berry eat stat boosts — Pattern B (item_cd stubs + ov29 cave, no overlay hooks)
+    kind: berry_boost
+  z_move_v2:
+    path: z_move_v2
+    description: Z-Move v2 — executor move 559; Normal power 360, other types 180, per-type secondary
+      effects
+    kind: z_move
+  boost_ribbon:
+    path: boost_ribbon
+    description: Dungeon bag Boost submenu; consumes the held item and raises Hp/Atk/Def/SpA/SpD by 3
+      until the save prompt
+    kind: asm
+  spinda_ev_speed:
+    path: spinda_ev_speed
+    description: 'Spinda EV for the CalcStat stack. Save bytes are doping V including Spe. Snapshot restore
+      has no level-up add. Move-info Accuracy is stars: 1 per 10, leftover half. Floor Gravity multiplies
+      Accuracy by 5/3. Apply after base_stats_speed. Do not combine with spinda_ev_v2.'
+    kind: spinda_ev
+  iq_change:
+    path: iq_change
+    description: 'IQ rework — Status-Resistence, Critical Dodger (1.2x crits), Counter Basher (Mini Mirror
+      Coat). Intimidator: low HP only, close-range, 20%. Exp. Elite, Wonder Chest, Miracle Chest, and
+      exclusive Exp boost apply to the whole party.'
+    kind: asm
+  status_adjust:
+    path: status_adjust
+    description: Protect/Detect, Endure, Counter, and Mirror Coat counter 1 (this round only). Spite/Grudge
+      PP halved. Reflect and Light Screen leave 1/3 damage. Stat stages capped at +/-6 (4..16).
+    kind: asm
+  level_scaling_guest_fix:
+    path: level_scaling_guest_fix
+    description: Level Scaling — exclude guest Pokémon from the Alpha party-max loop and dungeon-entry
+      stat rewrite so they keep their table level for CalcStat. Kecleon 383/384/983/984 skip the Alpha
+      spawn rewrite and share one level lookup.
+    kind: asm
+  damage_formula:
+    path: damage_formula
+    description: CalcDamage base → main-series ((2L/5+2)*P*A/D)/50+2; EoS Type/STAB/Crit/Random, super-effective
+      1.5; Psywave, Present, Magnitude, Natural Gift powers
+    kind: asm
+  size_adjust:
+    path: size_adjust
+    description: Team body-size total cap 6 → 16 (4 × max body size 4); entry, add-member, and dungeon
+      guest checks
+    kind: data
+  no_immediate_house:
+    path: no_immediate_house
+    description: Floor entry disarms the Monster House room the leader spawns in. Outlaw hideouts still
+      activate.
+    kind: asm
+  utility_patch:
+    path: utility_patch
+    description: B-run also stops when a visible enemy is two tiles ahead of the leader
+    kind: asm
+  better_poke:
+    path: better_poke
+    description: Picking up ground Poke restores 5 belly to the Pokemon that picked it up.
+    kind: asm
+  better_equipment:
+    path: better_equipment
+    description: Team-wide held protections, Ability Monitor suppression, band ranks, and scarf replacements.
+      Focus Scarf ignores weaknesses on hits the holder takes.
+    kind: asm
+  korean:
+    path: korean
+    description: Korean text, glyph engine, and name-keyboard assembly. Korean build only.
+    kind: korean
+  balance_change:
+    path: balance_change
+    description: Bidoof's Wish movesets, outlaws at party max +10 with 2*CalcStat HP, guild kit extras,
+      save-only mid-rest statues, and v8 difficulty rebalance (enemy fx 0.8/1/1/1.2x, LS/spawn/trap/EXP/move-scale/storage
+      tweaks).
+    kind: balance_change
+  control_mode_enhance:
+    path: control_mode_enhance
+    description: Full control mode. Each round starts on the current leader and wraps through the party
+      before enemies. Manual to auto makes that pokemon the leader for the next round.
+    kind: asm
+  belly_union:
+    path: belly_union
+    description: One shared team belly. Food and belly items change that value. Walk drain runs only when
+      the leader walks, and allies' held belly items modify that one drain.
+    kind: asm
+  base_stats_speed:
+    path: base_stats_speed
+    description: Phases 0-12. CalcStat for all species, one Accuracy roll with rank and Spe^0.25, Gen
+      9 Accuracy on main-series moves, spawn/level-up/evolution write, CalcDamage A/D read, Strong Enemy
+      table HP and remapped table levels, HP clamps lifted to int16, summary UI shows CalcStat and Speed.
+      Guests use CalcStat(V=0) like the hero and partner. Guest table levels 3/5/7-12/17 are 15/55/70/60/62/60/60/65/15.
+      Special-episode PC levels 1/6/8/9 are 20/72/70/24. Deep Star Cave 1F Strong Enemy Snover table level
+      is 12. Every mappa Kecleon Level (BALANCE/UTILITY mappa_s/t/y, 383/384/983/984) is 100. Dungeon
+      level-up stat lines use CalcStat deltas including Spe. FULL_STACK after better_equipment, before
+      balance_change.
+    kind: asm
+notes:
+  fixed_room_orbs: Data-only; needs ChangeFixedFloorProperties on base ROM (not applied here).
+  shop_sell_price: Data-only; patches BALANCE/item_p.bin + UTILITY/item_p.bin sell_price fields.
+  difficulty_unlock: Data-only; SCRIPT/COMMON/unionall.ssb Expert/Hardcore BranchPerformance(18) → Jump.
+  dinner_sprites: Data-only. MONSTER/m_ground.bin entries 119 Koffing, 208 Sunflora, 316 Bidoof, 356 Skuntank,
+    538 Corphish, 562 Chimecho replaced with the vanilla Sky WAN files (76 KB less on a Team Skull dinner,
+    23 KB less on a normal dinner). The scene also loads hero and partner, whose Alpha sprites can reach
+    157 KB each. Dungeon sprites and the arm9 sprite data table are unchanged.
+  berry_boost: Pattern B — item_cd stubs + 512B ov29 cave + strings; no overlay hooks (stack-safe).
+  orb_charges_v2: 'Legacy module id — same payload as orb_charges v2; prefer apply orb_charges. Refills
+    charge-table orbs when a dungeon-group outing ends (DungeonFree: escape/give-up/faint, or last group
+    floor clear). Reads DUNGEON_PTR_MASTER (0x0235353C), the pointer DungeonFree frees. v12 renames several
+    orbs and replaces their effects. v13 names Weakness, Decay, and Charge, and Heal Orb casts Moonlight.
+    v14 turns Grudge Orb into Diet Orb: one use, and the team''s walk drain stops on that floor. Exports
+    OrbFx_DietFlag at the ov36 cave start.'
+  tm_read: 'ov29+ov31 bundle; TM Read submenu + charge table (ov29 only; no ARM9 bag suffix). Restores
+    full Read charges on bag TMs when a dungeon-group outing ends (DungeonFree: escape/give-up/faint,
+    or last group floor clear). Reads DUNGEON_PTR_MASTER (0x0235353C).'
+  z_move_v2: 'ov36 cave. Z-Move executes move 559. Judgement 467 stays the user-type move. Normal 360
+    / other types 180. Do not combine with z_move. v23 clears the Z gauge when a dungeon-group outing
+    ends (DungeonFree: escape/give-up/faint, or last group floor clear) using DUNGEON_PTR_MASTER (0x0235353C).'
+  boost_ribbon: ov36 cave. Dungeon bag Hp Up, Atk Up, Def Up, SpA Up, and SpD Up open the Ingest team
+    target menu, consume the listed held item, and raise the chosen member's stat by 3 until the save
+    prompt. Includes No-Slip Cap (Def), Y-Ray Specs (Hp), and Gaggle Specs (Atk). Submenu string code
+    is the display id plus 1. Apply after tm_read and z_move_v2.
+  spinda_ev_speed: CalcStat-stack Spinda. Save HP/Atk/SpA/Def/SpD/Spe bytes are doping V. Drink menu adds
+    Spe. Reset writes those six V bytes to 0. ExtraBits returns the remaining mask in r1 so vanilla Atk
+    GroundAdd cannot leave Atk at 1. HP and Spe drinks use the same rose-by-delta cafe line as the other
+    stats. EvFillBoosts copies those bytes. Snapshot restore writes V back with no m_level add when a
+    dungeon-group outing ends (DungeonFree, via DUNGEON_PTR_MASTER). Move-info Accuracy is stars (1 per
+    10, leftover half); Always Hit is not used for a numeric Accuracy. Z-Move (559) skips the rank/Spe
+    accuracy roll. Floor Gravity multiplies Accuracy by 5/3 on that roll. Always after base_stats_speed.
+    Do not combine with spinda_ev or spinda_ev_v2.
+  iq_change: ov36 cave. Intimidator procs at 20% on a close-range move only while that Pokemon is at low
+    HP. Critical Dodger and special Counter Basher read the defender from r9. Apply after spinda_ev_v2.
+  level_scaling_guest_fix: ov36 cave. Guests skipped in the Alpha party-max and dungeon-entry rewrite.
+    Kecleon 383/384/983/984 skip the Alpha spawn rewrite; GetMonsterLevelToSpawn treats those ids as one
+    species so mappa Level 100 reaches shop and floor spawns.
+  damage_formula: ov36 cave; hooks CalcDamage @ 0x0230C984 base formula. Super-effective matchup 1.4→1.5
+    at ov10 0x022C4818. Psywave is (x+5)*(level/10) with x = 1..10. Present powers are 120/80/40. Magnitude
+    powers are 10, 30, 50, 70, 90, 110, 150. Natural Gift addends are ×10, except Plain Seed, Golden Seed,
+    and Reviser Seed at 70. Apply after iq_change (ov36 chain).
+  no_immediate_house: ov36 cave; floor-start Monster House call at 0x022DFAC4. Skips outlaw hideout floors.
+  utility_patch: ov36 cave. ShouldLeaderKeepRunning success path (ov29 0x022F35C8) also returns no when
+    a visible enemy (is_not_team_member) is two tiles ahead in the leader's facing direction. Allies there
+    do not stop the run. Wall bumps and another Pokemon using a move still stop it.
+  balance_change: 'arm9 special-episode main character and guest move lists, plus an ov36 cave behind
+    GetMonsterMoves (ov29 0x02303B18) that returns a fixed moveset for listed species in listed fixed
+    rooms. Learnsets are unchanged. Outlaws, hidden and fleeing outlaws, monster-house leaders, and minions
+    use the active party''s highest level + 10, capped at 100 (guests excluded). Their max HP is 2 * CalcStat
+    (V=0), capped at 32767. Team levels are read directly, so Alpha level scaling does not change the
+    result. Wigglytuff registration kit 8 also adds Lens Scarf and Bright Ribbon. SCRIPT/D* mid-group
+    rest Porygon2 statues (entid 554, P21+) use the save-only talk script from D10P21A/enter02.ssb. Story
+    dungeon Enter maps (P11*, Foggy Forest and the like), Hidden Land / Temporal Tower / Sky Peak bases,
+    and challenge hubs keep vanilla menus. Town and overworld statues are unchanged. v8: difficulty rebalance
+    on Alpha ov36 — enemy fx Vanilla 0.8x / Difficult&Expert 1.0x / Hardcore 1.2x; remove Difficult +0x1A..1D
+    x7/8; Hardcore spawn density and trap period match Expert; Vanilla LS is cap-to-party-highest only;
+    Hardcore LS always matches party max; Expert+ EXP cuts removed; no forced move ginseng-99; no Hardcore
+    IsLevelResetDungeon early-out; floor event divisor always 10; no empty move-slot penalty; Special
+    Episode storage allowed on all difficulties.'
+  control_mode_enhance: ov36 cave plus retargeted loads in Alpha's control mode code. Select is unchanged
+    (camera mode). Start works on any teammate's turn. Each round starts on the current leader, then walks
+    the party slots forward and wraps back to that leader before the enemy phase. Manual to auto makes
+    the pokemon who switched the leader without reordering the lap already running; the next round starts
+    on them. The leader is player controlled. Anyone else is player controlled in manual and takes the
+    ally turn in auto. Guests always take the AI turn. The next floor's leader is vanilla. Exports CeLeader
+    at cave+8 for belly_union.
+  belly_union: ov36 cave. Team members share the leader's belly. TryIncreaseBelly and TryDecreaseBelly
+    update that value and copy it to the party. The end-of-turn walk drain runs only for the leader (in
+    manual state, the stored leader, not once per member). Held items that change the drain are summed
+    across the party into that one step. Munch Belt stays disabled by better_equipment. If orb_charges_v2
+    exported OrbFx_DietFlag and that byte is set, the shared walk drain is skipped. Apply after control_mode_enhance,
+    better_equipment, and orb_charges_v2. BellyUnion_IsTeam is EntityIsValid plus the team-member flag.
+  base_stats_speed: Phases 0-12. FULL_STACK after better_equipment, before spinda_ev_speed. Save/team
+    bytes are doping V (HP low, Spe high, Atk/SpA/Def/SpD uint8). Combat and the summary pass that V as
+    CalcStat r3. InitTeamMember writes CalcStat HP. Ground summary current and max HP are both CalcStat.
+    Spawn, new-game, recruit, and guest init write V=0. Guests use CalcStat like the hero and partner;
+    level_scaling_guest_fix keeps their table level. Guest table levels 3/5/7-12/17 are 15/55/70/60/62/60/60/65/15.
+    Special-episode PC levels 1/6/8/9 are 20/72/70/24. Strong Enemy table levels match CalcStat combat-stat
+    sums; Charmander-placeholder seats (entry 30, room >= 200) use party-max and CalcStat×1.25 HP; Same
+    Species / FR11/13/17/19/75 table HP → CalcStat; FR51 Deoxys 86-89 HP = 500. Deep Star Cave 1F Snover
+    is 12. Every mappa Kecleon Level (BALANCE/UTILITY mappa_s/t/y, 383/384/983/984) is 100. Dungeon level-up
+    stat lines are CalcStat(new) minus CalcStat(old level), including Spe. MoveHitCheck uses Accuracy
+    once; main-series moves take Gen 9 Accuracy; listed ROM-only moves take rom_accuracy_overrides.json.
+    Always pair with spinda_ev_speed; do not use spinda_ev_v2 on this stack.
+  better_poke: ov36 cave; ground Poke pickup (leader 0x023451A8, ally 0x0230F2D4) restores 5 belly via
+    TryIncreaseBelly.
+  better_food: ov36 cave. ApplyItemEffect (ov29 0x0231B68C) wrapper; after the original effect, CATEGORY_FOOD_GUMMIES
+    items call RestoreAllMovePP(5) on the defender. Sticky and muzzled eats are skipped. The eater is
+    checked with EntityIsValid. Berries/seeds/vitamins are unchanged.
+  korean: Korean build only, never in FULL_STACK_MODULES. ov36 cave for the glyph engine and the name
+    keyboard. Glyph bitmaps load with ov36 at 0x023E0000; FONT/ko_glyph.bin is the same table. ARM9 PU
+    region 2 is 0x023F0000-0x023FFFFF so melonDS can read those bitmaps. A string takes the Korean patch
+    text only when its English equals the EoS English at that id, a nearby id, or the same script; icon-tag-only
+    differences keep the Alpha tag. Everything else stays English and is listed in the untranslated Excel
+    report. On name keyboards, a pair of symbol or accent keys becomes a Hangul syllable that already
+    has a dialogue glyph. The pair list is korean_assemble/pairs.md.
+  better_equipment: 'ov36 cave. One holder covers the team for No-Stick, Pecha, Persim, Weather, Insomniscope,
+    Sneak, Trap, and Twist. Twist also blocks Def/SpD drops. Ability Monitor stops abilities. Power/Def./Special/Zinc
+    Band give +2 Atk/Def/SpA/SpD rank, added even past the +6 move cap. Lens Scarf is accuracy +2. Munch
+    Belt becomes Consistent Band (not-very-effective moves deal at least neutral damage, no Belly drain).
+    Lockon/No-Aim/Bounce/Gold Ribbon/Joy/Whiff/Patsy/Curve/Racket become Life Band, Lens Scarf, Focus
+    Scarf, Bright Ribbon, PP Scarf, Wish Scarf, Expert Band, Z-Scarf, and Rhythm Scarf. Z-Scarf doubles
+    team Z-Gauge gain. Pierce Band becomes Distribute Band: the holder''s Atk, Sp. Atk, Def, Sp. Def,
+    accuracy, and evasion rank changes also hit every ally in the same room, and enemies share with enemies.
+    Two or more holders on that side turn it off. Item strings stay in the existing name and description
+    slots. Eq_ItemIsActive, Eq_Ability, and Eq_SelfHolds call IsMonster before HasHeldItem. They do not
+    wrap HasHeldItem or EntityIsValid globally. Eq_BandStage uses the CalcDamage defender in r9.'

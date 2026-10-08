@@ -1,0 +1,279 @@
+=== ov36 bl GetPerformanceFlagWithChecks + 24 instr context ===
+
+=== mov r0,#55-59 anywhere in ov36 (ARM) + next 8 instr ===
+(total mov r0,#55: 0)
+(total mov r0,#56: 0)
+(total mov r0,#57: 0)
+
+--- mov r0,#58 @ 0x023D443C ---
+  023D443C  mov      r0, #0x3a
+  023D4440  bl       #0x23d44e4
+  023D4444  cmp      r0, #1
+  023D4448  subeq    r1, r1, #5
+  023D444C  mov      r0, #0xa6
+  023D4450  bl       #0x23d44e4
+  023D4454  cmp      r0, #1
+  023D4458  subeq    r1, r1, #5
+  023D445C  ldr      r0, [pc, #0x6c]
+  023D4460  bl       #0x23d44e4
+  023D4464  cmp      r0, #1
+  023D4468  subeq    r1, r1, #5
+(total mov r0,#58: 1)
+(total mov r0,#59: 0)
+
+=== mov r1/r2/r3,#55-59 then nearby bl ===
+  mov r1,#56 @ 0x023ABAB4
+    023ABAB4  mov      r1, #0x38
+    023ABAB8  strh     r1, [r3, #0x30]
+    023ABABC  mov      r1, #0x1b4
+    023ABAC0  strh     r1, [r3, #0x38]
+    023ABAC4  mov      r1, #6
+    023ABAC8  strb     r1, [r3, #0x3b]
+  mov r1,#56 @ 0x023DC5D4
+    023DC5D4  mov      r1, #0x38
+    023DC5D8  mov      r3, #0
+    023DC5DC  bl       #0x2335880
+    023DC5E0  ldrb     r2, [r4, #0x2e]
+    023DC5E4  ldr      r3, [pc, #0x238]
+    023DC5E8  strh     r2, [r3]
+  mov r2,#55 @ 0x023A9A38
+    023A9A38  mov      r2, #0x37
+    023A9A3C  bl       #0x204b678
+    023A9A40  cmp      r0, #1
+    023A9A44  bne      #0x23a9b2c
+    023A9A48  bl       #0x23accf8
+    023A9A4C  cmp      r0, #4
+  mov r2,#55 @ 0x023D91AC
+    023D91AC  mov      r2, #0x37
+    023D91B0  bl       #0x204b678
+    023D91B4  cmp      r0, #1
+    023D91B8  bne      #0x23d91c8
+    023D91BC  mov      r3, r7
+    023D91C0  cmp      r4, r3
+  mov r2,#55 @ 0x023D91F4
+    023D91F4  mov      r2, #0x37
+    023D91F8  bl       #0x204b678
+    023D91FC  cmp      r0, #1
+    023D9200  bne      #0x23d9274
+    023D9204  mov      r3, r7
+    023D9208  mov      r4, r3
+  mov r2,#55 @ 0x023D921C
+    023D921C  mov      r2, #0x37
+    023D9220  bl       #0x204b678
+    023D9224  cmp      r0, #1
+    023D9228  bne      #0x23d9274
+    023D922C  mov      r0, #0
+    023D9230  mov      r1, #0x4e
+  mov r2,#55 @ 0x023DC104
+    023DC104  mov      r2, #0x37
+    023DC108  bl       #0x204b678
+    023DC10C  cmp      r0, #1
+    023DC110  popne    {r0, r1, r2}
+    023DC114  bne      #0x23dc13c
+    023DC118  pop      {r0, r1, r2}
+  mov r2,#56 @ 0x023ACD04
+    023ACD04  mov      r2, #0x38
+    023ACD08  bl       #0x204b678
+    023ACD0C  cmp      r0, #1
+    023ACD10  beq      #0x23acd58
+    023ACD14  mov      r1, #0x4e
+    023ACD18  mov      r2, #0x39
+  mov r2,#56 @ 0x023B04B4
+    023B04B4  mov      r2, #0x38
+    023B04B8  bl       #0x204b678
+    023B04BC  cmp      r0, #1
+    023B04C0  pop      {r0, r1, r2, r3}
+    023B04C4  beq      #0x23b0528
+    023B04C8  ldr      r0, [pc, #0x234]
+  mov r2,#56 @ 0x023B5FBC
+    023B5FBC  mov      r2, #0x38
+    023B5FC0  bl       #0x204b678
+    023B5FC4  cmp      r0, #1
+    023B5FC8  popeq    {r0, r1, r2, r3}
+    023B5FCC  beq      #0x2311120
+    023B5FD0  mov      r1, #0x4e
+  mov r2,#56 @ 0x023BF168
+    023BF168  mov      r2, #0x38
+    023BF16C  bl       #0x204b678
+    023BF170  cmp      r0, #1
+    023BF174  popeq    {r0, r1, r2, r3}
+    023BF178  beq      #0x23bf1a4
+    023BF17C  mov      r1, #0x4e
+  mov r2,#56 @ 0x023BF280
+    023BF280  mov      r2, #0x38
+    023BF284  bl       #0x204b678
+    023BF288  cmp      r0, #1
+    023BF28C  popeq    {r0, r1, r2, r3, r4, r6, ip, pc}
+    023BF290  mov      r1, #0x4e
+    023BF294  mov      r2, #0x39
+  mov r2,#56 @ 0x023BFBA8
+    023BFBA8  mov      r2, #0x38
+    023BFBAC  bl       #0x204b678
+    023BFBB0  cmp      r0, #1
+    023BFBB4  beq      #0x23bfbd0
+    023BFBB8  mov      r1, #0x4e
+    023BFBBC  mov      r2, #0x39
+  mov r2,#56 @ 0x023D5A70
+    023D5A70  mov      r2, #0x38
+    023D5A74  bl       #0x204b678
+    023D5A78  cmp      r0, #1
+    023D5A7C  popeq    {r0, r1, r2, r3, r4, r6, pc}
+    023D5A80  mov      r1, #0x4e
+    023D5A84  mov      r2, #0x39
+  mov r2,#56 @ 0x023D9178
+    023D9178  mov      r2, #0x38
+    023D917C  bl       #0x204b678
+    023D9180  cmp      r0, #1
+    023D9184  beq      #0x23d91a4
+    023D9188  mov      r0, #0
+    023D918C  mov      r1, #0x4e
+  mov r2,#56 @ 0x023DA41C
+    023DA41C  mov      r2, #0x38
+    023DA420  bl       #0x204b678
+    023DA424  cmp      r0, #1
+    023DA428  ldrheq   r0, [r6, #8]
+    023DA42C  addeq    r0, r0, r0, lsl #1
+    023DA430  lsreq    r0, r0, #2
+  mov r2,#56 @ 0x023DAA0C
+    023DAA0C  mov      r2, #0x38
+    023DAA10  bl       #0x204b678
+    023DAA14  cmp      r0, #1
+    023DAA18  popne    {r0, r1, r2, r3, r4, r5, pc}
+    023DAA1C  mov      r0, #1
+    023DAA20  strb     r0, [r5, #0x101]
+  mov r2,#56 @ 0x023DBCA8
+    023DBCA8  mov      r2, #0x38
+    023DBCAC  bl       #0x204b678
+    023DBCB0  cmp      r0, #1
+    023DBCB4  popeq    {r0, r1, r2, r3}
+    023DBCB8  beq      #0x23dbcc4
+    023DBCBC  pop      {r0, r1, r2, r3}
+  mov r2,#56 @ 0x023DC074
+    023DC074  mov      r2, #0x38
+    023DC078  bl       #0x204b678
+    023DC07C  cmp      r0, #1
+    023DC080  moveq    r3, #0x20
+    023DC084  beq      #0x23dc0bc
+    023DC088  mov      r1, #0x4e
+  mov r2,#57 @ 0x023ACD18
+    023ACD18  mov      r2, #0x39
+    023ACD1C  bl       #0x204b678
+    023ACD20  cmp      r0, #1
+    023ACD24  moveq    r0, #2
+    023ACD28  beq      #0x23acd58
+    023ACD2C  mov      r1, #0x4e
+  mov r2,#57 @ 0x023B5FD4
+    023B5FD4  mov      r2, #0x39
+    023B5FD8  bl       #0x204b678
+    023B5FDC  cmp      r0, #1
+    023B5FE0  popeq    {r0, r1, r2, r3}
+    023B5FE4  mov      r1, #0x4e
+    023B5FE8  mov      r2, #0x3b
+  mov r2,#57 @ 0x023BF180
+    023BF180  mov      r2, #0x39
+    023BF184  bl       #0x204b678
+    023BF188  cmp      r0, #1
+    023BF18C  pop      {r0, r1, r2, r3}
+    023BF190  beq      #0x23bf1a4
+    023BF194  mov      r0, sl
+  mov r2,#57 @ 0x023BF294
+    023BF294  mov      r2, #0x39
+    023BF298  bl       #0x204b678
+    023BF29C  cmp      r0, #1
+    023BF2A0  popeq    {r0, r1, r2, r3, r4, r6, ip, pc}
+    023BF2A4  ldr      r2, [r4, #0xb4]
+    023BF2A8  add      r2, r2, #0x1a
+  mov r2,#57 @ 0x023BFBBC
+    023BFBBC  mov      r2, #0x39
+    023BFBC0  bl       #0x204b678
+    023BFBC4  cmp      r0, #1
+    023BFBC8  bne      #0x23bfce8
+    023BFBCC  b        #0x23bffbc
+    023BFBD0  pop      {r0, r1, r2, r3}
+  mov r2,#57 @ 0x023D5A84
+    023D5A84  mov      r2, #0x39
+    023D5A88  bl       #0x204b678
+    023D5A8C  cmp      r0, #1
+    023D5A90  popeq    {r0, r1, r2, r3, r4, r6, pc}
+    023D5A94  ldr      r2, [r4, #0xb4]
+    023D5A98  add      r2, r2, #0x1a
+  mov r2,#57 @ 0x023D9190
+    023D9190  mov      r2, #0x39
+    023D9194  bl       #0x204b678
+    023D9198  cmp      r0, #1
+    023D919C  beq      #0x23d91ec
+    023D91A0  b        #0x23d9214
+    023D91A4  mov      r0, #0
+  mov r2,#57 @ 0x023DC08C
+    023DC08C  mov      r2, #0x39
+    023DC090  bl       #0x204b678
+    023DC094  cmp      r0, #1
+    023DC098  moveq    r3, #0x21
+    023DC09C  beq      #0x23dc0bc
+    023DC0A0  mov      r1, #0x4e
+  mov r2,#58 @ 0x023ACD30
+    023ACD30  mov      r2, #0x3a
+    023ACD34  bl       #0x204b678
+    023ACD38  cmp      r0, #1
+    023ACD3C  moveq    r0, #3
+    023ACD40  beq      #0x23acd58
+    023ACD44  mov      r1, #0x4e
+  mov r2,#58 @ 0x023AF79C
+    023AF79C  mov      r2, #0x3a
+    023AF7A0  bl       #0x204b678
+    023AF7A4  cmp      r0, #1
+    023AF7A8  pop      {r0, r1, r2, r3}
+    023AF7AC  bne      #0x23af7d8
+    023AF7B0  ldr      r1, [sb, #0xb4]
+  mov r2,#58 @ 0x023DC0A4
+    023DC0A4  mov      r2, #0x3a
+    023DC0A8  bl       #0x204b678
+    023DC0AC  cmp      r0, #1
+    023DC0B0  moveq    r3, #0x22
+    023DC0B4  beq      #0x23dc0bc
+    023DC0B8  mov      r3, #0x23
+  mov r2,#59 @ 0x023ACD48
+    023ACD48  mov      r2, #0x3b
+    023ACD4C  bl       #0x204b678
+    023ACD50  cmp      r0, #1
+    023ACD54  moveq    r0, #4
+    023ACD58  pop      {r1, r2, r3, pc}
+    023ACD5C  andeq    r0, r0, r0
+  mov r2,#59 @ 0x023AF77C
+    023AF77C  mov      r2, #0x3b
+    023AF780  bl       #0x204b678
+    023AF784  cmp      r0, #1
+    023AF788  pop      {r0, r1, r2, r3}
+    023AF78C  beq      #0x23af7b0
+    023AF790  push     {r0, r1, r2, r3}
+  mov r2,#59 @ 0x023B5FE8
+    023B5FE8  mov      r2, #0x3b
+    023B5FEC  bl       #0x204b678
+    023B5FF0  cmp      r0, #1
+    023B5FF4  lsreq    r4, r4, #1
+    023B5FF8  mov      r0, #0
+    023B5FFC  mov      r1, #0x4e
+  mov r2,#59 @ 0x023D4408
+    023D4408  mov      r2, #0x3b
+    023D440C  bl       #0x204b678
+    023D4410  cmp      r0, #1
+    023D4414  pop      {r0, r1, r2, r3, lr}
+    023D4418  lsreq    r1, r1, #1
+    023D441C  mov      r0, #0x27
+  mov r2,#59 @ 0x023D8114
+    023D8114  mov      r2, #0x3b
+    023D8118  bl       #0x204b678
+    023D811C  cmp      r0, #1
+    023D8120  pop      {r0, r1, r2, r3}
+    023D8124  mov      lr, r5
+    023D8128  ldm      sp!, {r5}
+  mov r2,#59 @ 0x023DBC7C
+    023DBC7C  mov      r2, #0x3b
+    023DBC80  bl       #0x204b678
+    023DBC84  cmp      r0, #1
+    023DBC88  popeq    {r0, r1, r2, r3}
+    023DBC8C  beq      #0x23dbd14
+    023DBC90  ldrb     r0, [r7, #0x16]
+
+=== literal pool values 55-59 and nearby ldr users (sample) ===
+  u32 57 @ off 0x352B4 ram 0x023DC334

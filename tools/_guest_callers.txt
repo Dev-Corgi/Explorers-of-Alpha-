@@ -1,0 +1,4908 @@
+CheckTeamMemberIdx callers: [359276, 360144, 360376]
+
+// function from 0x57AEC, marker call @ 0x57B6C
+0x057AEC: push    {r3, r4, r5, r6, r7, r8, sb, sl, fp, lr}
+0x057AF0: mov     r4, r0
+0x057AF4: bl      #0x2051318  ; IsLevelResetDungeon
+0x057AF8: cmp     r4, #0xff
+0x057AFC: moveq   sl, #0
+0x057B00: beq     #0x2057b10
+0x057B04: mov     r0, r4
+0x057B08: bl      #0x2051318  ; IsLevelResetDungeon
+0x057B0C: mov     sl, r0
+0x057B10: bl      #0x204afc0  ; GetGameMode
+0x057B14: cmp     r0, #5
+0x057B18: movne   r0, #1
+0x057B1C: moveq   r0, #0
+0x057B20: and     r7, r0, #0xff
+0x057B24: bl      #0x2057c40
+0x057B28: bl      #0x2056960  ; RemoveActiveMembersFromMainTeam
+0x057B2C: mov     sb, #0
+0x057B30: ldr     r0, [pc, #0x104]
+0x057B34: mov     r6, #1
+0x057B38: ldr     r0, [r0]
+0x057B3C: mov     r5, sb
+0x057B40: add     r0, r0, #0x9000
+0x057B44: ldr     r8, [r0, #0x84c]
+0x057B48: mov     fp, sb
+0x057B4C: mov     r4, r6
+0x057B50: ldrb    r0, [r8]
+0x057B54: tst     r0, #1
+0x057B58: movne   r0, r6
+0x057B5C: moveq   r0, r5
+0x057B60: tst     r0, #0xff
+0x057B64: beq     #0x2057c14
+0x057B68: ldrsh   r0, [r8, #8]
+0x057B6C: bl      #0x2056264 <-- CheckTeamMemberIdx  ; CheckTeamMemberIdx
+0x057B70: cmp     r0, #0
+0x057B74: bne     #0x2057c14
+0x057B78: ldrsh   r0, [r8, #0xc]
+0x057B7C: bl      #0x2054398  ; GetBaseFormCastformCherrimDeoxys
+0x057B80: strh    r0, [r8, #0xc]
+0x057B84: ldrsh   r0, [r8, #8]
+0x057B88: bl      #0x2056294  ; IsMonsterIdInNormalRange
+0x057B8C: cmp     r0, #0
+0x057B90: beq     #0x2057c14
+0x057B94: ldrb    r0, [r8, #1]
+0x057B98: cmp     r0, #0
+0x057B9C: movne   r0, r4
+0x057BA0: moveq   r0, fp
+0x057BA4: tst     r0, #0xff
+0x057BA8: ldrsh   r0, [r8, #8]
+0x057BAC: beq     #0x2057bb8
+0x057BB0: bl      #0x2056754  ; TryAddMonsterToActiveTeam
+0x057BB4: b       #0x2057bbc
+0x057BB8: bl      #0x2056554
+0x057BBC: cmp     sl, #0
+0x057BC0: beq     #0x2057be8
+0x057BC4: lsl     r0, sb, #0x10
+0x057BC8: asr     r0, r0, #0x10
+0x057BCC: bl      #0x2058138
+0x057BD0: lsl     r2, sb, #0x10
+0x057BD4: ldrsh   r1, [r8, #8]
+0x057BD8: mov     r0, r8
+0x057BDC: asr     r2, r2, #0x10
+0x057BE0: bl      #0x20530d4
+0x057BE4: b       #0x2057c14
+0x057BE8: cmp     r7, #0
+0x057BEC: beq     #0x2057c00
+0x057BF0: ldrsh   r0, [r8, #8]
+0x057BF4: mov     r1, r8
+0x057BF8: bl      #0x205349c
+0x057BFC: b       #0x2057c14
+0x057C00: ldrsh   r1, [r8, #8]
+0x057C04: lsl     r2, sb, #0x10
+0x057C08: mov     r0, r8
+0x057C0C: asr     r2, r2, #0x10
+0x057C10: bl      #0x20530d4
+0x057C14: add     sb, sb, #1
+0x057C18: cmp     sb, #4
+0x057C1C: add     r8, r8, #0x68
+0x057C20: blt     #0x2057b50
+0x057C24: ldr     r0, [pc, #0x10]
+0x057C28: ldr     r0, [r0]
+0x057C2C: add     r0, r0, #0x9000
+0x057C30: ldrb    r0, [r0, #0x877]
+0x057C34: bl      #0x2057464
+0x057C38: pop     {r3, r4, r5, r6, r7, r8, sb, sl, fp, pc}
+0x057C3C: andeq   r0, fp, #72, #20
+0x057C40: push    {r3, r4, r5, r6, r7, r8, sb, lr}
+0x057C44: ldr     r0, [pc, #0x98]
+0x057C48: mov     sb, #0
+0x057C4C: ldr     r0, [r0]
+0x057C50: mov     r7, #1
+0x057C54: add     r0, r0, #0x9000
+0x057C58: ldr     r8, [r0, #0x84c]
+0x057C5C: mov     r6, sb
+0x057C60: mov     r4, sb
+0x057C64: mov     r5, r7
+0x057C68: ldrb    r0, [r8]
+0x057C6C: tst     r0, #1
+0x057C70: movne   r0, r7
+0x057C74: moveq   r0, r6
+0x057C78: tst     r0, #0xff
+0x057C7C: beq     #0x2057cc8
+0x057C80: ldrb    r0, [r8, #0x3e]
+0x057C84: tst     r0, #1
+0x057C88: movne   r0, r5
+0x057C8C: moveq   r0, r4
+0x057C90: tst     r0, #0xff
+0x057C94: beq     #0x2057cc8
+0x057C98: ldrb    r0, [r8, #0x3e]
+0x057C9C: bic     r0, r0, #8
+0x057CA0: strb    r0, [r8, #0x3e]
+0x057CA4: ldrsh   r0, [r8, #0x42]
+0x057CA8: cmp     r0, #0xb7
+0x057CAC: bne     #0x2057cc8
+0x057CB0: add     r0, r8, #0x3e
+0x057CB4: bl      #0x200d8ac
+0x057CB8: bl      #0x200ed58  ; AddMoneyCarried
+0x057CBC: lsl     r0, sb, #0x10
+0x057CC0: asr     r0, r0, #0x10
+0x057CC4: bl      #0x2058138
+0x057CC8: add     sb, sb, #1
+0x057CCC: cmp     sb, #4
+0x057CD0: add     r8, r8, #0x68
+0x057CD4: blt     #0x2057c68
+0x057CD8: bl      #0x200f910  ; CleanStickyItemsInBag
+0x057CDC: bl      #0x200fcac  ; RemovePokeItemsInBag
+0x057CE0: pop     {r3, r4, r5, r6, r7, r8, sb, pc}
+0x057CE4: andeq   r0, fp, #72, #20
+0x057CE8: push    {r4, r5, r6, r7, r8, lr}
+0x057CEC: mov     r8, #0
+0x057CF0: mov     r7, #1
+
+// function from 0x57E90, marker call @ 0x57ED0
+0x057E90: push    {r4, r5, r6, r7, r8, lr}
+0x057E94: ldr     r0, [pc, #0x54]
+0x057E98: mov     r4, #0
+0x057E9C: ldr     r0, [r0]
+0x057EA0: mov     r6, r4
+0x057EA4: add     r0, r0, #0x9000
+0x057EA8: ldr     r8, [r0, #0x84c]
+0x057EAC: mov     r7, #1
+0x057EB0: mov     r5, r4
+0x057EB4: ldrb    r0, [r8]
+0x057EB8: tst     r0, #1
+0x057EBC: movne   r0, r7
+0x057EC0: moveq   r0, r6
+0x057EC4: tst     r0, #0xff
+0x057EC8: beq     #0x2057edc
+0x057ECC: ldrsh   r0, [r8, #8]
+0x057ED0: bl      #0x2056264 <-- CheckTeamMemberIdx  ; CheckTeamMemberIdx
+0x057ED4: cmp     r0, #0
+0x057ED8: strbne  r5, [r8]
+0x057EDC: add     r4, r4, #1
+0x057EE0: cmp     r4, #4
+0x057EE4: add     r8, r8, #0x68
+0x057EE8: blt     #0x2057eb4
+0x057EEC: pop     {r4, r5, r6, r7, r8, pc}
+0x057EF0: andeq   r0, fp, #72, #20
+0x057EF4: push    {r3, r4, r5, r6, r7, r8, sb, sl, fp, lr}
+0x057EF8: ldr     r0, [pc, #0x160]
+0x057EFC: mov     r8, #0
+0x057F00: ldr     r0, [r0]
+0x057F04: add     r0, r0, #0x9000
+0x057F08: ldr     r7, [r0, #0x84c]
+0x057F0C: ldrb    r0, [r7]
+0x057F10: tst     r0, #1
+0x057F14: movne   r1, #1
+0x057F18: moveq   r1, #0
+0x057F1C: tst     r1, #0xff
+0x057F20: bne     #0x2057f38
+0x057F24: tst     r0, #8
+0x057F28: movne   r0, #1
+0x057F2C: moveq   r0, #0
+0x057F30: tst     r0, #0xff
+0x057F34: beq     #0x205804c
+0x057F38: ldrsh   sb, [r7, #8]
+0x057F3C: ldrsh   r1, [r7, #0x10]
+0x057F40: mov     r0, r7
+0x057F44: strh    r1, [r7, #0xe]
+0x057F48: bl      #0x2058810
+0x057F4C: mov     sl, #0
+0x057F50: add     r5, r7, #0x1c
+0x057F54: mov     fp, sl
+0x057F58: mov     r6, #1
+0x057F5C: mov     r4, sl
+0x057F60: add     r0, r7, sl, lsl #3
+0x057F64: ldrb    r0, [r0, #0x1c]
+0x057F68: tst     r0, #1
+0x057F6C: movne   r0, r6
+0x057F70: moveq   r0, fp
+0x057F74: tst     r0, #0xff
+0x057F78: beq     #0x2057f90
+0x057F7C: add     r0, r5, sl, lsl #3
+0x057F80: bl      #0x2013a50  ; GetMaxPp
+0x057F84: add     r1, r7, sl, lsl #3
+0x057F88: strb    r0, [r1, #0x22]
+0x057F8C: strh    r4, [r1, #0x1e]
+0x057F90: add     sl, sl, #1
+0x057F94: cmp     sl, #4
+0x057F98: blt     #0x2057f60
+0x057F9C: strh    r8, [r7, #0xa]
+0x057FA0: ldrb    r1, [r7]
+0x057FA4: mov     r0, sb
+0x057FA8: bic     r2, r1, #8
+0x057FAC: and     r1, r2, #0xff
+0x057FB0: orr     r1, r1, #1
+0x057FB4: strb    r1, [r7]
+0x057FB8: bl      #0x2056264  ; CheckTeamMemberIdx
+0x057FBC: cmp     r0, #0
+0x057FC0: mov     r0, sb
+0x057FC4: mov     r1, #0
+0x057FC8: bne     #0x2058048
+0x057FCC: bl      #0x2056460
+0x057FD0: cmp     r0, #0
+0x057FD4: beq     #0x2057fe4
+0x057FD8: mov     r0, sb
+0x057FDC: mov     r1, #0
+0x057FE0: bl      #0x20565f4
+0x057FE4: mov     r0, sb
+0x057FE8: mov     r1, #2
+0x057FEC: bl      #0x2056460
+0x057FF0: cmp     r0, #0
+0x057FF4: beq     #0x2058004
+0x057FF8: mov     r0, sb
+0x057FFC: mov     r1, #2
+0x058000: bl      #0x20565f4
+0x058004: mov     r0, sb
+0x058008: mov     r1, #0
+0x05800C: bl      #0x2056504
+0x058010: cmp     r0, #0
+0x058014: beq     #0x2058024
+0x058018: mov     r0, sb
+0x05801C: mov     r1, #0
+0x058020: bl      #0x20565f4
+0x058024: mov     r0, sb
+0x058028: mov     r1, #2
+0x05802C: bl      #0x2056504
+0x058030: cmp     r0, #0
+0x058034: beq     #0x205804c
+0x058038: mov     r0, sb
+0x05803C: mov     r1, #2
+0x058040: bl      #0x20565f4
+0x058044: b       #0x205804c
+0x058048: bl      #0x20565f4
+0x05804C: add     r8, r8, #1
+0x058050: cmp     r8, #4
+0x058054: add     r7, r7, #0x68
+
+// function from 0x57EF4, marker call @ 0x57FB8
+0x057EF4: push    {r3, r4, r5, r6, r7, r8, sb, sl, fp, lr}
+0x057EF8: ldr     r0, [pc, #0x160]
+0x057EFC: mov     r8, #0
+0x057F00: ldr     r0, [r0]
+0x057F04: add     r0, r0, #0x9000
+0x057F08: ldr     r7, [r0, #0x84c]
+0x057F0C: ldrb    r0, [r7]
+0x057F10: tst     r0, #1
+0x057F14: movne   r1, #1
+0x057F18: moveq   r1, #0
+0x057F1C: tst     r1, #0xff
+0x057F20: bne     #0x2057f38
+0x057F24: tst     r0, #8
+0x057F28: movne   r0, #1
+0x057F2C: moveq   r0, #0
+0x057F30: tst     r0, #0xff
+0x057F34: beq     #0x205804c
+0x057F38: ldrsh   sb, [r7, #8]
+0x057F3C: ldrsh   r1, [r7, #0x10]
+0x057F40: mov     r0, r7
+0x057F44: strh    r1, [r7, #0xe]
+0x057F48: bl      #0x2058810
+0x057F4C: mov     sl, #0
+0x057F50: add     r5, r7, #0x1c
+0x057F54: mov     fp, sl
+0x057F58: mov     r6, #1
+0x057F5C: mov     r4, sl
+0x057F60: add     r0, r7, sl, lsl #3
+0x057F64: ldrb    r0, [r0, #0x1c]
+0x057F68: tst     r0, #1
+0x057F6C: movne   r0, r6
+0x057F70: moveq   r0, fp
+0x057F74: tst     r0, #0xff
+0x057F78: beq     #0x2057f90
+0x057F7C: add     r0, r5, sl, lsl #3
+0x057F80: bl      #0x2013a50  ; GetMaxPp
+0x057F84: add     r1, r7, sl, lsl #3
+0x057F88: strb    r0, [r1, #0x22]
+0x057F8C: strh    r4, [r1, #0x1e]
+0x057F90: add     sl, sl, #1
+0x057F94: cmp     sl, #4
+0x057F98: blt     #0x2057f60
+0x057F9C: strh    r8, [r7, #0xa]
+0x057FA0: ldrb    r1, [r7]
+0x057FA4: mov     r0, sb
+0x057FA8: bic     r2, r1, #8
+0x057FAC: and     r1, r2, #0xff
+0x057FB0: orr     r1, r1, #1
+0x057FB4: strb    r1, [r7]
+0x057FB8: bl      #0x2056264 <-- CheckTeamMemberIdx  ; CheckTeamMemberIdx
+0x057FBC: cmp     r0, #0
+0x057FC0: mov     r0, sb
+0x057FC4: mov     r1, #0
+0x057FC8: bne     #0x2058048
+0x057FCC: bl      #0x2056460
+0x057FD0: cmp     r0, #0
+0x057FD4: beq     #0x2057fe4
+0x057FD8: mov     r0, sb
+0x057FDC: mov     r1, #0
+0x057FE0: bl      #0x20565f4
+0x057FE4: mov     r0, sb
+0x057FE8: mov     r1, #2
+0x057FEC: bl      #0x2056460
+0x057FF0: cmp     r0, #0
+0x057FF4: beq     #0x2058004
+0x057FF8: mov     r0, sb
+0x057FFC: mov     r1, #2
+0x058000: bl      #0x20565f4
+0x058004: mov     r0, sb
+0x058008: mov     r1, #0
+0x05800C: bl      #0x2056504
+0x058010: cmp     r0, #0
+0x058014: beq     #0x2058024
+0x058018: mov     r0, sb
+0x05801C: mov     r1, #0
+0x058020: bl      #0x20565f4
+0x058024: mov     r0, sb
+0x058028: mov     r1, #2
+0x05802C: bl      #0x2056504
+0x058030: cmp     r0, #0
+0x058034: beq     #0x205804c
+0x058038: mov     r0, sb
+0x05803C: mov     r1, #2
+0x058040: bl      #0x20565f4
+0x058044: b       #0x205804c
+0x058048: bl      #0x20565f4
+0x05804C: add     r8, r8, #1
+0x058050: cmp     r8, #4
+0x058054: add     r7, r7, #0x68
+0x058058: blt     #0x2057f0c
+0x05805C: pop     {r3, r4, r5, r6, r7, r8, sb, sl, fp, pc}
+0x058060: andeq   r0, fp, #72, #20
+0x058064: push    {r3, r4, r5, r6, r7, lr}
+0x058068: ldr     r0, [pc, #0x50]
+0x05806C: mov     r4, #0
+0x058070: ldr     r0, [r0]
+0x058074: mov     r5, r4
+0x058078: add     r0, r0, #0x9000
+0x05807C: ldr     r7, [r0, #0x84c]
+0x058080: mov     r6, #1
+0x058084: ldrb    r0, [r7]
+0x058088: tst     r0, #1
+0x05808C: movne   r0, r6
+0x058090: moveq   r0, r5
+0x058094: tst     r0, #0xff
+0x058098: beq     #0x20580a4
+0x05809C: add     r0, r7, #0x5a
+0x0580A0: bl      #0x2053fc8  ; ShuffleHiddenPower
+0x0580A4: add     r0, r4, #1
+0x0580A8: lsl     r0, r0, #0x10
+0x0580AC: asr     r4, r0, #0x10
+0x0580B0: cmp     r4, #4
+0x0580B4: add     r7, r7, #0x68
+0x0580B8: blt     #0x2058084
+0x0580BC: pop     {r3, r4, r5, r6, r7, pc}
+0x0580C0: andeq   r0, fp, #72, #20
+0x0580C4: push    {r4, r5, r6, lr}
+0x0580C8: ldr     r1, [pc, #0x64]
+0x0580CC: mov     r5, #0
+0x0580D0: ldr     r1, [r1]
+0x0580D4: add     r2, r5, #1
+0x0580D8: add     r1, r1, #0x9000
+0x0580DC: ldr     r4, [r1, #0x84c]
+0x0580E0: and     r6, r2, #0xff
+0x0580E4: strb    r5, [r0]
+0x0580E8: mov     ip, r5
+0x0580EC: mov     lr, #1
+0x0580F0: mov     r3, r5
+0x0580F4: ldrb    r1, [r4]
+0x0580F8: add     r4, r4, #0x68
+0x0580FC: tst     r1, #1
+0x058100: movne   r1, lr
+0x058104: moveq   r1, ip
+0x058108: tst     r1, #0xff
+0x05810C: addeq   r1, r0, r5
+0x058110: strbeq  r3, [r1, #1]
+0x058114: addne   r1, r0, r5
+0x058118: addne   r2, r6, #1
+0x05811C: strbne  r6, [r1, #1]
+0x058120: add     r5, r5, #1
+0x058124: andne   r6, r2, #0xff
+0x058128: cmp     r5, #4
+0x05812C: blt     #0x20580f4
+0x058130: pop     {r4, r5, r6, pc}
+0x058134: andeq   r0, fp, #72, #20
+0x058138: push    {r3, lr}
+0x05813C: sub     sp, sp, #8
+
+
+=== Functions calling GetPerformanceFlagWithChecks ===
+count 38
+
+// function from 0xED84, marker call @ 0xED9C
+0x00ED84: push    {r3, lr}
+0x00ED88: bl      #0x204c938  ; GetExecuteSpecialEpisodeType
+0x00ED8C: mvn     r1, #0
+0x00ED90: cmp     r0, r1
+0x00ED94: bne     #0x200edb8
+0x00ED98: mov     r0, #2
+0x00ED9C: bl      #0x204ca94 <-- CheckTeamMemberIdx  ; GetPerformanceFlagWithChecks
+0x00EDA0: cmp     r0, #0
+0x00EDA4: moveq   r0, #1
+0x00EDA8: popeq   {r3, pc}
+0x00EDAC: bl      #0x204cb94  ; GetScenarioBalance
+0x00EDB0: bl      #0x20517d4  ; GetBagCapacity
+0x00EDB4: pop     {r3, pc}
+0x00EDB8: bl      #0x20517e4  ; GetBagCapacitySpecialEpisode
+0x00EDBC: pop     {r3, pc}
+0x00EDC0: push    {r3, lr}
+0x00EDC4: bl      #0x200ed84  ; GetCurrentBagCapacity
+0x00EDC8: sub     r2, r0, #1
+0x00EDCC: mov     r0, #6
+0x00EDD0: ldr     r1, [pc, #0x20]
+0x00EDD4: mul     r0, r2, r0
+0x00EDD8: ldr     r1, [r1]
+0x00EDDC: ldr     r1, [r1, #0x384]
+0x00EDE0: ldrb    r0, [r1, r0]
+0x00EDE4: tst     r0, #1
+0x00EDE8: movne   r0, #1
+0x00EDEC: moveq   r0, #0
+0x00EDF0: and     r0, r0, #0xff
+0x00EDF4: pop     {r3, pc}
+0x00EDF8: andeq   pc, sl, #184, #12
+0x00EDFC: push    {r3, lr}
+0x00EE00: ldr     r1, [pc, #0x40]
+0x00EE04: mov     r0, #0
+0x00EE08: ldr     r1, [r1]
+0x00EE0C: mov     lr, r0
+0x00EE10: ldr     ip, [r1, #0x384]
+0x00EE14: mov     r1, r0
+0x00EE18: mov     r2, #1
+0x00EE1C: ldrb    r3, [ip]
+0x00EE20: add     lr, lr, #1
+0x00EE24: add     ip, ip, #6
+0x00EE28: tst     r3, #1
+0x00EE2C: movne   r3, r2
+0x00EE30: moveq   r3, r1
+0x00EE34: tst     r3, #0xff
+0x00EE38: addne   r0, r0, #1
+0x00EE3C: cmp     lr, #0x32
+0x00EE40: blt     #0x200ee1c
+0x00EE44: pop     {r3, pc}
+0x00EE48: andeq   pc, sl, #184, #12
+0x00EE4C: ldr     r1, [pc, #0x30]
+0x00EE50: mov     r3, #0
+0x00EE54: ldr     r1, [r1]
+0x00EE58: mov     ip, r3
+0x00EE5C: ldr     r2, [r1, #0x384]
+0x00EE60: ldrsh   r1, [r2, #4]
+0x00EE64: add     ip, ip, #1
+0x00EE68: add     r2, r2, #6
+0x00EE6C: cmp     r1, r0
+0x00EE70: addeq   r3, r3, #1
+0x00EE74: cmp     ip, #0x32
+0x00EE78: blt     #0x200ee60
+0x00EE7C: mov     r0, r3
+0x00EE80: bx      lr
+0x00EE84: andeq   pc, sl, #184, #12
+0x00EE88: push    {r3, r4, r5, r6, r7, lr}
+0x00EE8C: ldr     r1, [pc, #0x48]
+0x00EE90: mov     r5, #0
+0x00EE94: ldr     r1, [r1]
+0x00EE98: mov     r7, r0
+0x00EE9C: ldr     r4, [r1, #0x384]
+0x00EEA0: mov     r6, r5
+0x00EEA4: ldrsh   r0, [r4, #4]
+0x00EEA8: cmp     r0, r7
+0x00EEAC: bne     #0x200eec4
+0x00EEB0: bl      #0x200cb10  ; IsThrownItem
+0x00EEB4: cmp     r0, #0
+0x00EEB8: ldrhne  r0, [r4, #2]
+0x00EEBC: addne   r5, r5, r0
+0x00EEC0: addeq   r5, r5, #1
+0x00EEC4: add     r6, r6, #1
+0x00EEC8: cmp     r6, #0x32
+0x00EECC: add     r4, r4, #6
+0x00EED0: blt     #0x200eea4
+0x00EED4: mov     r0, r5
+0x00EED8: pop     {r3, r4, r5, r6, r7, pc}
+0x00EEDC: andeq   pc, sl, #184, #12
+0x00EEE0: ldr     r1, [pc, #0x34]
+0x00EEE4: mov     r3, #0
+0x00EEE8: ldr     r1, [r1]
+0x00EEEC: ldr     r2, [r1, #0x384]
+0x00EEF0: b       #0x200ef0c
+0x00EEF4: ldrsh   r1, [r2, #4]
+0x00EEF8: cmp     r1, r0
+0x00EEFC: moveq   r0, #1
+0x00EF00: bxeq    lr
+0x00EF04: add     r3, r3, #1
+0x00EF08: add     r2, r2, #6
+0x00EF0C: cmp     r3, #0x32
+0x00EF10: blt     #0x200eef4
+0x00EF14: mov     r0, #0
+0x00EF18: bx      lr
+0x00EF1C: andeq   pc, sl, #184, #12
+0x00EF20: ldr     r2, [pc, #0x40]
+
+// function from 0x24C6C, marker call @ 0x24CBC
+0x024C6C: push    {r3, r4, r5, lr}
+0x024C70: sub     sp, sp, #0x40
+0x024C74: mov     r4, r1
+0x024C78: mov     r5, r0
+0x024C7C: bl      #0x204c938  ; GetExecuteSpecialEpisodeType
+0x024C80: cmp     r4, #2
+0x024C84: bne     #0x2024c98
+0x024C88: mvn     r1, #0
+0x024C8C: cmp     r0, r1
+0x024C90: moveq   r4, #0
+0x024C94: movne   r4, #1
+0x024C98: cmp     r4, #0
+0x024C9C: beq     #0x2024cac
+0x024CA0: cmp     r4, #1
+0x024CA4: beq     #0x2024cfc
+0x024CA8: b       #0x2024d2c
+0x024CAC: mvn     r1, #0
+0x024CB0: cmp     r0, r1
+0x024CB4: bne     #0x2024cc8
+0x024CB8: mov     r0, #1
+0x024CBC: bl      #0x204ca94 <-- CheckTeamMemberIdx  ; GetPerformanceFlagWithChecks
+0x024CC0: cmp     r0, #0
+0x024CC4: beq     #0x2024ce8
+0x024CC8: add     r0, sp, #0
+0x024CCC: bl      #0x2050b7c  ; GetMainTeamName
+0x024CD0: ldr     r1, [pc, #0x60]
+0x024CD4: add     r2, sp, #0
+0x024CD8: mov     r0, r5
+0x024CDC: bl      #0x202378c
+0x024CE0: mov     r0, r5
+0x024CE4: b       #0x2024d30
+0x024CE8: ldr     r1, [pc, #0x4c]
+0x024CEC: mov     r0, r5
+0x024CF0: bl      #0x20258b8  ; GetStringFromFileVeneer
+0x024CF4: mov     r0, r5
+0x024CF8: b       #0x2024d30
+0x024CFC: cmp     r0, #3
+0x024D00: ldrne   r0, [pc, #0x38]
+0x024D04: bne     #0x2024d30
+0x024D08: ldr     r1, [pc, #0x34]
+0x024D0C: add     r0, sp, #0
+0x024D10: bl      #0x20258b8  ; GetStringFromFileVeneer
+0x024D14: ldr     r1, [pc, #0x1c]
+0x024D18: add     r2, sp, #0
+0x024D1C: mov     r0, r5
+0x024D20: bl      #0x202378c
+0x024D24: mov     r0, r5
+0x024D28: b       #0x2024d30
+0x024D2C: ldr     r0, [pc, #0xc]
+0x024D30: add     sp, sp, #0x40
+0x024D34: pop     {r3, r4, r5, pc}
+0x024D38: andeq   sb, sb, #8, #28
+0x024D3C: andeq   r0, r0, r7, lsr r2
+0x024D40: andeq   sb, sb, #80, #26
+0x024D44: andeq   r0, r0, r6, lsr r2
+0x024D48: push    {r4, lr}
+0x024D4C: lsl     r2, r1, #0x10
+0x024D50: mov     r4, r0
+0x024D54: tst     r1, #0xf0000
+0x024D58: lsr     r1, r2, #0x10
+0x024D5C: bne     #0x2024d70
+0x024D60: and     r1, r1, #0xff
+0x024D64: bl      #0x2058c30
+0x024D68: mov     r0, r4
+0x024D6C: pop     {r4, pc}
+0x024D70: ldr     r0, [pc]
+0x024D74: pop     {r4, pc}
+0x024D78: andeq   sb, sb, #80, #26
+0x024D7C: push    {r4, lr}
+0x024D80: lsl     r2, r1, #0x10
+0x024D84: mov     r4, r0
+0x024D88: lsr     r2, r2, #0x10
+0x024D8C: ands    r0, r1, #0xf0000
+0x024D90: beq     #0x2024dd4
+0x024D94: cmp     r0, #0x10000
+0x024D98: bne     #0x2024dec
+0x024D9C: lsl     r0, r2, #0x10
+0x024DA0: asr     r0, r0, #0x10
+0x024DA4: bl      #0x2054760  ; GetMonsterGenderVeneer
+0x024DA8: cmp     r0, #1
+0x024DAC: beq     #0x2024dc0
+0x024DB0: cmp     r0, #2
+0x024DB4: beq     #0x2024dc8
+0x024DB8: cmp     r0, #3
+0x024DBC: b       #0x2024dd0
+0x024DC0: mov     r2, #0
+0x024DC4: b       #0x2024dd4
+0x024DC8: mov     r2, #1
+0x024DCC: b       #0x2024dd4
+0x024DD0: mov     r2, #2
+0x024DD4: ldr     r1, [pc, #0x18]
+0x024DD8: mov     r0, r4
+0x024DDC: add     r1, r1, r2, lsl #2
+0x024DE0: bl      #0x2089694
+0x024DE4: mov     r0, r4
+0x024DE8: pop     {r4, pc}
+0x024DEC: ldr     r0, [pc, #4]
+0x024DF0: pop     {r4, pc}
+0x024DF4: eoreq   r5, sl, #0x48
+0x024DF8: andeq   sb, sb, #80, #26
+0x024DFC: push    {r4, lr}
+0x024E00: mov     r4, r0
+0x024E04: bl      #0x200ed84  ; GetCurrentBagCapacity
+0x024E08: cmp     r0, #2
+0x024E0C: ldrlt   r0, [pc, #0x18]
+0x024E10: ldrge   r0, [pc, #0x18]
+0x024E14: lsl     r1, r0, #0x10
+0x024E18: mov     r0, r4
+0x024E1C: lsr     r1, r1, #0x10
+0x024E20: bl      #0x20258b8  ; GetStringFromFileVeneer
+0x024E24: mov     r0, r4
+0x024E28: pop     {r4, pc}
+0x024E2C: andeq   r0, r0, r1, ror #17
+0x024E30: andeq   r0, r0, r2, ror #17
+0x024E34: push    {r4, r5, r6, r7, r8, sb, sl, fp, lr}
+0x024E38: sub     sp, sp, #0x44
+0x024E3C: sub     sp, sp, #0x400
+0x024E40: mov     sl, r0
+
+// function from 0x3D538, marker call @ 0x3D6A8
+0x03D538: push    {r4, r5, r6, r7, r8, sb, lr}
+0x03D53C: sub     sp, sp, #0x11c
+0x03D540: ldr     r1, [pc, #0xf68]
+0x03D544: ldr     r4, [r1]
+0x03D548: ldr     r0, [r4]
+0x03D54C: cmp     r0, #0x4c
+0x03D550: addls   pc, pc, r0, lsl #2
+0x03D554: b       #0x203ef9c
+0x03D558: b       #0x203d68c
+0x03D55C: b       #0x203d7d4
+0x03D560: b       #0x203d89c
+0x03D564: b       #0x203d8cc
+0x03D568: b       #0x203d8ec
+0x03D56C: b       #0x203d954
+0x03D570: b       #0x203d984
+0x03D574: b       #0x203d9a4
+0x03D578: b       #0x203da64
+0x03D57C: b       #0x203daa0
+0x03D580: b       #0x203daec
+0x03D584: b       #0x203db20
+0x03D588: b       #0x203dbb0
+0x03D58C: b       #0x203dc68
+0x03D590: b       #0x203dc98
+0x03D594: b       #0x203dcb8
+0x03D598: b       #0x203dd68
+0x03D59C: b       #0x203ddac
+0x03D5A0: b       #0x203de38
+0x03D5A4: b       #0x203de50
+0x03D5A8: b       #0x203de6c
+0x03D5AC: b       #0x203dea0
+0x03D5B0: b       #0x203debc
+0x03D5B4: b       #0x203df1c
+0x03D5B8: b       #0x203df40
+0x03D5BC: b       #0x203df5c
+0x03D5C0: b       #0x203df74
+0x03D5C4: b       #0x203df90
+0x03D5C8: b       #0x203dfb0
+0x03D5CC: b       #0x203dfd8
+0x03D5D0: b       #0x203e10c
+0x03D5D4: b       #0x203e150
+0x03D5D8: b       #0x203e038
+0x03D5DC: b       #0x203e0bc
+0x03D5E0: b       #0x203e0ec
+0x03D5E4: b       #0x203e198
+0x03D5E8: b       #0x203e1dc
+0x03D5EC: b       #0x203e20c
+0x03D5F0: b       #0x203e22c
+0x03D5F4: b       #0x203e274
+0x03D5F8: b       #0x203e2a4
+0x03D5FC: b       #0x203e2c4
+0x03D600: b       #0x203e460
+0x03D604: b       #0x203e490
+0x03D608: b       #0x203e518
+0x03D60C: b       #0x203e8e8
+0x03D610: b       #0x203e934
+0x03D614: b       #0x203e964
+0x03D618: b       #0x203e984
+0x03D61C: b       #0x203e9a8
+0x03D620: b       #0x203e9d8
+0x03D624: b       #0x203e9f8
+0x03D628: b       #0x203e5b4
+0x03D62C: b       #0x203e61c
+0x03D630: b       #0x203e6b8
+0x03D634: b       #0x203e6d8
+0x03D638: b       #0x203e7ec
+0x03D63C: b       #0x203e80c
+0x03D640: b       #0x203ea24
+0x03D644: b       #0x203eab8
+0x03D648: b       #0x203eae8
+0x03D64C: b       #0x203eb08
+0x03D650: b       #0x203eb64
+0x03D654: b       #0x203eb94
+0x03D658: b       #0x203ebb4
+0x03D65C: b       #0x203ec28
+0x03D660: b       #0x203ec5c
+0x03D664: b       #0x203eca8
+0x03D668: b       #0x203ecc4
+0x03D66C: b       #0x203ed34
+0x03D670: b       #0x203ed50
+0x03D674: b       #0x203ee14
+0x03D678: b       #0x203ee30
+0x03D67C: b       #0x203ee68
+0x03D680: b       #0x203eebc
+0x03D684: b       #0x203ef78
+0x03D688: b       #0x203ef94
+0x03D68C: ldrb    r0, [r4, #0x36]
+0x03D690: cmp     r0, #0
+0x03D694: beq     #0x203d6e4
+0x03D698: bl      #0x201077c
+0x03D69C: cmp     r0, #0
+0x03D6A0: bne     #0x203d6b4
+0x03D6A4: mov     r0, #0x1e
+0x03D6A8: bl      #0x204ca94 <-- CheckTeamMemberIdx  ; GetPerformanceFlagWithChecks
+0x03D6AC: cmp     r0, #0
+0x03D6B0: bne     #0x203d73c
+0x03D6B4: ldr     r1, [pc, #0xdf4]
+0x03D6B8: mvn     r0, #0
+0x03D6BC: ldr     r4, [r1]
+0x03D6C0: mov     r2, #0
+0x03D6C4: ldr     r3, [r4, #0x1c]
+0x03D6C8: mul     r0, r3, r0
+0x03D6CC: str     r0, [r4, #0x1c]
+0x03D6D0: ldr     r0, [r1]
+0x03D6D4: strb    r2, [r0, #0x36]
+0x03D6D8: ldr     r0, [r1]
+0x03D6DC: strh    r2, [r0, #0x38]
+0x03D6E0: b       #0x203d73c
+0x03D6E4: ldrsh   r0, [r4, #0x38]
+0x03D6E8: cmp     r0, #0
+0x03D6EC: beq     #0x203d73c
+0x03D6F0: mov     r0, #0x1d
+0x03D6F4: bl      #0x204ca94  ; GetPerformanceFlagWithChecks
+0x03D6F8: cmp     r0, #0
+0x03D6FC: beq     #0x203d718
+0x03D700: ldr     r0, [pc, #0xda8]
+0x03D704: ldr     r0, [r0]
+0x03D708: ldrsh   r0, [r0, #0x38]
+0x03D70C: bl      #0x2062b64
+0x03D710: cmp     r0, #0
+0x03D714: beq     #0x203d73c
+0x03D718: ldr     r1, [pc, #0xd90]
+0x03D71C: mov     r3, #0
+0x03D720: ldr     r2, [r1]
+0x03D724: sub     r0, r3, #1
+0x03D728: strh    r3, [r2, #0x38]
+0x03D72C: ldr     r2, [r1]
+0x03D730: ldr     r1, [r2, #0x1c]
+0x03D734: mul     r0, r1, r0
+
+// function from 0x3D538, marker call @ 0x3D6F4
+0x03D538: push    {r4, r5, r6, r7, r8, sb, lr}
+0x03D53C: sub     sp, sp, #0x11c
+0x03D540: ldr     r1, [pc, #0xf68]
+0x03D544: ldr     r4, [r1]
+0x03D548: ldr     r0, [r4]
+0x03D54C: cmp     r0, #0x4c
+0x03D550: addls   pc, pc, r0, lsl #2
+0x03D554: b       #0x203ef9c
+0x03D558: b       #0x203d68c
+0x03D55C: b       #0x203d7d4
+0x03D560: b       #0x203d89c
+0x03D564: b       #0x203d8cc
+0x03D568: b       #0x203d8ec
+0x03D56C: b       #0x203d954
+0x03D570: b       #0x203d984
+0x03D574: b       #0x203d9a4
+0x03D578: b       #0x203da64
+0x03D57C: b       #0x203daa0
+0x03D580: b       #0x203daec
+0x03D584: b       #0x203db20
+0x03D588: b       #0x203dbb0
+0x03D58C: b       #0x203dc68
+0x03D590: b       #0x203dc98
+0x03D594: b       #0x203dcb8
+0x03D598: b       #0x203dd68
+0x03D59C: b       #0x203ddac
+0x03D5A0: b       #0x203de38
+0x03D5A4: b       #0x203de50
+0x03D5A8: b       #0x203de6c
+0x03D5AC: b       #0x203dea0
+0x03D5B0: b       #0x203debc
+0x03D5B4: b       #0x203df1c
+0x03D5B8: b       #0x203df40
+0x03D5BC: b       #0x203df5c
+0x03D5C0: b       #0x203df74
+0x03D5C4: b       #0x203df90
+0x03D5C8: b       #0x203dfb0
+0x03D5CC: b       #0x203dfd8
+0x03D5D0: b       #0x203e10c
+0x03D5D4: b       #0x203e150
+0x03D5D8: b       #0x203e038
+0x03D5DC: b       #0x203e0bc
+0x03D5E0: b       #0x203e0ec
+0x03D5E4: b       #0x203e198
+0x03D5E8: b       #0x203e1dc
+0x03D5EC: b       #0x203e20c
+0x03D5F0: b       #0x203e22c
+0x03D5F4: b       #0x203e274
+0x03D5F8: b       #0x203e2a4
+0x03D5FC: b       #0x203e2c4
+0x03D600: b       #0x203e460
+0x03D604: b       #0x203e490
+0x03D608: b       #0x203e518
+0x03D60C: b       #0x203e8e8
+0x03D610: b       #0x203e934
+0x03D614: b       #0x203e964
+0x03D618: b       #0x203e984
+0x03D61C: b       #0x203e9a8
+0x03D620: b       #0x203e9d8
+0x03D624: b       #0x203e9f8
+0x03D628: b       #0x203e5b4
+0x03D62C: b       #0x203e61c
+0x03D630: b       #0x203e6b8
+0x03D634: b       #0x203e6d8
+0x03D638: b       #0x203e7ec
+0x03D63C: b       #0x203e80c
+0x03D640: b       #0x203ea24
+0x03D644: b       #0x203eab8
+0x03D648: b       #0x203eae8
+0x03D64C: b       #0x203eb08
+0x03D650: b       #0x203eb64
+0x03D654: b       #0x203eb94
+0x03D658: b       #0x203ebb4
+0x03D65C: b       #0x203ec28
+0x03D660: b       #0x203ec5c
+0x03D664: b       #0x203eca8
+0x03D668: b       #0x203ecc4
+0x03D66C: b       #0x203ed34
+0x03D670: b       #0x203ed50
+0x03D674: b       #0x203ee14
+0x03D678: b       #0x203ee30
+0x03D67C: b       #0x203ee68
+0x03D680: b       #0x203eebc
+0x03D684: b       #0x203ef78
+0x03D688: b       #0x203ef94
+0x03D68C: ldrb    r0, [r4, #0x36]
+0x03D690: cmp     r0, #0
+0x03D694: beq     #0x203d6e4
+0x03D698: bl      #0x201077c
+0x03D69C: cmp     r0, #0
+0x03D6A0: bne     #0x203d6b4
+0x03D6A4: mov     r0, #0x1e
+0x03D6A8: bl      #0x204ca94  ; GetPerformanceFlagWithChecks
+0x03D6AC: cmp     r0, #0
+0x03D6B0: bne     #0x203d73c
+0x03D6B4: ldr     r1, [pc, #0xdf4]
+0x03D6B8: mvn     r0, #0
+0x03D6BC: ldr     r4, [r1]
+0x03D6C0: mov     r2, #0
+0x03D6C4: ldr     r3, [r4, #0x1c]
+0x03D6C8: mul     r0, r3, r0
+0x03D6CC: str     r0, [r4, #0x1c]
+0x03D6D0: ldr     r0, [r1]
+0x03D6D4: strb    r2, [r0, #0x36]
+0x03D6D8: ldr     r0, [r1]
+0x03D6DC: strh    r2, [r0, #0x38]
+0x03D6E0: b       #0x203d73c
+0x03D6E4: ldrsh   r0, [r4, #0x38]
+0x03D6E8: cmp     r0, #0
+0x03D6EC: beq     #0x203d73c
+0x03D6F0: mov     r0, #0x1d
+0x03D6F4: bl      #0x204ca94 <-- CheckTeamMemberIdx  ; GetPerformanceFlagWithChecks
+0x03D6F8: cmp     r0, #0
+0x03D6FC: beq     #0x203d718
+0x03D700: ldr     r0, [pc, #0xda8]
+0x03D704: ldr     r0, [r0]
+0x03D708: ldrsh   r0, [r0, #0x38]
+0x03D70C: bl      #0x2062b64
+0x03D710: cmp     r0, #0
+0x03D714: beq     #0x203d73c
+0x03D718: ldr     r1, [pc, #0xd90]
+0x03D71C: mov     r3, #0
+0x03D720: ldr     r2, [r1]
+0x03D724: sub     r0, r3, #1
+0x03D728: strh    r3, [r2, #0x38]
+0x03D72C: ldr     r2, [r1]
+0x03D730: ldr     r1, [r2, #0x1c]
+0x03D734: mul     r0, r1, r0
+
+// function from 0x3D754, marker call @ 0x3D754
+0x03D754: bl      #0x204ca94 <-- CheckTeamMemberIdx  ; GetPerformanceFlagWithChecks
+0x03D758: cmp     r0, #0
+0x03D75C: bne     #0x203d7c0
+0x03D760: mov     r5, #0
+0x03D764: mov     r4, r5
+0x03D768: ldr     sb, [pc, #0xd40]
+0x03D76C: mvn     r7, #0
+0x03D770: mov     r8, #6
+0x03D774: b       #0x203d7b0
+0x03D778: mul     r6, r5, r8
+0x03D77C: add     r0, r1, r6
+0x03D780: ldrsh   r0, [r0, #0x28]
+0x03D784: bl      #0x200e808  ; GetItemCategory
+0x03D788: cmp     r0, #0xf
+0x03D78C: bne     #0x203d7ac
+0x03D790: ldr     r0, [sb]
+0x03D794: add     r0, r0, r6
+0x03D798: strh    r4, [r0, #0x28]
+0x03D79C: ldr     r2, [sb]
+0x03D7A0: ldr     r0, [r2, #0x1c]
+0x03D7A4: mul     r1, r0, r7
+0x03D7A8: str     r1, [r2, #0x1c]
+0x03D7AC: add     r5, r5, #1
+0x03D7B0: ldr     r1, [sb]
+0x03D7B4: ldr     r0, [r1, #0x20]
+0x03D7B8: cmp     r5, r0
+0x03D7BC: blt     #0x203d778
+0x03D7C0: ldr     r0, [pc, #0xce8]
+0x03D7C4: mov     r1, #1
+0x03D7C8: ldr     r0, [r0]
+0x03D7CC: str     r1, [r0]
+0x03D7D0: b       #0x203ef9c
+0x03D7D4: ldr     r0, [r4, #0x1c]
+0x03D7D8: cmp     r0, #0
+0x03D7DC: movle   r0, #7
+0x03D7E0: strle   r0, [r4]
+0x03D7E4: ble     #0x203ef9c
+0x03D7E8: str     r0, [r4, #0xb0]
+0x03D7EC: ldr     r4, [r1]
+0x03D7F0: mov     r0, #0xa
+0x03D7F4: ldr     r2, [r4, #0x1c]
+0x03D7F8: mul     r3, r2, r0
+0x03D7FC: str     r3, [r4, #0xb4]
+0x03D800: ldr     r2, [r1]
+0x03D804: ldr     r1, [r2, #8]
+0x03D808: cmp     r1, #0
+0x03D80C: beq     #0x203d890
+0x03D810: cmp     r1, #2
+0x03D814: bne     #0x203d824
+0x03D818: ldr     r4, [pc, #0xc94]
+0x03D81C: bl      #0x203f00c
+0x03D820: b       #0x203d864
+0x03D824: cmp     r1, #3
+0x03D828: bne     #0x203d838
+0x03D82C: add     r4, r0, #0x280
+0x03D830: bl      #0x203f00c
+0x03D834: b       #0x203d864
+0x03D838: cmp     r1, #4
+0x03D83C: movne   r4, #0x288
+0x03D840: bne     #0x203d864
+0x03D844: mov     r0, #0
+0x03D848: mov     r1, #0x69
+0x03D84C: bl      #0x204b4ec  ; LoadScriptVariableValue
+0x03D850: add     r0, r0, #0x8b
+0x03D854: add     r0, r0, #0x200
+0x03D858: lsl     r0, r0, #0x10
+0x03D85C: lsr     r4, r0, #0x10
+0x03D860: bl      #0x203f00c
+0x03D864: ldr     r1, [pc, #0xc44]
+0x03D868: ldr     r0, [pc, #0xc48]
+0x03D86C: ldr     r2, [r1]
+0x03D870: mov     r1, r4
+0x03D874: add     r2, r2, #0x8c
+0x03D878: bl      #0x2046be8
+0x03D87C: ldr     r0, [pc, #0xc2c]
+0x03D880: mov     r1, #2
+0x03D884: ldr     r0, [r0]
+0x03D888: str     r1, [r0]
+0x03D88C: b       #0x203ef9c
+0x03D890: mov     r0, #4
+0x03D894: str     r0, [r2]
+0x03D898: b       #0x203ef9c
+0x03D89C: bl      #0x2046c78
+0x03D8A0: cmp     r0, #0
+0x03D8A4: beq     #0x203ef9c
+0x03D8A8: bl      #0x203f05c
+0x03D8AC: ldr     r0, [pc, #0xbfc]
+0x03D8B0: mov     r3, #0xa
+0x03D8B4: ldr     r2, [r0]
+0x03D8B8: mov     r1, #3
+0x03D8BC: str     r3, [r2, #0x188]
+0x03D8C0: ldr     r0, [r0]
+0x03D8C4: str     r1, [r0]
+0x03D8C8: b       #0x203ef9c
+0x03D8CC: ldr     r2, [r4, #0x188]
+0x03D8D0: sub     r0, r2, #1
+0x03D8D4: str     r0, [r4, #0x188]
+0x03D8D8: cmp     r2, #0
+
+// function from 0x4213C, marker call @ 0x4216C
+0x04213C: push    {r3, r4, r5, r6, lr}
+0x042140: sub     sp, sp, #0x84
+0x042144: ldr     r2, [pc, #0xfc]
+0x042148: mov     r4, r0
+0x04214C: ldr     r2, [r2, #4]
+0x042150: mov     r6, #0
+0x042154: add     r0, r2, r1
+0x042158: ldrb    r5, [r0, #0x64]
+0x04215C: ldr     r0, [r2, #0x790]
+0x042160: cmp     r5, #0x18
+0x042164: bne     #0x2042174
+0x042168: mov     r0, #3
+0x04216C: bl      #0x204ca94 <-- CheckTeamMemberIdx  ; GetPerformanceFlagWithChecks
+0x042170: b       #0x204217c
+0x042174: mov     r1, r5
+0x042178: bl      #0x2058f04  ; IqSkillFlagTest
+0x04217C: cmp     r0, #0
+0x042180: movne   r6, #1
+0x042184: cmp     r6, #0
+0x042188: beq     #0x20421dc
+0x04218C: cmp     r5, #0x38
+0x042190: bgt     #0x20421b4
+0x042194: bge     #0x20421bc
+0x042198: cmp     r5, #0x1b
+0x04219C: bgt     #0x20421cc
+0x0421A0: cmp     r5, #0x18
+0x0421A4: blt     #0x20421cc
+0x0421A8: cmpne   r5, #0x1b
+0x0421AC: beq     #0x20421bc
+0x0421B0: b       #0x20421cc
+0x0421B4: cmp     r5, #0x39
+0x0421B8: bne     #0x20421cc
+0x0421BC: ldr     r1, [pc, #0x88]
+0x0421C0: add     r0, sp, #0x44
+0x0421C4: bl      #0x2089694
+0x0421C8: b       #0x20421e8
+0x0421CC: ldr     r1, [pc, #0x7c]
+0x0421D0: add     r0, sp, #0x44
+0x0421D4: bl      #0x2089694
+0x0421D8: b       #0x20421e8
+0x0421DC: ldr     r1, [pc, #0x70]
+0x0421E0: add     r0, sp, #0x44
+0x0421E4: bl      #0x2089694
+0x0421E8: ldr     r1, [pc, #0x58]
+0x0421EC: mov     r0, r5
+0x0421F0: ldr     r1, [r1, #4]
+0x0421F4: str     r5, [r1, #0x24]
+0x0421F8: bl      #0x2058c1c  ; GetIqSkillStringId
+0x0421FC: mov     r1, r0
+0x042200: add     r0, sp, #4
+0x042204: mov     r2, #0x40
+0x042208: bl      #0x202590c  ; CopyNStringFromId
+0x04220C: add     r0, sp, #0x44
+0x042210: add     r1, sp, #4
+0x042214: bl      #0x20897ac
+0x042218: ldr     r1, [pc, #0x28]
+0x04221C: mov     r0, r4
+0x042220: ldr     r2, [r1, #4]
+0x042224: mov     r1, #0x40
+0x042228: add     r2, r2, #0x14
+0x04222C: str     r2, [sp]
+0x042230: add     r2, sp, #0x44
+0x042234: mov     r3, #0
+0x042238: bl      #0x20223f0  ; PreprocessString
+0x04223C: mov     r0, r4
+0x042240: add     sp, sp, #0x84
+0x042244: pop     {r3, r4, r5, r6, pc}
+0x042248: andeq   pc, sl, #144, #28
+0x04224C: andeq   ip, sb, #204, #18
+0x042250: andeq   ip, sb, #212, #18
+0x042254: andeq   ip, sb, #220, #18
+0x042258: push    {r3, r4, r5, r6, lr}
+0x04225C: sub     sp, sp, #0xc
+0x042260: mov     r6, r0
+0x042264: mov     r0, #0xa0
+0x042268: mov     r1, #8
+0x04226C: mov     r5, r2
+0x042270: mov     r4, r3
+0x042274: bl      #0x2001170  ; MemAlloc
+0x042278: ldr     r1, [pc, #0x134]
+0x04227C: str     r0, [r1, #4]
+0x042280: str     r6, [r0]
+0x042284: bl      #0x200f370  ; RemoveEmptyItemsInBag
+0x042288: mov     r0, #0x14
+0x04228C: bl      #0x2029ec8  ; Arm9LoadUnkFieldNa0x2029EC8
+0x042290: ldr     r1, [pc, #0x11c]
+0x042294: cmp     r4, #0
+0x042298: ldr     r3, [r1, #4]
+0x04229C: ldrne   r4, [pc, #0x114]
+0x0422A0: str     r0, [r3, #8]
+0x0422A4: ldr     r2, [pc, #0x110]
+0x0422A8: ldr     r0, [r1, #4]
+0x0422AC: mov     ip, #0x10
+0x0422B0: strh    r2, [r0, #0x10]
+0x0422B4: ldr     r0, [r1, #4]
+0x0422B8: mov     r3, #0xd
+0x0422BC: str     ip, [r0, #0x14]
+0x0422C0: ldr     r0, [r1, #4]
+0x0422C4: ldr     r2, [pc, #0xf4]
+0x0422C8: str     r3, [r0, #0xc]
+0x0422CC: ldr     r0, [r1, #4]
+0x0422D0: moveq   r4, #0
+0x0422D4: str     r2, [r0, #0x7c]
+0x0422D8: bl      #0x200edfc  ; GetNbItemsInBag
+0x0422DC: str     r4, [sp]
+0x0422E0: str     r0, [sp, #4]
+0x0422E4: ldr     r0, [pc, #0xc8]
+0x0422E8: str     r5, [sp, #8]
+0x0422EC: ldr     r2, [r0, #4]
+0x0422F0: ldr     r0, [pc, #0xcc]
+
+// function from 0x4E644, marker call @ 0x4E64C
+0x04E644: push    {r3, lr}
+0x04E648: mov     r0, #4
+0x04E64C: bl      #0x204ca94 <-- CheckTeamMemberIdx  ; GetPerformanceFlagWithChecks
+0x04E650: cmp     r0, #0
+0x04E654: beq     #0x204e69c
+0x04E658: bl      #0x2048bfc
+0x04E65C: cmp     r0, #1
+0x04E660: bne     #0x204e69c
+0x04E664: mov     r0, #1
+0x04E668: mov     r1, #0
+0x04E66C: bl      #0x205b97c  ; GetSosMailCount
+0x04E670: cmp     r0, #0
+0x04E674: bne     #0x204e69c
+0x04E678: mov     r0, #7
+0x04E67C: mov     r1, #0
+0x04E680: bl      #0x205b97c  ; GetSosMailCount
+0x04E684: cmp     r0, #0
+0x04E688: bne     #0x204e69c
+0x04E68C: bl      #0x205633c
+0x04E690: cmp     r0, #0
+0x04E694: moveq   r0, #1
+0x04E698: popeq   {r3, pc}
+0x04E69C: mov     r0, #0
+0x04E6A0: pop     {r3, pc}
+0x04E6A4: push    {r3, lr}
+0x04E6A8: bl      #0x2048bfc
+0x04E6AC: cmp     r0, #2
+0x04E6B0: bne     #0x204e6f0
+0x04E6B4: bl      #0x2048cb8
+0x04E6B8: ldr     r1, [pc, #0x38]
+0x04E6BC: cmp     r0, r1
+0x04E6C0: bne     #0x204e6f0
+0x04E6C4: mov     r0, #1
+0x04E6C8: mov     r1, #0
+0x04E6CC: bl      #0x205b97c  ; GetSosMailCount
+0x04E6D0: cmp     r0, #0
+0x04E6D4: beq     #0x204e6f0
+0x04E6D8: mov     r0, #7
+0x04E6DC: mov     r1, #0
+0x04E6E0: bl      #0x205b97c  ; GetSosMailCount
+0x04E6E4: cmp     r0, #0
+0x04E6E8: moveq   r0, #1
+0x04E6EC: popeq   {r3, pc}
+0x04E6F0: mov     r0, #0
+0x04E6F4: pop     {r3, pc}
+0x04E6F8: andeq   r1, pc, r7, lsl #4
+0x04E6FC: ldr     r0, [pc, #4]
+0x04E700: ldrsb   r0, [r0, #0xd]
+0x04E704: bx      lr
+0x04E708: eoreq   fp, sl, #252, #8
+0x04E70C: push    {r4, lr}
+0x04E710: ldr     r0, [pc, #0x44]
+0x04E714: ldrsb   r4, [r0, #0xd]
+0x04E718: and     r1, r4, #0xff
+0x04E71C: cmp     r1, #1
+0x04E720: bhi     #0x204e754
+0x04E724: ldrsh   r0, [r0, #2]
+0x04E728: bl      #0x206a76c  ; GetDungeonModeSpecial
+0x04E72C: cmp     r0, #1
+0x04E730: beq     #0x204e744
+0x04E734: cmp     r0, #2
+0x04E738: beq     #0x204e74c
+0x04E73C: cmp     r0, #3
+0x04E740: bne     #0x204e754
+0x04E744: mov     r0, #0
+0x04E748: pop     {r4, pc}
+0x04E74C: mov     r0, #1
+0x04E750: pop     {r4, pc}
+0x04E754: mov     r0, r4
+0x04E758: pop     {r4, pc}
+0x04E75C: eoreq   fp, sl, #252, #8
+0x04E760: ldr     r0, [pc, #4]
+0x04E764: ldrsh   r0, [r0, #2]
+0x04E768: bx      lr
+0x04E76C: eoreq   fp, sl, #252, #8
+0x04E770: ldr     r0, [pc, #4]
+0x04E774: ldrb    r0, [r0]
+0x04E778: bx      lr
+0x04E77C: eoreq   fp, sl, #252, #8
+0x04E780: ldr     r0, [pc, #4]
+0x04E784: ldrb    r0, [r0, #0x14]
+0x04E788: bx      lr
+0x04E78C: eoreq   fp, sl, #252, #8
+0x04E790: push    {r4, lr}
+0x04E794: ldr     lr, [pc, #0x18]
+0x04E798: mov     r4, r0
+0x04E79C: mov     ip, #0xb
+0x04E7A0: ldm     lr!, {r0, r1, r2, r3}
+0x04E7A4: stm     r4!, {r0, r1, r2, r3}
+0x04E7A8: subs    ip, ip, #1
+0x04E7AC: bne     #0x204e7a0
+0x04E7B0: pop     {r4, pc}
+0x04E7B4: eoreq   fp, sl, #252, #8
+0x04E7B8: push    {r3, lr}
+0x04E7BC: ldr     r1, [pc, #0x11c]
+0x04E7C0: mov     r0, #0
+0x04E7C4: ldrsb   r2, [r1, #0xd]
+0x04E7C8: mov     r1, #0x28
+0x04E7CC: bl      #0x204b820  ; SaveScriptVariableValue
+0x04E7D0: ldr     r1, [pc, #0x108]
+
+// function from 0x4E974, marker call @ 0x4E9D8
+0x04E974: push    {r3, r4, r5, lr}
+0x04E978: mov     r5, r0
+0x04E97C: bl      #0x205b77c
+0x04E980: ldr     r2, [pc, #0xc4]
+0x04E984: mov     r1, #2
+0x04E988: mov     r4, r0
+0x04E98C: strb    r1, [r2, #0xd]
+0x04E990: sub     r0, r1, #3
+0x04E994: strb    r0, [r2, #0xe]
+0x04E998: mov     r0, #0xd6
+0x04E99C: strh    r0, [r2, #2]
+0x04E9A0: ldr     r0, [pc, #0xa8]
+0x04E9A4: mov     r1, r5
+0x04E9A8: strb    r5, [r2, #0x12]
+0x04E9AC: bl      #0x205bb7c
+0x04E9B0: ldr     r0, [pc, #0x9c]
+0x04E9B4: mov     r1, r5
+0x04E9B8: bl      #0x205bd14
+0x04E9BC: ldr     r1, [pc, #0x88]
+0x04E9C0: mov     r2, #0
+0x04E9C4: strb    r2, [r1, #0xf]
+0x04E9C8: strb    r2, [r1, #0x10]
+0x04E9CC: strb    r2, [r1, #4]
+0x04E9D0: mov     r0, #7
+0x04E9D4: strb    r2, [r1, #0x11]
+0x04E9D8: bl      #0x204ca94 <-- CheckTeamMemberIdx  ; GetPerformanceFlagWithChecks
+0x04E9DC: ldr     r1, [pc, #0x68]
+0x04E9E0: mov     r2, #0
+0x04E9E4: strb    r0, [r1, #5]
+0x04E9E8: mov     r0, #6
+0x04E9EC: strb    r2, [r1, #6]
+0x04E9F0: bl      #0x204ca94  ; GetPerformanceFlagWithChecks
+0x04E9F4: ldr     r1, [pc, #0x50]
+0x04E9F8: strb    r0, [r1, #8]
+0x04E9FC: mov     r0, #1
+0x04EA00: bl      #0x204ca94  ; GetPerformanceFlagWithChecks
+0x04EA04: ldr     r1, [pc, #0x40]
+0x04EA08: mov     r2, #0
+0x04EA0C: strb    r0, [r1, #9]
+0x04EA10: strb    r2, [r1, #0xa]
+0x04EA14: strb    r2, [r1, #0xb]
+0x04EA18: strb    r2, [r1, #7]
+0x04EA1C: strb    r2, [r1, #0xc]
+0x04EA20: ldrb    r0, [r4, #4]
+0x04EA24: add     r0, r0, #0xda
+0x04EA28: and     r0, r0, #0xff
+0x04EA2C: cmp     r0, #5
+0x04EA30: strbls  r2, [r1, #5]
+0x04EA34: movls   r0, #1
+0x04EA38: strbls  r0, [r1, #7]
+0x04EA3C: ldr     r0, [pc, #0x14]
+0x04EA40: mov     r1, #1
+0x04EA44: strb    r1, [r0]
+0x04EA48: pop     {r3, r4, r5, pc}
+0x04EA4C: eoreq   fp, sl, #252, #8
+0x04EA50: eoreq   fp, sl, #16, #10
+0x04EA54: eoreq   fp, sl, #168, #10
+0x04EA58: eoreq   fp, sl, #248, #8
+0x04EA5C: push    {r3, r4, r5, r6, r7, lr}
+0x04EA60: mov     r7, r0
+0x04EA64: mov     r6, r1
+0x04EA68: bl      #0x204afc0  ; GetGameMode
+0x04EA6C: mov     r4, r0
+0x04EA70: mov     r0, r6
+0x04EA74: strh    r6, [r7, #2]
+0x04EA78: bl      #0x206a750  ; DungeonSwapIdxToId
+0x04EA7C: strb    r0, [r7]
+0x04EA80: mov     r1, #1
+0x04EA84: strb    r1, [r7, #1]
+0x04EA88: sub     r1, r1, #2
+0x04EA8C: strb    r1, [r7, #0x12]
+0x04EA90: mov     r0, #0
+0x04EA94: str     r0, [r7, #0xac]
+0x04EA98: strb    r0, [r7, #0xd]
+0x04EA9C: strb    r1, [r7, #0xe]
+0x04EAA0: strb    r0, [r7, #4]
+0x04EAA4: strb    r0, [r7, #0xf]
+0x04EAA8: strb    r0, [r7, #0x10]
+0x04EAAC: strb    r0, [r7, #0x11]
+0x04EAB0: cmp     r4, #2
+0x04EAB4: strbne  r0, [r7, #5]
+0x04EAB8: strbne  r0, [r7, #6]
+0x04EABC: strbne  r0, [r7, #8]
+0x04EAC0: bne     #0x204eaf0
+0x04EAC4: mov     r0, #7
+0x04EAC8: bl      #0x204ca94  ; GetPerformanceFlagWithChecks
+0x04EACC: strb    r0, [r7, #5]
+0x04EAD0: mov     r0, #5
+0x04EAD4: bl      #0x204ca94  ; GetPerformanceFlagWithChecks
+0x04EAD8: strb    r0, [r7, #6]
+0x04EADC: mov     r0, #6
+0x04EAE0: bl      #0x204ca94  ; GetPerformanceFlagWithChecks
+0x04EAE4: strb    r0, [r7, #8]
+0x04EAE8: mov     r0, #1
+0x04EAEC: bl      #0x204ca94  ; GetPerformanceFlagWithChecks
+0x04EAF0: strb    r0, [r7, #9]
+0x04EAF4: mov     r3, #0
+0x04EAF8: strb    r3, [r7, #0xa]
+0x04EAFC: strb    r3, [r7, #0xb]
+0x04EB00: strb    r3, [r7, #7]
+0x04EB04: strb    r3, [r7, #0xc]
+0x04EB08: mov     r1, r3
+0x04EB0C: mov     r0, #0x44
+0x04EB10: mla     r2, r3, r0, r7
+0x04EB14: strb    r1, [r2, #0x1c]
+0x04EB18: add     r3, r3, #1
+0x04EB1C: strh    r1, [r2, #0x20]
+0x04EB20: cmp     r3, #2
+0x04EB24: blt     #0x204eb10
+0x04EB28: cmp     r4, #5
+0x04EB2C: bne     #0x204eb88
+0x04EB30: mov     r0, #1
+0x04EB34: strb    r0, [r7, #5]
+0x04EB38: strb    r1, [r7, #6]
+0x04EB3C: strb    r1, [r7, #8]
+0x04EB40: strb    r1, [r7, #9]
+0x04EB44: strb    r1, [r7, #0xb]
+0x04EB48: mov     r0, #3
+0x04EB4C: strb    r0, [r7, #0xd]
+0x04EB50: strb    r1, [r7, #4]
+0x04EB54: sub     r0, r6, #0x26
+0x04EB58: strb    r1, [r7, #0x11]
+0x04EB5C: cmp     r0, #5
+
+// function from 0x4E974, marker call @ 0x4E9F0
+0x04E974: push    {r3, r4, r5, lr}
+0x04E978: mov     r5, r0
+0x04E97C: bl      #0x205b77c
+0x04E980: ldr     r2, [pc, #0xc4]
+0x04E984: mov     r1, #2
+0x04E988: mov     r4, r0
+0x04E98C: strb    r1, [r2, #0xd]
+0x04E990: sub     r0, r1, #3
+0x04E994: strb    r0, [r2, #0xe]
+0x04E998: mov     r0, #0xd6
+0x04E99C: strh    r0, [r2, #2]
+0x04E9A0: ldr     r0, [pc, #0xa8]
+0x04E9A4: mov     r1, r5
+0x04E9A8: strb    r5, [r2, #0x12]
+0x04E9AC: bl      #0x205bb7c
+0x04E9B0: ldr     r0, [pc, #0x9c]
+0x04E9B4: mov     r1, r5
+0x04E9B8: bl      #0x205bd14
+0x04E9BC: ldr     r1, [pc, #0x88]
+0x04E9C0: mov     r2, #0
+0x04E9C4: strb    r2, [r1, #0xf]
+0x04E9C8: strb    r2, [r1, #0x10]
+0x04E9CC: strb    r2, [r1, #4]
+0x04E9D0: mov     r0, #7
+0x04E9D4: strb    r2, [r1, #0x11]
+0x04E9D8: bl      #0x204ca94  ; GetPerformanceFlagWithChecks
+0x04E9DC: ldr     r1, [pc, #0x68]
+0x04E9E0: mov     r2, #0
+0x04E9E4: strb    r0, [r1, #5]
+0x04E9E8: mov     r0, #6
+0x04E9EC: strb    r2, [r1, #6]
+0x04E9F0: bl      #0x204ca94 <-- CheckTeamMemberIdx  ; GetPerformanceFlagWithChecks
+0x04E9F4: ldr     r1, [pc, #0x50]
+0x04E9F8: strb    r0, [r1, #8]
+0x04E9FC: mov     r0, #1
+0x04EA00: bl      #0x204ca94  ; GetPerformanceFlagWithChecks
+0x04EA04: ldr     r1, [pc, #0x40]
+0x04EA08: mov     r2, #0
+0x04EA0C: strb    r0, [r1, #9]
+0x04EA10: strb    r2, [r1, #0xa]
+0x04EA14: strb    r2, [r1, #0xb]
+0x04EA18: strb    r2, [r1, #7]
+0x04EA1C: strb    r2, [r1, #0xc]
+0x04EA20: ldrb    r0, [r4, #4]
+0x04EA24: add     r0, r0, #0xda
+0x04EA28: and     r0, r0, #0xff
+0x04EA2C: cmp     r0, #5
+0x04EA30: strbls  r2, [r1, #5]
+0x04EA34: movls   r0, #1
+0x04EA38: strbls  r0, [r1, #7]
+0x04EA3C: ldr     r0, [pc, #0x14]
+0x04EA40: mov     r1, #1
+0x04EA44: strb    r1, [r0]
+0x04EA48: pop     {r3, r4, r5, pc}
+0x04EA4C: eoreq   fp, sl, #252, #8
+0x04EA50: eoreq   fp, sl, #16, #10
+0x04EA54: eoreq   fp, sl, #168, #10
+0x04EA58: eoreq   fp, sl, #248, #8
+0x04EA5C: push    {r3, r4, r5, r6, r7, lr}
+0x04EA60: mov     r7, r0
+0x04EA64: mov     r6, r1
+0x04EA68: bl      #0x204afc0  ; GetGameMode
+0x04EA6C: mov     r4, r0
+0x04EA70: mov     r0, r6
+0x04EA74: strh    r6, [r7, #2]
+0x04EA78: bl      #0x206a750  ; DungeonSwapIdxToId
+0x04EA7C: strb    r0, [r7]
+0x04EA80: mov     r1, #1
+0x04EA84: strb    r1, [r7, #1]
+0x04EA88: sub     r1, r1, #2
+0x04EA8C: strb    r1, [r7, #0x12]
+0x04EA90: mov     r0, #0
+0x04EA94: str     r0, [r7, #0xac]
+0x04EA98: strb    r0, [r7, #0xd]
+0x04EA9C: strb    r1, [r7, #0xe]
+0x04EAA0: strb    r0, [r7, #4]
+0x04EAA4: strb    r0, [r7, #0xf]
+0x04EAA8: strb    r0, [r7, #0x10]
+0x04EAAC: strb    r0, [r7, #0x11]
+0x04EAB0: cmp     r4, #2
+0x04EAB4: strbne  r0, [r7, #5]
+0x04EAB8: strbne  r0, [r7, #6]
+0x04EABC: strbne  r0, [r7, #8]
+0x04EAC0: bne     #0x204eaf0
+0x04EAC4: mov     r0, #7
+0x04EAC8: bl      #0x204ca94  ; GetPerformanceFlagWithChecks
+0x04EACC: strb    r0, [r7, #5]
+0x04EAD0: mov     r0, #5
+0x04EAD4: bl      #0x204ca94  ; GetPerformanceFlagWithChecks
+0x04EAD8: strb    r0, [r7, #6]
+0x04EADC: mov     r0, #6
+0x04EAE0: bl      #0x204ca94  ; GetPerformanceFlagWithChecks
+0x04EAE4: strb    r0, [r7, #8]
+0x04EAE8: mov     r0, #1
+0x04EAEC: bl      #0x204ca94  ; GetPerformanceFlagWithChecks
+0x04EAF0: strb    r0, [r7, #9]
+0x04EAF4: mov     r3, #0
+0x04EAF8: strb    r3, [r7, #0xa]
+0x04EAFC: strb    r3, [r7, #0xb]
+0x04EB00: strb    r3, [r7, #7]
+0x04EB04: strb    r3, [r7, #0xc]
+0x04EB08: mov     r1, r3
+0x04EB0C: mov     r0, #0x44
+0x04EB10: mla     r2, r3, r0, r7
+0x04EB14: strb    r1, [r2, #0x1c]
+0x04EB18: add     r3, r3, #1
+0x04EB1C: strh    r1, [r2, #0x20]
+0x04EB20: cmp     r3, #2
+0x04EB24: blt     #0x204eb10
+0x04EB28: cmp     r4, #5
+0x04EB2C: bne     #0x204eb88
+0x04EB30: mov     r0, #1
+0x04EB34: strb    r0, [r7, #5]
+0x04EB38: strb    r1, [r7, #6]
+0x04EB3C: strb    r1, [r7, #8]
+0x04EB40: strb    r1, [r7, #9]
+0x04EB44: strb    r1, [r7, #0xb]
+0x04EB48: mov     r0, #3
+0x04EB4C: strb    r0, [r7, #0xd]
+0x04EB50: strb    r1, [r7, #4]
+0x04EB54: sub     r0, r6, #0x26
+0x04EB58: strb    r1, [r7, #0x11]
+0x04EB5C: cmp     r0, #5
+0x04EB60: addls   pc, pc, r0, lsl #2
+0x04EB64: b       #0x204eb84
+0x04EB68: b       #0x204eb80
+0x04EB6C: b       #0x204eb80
+0x04EB70: b       #0x204eb80
+
+// function from 0x4E974, marker call @ 0x4EA00
+0x04E974: push    {r3, r4, r5, lr}
+0x04E978: mov     r5, r0
+0x04E97C: bl      #0x205b77c
+0x04E980: ldr     r2, [pc, #0xc4]
+0x04E984: mov     r1, #2
+0x04E988: mov     r4, r0
+0x04E98C: strb    r1, [r2, #0xd]
+0x04E990: sub     r0, r1, #3
+0x04E994: strb    r0, [r2, #0xe]
+0x04E998: mov     r0, #0xd6
+0x04E99C: strh    r0, [r2, #2]
+0x04E9A0: ldr     r0, [pc, #0xa8]
+0x04E9A4: mov     r1, r5
+0x04E9A8: strb    r5, [r2, #0x12]
+0x04E9AC: bl      #0x205bb7c
+0x04E9B0: ldr     r0, [pc, #0x9c]
+0x04E9B4: mov     r1, r5
+0x04E9B8: bl      #0x205bd14
+0x04E9BC: ldr     r1, [pc, #0x88]
+0x04E9C0: mov     r2, #0
+0x04E9C4: strb    r2, [r1, #0xf]
+0x04E9C8: strb    r2, [r1, #0x10]
+0x04E9CC: strb    r2, [r1, #4]
+0x04E9D0: mov     r0, #7
+0x04E9D4: strb    r2, [r1, #0x11]
+0x04E9D8: bl      #0x204ca94  ; GetPerformanceFlagWithChecks
+0x04E9DC: ldr     r1, [pc, #0x68]
+0x04E9E0: mov     r2, #0
+0x04E9E4: strb    r0, [r1, #5]
+0x04E9E8: mov     r0, #6
+0x04E9EC: strb    r2, [r1, #6]
+0x04E9F0: bl      #0x204ca94  ; GetPerformanceFlagWithChecks
+0x04E9F4: ldr     r1, [pc, #0x50]
+0x04E9F8: strb    r0, [r1, #8]
+0x04E9FC: mov     r0, #1
+0x04EA00: bl      #0x204ca94 <-- CheckTeamMemberIdx  ; GetPerformanceFlagWithChecks
+0x04EA04: ldr     r1, [pc, #0x40]
+0x04EA08: mov     r2, #0
+0x04EA0C: strb    r0, [r1, #9]
+0x04EA10: strb    r2, [r1, #0xa]
+0x04EA14: strb    r2, [r1, #0xb]
+0x04EA18: strb    r2, [r1, #7]
+0x04EA1C: strb    r2, [r1, #0xc]
+0x04EA20: ldrb    r0, [r4, #4]
+0x04EA24: add     r0, r0, #0xda
+0x04EA28: and     r0, r0, #0xff
+0x04EA2C: cmp     r0, #5
+0x04EA30: strbls  r2, [r1, #5]
+0x04EA34: movls   r0, #1
+0x04EA38: strbls  r0, [r1, #7]
+0x04EA3C: ldr     r0, [pc, #0x14]
+0x04EA40: mov     r1, #1
+0x04EA44: strb    r1, [r0]
+0x04EA48: pop     {r3, r4, r5, pc}
+0x04EA4C: eoreq   fp, sl, #252, #8
+0x04EA50: eoreq   fp, sl, #16, #10
+0x04EA54: eoreq   fp, sl, #168, #10
+0x04EA58: eoreq   fp, sl, #248, #8
+0x04EA5C: push    {r3, r4, r5, r6, r7, lr}
+0x04EA60: mov     r7, r0
+0x04EA64: mov     r6, r1
+0x04EA68: bl      #0x204afc0  ; GetGameMode
+0x04EA6C: mov     r4, r0
+0x04EA70: mov     r0, r6
+0x04EA74: strh    r6, [r7, #2]
+0x04EA78: bl      #0x206a750  ; DungeonSwapIdxToId
+0x04EA7C: strb    r0, [r7]
+0x04EA80: mov     r1, #1
+0x04EA84: strb    r1, [r7, #1]
+0x04EA88: sub     r1, r1, #2
+0x04EA8C: strb    r1, [r7, #0x12]
+0x04EA90: mov     r0, #0
+0x04EA94: str     r0, [r7, #0xac]
+0x04EA98: strb    r0, [r7, #0xd]
+0x04EA9C: strb    r1, [r7, #0xe]
+0x04EAA0: strb    r0, [r7, #4]
+0x04EAA4: strb    r0, [r7, #0xf]
+0x04EAA8: strb    r0, [r7, #0x10]
+0x04EAAC: strb    r0, [r7, #0x11]
+0x04EAB0: cmp     r4, #2
+0x04EAB4: strbne  r0, [r7, #5]
+0x04EAB8: strbne  r0, [r7, #6]
+0x04EABC: strbne  r0, [r7, #8]
+0x04EAC0: bne     #0x204eaf0
+0x04EAC4: mov     r0, #7
+0x04EAC8: bl      #0x204ca94  ; GetPerformanceFlagWithChecks
+0x04EACC: strb    r0, [r7, #5]
+0x04EAD0: mov     r0, #5
+0x04EAD4: bl      #0x204ca94  ; GetPerformanceFlagWithChecks
+0x04EAD8: strb    r0, [r7, #6]
+0x04EADC: mov     r0, #6
+0x04EAE0: bl      #0x204ca94  ; GetPerformanceFlagWithChecks
+0x04EAE4: strb    r0, [r7, #8]
+0x04EAE8: mov     r0, #1
+0x04EAEC: bl      #0x204ca94  ; GetPerformanceFlagWithChecks
+0x04EAF0: strb    r0, [r7, #9]
+0x04EAF4: mov     r3, #0
+0x04EAF8: strb    r3, [r7, #0xa]
+0x04EAFC: strb    r3, [r7, #0xb]
+0x04EB00: strb    r3, [r7, #7]
+0x04EB04: strb    r3, [r7, #0xc]
+0x04EB08: mov     r1, r3
+0x04EB0C: mov     r0, #0x44
+0x04EB10: mla     r2, r3, r0, r7
+0x04EB14: strb    r1, [r2, #0x1c]
+0x04EB18: add     r3, r3, #1
+0x04EB1C: strh    r1, [r2, #0x20]
+0x04EB20: cmp     r3, #2
+0x04EB24: blt     #0x204eb10
+0x04EB28: cmp     r4, #5
+0x04EB2C: bne     #0x204eb88
+0x04EB30: mov     r0, #1
+0x04EB34: strb    r0, [r7, #5]
+0x04EB38: strb    r1, [r7, #6]
+0x04EB3C: strb    r1, [r7, #8]
+0x04EB40: strb    r1, [r7, #9]
+0x04EB44: strb    r1, [r7, #0xb]
+0x04EB48: mov     r0, #3
+0x04EB4C: strb    r0, [r7, #0xd]
+0x04EB50: strb    r1, [r7, #4]
+0x04EB54: sub     r0, r6, #0x26
+0x04EB58: strb    r1, [r7, #0x11]
+0x04EB5C: cmp     r0, #5
+0x04EB60: addls   pc, pc, r0, lsl #2
+0x04EB64: b       #0x204eb84
+0x04EB68: b       #0x204eb80
+0x04EB6C: b       #0x204eb80
+0x04EB70: b       #0x204eb80
+
+// function from 0x4EA5C, marker call @ 0x4EAC8
+0x04EA5C: push    {r3, r4, r5, r6, r7, lr}
+0x04EA60: mov     r7, r0
+0x04EA64: mov     r6, r1
+0x04EA68: bl      #0x204afc0  ; GetGameMode
+0x04EA6C: mov     r4, r0
+0x04EA70: mov     r0, r6
+0x04EA74: strh    r6, [r7, #2]
+0x04EA78: bl      #0x206a750  ; DungeonSwapIdxToId
+0x04EA7C: strb    r0, [r7]
+0x04EA80: mov     r1, #1
+0x04EA84: strb    r1, [r7, #1]
+0x04EA88: sub     r1, r1, #2
+0x04EA8C: strb    r1, [r7, #0x12]
+0x04EA90: mov     r0, #0
+0x04EA94: str     r0, [r7, #0xac]
+0x04EA98: strb    r0, [r7, #0xd]
+0x04EA9C: strb    r1, [r7, #0xe]
+0x04EAA0: strb    r0, [r7, #4]
+0x04EAA4: strb    r0, [r7, #0xf]
+0x04EAA8: strb    r0, [r7, #0x10]
+0x04EAAC: strb    r0, [r7, #0x11]
+0x04EAB0: cmp     r4, #2
+0x04EAB4: strbne  r0, [r7, #5]
+0x04EAB8: strbne  r0, [r7, #6]
+0x04EABC: strbne  r0, [r7, #8]
+0x04EAC0: bne     #0x204eaf0
+0x04EAC4: mov     r0, #7
+0x04EAC8: bl      #0x204ca94 <-- CheckTeamMemberIdx  ; GetPerformanceFlagWithChecks
+0x04EACC: strb    r0, [r7, #5]
+0x04EAD0: mov     r0, #5
+0x04EAD4: bl      #0x204ca94  ; GetPerformanceFlagWithChecks
+0x04EAD8: strb    r0, [r7, #6]
+0x04EADC: mov     r0, #6
+0x04EAE0: bl      #0x204ca94  ; GetPerformanceFlagWithChecks
+0x04EAE4: strb    r0, [r7, #8]
+0x04EAE8: mov     r0, #1
+0x04EAEC: bl      #0x204ca94  ; GetPerformanceFlagWithChecks
+0x04EAF0: strb    r0, [r7, #9]
+0x04EAF4: mov     r3, #0
+0x04EAF8: strb    r3, [r7, #0xa]
+0x04EAFC: strb    r3, [r7, #0xb]
+0x04EB00: strb    r3, [r7, #7]
+0x04EB04: strb    r3, [r7, #0xc]
+0x04EB08: mov     r1, r3
+0x04EB0C: mov     r0, #0x44
+0x04EB10: mla     r2, r3, r0, r7
+0x04EB14: strb    r1, [r2, #0x1c]
+0x04EB18: add     r3, r3, #1
+0x04EB1C: strh    r1, [r2, #0x20]
+0x04EB20: cmp     r3, #2
+0x04EB24: blt     #0x204eb10
+0x04EB28: cmp     r4, #5
+0x04EB2C: bne     #0x204eb88
+0x04EB30: mov     r0, #1
+0x04EB34: strb    r0, [r7, #5]
+0x04EB38: strb    r1, [r7, #6]
+0x04EB3C: strb    r1, [r7, #8]
+0x04EB40: strb    r1, [r7, #9]
+0x04EB44: strb    r1, [r7, #0xb]
+0x04EB48: mov     r0, #3
+0x04EB4C: strb    r0, [r7, #0xd]
+0x04EB50: strb    r1, [r7, #4]
+0x04EB54: sub     r0, r6, #0x26
+0x04EB58: strb    r1, [r7, #0x11]
+0x04EB5C: cmp     r0, #5
+0x04EB60: addls   pc, pc, r0, lsl #2
+0x04EB64: b       #0x204eb84
+0x04EB68: b       #0x204eb80
+0x04EB6C: b       #0x204eb80
+0x04EB70: b       #0x204eb80
+0x04EB74: b       #0x204eb80
+0x04EB78: b       #0x204eb80
+0x04EB7C: b       #0x204eb80
+0x04EB80: strb    r1, [r7, #5]
+0x04EB84: pop     {r3, r4, r5, r6, r7, pc}
+0x04EB88: mov     r0, r6
+0x04EB8C: bl      #0x206a76c  ; GetDungeonModeSpecial
+0x04EB90: cmp     r0, #1
+0x04EB94: beq     #0x204ebb0
+0x04EB98: cmp     r0, #2
+0x04EB9C: beq     #0x204ec44
+0x04EBA0: cmp     r0, #3
+0x04EBA4: moveq   r0, #0
+0x04EBA8: strbeq  r0, [r7, #0xd]
+0x04EBAC: b       #0x204ec60
+0x04EBB0: mov     r4, #0
+0x04EBB4: mov     r0, r6
+0x04EBB8: strb    r4, [r7, #0xd]
+0x04EBBC: mov     r5, r4
+0x04EBC0: bl      #0x204efe0  ; IsNoLossPenaltyDungeon
+0x04EBC4: strb    r0, [r7, #0xc]
+0x04EBC8: add     r0, pc, #0xd8
+0x04EBCC: add     r4, r0, r6, lsl #1
+0x04EBD0: ldrh    r1, [r4]
+0x04EBD4: tst     r1, #0x80
+0x04EBD8: movne   r2, #1
+0x04EBDC: strbne  r2, [r7, #0xb]
+0x04EBE0: tst     r1, #0x40
+0x04EBE4: movne   r2, #1
+0x04EBE8: strbne  r2, [r7, #7]
+0x04EBEC: tst     r1, #0x8000
+0x04EBF0: beq     #0x204ec08
+0x04EBF4: mov     r0, #0
+0x04EBF8: mov     r1, #0x10
+0x04EBFC: bl      #0x204b4ec  ; LoadScriptVariableValue
+0x04EC00: cmp     r0, #0
+0x04EC04: bne     #0x204ec60
+0x04EC08: cmp     r6, #0x23
+0x04EC0C: bne     #0x204ec20
+0x04EC10: mov     r0, #0x19
+0x04EC14: bl      #0x204ca94  ; GetPerformanceFlagWithChecks
+0x04EC18: cmp     r0, #0
+0x04EC1C: bne     #0x204ec60
+0x04EC20: ldrb    r0, [r4]
+0x04EC24: and     r0, r0, #0x3f
+0x04EC28: mov     r1, #0
+0x04EC2C: bl      #0x204ec70
+0x04EC30: ldrb    r0, [r4, #1]
+0x04EC34: and     r0, r0, #0x3f
+0x04EC38: mov     r1, #1
+0x04EC3C: bl      #0x204ec70
+0x04EC40: b       #0x204ec60
+0x04EC44: add     r0, pc, #0x5c
+0x04EC48: add     r4, r0, r6, lsl #1
+0x04EC4C: ldrb    r1, [r4, #1]
+
+// function from 0x4EA5C, marker call @ 0x4EAD4
+0x04EA5C: push    {r3, r4, r5, r6, r7, lr}
+0x04EA60: mov     r7, r0
+0x04EA64: mov     r6, r1
+0x04EA68: bl      #0x204afc0  ; GetGameMode
+0x04EA6C: mov     r4, r0
+0x04EA70: mov     r0, r6
+0x04EA74: strh    r6, [r7, #2]
+0x04EA78: bl      #0x206a750  ; DungeonSwapIdxToId
+0x04EA7C: strb    r0, [r7]
+0x04EA80: mov     r1, #1
+0x04EA84: strb    r1, [r7, #1]
+0x04EA88: sub     r1, r1, #2
+0x04EA8C: strb    r1, [r7, #0x12]
+0x04EA90: mov     r0, #0
+0x04EA94: str     r0, [r7, #0xac]
+0x04EA98: strb    r0, [r7, #0xd]
+0x04EA9C: strb    r1, [r7, #0xe]
+0x04EAA0: strb    r0, [r7, #4]
+0x04EAA4: strb    r0, [r7, #0xf]
+0x04EAA8: strb    r0, [r7, #0x10]
+0x04EAAC: strb    r0, [r7, #0x11]
+0x04EAB0: cmp     r4, #2
+0x04EAB4: strbne  r0, [r7, #5]
+0x04EAB8: strbne  r0, [r7, #6]
+0x04EABC: strbne  r0, [r7, #8]
+0x04EAC0: bne     #0x204eaf0
+0x04EAC4: mov     r0, #7
+0x04EAC8: bl      #0x204ca94  ; GetPerformanceFlagWithChecks
+0x04EACC: strb    r0, [r7, #5]
+0x04EAD0: mov     r0, #5
+0x04EAD4: bl      #0x204ca94 <-- CheckTeamMemberIdx  ; GetPerformanceFlagWithChecks
+0x04EAD8: strb    r0, [r7, #6]
+0x04EADC: mov     r0, #6
+0x04EAE0: bl      #0x204ca94  ; GetPerformanceFlagWithChecks
+0x04EAE4: strb    r0, [r7, #8]
+0x04EAE8: mov     r0, #1
+0x04EAEC: bl      #0x204ca94  ; GetPerformanceFlagWithChecks
+0x04EAF0: strb    r0, [r7, #9]
+0x04EAF4: mov     r3, #0
+0x04EAF8: strb    r3, [r7, #0xa]
+0x04EAFC: strb    r3, [r7, #0xb]
+0x04EB00: strb    r3, [r7, #7]
+0x04EB04: strb    r3, [r7, #0xc]
+0x04EB08: mov     r1, r3
+0x04EB0C: mov     r0, #0x44
+0x04EB10: mla     r2, r3, r0, r7
+0x04EB14: strb    r1, [r2, #0x1c]
+0x04EB18: add     r3, r3, #1
+0x04EB1C: strh    r1, [r2, #0x20]
+0x04EB20: cmp     r3, #2
+0x04EB24: blt     #0x204eb10
+0x04EB28: cmp     r4, #5
+0x04EB2C: bne     #0x204eb88
+0x04EB30: mov     r0, #1
+0x04EB34: strb    r0, [r7, #5]
+0x04EB38: strb    r1, [r7, #6]
+0x04EB3C: strb    r1, [r7, #8]
+0x04EB40: strb    r1, [r7, #9]
+0x04EB44: strb    r1, [r7, #0xb]
+0x04EB48: mov     r0, #3
+0x04EB4C: strb    r0, [r7, #0xd]
+0x04EB50: strb    r1, [r7, #4]
+0x04EB54: sub     r0, r6, #0x26
+0x04EB58: strb    r1, [r7, #0x11]
+0x04EB5C: cmp     r0, #5
+0x04EB60: addls   pc, pc, r0, lsl #2
+0x04EB64: b       #0x204eb84
+0x04EB68: b       #0x204eb80
+0x04EB6C: b       #0x204eb80
+0x04EB70: b       #0x204eb80
+0x04EB74: b       #0x204eb80
+0x04EB78: b       #0x204eb80
+0x04EB7C: b       #0x204eb80
+0x04EB80: strb    r1, [r7, #5]
+0x04EB84: pop     {r3, r4, r5, r6, r7, pc}
+0x04EB88: mov     r0, r6
+0x04EB8C: bl      #0x206a76c  ; GetDungeonModeSpecial
+0x04EB90: cmp     r0, #1
+0x04EB94: beq     #0x204ebb0
+0x04EB98: cmp     r0, #2
+0x04EB9C: beq     #0x204ec44
+0x04EBA0: cmp     r0, #3
+0x04EBA4: moveq   r0, #0
+0x04EBA8: strbeq  r0, [r7, #0xd]
+0x04EBAC: b       #0x204ec60
+0x04EBB0: mov     r4, #0
+0x04EBB4: mov     r0, r6
+0x04EBB8: strb    r4, [r7, #0xd]
+0x04EBBC: mov     r5, r4
+0x04EBC0: bl      #0x204efe0  ; IsNoLossPenaltyDungeon
+0x04EBC4: strb    r0, [r7, #0xc]
+0x04EBC8: add     r0, pc, #0xd8
+0x04EBCC: add     r4, r0, r6, lsl #1
+0x04EBD0: ldrh    r1, [r4]
+0x04EBD4: tst     r1, #0x80
+0x04EBD8: movne   r2, #1
+0x04EBDC: strbne  r2, [r7, #0xb]
+0x04EBE0: tst     r1, #0x40
+0x04EBE4: movne   r2, #1
+0x04EBE8: strbne  r2, [r7, #7]
+0x04EBEC: tst     r1, #0x8000
+0x04EBF0: beq     #0x204ec08
+0x04EBF4: mov     r0, #0
+0x04EBF8: mov     r1, #0x10
+0x04EBFC: bl      #0x204b4ec  ; LoadScriptVariableValue
+0x04EC00: cmp     r0, #0
+0x04EC04: bne     #0x204ec60
+0x04EC08: cmp     r6, #0x23
+0x04EC0C: bne     #0x204ec20
+0x04EC10: mov     r0, #0x19
+0x04EC14: bl      #0x204ca94  ; GetPerformanceFlagWithChecks
+0x04EC18: cmp     r0, #0
+0x04EC1C: bne     #0x204ec60
+0x04EC20: ldrb    r0, [r4]
+0x04EC24: and     r0, r0, #0x3f
+0x04EC28: mov     r1, #0
+0x04EC2C: bl      #0x204ec70
+0x04EC30: ldrb    r0, [r4, #1]
+0x04EC34: and     r0, r0, #0x3f
+0x04EC38: mov     r1, #1
+0x04EC3C: bl      #0x204ec70
+0x04EC40: b       #0x204ec60
+0x04EC44: add     r0, pc, #0x5c
+0x04EC48: add     r4, r0, r6, lsl #1
+0x04EC4C: ldrb    r1, [r4, #1]
+0x04EC50: tst     r1, #0x40
+0x04EC54: mov     r0, #1
+0x04EC58: strbne  r0, [r7, #0xb]
+
+// function from 0x4EA5C, marker call @ 0x4EAE0
+0x04EA5C: push    {r3, r4, r5, r6, r7, lr}
+0x04EA60: mov     r7, r0
+0x04EA64: mov     r6, r1
+0x04EA68: bl      #0x204afc0  ; GetGameMode
+0x04EA6C: mov     r4, r0
+0x04EA70: mov     r0, r6
+0x04EA74: strh    r6, [r7, #2]
+0x04EA78: bl      #0x206a750  ; DungeonSwapIdxToId
+0x04EA7C: strb    r0, [r7]
+0x04EA80: mov     r1, #1
+0x04EA84: strb    r1, [r7, #1]
+0x04EA88: sub     r1, r1, #2
+0x04EA8C: strb    r1, [r7, #0x12]
+0x04EA90: mov     r0, #0
+0x04EA94: str     r0, [r7, #0xac]
+0x04EA98: strb    r0, [r7, #0xd]
+0x04EA9C: strb    r1, [r7, #0xe]
+0x04EAA0: strb    r0, [r7, #4]
+0x04EAA4: strb    r0, [r7, #0xf]
+0x04EAA8: strb    r0, [r7, #0x10]
+0x04EAAC: strb    r0, [r7, #0x11]
+0x04EAB0: cmp     r4, #2
+0x04EAB4: strbne  r0, [r7, #5]
+0x04EAB8: strbne  r0, [r7, #6]
+0x04EABC: strbne  r0, [r7, #8]
+0x04EAC0: bne     #0x204eaf0
+0x04EAC4: mov     r0, #7
+0x04EAC8: bl      #0x204ca94  ; GetPerformanceFlagWithChecks
+0x04EACC: strb    r0, [r7, #5]
+0x04EAD0: mov     r0, #5
+0x04EAD4: bl      #0x204ca94  ; GetPerformanceFlagWithChecks
+0x04EAD8: strb    r0, [r7, #6]
+0x04EADC: mov     r0, #6
+0x04EAE0: bl      #0x204ca94 <-- CheckTeamMemberIdx  ; GetPerformanceFlagWithChecks
+0x04EAE4: strb    r0, [r7, #8]
+0x04EAE8: mov     r0, #1
+0x04EAEC: bl      #0x204ca94  ; GetPerformanceFlagWithChecks
+0x04EAF0: strb    r0, [r7, #9]
+0x04EAF4: mov     r3, #0
+0x04EAF8: strb    r3, [r7, #0xa]
+0x04EAFC: strb    r3, [r7, #0xb]
+0x04EB00: strb    r3, [r7, #7]
+0x04EB04: strb    r3, [r7, #0xc]
+0x04EB08: mov     r1, r3
+0x04EB0C: mov     r0, #0x44
+0x04EB10: mla     r2, r3, r0, r7
+0x04EB14: strb    r1, [r2, #0x1c]
+0x04EB18: add     r3, r3, #1
+0x04EB1C: strh    r1, [r2, #0x20]
+0x04EB20: cmp     r3, #2
+0x04EB24: blt     #0x204eb10
+0x04EB28: cmp     r4, #5
+0x04EB2C: bne     #0x204eb88
+0x04EB30: mov     r0, #1
+0x04EB34: strb    r0, [r7, #5]
+0x04EB38: strb    r1, [r7, #6]
+0x04EB3C: strb    r1, [r7, #8]
+0x04EB40: strb    r1, [r7, #9]
+0x04EB44: strb    r1, [r7, #0xb]
+0x04EB48: mov     r0, #3
+0x04EB4C: strb    r0, [r7, #0xd]
+0x04EB50: strb    r1, [r7, #4]
+0x04EB54: sub     r0, r6, #0x26
+0x04EB58: strb    r1, [r7, #0x11]
+0x04EB5C: cmp     r0, #5
+0x04EB60: addls   pc, pc, r0, lsl #2
+0x04EB64: b       #0x204eb84
+0x04EB68: b       #0x204eb80
+0x04EB6C: b       #0x204eb80
+0x04EB70: b       #0x204eb80
+0x04EB74: b       #0x204eb80
+0x04EB78: b       #0x204eb80
+0x04EB7C: b       #0x204eb80
+0x04EB80: strb    r1, [r7, #5]
+0x04EB84: pop     {r3, r4, r5, r6, r7, pc}
+0x04EB88: mov     r0, r6
+0x04EB8C: bl      #0x206a76c  ; GetDungeonModeSpecial
+0x04EB90: cmp     r0, #1
+0x04EB94: beq     #0x204ebb0
+0x04EB98: cmp     r0, #2
+0x04EB9C: beq     #0x204ec44
+0x04EBA0: cmp     r0, #3
+0x04EBA4: moveq   r0, #0
+0x04EBA8: strbeq  r0, [r7, #0xd]
+0x04EBAC: b       #0x204ec60
+0x04EBB0: mov     r4, #0
+0x04EBB4: mov     r0, r6
+0x04EBB8: strb    r4, [r7, #0xd]
+0x04EBBC: mov     r5, r4
+0x04EBC0: bl      #0x204efe0  ; IsNoLossPenaltyDungeon
+0x04EBC4: strb    r0, [r7, #0xc]
+0x04EBC8: add     r0, pc, #0xd8
+0x04EBCC: add     r4, r0, r6, lsl #1
+0x04EBD0: ldrh    r1, [r4]
+0x04EBD4: tst     r1, #0x80
+0x04EBD8: movne   r2, #1
+0x04EBDC: strbne  r2, [r7, #0xb]
+0x04EBE0: tst     r1, #0x40
+0x04EBE4: movne   r2, #1
+0x04EBE8: strbne  r2, [r7, #7]
+0x04EBEC: tst     r1, #0x8000
+0x04EBF0: beq     #0x204ec08
+0x04EBF4: mov     r0, #0
+0x04EBF8: mov     r1, #0x10
+0x04EBFC: bl      #0x204b4ec  ; LoadScriptVariableValue
+0x04EC00: cmp     r0, #0
+0x04EC04: bne     #0x204ec60
+0x04EC08: cmp     r6, #0x23
+0x04EC0C: bne     #0x204ec20
+0x04EC10: mov     r0, #0x19
+0x04EC14: bl      #0x204ca94  ; GetPerformanceFlagWithChecks
+0x04EC18: cmp     r0, #0
+0x04EC1C: bne     #0x204ec60
+0x04EC20: ldrb    r0, [r4]
+0x04EC24: and     r0, r0, #0x3f
+0x04EC28: mov     r1, #0
+0x04EC2C: bl      #0x204ec70
+0x04EC30: ldrb    r0, [r4, #1]
+0x04EC34: and     r0, r0, #0x3f
+0x04EC38: mov     r1, #1
+0x04EC3C: bl      #0x204ec70
+0x04EC40: b       #0x204ec60
+0x04EC44: add     r0, pc, #0x5c
+0x04EC48: add     r4, r0, r6, lsl #1
+0x04EC4C: ldrb    r1, [r4, #1]
+0x04EC50: tst     r1, #0x40
+0x04EC54: mov     r0, #1
+0x04EC58: strbne  r0, [r7, #0xb]
+
+// function from 0x4EA5C, marker call @ 0x4EAEC
+0x04EA5C: push    {r3, r4, r5, r6, r7, lr}
+0x04EA60: mov     r7, r0
+0x04EA64: mov     r6, r1
+0x04EA68: bl      #0x204afc0  ; GetGameMode
+0x04EA6C: mov     r4, r0
+0x04EA70: mov     r0, r6
+0x04EA74: strh    r6, [r7, #2]
+0x04EA78: bl      #0x206a750  ; DungeonSwapIdxToId
+0x04EA7C: strb    r0, [r7]
+0x04EA80: mov     r1, #1
+0x04EA84: strb    r1, [r7, #1]
+0x04EA88: sub     r1, r1, #2
+0x04EA8C: strb    r1, [r7, #0x12]
+0x04EA90: mov     r0, #0
+0x04EA94: str     r0, [r7, #0xac]
+0x04EA98: strb    r0, [r7, #0xd]
+0x04EA9C: strb    r1, [r7, #0xe]
+0x04EAA0: strb    r0, [r7, #4]
+0x04EAA4: strb    r0, [r7, #0xf]
+0x04EAA8: strb    r0, [r7, #0x10]
+0x04EAAC: strb    r0, [r7, #0x11]
+0x04EAB0: cmp     r4, #2
+0x04EAB4: strbne  r0, [r7, #5]
+0x04EAB8: strbne  r0, [r7, #6]
+0x04EABC: strbne  r0, [r7, #8]
+0x04EAC0: bne     #0x204eaf0
+0x04EAC4: mov     r0, #7
+0x04EAC8: bl      #0x204ca94  ; GetPerformanceFlagWithChecks
+0x04EACC: strb    r0, [r7, #5]
+0x04EAD0: mov     r0, #5
+0x04EAD4: bl      #0x204ca94  ; GetPerformanceFlagWithChecks
+0x04EAD8: strb    r0, [r7, #6]
+0x04EADC: mov     r0, #6
+0x04EAE0: bl      #0x204ca94  ; GetPerformanceFlagWithChecks
+0x04EAE4: strb    r0, [r7, #8]
+0x04EAE8: mov     r0, #1
+0x04EAEC: bl      #0x204ca94 <-- CheckTeamMemberIdx  ; GetPerformanceFlagWithChecks
+0x04EAF0: strb    r0, [r7, #9]
+0x04EAF4: mov     r3, #0
+0x04EAF8: strb    r3, [r7, #0xa]
+0x04EAFC: strb    r3, [r7, #0xb]
+0x04EB00: strb    r3, [r7, #7]
+0x04EB04: strb    r3, [r7, #0xc]
+0x04EB08: mov     r1, r3
+0x04EB0C: mov     r0, #0x44
+0x04EB10: mla     r2, r3, r0, r7
+0x04EB14: strb    r1, [r2, #0x1c]
+0x04EB18: add     r3, r3, #1
+0x04EB1C: strh    r1, [r2, #0x20]
+0x04EB20: cmp     r3, #2
+0x04EB24: blt     #0x204eb10
+0x04EB28: cmp     r4, #5
+0x04EB2C: bne     #0x204eb88
+0x04EB30: mov     r0, #1
+0x04EB34: strb    r0, [r7, #5]
+0x04EB38: strb    r1, [r7, #6]
+0x04EB3C: strb    r1, [r7, #8]
+0x04EB40: strb    r1, [r7, #9]
+0x04EB44: strb    r1, [r7, #0xb]
+0x04EB48: mov     r0, #3
+0x04EB4C: strb    r0, [r7, #0xd]
+0x04EB50: strb    r1, [r7, #4]
+0x04EB54: sub     r0, r6, #0x26
+0x04EB58: strb    r1, [r7, #0x11]
+0x04EB5C: cmp     r0, #5
+0x04EB60: addls   pc, pc, r0, lsl #2
+0x04EB64: b       #0x204eb84
+0x04EB68: b       #0x204eb80
+0x04EB6C: b       #0x204eb80
+0x04EB70: b       #0x204eb80
+0x04EB74: b       #0x204eb80
+0x04EB78: b       #0x204eb80
+0x04EB7C: b       #0x204eb80
+0x04EB80: strb    r1, [r7, #5]
+0x04EB84: pop     {r3, r4, r5, r6, r7, pc}
+0x04EB88: mov     r0, r6
+0x04EB8C: bl      #0x206a76c  ; GetDungeonModeSpecial
+0x04EB90: cmp     r0, #1
+0x04EB94: beq     #0x204ebb0
+0x04EB98: cmp     r0, #2
+0x04EB9C: beq     #0x204ec44
+0x04EBA0: cmp     r0, #3
+0x04EBA4: moveq   r0, #0
+0x04EBA8: strbeq  r0, [r7, #0xd]
+0x04EBAC: b       #0x204ec60
+0x04EBB0: mov     r4, #0
+0x04EBB4: mov     r0, r6
+0x04EBB8: strb    r4, [r7, #0xd]
+0x04EBBC: mov     r5, r4
+0x04EBC0: bl      #0x204efe0  ; IsNoLossPenaltyDungeon
+0x04EBC4: strb    r0, [r7, #0xc]
+0x04EBC8: add     r0, pc, #0xd8
+0x04EBCC: add     r4, r0, r6, lsl #1
+0x04EBD0: ldrh    r1, [r4]
+0x04EBD4: tst     r1, #0x80
+0x04EBD8: movne   r2, #1
+0x04EBDC: strbne  r2, [r7, #0xb]
+0x04EBE0: tst     r1, #0x40
+0x04EBE4: movne   r2, #1
+0x04EBE8: strbne  r2, [r7, #7]
+0x04EBEC: tst     r1, #0x8000
+0x04EBF0: beq     #0x204ec08
+0x04EBF4: mov     r0, #0
+0x04EBF8: mov     r1, #0x10
+0x04EBFC: bl      #0x204b4ec  ; LoadScriptVariableValue
+0x04EC00: cmp     r0, #0
+0x04EC04: bne     #0x204ec60
+0x04EC08: cmp     r6, #0x23
+0x04EC0C: bne     #0x204ec20
+0x04EC10: mov     r0, #0x19
+0x04EC14: bl      #0x204ca94  ; GetPerformanceFlagWithChecks
+0x04EC18: cmp     r0, #0
+0x04EC1C: bne     #0x204ec60
+0x04EC20: ldrb    r0, [r4]
+0x04EC24: and     r0, r0, #0x3f
+0x04EC28: mov     r1, #0
+0x04EC2C: bl      #0x204ec70
+0x04EC30: ldrb    r0, [r4, #1]
+0x04EC34: and     r0, r0, #0x3f
+0x04EC38: mov     r1, #1
+0x04EC3C: bl      #0x204ec70
+0x04EC40: b       #0x204ec60
+0x04EC44: add     r0, pc, #0x5c
+0x04EC48: add     r4, r0, r6, lsl #1
+0x04EC4C: ldrb    r1, [r4, #1]
+0x04EC50: tst     r1, #0x40
+0x04EC54: mov     r0, #1
+0x04EC58: strbne  r0, [r7, #0xb]
+
+// function from 0x4EA5C, marker call @ 0x4EC14
+0x04EA5C: push    {r3, r4, r5, r6, r7, lr}
+0x04EA60: mov     r7, r0
+0x04EA64: mov     r6, r1
+0x04EA68: bl      #0x204afc0  ; GetGameMode
+0x04EA6C: mov     r4, r0
+0x04EA70: mov     r0, r6
+0x04EA74: strh    r6, [r7, #2]
+0x04EA78: bl      #0x206a750  ; DungeonSwapIdxToId
+0x04EA7C: strb    r0, [r7]
+0x04EA80: mov     r1, #1
+0x04EA84: strb    r1, [r7, #1]
+0x04EA88: sub     r1, r1, #2
+0x04EA8C: strb    r1, [r7, #0x12]
+0x04EA90: mov     r0, #0
+0x04EA94: str     r0, [r7, #0xac]
+0x04EA98: strb    r0, [r7, #0xd]
+0x04EA9C: strb    r1, [r7, #0xe]
+0x04EAA0: strb    r0, [r7, #4]
+0x04EAA4: strb    r0, [r7, #0xf]
+0x04EAA8: strb    r0, [r7, #0x10]
+0x04EAAC: strb    r0, [r7, #0x11]
+0x04EAB0: cmp     r4, #2
+0x04EAB4: strbne  r0, [r7, #5]
+0x04EAB8: strbne  r0, [r7, #6]
+0x04EABC: strbne  r0, [r7, #8]
+0x04EAC0: bne     #0x204eaf0
+0x04EAC4: mov     r0, #7
+0x04EAC8: bl      #0x204ca94  ; GetPerformanceFlagWithChecks
+0x04EACC: strb    r0, [r7, #5]
+0x04EAD0: mov     r0, #5
+0x04EAD4: bl      #0x204ca94  ; GetPerformanceFlagWithChecks
+0x04EAD8: strb    r0, [r7, #6]
+0x04EADC: mov     r0, #6
+0x04EAE0: bl      #0x204ca94  ; GetPerformanceFlagWithChecks
+0x04EAE4: strb    r0, [r7, #8]
+0x04EAE8: mov     r0, #1
+0x04EAEC: bl      #0x204ca94  ; GetPerformanceFlagWithChecks
+0x04EAF0: strb    r0, [r7, #9]
+0x04EAF4: mov     r3, #0
+0x04EAF8: strb    r3, [r7, #0xa]
+0x04EAFC: strb    r3, [r7, #0xb]
+0x04EB00: strb    r3, [r7, #7]
+0x04EB04: strb    r3, [r7, #0xc]
+0x04EB08: mov     r1, r3
+0x04EB0C: mov     r0, #0x44
+0x04EB10: mla     r2, r3, r0, r7
+0x04EB14: strb    r1, [r2, #0x1c]
+0x04EB18: add     r3, r3, #1
+0x04EB1C: strh    r1, [r2, #0x20]
+0x04EB20: cmp     r3, #2
+0x04EB24: blt     #0x204eb10
+0x04EB28: cmp     r4, #5
+0x04EB2C: bne     #0x204eb88
+0x04EB30: mov     r0, #1
+0x04EB34: strb    r0, [r7, #5]
+0x04EB38: strb    r1, [r7, #6]
+0x04EB3C: strb    r1, [r7, #8]
+0x04EB40: strb    r1, [r7, #9]
+0x04EB44: strb    r1, [r7, #0xb]
+0x04EB48: mov     r0, #3
+0x04EB4C: strb    r0, [r7, #0xd]
+0x04EB50: strb    r1, [r7, #4]
+0x04EB54: sub     r0, r6, #0x26
+0x04EB58: strb    r1, [r7, #0x11]
+0x04EB5C: cmp     r0, #5
+0x04EB60: addls   pc, pc, r0, lsl #2
+0x04EB64: b       #0x204eb84
+0x04EB68: b       #0x204eb80
+0x04EB6C: b       #0x204eb80
+0x04EB70: b       #0x204eb80
+0x04EB74: b       #0x204eb80
+0x04EB78: b       #0x204eb80
+0x04EB7C: b       #0x204eb80
+0x04EB80: strb    r1, [r7, #5]
+0x04EB84: pop     {r3, r4, r5, r6, r7, pc}
+0x04EB88: mov     r0, r6
+0x04EB8C: bl      #0x206a76c  ; GetDungeonModeSpecial
+0x04EB90: cmp     r0, #1
+0x04EB94: beq     #0x204ebb0
+0x04EB98: cmp     r0, #2
+0x04EB9C: beq     #0x204ec44
+0x04EBA0: cmp     r0, #3
+0x04EBA4: moveq   r0, #0
+0x04EBA8: strbeq  r0, [r7, #0xd]
+0x04EBAC: b       #0x204ec60
+0x04EBB0: mov     r4, #0
+0x04EBB4: mov     r0, r6
+0x04EBB8: strb    r4, [r7, #0xd]
+0x04EBBC: mov     r5, r4
+0x04EBC0: bl      #0x204efe0  ; IsNoLossPenaltyDungeon
+0x04EBC4: strb    r0, [r7, #0xc]
+0x04EBC8: add     r0, pc, #0xd8
+0x04EBCC: add     r4, r0, r6, lsl #1
+0x04EBD0: ldrh    r1, [r4]
+0x04EBD4: tst     r1, #0x80
+0x04EBD8: movne   r2, #1
+0x04EBDC: strbne  r2, [r7, #0xb]
+0x04EBE0: tst     r1, #0x40
+0x04EBE4: movne   r2, #1
+0x04EBE8: strbne  r2, [r7, #7]
+0x04EBEC: tst     r1, #0x8000
+0x04EBF0: beq     #0x204ec08
+0x04EBF4: mov     r0, #0
+0x04EBF8: mov     r1, #0x10
+0x04EBFC: bl      #0x204b4ec  ; LoadScriptVariableValue
+0x04EC00: cmp     r0, #0
+0x04EC04: bne     #0x204ec60
+0x04EC08: cmp     r6, #0x23
+0x04EC0C: bne     #0x204ec20
+0x04EC10: mov     r0, #0x19
+0x04EC14: bl      #0x204ca94 <-- CheckTeamMemberIdx  ; GetPerformanceFlagWithChecks
+0x04EC18: cmp     r0, #0
+0x04EC1C: bne     #0x204ec60
+0x04EC20: ldrb    r0, [r4]
+0x04EC24: and     r0, r0, #0x3f
+0x04EC28: mov     r1, #0
+0x04EC2C: bl      #0x204ec70
+0x04EC30: ldrb    r0, [r4, #1]
+0x04EC34: and     r0, r0, #0x3f
+0x04EC38: mov     r1, #1
+0x04EC3C: bl      #0x204ec70
+0x04EC40: b       #0x204ec60
+0x04EC44: add     r0, pc, #0x5c
+0x04EC48: add     r4, r0, r6, lsl #1
+0x04EC4C: ldrb    r1, [r4, #1]
+0x04EC50: tst     r1, #0x40
+0x04EC54: mov     r0, #1
+0x04EC58: strbne  r0, [r7, #0xb]
+
+// function from 0x4F958, marker call @ 0x4F96C
+0x04F958: push    {r4, lr}
+0x04F95C: mov     r4, r0
+0x04F960: cmp     r4, #6
+0x04F964: bne     #0x204f980
+0x04F968: mov     r0, #0x1b
+0x04F96C: bl      #0x204ca94 <-- CheckTeamMemberIdx  ; GetPerformanceFlagWithChecks
+0x04F970: cmp     r0, #0
+0x04F974: bne     #0x204f99c
+0x04F978: ldr     r0, [pc, #0x30]
+0x04F97C: pop     {r4, pc}
+0x04F980: cmp     r4, #0x15
+0x04F984: bne     #0x204f99c
+0x04F988: mov     r0, #0x1c
+0x04F98C: bl      #0x204ca94  ; GetPerformanceFlagWithChecks
+0x04F990: cmp     r0, #0
+0x04F994: ldreq   r0, [pc, #0x18]
+0x04F998: popeq   {r4, pc}
+0x04F99C: add     r0, r4, #0x1b8
+0x04F9A0: bl      #0x23d8280
+0x04F9A4: lsl     r0, r0, #0x10
+0x04F9A8: lsr     r0, r0, #0x10
+0x04F9AC: pop     {r4, pc}
+0x04F9B0: strheq  r4, [r0], -sb
+0x04F9B4: strheq  r4, [r0], -sl
+0x04F9B8: ldr     ip, [pc, #4]
+0x04F9BC: ldr     r0, [pc, #4]
+0x04F9C0: bx      ip
+0x04F9C4: andeq   r0, r5, #8, #28
+0x04F9C8: eoreq   fp, sl, #148, #12
+0x04F9CC: ldr     ip, [pc, #4]
+0x04F9D0: ldr     r0, [pc, #4]
+0x04F9D4: bx      ip
+0x04F9D8: andeq   r0, r5, #24, #28
+0x04F9DC: eoreq   fp, sl, #148, #12
+0x04F9E0: ldr     ip, [pc, #4]
+0x04F9E4: ldr     r0, [pc, #4]
+0x04F9E8: bx      ip
+0x04F9EC: andeq   r0, r5, #84, #28
+0x04F9F0: eoreq   fp, sl, #148, #12
+0x04F9F4: ldr     ip, [pc, #8]
+0x04F9F8: mov     r1, r0
+0x04F9FC: ldr     r0, [pc, #4]
+0x04FA00: bx      ip
+0x04FA04: andeq   r0, r5, #92, #28
+0x04FA08: eoreq   fp, sl, #148, #12
+0x04FA0C: ldr     ip, [pc, #8]
+0x04FA10: mov     r1, r0
+0x04FA14: ldr     r0, [pc, #4]
+0x04FA18: bx      ip
+0x04FA1C: andeq   r0, r5, #140, #28
+0x04FA20: eoreq   fp, sl, #148, #12
+0x04FA24: ldr     r1, [pc, #8]
+0x04FA28: ldr     r0, [pc, #8]
+0x04FA2C: str     r1, [r0]
+0x04FA30: bx      lr
+0x04FA34: eoreq   fp, sl, #156, #12
+0x04FA38: andeq   pc, sl, #120, #30
+0x04FA3C: ldr     r1, [pc, #0x14]
+0x04FA40: ldrb    r2, [r0]
+0x04FA44: ldr     r1, [r1]
+0x04FA48: strb    r2, [r1, #0x278]
+0x04FA4C: ldrb    r0, [r0, #1]
+0x04FA50: strb    r0, [r1, #0x279]
+0x04FA54: bx      lr
+0x04FA58: andeq   pc, sl, #120, #30
+0x04FA5C: ldr     r0, [pc, #8]
+0x04FA60: ldr     r0, [r0]
+0x04FA64: add     r0, r0, #0x278
+0x04FA68: bx      lr
+0x04FA6C: andeq   pc, sl, #120, #30
+0x04FA70: mov     r3, #0
+0x04FA74: ldr     r1, [pc, #0x11c]
+0x04FA78: mov     r0, r3
+0x04FA7C: ldr     r2, [r1]
+0x04FA80: str     r0, [r2, r3, lsl #2]
+0x04FA84: add     r3, r3, #1
+0x04FA88: cmp     r3, #4
+0x04FA8C: blt     #0x204fa7c
+0x04FA90: ldr     r1, [pc, #0x100]
+0x04FA94: mov     r3, #0
+0x04FA98: ldr     r2, [r1]
+0x04FA9C: str     r0, [r2, #0x2c]
+0x04FAA0: ldr     r2, [r1]
+0x04FAA4: str     r0, [r2, #0x30]
+0x04FAA8: ldr     r2, [r1]
+0x04FAAC: str     r0, [r2, #0x34]
+0x04FAB0: ldr     r2, [r1]
+0x04FAB4: str     r0, [r2, #0x28]
+0x04FAB8: ldr     r2, [r1]
+0x04FABC: str     r0, [r2, #0x10]
+0x04FAC0: ldr     r2, [r1]
+0x04FAC4: str     r0, [r2, #0x14]
+0x04FAC8: ldr     r2, [r1]
+0x04FACC: str     r0, [r2, #0x18]
+0x04FAD0: ldr     r2, [r1]
+0x04FAD4: str     r0, [r2, #0x1c]
+0x04FAD8: ldr     r2, [r1]
+0x04FADC: str     r0, [r2, #0x20]
+0x04FAE0: ldr     r2, [r1]
+0x04FAE4: str     r0, [r2, #0x24]
+0x04FAE8: ldr     r2, [r1]
+0x04FAEC: str     r0, [r2, #0x38]
+0x04FAF0: ldr     r2, [r1]
+
+// function from 0x4F958, marker call @ 0x4F98C
+0x04F958: push    {r4, lr}
+0x04F95C: mov     r4, r0
+0x04F960: cmp     r4, #6
+0x04F964: bne     #0x204f980
+0x04F968: mov     r0, #0x1b
+0x04F96C: bl      #0x204ca94  ; GetPerformanceFlagWithChecks
+0x04F970: cmp     r0, #0
+0x04F974: bne     #0x204f99c
+0x04F978: ldr     r0, [pc, #0x30]
+0x04F97C: pop     {r4, pc}
+0x04F980: cmp     r4, #0x15
+0x04F984: bne     #0x204f99c
+0x04F988: mov     r0, #0x1c
+0x04F98C: bl      #0x204ca94 <-- CheckTeamMemberIdx  ; GetPerformanceFlagWithChecks
+0x04F990: cmp     r0, #0
+0x04F994: ldreq   r0, [pc, #0x18]
+0x04F998: popeq   {r4, pc}
+0x04F99C: add     r0, r4, #0x1b8
+0x04F9A0: bl      #0x23d8280
+0x04F9A4: lsl     r0, r0, #0x10
+0x04F9A8: lsr     r0, r0, #0x10
+0x04F9AC: pop     {r4, pc}
+0x04F9B0: strheq  r4, [r0], -sb
+0x04F9B4: strheq  r4, [r0], -sl
+0x04F9B8: ldr     ip, [pc, #4]
+0x04F9BC: ldr     r0, [pc, #4]
+0x04F9C0: bx      ip
+0x04F9C4: andeq   r0, r5, #8, #28
+0x04F9C8: eoreq   fp, sl, #148, #12
+0x04F9CC: ldr     ip, [pc, #4]
+0x04F9D0: ldr     r0, [pc, #4]
+0x04F9D4: bx      ip
+0x04F9D8: andeq   r0, r5, #24, #28
+0x04F9DC: eoreq   fp, sl, #148, #12
+0x04F9E0: ldr     ip, [pc, #4]
+0x04F9E4: ldr     r0, [pc, #4]
+0x04F9E8: bx      ip
+0x04F9EC: andeq   r0, r5, #84, #28
+0x04F9F0: eoreq   fp, sl, #148, #12
+0x04F9F4: ldr     ip, [pc, #8]
+0x04F9F8: mov     r1, r0
+0x04F9FC: ldr     r0, [pc, #4]
+0x04FA00: bx      ip
+0x04FA04: andeq   r0, r5, #92, #28
+0x04FA08: eoreq   fp, sl, #148, #12
+0x04FA0C: ldr     ip, [pc, #8]
+0x04FA10: mov     r1, r0
+0x04FA14: ldr     r0, [pc, #4]
+0x04FA18: bx      ip
+0x04FA1C: andeq   r0, r5, #140, #28
+0x04FA20: eoreq   fp, sl, #148, #12
+0x04FA24: ldr     r1, [pc, #8]
+0x04FA28: ldr     r0, [pc, #8]
+0x04FA2C: str     r1, [r0]
+0x04FA30: bx      lr
+0x04FA34: eoreq   fp, sl, #156, #12
+0x04FA38: andeq   pc, sl, #120, #30
+0x04FA3C: ldr     r1, [pc, #0x14]
+0x04FA40: ldrb    r2, [r0]
+0x04FA44: ldr     r1, [r1]
+0x04FA48: strb    r2, [r1, #0x278]
+0x04FA4C: ldrb    r0, [r0, #1]
+0x04FA50: strb    r0, [r1, #0x279]
+0x04FA54: bx      lr
+0x04FA58: andeq   pc, sl, #120, #30
+0x04FA5C: ldr     r0, [pc, #8]
+0x04FA60: ldr     r0, [r0]
+0x04FA64: add     r0, r0, #0x278
+0x04FA68: bx      lr
+0x04FA6C: andeq   pc, sl, #120, #30
+0x04FA70: mov     r3, #0
+0x04FA74: ldr     r1, [pc, #0x11c]
+0x04FA78: mov     r0, r3
+0x04FA7C: ldr     r2, [r1]
+0x04FA80: str     r0, [r2, r3, lsl #2]
+0x04FA84: add     r3, r3, #1
+0x04FA88: cmp     r3, #4
+0x04FA8C: blt     #0x204fa7c
+0x04FA90: ldr     r1, [pc, #0x100]
+0x04FA94: mov     r3, #0
+0x04FA98: ldr     r2, [r1]
+0x04FA9C: str     r0, [r2, #0x2c]
+0x04FAA0: ldr     r2, [r1]
+0x04FAA4: str     r0, [r2, #0x30]
+0x04FAA8: ldr     r2, [r1]
+0x04FAAC: str     r0, [r2, #0x34]
+0x04FAB0: ldr     r2, [r1]
+0x04FAB4: str     r0, [r2, #0x28]
+0x04FAB8: ldr     r2, [r1]
+0x04FABC: str     r0, [r2, #0x10]
+0x04FAC0: ldr     r2, [r1]
+0x04FAC4: str     r0, [r2, #0x14]
+0x04FAC8: ldr     r2, [r1]
+0x04FACC: str     r0, [r2, #0x18]
+0x04FAD0: ldr     r2, [r1]
+0x04FAD4: str     r0, [r2, #0x1c]
+0x04FAD8: ldr     r2, [r1]
+0x04FADC: str     r0, [r2, #0x20]
+0x04FAE0: ldr     r2, [r1]
+0x04FAE4: str     r0, [r2, #0x24]
+0x04FAE8: ldr     r2, [r1]
+0x04FAEC: str     r0, [r2, #0x38]
+0x04FAF0: ldr     r2, [r1]
+0x04FAF4: str     r0, [r2, #0x3c]
+0x04FAF8: ldr     r2, [r1]
+0x04FAFC: str     r0, [r2, #0x40]
+0x04FB00: ldr     r2, [r1]
+0x04FB04: add     r2, r2, r0, lsl #2
+0x04FB08: str     r3, [r2, #0x44]
+0x04FB0C: ldr     r2, [r1]
+0x04FB10: add     r2, r2, r0, lsl #2
+
+// function from 0x50B10, marker call @ 0x50B20
+0x050B10: push    {r4, lr}
+0x050B14: sub     sp, sp, #0x40
+0x050B18: mov     r4, r0
+0x050B1C: mov     r0, #1
+0x050B20: bl      #0x204ca94 <-- CheckTeamMemberIdx  ; GetPerformanceFlagWithChecks
+0x050B24: cmp     r0, #0
+0x050B28: ldrne   r0, [pc, #0x40]
+0x050B2C: ldrbne  r0, [r0]
+0x050B30: cmpne   r0, #0
+0x050B34: beq     #0x2050b4c
+0x050B38: ldr     r1, [pc, #0x34]
+0x050B3C: mov     r0, r4
+0x050B40: mov     r2, #0xa
+0x050B44: bl      #0x2025170  ; StrncpySimpleNoPad
+0x050B48: b       #0x2050b68
+0x050B4C: ldr     r1, [pc, #0x24]
+0x050B50: add     r0, sp, #0
+0x050B54: bl      #0x20258b8  ; GetStringFromFileVeneer
+0x050B58: add     r1, sp, #0
+0x050B5C: mov     r0, r4
+0x050B60: mov     r2, #0xa
+0x050B64: bl      #0x2025314  ; StrncpyName
+0x050B68: add     sp, sp, #0x40
+0x050B6C: pop     {r4, pc}
+0x050B70: eoreq   fp, sl, #24, #18
+0x050B74: eoreq   fp, sl, #24, #18
+0x050B78: andeq   r0, r0, r7, lsr r2
+0x050B7C: ldr     ip, [pc, #8]
+0x050B80: ldr     r1, [pc, #8]
+0x050B84: mov     r2, #0xa
+0x050B88: bx      ip
+0x050B8C: andeq   r5, r2, #244, #2
+0x050B90: eoreq   fp, sl, #24, #18
+0x050B94: ldr     r1, [pc, #0x18]
+0x050B98: mov     r3, #0
+0x050B9C: ldrb    r2, [r0], #1
+0x050BA0: strb    r2, [r1, r3]
+0x050BA4: add     r3, r3, #1
+0x050BA8: cmp     r3, #0xa
+0x050BAC: blt     #0x2050b9c
+0x050BB0: bx      lr
+0x050BB4: eoreq   fp, sl, #24, #18
+0x050BB8: push    {r4, lr}
+0x050BBC: bl      #0x2050c74  ; GetRank
+0x050BC0: mov     r4, r0
+0x050BC4: mov     r0, #0x16
+0x050BC8: bl      #0x204ca94  ; GetPerformanceFlagWithChecks
+0x050BCC: cmp     r0, #0
+0x050BD0: beq     #0x2050be4
+0x050BD4: cmp     r4, #0xc
+0x050BD8: bne     #0x2050bf0
+0x050BDC: mov     r0, #0
+0x050BE0: pop     {r4, pc}
+0x050BE4: cmp     r4, #8
+0x050BE8: movhs   r0, #0
+0x050BEC: pophs   {r4, pc}
+0x050BF0: mov     r0, r4
+0x050BF4: bl      #0x20517f4  ; GetRankUpEntry
+0x050BF8: ldr     r1, [pc, #0xc]
+0x050BFC: ldr     r2, [r0, #4]
+0x050C00: ldr     r0, [r1, #0xc]
+0x050C04: sub     r0, r2, r0
+0x050C08: pop     {r4, pc}
+0x050C0C: eoreq   fp, sl, #24, #18
+0x050C10: push    {r3, lr}
+0x050C14: ldr     r1, [pc, #0x50]
+0x050C18: ldr     r2, [r1, #0xc]
+0x050C1C: add     r2, r2, r0
+0x050C20: mov     r0, #0x16
+0x050C24: str     r2, [r1, #0xc]
+0x050C28: bl      #0x204ca94  ; GetPerformanceFlagWithChecks
+0x050C2C: cmp     r0, #0
+0x050C30: beq     #0x2050c4c
+0x050C34: ldr     r0, [pc, #0x30]
+0x050C38: ldr     r1, [pc, #0x30]
+0x050C3C: ldr     r2, [r0, #0xc]
+0x050C40: cmp     r2, r1
+0x050C44: strgt   r1, [r0, #0xc]
+0x050C48: pop     {r3, pc}
+0x050C4C: mov     r0, #7
+0x050C50: bl      #0x20517f4  ; GetRankUpEntry
+0x050C54: ldr     r1, [pc, #0x10]
+0x050C58: ldr     r2, [r0, #4]
+0x050C5C: ldr     r0, [r1, #0xc]
+0x050C60: cmp     r0, r2
+0x050C64: strgt   r2, [r1, #0xc]
+0x050C68: pop     {r3, pc}
+0x050C6C: eoreq   fp, sl, #24, #18
+0x050C70: ldrbeq  lr, [r5, #0xff]!
+0x050C74: push    {r3, r4, r5, lr}
+0x050C78: mov     r5, #0
+0x050C7C: ldr     r4, [pc, #0x48]
+0x050C80: b       #0x2050ca4
+0x050C84: mov     r0, r5
+0x050C88: bl      #0x20517f4  ; GetRankUpEntry
+0x050C8C: ldr     r1, [r4, #0xc]
+0x050C90: ldr     r0, [r0, #4]
+0x050C94: cmp     r1, r0
+0x050C98: blt     #0x2050cac
+0x050C9C: add     r0, r5, #1
+0x050CA0: and     r5, r0, #0xff
+0x050CA4: cmp     r5, #0xc
+
+// function from 0x50BB8, marker call @ 0x50BC8
+0x050BB8: push    {r4, lr}
+0x050BBC: bl      #0x2050c74  ; GetRank
+0x050BC0: mov     r4, r0
+0x050BC4: mov     r0, #0x16
+0x050BC8: bl      #0x204ca94 <-- CheckTeamMemberIdx  ; GetPerformanceFlagWithChecks
+0x050BCC: cmp     r0, #0
+0x050BD0: beq     #0x2050be4
+0x050BD4: cmp     r4, #0xc
+0x050BD8: bne     #0x2050bf0
+0x050BDC: mov     r0, #0
+0x050BE0: pop     {r4, pc}
+0x050BE4: cmp     r4, #8
+0x050BE8: movhs   r0, #0
+0x050BEC: pophs   {r4, pc}
+0x050BF0: mov     r0, r4
+0x050BF4: bl      #0x20517f4  ; GetRankUpEntry
+0x050BF8: ldr     r1, [pc, #0xc]
+0x050BFC: ldr     r2, [r0, #4]
+0x050C00: ldr     r0, [r1, #0xc]
+0x050C04: sub     r0, r2, r0
+0x050C08: pop     {r4, pc}
+0x050C0C: eoreq   fp, sl, #24, #18
+0x050C10: push    {r3, lr}
+0x050C14: ldr     r1, [pc, #0x50]
+0x050C18: ldr     r2, [r1, #0xc]
+0x050C1C: add     r2, r2, r0
+0x050C20: mov     r0, #0x16
+0x050C24: str     r2, [r1, #0xc]
+0x050C28: bl      #0x204ca94  ; GetPerformanceFlagWithChecks
+0x050C2C: cmp     r0, #0
+0x050C30: beq     #0x2050c4c
+0x050C34: ldr     r0, [pc, #0x30]
+0x050C38: ldr     r1, [pc, #0x30]
+0x050C3C: ldr     r2, [r0, #0xc]
+0x050C40: cmp     r2, r1
+0x050C44: strgt   r1, [r0, #0xc]
+0x050C48: pop     {r3, pc}
+0x050C4C: mov     r0, #7
+0x050C50: bl      #0x20517f4  ; GetRankUpEntry
+0x050C54: ldr     r1, [pc, #0x10]
+0x050C58: ldr     r2, [r0, #4]
+0x050C5C: ldr     r0, [r1, #0xc]
+0x050C60: cmp     r0, r2
+0x050C64: strgt   r2, [r1, #0xc]
+0x050C68: pop     {r3, pc}
+0x050C6C: eoreq   fp, sl, #24, #18
+0x050C70: ldrbeq  lr, [r5, #0xff]!
+0x050C74: push    {r3, r4, r5, lr}
+0x050C78: mov     r5, #0
+0x050C7C: ldr     r4, [pc, #0x48]
+0x050C80: b       #0x2050ca4
+0x050C84: mov     r0, r5
+0x050C88: bl      #0x20517f4  ; GetRankUpEntry
+0x050C8C: ldr     r1, [r4, #0xc]
+0x050C90: ldr     r0, [r0, #4]
+0x050C94: cmp     r1, r0
+0x050C98: blt     #0x2050cac
+0x050C9C: add     r0, r5, #1
+0x050CA0: and     r5, r0, #0xff
+0x050CA4: cmp     r5, #0xc
+0x050CA8: blo     #0x2050c84
+0x050CAC: mov     r0, #0x16
+0x050CB0: bl      #0x204ca94  ; GetPerformanceFlagWithChecks
+0x050CB4: cmp     r0, #0
+0x050CB8: bne     #0x2050cc4
+0x050CBC: cmp     r5, #8
+0x050CC0: movhi   r5, #8
+0x050CC4: mov     r0, r5
+0x050CC8: pop     {r3, r4, r5, pc}
+0x050CCC: eoreq   fp, sl, #24, #18
+0x050CD0: push    {r3, lr}
+0x050CD4: bl      #0x2050c74  ; GetRank
+0x050CD8: cmp     r0, #8
+0x050CDC: movhi   r0, #8
+0x050CE0: pop     {r3, pc}
+0x050CE4: push    {r3, lr}
+0x050CE8: bl      #0x2050c74  ; GetRank
+0x050CEC: bl      #0x20517f4  ; GetRankUpEntry
+0x050CF0: ldr     r0, [r0, #8]
+0x050CF4: pop     {r3, pc}
+0x050CF8: push    {r3, lr}
+0x050CFC: sub     sp, sp, #0x10
+0x050D00: mov     r3, r0
+0x050D04: mov     r2, r1
+0x050D08: add     r0, sp, #0
+0x050D0C: mov     r1, r3
+0x050D10: bl      #0x2050990
+0x050D14: ldr     r1, [pc, #0x54]
+0x050D18: add     r0, sp, #0
+0x050D1C: mov     r2, #0x50
+0x050D20: bl      #0x20509c0  ; CopyBitsTo
+0x050D24: ldr     r1, [pc, #0x48]
+0x050D28: add     r0, sp, #0
+0x050D2C: mov     r2, #0x20
+0x050D30: bl      #0x20509c0  ; CopyBitsTo
+0x050D34: mov     r0, #1
+0x050D38: bl      #0x204ca94  ; GetPerformanceFlagWithChecks
+0x050D3C: ldr     r1, [pc, #0x34]
+0x050D40: tst     r0, #0xff
+0x050D44: strb    r0, [r1, #0x10]
+0x050D48: ldrne   r1, [pc, #0x2c]
+0x050D4C: add     r0, sp, #0
+
+// function from 0x50C10, marker call @ 0x50C28
+0x050C10: push    {r3, lr}
+0x050C14: ldr     r1, [pc, #0x50]
+0x050C18: ldr     r2, [r1, #0xc]
+0x050C1C: add     r2, r2, r0
+0x050C20: mov     r0, #0x16
+0x050C24: str     r2, [r1, #0xc]
+0x050C28: bl      #0x204ca94 <-- CheckTeamMemberIdx  ; GetPerformanceFlagWithChecks
+0x050C2C: cmp     r0, #0
+0x050C30: beq     #0x2050c4c
+0x050C34: ldr     r0, [pc, #0x30]
+0x050C38: ldr     r1, [pc, #0x30]
+0x050C3C: ldr     r2, [r0, #0xc]
+0x050C40: cmp     r2, r1
+0x050C44: strgt   r1, [r0, #0xc]
+0x050C48: pop     {r3, pc}
+0x050C4C: mov     r0, #7
+0x050C50: bl      #0x20517f4  ; GetRankUpEntry
+0x050C54: ldr     r1, [pc, #0x10]
+0x050C58: ldr     r2, [r0, #4]
+0x050C5C: ldr     r0, [r1, #0xc]
+0x050C60: cmp     r0, r2
+0x050C64: strgt   r2, [r1, #0xc]
+0x050C68: pop     {r3, pc}
+0x050C6C: eoreq   fp, sl, #24, #18
+0x050C70: ldrbeq  lr, [r5, #0xff]!
+0x050C74: push    {r3, r4, r5, lr}
+0x050C78: mov     r5, #0
+0x050C7C: ldr     r4, [pc, #0x48]
+0x050C80: b       #0x2050ca4
+0x050C84: mov     r0, r5
+0x050C88: bl      #0x20517f4  ; GetRankUpEntry
+0x050C8C: ldr     r1, [r4, #0xc]
+0x050C90: ldr     r0, [r0, #4]
+0x050C94: cmp     r1, r0
+0x050C98: blt     #0x2050cac
+0x050C9C: add     r0, r5, #1
+0x050CA0: and     r5, r0, #0xff
+0x050CA4: cmp     r5, #0xc
+0x050CA8: blo     #0x2050c84
+0x050CAC: mov     r0, #0x16
+0x050CB0: bl      #0x204ca94  ; GetPerformanceFlagWithChecks
+0x050CB4: cmp     r0, #0
+0x050CB8: bne     #0x2050cc4
+0x050CBC: cmp     r5, #8
+0x050CC0: movhi   r5, #8
+0x050CC4: mov     r0, r5
+0x050CC8: pop     {r3, r4, r5, pc}
+0x050CCC: eoreq   fp, sl, #24, #18
+0x050CD0: push    {r3, lr}
+0x050CD4: bl      #0x2050c74  ; GetRank
+0x050CD8: cmp     r0, #8
+0x050CDC: movhi   r0, #8
+0x050CE0: pop     {r3, pc}
+0x050CE4: push    {r3, lr}
+0x050CE8: bl      #0x2050c74  ; GetRank
+0x050CEC: bl      #0x20517f4  ; GetRankUpEntry
+0x050CF0: ldr     r0, [r0, #8]
+0x050CF4: pop     {r3, pc}
+0x050CF8: push    {r3, lr}
+0x050CFC: sub     sp, sp, #0x10
+0x050D00: mov     r3, r0
+0x050D04: mov     r2, r1
+0x050D08: add     r0, sp, #0
+0x050D0C: mov     r1, r3
+0x050D10: bl      #0x2050990
+0x050D14: ldr     r1, [pc, #0x54]
+0x050D18: add     r0, sp, #0
+0x050D1C: mov     r2, #0x50
+0x050D20: bl      #0x20509c0  ; CopyBitsTo
+0x050D24: ldr     r1, [pc, #0x48]
+0x050D28: add     r0, sp, #0
+0x050D2C: mov     r2, #0x20
+0x050D30: bl      #0x20509c0  ; CopyBitsTo
+0x050D34: mov     r0, #1
+0x050D38: bl      #0x204ca94  ; GetPerformanceFlagWithChecks
+0x050D3C: ldr     r1, [pc, #0x34]
+0x050D40: tst     r0, #0xff
+0x050D44: strb    r0, [r1, #0x10]
+0x050D48: ldrne   r1, [pc, #0x2c]
+0x050D4C: add     r0, sp, #0
+0x050D50: ldreq   r1, [pc, #0x28]
+0x050D54: mov     r2, #1
+0x050D58: bl      #0x20509c0  ; CopyBitsTo
+0x050D5C: add     r0, sp, #0
+0x050D60: bl      #0x20509bc
+0x050D64: ldr     r0, [sp, #8]
+0x050D68: add     sp, sp, #0x10
+0x050D6C: pop     {r3, pc}
+0x050D70: eoreq   fp, sl, #24, #18
+0x050D74: eoreq   fp, sl, #36, #18
+0x050D78: eoreq   fp, sl, #24, #18
+0x050D7C: andeq   lr, sb, #188, #12
+0x050D80: andeq   lr, sb, #0xbd00000
+0x050D84: stmdb   sp!, {lr}
+0x050D88: sub     sp, sp, #0x14
+0x050D8C: mov     r3, r0
+0x050D90: mov     r2, r1
+0x050D94: add     r0, sp, #4
+0x050D98: mov     r1, r3
+0x050D9C: bl      #0x2050974
+0x050DA0: ldr     r1, [pc, #0x54]
+0x050DA4: add     r0, sp, #4
+0x050DA8: mov     r2, #0x50
+0x050DAC: bl      #0x2050a40  ; CopyBitsFrom
+
+// function from 0x50C74, marker call @ 0x50CB0
+0x050C74: push    {r3, r4, r5, lr}
+0x050C78: mov     r5, #0
+0x050C7C: ldr     r4, [pc, #0x48]
+0x050C80: b       #0x2050ca4
+0x050C84: mov     r0, r5
+0x050C88: bl      #0x20517f4  ; GetRankUpEntry
+0x050C8C: ldr     r1, [r4, #0xc]
+0x050C90: ldr     r0, [r0, #4]
+0x050C94: cmp     r1, r0
+0x050C98: blt     #0x2050cac
+0x050C9C: add     r0, r5, #1
+0x050CA0: and     r5, r0, #0xff
+0x050CA4: cmp     r5, #0xc
+0x050CA8: blo     #0x2050c84
+0x050CAC: mov     r0, #0x16
+0x050CB0: bl      #0x204ca94 <-- CheckTeamMemberIdx  ; GetPerformanceFlagWithChecks
+0x050CB4: cmp     r0, #0
+0x050CB8: bne     #0x2050cc4
+0x050CBC: cmp     r5, #8
+0x050CC0: movhi   r5, #8
+0x050CC4: mov     r0, r5
+0x050CC8: pop     {r3, r4, r5, pc}
+0x050CCC: eoreq   fp, sl, #24, #18
+0x050CD0: push    {r3, lr}
+0x050CD4: bl      #0x2050c74  ; GetRank
+0x050CD8: cmp     r0, #8
+0x050CDC: movhi   r0, #8
+0x050CE0: pop     {r3, pc}
+0x050CE4: push    {r3, lr}
+0x050CE8: bl      #0x2050c74  ; GetRank
+0x050CEC: bl      #0x20517f4  ; GetRankUpEntry
+0x050CF0: ldr     r0, [r0, #8]
+0x050CF4: pop     {r3, pc}
+0x050CF8: push    {r3, lr}
+0x050CFC: sub     sp, sp, #0x10
+0x050D00: mov     r3, r0
+0x050D04: mov     r2, r1
+0x050D08: add     r0, sp, #0
+0x050D0C: mov     r1, r3
+0x050D10: bl      #0x2050990
+0x050D14: ldr     r1, [pc, #0x54]
+0x050D18: add     r0, sp, #0
+0x050D1C: mov     r2, #0x50
+0x050D20: bl      #0x20509c0  ; CopyBitsTo
+0x050D24: ldr     r1, [pc, #0x48]
+0x050D28: add     r0, sp, #0
+0x050D2C: mov     r2, #0x20
+0x050D30: bl      #0x20509c0  ; CopyBitsTo
+0x050D34: mov     r0, #1
+0x050D38: bl      #0x204ca94  ; GetPerformanceFlagWithChecks
+0x050D3C: ldr     r1, [pc, #0x34]
+0x050D40: tst     r0, #0xff
+0x050D44: strb    r0, [r1, #0x10]
+0x050D48: ldrne   r1, [pc, #0x2c]
+0x050D4C: add     r0, sp, #0
+0x050D50: ldreq   r1, [pc, #0x28]
+0x050D54: mov     r2, #1
+0x050D58: bl      #0x20509c0  ; CopyBitsTo
+0x050D5C: add     r0, sp, #0
+0x050D60: bl      #0x20509bc
+0x050D64: ldr     r0, [sp, #8]
+0x050D68: add     sp, sp, #0x10
+0x050D6C: pop     {r3, pc}
+0x050D70: eoreq   fp, sl, #24, #18
+0x050D74: eoreq   fp, sl, #36, #18
+0x050D78: eoreq   fp, sl, #24, #18
+0x050D7C: andeq   lr, sb, #188, #12
+0x050D80: andeq   lr, sb, #0xbd00000
+0x050D84: stmdb   sp!, {lr}
+0x050D88: sub     sp, sp, #0x14
+0x050D8C: mov     r3, r0
+0x050D90: mov     r2, r1
+0x050D94: add     r0, sp, #4
+0x050D98: mov     r1, r3
+0x050D9C: bl      #0x2050974
+0x050DA0: ldr     r1, [pc, #0x54]
+0x050DA4: add     r0, sp, #4
+0x050DA8: mov     r2, #0x50
+0x050DAC: bl      #0x2050a40  ; CopyBitsFrom
+0x050DB0: ldr     r1, [pc, #0x48]
+0x050DB4: add     r0, sp, #4
+0x050DB8: mov     r2, #0x20
+0x050DBC: bl      #0x2050a40  ; CopyBitsFrom
+0x050DC0: add     r0, sp, #4
+0x050DC4: add     r1, sp, #0
+0x050DC8: mov     r2, #1
+0x050DCC: bl      #0x2050a40  ; CopyBitsFrom
+0x050DD0: ldrb    r0, [sp]
+0x050DD4: ldr     r1, [pc, #0x28]
+0x050DD8: tst     r0, #1
+0x050DDC: movne   r2, #1
+0x050DE0: moveq   r2, #0
+0x050DE4: add     r0, sp, #4
+0x050DE8: strb    r2, [r1, #0x10]
+0x050DEC: bl      #0x20509bc
+0x050DF0: ldr     r0, [sp, #0xc]
+0x050DF4: add     sp, sp, #0x14
+0x050DF8: ldm     sp!, {pc}
+0x050DFC: eoreq   fp, sl, #24, #18
+0x050E00: eoreq   fp, sl, #36, #18
+0x050E04: eoreq   fp, sl, #24, #18
+0x050E08: mov     r1, #0
+0x050E0C: strb    r1, [r0, #4]
+0x050E10: str     r1, [r0]
+0x050E14: bx      lr
+0x050E18: ldrb    r1, [r0, #4]
+0x050E1C: add     r2, r1, #1
+0x050E20: and     r1, r2, #0xff
+0x050E24: strb    r2, [r0, #4]
+0x050E28: cmp     r1, #0x3c
+0x050E2C: bxlo    lr
+0x050E30: mov     r1, #0
+0x050E34: strb    r1, [r0, #4]
+
+// function from 0x50CF8, marker call @ 0x50D38
+0x050CF8: push    {r3, lr}
+0x050CFC: sub     sp, sp, #0x10
+0x050D00: mov     r3, r0
+0x050D04: mov     r2, r1
+0x050D08: add     r0, sp, #0
+0x050D0C: mov     r1, r3
+0x050D10: bl      #0x2050990
+0x050D14: ldr     r1, [pc, #0x54]
+0x050D18: add     r0, sp, #0
+0x050D1C: mov     r2, #0x50
+0x050D20: bl      #0x20509c0  ; CopyBitsTo
+0x050D24: ldr     r1, [pc, #0x48]
+0x050D28: add     r0, sp, #0
+0x050D2C: mov     r2, #0x20
+0x050D30: bl      #0x20509c0  ; CopyBitsTo
+0x050D34: mov     r0, #1
+0x050D38: bl      #0x204ca94 <-- CheckTeamMemberIdx  ; GetPerformanceFlagWithChecks
+0x050D3C: ldr     r1, [pc, #0x34]
+0x050D40: tst     r0, #0xff
+0x050D44: strb    r0, [r1, #0x10]
+0x050D48: ldrne   r1, [pc, #0x2c]
+0x050D4C: add     r0, sp, #0
+0x050D50: ldreq   r1, [pc, #0x28]
+0x050D54: mov     r2, #1
+0x050D58: bl      #0x20509c0  ; CopyBitsTo
+0x050D5C: add     r0, sp, #0
+0x050D60: bl      #0x20509bc
+0x050D64: ldr     r0, [sp, #8]
+0x050D68: add     sp, sp, #0x10
+0x050D6C: pop     {r3, pc}
+0x050D70: eoreq   fp, sl, #24, #18
+0x050D74: eoreq   fp, sl, #36, #18
+0x050D78: eoreq   fp, sl, #24, #18
+0x050D7C: andeq   lr, sb, #188, #12
+0x050D80: andeq   lr, sb, #0xbd00000
+0x050D84: stmdb   sp!, {lr}
+0x050D88: sub     sp, sp, #0x14
+0x050D8C: mov     r3, r0
+0x050D90: mov     r2, r1
+0x050D94: add     r0, sp, #4
+0x050D98: mov     r1, r3
+0x050D9C: bl      #0x2050974
+0x050DA0: ldr     r1, [pc, #0x54]
+0x050DA4: add     r0, sp, #4
+0x050DA8: mov     r2, #0x50
+0x050DAC: bl      #0x2050a40  ; CopyBitsFrom
+0x050DB0: ldr     r1, [pc, #0x48]
+0x050DB4: add     r0, sp, #4
+0x050DB8: mov     r2, #0x20
+0x050DBC: bl      #0x2050a40  ; CopyBitsFrom
+0x050DC0: add     r0, sp, #4
+0x050DC4: add     r1, sp, #0
+0x050DC8: mov     r2, #1
+0x050DCC: bl      #0x2050a40  ; CopyBitsFrom
+0x050DD0: ldrb    r0, [sp]
+0x050DD4: ldr     r1, [pc, #0x28]
+0x050DD8: tst     r0, #1
+0x050DDC: movne   r2, #1
+0x050DE0: moveq   r2, #0
+0x050DE4: add     r0, sp, #4
+0x050DE8: strb    r2, [r1, #0x10]
+0x050DEC: bl      #0x20509bc
+0x050DF0: ldr     r0, [sp, #0xc]
+0x050DF4: add     sp, sp, #0x14
+0x050DF8: ldm     sp!, {pc}
+0x050DFC: eoreq   fp, sl, #24, #18
+0x050E00: eoreq   fp, sl, #36, #18
+0x050E04: eoreq   fp, sl, #24, #18
+0x050E08: mov     r1, #0
+0x050E0C: strb    r1, [r0, #4]
+0x050E10: str     r1, [r0]
+0x050E14: bx      lr
+0x050E18: ldrb    r1, [r0, #4]
+0x050E1C: add     r2, r1, #1
+0x050E20: and     r1, r2, #0xff
+0x050E24: strb    r2, [r0, #4]
+0x050E28: cmp     r1, #0x3c
+0x050E2C: bxlo    lr
+0x050E30: mov     r1, #0
+0x050E34: strb    r1, [r0, #4]
+0x050E38: ldr     r2, [r0]
+0x050E3C: ldr     r1, [pc, #0xc]
+0x050E40: cmp     r2, r1
+0x050E44: addlo   r1, r2, #1
+0x050E48: strlo   r1, [r0]
+0x050E4C: bx      lr
+0x050E50: eoreq   r5, r5, #0xff
+0x050E54: ldr     r0, [r0]
+0x050E58: bx      lr
+0x050E5C: push    {r3, r4, r5, lr}
+0x050E60: mov     r5, r0
+0x050E64: mov     r4, r1
+0x050E68: mov     r0, r4
+0x050E6C: add     r1, r5, #4
+0x050E70: mov     r2, #6
+0x050E74: bl      #0x20509c0  ; CopyBitsTo
+0x050E78: mov     r0, r4
+0x050E7C: mov     r1, r5
+0x050E80: mov     r2, #0x20
+0x050E84: bl      #0x20509c0  ; CopyBitsTo
+0x050E88: pop     {r3, r4, r5, pc}
+0x050E8C: push    {r3, r4, r5, lr}
+0x050E90: mov     r5, r0
+0x050E94: mov     r4, r1
+0x050E98: mov     r0, r4
+0x050E9C: add     r1, r5, #4
+0x050EA0: mov     r2, #6
+0x050EA4: bl      #0x2050a40  ; CopyBitsFrom
+0x050EA8: mov     r0, r4
+0x050EAC: mov     r1, r5
+0x050EB0: mov     r2, #0x20
+0x050EB4: bl      #0x2050a40  ; CopyBitsFrom
+0x050EB8: pop     {r3, r4, r5, pc}
+0x050EBC: push    {r0, r1, r2, r3}
+
+// function from 0x58D04, marker call @ 0x58D50
+0x058D04: push    {r3, r4, r5, r6, r7, r8, sb, sl, fp, lr}
+0x058D08: mov     r6, #0
+0x058D0C: mov     sl, r0
+0x058D10: mov     sb, r1
+0x058D14: mov     r8, r2
+0x058D18: mov     r5, r6
+0x058D1C: ldr     r4, [pc, #0x7c]
+0x058D20: mov     fp, #9
+0x058D24: b       #0x2058d74
+0x058D28: mov     r0, sb
+0x058D2C: bl      #0x2052b28  ; GetIqGroup
+0x058D30: mla     r0, r0, fp, r4
+0x058D34: mov     r1, r5
+0x058D38: bl      #0x2058e68  ; GetSpeciesIqSkill
+0x058D3C: cmp     r0, #0
+0x058D40: beq     #0x2058d70
+0x058D44: cmp     r5, #0x18
+0x058D48: bne     #0x2058d58
+0x058D4C: mov     r0, #3
+0x058D50: bl      #0x204ca94 <-- CheckTeamMemberIdx  ; GetPerformanceFlagWithChecks
+0x058D54: b       #0x2058d64
+0x058D58: mov     r0, r8
+0x058D5C: mov     r1, r5
+0x058D60: bl      #0x2058cd8  ; CanLearnIqSkill
+0x058D64: cmp     r0, #0
+0x058D68: strbne  r5, [sl, r6]
+0x058D6C: addne   r6, r6, #1
+0x058D70: add     r5, r5, #1
+0x058D74: cmp     r5, #0x45
+0x058D78: blt     #0x2058d28
+0x058D7C: mov     r1, r6
+0x058D80: mov     r0, #0
+0x058D84: b       #0x2058d90
+0x058D88: strb    r0, [sl, r1]
+0x058D8C: add     r1, r1, #1
+0x058D90: cmp     r1, #0x45
+0x058D94: blt     #0x2058d88
+0x058D98: mov     r0, r6
+0x058D9C: pop     {r3, r4, r5, r6, r7, r8, sb, sl, fp, pc}
+0x058DA0: andeq   r1, sl, #144, #26
+0x058DA4: push    {r3, r4, r5, lr}
+0x058DA8: mov     r4, r0
+0x058DAC: mov     r5, r1
+0x058DB0: bl      #0x2058f04  ; IqSkillFlagTest
+0x058DB4: cmp     r0, #0
+0x058DB8: beq     #0x2058de4
+0x058DBC: asr     r0, r5, #4
+0x058DC0: add     r0, r5, r0, lsr #27
+0x058DC4: asr     r2, r0, #5
+0x058DC8: sub     r0, r5, r2, lsl #5
+0x058DCC: mov     r1, #1
+0x058DD0: mvn     r0, r1, lsl r0
+0x058DD4: ldr     r1, [r4, r2, lsl #2]
+0x058DD8: and     r0, r1, r0
+0x058DDC: str     r0, [r4, r2, lsl #2]
+0x058DE0: pop     {r3, r4, r5, pc}
+0x058DE4: mov     r0, r4
+0x058DE8: mov     r1, r5
+0x058DEC: bl      #0x2058df4  ; EnableIqSkill
+0x058DF0: pop     {r3, r4, r5, pc}
+0x058DF4: push    {r4, r5, r6, lr}
+0x058DF8: ldr     r2, [pc, #0x64]
+0x058DFC: lsl     r3, r1, #1
+0x058E00: ldrsh   ip, [r2, r3]
+0x058E04: mov     r3, #0
+0x058E08: mov     r4, #1
+0x058E0C: lsl     r5, r3, #1
+0x058E10: ldrsh   r5, [r2, r5]
+0x058E14: cmp     ip, r5
+0x058E18: bne     #0x2058e3c
+0x058E1C: asr     lr, r3, #4
+0x058E20: add     lr, r3, lr, lsr #27
+0x058E24: asr     r6, lr, #5
+0x058E28: sub     lr, r3, r6, lsl #5
+0x058E2C: mvn     lr, r4, lsl lr
+0x058E30: ldr     r5, [r0, r6, lsl #2]
+0x058E34: and     r5, r5, lr
+0x058E38: str     r5, [r0, r6, lsl #2]
+0x058E3C: add     r3, r3, #1
+0x058E40: cmp     r3, #0x45
+0x058E44: blt     #0x2058e0c
+0x058E48: lsr     ip, r1, #5
+0x058E4C: ldr     r3, [r0, ip, lsl #2]
+0x058E50: sub     r1, r1, ip, lsl #5
+0x058E54: mov     r2, #1
+0x058E58: orr     r1, r3, r2, lsl r1
+0x058E5C: str     r1, [r0, ip, lsl #2]
+0x058E60: pop     {r4, r5, r6, pc}
+0x058E64: andeq   r1, sl, #92, #20
+0x058E68: add     r0, r0, r1, lsr #3
+0x058E6C: and     r2, r1, #7
+0x058E70: mov     r1, #1
+0x058E74: lsl     r1, r1, r2
+0x058E78: ldrb    r2, [r0]
+0x058E7C: tst     r2, r1
+0x058E80: moveq   r0, #0
+0x058E84: movne   r0, #1
+0x058E88: bx      lr
+0x058E8C: mov     r3, #0
+0x058E90: mov     r2, r3
+0x058E94: add     r1, r3, #1
+0x058E98: lsl     r1, r1, #0x10
+0x058E9C: str     r2, [r0, r3, lsl #2]
+0x058EA0: asr     r3, r1, #0x10
+0x058EA4: cmp     r3, #3
+0x058EA8: blt     #0x2058e94
+0x058EAC: bx      lr
+0x058EB0: push    {r4, r5, r6, lr}
+0x058EB4: sub     sp, sp, #0x48
+0x058EB8: mov     r6, r0
+0x058EBC: add     r0, sp, #0
+0x058EC0: bl      #0x2058d04  ; GetLearnableIqSkills
+0x058EC4: mov     r0, r6
+0x058EC8: bl      #0x2058e8c  ; DisableAllIqSkills
+0x058ECC: mov     r5, #0
+0x058ED0: add     r4, sp, #0
+0x058ED4: b       #0x2058ef4
+
+// function from 0x5A210, marker call @ 0x5A258
+0x05A210: push    {r3, r4, lr}
+0x05A214: sub     sp, sp, #0x3c
+0x05A218: add     r1, sp, #0
+0x05A21C: mov     r4, r0
+0x05A220: bl      #0x2059b18  ; GetEvolutionPossibilities
+0x05A224: ldrh    r0, [sp, #6]
+0x05A228: tst     r0, #1
+0x05A22C: beq     #0x205a274
+0x05A230: ldrb    r0, [r4, #2]
+0x05A234: cmp     r0, #0xd6
+0x05A238: moveq   r1, #1
+0x05A23C: movne   r1, #0
+0x05A240: tst     r1, #0xff
+0x05A244: bne     #0x205a254
+0x05A248: bl      #0x2051760  ; JoinedAtRangeCheck2
+0x05A24C: cmp     r0, #0
+0x05A250: beq     #0x205a26c
+0x05A254: mov     r0, #0xa
+0x05A258: bl      #0x204ca94 <-- CheckTeamMemberIdx  ; GetPerformanceFlagWithChecks
+0x05A25C: cmp     r0, #0
+0x05A260: movne   r0, #1
+0x05A264: moveq   r0, #0
+0x05A268: b       #0x205a280
+0x05A26C: mov     r0, #1
+0x05A270: b       #0x205a280
+0x05A274: tst     r0, #4
+0x05A278: movne   r0, #2
+0x05A27C: moveq   r0, #0
+0x05A280: add     sp, sp, #0x3c
+0x05A284: pop     {r3, r4, pc}
+0x05A288: push    {r4, r5, r6, lr}
+0x05A28C: sub     sp, sp, #0x48
+0x05A290: mvn     r2, #0
+0x05A294: mov     r6, r0
+0x05A298: strh    r2, [sp]
+0x05A29C: ldrsh   r0, [r6]
+0x05A2A0: mov     r5, r1
+0x05A2A4: bl      #0x20555a8  ; GetTeamMember
+0x05A2A8: add     lr, sp, #4
+0x05A2AC: mov     r4, r0
+0x05A2B0: mov     ip, #4
+0x05A2B4: ldm     r4!, {r0, r1, r2, r3}
+0x05A2B8: stm     lr!, {r0, r1, r2, r3}
+0x05A2BC: subs    ip, ip, #1
+0x05A2C0: bne     #0x205a2b4
+0x05A2C4: ldr     r3, [r4]
+0x05A2C8: add     r1, sp, #4
+0x05A2CC: mov     r0, r6
+0x05A2D0: mov     r2, r5
+0x05A2D4: str     r3, [lr]
+0x05A2D8: bl      #0x205a340
+0x05A2DC: ldr     r0, [pc, #0x58]
+0x05A2E0: cmp     r5, r0
+0x05A2E4: addne   r0, r0, #0x258
+0x05A2E8: cmpne   r5, r0
+0x05A2EC: bne     #0x205a330
+0x05A2F0: mov     r0, #0x140
+0x05A2F4: bl      #0x20526c8  ; GetNameString
+0x05A2F8: mov     r1, r0
+0x05A2FC: add     r0, sp, #0x3e
+0x05A300: mov     r2, #0xa
+0x05A304: bl      #0x2025314  ; StrncpyName
+0x05A308: add     r0, sp, #0
+0x05A30C: add     r1, sp, #4
+0x05A310: mov     r2, #0x140
+0x05A314: bl      #0x205a340
+0x05A318: ldrsh   r1, [sp]
+0x05A31C: mvn     r0, #0
+0x05A320: cmp     r1, r0
+0x05A324: beq     #0x205a330
+0x05A328: mov     r0, #0x140
+0x05A32C: bl      #0x204fdfc  ; SetPokemonJoined
+0x05A330: mov     r0, #1
+0x05A334: add     sp, sp, #0x48
+0x05A338: pop     {r4, r5, r6, pc}
+0x05A33C: andeq   r0, r0, pc, lsr r1
+0x05A340: push    {r4, r5, r6, lr}
+0x05A344: sub     sp, sp, #0x90
+0x05A348: add     ip, sp, #0x4c
+0x05A34C: mov     r6, r0
+0x05A350: mov     lr, r1
+0x05A354: mov     r5, r2
+0x05A358: mov     r4, #4
+0x05A35C: ldm     lr!, {r0, r1, r2, r3}
+0x05A360: stm     ip!, {r0, r1, r2, r3}
+0x05A364: subs    r4, r4, #1
+0x05A368: bne     #0x205a35c
+0x05A36C: ldr     r1, [lr]
+0x05A370: add     r0, sp, #0x40
+0x05A374: str     r1, [ip]
+0x05A378: ldrb    r2, [sp, #0x4d]
+0x05A37C: mov     r1, r5
+0x05A380: ldrsh   r4, [sp, #0x50]
+0x05A384: bl      #0x205379c  ; GetLvlUpEntry
+0x05A388: ldrb    r0, [sp, #0x52]
+0x05A38C: ldr     r1, [sp, #0x40]
+0x05A390: strh    r5, [sp, #0x50]
+0x05A394: cmp     r0, #0
+0x05A398: ldrbeq  r0, [sp, #0x4d]
+0x05A39C: str     r1, [sp, #0x5c]
+0x05A3A0: strbeq  r0, [sp, #0x52]
+0x05A3A4: beq     #0x205a3b8
+0x05A3A8: ldrb    r0, [sp, #0x53]
+0x05A3AC: cmp     r0, #0
+0x05A3B0: ldrbeq  r0, [sp, #0x4d]
+0x05A3B4: strbeq  r0, [sp, #0x53]
+0x05A3B8: mov     r0, r4
+0x05A3BC: bl      #0x20526c8  ; GetNameString
+0x05A3C0: mov     r1, r0
+0x05A3C4: add     r0, sp, #0
+0x05A3C8: bl      #0x2025230  ; StrcpyName
+0x05A3CC: add     r0, sp, #0
+0x05A3D0: add     r1, sp, #0x86
+0x05A3D4: mov     r2, #0xa
+0x05A3D8: bl      #0x20251ac  ; StrncmpSimple
+0x05A3DC: cmp     r0, #0
+
+// function from 0x5AE28, marker call @ 0x5AFC4
+0x05AE28: push    {r3, r4, r5, r6, r7, r8, sb, lr}
+0x05AE2C: sub     sp, sp, #0x10
+0x05AE30: mov     r8, r1
+0x05AE34: mov     sb, r0
+0x05AE38: ldrsh   r0, [r8, #8]
+0x05AE3C: mov     r7, r2
+0x05AE40: bl      #0x20555a8  ; GetTeamMember
+0x05AE44: mov     r4, r0
+0x05AE48: mov     r1, r4
+0x05AE4C: add     r0, sb, #2
+0x05AE50: mov     r2, #0x4e
+0x05AE54: bl      #0x2056084
+0x05AE58: ldrsh   r0, [r8, #0xc]
+0x05AE5C: mov     r5, #0
+0x05AE60: strh    r0, [sb]
+0x05AE64: ldrsh   r0, [r8, #0xe]
+0x05AE68: str     r0, [sb, #0x24]
+0x05AE6C: ldrsh   r0, [r8, #0x10]
+0x05AE70: str     r0, [sb, #0x28]
+0x05AE74: ldrb    r0, [r8, #2]
+0x05AE78: str     r0, [sb, #0x2c]
+0x05AE7C: ldr     r0, [r8, #0x18]
+0x05AE80: str     r0, [sb, #0x30]
+0x05AE84: add     r2, r8, r5
+0x05AE88: ldrb    r0, [r2, #0x12]
+0x05AE8C: add     r6, sb, r5
+0x05AE90: mov     r1, r5
+0x05AE94: strb    r0, [r6, #0x34]
+0x05AE98: ldrb    r0, [r2, #0x14]
+0x05AE9C: strb    r0, [r6, #0x36]
+0x05AEA0: ldrsh   r0, [r8, #0xc]
+0x05AEA4: bl      #0x2052a04  ; GetType
+0x05AEA8: strb    r0, [r6, #0x16]
+0x05AEAC: ldrsh   r0, [r8, #0xc]
+0x05AEB0: mov     r1, r5
+0x05AEB4: bl      #0x2052a24  ; GetAbility
+0x05AEB8: add     r5, r5, #1
+0x05AEBC: strb    r0, [r6, #0x18]
+0x05AEC0: cmp     r5, #2
+0x05AEC4: blt     #0x205ae84
+0x05AEC8: strb    r7, [sb, #0x38]
+0x05AECC: mov     r0, #0
+0x05AED0: strb    r0, [sb, #0x39]
+0x05AED4: strb    r0, [sb, #0x3a]
+0x05AED8: strb    r0, [sb, #0x3b]
+0x05AEDC: strb    r0, [sb, #0x3c]
+0x05AEE0: strb    r0, [sb, #0x45]
+0x05AEE4: ldrb    r1, [r8, #0x58]
+0x05AEE8: add     r0, r8, #0x4c
+0x05AEEC: add     r3, sb, #0x48
+0x05AEF0: strb    r1, [sb, #0x54]
+0x05AEF4: ldrh    r1, [r8, #0x3e]
+0x05AEF8: strh    r1, [sb, #0x1c]
+0x05AEFC: ldrh    r1, [r8, #0x40]
+0x05AF00: strh    r1, [sb, #0x1e]
+0x05AF04: ldrh    r1, [r8, #0x42]
+0x05AF08: strh    r1, [sb, #0x20]
+0x05AF0C: ldrsh   r1, [r8, #6]
+0x05AF10: strh    r1, [sb, #0x3e]
+0x05AF14: ldrb    r1, [r8, #3]
+0x05AF18: strb    r1, [sb, #0x1a]
+0x05AF1C: ldrb    r1, [r8, #4]
+0x05AF20: strb    r1, [sb, #0x1b]
+0x05AF24: ldm     r0, {r0, r1, r2}
+0x05AF28: stm     r3, {r0, r1, r2}
+0x05AF2C: mov     r0, sb
+0x05AF30: bl      #0x205b354
+0x05AF34: str     r0, [sp]
+0x05AF38: ldrsh   r1, [sb]
+0x05AF3C: ldrsh   r3, [sb, #0x3e]
+0x05AF40: add     r0, sp, #4
+0x05AF44: add     r2, r8, #0x3e
+0x05AF48: bl      #0x205b120
+0x05AF4C: ldrb    r2, [sb, #0x39]
+0x05AF50: ldrsh   r1, [sp, #6]
+0x05AF54: ldr     r0, [pc, #0xa8]
+0x05AF58: add     r1, r2, r1
+0x05AF5C: strb    r1, [sb, #0x39]
+0x05AF60: ldrb    r2, [sb, #0x3a]
+0x05AF64: ldrsh   r1, [sp, #8]
+0x05AF68: add     r1, r2, r1
+0x05AF6C: strb    r1, [sb, #0x3a]
+0x05AF70: ldrb    r2, [sb, #0x3b]
+0x05AF74: ldrsh   r1, [sp, #0xa]
+0x05AF78: add     r1, r2, r1
+0x05AF7C: strb    r1, [sb, #0x3b]
+0x05AF80: ldrb    r2, [sb, #0x3c]
+0x05AF84: ldrsh   r1, [sp, #0xc]
+0x05AF88: add     r1, r2, r1
+0x05AF8C: strb    r1, [sb, #0x3c]
+0x05AF90: ldrsh   r1, [sp, #4]
+0x05AF94: ldr     r2, [sb, #0x24]
+0x05AF98: add     r1, r2, r1
+0x05AF9C: str     r1, [sb, #0x28]
+0x05AFA0: cmp     r1, r0
+0x05AFA4: movgt   r1, r0
+0x05AFA8: bl      #0x23d4820
+0x05AFAC: mov     r0, r0
+0x05AFB0: mov     r0, #6
+0x05AFB4: ldrb    r1, [r4, #6]
+0x05AFB8: strb    r1, [sb, #0x42]
+0x05AFBC: ldrb    r1, [r4, #7]
+0x05AFC0: strb    r1, [sb, #0x43]
+0x05AFC4: bl      #0x204ca94 <-- CheckTeamMemberIdx  ; GetPerformanceFlagWithChecks
+0x05AFC8: cmp     r0, #0
+0x05AFCC: moveq   r0, #3
+0x05AFD0: beq     #0x205afdc
+0x05AFD4: mov     r0, r4
+0x05AFD8: bl      #0x205a210  ; GetDefaultTileTextureId
+0x05AFDC: mov     r2, #0
+0x05AFE0: strb    r0, [sb, #0x44]
+0x05AFE4: mov     r1, r2
+0x05AFE8: add     r0, sb, r2
+0x05AFEC: add     r2, r2, #1
+0x05AFF0: strb    r1, [r0, #0x58]
+0x05AFF4: cmp     r2, #0x1f
+0x05AFF8: blt     #0x205afe8
+0x05AFFC: add     sp, sp, #0x10
+0x05B000: pop     {r3, r4, r5, r6, r7, r8, sb, pc}
+0x05B004: andeq   r0, r0, r7, ror #7
+0x05B008: push    {r4, lr}
+0x05B00C: mov     r4, r0
+0x05B010: mov     r0, r1
+0x05B014: bl      #0x2055894
+0x05B018: mov     r1, r0
+0x05B01C: mov     r0, r4
+0x05B020: bl      #0x205b028
+0x05B024: pop     {r4, pc}
+
+// function from 0x5E5D0, marker call @ 0x5E5F8
+0x05E5D0: push    {r3, r4, r5, r6, r7, r8, sb, sl, fp, lr}
+0x05E5D4: mov     r0, #4
+0x05E5D8: mov     r1, #8
+0x05E5DC: bl      #0x2002318  ; RandRangeSafe
+0x05E5E0: mov     r7, r0
+0x05E5E4: mov     r0, #4
+0x05E5E8: mov     r1, #8
+0x05E5EC: bl      #0x2002318  ; RandRangeSafe
+0x05E5F0: mov     r8, r0
+0x05E5F4: mov     r0, #3
+0x05E5F8: bl      #0x204ca94 <-- CheckTeamMemberIdx  ; GetPerformanceFlagWithChecks
+0x05E5FC: cmp     r0, #0
+0x05E600: popeq   {r3, r4, r5, r6, r7, r8, sb, sl, fp, pc}
+0x05E604: mov     r2, #0
+0x05E608: ldr     r0, [pc, #0x338]
+0x05E60C: mov     r3, r2
+0x05E610: ldr     r1, [r0, #0x18]
+0x05E614: strb    r3, [r1, r2, lsl #5]
+0x05E618: add     r2, r2, #1
+0x05E61C: cmp     r2, #8
+0x05E620: blt     #0x205e610
+0x05E624: ldr     r0, [pc, #0x31c]
+0x05E628: mov     r2, #0
+0x05E62C: ldr     r1, [r0, #0x18]
+0x05E630: add     r1, r1, r3, lsl #5
+0x05E634: add     r3, r3, #1
+0x05E638: strb    r2, [r1, #0x200]
+0x05E63C: cmp     r3, #8
+0x05E640: blt     #0x205e62c
+0x05E644: ldr     r0, [pc, #0x2fc]
+0x05E648: ldr     r1, [r0, #0x18]
+0x05E64C: strb    r2, [r1, #0x300]
+0x05E650: ldr     r0, [r0, #0x18]
+0x05E654: strb    r2, [r0, #0x320]
+0x05E658: bl      #0x2063504
+0x05E65C: mov     r4, r0
+0x05E660: bl      #0x200224c  ; EntityIsValidMoveEffects
+0x05E664: orr     r0, r0, r4, lsl #16
+0x05E668: bl      #0x20510e8
+0x05E66C: bl      #0x205f758  ; GenerateAllPossibleMonstersList
+0x05E670: bl      #0x205f7f4  ; GenerateAllPossibleDungeonsList
+0x05E674: bl      #0x205f8d0  ; GenerateAllPossibleDeliverList
+0x05E678: mov     r0, #3
+0x05E67C: bl      #0x2062290
+0x05E680: cmp     r0, #0
+0x05E684: beq     #0x205e70c
+0x05E688: mov     sl, #0
+0x05E68C: mov     r6, #0x1e
+0x05E690: mov     fp, sl
+0x05E694: mov     r5, #1
+0x05E698: ldr     r4, [pc, #0x2a8]
+0x05E69C: b       #0x205e704
+0x05E6A0: ldr     r0, [r4, #0x18]
+0x05E6A4: add     r0, r0, #0x320
+0x05E6A8: add     sb, r0, sl, lsl #5
+0x05E6AC: bl      #0x2062578
+0x05E6B0: cmp     r0, #0
+0x05E6B4: moveq   r0, r5
+0x05E6B8: beq     #0x205e6dc
+0x05E6BC: mov     r1, sb
+0x05E6C0: bl      #0x205d224  ; GenerateMission
+0x05E6C4: cmp     r0, #0
+0x05E6C8: bne     #0x205e6dc
+0x05E6CC: mov     r0, sb
+0x05E6D0: mov     r1, fp
+0x05E6D4: bl      #0x206315c
+0x05E6D8: mov     r0, #0
+0x05E6DC: cmp     r0, #2
+0x05E6E0: beq     #0x205e70c
+0x05E6E4: cmp     r0, #1
+0x05E6E8: bne     #0x205e6fc
+0x05E6EC: sub     r6, r6, #1
+0x05E6F0: cmp     r6, #0
+0x05E6F4: ble     #0x205e70c
+0x05E6F8: b       #0x205e704
+0x05E6FC: mov     r6, #0x1e
+0x05E700: add     sl, sl, #1
+0x05E704: cmp     sl, #0
+0x05E708: ble     #0x205e6a0
+0x05E70C: bl      #0x2062548
+0x05E710: mov     r0, #2
+0x05E714: bl      #0x2062290
+0x05E718: cmp     r0, #0
+0x05E71C: beq     #0x205e7ac
+0x05E720: mov     fp, #1
+0x05E724: mov     sb, #0
+0x05E728: mov     sl, #0x1e
+0x05E72C: mov     r5, fp
+0x05E730: ldr     r4, [pc, #0x210]
+0x05E734: b       #0x205e7a4
+0x05E738: ldr     r0, [r4, #0x18]
+0x05E73C: add     r0, r0, #0x300
+0x05E740: add     r6, r0, sb, lsl #5
+0x05E744: bl      #0x2062578
+0x05E748: cmp     r0, #0
+0x05E74C: moveq   r0, r5
+0x05E750: beq     #0x205e77c
+0x05E754: mov     r1, r6
+0x05E758: bl      #0x205d224  ; GenerateMission
+0x05E75C: cmp     r0, #0
+0x05E760: bne     #0x205e77c
+0x05E764: mov     r0, r6
+0x05E768: mov     r1, fp
+0x05E76C: bl      #0x206315c
+0x05E770: mov     r0, r6
+0x05E774: bl      #0x205eb5c
+0x05E778: mov     r0, #0
+0x05E77C: cmp     r0, #2
+
+// function from 0x5FF80, marker call @ 0x60040
+0x05FF80: push    {r3, lr}
+0x05FF84: cmp     r0, #3
+0x05FF88: mov     r2, #0
+0x05FF8C: bne     #0x205ffa8
+0x05FF90: cmp     r1, #1
+0x05FF94: moveq   r2, #0xa5
+0x05FF98: beq     #0x2060070
+0x05FF9C: cmp     r1, #2
+0x05FFA0: moveq   r2, #0x6f
+0x05FFA4: b       #0x2060070
+0x05FFA8: cmp     r0, #0xa
+0x05FFAC: bne     #0x205ffcc
+0x05FFB0: cmp     r1, #6
+0x05FFB4: bne     #0x2060070
+0x05FFB8: ldr     r0, [pc, #0xb8]
+0x05FFBC: sub     r1, r2, #1
+0x05FFC0: bl      #0x2060084
+0x05FFC4: mov     r2, r0
+0x05FFC8: b       #0x2060070
+0x05FFCC: cmp     r0, #0xb
+0x05FFD0: bne     #0x2060034
+0x05FFD4: cmp     r1, #5
+0x05FFD8: addls   pc, pc, r1, lsl #2
+0x05FFDC: b       #0x2060070
+0x05FFE0: b       #0x205fff8
+0x05FFE4: b       #0x206000c
+0x05FFE8: b       #0x2060014
+0x05FFEC: b       #0x206001c
+0x05FFF0: b       #0x2060024
+0x05FFF4: b       #0x206002c
+0x05FFF8: ldr     r0, [pc, #0x7c]
+0x05FFFC: sub     r1, r2, #1
+0x060000: bl      #0x2060084
+0x060004: mov     r2, r0
+0x060008: b       #0x2060070
+0x06000C: mov     r2, #0x91
+0x060010: b       #0x2060070
+0x060014: mov     r2, #0x92
+0x060018: b       #0x2060070
+0x06001C: mov     r2, #0x93
+0x060020: b       #0x2060070
+0x060024: mov     r2, #0x94
+0x060028: b       #0x2060070
+0x06002C: mov     r2, #0x95
+0x060030: b       #0x2060070
+0x060034: cmp     r0, #0xc
+0x060038: bne     #0x2060070
+0x06003C: mov     r0, #9
+0x060040: bl      #0x204ca94 <-- CheckTeamMemberIdx  ; GetPerformanceFlagWithChecks
+0x060044: cmp     r0, #0
+0x060048: bne     #0x2060060
+0x06004C: ldr     r0, [pc, #0x2c]
+0x060050: mov     r1, #0xf
+0x060054: bl      #0x2060084
+0x060058: mov     r2, r0
+0x06005C: b       #0x2060070
+0x060060: ldr     r0, [pc, #0x18]
+0x060064: mvn     r1, #0
+0x060068: bl      #0x2060084
+0x06006C: mov     r2, r0
+0x060070: mov     r0, r2
+0x060074: pop     {r3, pc}
+0x060078: andeq   r1, sl, #252, #16
+0x06007C: andeq   r1, sl, #4, #18
+0x060080: andeq   r1, sl, #88, #18
+0x060084: push    {r3, r4, r5, lr}
+0x060088: mov     r5, r0
+0x06008C: mov     r2, r5
+0x060090: mov     r4, #0
+0x060094: b       #0x206009c
+0x060098: add     r4, r4, #1
+0x06009C: ldrb    r0, [r2], #1
+0x0600A0: cmp     r0, #0
+0x0600A4: bne     #0x2060098
+0x0600A8: cmp     r1, #0
+0x0600AC: blt     #0x20600b8
+0x0600B0: cmp     r4, r1
+0x0600B4: movgt   r4, r1
+0x0600B8: bl      #0x200224c  ; EntityIsValidMoveEffects
+0x0600BC: mov     r1, r4
+0x0600C0: bl      #0x208fea4
+0x0600C4: ldrb    r0, [r5, r1]
+0x0600C8: pop     {r3, r4, r5, pc}
+0x0600CC: push    {r3, lr}
+0x0600D0: ldr     r0, [pc, #0x6c]
+0x0600D4: ldr     r0, [r0, #0x24]
+0x0600D8: cmp     r0, #0
+0x0600DC: popne   {r3, pc}
+0x0600E0: ldr     r0, [pc, #0x60]
+0x0600E4: ldr     r1, [pc, #0x60]
+0x0600E8: mov     r2, #1
+0x0600EC: bl      #0x2008c3c  ; LoadFileFromRom
+0x0600F0: ldr     r0, [pc, #0x4c]
+0x0600F4: ldr     r2, [r0, #0x24]
+0x0600F8: ldr     r1, [r2]
+0x0600FC: add     r1, r2, r1
+0x060100: str     r1, [r0, #4]
+0x060104: ldr     r1, [r2, #4]
+0x060108: add     r1, r2, r1
+0x06010C: str     r1, [r0, #0x14]
+0x060110: ldr     r1, [r2, #8]
+0x060114: add     r1, r2, r1
+0x060118: str     r1, [r0, #0x10]
+0x06011C: ldr     r1, [r2, #0xc]
+0x060120: add     r1, r2, r1
+0x060124: str     r1, [r0, #8]
+0x060128: ldr     r1, [r2, #0x10]
+0x06012C: add     r1, r2, r1
+0x060130: str     r1, [r0, #0x18]
+0x060134: ldr     r1, [r2, #0x14]
+0x060138: add     r1, r2, r1
+0x06013C: str     r1, [r0, #0xc]
+0x060140: pop     {r3, pc}
+0x060144: andeq   r0, fp, #216, #20
+0x060148: andeq   r0, fp, #252, #20
+0x06014C: andeq   r4, sl, #44, #12
+0x060150: push    {r3, r4, r5, lr}
+0x060154: mov     r5, r0
+0x060158: mov     r4, r1
+0x06015C: bl      #0x205e238  ; IsMissionTypeSpecialEpisode
+0x060160: cmp     r0, #0
+0x060164: strne   r5, [r4, #0x5c]
+0x060168: popne   {r3, r4, r5, pc}
+0x06016C: mov     r0, r5
+0x060170: add     r1, r4, #0x18
+0x060174: bl      #0x2062e5c
+0x060178: mov     r0, r5
+0x06017C: mov     r1, r4
+
+// function from 0x62290, marker call @ 0x62318
+0x062290: push    {r3, r4, r5, r6, r7, r8, sb, sl, fp, lr}
+0x062294: mov     r4, r0
+0x062298: mov     r0, #0x4e
+0x06229C: mov     r1, #0xf
+0x0622A0: mov     r6, #0
+0x0622A4: bl      #0x2001170  ; MemAlloc
+0x0622A8: mov     r7, r0
+0x0622AC: cmp     r4, #3
+0x0622B0: addls   pc, pc, r4, lsl #2
+0x0622B4: b       #0x2062524
+0x0622B8: b       #0x20622c8
+0x0622BC: b       #0x2062360
+0x0622C0: b       #0x20623f8
+0x0622C4: b       #0x2062490
+0x0622C8: bl      #0x2050c74  ; GetRank
+0x0622CC: mov     r8, r0
+0x0622D0: bl      #0x204cb94  ; GetScenarioBalance
+0x0622D4: ldr     r4, [pc, #0x268]
+0x0622D8: mov     sb, r0
+0x0622DC: mov     sl, r6
+0x0622E0: mov     fp, #0x16
+0x0622E4: mov     r5, r6
+0x0622E8: ldr     r0, [r4, #0xc]
+0x0622EC: add     r1, r0, sl, lsl #4
+0x0622F0: ldrb    r0, [r1, #8]
+0x0622F4: cmp     r8, r0
+0x0622F8: blo     #0x206233c
+0x0622FC: ldrb    r0, [r1, #9]
+0x062300: cmp     sb, r0
+0x062304: blt     #0x206233c
+0x062308: ldrh    r0, [r1, #0xa]
+0x06230C: cmp     r0, #0
+0x062310: beq     #0x2062324
+0x062314: mov     r0, fp
+0x062318: bl      #0x204ca94 <-- CheckTeamMemberIdx  ; GetPerformanceFlagWithChecks
+0x06231C: cmp     r0, #0
+0x062320: beq     #0x206233c
+0x062324: ldr     r1, [r4, #0xc]
+0x062328: lsl     r0, sl, #4
+0x06232C: ldrh    r1, [r1, r0]
+0x062330: lsl     r0, sl, #1
+0x062334: strh    r1, [r7, r0]
+0x062338: b       #0x2062344
+0x06233C: lsl     r0, sl, #1
+0x062340: strh    r5, [r7, r0]
+0x062344: lsl     r0, sl, #1
+0x062348: ldrh    r0, [r7, r0]
+0x06234C: add     sl, sl, #1
+0x062350: cmp     sl, #0x27
+0x062354: add     r6, r6, r0
+0x062358: blt     #0x20622e8
+0x06235C: b       #0x2062524
+0x062360: bl      #0x2050c74  ; GetRank
+0x062364: mov     r8, r0
+0x062368: bl      #0x204cb94  ; GetScenarioBalance
+0x06236C: ldr     r4, [pc, #0x1d0]
+0x062370: mov     sb, r0
+0x062374: mov     sl, r6
+0x062378: mov     fp, #0x16
+0x06237C: mov     r5, r6
+0x062380: ldr     r0, [r4, #0xc]
+0x062384: add     r1, r0, sl, lsl #4
+0x062388: ldrb    r0, [r1, #8]
+0x06238C: cmp     r8, r0
+0x062390: blo     #0x20623d4
+0x062394: ldrb    r0, [r1, #9]
+0x062398: cmp     sb, r0
+0x06239C: blt     #0x20623d4
+0x0623A0: ldrh    r0, [r1, #0xa]
+0x0623A4: cmp     r0, #0
+0x0623A8: beq     #0x20623bc
+0x0623AC: mov     r0, fp
+0x0623B0: bl      #0x204ca94  ; GetPerformanceFlagWithChecks
+0x0623B4: cmp     r0, #0
+0x0623B8: beq     #0x20623d4
+0x0623BC: ldr     r1, [r4, #0xc]
+0x0623C0: lsl     r0, sl, #1
+0x0623C4: add     r1, r1, sl, lsl #4
+0x0623C8: ldrh    r1, [r1, #2]
+0x0623CC: strh    r1, [r7, r0]
+0x0623D0: b       #0x20623dc
+0x0623D4: lsl     r0, sl, #1
+0x0623D8: strh    r5, [r7, r0]
+0x0623DC: lsl     r0, sl, #1
+0x0623E0: ldrh    r0, [r7, r0]
+0x0623E4: add     sl, sl, #1
+0x0623E8: cmp     sl, #0x27
+0x0623EC: add     r6, r6, r0
+0x0623F0: blt     #0x2062380
+0x0623F4: b       #0x2062524
+0x0623F8: bl      #0x2050c74  ; GetRank
+0x0623FC: mov     r8, r0
+0x062400: bl      #0x204cb94  ; GetScenarioBalance
+0x062404: ldr     r4, [pc, #0x138]
+0x062408: mov     sb, r0
+0x06240C: mov     sl, r6
+0x062410: mov     fp, #0x16
+0x062414: mov     r5, r6
+0x062418: ldr     r0, [r4, #0xc]
+0x06241C: add     r1, r0, sl, lsl #4
+0x062420: ldrb    r0, [r1, #8]
+0x062424: cmp     r8, r0
+0x062428: blo     #0x206246c
+0x06242C: ldrb    r0, [r1, #9]
+0x062430: cmp     sb, r0
+0x062434: blt     #0x206246c
+0x062438: ldrh    r0, [r1, #0xa]
+0x06243C: cmp     r0, #0
+0x062440: beq     #0x2062454
+0x062444: mov     r0, fp
+0x062448: bl      #0x204ca94  ; GetPerformanceFlagWithChecks
+0x06244C: cmp     r0, #0
+0x062450: beq     #0x206246c
+0x062454: ldr     r1, [r4, #0xc]
+0x062458: lsl     r0, sl, #1
+0x06245C: add     r1, r1, sl, lsl #4
+0x062460: ldrh    r1, [r1, #4]
+0x062464: strh    r1, [r7, r0]
+0x062468: b       #0x2062474
+0x06246C: lsl     r0, sl, #1
+0x062470: strh    r5, [r7, r0]
+0x062474: lsl     r0, sl, #1
+0x062478: ldrh    r0, [r7, r0]
+0x06247C: add     sl, sl, #1
+0x062480: cmp     sl, #0x27
+0x062484: add     r6, r6, r0
+0x062488: blt     #0x2062418
+0x06248C: b       #0x2062524
+
+// function from 0x62290, marker call @ 0x623B0
+0x062290: push    {r3, r4, r5, r6, r7, r8, sb, sl, fp, lr}
+0x062294: mov     r4, r0
+0x062298: mov     r0, #0x4e
+0x06229C: mov     r1, #0xf
+0x0622A0: mov     r6, #0
+0x0622A4: bl      #0x2001170  ; MemAlloc
+0x0622A8: mov     r7, r0
+0x0622AC: cmp     r4, #3
+0x0622B0: addls   pc, pc, r4, lsl #2
+0x0622B4: b       #0x2062524
+0x0622B8: b       #0x20622c8
+0x0622BC: b       #0x2062360
+0x0622C0: b       #0x20623f8
+0x0622C4: b       #0x2062490
+0x0622C8: bl      #0x2050c74  ; GetRank
+0x0622CC: mov     r8, r0
+0x0622D0: bl      #0x204cb94  ; GetScenarioBalance
+0x0622D4: ldr     r4, [pc, #0x268]
+0x0622D8: mov     sb, r0
+0x0622DC: mov     sl, r6
+0x0622E0: mov     fp, #0x16
+0x0622E4: mov     r5, r6
+0x0622E8: ldr     r0, [r4, #0xc]
+0x0622EC: add     r1, r0, sl, lsl #4
+0x0622F0: ldrb    r0, [r1, #8]
+0x0622F4: cmp     r8, r0
+0x0622F8: blo     #0x206233c
+0x0622FC: ldrb    r0, [r1, #9]
+0x062300: cmp     sb, r0
+0x062304: blt     #0x206233c
+0x062308: ldrh    r0, [r1, #0xa]
+0x06230C: cmp     r0, #0
+0x062310: beq     #0x2062324
+0x062314: mov     r0, fp
+0x062318: bl      #0x204ca94  ; GetPerformanceFlagWithChecks
+0x06231C: cmp     r0, #0
+0x062320: beq     #0x206233c
+0x062324: ldr     r1, [r4, #0xc]
+0x062328: lsl     r0, sl, #4
+0x06232C: ldrh    r1, [r1, r0]
+0x062330: lsl     r0, sl, #1
+0x062334: strh    r1, [r7, r0]
+0x062338: b       #0x2062344
+0x06233C: lsl     r0, sl, #1
+0x062340: strh    r5, [r7, r0]
+0x062344: lsl     r0, sl, #1
+0x062348: ldrh    r0, [r7, r0]
+0x06234C: add     sl, sl, #1
+0x062350: cmp     sl, #0x27
+0x062354: add     r6, r6, r0
+0x062358: blt     #0x20622e8
+0x06235C: b       #0x2062524
+0x062360: bl      #0x2050c74  ; GetRank
+0x062364: mov     r8, r0
+0x062368: bl      #0x204cb94  ; GetScenarioBalance
+0x06236C: ldr     r4, [pc, #0x1d0]
+0x062370: mov     sb, r0
+0x062374: mov     sl, r6
+0x062378: mov     fp, #0x16
+0x06237C: mov     r5, r6
+0x062380: ldr     r0, [r4, #0xc]
+0x062384: add     r1, r0, sl, lsl #4
+0x062388: ldrb    r0, [r1, #8]
+0x06238C: cmp     r8, r0
+0x062390: blo     #0x20623d4
+0x062394: ldrb    r0, [r1, #9]
+0x062398: cmp     sb, r0
+0x06239C: blt     #0x20623d4
+0x0623A0: ldrh    r0, [r1, #0xa]
+0x0623A4: cmp     r0, #0
+0x0623A8: beq     #0x20623bc
+0x0623AC: mov     r0, fp
+0x0623B0: bl      #0x204ca94 <-- CheckTeamMemberIdx  ; GetPerformanceFlagWithChecks
+0x0623B4: cmp     r0, #0
+0x0623B8: beq     #0x20623d4
+0x0623BC: ldr     r1, [r4, #0xc]
+0x0623C0: lsl     r0, sl, #1
+0x0623C4: add     r1, r1, sl, lsl #4
+0x0623C8: ldrh    r1, [r1, #2]
+0x0623CC: strh    r1, [r7, r0]
+0x0623D0: b       #0x20623dc
+0x0623D4: lsl     r0, sl, #1
+0x0623D8: strh    r5, [r7, r0]
+0x0623DC: lsl     r0, sl, #1
+0x0623E0: ldrh    r0, [r7, r0]
+0x0623E4: add     sl, sl, #1
+0x0623E8: cmp     sl, #0x27
+0x0623EC: add     r6, r6, r0
+0x0623F0: blt     #0x2062380
+0x0623F4: b       #0x2062524
+0x0623F8: bl      #0x2050c74  ; GetRank
+0x0623FC: mov     r8, r0
+0x062400: bl      #0x204cb94  ; GetScenarioBalance
+0x062404: ldr     r4, [pc, #0x138]
+0x062408: mov     sb, r0
+0x06240C: mov     sl, r6
+0x062410: mov     fp, #0x16
+0x062414: mov     r5, r6
+0x062418: ldr     r0, [r4, #0xc]
+0x06241C: add     r1, r0, sl, lsl #4
+0x062420: ldrb    r0, [r1, #8]
+0x062424: cmp     r8, r0
+0x062428: blo     #0x206246c
+0x06242C: ldrb    r0, [r1, #9]
+0x062430: cmp     sb, r0
+0x062434: blt     #0x206246c
+0x062438: ldrh    r0, [r1, #0xa]
+0x06243C: cmp     r0, #0
+0x062440: beq     #0x2062454
+0x062444: mov     r0, fp
+0x062448: bl      #0x204ca94  ; GetPerformanceFlagWithChecks
+0x06244C: cmp     r0, #0
+0x062450: beq     #0x206246c
+0x062454: ldr     r1, [r4, #0xc]
+0x062458: lsl     r0, sl, #1
+0x06245C: add     r1, r1, sl, lsl #4
+0x062460: ldrh    r1, [r1, #4]
+0x062464: strh    r1, [r7, r0]
+0x062468: b       #0x2062474
+0x06246C: lsl     r0, sl, #1
+0x062470: strh    r5, [r7, r0]
+0x062474: lsl     r0, sl, #1
+0x062478: ldrh    r0, [r7, r0]
+0x06247C: add     sl, sl, #1
+0x062480: cmp     sl, #0x27
+0x062484: add     r6, r6, r0
+0x062488: blt     #0x2062418
+0x06248C: b       #0x2062524
+
+// function from 0x62290, marker call @ 0x62448
+0x062290: push    {r3, r4, r5, r6, r7, r8, sb, sl, fp, lr}
+0x062294: mov     r4, r0
+0x062298: mov     r0, #0x4e
+0x06229C: mov     r1, #0xf
+0x0622A0: mov     r6, #0
+0x0622A4: bl      #0x2001170  ; MemAlloc
+0x0622A8: mov     r7, r0
+0x0622AC: cmp     r4, #3
+0x0622B0: addls   pc, pc, r4, lsl #2
+0x0622B4: b       #0x2062524
+0x0622B8: b       #0x20622c8
+0x0622BC: b       #0x2062360
+0x0622C0: b       #0x20623f8
+0x0622C4: b       #0x2062490
+0x0622C8: bl      #0x2050c74  ; GetRank
+0x0622CC: mov     r8, r0
+0x0622D0: bl      #0x204cb94  ; GetScenarioBalance
+0x0622D4: ldr     r4, [pc, #0x268]
+0x0622D8: mov     sb, r0
+0x0622DC: mov     sl, r6
+0x0622E0: mov     fp, #0x16
+0x0622E4: mov     r5, r6
+0x0622E8: ldr     r0, [r4, #0xc]
+0x0622EC: add     r1, r0, sl, lsl #4
+0x0622F0: ldrb    r0, [r1, #8]
+0x0622F4: cmp     r8, r0
+0x0622F8: blo     #0x206233c
+0x0622FC: ldrb    r0, [r1, #9]
+0x062300: cmp     sb, r0
+0x062304: blt     #0x206233c
+0x062308: ldrh    r0, [r1, #0xa]
+0x06230C: cmp     r0, #0
+0x062310: beq     #0x2062324
+0x062314: mov     r0, fp
+0x062318: bl      #0x204ca94  ; GetPerformanceFlagWithChecks
+0x06231C: cmp     r0, #0
+0x062320: beq     #0x206233c
+0x062324: ldr     r1, [r4, #0xc]
+0x062328: lsl     r0, sl, #4
+0x06232C: ldrh    r1, [r1, r0]
+0x062330: lsl     r0, sl, #1
+0x062334: strh    r1, [r7, r0]
+0x062338: b       #0x2062344
+0x06233C: lsl     r0, sl, #1
+0x062340: strh    r5, [r7, r0]
+0x062344: lsl     r0, sl, #1
+0x062348: ldrh    r0, [r7, r0]
+0x06234C: add     sl, sl, #1
+0x062350: cmp     sl, #0x27
+0x062354: add     r6, r6, r0
+0x062358: blt     #0x20622e8
+0x06235C: b       #0x2062524
+0x062360: bl      #0x2050c74  ; GetRank
+0x062364: mov     r8, r0
+0x062368: bl      #0x204cb94  ; GetScenarioBalance
+0x06236C: ldr     r4, [pc, #0x1d0]
+0x062370: mov     sb, r0
+0x062374: mov     sl, r6
+0x062378: mov     fp, #0x16
+0x06237C: mov     r5, r6
+0x062380: ldr     r0, [r4, #0xc]
+0x062384: add     r1, r0, sl, lsl #4
+0x062388: ldrb    r0, [r1, #8]
+0x06238C: cmp     r8, r0
+0x062390: blo     #0x20623d4
+0x062394: ldrb    r0, [r1, #9]
+0x062398: cmp     sb, r0
+0x06239C: blt     #0x20623d4
+0x0623A0: ldrh    r0, [r1, #0xa]
+0x0623A4: cmp     r0, #0
+0x0623A8: beq     #0x20623bc
+0x0623AC: mov     r0, fp
+0x0623B0: bl      #0x204ca94  ; GetPerformanceFlagWithChecks
+0x0623B4: cmp     r0, #0
+0x0623B8: beq     #0x20623d4
+0x0623BC: ldr     r1, [r4, #0xc]
+0x0623C0: lsl     r0, sl, #1
+0x0623C4: add     r1, r1, sl, lsl #4
+0x0623C8: ldrh    r1, [r1, #2]
+0x0623CC: strh    r1, [r7, r0]
+0x0623D0: b       #0x20623dc
+0x0623D4: lsl     r0, sl, #1
+0x0623D8: strh    r5, [r7, r0]
+0x0623DC: lsl     r0, sl, #1
+0x0623E0: ldrh    r0, [r7, r0]
+0x0623E4: add     sl, sl, #1
+0x0623E8: cmp     sl, #0x27
+0x0623EC: add     r6, r6, r0
+0x0623F0: blt     #0x2062380
+0x0623F4: b       #0x2062524
+0x0623F8: bl      #0x2050c74  ; GetRank
+0x0623FC: mov     r8, r0
+0x062400: bl      #0x204cb94  ; GetScenarioBalance
+0x062404: ldr     r4, [pc, #0x138]
+0x062408: mov     sb, r0
+0x06240C: mov     sl, r6
+0x062410: mov     fp, #0x16
+0x062414: mov     r5, r6
+0x062418: ldr     r0, [r4, #0xc]
+0x06241C: add     r1, r0, sl, lsl #4
+0x062420: ldrb    r0, [r1, #8]
+0x062424: cmp     r8, r0
+0x062428: blo     #0x206246c
+0x06242C: ldrb    r0, [r1, #9]
+0x062430: cmp     sb, r0
+0x062434: blt     #0x206246c
+0x062438: ldrh    r0, [r1, #0xa]
+0x06243C: cmp     r0, #0
+0x062440: beq     #0x2062454
+0x062444: mov     r0, fp
+0x062448: bl      #0x204ca94 <-- CheckTeamMemberIdx  ; GetPerformanceFlagWithChecks
+0x06244C: cmp     r0, #0
+0x062450: beq     #0x206246c
+0x062454: ldr     r1, [r4, #0xc]
+0x062458: lsl     r0, sl, #1
+0x06245C: add     r1, r1, sl, lsl #4
+0x062460: ldrh    r1, [r1, #4]
+0x062464: strh    r1, [r7, r0]
+0x062468: b       #0x2062474
+0x06246C: lsl     r0, sl, #1
+0x062470: strh    r5, [r7, r0]
+0x062474: lsl     r0, sl, #1
+0x062478: ldrh    r0, [r7, r0]
+0x06247C: add     sl, sl, #1
+0x062480: cmp     sl, #0x27
+0x062484: add     r6, r6, r0
+0x062488: blt     #0x2062418
+0x06248C: b       #0x2062524
+
+// function from 0x624E0, marker call @ 0x624E0
+0x0624E0: bl      #0x204ca94 <-- CheckTeamMemberIdx  ; GetPerformanceFlagWithChecks
+0x0624E4: cmp     r0, #0
+0x0624E8: beq     #0x2062504
+0x0624EC: ldr     r1, [r4, #0xc]
+0x0624F0: lsl     r0, sl, #1
+0x0624F4: add     r1, r1, sl, lsl #4
+0x0624F8: ldrh    r1, [r1, #6]
+0x0624FC: strh    r1, [r7, r0]
+0x062500: b       #0x206250c
+0x062504: lsl     r0, sl, #1
+0x062508: strh    r5, [r7, r0]
+0x06250C: lsl     r0, sl, #1
+0x062510: ldrh    r0, [r7, r0]
+0x062514: add     sl, sl, #1
+0x062518: cmp     sl, #0x27
+0x06251C: add     r6, r6, r0
+0x062520: blt     #0x20624b0
+0x062524: ldr     r0, [pc, #0x18]
+0x062528: cmp     r6, #0
+0x06252C: str     r6, [r0, #0x20]
+0x062530: str     r7, [r0, #0x1c]
+0x062534: movne   r0, #1
+0x062538: moveq   r0, #0
+0x06253C: and     r0, r0, #0xff
+0x062540: pop     {r3, r4, r5, r6, r7, r8, sb, sl, fp, pc}
+0x062544: andeq   r0, fp, #216, #20
+0x062548: push    {r3, lr}
+0x06254C: ldr     r0, [pc, #0x20]
+0x062550: ldr     r0, [r0, #0x1c]
+0x062554: cmp     r0, #0
+0x062558: popeq   {r3, pc}
+0x06255C: bl      #0x2001188  ; DoMoveBide
+0x062560: ldr     r0, [pc, #0xc]
+0x062564: mov     r1, #0
+0x062568: str     r1, [r0, #0x1c]
+0x06256C: str     r1, [r0, #0x20]
+0x062570: pop     {r3, pc}
+0x062574: andeq   r0, fp, #216, #20
+0x062578: push    {r4, lr}
+0x06257C: ldr     r2, [pc, #0x1e4]
+0x062580: mov     r1, #0x258
+0x062584: ldr     r0, [r2, #0x20]
+0x062588: ldr     r2, [r2, #0x1c]
+0x06258C: bl      #0x2062248
+0x062590: movs    r4, r0
+0x062594: bmi     #0x2062760
+0x062598: ldr     r0, [pc, #0x1c8]
+0x06259C: ldr     r0, [r0, #0xc]
+0x0625A0: add     r0, r0, r4, lsl #4
+0x0625A4: ldrh    r0, [r0, #0xc]
+0x0625A8: bl      #0x2002274  ; RandInt
+0x0625AC: ldr     r2, [pc, #0x1b4]
+0x0625B0: mov     r1, #0x22
+0x0625B4: ldr     r3, [r2, #0xc]
+0x0625B8: ldr     r2, [r2, #0x18]
+0x0625BC: add     r3, r3, r4, lsl #4
+0x0625C0: ldrh    r3, [r3, #0xe]
+0x0625C4: add     r0, r3, r0
+0x0625C8: mla     r4, r0, r1, r2
+0x0625CC: ldrb    r0, [r4, #0x20]
+0x0625D0: cmp     r0, #0xe
+0x0625D4: addls   pc, pc, r0, lsl #2
+0x0625D8: b       #0x2062750
+0x0625DC: b       #0x2062750
+0x0625E0: b       #0x2062750
+0x0625E4: b       #0x2062750
+0x0625E8: b       #0x2062660
+0x0625EC: b       #0x2062750
+0x0625F0: b       #0x2062750
+0x0625F4: b       #0x2062618
+0x0625F8: b       #0x2062750
+0x0625FC: b       #0x2062750
+0x062600: b       #0x2062750
+0x062604: b       #0x2062750
+0x062608: b       #0x2062684
+0x06260C: b       #0x2062750
+0x062610: b       #0x2062750
+0x062614: b       #0x20626f4
+0x062618: ldrb    r0, [r4, #0x21]
+0x06261C: cmp     r0, #2
+0x062620: bne     #0x2062638
+0x062624: mov     r0, #6
+0x062628: bl      #0x204ca94  ; GetPerformanceFlagWithChecks
+0x06262C: cmp     r0, #0
+0x062630: moveq   r0, #0
+0x062634: beq     #0x2062754
+0x062638: ldrb    r0, [r4, #0x21]
+0x06263C: cmp     r0, #4
+0x062640: bne     #0x2062750
+0x062644: ldrh    r0, [r4, #0xc]
+0x062648: and     r0, r0, #0xff
+0x06264C: bl      #0x2063394
+0x062650: cmp     r0, #0
+0x062654: beq     #0x2062750
+0x062658: mov     r0, #0
+0x06265C: b       #0x2062754
+0x062660: ldrb    r0, [r4, #0x21]
+0x062664: cmp     r0, #2
+
+// function from 0x62578, marker call @ 0x62628
+0x062578: push    {r4, lr}
+0x06257C: ldr     r2, [pc, #0x1e4]
+0x062580: mov     r1, #0x258
+0x062584: ldr     r0, [r2, #0x20]
+0x062588: ldr     r2, [r2, #0x1c]
+0x06258C: bl      #0x2062248
+0x062590: movs    r4, r0
+0x062594: bmi     #0x2062760
+0x062598: ldr     r0, [pc, #0x1c8]
+0x06259C: ldr     r0, [r0, #0xc]
+0x0625A0: add     r0, r0, r4, lsl #4
+0x0625A4: ldrh    r0, [r0, #0xc]
+0x0625A8: bl      #0x2002274  ; RandInt
+0x0625AC: ldr     r2, [pc, #0x1b4]
+0x0625B0: mov     r1, #0x22
+0x0625B4: ldr     r3, [r2, #0xc]
+0x0625B8: ldr     r2, [r2, #0x18]
+0x0625BC: add     r3, r3, r4, lsl #4
+0x0625C0: ldrh    r3, [r3, #0xe]
+0x0625C4: add     r0, r3, r0
+0x0625C8: mla     r4, r0, r1, r2
+0x0625CC: ldrb    r0, [r4, #0x20]
+0x0625D0: cmp     r0, #0xe
+0x0625D4: addls   pc, pc, r0, lsl #2
+0x0625D8: b       #0x2062750
+0x0625DC: b       #0x2062750
+0x0625E0: b       #0x2062750
+0x0625E4: b       #0x2062750
+0x0625E8: b       #0x2062660
+0x0625EC: b       #0x2062750
+0x0625F0: b       #0x2062750
+0x0625F4: b       #0x2062618
+0x0625F8: b       #0x2062750
+0x0625FC: b       #0x2062750
+0x062600: b       #0x2062750
+0x062604: b       #0x2062750
+0x062608: b       #0x2062684
+0x06260C: b       #0x2062750
+0x062610: b       #0x2062750
+0x062614: b       #0x20626f4
+0x062618: ldrb    r0, [r4, #0x21]
+0x06261C: cmp     r0, #2
+0x062620: bne     #0x2062638
+0x062624: mov     r0, #6
+0x062628: bl      #0x204ca94 <-- CheckTeamMemberIdx  ; GetPerformanceFlagWithChecks
+0x06262C: cmp     r0, #0
+0x062630: moveq   r0, #0
+0x062634: beq     #0x2062754
+0x062638: ldrb    r0, [r4, #0x21]
+0x06263C: cmp     r0, #4
+0x062640: bne     #0x2062750
+0x062644: ldrh    r0, [r4, #0xc]
+0x062648: and     r0, r0, #0xff
+0x06264C: bl      #0x2063394
+0x062650: cmp     r0, #0
+0x062654: beq     #0x2062750
+0x062658: mov     r0, #0
+0x06265C: b       #0x2062754
+0x062660: ldrb    r0, [r4, #0x21]
+0x062664: cmp     r0, #2
+0x062668: bne     #0x2062750
+0x06266C: mov     r0, #9
+0x062670: bl      #0x204ca94  ; GetPerformanceFlagWithChecks
+0x062674: cmp     r0, #0
+0x062678: bne     #0x2062750
+0x06267C: mov     r0, #0
+0x062680: b       #0x2062754
+0x062684: ldrb    r0, [r4, #0x21]
+0x062688: cmp     r0, #5
+0x06268C: addls   pc, pc, r0, lsl #2
+0x062690: b       #0x2062750
+0x062694: b       #0x2062750
+0x062698: b       #0x20626c0
+0x06269C: b       #0x20626c0
+0x0626A0: b       #0x20626c0
+0x0626A4: b       #0x20626c0
+0x0626A8: b       #0x20626ac
+0x0626AC: mov     r0, #0
+0x0626B0: bl      #0x204ca1c
+0x0626B4: cmp     r0, #0
+0x0626B8: moveq   r0, #0
+0x0626BC: beq     #0x2062754
+0x0626C0: ldrsh   r0, [r4, #0x12]
+0x0626C4: bl      #0x20558f4  ; GetFirstMatchingMemberIdx
+0x0626C8: mvn     r1, #0
+0x0626CC: cmp     r0, r1
+0x0626D0: movne   r0, #0
+0x0626D4: bne     #0x2062754
+0x0626D8: ldrb    r0, [r4, #0x20]
+0x0626DC: add     r1, r4, #0x21
+0x0626E0: bl      #0x205e2b8
+0x0626E4: cmp     r0, #0
+0x0626E8: beq     #0x2062750
+0x0626EC: mov     r0, #0
+0x0626F0: b       #0x2062754
+0x0626F4: ldrb    r0, [r4, #0x21]
+0x0626F8: cmp     r0, #1
+0x0626FC: bne     #0x2062750
+0x062700: ldrh    r0, [r4, #0xc]
+0x062704: bl      #0x23d5880
+0x062708: bl      #0x206a714  ; DungeonSwapIdToIdx
+0x06270C: bl      #0x204cf9c  ; GetDungeonMode
+0x062710: cmp     r0, #3
+0x062714: moveq   r0, #0
+0x062718: beq     #0x2062754
+0x06271C: ldrb    r0, [r4, #0x20]
+0x062720: add     r1, r4, #0x21
+0x062724: bl      #0x205e2b8
+0x062728: cmp     r0, #0
+0x06272C: beq     #0x2062750
+0x062730: ldrh    r0, [r4, #0xc]
+0x062734: mvn     r1, #0
+0x062738: mov     r2, #0
+0x06273C: and     r0, r0, #0xff
+0x062740: bl      #0x205e090
+0x062744: cmp     r0, #0
+0x062748: movne   r0, #0
+0x06274C: bne     #0x2062754
+0x062750: mov     r0, #1
+0x062754: cmp     r0, #0
+0x062758: movne   r0, r4
+0x06275C: popne   {r4, pc}
+0x062760: mov     r0, #0
+0x062764: pop     {r4, pc}
+0x062768: andeq   r0, fp, #216, #20
+0x06276C: push    {r4, r5, r6, r7, r8, lr}
+0x062770: ldr     r5, [pc, #0x78]
+0x062774: mov     ip, #0
+
+// function from 0x62578, marker call @ 0x62670
+0x062578: push    {r4, lr}
+0x06257C: ldr     r2, [pc, #0x1e4]
+0x062580: mov     r1, #0x258
+0x062584: ldr     r0, [r2, #0x20]
+0x062588: ldr     r2, [r2, #0x1c]
+0x06258C: bl      #0x2062248
+0x062590: movs    r4, r0
+0x062594: bmi     #0x2062760
+0x062598: ldr     r0, [pc, #0x1c8]
+0x06259C: ldr     r0, [r0, #0xc]
+0x0625A0: add     r0, r0, r4, lsl #4
+0x0625A4: ldrh    r0, [r0, #0xc]
+0x0625A8: bl      #0x2002274  ; RandInt
+0x0625AC: ldr     r2, [pc, #0x1b4]
+0x0625B0: mov     r1, #0x22
+0x0625B4: ldr     r3, [r2, #0xc]
+0x0625B8: ldr     r2, [r2, #0x18]
+0x0625BC: add     r3, r3, r4, lsl #4
+0x0625C0: ldrh    r3, [r3, #0xe]
+0x0625C4: add     r0, r3, r0
+0x0625C8: mla     r4, r0, r1, r2
+0x0625CC: ldrb    r0, [r4, #0x20]
+0x0625D0: cmp     r0, #0xe
+0x0625D4: addls   pc, pc, r0, lsl #2
+0x0625D8: b       #0x2062750
+0x0625DC: b       #0x2062750
+0x0625E0: b       #0x2062750
+0x0625E4: b       #0x2062750
+0x0625E8: b       #0x2062660
+0x0625EC: b       #0x2062750
+0x0625F0: b       #0x2062750
+0x0625F4: b       #0x2062618
+0x0625F8: b       #0x2062750
+0x0625FC: b       #0x2062750
+0x062600: b       #0x2062750
+0x062604: b       #0x2062750
+0x062608: b       #0x2062684
+0x06260C: b       #0x2062750
+0x062610: b       #0x2062750
+0x062614: b       #0x20626f4
+0x062618: ldrb    r0, [r4, #0x21]
+0x06261C: cmp     r0, #2
+0x062620: bne     #0x2062638
+0x062624: mov     r0, #6
+0x062628: bl      #0x204ca94  ; GetPerformanceFlagWithChecks
+0x06262C: cmp     r0, #0
+0x062630: moveq   r0, #0
+0x062634: beq     #0x2062754
+0x062638: ldrb    r0, [r4, #0x21]
+0x06263C: cmp     r0, #4
+0x062640: bne     #0x2062750
+0x062644: ldrh    r0, [r4, #0xc]
+0x062648: and     r0, r0, #0xff
+0x06264C: bl      #0x2063394
+0x062650: cmp     r0, #0
+0x062654: beq     #0x2062750
+0x062658: mov     r0, #0
+0x06265C: b       #0x2062754
+0x062660: ldrb    r0, [r4, #0x21]
+0x062664: cmp     r0, #2
+0x062668: bne     #0x2062750
+0x06266C: mov     r0, #9
+0x062670: bl      #0x204ca94 <-- CheckTeamMemberIdx  ; GetPerformanceFlagWithChecks
+0x062674: cmp     r0, #0
+0x062678: bne     #0x2062750
+0x06267C: mov     r0, #0
+0x062680: b       #0x2062754
+0x062684: ldrb    r0, [r4, #0x21]
+0x062688: cmp     r0, #5
+0x06268C: addls   pc, pc, r0, lsl #2
+0x062690: b       #0x2062750
+0x062694: b       #0x2062750
+0x062698: b       #0x20626c0
+0x06269C: b       #0x20626c0
+0x0626A0: b       #0x20626c0
+0x0626A4: b       #0x20626c0
+0x0626A8: b       #0x20626ac
+0x0626AC: mov     r0, #0
+0x0626B0: bl      #0x204ca1c
+0x0626B4: cmp     r0, #0
+0x0626B8: moveq   r0, #0
+0x0626BC: beq     #0x2062754
+0x0626C0: ldrsh   r0, [r4, #0x12]
+0x0626C4: bl      #0x20558f4  ; GetFirstMatchingMemberIdx
+0x0626C8: mvn     r1, #0
+0x0626CC: cmp     r0, r1
+0x0626D0: movne   r0, #0
+0x0626D4: bne     #0x2062754
+0x0626D8: ldrb    r0, [r4, #0x20]
+0x0626DC: add     r1, r4, #0x21
+0x0626E0: bl      #0x205e2b8
+0x0626E4: cmp     r0, #0
+0x0626E8: beq     #0x2062750
+0x0626EC: mov     r0, #0
+0x0626F0: b       #0x2062754
+0x0626F4: ldrb    r0, [r4, #0x21]
+0x0626F8: cmp     r0, #1
+0x0626FC: bne     #0x2062750
+0x062700: ldrh    r0, [r4, #0xc]
+0x062704: bl      #0x23d5880
+0x062708: bl      #0x206a714  ; DungeonSwapIdToIdx
+0x06270C: bl      #0x204cf9c  ; GetDungeonMode
+0x062710: cmp     r0, #3
+0x062714: moveq   r0, #0
+0x062718: beq     #0x2062754
+0x06271C: ldrb    r0, [r4, #0x20]
+0x062720: add     r1, r4, #0x21
+0x062724: bl      #0x205e2b8
+0x062728: cmp     r0, #0
+0x06272C: beq     #0x2062750
+0x062730: ldrh    r0, [r4, #0xc]
+0x062734: mvn     r1, #0
+0x062738: mov     r2, #0
+0x06273C: and     r0, r0, #0xff
+0x062740: bl      #0x205e090
+0x062744: cmp     r0, #0
+0x062748: movne   r0, #0
+0x06274C: bne     #0x2062754
+0x062750: mov     r0, #1
+0x062754: cmp     r0, #0
+0x062758: movne   r0, r4
+0x06275C: popne   {r4, pc}
+0x062760: mov     r0, #0
+0x062764: pop     {r4, pc}
+0x062768: andeq   r0, fp, #216, #20
+0x06276C: push    {r4, r5, r6, r7, r8, lr}
+0x062770: ldr     r5, [pc, #0x78]
+0x062774: mov     ip, #0
+
+// function from 0x62AE4, marker call @ 0x62AF0
+0x062AE4: push    {r4, lr}
+0x062AE8: mov     r4, r0
+0x062AEC: mov     r0, #9
+0x062AF0: bl      #0x204ca94 <-- CheckTeamMemberIdx  ; GetPerformanceFlagWithChecks
+0x062AF4: cmp     r0, #0
+0x062AF8: bne     #0x2062b58
+0x062AFC: mov     r2, #0
+0x062B00: ldr     r0, [pc, #0x58]
+0x062B04: b       #0x2062b18
+0x062B08: cmp     r4, r1
+0x062B0C: moveq   r0, #0
+0x062B10: popeq   {r4, pc}
+0x062B14: add     r2, r2, #1
+0x062B18: lsl     r1, r2, #1
+0x062B1C: ldrsh   r1, [r0, r1]
+0x062B20: cmp     r1, #0
+0x062B24: bne     #0x2062b08
+0x062B28: bl      #0x2055770  ; GetHero
+0x062B2C: ldrsh   r0, [r0, #4]
+0x062B30: bl      #0x2054be0  ; FemaleToMaleForm
+0x062B34: cmp     r4, r0
+0x062B38: moveq   r0, #0
+0x062B3C: popeq   {r4, pc}
+0x062B40: bl      #0x2055798  ; GetPartner
+0x062B44: ldrsh   r0, [r0, #4]
+0x062B48: bl      #0x2054be0  ; FemaleToMaleForm
+0x062B4C: cmp     r4, r0
+0x062B50: moveq   r0, #0
+0x062B54: popeq   {r4, pc}
+0x062B58: mov     r0, #1
+0x062B5C: pop     {r4, pc}
+0x062B60: andeq   r3, sl, #20, #26
+0x062B64: push    {r4, lr}
+0x062B68: mov     r4, r0
+0x062B6C: bl      #0x205476c  ; IsMonsterValid
+0x062B70: cmp     r0, #0
+0x062B74: moveq   r0, #1
+0x062B78: popeq   {r4, pc}
+0x062B7C: ldr     r0, [pc, #0x2c]
+0x062B80: cmp     r4, r0
+0x062B84: blt     #0x2062b90
+0x062B88: cmp     r4, #0x228
+0x062B8C: ble     #0x2062ba0
+0x062B90: cmp     r4, #0x180
+0x062B94: ldrne   r0, [pc, #0x18]
+0x062B98: cmpne   r4, r0
+0x062B9C: bne     #0x2062ba8
+0x062BA0: mov     r0, #1
+0x062BA4: pop     {r4, pc}
+0x062BA8: mov     r0, #0
+0x062BAC: pop     {r4, pc}
+0x062BB0: andeq   r0, r0, r7, lsl r2
+0x062BB4: andeq   r0, r0, r7, lsl r1
+0x062BB8: push    {r3, r4, r5, lr}
+0x062BBC: mov     r5, r0
+0x062BC0: bl      #0x206a714  ; DungeonSwapIdToIdx
+0x062BC4: cmp     r5, #0x36
+0x062BC8: mov     r4, r0
+0x062BCC: cmpne   r5, #0x68
+0x062BD0: moveq   r0, #0
+0x062BD4: popeq   {r3, r4, r5, pc}
+0x062BD8: cmp     r5, #0x7b
+0x062BDC: blo     #0x2062bec
+0x062BE0: cmp     r5, #0xa3
+0x062BE4: movls   r0, #0
+0x062BE8: popls   {r3, r4, r5, pc}
+0x062BEC: cmp     r5, #0xaf
+0x062BF0: movhs   r0, #0
+0x062BF4: pophs   {r3, r4, r5, pc}
+0x062BF8: add     r0, r5, #0xe8
+0x062BFC: and     r0, r0, #0xff
+0x062C00: cmp     r0, #1
+0x062C04: bhi     #0x2062c1c
+0x062C08: mov     r0, #9
+0x062C0C: bl      #0x204ca94  ; GetPerformanceFlagWithChecks
+0x062C10: cmp     r0, #0
+0x062C14: moveq   r0, #0
+0x062C18: popeq   {r3, r4, r5, pc}
+0x062C1C: mvn     r0, #0
+0x062C20: cmp     r4, r0
+0x062C24: beq     #0x2062c44
+0x062C28: cmp     r4, #0xb4
+0x062C2C: bge     #0x2062c44
+0x062C30: mov     r0, r4
+0x062C34: bl      #0x204cf9c  ; GetDungeonMode
+0x062C38: cmp     r0, #3
+0x062C3C: moveq   r0, #1
+0x062C40: popeq   {r3, r4, r5, pc}
+0x062C44: mov     r0, #0
+0x062C48: pop     {r3, r4, r5, pc}
+0x062C4C: push    {r4, r5, r6, r7, r8, sb, sl, fp, lr}
+0x062C50: sub     sp, sp, #0x14
+0x062C54: mov     sl, r0
+0x062C58: cmp     sl, #0
+0x062C5C: mov     sb, r1
+0x062C60: mov     r8, r2
+0x062C64: str     r3, [sp]
+0x062C68: movle   r0, #0
+0x062C6C: ble     #0x2062d38
+0x062C70: bl      #0x20022f8  ; RandIntSafe
+0x062C74: mov     r6, r0
+
+// function from 0x62BB8, marker call @ 0x62C0C
+0x062BB8: push    {r3, r4, r5, lr}
+0x062BBC: mov     r5, r0
+0x062BC0: bl      #0x206a714  ; DungeonSwapIdToIdx
+0x062BC4: cmp     r5, #0x36
+0x062BC8: mov     r4, r0
+0x062BCC: cmpne   r5, #0x68
+0x062BD0: moveq   r0, #0
+0x062BD4: popeq   {r3, r4, r5, pc}
+0x062BD8: cmp     r5, #0x7b
+0x062BDC: blo     #0x2062bec
+0x062BE0: cmp     r5, #0xa3
+0x062BE4: movls   r0, #0
+0x062BE8: popls   {r3, r4, r5, pc}
+0x062BEC: cmp     r5, #0xaf
+0x062BF0: movhs   r0, #0
+0x062BF4: pophs   {r3, r4, r5, pc}
+0x062BF8: add     r0, r5, #0xe8
+0x062BFC: and     r0, r0, #0xff
+0x062C00: cmp     r0, #1
+0x062C04: bhi     #0x2062c1c
+0x062C08: mov     r0, #9
+0x062C0C: bl      #0x204ca94 <-- CheckTeamMemberIdx  ; GetPerformanceFlagWithChecks
+0x062C10: cmp     r0, #0
+0x062C14: moveq   r0, #0
+0x062C18: popeq   {r3, r4, r5, pc}
+0x062C1C: mvn     r0, #0
+0x062C20: cmp     r4, r0
+0x062C24: beq     #0x2062c44
+0x062C28: cmp     r4, #0xb4
+0x062C2C: bge     #0x2062c44
+0x062C30: mov     r0, r4
+0x062C34: bl      #0x204cf9c  ; GetDungeonMode
+0x062C38: cmp     r0, #3
+0x062C3C: moveq   r0, #1
+0x062C40: popeq   {r3, r4, r5, pc}
+0x062C44: mov     r0, #0
+0x062C48: pop     {r3, r4, r5, pc}
+0x062C4C: push    {r4, r5, r6, r7, r8, sb, sl, fp, lr}
+0x062C50: sub     sp, sp, #0x14
+0x062C54: mov     sl, r0
+0x062C58: cmp     sl, #0
+0x062C5C: mov     sb, r1
+0x062C60: mov     r8, r2
+0x062C64: str     r3, [sp]
+0x062C68: movle   r0, #0
+0x062C6C: ble     #0x2062d38
+0x062C70: bl      #0x20022f8  ; RandIntSafe
+0x062C74: mov     r6, r0
+0x062C78: mov     fp, r6
+0x062C7C: ldrb    r4, [sb, r6]
+0x062C80: mov     r0, r4
+0x062C84: bl      #0x204f57c  ; GetNbFloors
+0x062C88: mov     r7, r0
+0x062C8C: cmp     r4, #0xae
+0x062C90: addne   r7, r7, #1
+0x062C94: add     r0, r7, r7, lsr #31
+0x062C98: asr     r0, r0, #1
+0x062C9C: mov     r1, r7
+0x062CA0: str     r0, [sp, #8]
+0x062CA4: bl      #0x2002318  ; RandRangeSafe
+0x062CA8: mov     r5, r0
+0x062CAC: str     r5, [sp, #4]
+0x062CB0: strb    r4, [sp, #0x10]
+0x062CB4: strb    r5, [sp, #0x11]
+0x062CB8: mov     r0, #1
+0x062CBC: str     r0, [sp, #0xc]
+0x062CC0: add     r0, sp, #0x10
+0x062CC4: bl      #0x2051568  ; IsForbiddenFloor
+0x062CC8: cmp     r0, #0
+0x062CCC: movne   r0, #0
+0x062CD0: strne   r0, [sp, #0xc]
+0x062CD4: ldr     r2, [sp]
+0x062CD8: mov     r0, r4
+0x062CDC: mov     r1, r5
+0x062CE0: bl      #0x205e090
+0x062CE4: cmp     r0, #0
+0x062CE8: movne   r0, #0
+0x062CEC: strne   r0, [sp, #0xc]
+0x062CF0: ldr     r0, [sp, #0xc]
+0x062CF4: cmp     r0, #0
+0x062CF8: strbne  r4, [r8]
+0x062CFC: strbne  r5, [r8, #1]
+0x062D00: movne   r0, #1
+0x062D04: bne     #0x2062d38
+0x062D08: add     r5, r5, #1
+0x062D0C: cmp     r5, r7
+0x062D10: ldrge   r5, [sp, #8]
+0x062D14: ldr     r0, [sp, #4]
+0x062D18: cmp     r5, r0
+0x062D1C: bne     #0x2062cb0
+0x062D20: add     r6, r6, #1
+0x062D24: cmp     r6, sl
+0x062D28: moveq   r6, #0
+0x062D2C: cmp     r6, fp
+0x062D30: bne     #0x2062c7c
+0x062D34: mov     r0, #0
+0x062D38: add     sp, sp, #0x14
+0x062D3C: pop     {r4, r5, r6, r7, r8, sb, sl, fp, pc}
+0x062D40: push    {r3, lr}
+0x062D44: bl      #0x204f7a8
+0x062D48: cmp     r0, #7
+0x062D4C: movle   r0, #1
+0x062D50: movgt   r0, #0
+0x062D54: and     r0, r0, #0xff
+0x062D58: pop     {r3, pc}
+0x062D5C: push    {r4, lr}
+0x062D60: mov     r4, r1
+0x062D64: bl      #0x204f7a8
+0x062D68: cmp     r4, #2
+0x062D6C: cmpne   r4, #3
+0x062D70: cmpne   r4, #4
+0x062D74: cmpne   r4, #5
+0x062D78: beq     #0x2062d8c
+0x062D7C: add     r1, r4, #0xf7
+0x062D80: and     r1, r1, #0xff
+0x062D84: cmp     r1, #1
+0x062D88: bhi     #0x2062d90
+0x062D8C: add     r0, r0, #1
+0x062D90: cmp     r0, #0xf
+
+// function from 0x67C8C, marker call @ 0x67D30
+0x067C8C: push    {r4, r5, r6, lr}
+0x067C90: sub     sp, sp, #0x60
+0x067C94: ldr     r0, [pc, #0x644]
+0x067C98: ldr     r6, [r0, #0x14]
+0x067C9C: bl      #0x2046bb4
+0x067CA0: mov     r0, #6
+0x067CA4: bl      #0x2017ccc  ; PlaySeVolumeWrapper
+0x067CA8: ldr     r0, [r6, #8]
+0x067CAC: add     r0, r6, r0, lsl #1
+0x067CB0: ldrsh   r0, [r0, #0xc]
+0x067CB4: lsl     r0, r0, #0x18
+0x067CB8: asr     r0, r0, #0x18
+0x067CBC: bl      #0x205f0d8  ; GetAcceptedMission
+0x067CC0: mov     r4, r0
+0x067CC4: ldrb    r0, [r4, #4]
+0x067CC8: bl      #0x206a714  ; DungeonSwapIdToIdx
+0x067CCC: mov     r5, r0
+0x067CD0: add     r0, sp, #8
+0x067CD4: str     r0, [sp]
+0x067CD8: ldrb    r0, [r4, #1]
+0x067CDC: add     r1, r4, #2
+0x067CE0: add     r2, sp, #4
+0x067CE4: add     r3, sp, #0xc
+0x067CE8: bl      #0x206276c
+0x067CEC: ldrb    r1, [r4, #1]
+0x067CF0: cmp     r1, #0xe
+0x067CF4: ldrbeq  r0, [r4, #2]
+0x067CF8: cmpeq   r0, #1
+0x067CFC: bne     #0x2067e70
+0x067D00: bl      #0x2050c74  ; GetRank
+0x067D04: ldrb    r1, [sp, #4]
+0x067D08: cmp     r1, r0
+0x067D0C: bhi     #0x2067d3c
+0x067D10: bl      #0x204cb94  ; GetScenarioBalance
+0x067D14: ldr     r1, [sp, #0xc]
+0x067D18: cmp     r1, r0
+0x067D1C: bgt     #0x2067d3c
+0x067D20: ldr     r0, [sp, #8]
+0x067D24: cmp     r0, #0
+0x067D28: beq     #0x2067d7c
+0x067D2C: mov     r0, #0x16
+0x067D30: bl      #0x204ca94 <-- CheckTeamMemberIdx  ; GetPerformanceFlagWithChecks
+0x067D34: cmp     r0, #0
+0x067D38: bne     #0x2067d7c
+0x067D3C: bl      #0x20692b4
+0x067D40: ldr     r0, [pc, #0x598]
+0x067D44: ldr     r0, [r0, #0x14]
+0x067D48: add     r0, r0, #0x2e4
+0x067D4C: add     r0, r0, #0xc00
+0x067D50: bl      #0x2047150
+0x067D54: ldr     r1, [pc, #0x588]
+0x067D58: mov     r0, #0x1c
+0x067D5C: mov     r2, #0
+0x067D60: bl      #0x2046be8
+0x067D64: ldr     r0, [pc, #0x574]
+0x067D68: mov     r2, #6
+0x067D6C: ldr     r1, [r0, #0x14]
+0x067D70: mov     r0, #0
+0x067D74: str     r2, [r1]
+0x067D78: b       #0x20682d8
+0x067D7C: mov     r0, r5
+0x067D80: bl      #0x204cf9c  ; GetDungeonMode
+0x067D84: cmp     r0, #3
+0x067D88: bne     #0x2067dcc
+0x067D8C: bl      #0x20692b4
+0x067D90: ldr     r0, [pc, #0x548]
+0x067D94: ldr     r0, [r0, #0x14]
+0x067D98: add     r0, r0, #0x2e4
+0x067D9C: add     r0, r0, #0xc00
+0x067DA0: bl      #0x2047150
+0x067DA4: ldr     r1, [pc, #0x53c]
+0x067DA8: mov     r0, #0x1c
+0x067DAC: mov     r2, #0
+0x067DB0: bl      #0x2046be8
+0x067DB4: ldr     r0, [pc, #0x524]
+0x067DB8: mov     r2, #6
+0x067DBC: ldr     r1, [r0, #0x14]
+0x067DC0: mov     r0, #0
+0x067DC4: str     r2, [r1]
+0x067DC8: b       #0x20682d8
+0x067DCC: ldrb    r0, [r4, #4]
+0x067DD0: mov     r4, #0
+0x067DD4: sub     r0, r0, #0x49
+0x067DD8: cmp     r0, #0xc
+0x067DDC: addls   pc, pc, r0, lsl #2
+0x067DE0: b       #0x2067e4c
+0x067DE4: b       #0x2067e30
+0x067DE8: b       #0x2067e4c
+0x067DEC: b       #0x2067e28
+0x067DF0: b       #0x2067e4c
+0x067DF4: b       #0x2067e18
+0x067DF8: b       #0x2067e4c
+0x067DFC: b       #0x2067e20
+0x067E00: b       #0x2067e4c
+0x067E04: b       #0x2067e38
+0x067E08: b       #0x2067e4c
+0x067E0C: b       #0x2067e48
+0x067E10: b       #0x2067e4c
+0x067E14: b       #0x2067e40
+0x067E18: mov     r4, #3
+0x067E1C: b       #0x2067e4c
+0x067E20: mov     r4, #4
+0x067E24: b       #0x2067e4c
+0x067E28: mov     r4, #5
+0x067E2C: b       #0x2067e4c
+0x067E30: mov     r4, #6
+0x067E34: b       #0x2067e4c
+0x067E38: mov     r4, #7
+0x067E3C: b       #0x2067e4c
+0x067E40: mov     r4, #8
+0x067E44: b       #0x2067e4c
+0x067E48: mov     r4, #9
+0x067E4C: ldr     r0, [r6, #8]
+0x067E50: add     r0, r6, r0, lsl #1
+0x067E54: ldrsh   r0, [r0, #0xc]
+0x067E58: lsl     r0, r0, #0x18
+0x067E5C: asr     r0, r0, #0x18
+0x067E60: bl      #0x205f588
+0x067E64: bl      #0x205f5a8
+0x067E68: mov     r0, r4
+0x067E6C: b       #0x20682d8
+0x067E70: cmp     r1, #3
+0x067E74: ldrbeq  r0, [r4, #2]
+0x067E78: cmpeq   r0, #3
+0x067E7C: bne     #0x2067fe0
+0x067E80: ldrb    r0, [r4, #4]
+0x067E84: bl      #0x2063394
+0x067E88: cmp     r0, #1
+
+// function from 0x68084, marker call @ 0x68084
+0x068084: bl      #0x204ca94 <-- CheckTeamMemberIdx  ; GetPerformanceFlagWithChecks
+0x068088: cmp     r0, #0
+0x06808C: bne     #0x20680d0
+0x068090: bl      #0x20692b4
+0x068094: ldr     r0, [pc, #0x244]
+0x068098: ldr     r0, [r0, #0x14]
+0x06809C: add     r0, r0, #0x2e4
+0x0680A0: add     r0, r0, #0xc00
+0x0680A4: bl      #0x2047150
+0x0680A8: ldr     r1, [pc, #0x244]
+0x0680AC: mov     r0, #0x1c
+0x0680B0: mov     r2, #0
+0x0680B4: bl      #0x2046be8
+0x0680B8: ldr     r0, [pc, #0x220]
+0x0680BC: mov     r2, #6
+0x0680C0: ldr     r1, [r0, #0x14]
+0x0680C4: mov     r0, #0
+0x0680C8: str     r2, [r1]
+0x0680CC: b       #0x20682d8
+0x0680D0: ldrb    r0, [r4, #2]
+0x0680D4: cmp     r0, #5
+0x0680D8: bne     #0x2068158
+0x0680DC: mov     r0, #0
+0x0680E0: bl      #0x204ca1c
+0x0680E4: cmp     r0, #0
+0x0680E8: bne     #0x206812c
+0x0680EC: bl      #0x20692b4
+0x0680F0: ldr     r0, [pc, #0x1e8]
+0x0680F4: ldr     r0, [r0, #0x14]
+0x0680F8: add     r0, r0, #0x2e4
+0x0680FC: add     r0, r0, #0xc00
+0x068100: bl      #0x2047150
+0x068104: ldr     r1, [pc, #0x1ec]
+0x068108: mov     r0, #0x1c
+0x06810C: mov     r2, #0
+0x068110: bl      #0x2046be8
+0x068114: ldr     r0, [pc, #0x1c4]
+0x068118: mov     r2, #6
+0x06811C: ldr     r1, [r0, #0x14]
+0x068120: mov     r0, #0
+0x068124: str     r2, [r1]
+0x068128: b       #0x20682d8
+0x06812C: mov     r0, r5
+0x068130: bl      #0x204cf9c  ; GetDungeonMode
+0x068134: cmp     r0, #3
+0x068138: beq     #0x2068158
+0x06813C: mov     r0, r5
+0x068140: mov     r1, #3
+0x068144: bl      #0x204d018
+0x068148: mov     r0, #5
+0x06814C: strb    r0, [r4]
+0x068150: mov     r0, #0x16
+0x068154: b       #0x20682d8
+0x068158: ldrb    r1, [r4, #1]
+0x06815C: cmp     r1, #6
+0x068160: ldrbeq  r0, [r4, #2]
+0x068164: cmpeq   r0, #4
+0x068168: bne     #0x2068260
+0x06816C: ldrb    r0, [r4, #4]
+0x068170: bl      #0x2063394
+0x068174: mov     r6, r0
+0x068178: bl      #0x2050c74  ; GetRank
+0x06817C: ldrb    r1, [sp, #4]
+0x068180: cmp     r1, r0
+0x068184: bhi     #0x20681bc
+0x068188: bl      #0x204cb94  ; GetScenarioBalance
+0x06818C: ldr     r1, [sp, #0xc]
+0x068190: cmp     r1, r0
+0x068194: bgt     #0x20681bc
+0x068198: ldr     r0, [sp, #8]
+0x06819C: cmp     r0, #0
+0x0681A0: beq     #0x20681b4
+0x0681A4: mov     r0, #0x16
+0x0681A8: bl      #0x204ca94  ; GetPerformanceFlagWithChecks
+0x0681AC: cmp     r0, #0
+0x0681B0: beq     #0x20681bc
+0x0681B4: cmp     r6, #1
+0x0681B8: bne     #0x20681fc
+0x0681BC: bl      #0x20692b4
+0x0681C0: ldr     r0, [pc, #0x118]
+0x0681C4: ldr     r0, [r0, #0x14]
+0x0681C8: add     r0, r0, #0x2e4
+0x0681CC: add     r0, r0, #0xc00
+0x0681D0: bl      #0x2047150
+0x0681D4: ldr     r1, [pc, #0x120]
+0x0681D8: mov     r0, #0x1c
+0x0681DC: mov     r2, #0
+0x0681E0: bl      #0x2046be8
+0x0681E4: ldr     r0, [pc, #0xf4]
+0x0681E8: mov     r2, #6
+0x0681EC: ldr     r1, [r0, #0x14]
+0x0681F0: mov     r0, #0
+0x0681F4: str     r2, [r1]
+0x0681F8: b       #0x20682d8
+0x0681FC: cmp     r6, #0
+0x068200: beq     #0x2068244
+0x068204: bl      #0x20692b4
+0x068208: ldr     r0, [pc, #0xd0]
+
+// function from 0x681A8, marker call @ 0x681A8
+0x0681A8: bl      #0x204ca94 <-- CheckTeamMemberIdx  ; GetPerformanceFlagWithChecks
+0x0681AC: cmp     r0, #0
+0x0681B0: beq     #0x20681bc
+0x0681B4: cmp     r6, #1
+0x0681B8: bne     #0x20681fc
+0x0681BC: bl      #0x20692b4
+0x0681C0: ldr     r0, [pc, #0x118]
+0x0681C4: ldr     r0, [r0, #0x14]
+0x0681C8: add     r0, r0, #0x2e4
+0x0681CC: add     r0, r0, #0xc00
+0x0681D0: bl      #0x2047150
+0x0681D4: ldr     r1, [pc, #0x120]
+0x0681D8: mov     r0, #0x1c
+0x0681DC: mov     r2, #0
+0x0681E0: bl      #0x2046be8
+0x0681E4: ldr     r0, [pc, #0xf4]
+0x0681E8: mov     r2, #6
+0x0681EC: ldr     r1, [r0, #0x14]
+0x0681F0: mov     r0, #0
+0x0681F4: str     r2, [r1]
+0x0681F8: b       #0x20682d8
+0x0681FC: cmp     r6, #0
+0x068200: beq     #0x2068244
+0x068204: bl      #0x20692b4
+0x068208: ldr     r0, [pc, #0xd0]
+0x06820C: ldr     r0, [r0, #0x14]
+0x068210: add     r0, r0, #0x2e4
+0x068214: add     r0, r0, #0xc00
+0x068218: bl      #0x2047150
+0x06821C: ldr     r1, [pc, #0xdc]
+0x068220: mov     r0, #0x1c
+0x068224: mov     r2, #0
+0x068228: bl      #0x2046be8
+0x06822C: ldr     r0, [pc, #0xac]
+0x068230: mov     r2, #6
+0x068234: ldr     r1, [r0, #0x14]
+0x068238: mov     r0, #0
+0x06823C: str     r2, [r1]
+0x068240: b       #0x20682d8
+0x068244: mov     r2, #5
+0x068248: mov     r0, r5
+0x06824C: mov     r1, #3
+0x068250: strb    r2, [r4]
+0x068254: bl      #0x204d018
+0x068258: mov     r0, #0xe
+0x06825C: b       #0x20682d8
+0x068260: cmp     r1, #0xc
+0x068264: beq     #0x20682b8
+0x068268: ldrb    r0, [r4, #4]
+0x06826C: bl      #0x2062bb8  ; CanDungeonBeUsedForMission
+0x068270: cmp     r0, #0
+0x068274: bne     #0x20682b8
+0x068278: bl      #0x20692b4
+0x06827C: ldr     r0, [pc, #0x5c]
+0x068280: ldr     r0, [r0, #0x14]
+0x068284: add     r0, r0, #0x2e4
+0x068288: add     r0, r0, #0xc00
+0x06828C: bl      #0x2047150
+0x068290: ldr     r1, [pc, #0x6c]
+0x068294: mov     r0, #0x1c
+0x068298: mov     r2, #0
+0x06829C: bl      #0x2046be8
+0x0682A0: ldr     r0, [pc, #0x38]
+0x0682A4: mov     r2, #6
+0x0682A8: ldr     r1, [r0, #0x14]
+0x0682AC: mov     r0, #0
+0x0682B0: str     r2, [r1]
+0x0682B4: b       #0x20682d8
+0x0682B8: mov     r0, #5
+0x0682BC: strb    r0, [r4]
+0x0682C0: bl      #0x20686f4
+0x0682C4: bl      #0x206937c
+0x0682C8: ldr     r1, [pc, #0x10]
+0x0682CC: mov     r0, #0
+0x0682D0: ldr     r1, [r1, #0x14]
+0x0682D4: str     r0, [r1]
+0x0682D8: add     sp, sp, #0x60
+0x0682DC: pop     {r4, r5, r6, pc}
+0x0682E0: andeq   r0, fp, #44, #22
+0x0682E4: andeq   r3, r0, pc, lsl r8
+0x0682E8: andeq   r3, r0, r0, lsr #16
+0x0682EC: andeq   r3, r0, r5, lsr #16
+0x0682F0: andeq   r3, r0, r1, lsr #16
+0x0682F4: andeq   r3, r0, r2, lsr #16
+0x0682F8: andeq   r3, r0, r3, lsr #16
+0x0682FC: andeq   r3, r0, r6, lsr #16
+0x068300: andeq   r3, r0, r7, lsr #16
+0x068304: andeq   r3, r0, r8, lsr #16
+0x068308: mvn     r2, #1
+0x06830C: cmp     r0, r2
+0x068310: moveq   r0, #8
+0x068314: bxeq    lr
+0x068318: sub     r1, r2, #1
+0x06831C: cmp     r0, r1
+0x068320: moveq   r0, #8
+0x068324: bxeq    lr
+0x068328: add     r1, r2, #1
+0x06832C: cmp     r0, r1

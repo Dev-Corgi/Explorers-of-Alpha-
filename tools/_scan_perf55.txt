@@ -1,0 +1,38 @@
+GetPerformanceFlagWithChecks off=0x4CA94 ram=0x204CA94
+Literal pool refs to perf fn ram addr: 1
+  pool@0x59B14 (base)
+    0x059ADC: beq     #0x2059b10
+    0x059ADE: b       #0x2059ffc
+    0x059AE0: strh    r0, [r1]
+    0x059AE2: pop.w   {r3, r4, r7, sl, ip, sp}
+    0x059AE6: lsls    r2, r1, #8
+    0x059AE8: stm     r0!, {r2}
+    0x059AEA: b       #0x205962c
+    0x059AEC: movs    r0, #7
+
+=== Tail functions referencing CheckTeamMemberIdx ===
+CheckTeamMemberIdx pool refs: 1
+
+-- pool near tail 0x24A408 --
+0x24A388: lsls    r4, r7, #2
+0x24A38A: b       #0x224a728
+0x24A38C: movs    r2, r1
+0x24A38E: b       #0x2249f3a
+0x24A390: movs    r1, r1
+0x24A392: b       #0x2249f30
+0x24A394: lsls    r6, r7, #3
+0x24A396: b       #0x224a742
+0x24A398: lsls    r0, r6, #6
+0x24A39A: b       #0x224a738
+0x24A39C: movs    r2, r3
+0x24A39E: b       #0x2249f4a
+0x24A3A0: movs    r4, r2
+0x24A3A2: b       #0x2249f40
+0x24A3A4: movs    r4, r3
+0x24A3A6: b       #0x2249f52
+0x24A3A8: movs    r6, r2
+0x24A3AA: b       #0x2249f48
+0x24A3AC: lsls    r0, r1, #1
+0x24A3AE: b       #0x2249f5a
+
+=== Tail thumb: ldrh [..,#0x34] occurrences (first 20) ===

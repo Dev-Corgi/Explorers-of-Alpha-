@@ -1,0 +1,93 @@
+[
+  {
+    "id": 55,
+    "name": "Mind Crush",
+    "old": 20,
+    "new": 80,
+    "reference": "Psyshock (SpDef-based Psychic)"
+  },
+  {
+    "id": 131,
+    "name": "Thunder Energy",
+    "old": 40,
+    "new": 150,
+    "reference": "Eruption / Dragon Energy (HP-scaled room)"
+  },
+  {
+    "id": 168,
+    "name": "Sparkly Wind",
+    "old": 6,
+    "new": 60,
+    "reference": "Silver Wind (room + omni-boost chance)"
+  },
+  {
+    "id": 193,
+    "name": "Tesla Cannon",
+    "old": 30,
+    "new": 120,
+    "reference": "Zap Cannon (LOS + paralysis)"
+  },
+  {
+    "id": 331,
+    "name": "Soul Eater",
+    "old": 13,
+    "new": 75,
+    "reference": "Giga Drain (HP drain)"
+  },
+  {
+    "id": 355,
+    "name": "regular attack",
+    "old": 1,
+    "new": 20,
+    "reference": "user-specified basic attack"
+  },
+  {
+    "id": 360,
+    "name": "Wide Slash",
+    "old": 20,
+    "new": 60,
+    "reference": "Brutal Swing (wide physical, no secondary)"
+  },
+  {
+    "id": 364,
+    "name": "Takeaway",
+    "old": 2,
+    "new": 40,
+    "reference": "user-specified (Mug Orb steal)"
+  },
+  {
+    "id": 366,
+    "name": "Bloop Slash",
+    "old": 60,
+    "new": 60,
+    "reference": "mid physical / Lob Orb 2-tile (unchanged)"
+  },
+  {
+    "id": 397,
+    "name": "Echo",
+    "old": 10,
+    "new": 80,
+    "reference": "Low Kick / size-scaled stand-in"
+  },
+  {
+    "id": 405,
+    "name": "projectile",
+    "old": 2,
+    "new": 40,
+    "reference": "user-specified thrown shell"
+  },
+  {
+    "id": 467,
+    "name": "Z-Move",
+    "old": 60,
+    "new": 100,
+    "reference": "Judgment (room typed shell)"
+  },
+  {
+    "id": 557,
+    "name": "Moon Slash",
+    "old": 13,
+    "new": 70,
+    "reference": "Night Slash / Psycho Cut (high crit)"
+  }
+]

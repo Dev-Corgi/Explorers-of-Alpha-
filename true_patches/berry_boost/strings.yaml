@@ -1,0 +1,58 @@
+# [LS:n] opens the glossary entry whose name is string n-2 (e.g. Sleep = 13556 -> [LS:13558]).
+detail_footer: "Select detail:[CLUM_SET:70][M:B4] or [M:B5]/View detail: [M:B2]"
+# Vanilla single-page item details put the footer after 8 newlines.
+detail_footer_newlines: 8
+# kanji.dat pixel widths. Wider lines wrap and push the footer out of the window.
+max_long_line_px: 184
+max_short_line_px: 142
+# Vanilla pages carry at most 4 [LS:] links (e.g. the Facade TM). A 5-link
+# page keeps the item detail window from closing.
+max_links_per_page: 4
+
+items:
+  - id: 82
+    blocks:
+      Item Short Descriptions: "Cures paralysis. [CS:E]Sp. Atk[CR] +2."
+      Item Long Descriptions: |
+        A food item that heals a [LS:13576]Paralysis[LE]
+        status condition. It also slightly fills
+        the Pokémon's [CS:E]Belly[CR]. It also sharply
+        raises [CS:E]Sp. Atk[CR] by 2 stages.
+  - id: 81
+    blocks:
+      Item Short Descriptions: "Cures poison. [CS:E]Def.[CR]/[CS:E]Sp. Def[CR] +2."
+      Item Long Descriptions: |
+        A food item that heals a [LS:13572]Poisoned[LE]
+        or [LS:13574]Badly Poisoned[LE] status condition.
+        It also slightly fills the Pokémon's
+        [CS:E]Belly[CR]. It also sharply raises [CS:E]Defense[CR]
+        and [CS:E]Sp. Def[CR] by 2 stages each.
+  - id: 78
+    blocks:
+      Item Short Descriptions: "Heals a burn. [CS:E]Attack[CR] +2."
+      Item Long Descriptions: |
+        A food item that heals a [LS:13570]Burn[LE] status
+        condition. It also slightly fills the
+        Pokémon's [CS:E]Belly[CR]. It also sharply raises
+        [CS:E]Attack[CR] by 2 stages.
+  - id: 90
+    blocks:
+      Item Short Descriptions: "Prevents sleep. [CS:E]Evasion[CR] +2."
+      Item Long Descriptions: |
+        A food item that gives [LS:13560]Sleepless[LE] status
+        to the user, preventing [LS:13558]Sleep[LE] and
+        [LS:13562]Nightmare[LE] as well as Napping and
+        Yawning status on the floor. It also
+        slightly fills the Pokémon's [CS:E]Belly[CR].
+        It also sharply raises [CS:E]evasiveness[CR]
+        by 2 stages.
+  - id: 344
+    blocks:
+      Item Short Descriptions: "Heals frostbite. [CS:E]Accuracy[CR] +2."
+      Item Long Descriptions: |
+        A food item that heals a [LS:13704]Frostbite[LE]
+        status condition. It also slightly fills
+        the Pokémon's [CS:E]Belly[CR]. It also sharply
+        raises [CS:E]accuracy[CR] by 2 stages and gives
+        the [LS:13702]Focus Energy[LE] status, which raises
+        the critical-hit rate.

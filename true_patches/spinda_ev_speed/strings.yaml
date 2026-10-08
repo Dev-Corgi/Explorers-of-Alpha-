@@ -1,0 +1,37 @@
+entries:
+  - id: 2387
+    text: "HP:[CLUM_SET:25][value:0:4]/[value:1:4]"
+  - id: 2388
+    text: "Atk:[CLUM_SET:45][CLUM_SET:80]Def:[CLUM_SET:120]"
+  - id: 2389
+    text: "SpA:[CLUM_SET:45][CLUM_SET:80]SpD:[CLUM_SET:120]"
+  - id: 2390
+    text: "[CLUM_SET:49][value:0:5]"
+  - id: 2391
+    text: "[CLUM_SET:49][CS:W][value:0:5][CR]"
+  - id: 2392
+    text: "[CLUM_SET:49][value:0:5]"
+  - id: 2393
+    text: "[CLUM_SET:49][CS:W][value:0:5][CR]"
+  - id: 2394
+    text: "[CLUM_SET:124][value:0:5] "
+  - id: 2395
+    text: "[CLUM_SET:124][CS:W][value:0:5][CR]"
+  - id: 2396
+    text: "[CLUM_SET:124][value:0:5] "
+  - id: 2397
+    text: "[CLUM_SET:124][CS:W][value:0:5][CR]"
+  - id: 19240
+    text: "[CLUM_SET:80](V[value:0:1])"
+  - id: 19241
+    text: "[CLUM_SET:52](V[value:0:1])"
+  - id: 19242
+    text: "[CLUM_SET:52](V[value:0:1])"
+  - id: 19243
+    text: "[CLUM_SET:127](V[value:0:1])"
+  - id: 19244
+    text: "[CLUM_SET:127](V[value:0:1])"
+  - id: 19245
+    text: "HP"
+  - id: 19246
+    text: "Speed"

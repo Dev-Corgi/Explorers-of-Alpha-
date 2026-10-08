@@ -1,0 +1,79 @@
+id: damage_formula
+version: 8
+region: US
+description: >
+  Main-series damage alignment bundle:
+  (1) CalcDamage base → ((2L/5+2)*P*A/D)/50+2 + vanilla Type/STAB/Crit/Random,
+  (2) waza_p Gen9 base powers (+ Alpha exclusive rebalance baked into JSON),
+  (3) power stars UI: ★/20 BP, ½★/10 BP (half = vanilla [M:R1] like IQ),
+  (4) Technician threshold 4→60,
+  (5) regular-attack effect: r3=P, multiplier 0.25,
+  (6) projectile post-CalcDamage multiplier 0.5→1.0,
+  (7) throwable ov10 BP table (Stick..Rare Fossil) + rocks use DealDamageProjectile,
+  (8) Blast Seed: fixed 25 → projectile power 80,
+  (9) DAMAGE_MULTIPLIER_1_5 restored 1.25 → 1.5 (normal critical hits, Sunny-Fire / Rain-Water),
+  (10) super-effective type matchup 1.4 → 1.5 (once per defending type; not-very stays ~0.7),
+  (11) Psywave power → (x+5)*(level/10), x = 1..10,
+  (12) Present powers 75/50/25 → 120/80/40 (heal branch unchanged),
+  (13) Magnitude index powers → 10, 30, 50, 70, 90, 110, 150,
+  (14) Natural Gift added powers ×10, except Plain/Golden/Reviser Seed = 70.
+  v5: Thrash/Outrage/Petal Dance/Raging Fury 120→50; Self-Destruct 120; Explosion 250→150.
+  v6: Thrash/Outrage/Petal Dance/Raging Fury 50→30.
+  v7: MATCHUP_SUPER_EFFECTIVE_MULTIPLIER 0x166 → 0x180.
+  v8: Psywave, Present, Magnitude, Natural Gift variable powers.
+  Does NOT include Z-Move runtime powers (z_move_v2).
+
+kind: damage_formula
+rom_profile: us_vanilla
+
+conflicts:
+  - waza_gen9_power
+  - power_stars_scale
+  - technician_threshold
+
+hooks:
+  - name: CalcDamageBaseFormula
+    symbol: CalcDamageBaseFormula
+    binary: ov29
+    vanilla_word: 0xE59D2090
+    chain: first
+    target_symbol: DamageFormula_MainSeriesBase
+
+cave:
+  binary: ov36
+  estimated_bytes: 384
+  alignment: 4
+  preferred: "0x1DB08"
+  base_label: DamageFormulaCodeAddress
+  export_symbols:
+    DamageFormula_BlastSeedByPower: 0x0
+
+asm:
+  entry: asm/main.asm
+
+components:
+  waza_gen9_power: true
+  powers_json: data/gen9_powers_by_move_id.json
+  waza_paths:
+    - BALANCE/waza_p.bin
+    - UTILITY/waza_p.bin
+    - BALANCE/waza_p2.bin
+    - UTILITY/waza_p2.bin
+  power_stars_scale: true
+  power_stars_asm: power_stars/main.asm
+  technician_threshold: true
+  technician_file_offset: 0x7ADC
+  technician_old: 4
+  technician_new: 60
+  regular_attack: true
+  projectile_mult: true
+  super_effective: true
+  throwable_ov10: true
+  throwable_json: data/throwable_ov10.json
+  rock_projectile_effects: true
+  variable_power: true
+
+verify:
+  - type: hooks_are_branch
+  - type: cave_nonempty
+    overlay: ov36

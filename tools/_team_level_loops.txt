@@ -1,0 +1,5 @@
+=== ARM9 party loops ===
+
+=== OV36 party loops ===
+
+=== ov36 cmp/mov with #0x37 or #55 ===

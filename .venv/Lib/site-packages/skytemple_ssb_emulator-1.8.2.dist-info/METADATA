@@ -1,0 +1,56 @@
+Metadata-Version: 2.2
+Name: skytemple-ssb-emulator
+Version: 1.8.2
+Summary: Emulator runtime and bindings for skytemple-ssb-debugger
+Author-email: "Marco \"Capypara\" Köpcke" <hello@capypara.de>
+License: GPL-3.0-or-later
+Project-URL: Homepage, https://skytemple.org
+Project-URL: Announcements, https://blog.skytemple.org
+Project-URL: Documentation, https://wiki.skytemple.org
+Project-URL: Repository, https://github.com/SkyTemple/skytemple-ssb-emulator.git
+Project-URL: Issues, https://github.com/SkyTemple/skytemple-ssb-emulator/issues
+Project-URL: Discord, https://discord.gg/skytemple
+Keywords: rom-hacking,game-modding,skytemple,gtk
+Classifier: Development Status :: 4 - Beta
+Classifier: Programming Language :: Python
+Classifier: License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Programming Language :: Python :: 3.13
+Requires-Python: >=3.10
+Description-Content-Type: text/x-rst
+License-File: LICENSE
+Requires-Dist: range-typed-integers>=1.0.0
+
+skytemple-ssb-emulator
+======================
+
+|build| |pypi-version| |pypi-downloads| |pypi-license| |pypi-pyversions| |discord|
+
+.. |build| image:: https://img.shields.io/github/actions/workflow/status/SkyTemple/skytemple-ssb-emulator/build-test-publish.yml
+    :target: https://pypi.org/project/skytemple-ssb-emulator/
+    :alt: Build Status
+
+.. |pypi-version| image:: https://img.shields.io/pypi/v/skytemple-ssb-emulator
+    :target: https://pypi.org/project/skytemple-ssb-emulator/
+    :alt: Version
+
+.. |pypi-downloads| image:: https://img.shields.io/pypi/dm/skytemple-ssb-emulator
+    :target: https://pypi.org/project/skytemple-ssb-emulator/
+    :alt: Downloads
+
+.. |pypi-license| image:: https://img.shields.io/pypi/l/skytemple-ssb-emulator
+    :alt: License (GPLv3)
+
+.. |pypi-pyversions| image:: https://img.shields.io/pypi/pyversions/skytemple-ssb-emulator
+    :alt: Supported Python versions
+
+.. |discord| image:: https://img.shields.io/discord/710190644152369162?label=Discord
+    :target: https://discord.gg/4e3X36f
+    :alt: Discord
+
+Emulator runtime and bindings for `skytemple-ssb-debugger`_.
+
+.. _SkyTemple Files: https://github.com/SkyTemple/skytemple-files
+.. _skytemple-ssb-debugger: https://github.com/SkyTemple/skytemple-ssb-debugger

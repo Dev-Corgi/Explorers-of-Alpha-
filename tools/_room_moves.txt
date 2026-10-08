@@ -1,0 +1,10 @@
+﻿python :   File "<string>", line 19
+위치 C:\Users\82106\AppData\Local\Temp\ps-script-989b9c7c-40d3-4cc1-9935-cc81eb0817db.ps1:86 문자:1
++ python -c "
++ ~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (  File "<string>", line 19:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+    print(f'{mid:4d}  {names.get(mid, " ?\)}')
+                                      ^
+SyntaxError: unterminated string literal (detected at line 19)

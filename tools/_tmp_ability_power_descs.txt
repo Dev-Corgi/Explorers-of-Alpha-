@@ -1,0 +1,301 @@
+ability-desc-like entries: 369
+clusters: [(33204, 33326, 123), (37998, 38247, 246)]
+
+##### CLUSTER 33204-33326 (123 entries) #####
+[33204] Stench: May terrify an attacking foe.
+[33206] Rain Dish: Boosts the Pokémon's natural HP healing when it is raining.
+[33207] Drizzle: Changes the weather to a rain condition.
+[33208] Arena Trap: Immobilizes any attacker except Flying-type and levitating foes.
+[33209] Intimidate: Reduces the Physical Attack power of attackers.
+[33210] Rock Head: Protects the Pokémon from the recoil damage of moves such as Take Down.
+[33212] Hyper Cutter: Prevents the Pokémon's Attack from being reduced.
+[33213] Shadow Tag: Immobilizes attackers.
+[33214] Speed Boost: Accelerates the Pokémon's Movement Speed.
+[33215] Royal Majesty: Halves damage taken by the Pokémon at full HP.
+[33216] Sturdy: At full HP, moves that would KO the Pokémon leave it with 1 HP. Blocks OHKO moves.
+[33219] Torrent: Boosts the power of the Pokémon's Water-type moves when its HP is low.
+[33220] Guts: Boosts the Pokémon's Attack when it has any status problems.
+[33221] Rough Skin: Inflicts damage on an attacker who lands a direct-contact attack.
+[33226] Magnet Pull: Immobilizes Steel-type attackers.
+[33227] Adaptate: Normal-type attacking moves become the user's second type and deal more damage.
+[33229] Overgrow: Boosts the power of the Pokémon's Grass-type moves when its HP is low.
+[33230] Swift Swim: Raises the number of moves the Pokémon attempts per turn when it is raining.
+[33231] Sand Stream: Changes the weather to a sandstorm condition.
+[33232] Sand Veil: Boosts the Pokémon's evasiveness during a sandstorm.
+[33235] Static: Paralyzes an attacker who lands a direct-contact attack.
+[33237] Huge Power: Occasionally boosts the Pokémon's Attack.
+[33242] Poison Point: Poisons an attacker who lands a direct-contact attack.
+[33243] Trace: Changes the Pokémon's ability to match that of an attacking foe.
+[33245] Truant: Attacking or using an Orb pauses the Pokémon, but damage taken is reduced while Paused.
+[33249] Illuminate: A wild Pokémon appears in dungeon if attacked.
+[33251] Hustle: Boosts the Pokémon's Attack but reduces its accuracy.
+[33252] Drought: Changes the weather to a sunny condition.
+[33253] LightningRod: Draws Electric-type moves to the Pokémon without harm and boosts Special Attack.
+[33254] CompoundEyes: Boosts the Pokémon's accuracy.
+[33255] Marvel Scale: Boosts the Pokémon's Defense when it has any status problems.
+[33256] Wonder Guard: Protects the Pokémon from all move damage except when super effective.
+[33259] Plus: Boosts the Pokémon's Special Attack when a Pokémon with the Minus ability is nearby.
+[33261] Liquid Ooze: Inflicts damage on a foe that tries to drain the Pokémon's HP with an attack.
+[33264] Effect Spore: Poisons, paralyzes, or causes sleep in attackers who land direct-contact attacks.
+[33265] Flame Body: Burns an attacker who lands a direct-contact attack.
+[33266] Minus: Boosts the Pokémon's Special Attack when a Pokémon with the Plus ability is nearby.
+[33270] Swarm: Boosts the power of the Pokémon's Bug-type moves when its HP is low.
+[33271] Cute Charm: Makes an attacker of the opposite gender who lands a direct attack infatuated.
+[33273] Blaze: Boosts the power of the Pokémon's Fire-type moves when its HP is low.
+[33275] Flash Fire: Lets Pokémon avoid damage of Fire-type attacks, then boosts its own Fire-type attacks.
+[33277] Chlorophyll: Raises the number of moves the Pokémon attempts per turn when it is sunny.
+[33278] Strong Jaws: Boosts the power the Pokémon uses for biting moves.
+[33281] Stall: Restricts from targeting distant foes (if not leader), and reduces damage taken.
+[33282] Anger Point: Boosts the Pokémon's Attack when the Pokémon suffers a critical hit.
+[33283] Tinted Lens: Boosts damage that the Pokémon inflicts with moves that are not very effective.
+[33284] Hydration: Helps the Pokémon recover from status problems when it is raining.
+[33285] Frisk:  Deals more damage if the foe holds an item, and shows if so with regular attack.
+[33286] Mold Breaker: Prevents the foe's ability from activating when the Pokémon attacks.
+[33288] Dry Skin: Weakens Pokémon in sun and to Fire-type moves; rain and Water-type moves heal HP.
+[33289] Anticipation: Deals massive damage with regular attack if the foe has Super-Effective moves.
+[33290] Scrappy: Increases the damage inflicted on Ghost types with Normal- and Fighting-type moves.
+[33293] Solar Power: Boosts Special Attack in sunny weather, though the Pokémon also loses HP.
+[33295] Reckless: Boosts the Pokémon's power with recoiling attacks but also raises self-inflicted damage.
+[33296] Sniper: Boosts the damage the Pokémon inflicts with critical hits.
+[33298] Heatproof: Halves the damage the Pokémon suffers from Fire-type attacks.
+[33299] Download: Boosts the Pokémon's Attack or Special Attack when it attacks.
+[33301] Tangled Feet: Boosts the Pokémon's evasiveness when it is confused or cross-eyed.
+[33302] Adaptability: Boosts the power of the Pokémon's moves that match its type.
+[33303] Technician: Boosts the damage the Pokémon inflicts with moves that have low attack power.
+[33304] Iron Fist: Boosts the power the Pokémon uses for punching moves.
+[33305] Motor Drive: Lets Pokémon avoid damage of Electric-type attacks, then boosts its Movement Speed.
+[33307] Rivalry: Boosts Pokémon's Attack when facing same gender and reduces it when not the same.
+[33308] Bad Dreams: Enables Pokémon to inflict damage on sleeping foes in the same room.
+[33310] Normalize: Changes the Pokémon moves into Normal-type and deals more damage with it.
+[33311] Blade Mastery: Boosts the power the Pokémon uses for slashing moves.
+[33312] Quick Feet: Boosts the Pokémon's Movement Speed when it has any status problems.
+[33313] Solid Guard: Reduces the damage that the Pokémon suffers from super-effective moves.
+[33314] Klutz: Deals more damage if holding an item but prevents it from activating.
+[33315] Steadfast: Boosts the Pokémon's Movement Speed when it is cross-eyed or cringing.
+[33316] Flower Gift: Boosts the team's Attack and Special Attack in sunny weather.
+[33317] Poison Heal: Enables the Pokémon to recover HP when poisoned rather than taking damage.
+[33318] Magic Guard: Protects the Pokémon from all damage except from direct attacks.
+[33319] Multitype: Enables Arceus' type-change with Trinity Star. Arceus also matches typing with the type of moves it uses. Increases damage inflicted by all of Arceus' moves.
+[33322] Snow Cloak: Boosts the Pokémon's evasiveness if it is hailing or snowing.
+[33324] Forewarn: Enables the Pokémon to evade attacks occasionally.
+[33325] Storm Drain: Draws Water-type moves to the Pokémon without harm and boosts Special Attack.
+[33326] Leaf Guard: Protects the Pokémon from status problems in sunny weather.
+
+##### CLUSTER 37998-38247 (246 entries) #####
+[37998] Stench: May terrify an attacking foe.
+[38000] Rain Dish: Boosts the Pokémon's natural HP healing when it is raining.
+[38001] Drizzle: Changes the weather to a rain condition.
+[38002] Arena Trap: Immobilizes any attacker except Flying-type and levitating foes.
+[38003] Intimidate: Reduces the Physical Attack power of attackers.
+[38004] Rock Head: Protects the Pokémon from the recoil damage of moves such as Take Down.
+[38006] Hyper Cutter: Prevents the Pokémon's Attack from being reduced.
+[38007] Shadow Tag: Immobilizes attackers.
+[38008] Speed Boost: Accelerates the Pokémon's Movement Speed.
+[38009] Royal Majesty: Halves damage taken by the Pokémon at full HP.
+[38010] Sturdy: At full HP, moves that would KO the Pokémon leave it with 1 HP. Blocks OHKO moves.
+[38013] Torrent: Boosts the power of the Pokémon's Water-type moves when in a pinch.
+[38014] Guts: Boosts the Pokémon's Attack when it has any status problems.
+[38015] Rough Skin: Inflicts damage on an attacker who lands a direct-contact attack.
+[38020] Magnet Pull: Immobilizes Steel-type attackers.
+[38021] Adaptate: Normal-type attacking moves become the user's second type and deal more damage.
+[38023] Overgrow: Boosts the power of the Pokémon's Grass-type moves when in a pinch.
+[38024] Swift Swim: Raises the number of moves the Pokémon attempts per turn when it is raining.
+[38025] Sand Stream: Changes the weather to a sandstorm condition.
+[38026] Sand Veil: Boosts the Pokémon's evasiveness during a sandstorm.
+[38029] Static: Paralyzes an attacker who lands a direct-contact attack.
+[38031] Huge Power: Occasionally boosts the Pokémon's Attack.
+[38036] Poison Point: Poisons an attacker who lands a direct-contact attack.
+[38037] Trace: Changes the Pokémon's ability to match that of an attacking foe.
+[38039] Truant: Attacking or using an Orb pauses the Pokémon, but damage taken is reduced while Paused.
+[38043] Illuminate: A wild Pokémon appears in dungeon if attacked.
+[38045] Hustle: Boosts the Pokémon's Physical Attacks but reduces its accuracy with them.
+[38046] Drought: Changes the weather to a sunny condition.
+[38047] LightningRod: Draws Electric-type moves to the Pokémon without harm and boosts Special Attack.
+[38048] CompoundEyes: Boosts the Pokémon's accuracy.
+[38049] Marvel Scale: Boosts the Pokémon's Defense when it has any status problems.
+[38050] Wonder Guard: Protects the Pokémon from all move damage except when super effective.
+[38053] Plus: Boosts the Pokémon's Special Attack when a Pokémon with the Minus ability is nearby.
+[38055] Liquid Ooze: Inflicts damage on a foe that tries to drain the Pokémon's HP with an attack.
+[38058] Effect Spore: Poisons, paralyzes, or causes sleep in attackers who land direct-contact attacks.
+[38059] Flame Body: Burns an attacker who lands a direct-contact attack.
+[38060] Minus: Boosts the Pokémon's Special Attack when a Pokémon with the Plus ability is nearby.
+[38062] Magma Armor: Protects the Pokémon from freezing and frostbite.
+[38064] Swarm: Boosts the power of the Pokémon's Bug-type moves moves when in a pinch.
+[38065] Cute Charm: Makes an attacker of the opposite gender who lands a direct attack infatuated.
+[38067] Blaze: Boosts the power of the Pokémon's Fire-type moves moves when in a pinch.
+[38069] Flash Fire: Lets Pokémon avoid damage of Fire-type attacks, then boosts its own Fire-type attacks.
+[38071] Chlorophyll: Raises the number of moves the Pokémon attempts per turn when it is sunny.
+[38072] Strong Jaws: Boosts the power the Pokémon uses for biting moves like Crunch.
+[38074] Ice Body: Frostbites an attacker who lands a direct contact attack.
+[38075] Stall: Restricts from targeting distant foes (if not leader), and reduces damage taken.
+[38076] Anger Point: Boosts the Pokémon's next Attack when it suffers a critical hit.
+[38077] Tinted Lens: Boosts damage that the Pokémon inflicts with moves that are not very effective.
+[38078] Hydration: Helps the Pokémon recover from status problems when it is raining.
+[38079] Frisk:  Deals more damage if the foe holds an item, and shows if so with regular attack.
+[38082] Dry Skin: Weakens Pokémon in sun and to Fire-type moves; rain and Water-type moves heal HP.
+[38083] Anticipation: Deals massive damage with regular attack if the foe has Super-Effective moves.
+[38084] Scrappy: Increases the damage inflicted on Ghost types with Normal- and Fighting-type moves.
+[38087] Solar Power: Boosts Special Attack in sunny weather, though the Pokémon also loses HP.
+[38089] Reckless: Boosts the Pokémon's power with recoiling attacks like Flare Blitz or Head Smash.
+[38090] Sniper: Boosts the damage the Pokémon inflicts with critical hits.
+[38092] Heatproof: Halves the damage the Pokémon suffers from Fire-type attacks.
+[38093] Download: Boosts the Pokémon's Attack or Special Attack when it attacks.
+[38095] Tangled Feet: Boosts the Pokémon's evasiveness when it is confused or cross-eyed.
+[38096] Adaptability: Boosts the power of the Pokémon's moves that match its type.
+[38097] Technician: Boosts the damage the Pokémon inflicts with moves with a power of  or lower.
+[38098] Iron Fist: Boosts the power the Pokémon uses for punching moves like Fire Punch.
+[38099] Motor Drive: Lets Pokémon avoid damage of Electric-type attacks, then boosts its Movement Speed.
+[38101] Rivalry: Boosts Pokémon's Attack when facing same gender and reduces it when not the same.
+[38102] Bad Dreams: Enables Pokémon to inflict damage on sleeping foes in the same room.
+[38104] Normalize: Changes the Pokémon moves into Normal-type and deals more damage with it.
+[38105] Sharpness: Boosts the power the Pokémon uses for slashing moves like Leaf Blade.
+[38106] Quick Feet: Boosts the Pokémon's Movement Speed when it has any status problems.
+[38107] Solid Guard: Reduces the damage that the Pokémon suffers from super-effective moves.
+[38108] Klutz: Deals more damage if holding an item but prevents it from activating.
+[38109] Steadfast: Boosts the Pokémon's Movement Speed when it is cross-eyed or cringing.
+[38110] Flower Gift: Boosts the team's Attack and Special Attack in sunny weather.
+[38111] Poison Heal: Enables the Pokémon to recover HP when poisoned rather than taking damage.
+[38112] Magic Guard: Protects the Pokémon from all damage except from direct attacks.
+[38113] Multitype: Enables Arceus' type-change with Trinity Star. Arceus also matches typing with the type of moves it uses. Increases damage inflicted by all of Arceus' moves.
+[38116] Snow Cloak: Boosts the Pokémon's evasiveness if it is hailing or snowing.
+[38118] Forewarn: Enables the Pokémon to evade attacks occasionally.
+[38119] Storm Drain: Draws Water-type moves to the Pokémon without harm and boosts Special Attack.
+[38120] Leaf Guard: Protects the Pokémon from status problems in sunny weather.
+[38123] Poison Touch: Adds a chance to poison a target when landing a direct-contact attack.
+[38124] Triage: Boosts the amount of HP that Absorb and other HP-draining moves restore.
+[38127] Overcoat: Protects the Pokémon from weather damage and powder moves like Spore.
+[38129] Sand Rush: Raises the number of moves the Pokémon attempts per turn under a Sandstorm.
+[38130] Analytic: Boosts the Pokémon's power with ranged moves like Ember or Shock Wave.
+[38135] Sand Force: Boosts Ground, Rock and Steel-type moves in sandstorm.
+[38136] Marvel Veil: Halves damage inflicted by Physical moves to the Pokémon.
+[38137] Wonder Veil: Halves damage inflicted by Special moves to the Pokémon.
+[38138] Bulletproof: Nullifies damage from projectiles and moves like Sludge Bomb or Energy Ball.
+[38139] Sky Pact: Raises the number of moves the Pokémon attempts per turn with Flying-type moves.
+[38140] Mega Launcher: Boosts the Pokémon's power with pulse or beam moves.
+[38141] Tough Claws: Powers up the Pokémon's in front moves like Tackle and Grass Knot.
+[38143] Unseen Fist: Physical moves used by the Pokémon bypass all screens and protections.
+[38145] Sound Waves: Boosts the Pokémon's power with sound moves like Hyper Voice.
+[38146] Cursed Body: May seal one of an enemy's known moves when it attacks.
+[38147] Defiant: Sharply raises the Pokémon's Attack when its stats are lowered.
+[38148] Competitive: Sharply raises  the Pokémon's Special Attack when its stats are lowered.
+[38149] Perish Body: May afflict attacking enemies with the Apocalypse status condition.
+[38150] Guiding Star: Boosts the Pokémon's party accuracy.
+[38153] Water Bubble: Protects from burns and doubles damage with Water-type moves.
+[38154] Overload: Charges up the Pokémon when it's hit by an attack.
+[38158] Sap Sipper: Lets Pokémon avoid damage of Grass-type attacks, then boosts its Attack.
+[38159] Sheer Force: Boosts the power of attacks with added effects, but removes the added effects.
+[38161] Friend Guard: Nearby allies take less damage from moves.
+[38164] Justified: Boosts Attack when hit by Dark-type attacks.
+[38169] Mummy: Changes the attacker's first ability with this one upon making contact.
+[38170] Teravolt: Moves can be used regardless of enemy Abilities. Boosts Electric-type attacks.
+[38171] Turboblaze: Moves can be used regardless of enemy Abilities. Boosts Fire-type attacks.
+[38173] Fairy Aura: Powers up each Pokémon's Fairy-type moves.
+[38174] Dark Aura: Powers up each Pokémon's Dark-type moves.
+[38175] Apex Aura: Reverses all Auras and boosts Ground-type moves.
+[38176] Power Construct: Changes Zygarde into Complete Form when its HP drop below half.
+[38177] Gooey: Slows down the attacker upon making contact.
+[38178] Grass Pelt: Deals more damage and takes less damage if the last move used is Grass-type.
+[38179] Magician: Steals an item when attacking another Pokémon.
+[38181] Parental Bond: When attacking, Kangaskhan's young will unleash an additional instance of attack.
+[38183] Battery: Raises power of  allies' special moves.
+[38184] Beast Boost: May raise its most proficient stat when it defeats an enemy.
+[38185] Toxic Chain: Adds a chance to badly poison a target when landing any attack.
+[38187] Disguise: Takes no damage from the first damaging move it takes each floor.
+[38191] Long Reach: Promotes all "Enemy in front" moves into "Line of Sight" moves
+[38194] Stakeout: Boosts the Pokémon's power with gap-closing moves like Double-Edge.
+[38195] Stamina: Raises its Defense upon taking direct damage.
+[38196] Electric Surge: Creates an Electric Terrain, which boosts Electric-type attacks.
+[38197] Psychic Surge: Creates a Psychic Terrain, which boosts Psychic-type attacks.
+[38198] Grassy Surge: Creates a Grassy Terrain, which boosts Grass-type attacks.
+[38199] Misty Surge: Creates a Misty Terrain, which weakens Dragon-type attacks.
+[38201] Shadow Shield: Halves damage taken and increases damage dealt by the Pokémon at full HP.
+[38202] Neuroforce: Boosts damage that the Pokémon inflicts with moves that are super effective.
+[38203] RKS System: Changes Silvally's type when it uses Multi-Attack.
+[38204] Schooling: The Pokémon is schooling when healthy, solo when in a pinch.
+[38205] Shields Down: Switches forms depending on its HP. Core Form: Deals and takes more damage. Meteor Form: Immune to all status conditions but moves slower.
+[38207] Steelworker: Boosts damage dealt by Steel-type moves.
+[38209] Water Compaction: Lets Pokémon avoid damage of Water-type attacks, then boosts Defense.
+[38210] Gorilla Tactics: Powers up all moves but gets afflicted with an Encore afterwards.
+[38212] Wind Power: Immune to all Wind moves, boosts Sp. Atk instead of taking damage.
+[38213] Wind Rider: Immune to all Wind moves, then boosts Atk instead of taking damage.
+[38214] Power Spot: Powers up each Pokémon's moves.
+[38216] Mind's Eye: Increases the damage inflicted on Ghost types with Normal- and Fighting-type moves.
+[38217] Rocky Payload: Boosts damage dealt by Rock-type moves.
+[38218] Well-Baked Body: Lets Pokémon avoid damage of Fire-type attacks, then boosts Defense.
+[38220] Defeatist: When in a pinch, the Pokémon does less damage.
+[38222] Innards Out: Causes the Pokémon to deal massive damage upon fainting.
+[38224] Dauntless Shield: Boosts Defense before being attacked.
+[38225] Intrepid Sword: Boosts Attack before attacking.
+[38226] Gulp Missile: Catches prey upon using Surf or Dive. Spits it when attacked.
+[38228] Sand Spit: Creates a sandstorm when hit by an attack, then raises defenses.
+[38232] Tablets of Ruin: Lowers Attack of all Pokémon without a Ruin ability.
+[38233] Vessel of Ruin: Lowers Special Attack of all Pokémon without a Ruin ability.
+[38235] Hadron Engine: Creates an Electric Terrain and boosts its Special Attack.
+[38236] Orichalcum Pulse: Changes the weather to a sunny condition and boosts its Attack.
+[38237] Anger Shell: Boosts all damages dealt when in a pinch.
+[38238] Ice Face: Switches forms depending on its condition. Ice Face: Immune to the first physical move it takes each floor, fully immune under Snow or Hail. Noice Face: Moves and attacks twice as fast as it usually does. Switches to Ice Face under Snow or Hail.
+[38239] Thermal Exchange: Immune to burns. Raises Attack when hit by a Fire-type move.
+[38241] Supreme Overlord: The more KOs there has been on the floor, the more damage it deals.
+[38242] Purifying Salt: Immune to all status conditions and resists Ghost-type moves.
+[38244] Commander: Boosts the ally Dondozo if this Ability is on the leader.
+[38245] Tera Overload: Effect varies depending on Terapagos form. Terastal: Resists all moves when at full HP. Stellar: Disables all floor conditions, Terrain and Weather alike.
+[38247] Omniscience: When attacking, changes into a favorable typing and deals more damage. When attacked, changes into a resistant typing and takes less damage. Immune to stat drops and critical hits.
+
+## occurrences of Strong Jaw
+[20712] Strong Jaws boosts the power of biting moves!
+[33154] Strong Jaws
+[33278] Strong Jaws: Boosts the power the Pokémon uses for biting moves.
+[37816] Strong Jaws
+[38072] Strong Jaws: Boosts the power the Pokémon uses for biting moves like Crunch.
+
+## occurrences of Strong Jaws
+[20712] Strong Jaws boosts the power of biting moves!
+[33154] Strong Jaws
+[33278] Strong Jaws: Boosts the power the Pokémon uses for biting moves.
+[37816] Strong Jaws
+[38072] Strong Jaws: Boosts the power the Pokémon uses for biting moves like Crunch.
+
+## occurrences of Blade Mastery
+[33311] Blade Mastery: Boosts the power the Pokémon uses for slashing moves.
+
+## occurrences of Sound Waves
+[20729] Sound Waves boosts the power of the move!
+[37889] Sound Waves
+[38145] Sound Waves: Boosts the Pokémon's power with sound moves like Hyper Voice.
+
+## occurrences of Marvel Veil
+[20715] Marvel Veil halves the power of physical moves!
+[37880] Marvel Veil
+[38136] Marvel Veil: Halves damage inflicted by Physical moves to the Pokémon.
+
+## occurrences of Wonder Veil
+[20716] Wonder Veil halves the power of special moves!
+[37881] Wonder Veil
+[38137] Wonder Veil: Halves damage inflicted by Special moves to the Pokémon.
+
+## occurrences of Royal Majesty
+[23154] Royal Majesty halved damage taken!
+[33091] Royal Majesty
+[33215] Royal Majesty: Halves damage taken by the Pokémon at full HP.
+[37753] Royal Majesty
+[38009] Royal Majesty: Halves damage taken by the Pokémon at full HP.
+
+## occurrences of Unseen Fist
+[37887] Unseen Fist
+[38143] Unseen Fist: Physical moves used by the Pokémon bypass all screens and protections.
+
+## occurrences of Shadow Shield
+[37945] Shadow Shield
+[38201] Shadow Shield: Halves damage taken and increases damage dealt by the Pokémon at full HP.
+
+## occurrences of Solid Guard
+[33189] Solid Guard
+[33313] Solid Guard: Reduces the damage that the Pokémon suffers from super-effective moves.
+[37851] Solid Guard
+[38107] Solid Guard: Reduces the damage that the Pokémon suffers from super-effective moves.
+
+## occurrences of Multitype
+[33195] Multitype
+[33319] Multitype: Enables Arceus' type-change with Trinity Star. Arceus also matches typing with the type of moves it uses. Increases damage inflicted by all of Arceus' moves.
+[37857] Multitype
+[38113] Multitype: Enables Arceus' type-change with Trinity Star. Arceus also matches typing with the type of moves it uses. Increases damage inflicted by all of Arceus' moves.

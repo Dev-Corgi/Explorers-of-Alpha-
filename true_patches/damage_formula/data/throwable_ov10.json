@@ -1,0 +1,14 @@
+[
+  {"name": "STICK_POWER", "file_offset": "0x7BA4", "value": 20},
+  {"name": "IRON_THORN_POWER", "file_offset": "0x7C68", "value": 40},
+  {"name": "SILVER_SPIKE_POWER", "file_offset": "0x7C64", "value": 60},
+  {"name": "CACNEA_SPIKE_POWER", "file_offset": "0x7C5C", "value": 80},
+  {"name": "CORSOLA_TWIG_POWER", "file_offset": "0x7C58", "value": 100},
+  {"name": "GOLD_FANG_POWER", "file_offset": "0x7C60", "value": 120},
+  {"name": "GOLD_THORN_POWER", "file_offset": "0x7A50", "value": 120},
+  {"name": "GEO_PEBBLE_POWER", "file_offset": "0x7C34", "value": 20},
+  {"name": "GRAVELEROCK_POWER", "file_offset": "0x7C38", "value": 40},
+  {"name": "RARE_FOSSIL_POWER", "file_offset": "0x7C3C", "value": 120},
+  {"name": "BLAST_SEED_DAMAGE_A", "file_offset": "0x7B54", "value": 80},
+  {"name": "BLAST_SEED_DAMAGE_B", "file_offset": "0x7B58", "value": 80}
+]

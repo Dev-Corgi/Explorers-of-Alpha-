@@ -1,0 +1,71 @@
+Metadata-Version: 2.1
+Name: skytemple-ssb-debugger
+Version: 1.8.3
+Summary: Script Engine Debugger for Pokémon Mystery Dungeon Explorers of Sky
+Author-email: "Marco \"Capypara\" Köpcke" <hello@capypara.de>
+License: GPL-3.0-or-later
+Project-URL: Homepage, https://skytemple.org
+Project-URL: Announcements, https://blog.skytemple.org
+Project-URL: Documentation, https://wiki.skytemple.org
+Project-URL: Repository, https://github.com/SkyTemple/skytemple-ssb-debugger.git
+Project-URL: Issues, https://github.com/SkyTemple/skytemple-ssb-debugger/issues
+Project-URL: Discord, https://discord.gg/skytemple
+Keywords: rom-hacking,game-modding,skytemple,gtk
+Classifier: Development Status :: 4 - Beta
+Classifier: Programming Language :: Python
+Classifier: License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Programming Language :: Python :: 3.13
+Requires-Python: >=3.10
+Description-Content-Type: text/x-rst
+License-File: LICENSE
+Requires-Dist: ndspy>=3.0.0
+Requires-Dist: skytemple-files<1.9.0,>=1.8.4
+Requires-Dist: pmdsky-debug-py
+Requires-Dist: skytemple-icons>=0.1.0
+Requires-Dist: range-typed-integers>=1.0.0
+Requires-Dist: pygobject>=3.26.0
+Requires-Dist: pycairo>=1.16.0
+Requires-Dist: skytemple-ssb-emulator<1.9.0,>=1.8.1
+Requires-Dist: explorerscript>=0.2.2
+Requires-Dist: nest-asyncio>=1.4.1
+Requires-Dist: pygtkspellcheck>=5.0
+
+|logo|
+
+SkyTemple Script Engine Debugger
+================================
+
+|build| |pypi-version| |pypi-downloads| |pypi-license| |pypi-pyversions| |discord|
+
+.. |logo| image:: https://raw.githubusercontent.com/SkyTemple/skytemple-ssb-debugger/master/skytemple_ssb_debugger/data/icons/hicolor/256x256/apps/skytemple-debugger.png
+
+.. |build| image:: https://img.shields.io/github/actions/workflow/status/SkyTemple/skytemple-ssb-debugger/build-test-publish.yml
+    :target: https://pypi.org/project/skytemple-ssb-debugger/
+    :alt: Build Status
+
+.. |pypi-version| image:: https://img.shields.io/pypi/v/skytemple-ssb-debugger
+    :target: https://pypi.org/project/skytemple-ssb-debugger/
+    :alt: Version
+
+.. |pypi-downloads| image:: https://img.shields.io/pypi/dm/skytemple-ssb-debugger
+    :target: https://pypi.org/project/skytemple-ssb-debugger/
+    :alt: Downloads
+
+.. |pypi-license| image:: https://img.shields.io/pypi/l/skytemple-ssb-debugger
+    :alt: License (GPLv3)
+
+.. |pypi-pyversions| image:: https://img.shields.io/pypi/pyversions/skytemple-ssb-debugger
+    :alt: Supported Python versions
+
+.. |discord| image:: https://img.shields.io/discord/710190644152369162?label=Discord
+    :target: https://discord.gg/skytemple
+    :alt: Discord
+
+Debugger and code editor for the Script Engine of Pokémon Mystery Dungeon Explorers of Sky.
+
+To run, you need GTK3 and GtkSourceView 4. Please see SkyTemple_ repository for more info.
+
+.. _SkyTemple: https://github.com/SkyTemple/skytemple

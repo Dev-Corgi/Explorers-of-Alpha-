@@ -1,0 +1,36 @@
+﻿files ['eu.py', 'eu_itcm.py', 'jp.py', 'jp_itcm.py', 'na.py', 'na_itcm.py', 'protocol.py', 'py.typed', '_release.py', '__init__.py', '__pycache__']
+triple-quote symbols 0
+total symbols matched 0
+syms with addrs 0
+
+Near targets:
+
+-- 0x02048ac4 --
+
+-- 0x02048b00 --
+
+-- 0x020529c4 --
+
+-- 0x02052d20 --
+
+-- 0x02054024 --
+
+-- 0x020544c8 --
+
+-- 0x020555a8 --
+
+-- 0x02055b78 --
+
+-- 0x02055bb8 --
+
+-- 0x022fd3b4 --
+
+-- 0x022fd50c --
+
+-- 0x022fe000 --
+
+-- 0x022fe048 --
+
+-- 0x022fe068 --
+
+Keyword hits:

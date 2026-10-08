@@ -1,0 +1,350 @@
+id: better_equipment
+version: 10
+region: US
+description: >
+  Held-item changes. No-Stick Cap, Pecha Scarf, Persim Band, Weather Band,
+  Insomniscope, Sneak Scarf, Trap Scarf, and Twist Band protect the whole
+  team when one member holds them. Twist Band also blocks Defense and
+  Special Defense drops. Ability Monitor stops the holder's abilities.
+  Power Band, Def. Band, Special Band, and Zinc Band raise Attack, Defense,
+  Special Attack, and Special Defense by 2 ranks while held, in place of the
+  flat stat bonus. The bonus is added on top of the damage-calc stage, so a
+  move rank already at +6 still counts as +8. Lens Scarf and Bright Ribbon
+  do the same for accuracy and evasion.
+  Munch Belt becomes Consistent Band: not-very-effective moves deal at least
+  neutral damage, and it no longer drains Belly faster.
+  Lockon Specs becomes Life Band (power x1.5, 10% max HP per attack).
+  Patsy Band becomes Expert Band (super-effective power x1.5).
+  Focus Scarf ignores type weaknesses when the holder takes damage:
+  each super-effective matchup against the holder counts as neutral.
+  Resistances are unchanged.
+  Curve Band becomes Z-Scarf (team Z-Gauge gain x2). Rhythm Scarf adds 25%
+  power per repeated attacking move, up to 2x.
+  Pierce Band becomes Distribute Band. A stat rank change on the holder
+  (Attack, Special Attack, Defense, Special Defense, accuracy, evasion)
+  is copied to every ally in the same room. Enemies copy it to enemies
+  in the room. If two or more on that side hold it, the effect stays off.
+  Names overwrite existing strings.
+  v8: Dropped the global entity-pointer RAM window. Eq_ItemIsActive was
+  leaving r0 as 0x023E0000 after that check and passing it to HasHeldItem.
+  Eq_Ability and Eq_SelfHolds now call IsMonster before HasHeldItem, matching
+  vanilla AbilityIsActive.
+  v9: Eq_BandStage defender check was moved off r9 after a wrong sb=r11
+  reading. That is the opposite of vanilla.
+  v10: Defender is r9 (mov r9, r1 at CalcDamage 0x0230BBCC). r11 is written
+  later as a stage multiplier, not an entity. Eq_ItemIsActive(r11) data-aborts
+  on melonDS.
+
+kind: asm
+rom_profile: us_vanilla
+
+hooks:
+  - name: ItemIsActive00
+    symbol: ItemIsActive_00
+    binary: ov29
+    vanilla_word: 0xE92D4038
+    chain: first
+    target_symbol: Eq_ItemIsActive
+  - name: ItemIsActive01
+    symbol: ItemIsActive_01
+    binary: ov29
+    vanilla_word: 0xE92D4038
+    chain: first
+    target_symbol: Eq_ItemIsActive
+  - name: ItemIsActive02
+    symbol: ItemIsActive_02
+    binary: ov29
+    vanilla_word: 0xE92D4038
+    chain: first
+    target_symbol: Eq_ItemIsActive
+  - name: ItemIsActive03
+    symbol: ItemIsActive_03
+    binary: ov29
+    vanilla_word: 0xE92D4038
+    chain: first
+    target_symbol: Eq_ItemIsActive
+  - name: ItemIsActive04
+    symbol: ItemIsActive_04
+    binary: ov29
+    vanilla_word: 0xE92D4038
+    chain: first
+    target_symbol: Eq_ItemIsActive
+  - name: ItemIsActive05
+    symbol: ItemIsActive_05
+    binary: ov29
+    vanilla_word: 0xE92D4038
+    chain: first
+    target_symbol: Eq_ItemIsActive
+  - name: ItemIsActive06
+    symbol: ItemIsActive_06
+    binary: ov29
+    vanilla_word: 0xE92D4038
+    chain: first
+    target_symbol: Eq_ItemIsActive
+  - name: ItemIsActive07
+    symbol: ItemIsActive_07
+    binary: ov29
+    vanilla_word: 0xE92D4038
+    chain: first
+    target_symbol: Eq_ItemIsActive
+  - name: ItemIsActive08
+    symbol: ItemIsActive_08
+    binary: ov29
+    vanilla_word: 0xE92D4038
+    chain: first
+    target_symbol: Eq_ItemIsActive
+  - name: ItemIsActive09
+    symbol: ItemIsActive_09
+    binary: ov29
+    vanilla_word: 0xE92D4038
+    chain: first
+    target_symbol: Eq_ItemIsActive
+  - name: ItemIsActive10
+    symbol: ItemIsActive_10
+    binary: ov29
+    vanilla_word: 0xE92D4038
+    chain: first
+    target_symbol: Eq_ItemIsActive
+  - name: ItemIsActive11
+    symbol: ItemIsActive_11
+    binary: ov29
+    vanilla_word: 0xE92D4038
+    chain: first
+    target_symbol: Eq_ItemIsActive
+  - name: ItemIsActive12
+    symbol: ItemIsActive_12
+    binary: ov29
+    vanilla_word: 0xE92D4038
+    chain: first
+    target_symbol: Eq_ItemIsActive
+  - name: AbilityIsActive
+    symbol: AbilityIsActive
+    binary: ov29
+    vanilla_word: 0xE92D4038
+    chain: first
+    target_symbol: Eq_Ability
+  - name: CalcDamageEntry
+    symbol: CalcDamageEntry
+    binary: ov29
+    vanilla_word: 0xE92D4FF8
+    chain: first
+    target_symbol: Eq_CalcDamage
+  - name: AccuracyStageLoad
+    symbol: AccuracyStageLoad
+    binary: ov29
+    vanilla_word: 0xE1D992FC
+    chain: first
+    target_symbol: Eq_Accuracy
+  - name: EvasionStageLoad
+    symbol: EvasionStageLoad
+    binary: ov29
+    vanilla_word: 0xE1D5A2FE
+    chain: first
+    target_symbol: Eq_Evasion
+  - name: WeatherBandCheck
+    symbol: WeatherBandCheck
+    binary: ov29
+    vanilla_word: 0xE3A0106F
+    chain: first
+    target_symbol: Eq_Weather
+  - name: TryInflictNightmare
+    symbol: TryInflictNightmare
+    binary: ov29
+    vanilla_word: 0xE92D41F8
+    chain: first
+    target_symbol: Eq_Nightmare
+  - name: TryInflictNapping
+    symbol: TryInflictNapping
+    binary: ov29
+    vanilla_word: 0xE92D41F8
+    chain: first
+    target_symbol: Eq_Napping
+  - name: TryInflictYawning
+    symbol: TryInflictYawning
+    binary: ov29
+    vanilla_word: 0xE92D4078
+    chain: first
+    target_symbol: Eq_Yawning
+  - name: LowerDefensiveContinue
+    symbol: LowerDefensiveContinue
+    binary: ov29
+    vanilla_word: 0xE1A05003
+    chain: first
+    target_symbol: Eq_DefDrop
+  - name: FocusMatchup
+    symbol: GetTypeMatchup
+    binary: ov29
+    vanilla_word: 0xE92D40F8
+    chain: first
+    target_symbol: Eq_FocusMatchup
+  - name: MoveExecuteEntry
+    symbol: MoveExecuteEntry
+    binary: ov29
+    vanilla_word: 0xE92D47F0
+    chain: first
+    target_symbol: Eq_MoveBegin
+  - name: DeepBreatherStep
+    symbol: DeepBreatherStep
+    binary: ov29
+    vanilla_word: 0xE2860001
+    chain: first
+    target_symbol: Eq_PpEntry
+  - name: WishRockyApplyDamage
+    symbol: ApplyDamage
+    binary: ov29
+    chain: append
+    prior_label: Eq_PriorApplyDamage
+    target_symbol: Eq_ApplyDamage
+  - name: BandStageLoad
+    symbol: BandStageLoad
+    binary: ov29
+    vanilla_word: 0xE59D0044
+    chain: first
+    target_symbol: Eq_BandStage
+  - name: ConsistentMatchup
+    symbol: GetTypeMatchupBothTypes
+    binary: ov29
+    vanilla_word: 0xE92D4FF8
+    chain: first
+    target_symbol: Eq_Matchup
+  - name: MunchBellyAdd
+    symbol: MunchBellyAdd
+    binary: ov29
+    vanilla_word: 0xE0877000
+    patched_word: 0xE1A00000
+    chain: first
+  - name: PowerBandFlatSkip
+    symbol: PowerBandFlatSkip
+    binary: ov29
+    vanilla_word: 0x0A000007
+    patched_word: 0xEA000007
+    chain: first
+  - name: DefBandFlatSkip
+    symbol: DefBandFlatSkip
+    binary: ov29
+    vanilla_word: 0x0A000007
+    patched_word: 0xEA000007
+    chain: first
+  - name: ZincBandFlatSkip
+    symbol: ZincBandFlatSkip
+    binary: ov29
+    vanilla_word: 0x0A000007
+    patched_word: 0xEA000007
+    chain: first
+  - name: SpecialBandFlatSkip
+    symbol: SpecialBandFlatSkip
+    binary: ov29
+    vanilla_word: 0x0A000007
+    patched_word: 0xEA000007
+    chain: first
+  - name: MunchPhysFlatSkip
+    symbol: MunchPhysFlatSkip
+    binary: ov29
+    vanilla_word: 0x0A000007
+    patched_word: 0xEA000007
+    chain: first
+  - name: MunchSpecFlatSkip
+    symbol: MunchSpecFlatSkip
+    binary: ov29
+    vanilla_word: 0x0A000007
+    patched_word: 0xEA000007
+    chain: first
+  - name: MunchAtkSummaryCheck
+    symbol: MunchAtkSummaryCheck
+    binary: arm9
+    vanilla_word: 0xE3500032
+    patched_word: 0xE3500801
+    chain: first
+  - name: MunchSpaSummaryCheck
+    symbol: MunchSpaSummaryCheck
+    binary: arm9
+    vanilla_word: 0xE3500032
+    patched_word: 0xE3500801
+    chain: first
+  - name: PowerBandSummaryCheck
+    symbol: PowerBandSummaryCheck
+    binary: arm9
+    vanilla_word: 0xE350001A
+    patched_word: 0xE3500801
+    chain: first
+  - name: SpecialBandSummaryCheck
+    symbol: SpecialBandSummaryCheck
+    binary: arm9
+    vanilla_word: 0xE3500028
+    patched_word: 0xE3500801
+    chain: first
+  - name: DefBandSummaryCheck
+    symbol: DefBandSummaryCheck
+    binary: arm9
+    vanilla_word: 0xE3500025
+    patched_word: 0xE3500801
+    chain: first
+  - name: ZincBandSummaryCheck
+    symbol: ZincBandSummaryCheck
+    binary: arm9
+    vanilla_word: 0xE3500029
+    patched_word: 0xE3500801
+    chain: first
+  - name: PierceThrown
+    symbol: PierceThrown
+    binary: ov29
+    vanilla_word: 0xE3A01016
+    patched_word: 0xE3A01000
+    chain: first
+  - name: DistLowerOff
+    symbol: LowerOffensiveStat
+    binary: ov29
+    vanilla_word: 0xE92D000F
+    chain: first
+    target_symbol: Eq_DistLowerOff
+  - name: DistLowerDef
+    symbol: LowerDefensiveStat
+    binary: ov29
+    vanilla_word: 0xE92D000F
+    chain: first
+    target_symbol: Eq_DistLowerDef
+  - name: DistBoostOff
+    symbol: BoostOffensiveStat
+    binary: ov29
+    vanilla_word: 0xE92D000F
+    chain: first
+    target_symbol: Eq_DistBoostOff
+  - name: DistBoostDef
+    symbol: BoostDefensiveStat
+    binary: ov29
+    vanilla_word: 0xE92D000F
+    chain: first
+    target_symbol: Eq_DistBoostDef
+  - name: DistBoostHit
+    symbol: BoostHitChanceStat
+    binary: ov29
+    vanilla_word: 0xE92D000F
+    chain: first
+    target_symbol: Eq_DistBoostHit
+  - name: DistLowerHit
+    symbol: LowerHitChanceStat
+    binary: ov29
+    vanilla_word: 0xE92D000F
+    chain: first
+    target_symbol: Eq_DistLowerHit
+
+cave:
+  binary: ov36
+  estimated_bytes: 5120
+  alignment: 4
+  base_label: BetterEquipmentCodeAddress
+  export_symbols:
+    Eq_ItemIsActive: 0x98
+
+link_z_gauge: true
+
+asm:
+  entry: asm/main.asm
+
+strings:
+  yaml: strings.yaml
+
+verify:
+  - type: hooks_are_branch
+  - type: cave_nonempty
+    overlay: ov36

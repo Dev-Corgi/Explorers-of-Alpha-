@@ -1,0 +1,248 @@
+id: z_move_v2
+version: 24
+region: US
+description: >
+  Z-Move v2 — move submenu, Z-Move (559) temp slot-3 shell, Z gauge (WRAM + HUD),
+  Z-Power messages. Normal-type power 360; other types power 180 + per-type secondary effects (ov36 cave).
+  Type follows the selected move. Mutually exclusive with z_move.
+  Custom strings: yaml 19100–19120 (avoid tm_read 19073–19076, orb 19082–19084).
+  Apply after room_charge_v3/v4, orb_charges_v2, berry_boost, tm_read.
+  v9: PriorIsRoomChargeMove/GetRoomChargeState never jump to Alpha zero padding.
+  v10: TryAppend only when gauge full + verify Add; requires tm_read v14 export fix.
+  v11: resolve ZMove_TryRestoreSlotForEntity after armips (stale 0x320 pointed into TryAppend;
+  tm_read PostValidateRestore called mid-menu code every turn → dungeon crash).
+  v12: ForceRestoreAll on LevelUp / RestorePp / TeachItem (clear deferral before learn UI / revive).
+  v13: Z-Move powers retuned for Gen9 BP scale — Normal 240, other types 120.
+  v14: Steel Z-Move ally buff — Reflect + Light Screen (was Magic Coat).
+  v24: DoMoveLightScreen pointed at Camouflage; now TryInflictLightScreenStatus.
+  v15: Zero Z-gauge when unionall coroutine 52 starts (save-prompt step),
+  not at GetDungeonResultMsg (story dungeons can skip the results window).
+  v16: Z-Move powers — Normal 360, other types 180.
+  v17: Executor is move 559 (Z-Move), not Judgement 467. CalcDamage types 467 as the user
+  and 559 as the Z type while a Z-Move is pending.
+  v18: Install move 559 as a Judgement copy (waza_p, dungeon waza_p2, name, animation).
+  Judgement's own name stays Judgement.
+  v19: Copy Judgement's 24-byte move-animation record onto move 559. The previous copy
+  wrote a different 10-byte table and left the VFX record empty.
+  v20: Clear the Z gauge on dungeon group first floor (group_floor == 1) via the ov29
+  RunDungeon entry hook instead of the save prompt (coroutine 52).
+  v21: Compute group_floor with DungeonFloorToGroupFloor at the entry hook; vanilla
+  has not written 0x74B yet (LoadMappa does that later).
+  v22: Clear the Z gauge when a dungeon-group outing ends (DungeonFree). Escape /
+  give-up / faint always count; a clear counts only on the last floor of the group.
+  v23: Read DUNGEON_PTR_MASTER (0x0235353C), the pointer DungeonFree itself
+  frees. The working DUNGEON_PTR is often already null on escape.
+
+kind: z_move
+rom_profile: us_vanilla
+
+optional_integrations:
+  - id: room_charge
+    note: "room_charge / room_charge_pending: PriorExecuteMoveEffectCall + IsRoomChargeMove exports."
+  - id: room_charge_pending
+    note: "Same chain as room_charge; apply before z_move so ExecuteMoveEffectHook chain=append works."
+  - id: room_charge_v3
+    note: >
+      No v1 IsRoomChargeMove export; Z-Move uses stub/tm_read. room_charge_v3 charge uses TWO_TURN,
+      not ExecuteMoveEffect wrapper chaining.
+  - id: tm_read
+    note: >
+      Apply tm_read before z_move_v2. GetSubMenuStringIdReadSite uses chain=append;
+      PriorSubMenuStringCheck / PriorCleanupTryRestore; PostValidateRestoreBl -> Z restore.
+
+hooks:
+  - name: ExecuteMonsterActionEpilogueCleanup2Return
+    symbol: ExecuteMonsterActionCleanup2Return
+    binary: ov29
+    vanilla_word: 0xE12FFF1E
+    chain: first
+    target_symbol: ZMove_Cleanup2Return
+
+  - name: GetSubMenuStringIdZMoveBranch
+    symbol: GetSubMenuStringIdReadSite
+    binary: ov29
+    vanilla_word: 0xE1A04001
+    chain: append
+    target_symbol: ZMove_GetSubMenuStringIdHook
+
+  - name: AllocTopScreenStatusRestore
+    symbol: AllocTopScreenStatus
+    binary: ov29
+    vanilla_word: 0xE92D4008
+    chain: first
+
+  - name: DungeonGroupEndZGauge
+    symbol: DungeonFree
+    binary: ov29
+    vanilla_word: 0xE92D4008
+    chain: append
+    prior_label: ZMove_PriorDungeonFree
+    vanilla_resume: 0x022DEAB4
+    target_symbol: ZMove_OnDungeonGroupEnd
+
+  - name: DealDamageBodyZGauge
+    symbol: DealDamageBody
+    binary: ov29
+    vanilla_word: 0xE24DD028
+    chain: first
+    target_symbol: ZMove_DealDamageBodyEntry
+
+  - name: ApplyDamageZGauge
+    symbol: ApplyDamage
+    binary: ov29
+    vanilla_word: 0xE92D4FF0
+    chain: first
+    target_symbol: ZMove_ApplyDamageHook
+
+  - name: HandleFaintZGauge
+    symbol: HandleFaint
+    binary: ov29
+    vanilla_word: 0xE92D4FF0
+    chain: first
+    target_symbol: ZMove_HandleFaintHook
+
+  - name: TeachItemHandlerRestoreSlots
+    symbol: TeachItemHandler
+    binary: ov29
+    vanilla_word: 0xE92D4FF8
+    chain: append
+    target_symbol: TeachItemHandler_EntryHook
+
+  - name: LevelUpForceRestoreSlots
+    symbol: LevelUp
+    binary: ov29
+    vanilla_word: 0xE92D4FF8
+    chain: append
+    target_symbol: ZMove_LevelUpForceRestore
+
+  - name: RestorePpForceRestoreSlots
+    symbol: RestorePpAllMovesSetFlags
+    binary: ov29
+    vanilla_word: 0xE92D41F0
+    chain: append
+    target_symbol: ZMove_RestorePpForceRestore
+
+  - name: FloorHudRestore
+    symbol: FloorHudAfterUpdateHook
+    binary: ov29
+    vanilla_word: 0xE28DD01C
+    chain: first
+
+  - name: BottomHudRestore
+    symbol: BottomHudAfterBellyHook
+    binary: ov29
+    vanilla_word: 0xE28DD0BC
+    chain: first
+
+  - name: GetMoveTypeForMonsterHook
+    symbol: GetMoveTypeForMonster
+    binary: ov29
+    vanilla_word: 0xE92D4038
+    chain: first
+    target_symbol: ZMove_GetMoveTypeForMonsterHook
+
+  - name: GetMovePowerHook
+    symbol: GetMovePower
+    binary: ov29
+    vanilla_word: 0xE92D4038
+    chain: first
+    target_symbol: ZMove_GetMovePowerHook
+
+  - name: IsRoomChargeMoveHook
+    symbol: IsRoomChargeMove
+    binary: ov29
+    vanilla_word: 0x00000000
+    chain: first
+    target_symbol: ZMove_IsRoomChargeMoveHook
+
+  - name: CalcDamageJudgmentTypeHook
+    symbol: CalcDamageJudgmentTypeHookSite
+    binary: ov29
+    vanilla_word: 0x05D6005E
+    chain: first
+    target_symbol: ZMove_CalcDamageJudgmentTypeHook
+
+  - name: ExecuteMoveEffectHook1
+    symbol: ExecuteMoveEffectHook1
+    binary: ov29
+    replace: bl
+    chain: append
+    target_symbol: ZMove_ExecuteMoveEffectWrapper
+
+  - name: ExecuteMoveEffectHook2
+    symbol: ExecuteMoveEffectHook2
+    binary: ov29
+    replace: bl
+    chain: append
+    target_symbol: ZMove_ExecuteMoveEffectWrapper
+
+  - name: UseItemBeforeUsedMoveMessageA
+    symbol: UseItemBeforeUsedMoveMessageHookSite
+    binary: ov29
+    vanilla_word: 0xE1A00006
+    chain: first
+    target_symbol: ZMove_BeforeUsedMoveMessage
+
+  - name: UseItemBeforeUsedMoveMessageB
+    symbol: UseItemBeforeUsedMoveMessageHookSiteB
+    binary: ov29
+    vanilla_word: 0xE1A00006
+    chain: first
+    target_symbol: ZMove_BeforeUsedMoveMessage
+
+  - name: UseItemBeforeUsedMoveMessageC
+    symbol: UseItemBeforeUsedMoveMessageHookSiteC
+    binary: ov29
+    vanilla_word: 0xE1A00006
+    chain: first
+    target_symbol: ZMove_BeforeUsedMoveMessage
+
+  - name: ZMoveMenuHook
+    symbol: ZMoveMenuHook
+    binary: ov31
+    vanilla_word: 0xEBFD97F6
+    chain: first
+    target_symbol: ZMove_Ov31MenuHook
+
+  - name: ZMoveMoveConfirmHook
+    symbol: ZMoveMoveConfirmHook
+    binary: ov31
+    vanilla_word: 0xEBFD9510
+    chain: first
+    target_symbol: ZMove_SetActionFieldDispatch
+
+  - name: DungeonMenuZGaugeHud
+    symbol: DungeonMenuBeforeMoneyHook
+    binary: ov31
+    vanilla_word: 0xEBF230FF
+    chain: first
+    target_symbol: ZMove_DrawThenGetMoney
+
+ov29_cave:
+  binary: ov36
+  base_label: ZMoveOv29CodeAddress
+  estimated_bytes: 8192
+  alignment: 4
+  export_symbols:
+    # Hint only — apply_z_move re-resolves by prologue after armips (do not trust alone).
+    ZMove_TryRestoreSlotForEntity: 0x390
+
+arm9_cave:
+  base_label: ZMoveArm9GaugeCave
+  estimated_bytes: 64
+  alignment: 4
+  max_file_offset: 0xB0000
+  forbidden:
+    - start: 0x94624
+      end: 0x94AE8
+
+asm:
+  dir: asm
+  entry: main.asm
+
+strings:
+  yaml: strings.yaml
+
+verify:
+  - type: z_move_hooks
+  - type: z_move_caves_nonempty

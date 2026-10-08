@@ -1,0 +1,259 @@
+id: base_stats_speed
+version: 41
+region: US
+description: >
+  v41: exclusive HP folding reads the monster effect bitmap through r7;
+  r4 has become the move-list pointer at ApplyExclusive's epilogue.
+  Phase 0: main-series base stats, evolution rate, CalcStat, and EvoRate.
+  Phase 1: MoveHitCheck uses the main-series rank ratio instead of the
+  21-step accuracy/evasion tables. stage = accuracy stage - evasion stage,
+  with 10 as neutral. No speed term. Sure-hit exits and the flat accuracy
+  adjustments stay. Lens Scarf and Bright Ribbon still add 2 to those stages
+  when better_equipment is applied, because they patch the loads before this.
+  Phase 11: one Accuracy roll (waza +0x0B). The second MoveHitCheck returns
+  hit. Main-series moves take Gen 9 Accuracy (always-hit = 125). Listed
+  ROM-only moves take data/rom_accuracy_overrides.json. The rest stay.
+  Phase 2: normal dungeon spawn and LevelUpBody write CalcStat(species, level,
+  doping=0). m_level gains are not the stat source. Alpha's Strong Enemy /
+  Helping Ally early-out stays. No UI and no speed term.
+  Phase 3: CalcDamage A/D (and Download's Def/SpD compare) read CalcStat,
+  not the monster uint8 fields. Stage multipliers stay. Exclusive-item
+  offense/defense amounts (monster +0x224/+0x226) enter CalcStat as volatile
+  r3 doping with the V byte; the post-CalcDamage exclusive flats are skipped
+  (resume at 0x0230C338). Band path unchanged.
+  Phase 4: the hit check multiplies the rank threshold by
+  (atkSpe/defSpe)^0.25. Spe comes from CalcStat. No Speed field and no UI.
+  Phase 5: EvolveMonster recomputes HP/Atk/Def/SpA/SpD with CalcStat for the
+  new species. The evo multiplier already applies to every species in
+  CalcStat (1.0 / 1.15 / 1.38). Doping stays a base add (0 on this path).
+  Phase 6: Strong Enemy and Helping Ally keep the table's level/exp path.
+  Strong Enemy HP is the Pokémon Stats table value by default. Helping Ally
+  HP is CalcStat. Combat A/D still use CalcStat. Strong Enemy table levels
+  are remapped so CalcStat Atk+Def+SpA+SpD at that level matches the table
+  combat-stat sum. Charmander-placeholder Strong Enemies (stats_entry 30
+  and fixed_room_id >= 200) use party-max level and HP = CalcStat×1.25
+  after ApplyFixedRoomStats (distinct from normal Strong Enemies). Same
+  Species ×3+ swarms (except FR41 / entry 30) and FR11/13/17/19/75 (except
+  listed bosses) rewrite table HP to CalcStat(species, table level); FR51
+  Deoxys entries 86-89 table HP = 500. Shared-entry HP conflicts defer to
+  balance_change append clones.
+  Guest table levels 3/5/7-12/17 are 15/55/70/60/62/60/60/65/15.
+  Special-episode PC levels 1/6/8/9 are 20/72/70/24.
+  Deep Star Cave 1F Strong Enemy Snover table level is 12. No UI.
+  Phase 7: remaining HP 999 clamps on the writer, ov29 MAX_HP_CAP pools,
+  three rsb #0x3E8 HP sites, and the arm9 ground/dungeon HP pools become
+  32767. No new design cap.
+  Phase 8: the team summary stats page prints CalcStat Atk/Def/SpA/SpD/Spe
+  (not the uint8 cache) and widens HP/stat digits to 5. Ground uses an
+  arm9 CalcStat copy. Combat formulas are unchanged. Exclusive boost bytes
+  fold into CalcStat r3 (vanilla amounts); no post-CalcStat flat add.
+  Ground exclusive HP uses CalcStat(V + vanilla excl) instead of
+  max = current + excl.
+  Phase 9: leftover writers stay documented; FULL_STACK after better_equipment
+  and before balance_change; README records the formula.
+  Phase 12: every BALANCE/UTILITY mappa_s/t/y Kecleon Level spawn entry is 100
+  (383/384/983/984).
+  Phase 10: save/team HP and the four uint8 fields are doping V. Spawn writes
+  V=0 on Atk/Def. Level-up and evolution keep V and recalc HP. Combat and
+  the summary pass that V as CalcStat r3. InitTeamMember writes CalcStat HP.
+  New-game/recruit V starts at 0. Dungeon TryRecruit zeros team +0x10
+  instead of copying summary max HP. Guest table HP/Atk/SpA/Def/SpD/unk3(Spe)
+  is CalcStat(V=0); dungeon uses those as the real stats. After InitMentry
+  HP copy, table Spe moves to Spe V. Guest doping adds to that stored
+  value. Dungeon→team sync does not overwrite HP/Spe V. Life Seed folds
+  into HP V. Spe V is the high byte of the HP word.
+  Stats page prints CalcStat only (string ids are table index + 1).
+  After ApplyExclusive, exclusive HP effects (0x4C/0x4D/0x4E) bake into
+  CalcStat r3 and rewrite +0x12; that amount is subtracted from +0x16 so
+  other max-HP flats remain. Required with spinda_ev_speed.
+  v35: Level-up Spe digits overwrite [string:1] in the format buffer. The
+  tag copies 16-bit units, so ASCII "0\\0" plus leftover bytes drew +0■ / +0&.
+  v37: exclusive → CalcStat r3 (table amounts); rear exclusive flats removed.
+  v38: EXCLUSIVE_ITEM_STAT_BOOST_DATA — type Silk/Dust classes 1-4 each
+  nonzero boost becomes 15; every remaining 3 becomes 5 (Pokémon exclusives).
+  v39: Charmander-placeholder Strong Enemy seats (entry 30, room >= 200)
+  set party-max level and rewrite HP to CalcStat×1.25.
+  v40: Same Species / FR11/13/17/19/75 Strong Enemy table HP → CalcStat;
+  FR51 Deoxys entries 86-89 HP = 500 (moved here from spinda_ev_speed).
+kind: asm
+rom_profile: us_vanilla
+
+prebuild:
+  - script: generate_tables.py
+
+data:
+  accuracies_json: data/gen9_accuracies_by_move_id.json
+  accuracy_overrides_json: data/rom_accuracy_overrides.json
+  waza_paths:
+    - BALANCE/waza_p.bin
+    - UTILITY/waza_p.bin
+    - BALANCE/waza_p2.bin
+    - UTILITY/waza_p2.bin
+
+hooks:
+  - name: MoveHitOnce
+    symbol: MoveHitCheck
+    binary: ov29
+    vanilla_word: 0xE92D4FF0
+    chain: first
+    target_symbol: BaseStats_HitOnce
+  - name: MoveHitRank
+    symbol: MoveHitRankApply
+    binary: ov29
+    vanilla_word: 0xE59F208C
+    chain: first
+    target_symbol: BaseStats_HitRank
+  - name: SpawnHp
+    symbol: SpawnHpResume
+    binary: ov29
+    vanilla_word: 0xEBF55188
+    chain: first
+    target_symbol: BaseStats_SpawnHp
+  - name: SpawnAtk
+    symbol: SpawnAtkResume
+    binary: ov29
+    vanilla_word: 0xEBF55195
+    chain: first
+    target_symbol: BaseStats_SpawnAtk
+  - name: SpawnDef
+    symbol: SpawnDefResume
+    binary: ov29
+    vanilla_word: 0xEBF55183
+    chain: first
+    target_symbol: BaseStats_SpawnDef
+  - name: LevelUpStats
+    symbol: LevelUpStatApply
+    binary: ov29
+    vanilla_word: 0xE1DD11B0
+    chain: first
+    target_symbol: BaseStats_LevelUp
+  - name: CalcDamageAD
+    symbol: CalcDamageStatLoad
+    binary: ov29
+    vanilla_word: 0xE286001A
+    chain: first
+    target_symbol: BaseStats_CombatAD
+  - name: CalcDamageDownload
+    symbol: CalcDamageDownloadLoad
+    binary: ov29
+    vanilla_word: 0xE5D7101C
+    chain: first
+    target_symbol: BaseStats_Download
+  - name: EvolveMonster
+    symbol: EvolveAfterInit
+    binary: ov29
+    vanilla_word: 0xE1A00007
+    chain: first
+    target_symbol: BaseStats_Evolve
+  - name: FixedRoomApply
+    symbol: FixedRoomAfterSpawn
+    binary: ov29
+    vanilla_word: 0xE3590006
+    chain: first
+    target_symbol: BaseStats_FixedApply
+  - name: SummaryStats
+    symbol: SummaryStatsAtkLoad
+    binary: arm9
+    vanilla_word: 0xE5D61034
+    chain: first
+    target_symbol: BaseStats_UiStats
+  - name: SummaryHpFill
+    symbol: SummaryHpFill
+    binary: arm9
+    vanilla_word: 0xE1D801F0
+    chain: first
+    target_symbol: BaseStats_UiHpFill
+  - name: InitTeamMemberHp
+    symbol: InitTeamMemberHpCopy
+    binary: ov29
+    vanilla_word: 0xE1D501F0
+    chain: first
+    target_symbol: BaseStats_InitHp
+  - name: DungeonSummaryLevel
+    symbol: DungeonSummaryLevel
+    binary: ov29
+    vanilla_word: 0xE5D5000A
+    chain: first
+    target_symbol: BaseStats_UiDungeonFill
+  - name: GroundInitV
+    symbol: GroundInitV
+    binary: arm9
+    vanilla_word: 0xEBFFFF03
+    chain: first
+    target_symbol: BaseStats_ZeroInitV
+  - name: GroundRefreshV
+    symbol: GroundRefreshV
+    binary: arm9
+    vanilla_word: 0xEBFFFE87
+    chain: first
+    target_symbol: BaseStats_ZeroRefreshV
+  - name: RecruitInitV
+    symbol: RecruitInitV
+    binary: arm9
+    vanilla_word: 0xEBFFF35D
+    chain: first
+    target_symbol: BaseStats_ZeroRecruitV
+  - name: GuestInitV
+    symbol: GuestInitV
+    binary: arm9
+    vanilla_word: 0xE1D411F0
+    chain: first
+    target_symbol: BaseStats_ZeroGuestV
+  - name: InitMentryHpStore
+    symbol: InitMentryHpStore
+    binary: arm9
+    vanilla_word: 0xE1C600BE
+    chain: first
+    target_symbol: BaseStats_GuestSpeAfterHp
+  - name: LevelUpSaveOld
+    symbol: LevelUpSaveOldLevel
+    binary: ov29
+    vanilla_word: 0xE5D7000A
+    chain: first
+    target_symbol: BaseStats_SaveOldLevel
+  - name: LevelUpDeltasExp
+    symbol: LevelUpDeltasExp
+    binary: ov29
+    vanilla_word: 0xE1D521F2
+    chain: first
+    target_symbol: BaseStats_DeltasExp
+  - name: LevelUpDeltasJoy
+    symbol: LevelUpDeltasJoy
+    binary: ov29
+    vanilla_word: 0xE1D921F2
+    chain: first
+    target_symbol: BaseStats_DeltasJoy
+  - name: LevelUpSpeDigit
+    symbol: LevelUpSpeDigit
+    binary: ov29
+    vanilla_word: 0xE5D50000
+    chain: first
+    target_symbol: BaseStats_SetSpeDigit
+  - name: TryIncreaseHpBoost
+    symbol: TryIncreaseHpBoost
+    binary: ov29
+    vanilla_word: 0xE1D911F2
+    chain: first
+    target_symbol: BaseStats_LifeSeed
+
+cave:
+  binary: ov36
+  estimated_bytes: 12288
+  alignment: 4
+  base_label: BaseStatsCodeAddress
+  export_symbols:
+    BaseStats_CalcStat: 0x0
+    BaseStats_EvoRate: 0x4
+
+asm:
+  entry: asm/main.asm
+
+strings:
+  yaml: strings.yaml
+
+verify:
+  - type: hooks_are_branch
+  - type: cave_nonempty
+    overlay: ov36
+
+notes: "Phases 0-12. FULL_STACK after better_equipment, before balance_change and before spinda_ev_speed. Save bytes are doping V; combat/UI pass them as CalcStat r3. Guests start at V=0 and use CalcStat like the hero and partner. Guest table levels 3/5/7-12/17 are 15/55/70/60/62/60/60/65/15. Special-episode PC levels 1/6/8/9 are 20/72/70/24. Strong Enemy table levels match CalcStat combat-stat sums; Deep Star Cave 1F Snover is 12. Every mappa Kecleon Level (BALANCE/UTILITY mappa_s/t/y, 383/384/983/984) is 100. Level-up Spe gain prints through string slot 1. One Accuracy roll; Gen 9 Accuracy on main-series moves. Mutually exclusive stack with spinda_ev_v2 — use spinda_ev_speed on this stack."

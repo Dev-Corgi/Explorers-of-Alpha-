@@ -1,0 +1,288 @@
+id: spinda_ev_speed
+version: 18
+region: US
+description: >
+  Spinda Cafe EV for the CalcStat stack. Save HP/Atk/SpA/Def/SpD/Spe bytes
+  are doping V (Drink + outing). Caps stay floor(level/10)*5 per stat and
+  floor(level/10)*13 total, now including Spe. Drink menu is
+  HP/Atk/SpA/Def/SpD/Spe/Reset. EvFillBoosts reads those bytes directly.
+  Snapshot restore writes the snapshot V back with no m_level add.
+  The team stats page does not print (Vn); it shows CalcStat only.
+  Drink Reset writes HP/Atk/SpA/Def/SpD/Spe V to 0. ExtraBits returns the
+  remaining gummi mask in r1 so vanilla Atk GroundAdd cannot clamp a zeroed
+  Atk V back to 1. HP/Spe drinks use GroundAddOffensiveStat on the cafe
+  HP/Spe V bytes (r8-2 / r8-1), not GroundAddMaxHp or GetTeamMember-only
+  writes. GroundAddMaxHp treats HP+Spe as one s16 and clamps to 999.
+  Stat-select remaps 1..7 to Drink (4) and preserves cafe state r8.
+  HP and Spe drinks use the same rose-by-delta cafe line as the other stats.
+  Move-info Accuracy uses stars: 1 full star per 10 Accuracy, leftover
+  remainder is a half star. Always Hit is not used for a numeric Accuracy,
+  including 125. Z-Move (shell 559) skips the rank/Spe accuracy roll and
+  always hits; Protect and the earlier MoveHitCheck exits still apply.
+  Floor Gravity multiplies Accuracy by 5/3 on that same rank/Spe roll.
+  Outing-end restore reads DUNGEON_PTR_MASTER (the pointer DungeonFree
+  frees). The working DUNGEON_PTR is often already null on escape.
+  Mid-outing NoteSave peels live V aside, writes the first-floor snapshot
+  V into the save stream, then restores live V in RAM so outing vitamins
+  do not pollute the save file. Snapshot itself stays RAM-only.
+  Exclusive-item Atk/SpA/Def/SpD/HP boosts (vanilla amounts) enter CalcStat
+  as volatile r3 doping via base_stats_speed; save V bytes are unchanged and
+  post-CalcDamage / post-summary exclusive flats are removed there.
+  Always apply after base_stats_speed. Charmander-placeholder SE seats,
+  Same Species / listed-FR CalcStat HP, and FR51 Deoxys HP live in
+  base_stats_speed (v39+ / v40+), not here. v18: SE table HP patches
+  removed from this module (moved to base_stats_speed). Mutually
+  exclusive with spinda_ev and spinda_ev_v2.
+
+kind: spinda_ev
+rom_profile: us_vanilla
+
+optional_integrations:
+  - id: room_charge_v3
+    note: "No hook/cave overlap. ov29 cave chain ends before spinda's single summary hook."
+  - id: orb_charges_v2
+    note: "No overlap (ov29 + item data only)."
+  - id: berry_boost
+    note: "No overlap (dungeon item_cd vs cafe drink path)."
+  - id: tm_read
+    note: "No overlap (ov29/ov31 TM menu vs ov19 cafe + arm9 summary)."
+  - id: z_move_v2
+    note: >
+      Apply z_move_v2 first. ARM9 gauge cave @ file 0xAF2C0 (64 B) must stay reserved;
+      spinda reset cave max ends at 0xAF490. State reservation + manifest forbidden cover this.
+      MoveHitRankApply chain=append after base_stats_speed so Z-Move (559) never misses
+      and floor Gravity multiplies Accuracy by 5/3.
+
+hooks:
+  - name: CreateMonsterSummarySaveHook
+    symbol: CreateMonsterSummarySaveHook
+    binary: arm9
+    vanilla_word: 0xE1A08001
+    chain: first
+    target_symbol: SummarySaveTeamMemberHook
+
+  - name: CreateMonsterSummaryFromMonsterBody
+    symbol: CreateMonsterSummaryFromMonsterBody
+    binary: ov29
+    vanilla_word: 0xE1A06001
+    chain: first
+    target_symbol: SummarySaveFromMonsterHook
+
+  - name: ZMoveNeverMiss
+    symbol: MoveHitRankApply
+    binary: ov29
+    chain: append
+    prior_label: SpindaEv_PriorMoveHitRank
+    target_symbol: SpindaEv_ZMoveNeverMiss
+
+  - name: SummarySuffixHookHp
+    symbol: SummarySuffixHookHp
+    binary: arm9
+    replace: bl
+    chain: first
+    target_symbol: SummarySuffixAfterLayHp
+
+  - name: SummarySuffixHookAtkBoost
+    symbol: SummarySuffixHookAtkBoost
+    binary: arm9
+    replace: bl
+    chain: first
+
+  - name: SummarySuffixHookSpaBoost
+    symbol: SummarySuffixHookSpaBoost
+    binary: arm9
+    replace: bl
+    chain: first
+
+  - name: SummarySuffixHookSpaNorm
+    symbol: SummarySuffixHookSpaNorm
+    binary: arm9
+    replace: bl
+    chain: first
+
+  - name: SummarySuffixHookAtkNorm
+    symbol: SummarySuffixHookAtkNorm
+    binary: arm9
+    replace: bl
+    chain: first
+
+  - name: SummarySuffixHookDef
+    symbol: SummarySuffixHookDef
+    binary: arm9
+    replace: bl
+    chain: first
+
+  - name: SummarySuffixHookSpd
+    symbol: SummarySuffixHookSpd
+    binary: arm9
+    replace: bl
+    chain: first
+
+  - name: SpindaEvStatSubmenuOpenHook
+    symbol: SpindaEvStatSubmenuOpenHook
+    binary: ov19
+    vanilla_word: 0xEB000A01
+    chain: first
+    target_symbol: EvDrinkStatSubmenuOpen
+
+  - name: SpindaEvDrinkSelectHook
+    symbol: SpindaEvDrinkSelectHook
+    binary: ov19
+    vanilla_word: 0xE1A04000
+    chain: first
+    target_symbol: EvDrinkStatSelectHook
+
+  - name: SpindaEvDrinkOutcomeHook
+    symbol: SpindaEvDrinkOutcomeHook
+    binary: ov19
+    vanilla_word: 0xE58450FC
+    chain: first
+    target_symbol: ForceDrinkOutcomeNormal
+
+  - name: EvDrinkSnapHpSpeHook
+    symbol: EvDrinkSnapHpSpeHook
+    binary: ov19
+    vanilla_word: 0xE1D420FA
+    chain: first
+    target_symbol: EvDrinkSnapHpSpe
+
+  - name: EvDrinkSnapHpAfterHook
+    symbol: EvDrinkSnapHpAfterHook
+    binary: ov19
+    vanilla_word: 0xE1D4B0FA
+    chain: first
+    target_symbol: EvDrinkSnapHpAfter
+
+  - name: EvDrinkAppendHpSpeMsgHook
+    symbol: EvDrinkAppendHpSpeMsgHook
+    binary: ov19
+    vanilla_word: 0xE28D0F4A
+    chain: first
+    target_symbol: EvDrinkAppendHpSpeMsgs
+
+  - name: SpindaEvGummiMaskHook
+    symbol: SpindaEvGummiMaskHook
+    binary: arm9
+    vanilla_word: 0xE3510000
+    chain: first
+    target_symbol: EvDrinkMaskAndInc
+
+  - name: SpindaEvGummiApplyHook
+    symbol: SpindaEvGummiApplyHook
+    binary: arm9
+    vanilla_word: 0xE1D610B2
+    chain: first
+    target_symbol: SpindaEvResetCaveAddress
+
+  - name: WonderGummiDungeonEntry
+    symbol: ApplyGummiBoostsDungeonMode
+    binary: ov29
+    vanilla_word: 0xE92D4FF8
+    chain: first
+    target_symbol: WonderGummi_Entry
+
+  - name: WonderGummiDungeonExit
+    symbol: ApplyGummiBoostsEpilogue
+    binary: ov29
+    vanilla_word: 0xE28DD008
+    chain: first
+    target_symbol: WonderGummi_Exit
+
+  - name: DungeonStatFloorSnapshot
+    symbol: InitTeamMember
+    binary: ov29
+    vanilla_word: 0xE92D47F8
+    chain: first
+    target_symbol: DungeonStat_OnFloorMember
+
+  - name: DungeonStatGroupEnd
+    symbol: DungeonFree
+    binary: ov29
+    vanilla_word: 0xE92D4008
+    chain: append
+    prior_label: SpindaEv_PriorDungeonFree
+    vanilla_resume: 0x022DEAB4
+    target_symbol: DungeonStat_OnDungeonGroupEnd
+
+  - name: DungeonStatSaveClean
+    symbol: GetMonsterInfoForSave
+    binary: arm9
+    vanilla_word: 0xE92D41F0
+    chain: first
+    target_symbol: DungeonStat_SaveMonstersClean
+
+arm9_code_cave:
+  base_label: SpindaEvArm9CodeAddress
+  estimated_bytes: 1220
+  alignment: 4
+  preferred: 0x94624
+  max_file_offset: 0x94AE8
+  forbidden:
+    - start: 0xAF2C0
+      end: 0xAF300
+    - start: 0xAF490
+      end: 0xAF694
+    - start: 0xAFF88
+      end: 0xB0000
+
+arm9_reset_cave:
+  base_label: SpindaEvResetCaveAddress
+  estimated_bytes: 944
+  alignment: 4
+  preferred: 0xA3550
+  max_file_offset: 0xAF490
+  forbidden:
+    - start: 0xA60BC
+      end: 0xA68BC
+    - start: 0xAF2C0
+      end: 0xAF300
+    - start: 0xAF490
+      end: 0xAF694
+    - start: 0xAFF88
+      end: 0xB0000
+
+arm9_dungeon_stat_cave:
+  base_label: SpindaEvDungeonStatCave
+  estimated_bytes: 1200
+  alignment: 4
+  preferred: 0x94D94
+  max_file_offset: 0x94D94
+  forbidden:
+    - start: 0x94624
+      end: 0x94AE8
+    # Alpha GetItemIdFromList cache (6 x 0x2F8 B), rewritten during dungeons.
+    - start: 0x9F904
+      end: 0xA0AD4
+    - start: 0xA3550
+      end: 0xA3900
+    - start: 0xA60BC
+      end: 0xA68BC
+    - start: 0xAF2C0
+      end: 0xAF300
+    - start: 0xAF490
+      end: 0xAF694
+    - start: 0xAFF88
+      end: 0xB0000
+
+ov19_extend:
+  min_size: 18000
+  table_file_offset: 16960
+  table_label: SpindaEvTeamSubmenuTable
+
+asm:
+  dir: asm
+  entry: main.asm
+
+strings:
+  yaml:
+    - strings.yaml
+    - strings_menu.yaml
+
+prepare:
+  restore_save_hooks: true
+  zero_legacy_caves: true
+
+verify:
+  - type: spinda_ev_caves
+  - type: spinda_ev_hooks
+  - type: spinda_ev_strings

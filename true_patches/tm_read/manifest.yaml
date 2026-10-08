@@ -1,0 +1,132 @@
+id: tm_read
+version: 20
+region: US
+description: >
+  TM Read action — dungeon TM submenu, charge tracking, slot-3 temp use.
+  Read submenu label by remaining charges (ov29 string IDs; no ARM9 bag suffix).
+  v14: fix export_symbols (CheckReadString/TryRestoreSlot) — prior 0x28/0xE4 pointed
+  into SlotBackup / mid-TryAppend and executed BSS as code (menu/turn-end crashes).
+  v15: ForceRestore before LevelUp learn UI, RestorePp revive, TeachItem; clear
+    TwoTurn deferral + ClearTwoTurnStatus so charge/faint paths cannot skip forever.
+  v16: the save prompt (unionall coroutine 52, same step as the Z-gauge clear)
+    restores every TM in the bag to full Read charges, held ones included.
+  v18: Compute group_floor with DungeonFloorToGroupFloor at the entry hook; vanilla
+  has not written 0x74B yet (LoadMappa does that later).
+  v19: Restore bag TM Read charges when a dungeon-group outing ends (DungeonFree).
+  Escape / give-up / faint always count; a clear counts only on the last
+  floor of the group.
+  v20: Read DUNGEON_PTR_MASTER (the pointer DungeonFree frees). The working
+  DUNGEON_PTR is often already null on escape.
+
+kind: tm_read
+rom_profile: us_vanilla
+
+optional_integrations:
+  - id: room_charge
+    note: >
+      room_charge v1 only: TmReadIsRoomChargeMove / GetRoomChargeState wired from build.state.
+  - id: room_charge_v3
+    note: >
+      No v1 helpers exported; stubs stay in tm_read cave. TWO_TURN table + IsChargingTwoTurnMove
+      handle Read→2-turn / room-charge moves (same entries room_charge_v3 adds to TWO_TURN).
+  - id: z_move_v2
+    note: >
+      Apply tm_read before z_move_v2. z_move chain=append on GetSubMenuStringIdReadSite;
+      PriorSubMenuStringCheck -> TmRead_CheckReadString; PostValidateRestoreBl patched to Z restore.
+
+prebuild:
+  - script: generate_table.py
+
+hooks:
+  - name: GetSubMenuStringIdReadBranch
+    symbol: GetSubMenuStringIdReadSite
+    binary: ov29
+    vanilla_word: 0xE1A04001
+    chain: first
+    target_symbol: TmRead_CheckReadString
+
+  - name: ExecuteMonsterActionEpilogueValidate1
+    symbol: ExecuteMonsterActionEpilogueValidate1
+    binary: ov29
+    vanilla_word: 0xEB000074
+    chain: first
+    target_symbol: TmRead_EpilogueIsEntityValid
+
+  - name: ExecuteMonsterActionEpilogueValidate2
+    symbol: ExecuteMonsterActionEpilogueValidate2
+    binary: ov29
+    vanilla_word: 0xEB000065
+    chain: first
+    target_symbol: TmRead_EpilogueIsEntityValid
+
+  - name: TmReadMenuHook
+    symbol: TmReadMenuHook
+    binary: ov31
+    vanilla_word: 0xEBFD9B51
+    chain: first
+    target_symbol: TmRead_Ov31MenuHook
+
+  - name: TmReadConfirmHook
+    symbol: TmReadConfirmHook
+    binary: ov31
+    vanilla_word: 0xEBFD9B69
+    chain: first
+    target_symbol: TmRead_Ov31ConfirmHook
+
+  - name: LevelUpForceRestoreSlots
+    symbol: LevelUp
+    binary: ov29
+    vanilla_word: 0xE92D4FF8
+    chain: first
+    target_symbol: TmRead_LevelUpForceRestore
+
+  - name: RestorePpForceRestoreSlots
+    symbol: RestorePpAllMovesSetFlags
+    binary: ov29
+    vanilla_word: 0xE92D41F0
+    chain: first
+    target_symbol: TmRead_RestorePpForceRestore
+
+  - name: TeachItemHandlerForceRestoreSlots
+    symbol: TeachItemHandler
+    binary: ov29
+    vanilla_word: 0xE92D4FF8
+    chain: first
+    target_symbol: TmRead_TeachItemForceRestore
+
+  - name: DungeonGroupEndTmReadRefill
+    symbol: DungeonFree
+    binary: ov29
+    vanilla_word: 0xE92D4008
+    chain: append
+    prior_label: TmRead_PriorDungeonFree
+    vanilla_resume: 0x022DEAB4
+    target_symbol: TmRead_OnDungeonGroupEnd
+
+ov29_cave:
+  binary: ov36
+  base_label: TmReadOv29CodeAddress
+  code_bytes: 2100
+  table_row_bytes: 4
+  table_padding: 64
+  alignment: 4
+  export_symbols:
+    # Offsets from TmReadOv29CodeAddress (ov36 cave). Keep in sync with TmRead.asm layout:
+    # stubs 0x00-0x13, BSS through SlotBackup 0x14-0x2B, CheckReadString @ 0x2C,
+    # TryRestoreSlot @ 0x3C8 (push {r4-r8,lr} + PendingFlag). Wrong 0x28/0xE4 pointed into
+    # SlotBackup / mid-TryAppend and executed move data as code (Shift menu / turn-end crash).
+    # ForceRestorePending / LevelUp hooks are resolved post-armips in apply_tm_read.
+    TmRead_CheckReadString: 0x2C
+    TmRead_TryRestoreSlot: 0x3C8
+    TmRead_PostValidateRestoreBl: 0x124
+
+asm:
+  dir: asm
+  entry: main.asm
+
+strings:
+  yaml: strings.yaml
+
+verify:
+  - type: tm_read_hooks
+  - type: tm_read_caves_nonempty

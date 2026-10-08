@@ -1,0 +1,93 @@
+바닐라 EoS(US) 기준 **Solar Beam(솔라빔, move 151)** 흐름입니다. `room_charge`와 비교 포인트도 같이 적었습니다.
+
+---
+
+## 핵심 데이터 (바닐라 내장)
+
+| 요소 | 내용 |
+|------|------|
+| **기술 effect** | `DoMoveSolarBeam` @ ov29 `0x02328C74` |
+| **2턴 상태 ID** | `status_two_turn_id.Solarbeam = **2**` (Paused 아님!) |
+| **몬스터 필드** | `entity→monster (+0xB4)` → **`monster+0xD2`** 에 2턴 상태 byte |
+| **매핑 테이블** | `TWO_TURN_MOVES_AND_STATUSES`: move **151 → status 2** |
+| **충전 판정** | `IsChargingTwoTurnMove(user, move)` — move ID + `0xD2` 매칭 |
+| **날씨** | `GetSolarBeamWeatherMode()` — 맑음이면 **1턴 즉발** |
+
+---
+
+## 흐름도
+
+```mermaid
+flowchart TD
+    A[플레이어/AI: Solar Beam 선택] --> B[ExecuteMoveEffect 체인]
+    B --> C[DoMoveSolarBeam]
+
+    C --> D{날씨 모드<br/>GetSolarBeamWeatherMode}
+    D -->|맑음 r8=1| E[IsChargingTwoTurnMove 스킵<br/>r0=1 충전완료 취급]
+    D -->|그 외| F{IsChargingTwoTurnMove<br/>user, Solar Beam?}
+
+    E --> G[데미지 경로]
+    F -->|No 0xD2≠Solarbeam| H[충전 턴]
+    F -->|Yes 이미 충전 중| G
+
+    H --> H1[TryBeginTwoTurnStatus<br/>status=2 Solarbeam]
+    H1 --> H2[monster+0xD2 = 2 기록]
+    H2 --> H3[충전 메시지/연출<br/>DealDamage 호출 안 함]
+    H3 --> H4[턴 종료]
+
+    G --> G1{날씨=비 등 r8=2?}
+    G1 -->|Yes| G2[데미지 배율 절반<br/>SOLARBEAM_DAMAGE_MULTIPLIER/2]
+    G1 -->|No| G3[정상 배율 x2.0]
+    G2 --> G4[DealDamage]
+    G3 --> G4
+    G4 --> G5[ClearTwoTurnStatus<br/>0xD2/0x154/0x10B 클리어]
+    G5 --> G6[턴 종료]
+
+    H4 --> N[다음 턴]
+    N --> N1{IsChargingAnyTwoTurnMove?}
+    N1 -->|Yes| N2[행동 제한/강제 재사용<br/>CheckVariousStatuses 등]
+    N2 --> A
+```
+
+---
+
+## 턴별 요약
+
+### 1턴 (충전) — 날씨 맑지 않을 때
+1. `DoMoveSolarBeam` → `IsChargingTwoTurnMove` = **false**
+2. `TryBeginTwoTurnStatus(..., status=**2**)` → **`monster+0xD2 = Solarbeam(2)`**
+3. **데미지 없음**, 충전 연출만
+4. 다음 턴까지 **2턴 기술 충전 중**으로 취급
+
+### 2턴 (발사)
+1. Solar Beam 다시 선택 (엔진이 충전 중이면 사실상 **강제 재사용**)
+2. `IsChargingTwoTurnMove` = **true**
+3. `DealDamage` 실행
+4. `ClearTwoTurnStatus` → **`0xD2` 클리어**
+
+### 맑음 날씨
+- 1턴째부터 `IsChargingTwoTurnMove`를 건너뛰고 **바로 DealDamage** (충전 없음)
+
+---
+
+## `room_charge`와 차이 (왜 불안정해 보이는지)
+
+| | **Solar Beam (바닐라)** | **room_charge (현재 패치)** |
+|--|-------------------------|----------------------------|
+| 상태 저장 | `monster+0xD2` + 공식 enum | 커스텀 `entity+0x171/0x172` |
+| 진입점 | **전용 move effect** `DoMoveSolarBeam` | `ExecuteMoveEffect` / `DealDamage` / `ExecuteMonsterAction` **훅 5곳** |
+| 2턴 강제 | 엔진 내장 (`IsChargingAnyTwoTurnMove` 등) | `TryForceRoomChargeAction` 직접 구현 |
+| 범위 | 단일 대상 기술 | **방 전체** 커스텀 |
+
+---
+
+## room_charge를 Solar Beam 방식으로 가려면
+
+1. **전용 `status_two_turn_id` 슬롯** 추가 (또는 `Charging` 등 재활용)
+2. **`TWO_TURN_MOVES_AND_STATUSES`에 커스텀 move 등록**
+3. **전용 `DoMoveRoomCharge` effect** (솔라빔처럼 charge/release 분기)
+4. `ExecuteMoveEffect` 다중 훅 대신 **effect handler 하나**로 수렴
+
+이게 바닐라 Solar Beam이 “안정적”인 이유입니다 — **상태이상 + move effect 한 군데**에 모여 있고, `DealDamage` 훅을 여러 곳에 얹지 않습니다.
+
+[REDACTED]

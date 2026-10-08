@@ -1,0 +1,38 @@
+id: size_adjust
+version: 1
+region: US
+description: >
+  Team body-size total cap 6 → 16 (4 members × max body size 4).
+  Patches the four cmp-immediate checks used at dungeon entry, when adding a
+  member, and when a dungeon guest joins. Does not change the 4-slot party cap
+  or per-species size filters (tight corridors, size-4 animation).
+
+kind: data
+rom_profile: us_vanilla
+
+requires: []
+conflicts: []
+
+data:
+  handler: team_body_size_limit
+  limit: 16
+  sites:
+    - name: DungeonEntryTotal
+      binary: arm9
+      address: 0x0204F32C
+      vanilla_word: 0xE3570006
+    - name: AddMemberFits
+      binary: arm9
+      address: 0x02056F4C
+      vanilla_word: 0xE3560006
+    - name: DungeonGuestTooBig
+      binary: ov29
+      address: 0x022F78F4
+      vanilla_word: 0xE3500006
+    - name: DungeonPartyPlusCandidate
+      binary: ov29
+      address: 0x022FBCF0
+      vanilla_word: 0xE3540006
+
+verify:
+  - type: team_body_size_limit

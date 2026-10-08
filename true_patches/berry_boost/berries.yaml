@@ -1,0 +1,22 @@
+# item_id -> item_cd effect slot; cave helper offsets fixed for BerryBoostCave.asm layout.
+effects:
+  - item_id: 82
+    effect_id: 19
+    cave_symbol: ApplyCheriBoostEffect
+    cave_offset: 0x0
+  - item_id: 81
+    effect_id: 20
+    cave_symbol: ApplyPechaBoostEffect
+    cave_offset: 0x40
+  - item_id: 78
+    effect_id: 28
+    cave_symbol: ApplyRawstBoostEffect
+    cave_offset: 0x9C
+  - item_id: 90
+    effect_id: 23
+    cave_symbol: ApplyChestoBoostEffect
+    cave_offset: 0xDC
+  - item_id: 344
+    effect_id: 100
+    cave_symbol: ApplyAspearBoostEffect
+    cave_offset: 0x120

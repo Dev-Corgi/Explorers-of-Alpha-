@@ -1,0 +1,30 @@
+# Summary stats page. [value:N:W] width was 3; 5 digits cover int16.
+# DrawWindowText / SprintfTagged use table id + 1 (19140 -> code 19141).
+# 19140 is past z_move (19100–19120) and orb/tm reserved empties.
+entries:
+  - id: 2387
+    text: "HP:[CLUM_SET:25][value:0:4]/[value:1:4]"
+  - id: 2388
+    text: "Atk:[CLUM_SET:45][CLUM_SET:80]Def:[CLUM_SET:120]"
+  - id: 2389
+    text: "SpA:[CLUM_SET:45][CLUM_SET:80]SpD:[CLUM_SET:120]"
+  - id: 2390
+    text: "[CLUM_SET:49][value:0:5]"
+  - id: 2391
+    text: "[CLUM_SET:49][CS:W][value:0:5][CR]"
+  - id: 2392
+    text: "[CLUM_SET:49][value:0:5]"
+  - id: 2393
+    text: "[CLUM_SET:49][CS:W][value:0:5][CR]"
+  - id: 2394
+    text: "[CLUM_SET:124][value:0:5] "
+  - id: 2395
+    text: "[CLUM_SET:124][CS:W][value:0:5][CR]"
+  - id: 2396
+    text: "[CLUM_SET:124][value:0:5] "
+  - id: 2397
+    text: "[CLUM_SET:124][CS:W][value:0:5][CR]"
+  - id: 19140
+    text: "[CLUM_SET:104]Spe:[CLUM_SET:124][value:0:3]"
+  - id: 3863
+    text: "[string:0]'s stats: [CLUM_SET:105][CS:E]HP:[CR] +[digits_c:0]\n[CS:H]Atk:[CR] +[digits_c:1] [CLUM_SET:105][CS:R]Def:[CR] +[digits_c:2]\n[CS:B]Sp. Atk.:[CR] +[digits_c:3] [CLUM_SET:105][CS:M]Sp. Def.:[CR] +[digits_c:4]\n[CS:W]Spe:[CR] +[string:1]"

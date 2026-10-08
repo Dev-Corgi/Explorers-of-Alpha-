@@ -1,0 +1,74 @@
+id: boost_ribbon
+version: 5
+region: US
+description: >
+  Dungeon bag submenu Boost for listed held items.
+  Hp Up, Atk Up, Def Up, SpA Up, and SpD Up open the same team target menu as Ingest,
+  then consume the item and raise the chosen member's stat by 3 the same way a
+  dungeon vitamin does, until the save prompt clears it.
+  v4: the boost and its message run in the leader's pass-turn action after the bag
+  menu closes, so no empty message window follows the message.
+  v5: No-Slip Cap (13) is Def, Y-Ray Specs (14) is Hp, and Gaggle Specs (15) is Atk.
+  Submenu string codes are the display string id plus 1.
+
+kind: asm
+rom_profile: us_vanilla
+
+optional_integrations:
+  - id: tm_read
+    note: Apply tm_read first. The bag menu hook chains after it; tm_read's confirm hook records action 43.
+  - id: z_move_v2
+    note: Apply z_move_v2 first. GetSubMenuStringId chains after the Z-Move check.
+  - id: spinda_ev_v2
+    note: The +3 lands on the same dungeon stats Spinda EV clears at the save prompt.
+
+hooks:
+  - name: BoostSubMenuString
+    symbol: GetSubMenuStringIdReadSite
+    binary: ov29
+    chain: append
+    prior_label: Boost_PriorSubMenu
+    target_symbol: Boost_CheckString
+
+  - name: BoostExecuteAction
+    symbol: ExecuteMonsterActionBoostHook
+    binary: ov29
+    vanilla_word: "0xE59960B4"
+    chain: first
+    target_symbol: Boost_ExecHook
+
+  - name: BoostBagMenu
+    symbol: TmReadMenuHook
+    binary: ov31
+    chain: append
+    prior_label: Boost_PriorMenu
+    target_symbol: Boost_MenuHook
+
+  - name: BoostTargetActionCheck
+    symbol: ItemsMenuTargetActionCheck
+    binary: ov31
+    vanilla_word: "0xE3500012"
+    target_symbol: Boost_TargetActionCmp
+
+  - name: BoostTargetSelected
+    symbol: ItemsMenuTargetSelected
+    binary: ov31
+    vanilla_word: "0xE59D1044"
+    target_symbol: Boost_TargetSelected
+
+cave:
+  binary: ov36
+  estimated_bytes: 1024
+  alignment: 4
+  base_label: BoostRibbonCodeAddress
+
+asm:
+  entry: asm/main.asm
+
+strings:
+  yaml: strings.yaml
+
+verify:
+  - type: hooks_are_branch
+  - type: cave_nonempty
+    overlay: ov36

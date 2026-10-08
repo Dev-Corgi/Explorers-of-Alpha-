@@ -1,0 +1,49 @@
+LoadScriptVariableValueAtIndex callers: 62
+Calls with r1=#0x4e (perf list): 1
+Calls with r1=#0x4e AND r2=#55: 0
+
+=== GetPerformanceFlagWithChecks callers ===
+
+=== All perf-group calls with nearby level/team logic (first 15) ===
+
+--- interesting perf read @ 0x4CB20 ---
+0x04CAE0: movne   r0, #0
+0x04CAE4: and     r0, r0, #0xff
+0x04CAE8: pop     {r4, pc}
+0x04CAEC: bl      #0x204afc0  ; GetGameMode
+0x04CAF0: cmp     r0, #3
+0x04CAF4: bne     #0x204cb10
+0x04CAF8: mov     r0, #0
+0x04CAFC: pop     {r4, pc}
+0x04CB00: bl      #0x204afc0  ; GetGameMode
+0x04CB04: cmp     r0, #3
+0x04CB08: moveq   r0, #1
+0x04CB0C: popeq   {r4, pc}
+0x04CB10: lsl     r0, r4, #0x10
+0x04CB14: lsr     r2, r0, #0x10
+0x04CB18: mov     r0, #0
+0x04CB1C: mov     r1, #0x4e
+0x04CB20: bl      #0x204b678  ; LoadScriptVariableValueAtIndex
+0x04CB24: and     r0, r0, #0xff
+0x04CB28: pop     {r4, pc}
+0x04CB2C: push    {r3, r4, r5, lr}
+0x04CB30: mov     r5, r0
+0x04CB34: mov     r4, r1
+0x04CB38: cmp     r5, #7
+0x04CB3C: addls   pc, pc, r5, lsl #2
+0x04CB40: b       #0x204cb70
+0x04CB44: b       #0x204cb70
+0x04CB48: b       #0x204cb64
+0x04CB4C: b       #0x204cb64
+0x04CB50: b       #0x204cb64
+0x04CB54: b       #0x204cb64
+0x04CB58: b       #0x204cb64
+0x04CB5C: b       #0x204cb64
+0x04CB60: b       #0x204cb64
+0x04CB64: bl      #0x204afc0  ; GetGameMode
+0x04CB68: cmp     r0, #3
+0x04CB6C: popeq   {r3, r4, r5, pc}
+0x04CB70: cmp     r4, #0
+0x04CB74: movne   r3, #1
+0x04CB78: lsl     r0, r5, #0x10
+0x04CB7C: lsr     r2, r0, #0x10

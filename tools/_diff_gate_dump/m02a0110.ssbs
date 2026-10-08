@@ -1,0 +1,1183 @@
+
+def 0 {
+    sound_Stop();
+    back_SetGround(LEVEL_G01P05A);
+    supervision_Acting(0);
+    performer(0);
+    camera_SetMyself();
+    screen_FadeIn(1, 30);
+    Wait(30);
+    message_SetFace(ACTOR_NPC_PERAPPU, FACE_NORMAL, FACE_POS_BOTTOM_R_FACEINW);
+    message_Talk({
+        english="""
+             Guildmaster![K] I present to you
+            two Pokémon who wish to join our guild as
+            apprentices.
+        """,
+    });
+    CallCommon(CORO_MESSAGE_CLOSE_WAIT_FUNC);
+    Wait(60);
+    se_Play(8964);
+    lives(ACTOR_NPC_PERAPPU);
+    SetEffect(EFFECT_TWO_ARROWS_AT_SIDE_LEFT, 3);
+    lives(ACTOR_NPC_PERAPPU);
+    WaitEffect();
+    Wait(30);
+    message_Talk({
+        english=" Guildmaster...[K]um...[K]Guildmaster?",
+    });
+    message_Close();
+    Wait(60);
+    lives(ACTOR_NPC_PUKURIN);
+    Turn2Direction(1, 10, DIR_DOWN);
+    WaitExecuteLives(ACTOR_NPC_PUKURIN);
+    se_Play(8974);
+    lives(ACTOR_PLAYER);
+    SetEffect(EFFECT_EXCLAMATION_MARK, 3);
+    lives(ACTOR_ATTENDANT1);
+    ExecuteCommon(CORO_JUMP_SURPRISE_FUNC_SERIES, 0);
+    bgm_PlayFadeIn(BGM_GUILDMASTER_WIGGLYTUFF, 0, 256);
+    message_SetFace(ACTOR_NPC_PUKURIN, FACE_NORMAL, FACE_POS_TOP_L_CENTER);
+    message_Talk({
+        english=" Hiya!",
+    });
+    message_Talk({
+        english="""
+             I'm [CS:N]Wigglytuff[CR]![K] I'm the guild's
+            Guildmaster!
+        """,
+    });
+    message_Talk({
+        english="""
+             You want to form an exploration
+            team?[K] Then, let's go for it!
+        """,
+    });
+    message_Talk({
+        english="""
+             First we must register your
+            exploration team's name!
+        """,
+    });
+    message_Talk({
+        english=" So tell me your team's name?",
+    });
+    message_Close();
+    se_Play(8972);
+    lives(ACTOR_ATTENDANT1);
+    SetEffect(EFFECT_SWEAT_DROPS_FROM_BOTH_SIDES_MEDIUM, 3);
+    lives(ACTOR_ATTENDANT1);
+    WaitEffect();
+    message_SetFace(ACTOR_ATTENDANT1, FACE_SURPRISED, FACE_POS_STANDARD);
+    message_SwitchTalk($PARTNER_TALK_KIND);
+    CaseText(1, {
+        english=" Huh? The team's name?",
+    });
+    CaseText(2, {
+        english=" Oh? Our team's name?",
+    });
+    DefaultText({
+        english=" Oh? Our team's name?",
+    });
+    message_SetFace(ACTOR_ATTENDANT1, FACE_WORRIED, FACE_POS_STANDARD);
+    message_SwitchTalk($PARTNER_TALK_KIND);
+    CaseText(1, {
+        english=" I never thought of that.",
+    });
+    CaseText(2, {
+        english=" We didn't think of that.",
+    });
+    DefaultText({
+        english=" I didn't think about a team name.",
+    });
+    CallCommon(CORO_MESSAGE_CLOSE_WAIT_FUNC);
+    lives(ACTOR_ATTENDANT1);
+    Turn2DirectionLives(4, 10, ACTOR_PLAYER);
+    WaitExecuteLives(ACTOR_ATTENDANT1);
+    lives(ACTOR_PLAYER);
+    Turn2DirectionLives(4, 10, ACTOR_ATTENDANT1);
+    lives(ACTOR_NPC_PERAPPU);
+    Turn2Direction(4, 10, DIR_DOWNLEFT);
+    message_SetFace(ACTOR_ATTENDANT1, FACE_NORMAL, FACE_POS_STANDARD);
+    message_SwitchTalk($PARTNER_TALK_KIND);
+    CaseText(1, {
+        english="""
+             Hey, do you have any ideas for a
+            cool name, [hero]?
+        """,
+    });
+    CaseText(2, {
+        english="""
+             So what do you think would be a
+            good name for us, [hero]?
+        """,
+    });
+    DefaultText({
+        english="""
+             So what do you think would be a
+            good name for us, [hero]?
+        """,
+    });
+    CallCommon(CORO_MESSAGE_CLOSE_WAIT_FUNC);
+    message_Menu(MENU_TEAM_NAME);
+    flag_SetPerformance(1, 1);
+    se_Play(8965);
+    lives(ACTOR_ATTENDANT1);
+    SetEffect(EFFECT_EXCLAMATION_MARK, 3);
+    lives(ACTOR_ATTENDANT1);
+    WaitEffect();
+    message_SetFace(ACTOR_ATTENDANT1, FACE_NORMAL, FACE_POS_STANDARD);
+    message_SwitchTalk($PARTNER_TALK_KIND);
+    CaseText(1, {
+        english="""
+             ...[team:]?![K]
+            Team [team:]!
+        """,
+    });
+    CaseText(2, {
+        english="""
+             ...[team:]?![K]
+            Team [team:]!
+        """,
+    });
+    DefaultText({
+        english="""
+             ...[team:]?![K]
+            Team [team:]!
+        """,
+    });
+    CallCommon(CORO_MESSAGE_CLOSE_WAIT_FUNC);
+    lives(ACTOR_ATTENDANT1);
+    SetAnimation(71);
+    lives(ACTOR_ATTENDANT1);
+    WaitAnimation();
+    WaitExecuteLives(ACTOR_ATTENDANT1);
+    lives(ACTOR_ATTENDANT1);
+    SetAnimation(71);
+    lives(ACTOR_ATTENDANT1);
+    WaitAnimation();
+    WaitExecuteLives(ACTOR_ATTENDANT1);
+    lives(ACTOR_ATTENDANT1);
+    SetAnimation(2);
+    message_SetFace(ACTOR_ATTENDANT1, FACE_HAPPY, FACE_POS_STANDARD);
+    message_SwitchTalk($PARTNER_TALK_KIND);
+    CaseText(1, {
+        english="""
+             Yeah... That's a good name![K]
+            I like it!
+        """,
+    });
+    CaseText(2, {
+        english="""
+             Yeah... That's a good name![K]
+            It suits us!
+        """,
+    });
+    DefaultText({
+        english="""
+             I like it! It's a good name![K]
+            It's perfect for us!
+        """,
+    });
+    CallCommon(CORO_MESSAGE_CLOSE_WAIT_FUNC);
+    lives(ACTOR_PLAYER);
+    Turn2Direction(4, 10, DIR_UP);
+    lives(ACTOR_ATTENDANT1);
+    Turn2Direction(4, 10, DIR_UP);
+    lives(ACTOR_NPC_PERAPPU);
+    Turn2Direction(4, 10, DIR_UPLEFT);
+    message_SetFace(ACTOR_NPC_PUKURIN, FACE_NORMAL, FACE_POS_TOP_L_CENTER);
+    message_Talk({
+        english="""
+             All settled, then![K] I'll register
+            your team as [team:].
+        """,
+    });
+    message_Talk({
+        english=" Registering! ♪ Registering! ♪",
+    });
+    message_Talk({
+        english=" All registered...",
+    });
+    message_SetFace(ACTOR_NPC_PUKURIN, FACE_SIGH, FACE_POS_TOP_L_CENTER);
+    message_Talk({
+        english=" YOOM...TAH!",
+    });
+    lives(ACTOR_NPC_PUKURIN);
+    SetAnimation(17);
+    lives(ACTOR_NPC_PUKURIN);
+    WaitAnimation();
+    bgm_Stop();
+    se_Play(5143);
+    screen_WhiteOut(1, 2);
+    Wait(2);
+    screen_FadeIn(1, 2);
+    Wait(5);
+    se_Play(5143);
+    screen_WhiteOut(1, 2);
+    Wait(2);
+    screen_FadeIn(1, 2);
+    WaitExecuteLives(ACTOR_NPC_PUKURIN);
+    lives(ACTOR_NPC_PUKURIN);
+    SetAnimation(2);
+    CallCommon(CORO_MESSAGE_CLOSE_WAIT_FUNC);
+    bgm_PlayFadeIn(BGM_WIGGLYTUFFS_GUILD, 0, 256);
+    message_Talk({
+        english="""
+             Congratulations![K] From now on,
+            you're an official exploration team!
+        """,
+    });
+    message_Talk({
+        english="""
+             I present you with this in
+            commemoration.
+        """,
+    });
+    CallCommon(CORO_MESSAGE_CLOSE_WAIT_FUNC);
+    lives(ACTOR_NPC_PUKURIN);
+    MovePositionOffset(0.7969, 0, 16);
+    WaitExecuteLives(ACTOR_NPC_PUKURIN);
+    lives(ACTOR_NPC_PERAPPU);
+    Turn2Direction(4, 10, DIR_LEFT);
+    se_Play(6410);
+    supervision_Acting(1);
+    flag_SetPerformance(2, 1);
+    Wait(30);
+    flag_Set($SCENARIO_BALANCE_FLAG, 6);
+    message_Mail({
+        english="""
+            [CN][CS:N]Wigglytuff[CR] set down
+            [CN]a Pokémon Exploration Team Kit!
+        """,
+    });
+    CallCommon(CORO_MESSAGE_CLOSE_WAIT_FUNC);
+    lives(ACTOR_NPC_PUKURIN);
+    SetAnimation(5);
+    lives(ACTOR_NPC_PUKURIN);
+    SlidePositionOffset(0.7969, 0, -16);
+    WaitExecuteLives(ACTOR_NPC_PUKURIN);
+    lives(ACTOR_NPC_PUKURIN);
+    SetAnimation(2);
+    se_Play(8962);
+    lives(ACTOR_ATTENDANT1);
+    SetEffect(EFFECT_QUESTION_MARK, 3);
+    lives(ACTOR_ATTENDANT1);
+    WaitEffect();
+    message_SetFace(ACTOR_ATTENDANT1, FACE_NORMAL, FACE_POS_STANDARD);
+    message_SwitchTalk($PARTNER_TALK_KIND);
+    CaseText(1, {
+        english="""
+             A Pokémon Exploration
+            Team Kit?
+        """,
+    });
+    CaseText(2, {
+        english="""
+             A Pokémon Exploration
+            Team Kit?
+        """,
+    });
+    DefaultText({
+        english="""
+             A Pokémon Exploration
+            Team Kit?
+        """,
+    });
+    CallCommon(CORO_MESSAGE_CLOSE_WAIT_FUNC);
+    message_SetFace(ACTOR_NPC_PUKURIN, FACE_NORMAL, FACE_POS_TOP_L_CENTER);
+    message_Talk({
+        english="""
+             Yup. It's what every exploration
+            team needs.
+        """,
+    });
+    message_Talk({
+        english=" Quick, open it up.",
+    });
+    CallCommon(CORO_MESSAGE_CLOSE_WAIT_FUNC);
+    lives(ACTOR_ATTENDANT1);
+    MovePositionOffset(1, 0, -12);
+    Wait(10);
+    lives(ACTOR_PLAYER);
+    MovePositionOffset(1, 0, -12);
+    WaitExecuteLives(ACTOR_ATTENDANT1);
+    lives(ACTOR_ATTENDANT1);
+    Turn2Direction(4, 10, DIR_UPRIGHT);
+    WaitExecuteLives(ACTOR_PLAYER);
+    lives(ACTOR_PLAYER);
+    Turn2Direction(4, 10, DIR_UPLEFT);
+    WaitExecuteLives(ACTOR_PLAYER);
+    Wait(15);
+    se_Play(6411);
+    object(OBJECT_G01P05A1_106);
+    SetAnimation(18);
+    object(OBJECT_G01P05A1_106);
+    WaitAnimation();
+    WaitExecuteObject(OBJECT_G01P05A1_106);
+    Wait(30);
+    message_Mail({
+        english="""
+            [CN][partner] opened the
+            [CN]Pokémon Exploration Team Kit.
+        """,
+    });
+    message_Close();
+    screen_FadeOut(1, 30);
+    Wait(10);
+    back_SetGround(LEVEL_V02P08A);
+    supervision_RemoveActing(0);
+    supervision_Acting(2);
+    performer(0);
+    camera_SetMyself();
+    screen_FadeIn(1, 30);
+    Wait(30);
+    me_Play(4);
+    message_Mail({
+        english="""
+            [CN]There was an
+            [CN]Explorer Badge inside...
+        """,
+    });
+    WaitMe(4);
+    message_KeyWait();
+    me_Play(4);
+    message_Mail({
+        english="[CN]And a Wonder Map!",
+    });
+    WaitMe(4);
+    message_KeyWait();
+    CallCommon(CORO_MESSAGE_CLOSE_WAIT_FUNC);
+    message_SetFace(ACTOR_ATTENDANT1, FACE_INSPIRED, FACE_POS_STANDARD);
+    message_SwitchTalk($PARTNER_TALK_KIND);
+    CaseText(1, {
+        english="""
+             Yeah! There's all sorts of good
+            stuff in here!
+        """,
+    });
+    CaseText(2, {
+        english="""
+             Yeah! There are all sorts of 
+            great items in here!
+        """,
+    });
+    DefaultText({
+        english="""
+             Yes! There are all sorts of
+            great items in here!
+        """,
+    });
+    CallCommon(CORO_MESSAGE_CLOSE_WAIT_FUNC);
+    message_SetFace(ACTOR_NPC_PUKURIN, FACE_NORMAL, FACE_POS_BOTTOM_R_FACEINW);
+    message_Talk({
+        english="""
+             That's your Explorer Badge! It's
+            your official team identification!
+        """,
+    });
+    message_Talk({
+        english="""
+             And there's the Wonder Map,
+            which is a wonder of convenience!
+        """,
+    });
+    message_Talk({
+        english="""
+             Finally, there's a Treasure Bag.[K] 
+            It lets you carry items you find in dungeons.
+        """,
+    });
+    message_Talk({
+        english="""
+             It's a very wonderful bag! 
+            And it's yours now! ♪
+        """,
+    });
+    message_Close();
+    screen_FadeOut(1, 30);
+    supervision_RemoveActing(2);
+    back_SetGround(LEVEL_G01P05A);
+    supervision_Acting(3);
+    performer(0);
+    camera_SetMyself();
+    object(OBJECT_G01P05A1_106);
+    SetAnimation(18);
+    object(OBJECT_G01P05A1_106);
+    WaitAnimation();
+    WaitExecuteObject(OBJECT_G01P05A1_106);
+    screen_FadeIn(1, 30);
+    Wait(30);
+    ProcessSpecial(71, 8, 0);
+    me_Play(4);
+    message_Mail({
+        english="[CN]Team [team:] obtained a Treasure Bag!",
+    });
+    WaitMe(4);
+    message_KeyWait();
+    message_Close();
+    bgm_FadeOut(120);
+    screen_FadeOut(1, 90);
+    Wait(60);
+    message_Mail({
+        english="""
+            [CS:G]In Explorers of Alpha you can play challenge
+            modes. The said challenges follow the rules
+            explained when selected from the menu.[CR]
+        """,
+    });
+    message_Mail({
+        english="""
+            [CS:Y]Blue[CR] [CS:G]challenges cannot be enabled ever again
+            if you forfeit them. [CS:B]Red[CR] [CS:G]challenges however
+            can be unlocked in [CS:P]Marowak Dojo[CR] [CS:G]later[CR].
+        """,
+    });
+    flag_CalcBit($CONDITION, 0, 1);
+    flag_CalcBit($CONDITION, 1, 1);
+    flag_CalcBit($CONDITION, 2, 1);
+    flag_CalcBit($CONDITION, 3, 1);
+    flag_CalcBit($CONDITION, 4, 1);
+    flag_CalcBit($CONDITION, 5, 1);
+    flag_CalcBit($CONDITION, 6, 1);
+    flag_CalcBit($CONDITION, 7, 1);
+    @label_9;
+    message_Mail({
+        english="""
+            You can only select max one [CS:Y]blue[CR] challenge and
+            one [CS:B]red[CR] challenge. Select the challenge(s) you
+            want to overcome. You can cancel with [M:B3].
+        """,
+    });
+    message_SwitchMenu2(1, 8, 1);
+    CaseMenu({
+        english="[CS:Y]Recruit 'em all![CR]",
+    }, @label_0);
+    CaseMenu({
+        english="[CS:Y]Solorun[CR]",
+    }, @label_1);
+    CaseMenu({
+        english="[CS:B]One Item[CR]",
+    }, @label_2);
+    CaseMenu({
+        english="[CS:B]Glass Cannon[CR]",
+    }, @label_3);
+    CaseMenu({
+        english="[CS:B]Pacifist[CR]",
+    }, @label_4);
+    CaseMenu({
+        english="[CS:B]Time Attack[CR]",
+    }, @label_5);
+    CaseMenu({
+        english="Continue",
+    }, @label_6);
+    Jump(@label_7);
+    @label_0;
+    message_Close();
+    message_Mail({
+        english="""
+            In this mode, you are allowed to only recruit
+            one member of each species. When you haven't
+            recruited a species, recruiting is guaranteed.
+        """,
+    });
+    message_Mail({
+        english="Do you want to enable [CS:Y]Recruit 'em all![CR]?",
+    });
+    message_SwitchMenu(0, 1);
+    CaseMenu({
+        english="Yes",
+    }, @label_8);
+    CaseMenu({
+        english="No",
+    }, @label_9);
+    Jump(@label_10);
+    @label_8;
+    flag_CalcBit($SCENARIO_TALK_BIT_FLAG, 252, 1);
+    flag_Set($PLAY_OLD_GAME, 1);
+    flag_CalcBit($CONDITION, 0, 0);
+    flag_CalcBit($CONDITION, 1, 0);
+    flag_CalcBit($CONDITION, 2, 0);
+    BranchPerformance(2, 0, @label_6);
+    BranchPerformance(50, 1, @label_6);
+    BranchPerformance(51, 1, @label_6);
+    BranchPerformance(52, 1, @label_6);
+    Jump(@label_9);
+    @label_6;
+    message_Mail({
+        english="""
+            Are you done setting up your challenges?
+            Or are you willing to set them up again?
+        """,
+    });
+    message_SwitchMenu(0, 1);
+    CaseMenu({
+        english="All set!",
+    }, @label_11);
+    CaseMenu({
+        english="Reset.",
+    }, @label_12);
+    Jump(@label_13);
+    @label_11;
+    BranchBit($SCENARIO_TALK_BIT_FLAG, 252, @label_14);
+    flag_Set($PLAY_OLD_GAME, 0);
+    @label_14;
+    message_Close();
+    @label_60;
+    message_Mail({
+        english="""
+            Choose your preferred game difficulty.
+            A higher difficulty means stronger foes and
+            other twists like a higher spawn rate.
+        """,
+    });
+    message_SwitchMenu(0, 3);
+    CaseMenu({
+        english="Vanilla",
+    }, @label_15);
+    CaseMenu({
+        english="[CS:A]Difficult[CR]",
+    }, @label_16);
+    CaseMenu({
+        english="[CS:H]Expert[CR]",
+    }, @label_17);
+    CaseMenu({
+        english="[CS:B]Hardcore[CR]",
+    }, @label_18);
+    CaseMenu({
+        english="Info",
+    }, @label_19);
+    Jump(@label_20);
+    @label_15;
+    flag_SetPerformance(56, 1);
+    flag_SetPerformance(57, 0);
+    flag_SetPerformance(58, 0);
+    flag_SetPerformance(59, 0);
+    message_Mail({
+        english="[CN]Difficulty now set to Vanilla.",
+    });
+    @label_58;
+    message_Mail({
+        english="""
+            Would you like to view game enhancement
+            options? A shortcut is available for you
+            in case you wish to Speedrun the game.
+        """,
+    });
+    message_SwitchMenu(0, 3);
+    CaseMenu({
+        english="Yes",
+    }, @label_21);
+    CaseMenu({
+        english="No",
+    }, @label_22);
+    CaseMenu({
+        english="Speedrun",
+    }, @label_23);
+    Jump(@label_24);
+    @label_21;
+    message_Mail({
+        english="Would you like to see [CS:K]randomization options[CR]?",
+    });
+    message_SwitchMenu(0, 2);
+    CaseMenu({
+        english="Yes",
+    }, @label_25);
+    CaseMenu({
+        english="No",
+    }, @label_26);
+    Jump(@label_27);
+    @label_25;
+    message_Mail({
+        english="""
+            Would you like to enable the internal [CS:K]species
+            randomizer[CR]? In this mode, the spawn table is
+            randomized everytime you enter a floor.
+        """,
+    });
+    message_SwitchMenu(0, 2);
+    CaseMenu({
+        english="Yes",
+    }, @label_28);
+    CaseMenu({
+        english="No",
+    }, @label_29);
+    Jump(@label_30);
+    @label_28;
+    message_Mail({
+        english="[CN]The [CS:K]species randomizer[CR] is enabled.",
+    });
+    flag_SetPerformance(49, 1);
+    @label_54;
+    message_Mail({
+        english="""
+            Would you like to enable the internal [CS:K]item
+            randomizer[CR]? In this mode, all item tables are
+            randomized everytime you enter a floor.
+        """,
+    });
+    message_SwitchMenu(0, 2);
+    CaseMenu({
+        english="Yes",
+    }, @label_31);
+    CaseMenu({
+        english="No",
+    }, @label_32);
+    Jump(@label_33);
+    @label_31;
+    message_Mail({
+        english="[CN]The [CS:K]item randomizer[CR] is enabled.",
+    });
+    flag_SetPerformance(48, 1);
+    @label_52;
+    message_Mail({
+        english="""
+            Would you like to enable the internal [CS:K]floor
+            randomizer[CR]? In this mode, floor settings are
+            randomized everytime you switch floors.
+        """,
+    });
+    message_SwitchMenu(0, 2);
+    CaseMenu({
+        english="Yes",
+    }, @label_34);
+    CaseMenu({
+        english="No",
+    }, @label_35);
+    Jump(@label_36);
+    @label_34;
+    message_Mail({
+        english="[CN]The [CS:K]floor randomizer[CR] is enabled.",
+    });
+    flag_SetPerformance(47, 1);
+    @label_26;
+    BranchPerformance(59, 1, @label_23);
+    message_Mail({
+        english="""
+            Would you like to enable the internal [CS:K]level
+            scaling[CR] option? This forces dungeon levels
+            to scale depending on your team levels.
+        """,
+    });
+    message_SwitchMenu(0, 1);
+    CaseMenu({
+        english="Yes",
+    }, @label_37);
+    CaseMenu({
+        english="No",
+    }, @label_38);
+    Jump(@label_39);
+    @label_37;
+    message_Mail({
+        english="""
+            The [CS:K]level scaling[CR] option is enabled.
+            You can disable it whenever you want
+            from the [M:B6]-menu.
+        """,
+    });
+    flag_SetPerformance(55, 1);
+    Jump(@label_23);
+    @label_38;
+    flag_SetPerformance(55, 0);
+    message_Mail({
+        english="""
+            The [CS:K]level scaling[CR] option is disabled.
+            You can enable it whenever you want
+            from the [M:B6]-menu.
+        """,
+    });
+    Jump(@label_23);
+    @label_39;
+    Jump(@label_23);
+    Jump(@label_40);
+    @label_23;
+    BranchPerformance(2, 1, @label_41);
+    Jump(@label_22);
+    @label_41;
+    message_Mail({
+        english="""
+            Would you like to enable [CS:K]Speedrun mode[CR]?
+            You will be given a bag filled with useful
+            supplies. You can claim it anytime you want.
+        """,
+    });
+    message_SwitchMenu(0, 1);
+    CaseMenu({
+        english="Yes",
+    }, @label_42);
+    CaseMenu({
+        english="No",
+    }, @label_43);
+    Jump(@label_44);
+    @label_42;
+    message_Mail({
+        english="""
+            [CN][CS:K]Speedrun mode[CR] is enabled.
+            [CN]Please note this mode will be automatically
+            [CN]disabled once you've cleared the full story.
+        """,
+    });
+    flag_CalcBit($SCENARIO_TALK_BIT_FLAG, 254, 1);
+    @label_49;
+    message_Mail({
+        english="""
+            Would you like to enable [CS:C]God Mode[CR]?
+            Keep in mind this will alter your
+            game experience.
+        """,
+    });
+    message_SwitchMenu(0, 1);
+    CaseMenu({
+        english="Yes",
+    }, @label_45);
+    CaseMenu({
+        english="No",
+    }, @label_46);
+    CaseMenu({
+        english="Info",
+    }, @label_47);
+    Jump(@label_48);
+    @label_45;
+    flag_SetPerformance(53, 1);
+    message_Mail({
+        english="[CN][CS:C]God Mode[CR] is enabled.",
+    });
+    @label_22;
+    JumpCommon(CORO_END_TALK);
+    @label_46;
+    flag_SetPerformance(53, 0);
+    message_Mail({
+        english="[CN][CS:C]God Mode[CR] is disabled.",
+    });
+    Jump(@label_22);
+    @label_47;
+    message_Mail({
+        english="""
+            [CS:C]God Mode[CR] is an extra mode attached to
+            [CS:K]Speedrun Mode[CR]. But it gives the player
+            an insane advantage over the AI.
+        """,
+    });
+    message_Mail({
+        english="""
+            [CS:A]X-Ray Specs[CR], [CS:A]Mobile Scarf[CR], [CS:A]Goggle Specs[CR],
+            [CS:A]Tight Belt[CR], [CS:A]Golden Apple[CR] and [CS:A]Quick Seed[CR]
+            effects are indefinitely active on your team.
+        """,
+    });
+    Jump(@label_49);
+    @label_48;
+    Jump(@label_22);
+    Jump(@label_40);
+    @label_43;
+    flag_CalcBit($SCENARIO_TALK_BIT_FLAG, 254, 0);
+    message_Mail({
+        english="[CN][CS:K]Speedrun mode[CR] is disabled.",
+    });
+    Jump(@label_22);
+    @label_44;
+    Jump(@label_22);
+    @label_40;
+    Jump(@label_50);
+    @label_35;
+    message_Mail({
+        english="[CN]The [CS:K]floor randomizer[CR] is disabled.",
+    });
+    flag_SetPerformance(47, 0);
+    Jump(@label_26);
+    @label_36;
+    Jump(@label_26);
+    @label_50;
+    Jump(@label_51);
+    @label_32;
+    message_Mail({
+        english="[CN]The [CS:K]item randomizer[CR] is disabled.",
+    });
+    flag_SetPerformance(48, 0);
+    Jump(@label_52);
+    @label_33;
+    Jump(@label_52);
+    @label_51;
+    Jump(@label_53);
+    @label_29;
+    message_Mail({
+        english="[CN]The [CS:K]species randomizer[CR] is disabled.",
+    });
+    flag_SetPerformance(49, 0);
+    Jump(@label_54);
+    @label_30;
+    Jump(@label_54);
+    @label_53;
+    Jump(@label_55);
+    @label_27;
+    Jump(@label_26);
+    @label_55;
+    Jump(@label_56);
+    @label_24;
+    JumpCommon(CORO_END_TALK);
+    @label_56;
+    Jump(@label_57);
+    @label_16;
+    flag_SetPerformance(56, 0);
+    flag_SetPerformance(57, 1);
+    flag_SetPerformance(58, 0);
+    flag_SetPerformance(59, 0);
+    message_Mail({
+        english="[CN]Difficulty now set to [CS:A]Difficult[CR].",
+    });
+    Jump(@label_58);
+    @label_17;
+    flag_SetPerformance(56, 0);
+    flag_SetPerformance(57, 0);
+    flag_SetPerformance(58, 1);
+    flag_SetPerformance(59, 0);
+    message_Mail({
+        english="[CN]Difficulty now set to [CS:H]Expert[CR].",
+    });
+    Jump(@label_58);
+    @label_18;
+    message_Mail({
+        english="""
+            
+            [CN][CS:B]WARNING![CR]
+            
+        """,
+    });
+    message_Mail({
+        english="""
+            This game mode has been designed to be a
+            near impossible task! At many points it will
+            like an unfair or tedious challenge.
+        """,
+    });
+    message_Mail({
+        english="""
+            This was the intent! So be prepared to lose
+            many many times! And if you proceed, be
+            aware the only one to blame is yourself.
+        """,
+    });
+    message_Mail({
+        english="""
+            Are you SURE you want to play with the
+            [CS:B]Hardcore[CR] difficulty?
+        """,
+    });
+    message_SwitchMenu(0, 2);
+    CaseMenu({
+        english="Yes",
+    }, @label_59);
+    CaseMenu({
+        english="No",
+    }, @label_60);
+    Jump(@label_61);
+    @label_59;
+    flag_SetPerformance(56, 0);
+    flag_SetPerformance(57, 0);
+    flag_SetPerformance(58, 0);
+    flag_SetPerformance(59, 1);
+    message_Mail({
+        english="[CN]Difficulty now set to [CS:B]Hardcore[CR].",
+    });
+    Jump(@label_58);
+    @label_61;
+    Jump(@label_58);
+    Jump(@label_57);
+    @label_19;
+    message_Mail({
+        english="""
+            Which difficulty do you want to check?
+            Press [M:B3] to return to the difficulty selection.
+        """,
+    });
+    message_SwitchMenu(1, 1);
+    CaseMenu({
+        english="Vanilla",
+    }, @label_62);
+    CaseMenu({
+        english="[CS:A]Difficult[CR]",
+    }, @label_63);
+    CaseMenu({
+        english="[CS:H]Expert[CR]",
+    }, @label_64);
+    CaseMenu({
+        english="[CS:B]Hardcore[CR]",
+    }, @label_65);
+    Jump(@label_66);
+    @label_62;
+    message_Mail({
+        english="[CN]About Vanilla mode",
+    });
+    message_Mail({
+        english="""
+            More in line with the original game. If you
+            want to experience Alpha without ever feeling
+            the need to grind, this difficulty is for you.
+        """,
+    });
+    message_Mail({
+        english="""
+            Most of the added difficulty such as
+            Field Effects or dojo anti-abuse will
+            also be disabled for you.
+        """,
+    });
+    Jump(@label_19);
+    @label_63;
+    message_Mail({
+        english="[CN][CS:A]About Difficult mode[CR]",
+    });
+    message_Mail({
+        english="""
+            Slightly harder than your average Mystery
+            Dungeon game, with additions specifically
+            made for Explorers of Alpha available to you.
+        """,
+    });
+    Jump(@label_19);
+    @label_64;
+    message_Mail({
+        english="[CN][CS:H]About Expert mode[CR]",
+    });
+    message_Mail({
+        english="""
+            All the difficulty from previous versions with
+            Alpha 3.0 additions and rebalancing.
+        """,
+    });
+    message_Mail({
+        english="""
+            This used to be the original difficulty of the
+            game and is still the default one in Alpha 3.0.
+        """,
+    });
+    Jump(@label_19);
+    @label_65;
+    message_Mail({
+        english="[CN][CS:B]About Hardcore mode[CR]",
+    });
+    message_Mail({
+        english="""
+            Expert but everything goes wrong. This game
+            mode is designed to be a near impossible task.
+        """,
+    });
+    message_Mail({
+        english="""
+            Higher spawn rate, higher enemy density,
+            higher trap density, forced scaling in both
+            stats and moves, aggressive anti-cheat...
+        """,
+    });
+    message_Mail({
+        english="""
+            At many points it will feel like an unfair or
+            tedious challenge. This was the intent so
+            prepare yourself to lose many many times!
+        """,
+    });
+    Jump(@label_19);
+    @label_66;
+    Jump(@label_67);
+    Jump(@label_19);
+    @label_67;
+    Jump(@label_60);
+    @label_20;
+    Jump(@label_58);
+    @label_57;
+    Jump(@label_68);
+    @label_12;
+    flag_CalcBit($CONDITION, 0, 1);
+    flag_CalcBit($CONDITION, 1, 1);
+    flag_CalcBit($CONDITION, 2, 1);
+    flag_CalcBit($CONDITION, 3, 1);
+    flag_CalcBit($CONDITION, 4, 1);
+    flag_CalcBit($CONDITION, 5, 1);
+    flag_CalcBit($CONDITION, 6, 1);
+    flag_CalcBit($CONDITION, 7, 1);
+    flag_SetPerformance(50, 0);
+    flag_SetPerformance(51, 0);
+    flag_SetPerformance(52, 0);
+    flag_SetPerformance(61, 0);
+    flag_CalcBit($SCENARIO_TALK_BIT_FLAG, 253, 0);
+    flag_SetPerformance(2, 1);
+    flag_Set($PLAY_OLD_GAME, 0);
+    ProcessSpecial(PROCESS_SPECIAL_REMOVE_ITEMS_TYPE_IN_BAG, 58, 0);
+    Jump(@label_9);
+    @label_13;
+    Jump(@label_12);
+    @label_68;
+    Jump(@label_1);
+    @label_10;
+    Jump(@label_9);
+    @label_1;
+    message_Close();
+    message_Mail({
+        english="""
+            In this challenge, you will always
+            play dungeons with only one Pokémon!
+        """,
+    });
+    message_Mail({
+        english="Do you want to play [CS:Y]Solorun[CR] challenge?",
+    });
+    message_SwitchMenu(0, 1);
+    CaseMenu({
+        english="Yes",
+    }, @label_69);
+    CaseMenu({
+        english="No",
+    }, @label_9);
+    Jump(@label_70);
+    @label_69;
+    flag_CalcBit($SCENARIO_TALK_BIT_FLAG, 247, 1);
+    flag_CalcBit($SCENARIO_TALK_BIT_FLAG, 253, 1);
+    flag_CalcBit($CONDITION, 0, 0);
+    flag_CalcBit($CONDITION, 1, 0);
+    flag_CalcBit($CONDITION, 2, 0);
+    BranchPerformance(2, 0, @label_6);
+    BranchPerformance(50, 1, @label_6);
+    BranchPerformance(51, 1, @label_6);
+    BranchPerformance(52, 1, @label_6);
+    Jump(@label_9);
+    Jump(@label_2);
+    @label_70;
+    Jump(@label_9);
+    @label_2;
+    message_Close();
+    message_Mail({
+        english="""
+            In this challenge, you will always
+            play dungeons with the one-item bag!
+        """,
+    });
+    message_Mail({
+        english="Do you want to play [CS:B]One Item[CR] challenge?",
+    });
+    message_SwitchMenu(0, 1);
+    CaseMenu({
+        english="Yes",
+    }, @label_71);
+    CaseMenu({
+        english="No",
+    }, @label_9);
+    Jump(@label_72);
+    @label_71;
+    flag_SetPerformance(2, 0);
+    flag_CalcBit($CONDITION, 3, 0);
+    flag_CalcBit($CONDITION, 4, 0);
+    flag_CalcBit($CONDITION, 5, 0);
+    flag_CalcBit($CONDITION, 6, 0);
+    BranchBit($SCENARIO_TALK_BIT_FLAG, 253, @label_6);
+    BranchPerformance(61, 1, @label_6);
+    Switch($PLAY_OLD_GAME);
+    Case(1, @label_6);
+    Jump(@label_9);
+    Jump(@label_3);
+    @label_72;
+    Jump(@label_9);
+    @label_3;
+    message_Close();
+    message_Mail({
+        english="""
+            In this challenge, you will always be at
+            death's doorstep! Your defensive stats are
+            minimized, your offensive stats maximized.
+        """,
+    });
+    message_Mail({
+        english="Do you want to play [CS:B]Glass Cannon[CR] challenge?",
+    });
+    message_SwitchMenu(0, 1);
+    CaseMenu({
+        english="Yes",
+    }, @label_73);
+    CaseMenu({
+        english="No",
+    }, @label_9);
+    Jump(@label_74);
+    @label_73;
+    flag_SetPerformance(50, 1);
+    flag_CalcBit($CONDITION, 3, 0);
+    flag_CalcBit($CONDITION, 4, 0);
+    flag_CalcBit($CONDITION, 5, 0);
+    flag_CalcBit($CONDITION, 6, 0);
+    BranchBit($SCENARIO_TALK_BIT_FLAG, 253, @label_6);
+    BranchPerformance(61, 1, @label_6);
+    Switch($PLAY_OLD_GAME);
+    Case(1, @label_6);
+    Jump(@label_9);
+    Jump(@label_4);
+    @label_74;
+    Jump(@label_9);
+    @label_4;
+    message_Close();
+    message_Mail({
+        english="""
+            In this challenge, you cannot use attacks
+            or orbs, however your defensive stats are
+            maximized. Also called No Attack challenge.
+        """,
+    });
+    message_Mail({
+        english="Do you want to play [CS:B]Pacifist[CR] challenge?",
+    });
+    message_SwitchMenu(0, 1);
+    CaseMenu({
+        english="Yes",
+    }, @label_75);
+    CaseMenu({
+        english="No",
+    }, @label_9);
+    Jump(@label_76);
+    @label_75;
+    flag_SetPerformance(51, 1);
+    flag_CalcBit($CONDITION, 3, 0);
+    flag_CalcBit($CONDITION, 4, 0);
+    flag_CalcBit($CONDITION, 5, 0);
+    flag_CalcBit($CONDITION, 6, 0);
+    BranchBit($SCENARIO_TALK_BIT_FLAG, 253, @label_6);
+    BranchPerformance(61, 1, @label_6);
+    Switch($PLAY_OLD_GAME);
+    Case(1, @label_6);
+    Jump(@label_9);
+    Jump(@label_5);
+    @label_76;
+    Jump(@label_9);
+    @label_5;
+    message_Close();
+    message_Mail({
+        english="""
+            In this challenge you take damages as turns
+            pass and are prevented from healing by
+            anything except Reviver Seeds.
+        """,
+    });
+    message_Mail({
+        english="Do you want to play [CS:B]Time Attack[CR] challenge?",
+    });
+    message_SwitchMenu(0, 1);
+    CaseMenu({
+        english="Yes",
+    }, @label_77);
+    CaseMenu({
+        english="No",
+    }, @label_9);
+    Jump(@label_78);
+    @label_77;
+    flag_SetPerformance(52, 1);
+    flag_CalcBit($CONDITION, 3, 0);
+    flag_CalcBit($CONDITION, 4, 0);
+    flag_CalcBit($CONDITION, 5, 0);
+    flag_CalcBit($CONDITION, 6, 0);
+    BranchBit($SCENARIO_TALK_BIT_FLAG, 253, @label_6);
+    BranchPerformance(61, 1, @label_6);
+    Switch($PLAY_OLD_GAME);
+    Case(1, @label_6);
+    Jump(@label_9);
+    Jump(@label_7);
+    @label_78;
+    Jump(@label_9);
+    @label_7;
+    Jump(@label_12);
+}

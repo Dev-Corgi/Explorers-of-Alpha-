@@ -1,0 +1,62 @@
+=== arm9: 38 bl to GetPerformanceFlagWithChecks ===
+  0x0200ED9C  r0=2
+  0x02024CBC  r0=1
+  0x0203D6A8  r0=30
+  0x0203D6F4  r0=29
+  0x0203D754  r0=31
+  0x0204216C  r0=3
+  0x0204E64C  r0=4
+  0x0204E9D8  r0=7
+  0x0204E9F0  r0=6
+  0x0204EA00  r0=1
+  0x0204EAC8  r0=7
+  0x0204EAD4  r0=5
+  0x0204EAE0  r0=6
+  0x0204EAEC  r0=1
+  0x0204EC14  r0=25
+  0x0204F96C  r0=27
+  0x0204F98C  r0=28
+  0x02050B20  r0=1
+  0x02050BC8  r0=22
+  0x02050C28  r0=22
+  0x02050CB0  r0=22
+  0x02050D38  r0=1
+  0x02058D50  r0=3
+  0x0205A258  r0=10 ***
+  0x0205AFC4  r0=6
+  0x0205E5F8  r0=3
+  0x02060040  r0=9
+  0x02062318  r0=None
+  0x020623B0  r0=None
+  0x02062448  r0=None
+  0x020624E0  r0=None
+  0x02062628  r0=6
+  0x02062670  r0=9
+  0x02062AF0  r0=9
+  0x02062C0C  r0=9
+  0x02067D30  r0=22
+  0x02068084  r0=22
+  0x020681A8  r0=22
+=== ov29: 5 bl to GetPerformanceFlagWithChecks ===
+  0x02302180  r0=3
+  0x0231D9CC  r0=26
+  0x02343434  r0=23
+  0x0234D154  r0=26
+  0x0234F814  r0=29
+=== ov36: 0 bl to GetPerformanceFlagWithChecks ===
+
+=== Direct mov r0,#55-59 then bl (ARM) ===
+  arm9 0x02059DF8: mov r0,#55; bl 0x0200D278
+  arm9 0x02059E24: mov r0,#56; bl 0x0200D278
+  arm9 0x02016598: mov r0,#59; bl 0x020156AC
+  arm9 0x020167C8: mov r0,#59; bl 0x020156AC
+  ov29 0x022E964C: mov r0,#56; bl 0x022EAA98
+  ov29 0x0233A9E8: mov r0,#56; bl 0x0208FEA4
+  ov29 0x0233C594: mov r0,#56; bl 0x0208FEA4
+  ov29 0x02344C88: mov r0,#56; bl 0x022EAA98
+  ov29 0x0231F2E0: mov r0,#59; bl 0x022E9FE0
+  ov29 0x0231F340: mov r0,#59; bl 0x022E9FE0
+  ov36 0x023D443C: mov r0,#58; bl 0x023D44E4
+
+=== Nearby clusters of mov r0,#56-59 within 0x40 bytes ===
+  arm9: #55@0x02059DF8, #56@0x02059E24

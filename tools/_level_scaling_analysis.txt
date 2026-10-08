@@ -1,0 +1,9 @@
+GetPerformanceFlagWithChecks file=0x4CA94 ram=0x204CA94
+Returns the value of one of the flags in VAR_PERFORMANCE_PROGRESS_LIST, with some edge cases.\n\nList of cases where the function behaves differently:\n- If the requested flag is 0, returns true if and only if SCENARIO_MAIN == 0x35\n- If the requested flag is 1 or 2 and GAME_MODE == GAME_MODE_SPECIA
+
+Total bl callers: 0
+Callers with mov #55 before bl: 0
+
+=== Scan: mov r0,#55 then bl GetPerformanceFlag within 16 bytes ===
+
+CheckTeamMemberIdx file=0x56264

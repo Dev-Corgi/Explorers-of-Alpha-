@@ -1,0 +1,2 @@
+[console_scripts]
+skytemple_export_maps = skytemple_files.export_maps:main

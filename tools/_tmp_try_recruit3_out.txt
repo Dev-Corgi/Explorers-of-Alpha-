@@ -1,0 +1,114 @@
+Stores into recruit stack struct (sp+0xAC == team_member[0]):
+  0230E14C  strb r1, [sp, #0xac]  -> team+0x0
+  0230E150  strb r0, [sp, #0xad]  -> team+0x1
+  0230E160  strb r2, [sp, #0xae]  -> team+0x2
+  0230E164  strh r4, [r13, #0xb2]  -> team+0x6
+  0230E180  strb r0, [sp, #0x104]  -> team+0x58
+  0230E184  strh r3, [r13, #0xb4]  -> team+0x8
+  0230E188  strh r3, [r13, #0xb6]  -> team+0xa
+  0230E190  strh r1, [r13, #0xb8]  -> team+0xc
+  0230E198  strb r1, [sp, #0xaf]  -> team+0x3
+  0230E1A4  strb r1, [sp, #0xb0]  -> team+0x4
+  0230E1AC  strh r1, [r13, #0xba]  -> team+0xe
+  0230E1B4  strh r1, [r13, #0xbc]  -> team+0x10
+  0230E1BC  strh r1, [r13, #0xf0]  -> team+0x44
+  0230E1C4  strh r1, [r13, #0xf2]  -> team+0x46
+  0230E1CC  strh r1, [r13, #0xf4]  -> team+0x48
+  0230E1D4  strh r1, [r13, #0xf6]  -> team+0x4a
+  0230E20C  str r0, [sp, #0xc4]  -> team+0x18
+  0230E22C  strh r0, [r13, #0xea]  -> team+0x3e
+  0230E234  strh r0, [r13, #0xec]  -> team+0x40
+  0230E23C  strh r0, [r13, #0xee]  -> team+0x42
+  0230E478  strh r6, [r13, #0xb6]  -> team+0xa
+  0230E480  strh r0, [r13, #0xb4]  -> team+0x8
+
+Context around fills of sp+0xBA / sp+0xBC / sp+0xBE:
+0230E180  E5CD0104   strb r0, [r13, #+0x104]
+0230E184  E1CD3BB4  strh r3, [r13, #0xb4]
+0230E188  E1CD3BB6  strh r3, [r13, #0xb6]
+0230E18C  E1D810F0  ldrsh r1, [r8, #0x0]
+0230E190  E1CD1BB8  strh r1, [r13, #0xb8]
+0230E194  E5D21748   ldrb r1, [r2, #+0x748]
+0230E198  E5CD10AF   strb r1, [r13, #+0xaf]
+0230E19C  E5D21749   ldrb r1, [r2, #+0x749]
+0230E1A0  E28D20AC  
+0230E1A4  E5CD10B0   strb r1, [r13, #+0xb0]
+0230E1A8  E1D810F6  ldrsh r1, [r8, #0x6]
+0230E1AC  E1CD1BBA  strh r1, [r13, #0xba]
+0230E1B0  E1D810F6  ldrsh r1, [r8, #0x6]
+0230E1B4  E1CD1BBC  strh r1, [r13, #0xbc]
+0230E1B8  E1D811B4  ldrh r1, [r8, #0x14]
+0230E1BC  E1CD1FB0  strh r1, [r13, #0xf0]
+0230E1C0  E1D811B6  ldrh r1, [r8, #0x16]
+0230E1C4  E1CD1FB2  strh r1, [r13, #0xf2]
+0230E1C8  E1D811B8  ldrh r1, [r8, #0x18]
+0230E1CC  E1CD1FB4  strh r1, [r13, #0xf4]
+0230E1D0  E1D811BA  ldrh r1, [r8, #0x1a]
+0230E1D4  E1CD1FB6  strh r1, [r13, #0xf6]
+0230E1D8  E0884000  
+0230E1DC  E5D41008   ldrb r1, [r4, #+0x8]
+0230E1E0  E0823000  
+0230E1E4  E2800001  
+0230E1E8  E5C31012   strb r1, [r3, #+0x12]
+0230E1EC  E5D4100A   ldrb r1, [r4, #+0xa]
+0230E1F0  E1A00800  
+0230E1F4  E1A00840  
+0230E1F8  E5C31014   strb r1, [r3, #+0x14]
+0230E1FC  E3500002  
+0230E200  BAFFFFF4   b 0x230e1d8
+0230E204  E5980010   ldr r0, [r8, #+0x10]
+0230E208  E28D20C8  
+0230E20C  E58D00C4   str r0, [r13, #+0xc4]
+0230E210  E2883022  
+0230E214  E3A01011  
+0230E218  E0D300B2  ldrh r0, [r3, #0x2]
+0230E21C  E2511001  
+
+Xrefs to TryRecruit:
+  0x0230a858 bl
+
+TryRecruit accesses of r8 offsets:
+  0230E154  ldrsh r2, [r8, #0xc]
+  0230E16C  ldrh r4, [r8, #0x44]
+  0230E178  ldrh r4, [r8, #0x46]
+  0230E18C  ldrsh r1, [r8, #0x0]
+  0230E1A8  ldrsh r1, [r8, #0x6]
+  0230E1B0  ldrsh r1, [r8, #0x6]
+  0230E1B8  ldrh r1, [r8, #0x14]
+  0230E1C0  ldrh r1, [r8, #0x16]
+  0230E1C8  ldrh r1, [r8, #0x18]
+  0230E1D0  ldrh r1, [r8, #0x1a]
+  0230E204  ldr r0, [r8, #+0x10]
+  0230E228  ldrh r0, [r8, #0x1c]
+  0230E230  ldrh r0, [r8, #0x1e]
+  0230E238  ldrh r0, [r8, #0x20]
+  0230E240  ldrsh r0, [r8, #0x0]
+  0230E300  ldrsh r1, [r8, #0x2]
+  0230E304  ldrsh r2, [r8, #0x4]
+  0230E310  ldrsh r2, [r8, #0x2]
+  0230E314  ldrsh r3, [r8, #0x4]
+  0230E418  ldrsh r2, [r8, #0x2]
+  0230E41C  ldrsh r3, [r8, #0x4]
+  0230E4F8  ldrsh r0, [r8, #0x0]
+  0230E4FC  ldrsh r1, [r8, #0x2]
+  0230E500  ldrsh r2, [r8, #0x4]
+
+TryRecruit accesses of r4 (monster) offsets:
+  0230E0C8  ldrsh r0, [r4, #0x2]
+  0230E50C  ldrsh r0, [r4, #0xc]
+no sym text for 0x2056698
+no sym text for 0x02056698
+no sym text for 0x20585b4
+no sym text for 0x020585b4
+no sym text for 0x20584fc
+no sym text for 0x020584fc
+no sym text for 0x22fe048
+no sym text for 0x022fe048
+no sym text for 0x2055b78
+no sym text for 0x02055b78
+no sym text for 0x20577bc
+no sym text for 0x020577bc
+no sym text for 0x20534bc
+no sym text for 0x020534bc
+no sym text for 0x20530d4
+no sym text for 0x020530d4

@@ -1,0 +1,151 @@
+id: orb_charges_v2
+version: 19
+region: US
+description: >
+  Multi-use orbs v2: charge=3 orbs; ov29 RemoveUsedItem consume +
+  Use(3/2/1) submenu strings (no ARM9 BuildItemName).
+  Custom strings: yaml 19082–19084 (code +1; avoid tm_read 19073–19076).
+  v11: the save prompt (unionall coroutine 52) refilled every charge-table orb in the bag.
+  v15: refills charge-table orbs on dungeon group first floor (group_floor == 1) instead.
+  v16: tail-call the vanilla dungeon-entry arm9 setup; blx+bx lr used the
+  callee's leftover lr and crashed on every dungeon enter.
+  v17: Compute group_floor with DungeonFloorToGroupFloor at the entry hook; vanilla
+  has not written 0x74B yet (LoadMappa does that later).
+  v18: Refill bag orb charges when a dungeon-group outing ends (DungeonFree).
+  Escape / give-up / faint always count; a clear counts only on the last
+  floor of the group.
+  v19: Read DUNGEON_PTR_MASTER (the pointer DungeonFree frees). The working
+  DUNGEON_PTR is often already null on escape.
+  v12: renamed orb effects. Move-id retargets cast the named move.
+  Exclusive moves (PP-save, poison, Counter+Mirror Coat, Protect,
+  stat drops, next-turn power x3) replace the loaded effect.
+  v13: Weakness, Decay, and Charge are name changes. Heal Orb casts
+  Moonlight (173) and does not change that move.
+  v14: Grudge Orb becomes Diet Orb (1 use). On this floor the team's
+  walk drain does not run. Exports OrbFx_DietFlag at cave+0 so
+  belly_union can skip the shared drain.
+
+kind: asm
+rom_profile: us_vanilla
+
+prebuild:
+  - script: generate_table.py
+
+hooks:
+  - name: RemoveUsedItemClearPath
+    symbol: RemoveUsedItemClearPath
+    binary: ov29
+    vanilla_word: 0xE1A00005
+    chain: first
+    target_symbol: OrbCharges_RemoveUsedItemClearHook
+
+  - name: GetSubMenuStringIdUseBranch
+    symbol: GetSubMenuStringId_Continue
+    binary: ov29
+    vanilla_word: 0xE3560026
+    chain: first
+    target_symbol: OrbCharges_CheckUseSubMenuString
+
+  - name: OrbUseMenuSaveItem
+    symbol: OrbUseMenuSaveItemSite
+    binary: ov31
+    vanilla_word: 0xE1D810F4
+    chain: first
+    target_symbol: OrbCharges_SaveItemAndGetId
+
+  - name: OrbUseMenuAfterAdd
+    symbol: OrbUseMenuAfterAddSite
+    binary: ov31
+    vanilla_word: 0xE5D80000
+    chain: first
+    target_symbol: OrbCharges_AfterAddSubMenuOption
+
+  - name: OrbUseMenuAfterAddAlt
+    symbol: OrbUseMenuAfterAddAltSite
+    binary: ov31
+    vanilla_word: 0xE3540000
+    chain: first
+    target_symbol: OrbCharges_AfterAddSubMenuOptionAlt
+
+  - name: DungeonGroupEndOrbRefill
+    symbol: DungeonFree
+    binary: ov29
+    vanilla_word: 0xE92D4008
+    chain: first
+    target_symbol: OrbCharges_OnDungeonGroupEnd
+
+  - name: WazaEffectLaunch
+    symbol: WazaEffectLaunch
+    binary: ov29
+    vanilla_word: 0xEA0001E2
+    chain: first
+    target_symbol: OrbFx_Dispatch
+
+  - name: ShouldUsePp
+    symbol: ShouldUsePp
+    binary: ov29
+    vanilla_word: 0xE92D40F8
+    chain: first
+    target_symbol: OrbFx_ShouldUsePp
+
+  - name: ResetFloor
+    symbol: ResetFloor
+    binary: ov29
+    vanilla_word: 0xE92D47F0
+    chain: first
+    target_symbol: OrbFx_ResetFloor
+
+  - name: EndOfTurnCall
+    symbol: EndOfTurnCall
+    binary: ov29
+    vanilla_word: 0xEB0043B0
+    chain: first
+    target_symbol: OrbFx_EndTurn
+
+  - name: CalcDamagePowerStore
+    symbol: CalcDamagePowerStore
+    binary: ov29
+    vanilla_word: 0xE58D3010
+    chain: first
+    target_symbol: OrbFx_StorePower
+
+  - name: BuDrainGate
+    symbol: BuDrainGateSite
+    binary: ov29
+    vanilla_word: 0xE5D40007
+    chain: first
+    target_symbol: OrbFx_DietDrainGate
+
+item_move_ids:
+  311: 552
+  351: 225
+  309: 26
+  352: 327
+  306: 252
+  307: 395
+  358: 173
+  346: 398
+
+user_range_moves:
+  - 395
+  - 398
+
+asm:
+  use_bundle: true
+  dir: asm
+  entry: main.asm
+  cave:
+    binary: ov36
+    estimated_bytes: 4096
+    alignment: 4
+    cave_ram_label: OrbChargesOv29CodeAddress
+    export_symbols:
+      # Four zero bytes before the charge table. belly_union reads this.
+      OrbFx_DietFlag: 0
+
+strings:
+  yaml: strings.yaml
+
+verify:
+  - type: hooks_are_branch
+  - type: ov29_cave_has_table

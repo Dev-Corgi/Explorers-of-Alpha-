@@ -1,0 +1,43 @@
+entries:
+  - id: 19100
+    text: "Z-Move"
+  - id: 19101
+    text: "Z-Move"
+  - id: 19102
+    text: "[string:0] surrounded itself with its Normal Z-Power!"
+  - id: 19103
+    text: "[string:0] surrounded itself with its Normal Z-Power!"
+  - id: 19104
+    text: "[string:0] surrounded itself with its Fire Z-Power!"
+  - id: 19105
+    text: "[string:0] surrounded itself with its Water Z-Power!"
+  - id: 19106
+    text: "[string:0] surrounded itself with its Grass Z-Power!"
+  - id: 19107
+    text: "[string:0] surrounded itself with its Electric Z-Power!"
+  - id: 19108
+    text: "[string:0] surrounded itself with its Ice Z-Power!"
+  - id: 19109
+    text: "[string:0] surrounded itself with its Fighting Z-Power!"
+  - id: 19110
+    text: "[string:0] surrounded itself with its Poison Z-Power!"
+  - id: 19111
+    text: "[string:0] surrounded itself with its Ground Z-Power!"
+  - id: 19112
+    text: "[string:0] surrounded itself with its Flying Z-Power!"
+  - id: 19113
+    text: "[string:0] surrounded itself with its Psychic Z-Power!"
+  - id: 19114
+    text: "[string:0] surrounded itself with its Bug Z-Power!"
+  - id: 19115
+    text: "[string:0] surrounded itself with its Rock Z-Power!"
+  - id: 19116
+    text: "[string:0] surrounded itself with its Ghost Z-Power!"
+  - id: 19117
+    text: "[string:0] surrounded itself with its Dragon Z-Power!"
+  - id: 19118
+    text: "[string:0] surrounded itself with its Dark Z-Power!"
+  - id: 19119
+    text: "[string:0] surrounded itself with its Steel Z-Power!"
+  - id: 19120
+    text: "[M:S6]Z : [value:0:3]/100[CR]"

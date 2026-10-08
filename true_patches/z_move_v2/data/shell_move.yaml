@@ -1,0 +1,11 @@
+# Dedicated Z-Move executor slot (560th move). Not in any learnset.
+move_id: 559
+name: "Z-Move"
+template_move_id: 467
+waza_cd_effect_id: 0
+
+# anim.bin section 2: 24-byte move animation record. Copy Judgement's record onto move 559.
+# ov29 CalcDamage dynamic-type pool stays Judgement (467). The hook accepts 467 and 559.
+calc_damage_pool:
+  file_offset: 0x30218
+  vanilla_move_id: 467

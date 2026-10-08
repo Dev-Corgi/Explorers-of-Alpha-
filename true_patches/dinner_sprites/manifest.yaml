@@ -1,0 +1,36 @@
+id: dinner_sprites
+version: 1
+region: US
+description: >
+  The guild dinner loads every guild member plus hero and partner at once.
+  Alpha's larger ground sprites push that scene past the sprite memory the
+  game has, so it stays on a black screen after the dungeon results. The
+  dinner NPCs whose Alpha ground sprite grew get their vanilla Sky sprite
+  back (MONSTER/m_ground.bin). Dungeon sprites are untouched.
+
+kind: data
+rom_profile: us_vanilla
+
+requires: []
+conflicts: []
+
+data:
+  handler: ground_sprite_replace
+  pack: MONSTER/m_ground.bin
+  # index = m_ground.bin entry (monster.md sprite_index). Files are vanilla Sky.
+  sprites:
+    - index: 119
+      file: data/ground_119_koffing.wan
+    - index: 208
+      file: data/ground_208_sunflora.wan
+    - index: 316
+      file: data/ground_316_bidoof.wan
+    - index: 356
+      file: data/ground_356_skuntank.wan
+    - index: 538
+      file: data/ground_538_corphish.wan
+    - index: 562
+      file: data/ground_562_chimecho.wan
+
+verify:
+  - type: ground_sprite_replace

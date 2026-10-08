@@ -1,0 +1,38 @@
+{
+  "ARMJIT.cpp": {
+    "identical_ignoring_copyright": true,
+    "diff_lines": 0
+  },
+  "ARMJIT_Memory.cpp": {
+    "identical_ignoring_copyright": false,
+    "diff_lines": 65
+  },
+  "ARM_InstrInfo.cpp": {
+    "identical_ignoring_copyright": false,
+    "diff_lines": 13
+  },
+  "ARMJIT_A64\\ARMJIT_ALU.cpp": {
+    "identical_ignoring_copyright": true,
+    "diff_lines": 0
+  },
+  "ARMJIT_A64\\ARMJIT_Compiler.cpp": {
+    "identical_ignoring_copyright": true,
+    "diff_lines": 0
+  },
+  "ARMJIT_A64\\ARMJIT_LoadStore.cpp": {
+    "identical_ignoring_copyright": true,
+    "diff_lines": 0
+  },
+  "ARMJIT_x64\\ARMJIT_ALU.cpp": {
+    "identical_ignoring_copyright": true,
+    "diff_lines": 0
+  },
+  "ARMJIT_x64\\ARMJIT_Compiler.cpp": {
+    "identical_ignoring_copyright": true,
+    "diff_lines": 0
+  },
+  "ARMJIT_x64\\ARMJIT_LoadStore.cpp": {
+    "identical_ignoring_copyright": true,
+    "diff_lines": 0
+  }
+}

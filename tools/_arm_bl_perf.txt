@@ -1,0 +1,80 @@
+GetPerformanceFlagWithChecks off=0x4CA94 ram=0x204CA94
+
+=== Function body ===
+0x04CA94: push    {r4, lr}
+0x04CA98: mov     r4, r0
+0x04CA9C: cmp     r4, #7
+0x04CAA0: addls   pc, pc, r4, lsl #2
+0x04CAA4: b       #0x204cb10
+0x04CAA8: b       #0x204cac8
+0x04CAAC: b       #0x204cb00
+0x04CAB0: b       #0x204cb00
+0x04CAB4: b       #0x204caec
+0x04CAB8: b       #0x204caec
+0x04CABC: b       #0x204caec
+0x04CAC0: b       #0x204caec
+0x04CAC4: b       #0x204caec
+0x04CAC8: mov     r0, #0
+0x04CACC: mov     r2, r0
+0x04CAD0: mov     r1, #3
+0x04CAD4: bl      #0x204b678
+0x04CAD8: cmp     r0, #0x35
+0x04CADC: moveq   r0, #1
+0x04CAE0: movne   r0, #0
+0x04CAE4: and     r0, r0, #0xff
+0x04CAE8: pop     {r4, pc}
+0x04CAEC: bl      #0x204afc0
+0x04CAF0: cmp     r0, #3
+0x04CAF4: bne     #0x204cb10
+0x04CAF8: mov     r0, #0
+0x04CAFC: pop     {r4, pc}
+0x04CB00: bl      #0x204afc0
+0x04CB04: cmp     r0, #3
+0x04CB08: moveq   r0, #1
+0x04CB0C: popeq   {r4, pc}
+0x04CB10: lsl     r0, r4, #0x10
+0x04CB14: lsr     r2, r0, #0x10
+0x04CB18: mov     r0, #0
+0x04CB1C: mov     r1, #0x4e
+0x04CB20: bl      #0x204b678
+0x04CB24: and     r0, r0, #0xff
+0x04CB28: pop     {r4, pc}
+0x04CB2C: push    {r3, r4, r5, lr}
+0x04CB30: mov     r5, r0
+0x04CB34: mov     r4, r1
+0x04CB38: cmp     r5, #7
+0x04CB3C: addls   pc, pc, r5, lsl #2
+0x04CB40: b       #0x204cb70
+0x04CB44: b       #0x204cb70
+0x04CB48: b       #0x204cb64
+0x04CB4C: b       #0x204cb64
+0x04CB50: b       #0x204cb64
+0x04CB54: b       #0x204cb64
+0x04CB58: b       #0x204cb64
+0x04CB5C: b       #0x204cb64
+0x04CB60: b       #0x204cb64
+0x04CB64: bl      #0x204afc0
+0x04CB68: cmp     r0, #3
+0x04CB6C: popeq   {r3, r4, r5, pc}
+0x04CB70: cmp     r4, #0
+0x04CB74: movne   r3, #1
+0x04CB78: lsl     r0, r5, #0x10
+0x04CB7C: lsr     r2, r0, #0x10
+0x04CB80: moveq   r3, #0
+0x04CB84: mov     r0, #0
+0x04CB88: mov     r1, #0x4e
+0x04CB8C: bl      #0x204b988
+0x04CB90: pop     {r3, r4, r5, pc}
+0x04CB94: push    {r3, lr}
+0x04CB98: mov     r0, #0
+0x04CB9C: mov     r1, #0x49
+0x04CBA0: bl      #0x204b4ec
+0x04CBA4: mvn     r1, #0
+0x04CBA8: cmp     r0, r1
+0x04CBAC: bne     #0x204cbd8
+0x04CBB0: mov     r0, #0
+
+=== ARM bl callers: 38 ===
+With mov r0,#55 before: 0
+
+=== mov r0,#55 then bl (any target) ===

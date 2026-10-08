@@ -1,0 +1,34 @@
+id: utility_patch
+version: 1
+region: US
+description: >
+  Holding B to run in a dungeon also stops when an enemy is two tiles
+  ahead in the leader's facing direction and the leader can see them.
+  Bumping a wall and another Pokemon using a move still stop the run.
+
+kind: asm
+rom_profile: us_vanilla
+
+hooks:
+  - name: ShouldLeaderKeepRunningEnemyAhead
+    symbol: ShouldLeaderKeepRunningOkSite
+    binary: ov29
+    vanilla_word: 0xE3A00001
+    chain: first
+    target_symbol: UtilityPatch_KeepRunning
+
+cave:
+  binary: ov36
+  estimated_bytes: 256
+  alignment: 4
+  base_label: UtilityPatchCodeAddress
+
+asm:
+  entry: asm/main.asm
+
+verify:
+  - type: hooks_are_branch
+  - type: cave_nonempty
+    overlay: ov36
+
+notes: "v1: ShouldLeaderKeepRunning success path checks two tiles ahead for a visible enemy (is_not_team_member)."

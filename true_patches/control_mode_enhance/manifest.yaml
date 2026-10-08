@@ -1,0 +1,123 @@
+id: control_mode_enhance
+version: 13
+region: US
+description: >
+  Full control mode. Start on any team member's turn toggles auto/manual, and
+  Select stays camera mode. Each round starts on the current leader and walks
+  the party in slot order, wrapping back to that leader before enemies.
+  Manual to auto makes that pokemon the leader without reordering the lap
+  already running; the next round starts on them. The leader is controlled.
+  Anyone else is controlled in manual and takes the ally turn in auto.
+  Guests always take the AI turn. The next floor's leader is vanilla.
+
+kind: asm
+rom_profile: us_vanilla
+
+hooks:
+  - name: CmeLeaderMenu
+    symbol: CmeLeaderMenuSite
+    binary: ov29
+    vanilla_word: 0xEB00129D
+    chain: first
+    target_symbol: ControlModeEnhance_LeaderOrAi
+
+  - name: CmeScanStay
+    symbol: CmeScanStaySite
+    binary: ov36
+    vanilla_word: 0x08BD9FFF
+    chain: first
+    target_symbol: ControlModeEnhance_ScanStay
+
+  - name: CmeToggleGate
+    symbol: CmeToggleGateSite
+    binary: ov36
+    vanilla_word: 0xE5924B28
+    chain: first
+    target_symbol: ControlModeEnhance_HomeToR4
+
+  - name: CmeToggleMessage
+    symbol: CmeToggleMessageSite
+    binary: ov36
+    vanilla_word: 0xE1A00004
+    chain: first
+    target_symbol: ControlModeEnhance_OnToggle
+
+  - name: CmeTurnEndHome
+    symbol: CmeTurnEndHomeSite
+    binary: ov36
+    vanilla_word: 0xE5966B28
+    chain: first
+    target_symbol: ControlModeEnhance_HomeToR6
+
+  - name: CmeAfterTurnHome
+    symbol: CmeAfterTurnHomeSite
+    binary: ov36
+    vanilla_word: 0xE5911B28
+    chain: first
+    target_symbol: ControlModeEnhance_HomeToR1
+
+  - name: CmeScanHome
+    symbol: CmeScanHomeSite
+    binary: ov36
+    vanilla_word: 0xE5966B28
+    chain: first
+    target_symbol: ControlModeEnhance_HomeToR6
+
+  - name: CmeScanStart
+    symbol: CmeScanStartSite
+    binary: ov36
+    vanilla_word: 0xE1A07006
+    chain: first
+    target_symbol: ControlModeEnhance_ScanStart
+
+  - name: CmeScanStep
+    symbol: CmeScanStepSite
+    binary: ov36
+    vanilla_word: 0xE28660B8
+    chain: first
+    target_symbol: ControlModeEnhance_NextParty
+
+  - name: CmeFloorInit
+    symbol: CmeFloorInitSite
+    binary: ov29
+    vanilla_word: 0xE92D41F0
+    chain: first
+    target_symbol: ControlModeEnhance_FloorClear
+
+  - name: CmeScanGiveTurn
+    symbol: CmeScanGiveTurnSite
+    binary: ov36
+    vanilla_word: 0xEBFFFFBB
+    chain: first
+    target_symbol: ControlModeEnhance_GiveTurn
+
+  - name: CmeScanEnd
+    symbol: CmeScanEndSite
+    binary: ov36
+    vanilla_word: 0xE1A06008
+    chain: first
+    target_symbol: ControlModeEnhance_ScanEnd
+
+  - name: CmeRunLeaderTurn
+    symbol: CmeRunLeaderTurnSite
+    binary: ov29
+    vanilla_word: 0xE1A0A000
+    chain: first
+    target_symbol: ControlModeEnhance_BeginRound
+
+cave:
+  binary: ov36
+  estimated_bytes: 3072
+  alignment: 4
+  base_label: ControlModeEnhanceCodeAddress
+  export_symbols:
+    # CeHome +0, CeRoundPending +4, CeLeader +8. belly_union reads this.
+    CeLeader: 8
+
+asm:
+  entry: asm/main.asm
+
+verify:
+  - type: hooks_are_branch
+  - type: cave_nonempty
+    overlay: ov36

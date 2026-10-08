@@ -1,0 +1,29 @@
+id: fixed_room_orbs
+version: 1
+region: US
+description: >
+  Enable orb use, warping, and Trawl in all fixed rooms by setting overlay10
+  FixedFloorProperties flags (orbs_enabled, unk8, unk9) on every entry.
+
+kind: data
+rom_profile: us_vanilla
+
+requires: []
+conflicts: []
+
+# Assumes base ROM already has ChangeFixedFloorProperties (AreOrbsUsable reads table).
+# This module only edits the data table — no ASM / cave.
+
+data:
+  handler: fixed_floor_properties_all_true
+  overlay: ov10
+  table: FIXED_ROOM_PROPERTIES_TABLE
+  entry_size: 12
+  property_fields:
+    - orbs_enabled   # byte +7 — general orb use in fixed room
+    - unk8           # byte +8 — warp / blow / leap (IsWarpingAllowed)
+    - unk9           # byte +9 — Trawl (IsTrawlingAllowed)
+
+verify:
+  - type: all_property_fields_true
+    fields: [orbs_enabled, unk8, unk9]

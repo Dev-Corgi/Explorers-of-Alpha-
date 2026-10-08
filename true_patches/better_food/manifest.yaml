@@ -1,0 +1,35 @@
+id: better_food
+version: 2
+region: US
+description: >
+  Eating a dungeon item in CATEGORY_FOOD_GUMMIES (apples, other food, and
+  gummis) also restores 5 PP to every move on the Pokemon that ate it.
+  Sticky or muzzled eats do not get the restore. Berries, seeds, and
+  vitamins are unchanged. Town and ground use are unchanged.
+
+kind: asm
+rom_profile: us_vanilla
+
+hooks:
+  - name: ApplyItemEffectFoodPp
+    symbol: ApplyItemEffectSite
+    binary: ov29
+    vanilla_word: 0xE92D47F8
+    chain: first
+    target_symbol: BetterFood_OnApply
+
+cave:
+  binary: ov36
+  estimated_bytes: 256
+  alignment: 4
+  base_label: BetterFoodCodeAddress
+
+asm:
+  entry: asm/main.asm
+
+verify:
+  - type: hooks_are_branch
+  - type: cave_nonempty
+    overlay: ov36
+
+notes: "v2: after ApplyItemEffect, food/gummi eats call RestoreAllMovePP(5). Null, EntityIsValid, sticky, and muzzled are checked. No main-RAM window."

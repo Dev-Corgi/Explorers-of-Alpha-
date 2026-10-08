@@ -1,0 +1,115 @@
+
+=== TryRecruit caller ===
+0230A7E0  EBF51B06  bl 0x02051400
+0230A7E4  E3500000  
+0230A7E8  13A01001  
+0230A7EC  151F07F8  ldr r0, [r15, #-0x7f8]
+0230A7F0  15CA1153  strb r1, [r10, #+0x153]
+0230A7F4  15900000  ldr r0, [r0, #+0x0]
+0230A7F8  15C0100F  strb r1, [r0, #+0xf]
+0230A7FC  E1A00008  
+0230A800  EBFFF9ED  bl 0x02308fbc
+0230A804  E3500000  
+0230A808  0A000005  b 0x0230a824
+0230A80C  E5980000  ldr r0, [r8, #+0x0]
+0230A810  E3500001  
+0230A814  059800B4  ldr r0, [r8, #+0xb4]
+0230A818  05D00007  ldrb r0, [r0, #+0x7]
+0230A81C  03500000  
+0230A820  03A06000  
+0230A824  E3560000  
+0230A828  0A000027  b 0x0230a8cc
+0230A82C  E28D001C  
+0230A830  E1A01007  
+0230A834  EBFFBA07  bl 0x022f9058
+0230A838  E1A00008  
+0230A83C  E1A01007  
+0230A840  EB000CE2  bl 0x0230dbd0
+0230A844  E3500000  
+0230A848  0A000016  b 0x0230a8a8
+0230A84C  E28D201C  
+0230A850  E1A00008  
+0230A854  E1A01007  
+0230A858  EB000E01  bl 0x0230e064
+0230A85C  E3500000  
+0230A860  1A00000C  b 0x0230a898
+0230A864  E1A00007  
+0230A868  EBFFF9D3  bl 0x02308fbc
+0230A86C  E3500000  
+0230A870  0A00001F  b 0x0230a8f4
+0230A874  E1A00008  
+0230A878  E1A01007  
+0230A87C  E1A02005  
+0230A880  EB000061  bl 0x0230aa0c
+0230A884  E1A00007  
+0230A888  E1A02008  
+0230A88C  E3A01F8D  
+0230A890  EBFFB5A6  bl 0x022f7f30
+0230A894  EA000016  b 0x0230a8f4
+0230A898  E59F009C  ldr r0, [r15, #+0x9c]
+0230A89C  E3A01001  
+0230A8A0  E5C01000  strb r1, [r0, #+0x0]
+0230A8A4  EA000012  b 0x0230a8f4
+0230A8A8  E1A00008  
+0230A8AC  E1A01007  
+0230A8B0  E1A02005  
+0230A8B4  EB000054  bl 0x0230aa0c
+0230A8B8  E1A00007  
+0230A8BC  E1A01005  
+caller 0x230a858 -> ApplyDamage @ 0x2308fe0 (+6264) | Applies damage to a monster. Displays the damage animation, lowers its health and handles reviving i
+TryRecruit 0x230e064 -> TryRecruit @ 0x230e064 (+0) | Asks the player if they would like to recruit the enemy that was just defeated and handles the recru
+TeamSync? 0x22fe048 -> SubInitMonster @ 0x22fddc0 (+648) | Called by InitMonster. Initializes some fields on the monster struct.\n\nr0: pointer to monster to i
+RecruitInit? 0x2055b78 -> GetFirstEmptyMemberIdx @ 0x2055964 (+532) | Gets the first unoccupied team member index (in the Chimecho Assembly), or -1 if there is none.\n\nI
+InitSpecialEpisode? 0x2048a84 -> InitSpecialEpisodeExtraPartner @ 0x2048a84 (+0) | Initializes any partners/special episode members that join the team later in a special episode. This
+
+Does TryRecruit ever touch monster+0x10/+0x12 via r4?
+
+=== early r4 monster ===
+0230E0A0  E1A06000  
+0230E0A4  E59940B4  ldr r4, [r9, #+0xb4]
+0230E0A8  E1A00005  
+0230E0AC  E5C90022  strb r0, [r9, #+0x22]
+0230E0B0  E1A0000A  
+0230E0B4  E1A01009  
+0230E0B8  EBFFDFA8  bl 0x02305f60
+0230E0BC  E1A01006  
+0230E0C0  E1A00009  
+0230E0C4  EBFFDA5F  bl 0x02304a48
+0230E0C8  E1D400F2  ldrsh r0, [r4, #0x2]
+0230E0CC  E3A01001  
+
+Symbols mentioning 0x6 and hp:
+(none)
+
+InitTeamMember call args from TryRecruit:
+  r0 = [r8,#0], r1=[r8,#2], r2=[r8,#4], r3=team_member*
+  InitTeamMember desc: Initializes a team member. Run at the start of each floor in a dungeon.\n\nr0: Monster ID\nr1: X position\nr2: Y positio
+
+=== InitTeamMember prologue ===
+022FD3B4  E92D47F8  push 0x47f8
+022FD3B8  E24DD014  
+022FD3BC  E1A05003  
+022FD3C0  E5D53001  ldrb r3, [r5, #+0x1]
+022FD3C4  E1A07000  
+022FD3C8  E59D4038  ldr r4, [r13, #+0x38]
+022FD3CC  E3530000  
+022FD3D0  13A00001  
+022FD3D4  03A00000  
+022FD3D8  E20060FF  
+022FD3DC  E3540000  
+022FD3E0  13A00000  
+022FD3E4  15840000  str r0, [r4, #+0x0]
+022FD3E8  E1A00007  
+022FD3EC  E1A0A001  
+022FD3F0  E1A09002  
+022FD3F4  EBF55B0A  bl 0x02054024
+022FD3F8  E59F137C  ldr r1, [r15, #+0x37c]
+022FD3FC  E1500001  
+022FD400  1A037770  b 0x023db1c8
+022FD404  E5DD003C  ldrb r0, [r13, #+0x3c]
+022FD408  E3500000  
+022FD40C  159F036C  ldr r0, [r15, #+0x36c]
+022FD410  15900000  ldr r0, [r0, #+0x0]
+022FD414  12800C3E  
+022FD418  11D073FA  ldrsh r7, [r0, #0x3a]
+022FD41C  01A07001  

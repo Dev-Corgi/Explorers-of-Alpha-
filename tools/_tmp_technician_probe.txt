@@ -1,0 +1,56 @@
+[33179] 'Technician'
+[33303] '[CS:E]Technician[CR]: Boosts the damage\nthe Pokémon inflicts with moves\nthat have low attack power.'
+[37841] 'Technician'
+[38097] '[CS:E]Technician[CR]: Boosts the damage\nthe Pokémon inflicts with moves\nwith a power of [M:S3][M:S3] or lower.'
+[38292] "[CN][CS:K]Scyther[CR][BAR]\n[CS:J]Type[CR]: Bug/Flying\n[CS:J]Final Type[CR]: Bug/Steel\n[CS:H]Abilities[CR]:\n[CS:E]Swarm[CR]: Boosts the power of the Pokémon's\nBug-type moves moves when in a pinch.\n[CS:E]Technician[CR]: Boosts the damage the Pokémon\ninflicts with moves with [M:S3][M:S3]-power or less.\n[CS:I]IQ Group[CR]: D\n[CS:S]Stats Curve[CR]: Offensive\n[CS:M]Moves[CR]: Pursuit/Quick Attack/Leer\n[CS:M]Egg Move[CR]: Bug Bite"
+[38296] '[CN][CS:K]Aipom[CR][BAR]\n[CS:J]Type[CR]: Normal\n[CS:J]Final Type[CR]: Normal\n[CS:H]Abilities[CR]:\n[CS:E]Technician[CR]: Boosts the damage the Pokémon\ninflicts with moves with [M:S3][M:S3]-power or less.\n[CS:E]Pickup[CR]: Enables the Pokémon to find\nitems when it is not holding anything.\n[CS:I]IQ Group[CR]: F\n[CS:S]Stats Curve[CR]: Offensive\n[CS:M]Moves[CR]: Scratch/Sand Attack/Tail Whip\n[CS:M]Egg Move[CR]: Mud Bomb'
+[38309] '[CN][CS:K]Meowth[CR][BAR]\n[CS:J]Type[CR]: Normal\n[CS:J]Final Type[CR]: Normal\n[CS:H]Abilities[CR]:\n[CS:E]Pickup[CR]: Enables the Pokémon to find\nitems when it is not holding anything.\n[CS:E]Technician[CR]: Boosts the damage the Pokémon\ninflicts with moves with [M:S3][M:S3]-power or less.\n[CS:I]IQ Group[CR]: G\n[CS:S]Stats Curve[CR]: Balanced\n[CS:M]Moves[CR]: Fake Out/Scratch/Growl\n[CS:M]Egg Move[CR]: Punishment'
+[38330] '[CN][CS:K]Meowth[CR][BAR]\n[CS:J]Type[CR]: Dark\n[CS:J]Final Type[CR]: Dark\n[CS:H]Abilities[CR]:\n[CS:E]Pickup[CR]: Enables the Pokémon to find\nitems when it is not holding anything.\n[CS:E]Technician[CR]: Boosts the damage the Pokémon\ninflicts with moves with [M:S3][M:S3]-power or less.\n[CS:I]IQ Group[CR]: G\n[CS:S]Stats Curve[CR]: Balanced\n[CS:M]Moves[CR]: Growl/Scratch/Fake Out\n[CS:M]Egg Move[CR]: Punishment'
+[38349] '[CN][CS:K]Smeargle[CR][BAR]\n[CS:J]Type[CR]: Normal\n[CS:H]Abilities[CR]:\n[CS:E]Own Tempo[CR]: Protects the Pokémon from\nconfusion.\n[CS:E]Technician[CR]: Boosts the damage the Pokémon\ninflicts with moves with [M:S3][M:S3]-power or less.\n[CS:I]IQ Group[CR]: F\n[CS:S]Stats Curve[CR]: Balanced\n[CS:M]Moves[CR]: Sketch\n[CS:M]Gimmick[CR]: Sketch\nGood luck!'
+TECH symbol offsets: ('0x7ADC', '0x22C455C')
+ov29: technician-nearby cmp-imm hits: 21
+  mov@ 0x12140 cmp@0x12178 word=E3500032 mov_reg=r0
+  mov@ 0x1361c cmp@0x136e4 word=E3580004 mov_reg=r0
+  mov@ 0x303c4 cmp@0x304a4 word=E350003C mov_reg=r0
+  mov@ 0x3413c cmp@0x341d4 word=E3500004 mov_reg=r0
+  mov@ 0x40c34 cmp@0x40cd0 word=E35C0004 mov_reg=r0
+  mov@ 0x41340 cmp@0x41360 word=E3500004 mov_reg=r0
+  mov@ 0x4f034 cmp@0x4f0cc word=E350003C mov_reg=r0
+  mov@ 0x51348 cmp@0x5137c word=E3500032 mov_reg=r0
+  mov@ 0x60cb8 cmp@0x60cc0 word=E3500032 mov_reg=r0
+  mov@ 0x61070 cmp@0x61078 word=E350003C mov_reg=r0
+  mov@ 0x612bc cmp@0x61304 word=E3500032 mov_reg=r0
+  mov@ 0x612fc cmp@0x61304 word=E3500032 mov_reg=r0
+  mov@ 0x62b8c cmp@0x62b94 word=E350003C mov_reg=r0
+  mov@ 0x6559c cmp@0x655a4 word=E3500032 mov_reg=r0
+  mov@ 0x659a0 cmp@0x659a8 word=E3500032 mov_reg=r0
+  mov@ 0x66680 cmp@0x66688 word=E3500032 mov_reg=r0
+  mov@ 0x66680 cmp@0x6674c word=E3500032 mov_reg=r0
+  mov@ 0x66744 cmp@0x6674c word=E3500032 mov_reg=r0
+  mov@ 0x6c494 cmp@0x6c50c word=E3500004 mov_reg=r0
+  mov@ 0x34410 cmp@0x344e4 word=E3590004 mov_reg=r1
+  mov@ 0x5d54c cmp@0x5d620 word=E3520028 mov_reg=r1
+arm9: technician-nearby cmp-imm hits: 6
+  mov@ 0x11600 cmp@0x11664 word=E35C0004 mov_reg=r0
+  mov@ 0x53324 cmp@0x5341c word=E3540004 mov_reg=r0
+  mov@ 0x53340 cmp@0x5341c word=E3540004 mov_reg=r0
+  mov@ 0x88200 cmp@0x88240 word=E3530004 mov_reg=r0
+  mov@ 0x13bd0 cmp@0x13c9c word=E35E0004 mov_reg=r1
+  mov@ 0x84440 cmp@0x8452c word=E3510004 mov_reg=r6
+; US Explorers of Sky / Alpha — damage_formula
+ov_29 equ 0x022DC240
+ov_36 equ 0x023A7080
+
+; Mid-CalcDamage: after A/D finalized at [sp,#0x90]/[sp,#0x94], before ln base.
+.definelabel CalcDamageBaseFormula,       0x0230C984
+; Resume at Fx64 clamp (max 999 / min 1) then type/crit/random path.
+.definelabel CalcDamageAfterBaseFormula,  0x0230CB78
+
+.definelabel IntToFx64,                    0x02001C80
+.definelabel SoftDiv,                     0x0208FEA4
+.definelabel SomeDungeonFlagCheck,        0x022E08CC
+
+snippet codes: ['0x68', '0x61', '0x74', '0x20', '0x68', '0x61', '0x76', '0x65', '0x20', '0x6c', '0x6f', '0x77', '0x20', '0x61', '0x74', '0x74', '0x61', '0x63', '0x6b', '0x20', '0x70', '0x6f', '0x77', '0x65', '0x72', '0x2e']
+snippet repr: 'hat have low attack power.'
+snippet codes: ['0x73', '0x20', '0x77', '0x69', '0x74', '0x68', '0x20', '0x6d', '0x6f', '0x76', '0x65', '0x73', '0xa', '0x77', '0x69', '0x74', '0x68', '0x20', '0x61', '0x20', '0x70', '0x6f', '0x77', '0x65', '0x72', '0x20', '0x6f', '0x66', '0x20', '0x5b', '0x4d', '0x3a', '0x53', '0x33', '0x5d', '0x5b', '0x4d', '0x3a', '0x53', '0x33', '0x5d', '0x20', '0x6f', '0x72', '0x20', '0x6c', '0x6f', '0x77', '0x65', '0x72', '0x2e']
+snippet repr: 's with moves\nwith a power of [M:S3][M:S3] or lower.'

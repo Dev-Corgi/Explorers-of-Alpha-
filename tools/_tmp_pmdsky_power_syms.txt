@@ -1,0 +1,229 @@
+IsRecoilMove: Checks if the given move is a recoil move (affected by Reckless).\n\nr0: move ID\nreturn: bool
+---
+GetAbilityString: Copies the string for the ability id into the buffer.\n\nr0: [output] buffer\nr1: ability ID
+---
+GetAbilityDescStringId: Gets the ability description string ID for the corresponding ability.\n\nr0: ability ID\nreturn: string ID
+---
+GetAbility: Note: unverified, ported from Irdkwia's notes\n\nr0: id\nr1: ability index (0 for primary ability or 1 for secondary ability)\nreturn: ability
+---
+DS_DOWNLOAD_TEAMS: Seems like this is just a collection of null-terminated lists concatenated together.\n\nNote: unverified, ported from Irdkwia's notes\n\nstruct monster_id_16[56]
+---
+DoMoveRecoverHp: Move effect: Recover 50% of the user's max HP\nRelevant moves: Recover, Slack Off\n\nr0: attacker pointer\nr1: defender pointer\nr2: move\nr3: item ID\nreturn: whether the move was successfully used
+---
+DefenderAbilityIsActiveMoveEffects: See overlay29.yml::DefenderAbilityIsActive
+---
+DoMoveBlazeKick: Move effect: Blaze Kick\n\nr0: attacker pointer\nr1: defender pointer\nr2: move\nr3: item ID\nreturn: whether the move was successfully used
+---
+DoMoveDamageConstrict10: Move effect: Deal damage with a 10% (WHIRLPOOL_CONSTRICT_CHANCE) chance to constrict, and with a damage multiplier dependent on the move used.\nRelevant moves: Clamp, Bind, Sand Tomb, Fire Spin, Magma Storm\n\nr0: attacker pointer\nr1: defender pointer\nr2: move\nr3: item ID\nreturn: whether or not 
+---
+DoMoveDamageLowerSpecialDefense50: Move effect: Deal damage with a 50% (LUSTER_PURGE_LOWER_SPECIAL_DEFENSE_CHANCE) chance to lower special defense.\nRelevant moves: Luster Purge, Energy Ball, Focus Blast\n\nr0: attacker pointer\nr1: defender pointer\nr2: move\nr3: item ID\nreturn: whether the move was successfully used
+---
+SACRED_FIRE_BURN_CHANCE: The chance of Sacred Fire burning, as a percentage (50%).
+---
+MIST_BALL_LOWER_SPECIAL_ATTACK_CHANCE: The chance of Mist Ball lowering special attack, as a percentage (50%).
+---
+LUSTER_PURGE_LOWER_SPECIAL_DEFENSE_CHANCE: The chance of Luster Purge (and others, see DoMoveDamageLowerSpecialDefense50) lowering special defense, as a percentage (50%).
+---
+BLAZE_KICK_BURN_CHANCE: The chance of Blaze Kick burning, as a percentage (10%).
+---
+TECHNICIAN_MOVE_POWER_THRESHOLD: The move power threshold for Technician (4). Moves whose base power doesn't exceed this value will receive a 50% damage boost.
+---
+RAIN_ABILITY_BONUS_REGEN: The passive bonus health regen given when the weather is rain for the abilities rain dish and dry skin.
+---
+AFTERMATH_CHANCE: The chance of the Aftermath ability activating, as a percentage (50%).
+---
+CRUSH_CLAW_LOWER_DEFENSE_CHANCE: The chance of Crush Claw lowering defense, as a percentage (50%).
+---
+ICE_BODY_BONUS_REGEN: The passive bonus health regen given when the weather is hail for the ability ice body.
+---
+ME_FIRST_MULTIPLIER: The damage multiplier applied to attacks copied by Me First, as a fixed-point number with 8 fraction bits (1.5).
+---
+FACADE_DAMAGE_MULTIPLIER: The Facade damage multiplier for users with a status condition, as a binary fixed-point number with 8 fraction bits (0x200 -> 2x).
+---
+BURN_DAMAGE_MULTIPLIER: The extra damage multiplier for moves when the attacker is burned, as a fixed-point number with 8 fraction bits (the raw value is 0xCC, which is close to 0.8).\n\nUnlike in the main series, this multiplier is applied regardless of whether the move being used is physical or special.
+---
+MATCHUP_SUPER_EFFECTIVE_MULTIPLIER_ERRATIC_PLAYER: The damage multiplier corresponding to MATCHUP_SUPER_EFFECTIVE when Erratic Player is active, as a fixed-point number with 8 fraction bits (the raw value is 0x1B3, the closest possible representation of 1.7).
+---
+MATCHUP_IMMUNE_MULTIPLIER: The damage multiplier corresponding to MATCHUP_IMMUNE, as a fixed-point number with 8 fraction bits (0.5).
+---
+TINTED_LENS_MULTIPLIER: The extra damage multiplier for not-very-effective moves when Tinted Lens is active, as a fixed-point number with 8 fraction bits (the raw value is 0x133, the closest possible representation of 1.2).
+---
+SHADOW_FORCE_DAMAGE_MULTIPLIER: The damage multiplier for Shadow Force, as a fixed-point number with 8 fraction bits (2).
+---
+DIG_DAMAGE_MULTIPLIER: The damage multiplier for Dig, as a fixed-point number with 8 fraction bits (2).
+---
+DIVE_DAMAGE_MULTIPLIER: The damage multiplier for Dive, as a fixed-point number with 8 fraction bits (2).
+---
+BOUNCE_DAMAGE_MULTIPLIER: The damage multiplier for Bounce, as a fixed-point number with 8 fraction bits (2).
+---
+POWER_PITCHER_DAMAGE_MULTIPLIER: The multiplier for projectile damage from Power Pitcher (1.5), as a binary fixed-point number (8 fraction bits)
+---
+MATCHUP_NOT_VERY_EFFECTIVE_MULTIPLIER: The damage multiplier corresponding to MATCHUP_NOT_VERY_EFFECTIVE, as a fixed-point number with 8 fraction bits (the raw value is 0x1B4, the closest possible representation of 1/√2).
+---
+MATCHUP_SUPER_EFFECTIVE_MULTIPLIER: The damage multiplier corresponding to MATCHUP_SUPER_EFFECTIVE, as a fixed-point number with 8 fraction bits (the raw value is 0x166, the closest possible representation of 1.4).
+---
+MATCHUP_NEUTRAL_MULTIPLIER: The damage multiplier corresponding to MATCHUP_NEUTRAL, as a fixed-point number with 8 fraction bits (1).
+---
+MATCHUP_IMMUNE_MULTIPLIER_ERRATIC_PLAYER: The damage multiplier corresponding to MATCHUP_IMMUNE when Erratic Player is active, as a fixed-point number with 8 fraction bits (0.25).
+---
+MATCHUP_NOT_VERY_EFFECTIVE_MULTIPLIER_ERRATIC_PLAYER: The damage multiplier corresponding to MATCHUP_NOT_VERY_EFFECTIVE when Erratic Player is active, as a fixed-point number with 8 fraction bits (0.5).
+---
+MATCHUP_NEUTRAL_MULTIPLIER_ERRATIC_PLAYER: The damage multiplier corresponding to MATCHUP_NEUTRAL when Erratic Player is active, as a fixed-point number with 8 fraction bits (1).
+---
+AIR_BLADE_DAMAGE_MULTIPLIER: The multiplier for damage from the Air Blade (1.5), as a binary fixed-point number (8 fraction bits)
+---
+KECLEON_SHOP_BOOST_CHANCE_MULTIPLIER: The boosted kecleon shop spawn chance multiplier (~1.2) as a binary fixed-point number (8 fraction bits).
+---
+HIDDEN_STAIRS_SPAWN_CHANCE_MULTIPLIER: The hidden stairs spawn chance multiplier (~1.2) as a binary fixed-point number (8 fraction bits), if applicable. See ShouldBoostHiddenStairsSpawnChance in overlay 29.
+---
+SOLARBEAM_DAMAGE_MULTIPLIER: The default damage multiplier for SolarBeam, as a fixed-point number with 8 fraction bits (2).
+---
+SKY_ATTACK_DAMAGE_MULTIPLIER: The damage multiplier for Sky Attack, as a fixed-point number with 8 fraction bits (2).
+---
+RAZOR_WIND_DAMAGE_MULTIPLIER: The damage multiplier for Razor Wind, as a fixed-point number with 8 fraction bits (2).
+---
+FOCUS_PUNCH_DAMAGE_MULTIPLIER: The damage multiplier for Focus Punch, as a fixed-point number with 8 fraction bits (2).
+---
+SKULL_BASH_DAMAGE_MULTIPLIER: The damage multiplier for Skull Bash, as a fixed-point number with 8 fraction bits (2).
+---
+FLY_DAMAGE_MULTIPLIER: The damage multiplier for Fly, as a fixed-point number with 8 fraction bits (2).
+---
+LAST_RESORT_DAMAGE_MULT_TABLE: Table of damage multipliers for Last Resort for different numbers of moves out of PP, where each entry is a binary fixed-point number with 8 fraction bits.\n\nIf n is the number of moves out of PP not counting Last Resort itself, the table is indexed by (n - 1).\n\ntype: int[4]
+---
+REVERSAL_DAMAGE_MULT_TABLE: Table of damage multipliers for Reversal/Flail at different HP ranges, where each entry is a binary fixed-point number with 8 fraction bits.\n\ntype: int[4]
+---
+WATER_SPOUT_DAMAGE_MULT_TABLE: Table of damage multipliers for Water Spout at different HP ranges, where each entry is a binary fixed-point number with 8 fraction bits.\n\ntype: int[4]
+---
+WRING_OUT_DAMAGE_MULT_TABLE: Table of damage multipliers for Wring Out/Crush Grip at different HP ranges, where each entry is a binary fixed-point number with 8 fraction bits.\n\ntype: int[4]
+---
+ERUPTION_DAMAGE_MULT_TABLE: Table of damage multipliers for Eruption at different HP ranges, where each entry is a binary fixed-point number with 8 fraction bits.\n\ntype: int[4]
+---
+WEATHER_BALL_DAMAGE_MULT_TABLE: Maps each weather type (by index, see enum weather_id) to the corresponding Weather Ball damage multiplier, where each entry is a binary fixed-point number with 8 fraction bits.\n\ntype: int[8]
+---
+TYPE_MATCHUP_COMBINATOR_TABLE: Table of type matchup combinations.\n\nEach row corresponds to a single type matchup that results from combining two individual type matchups together. For example, combining MATCHUP_NOT_VERY_EFFECTIVE with MATCHUP_SUPER_EFFECTIVE results in MATCHUP_NEUTRAL.\n\ntype: struct type_matchup_combinator_t
+---
+OFFENSIVE_STAT_STAGE_MULTIPLIERS: Table of multipliers for offensive stats (attack/special attack) for each stage 0-20, as binary fixed-point numbers (8 fraction bits)
+---
+DEFENSIVE_STAT_STAGE_MULTIPLIERS: Table of multipliers for defensive stats (defense/special defense) for each stage 0-20, as binary fixed-point numbers (8 fraction bits)
+---
+MALE_ACCURACY_STAGE_MULTIPLIERS: Table of multipliers for the accuracy stat for males for each stage 0-20, as binary fixed-point numbers (8 fraction bits)
+---
+MALE_EVASION_STAGE_MULTIPLIERS: Table of multipliers for the evasion stat for males for each stage 0-20, as binary fixed-point numbers (8 fraction bits)
+---
+FEMALE_ACCURACY_STAGE_MULTIPLIERS: Table of multipliers for the accuracy stat for females for each stage 0-20, as binary fixed-point numbers (8 fraction bits)
+---
+FEMALE_EVASION_STAGE_MULTIPLIERS: Table of multipliers for the evasion stat for females for each stage 0-20, as binary fixed-point numbers (8 fraction bits)
+---
+TYPE_MATCHUP_TABLE: Table of type matchups.\n\nEach row corresponds to the type matchups of a specific attack type, with each entry within the row specifying the type's effectiveness against a target type.\n\ntype: struct type_matchup_table
+---
+DEFEAT_ITEM_LOSS_CHANCE: Chance of losing each individual bag item after being defeated in a dungeon (50%).
+---
+DungeonRandOutcome: Returns the result of a possibly biased coin flip (a Bernoulli random variable) with some success probability p, using the dungeon PRNG.\n\nr0: success percentage (100*p)\nreturn: true with probability p, false with probability (1-p)
+---
+CalcStatusDuration: Seems to calculate the duration of a volatile status on a monster.\n\nr0: entity pointer\nr1: pointer to a turn range (an array of two shorts {lower, higher})\nr2: flag for whether or not to factor in the Self Curer IQ skill and the Natural Cure ability\nreturn: number of turns for the status condit
+---
+TrySwitchPlace: The user entity attempts to switch places with the target entity (i.e. by the effect of the Switcher Orb). \n\nThe function checks for the Suction Cups ability for both the user and the target, and for the Mold Breaker ability on the user.\n\nr0: pointer to user entity\nr1: pointer to target entity
+---
+SetMonsterTypeAndAbility: Checks Forecast ability\n\nNote: unverified, ported from Irdkwia's notes\n\nr0: target entity pointer
+---
+TryActivateSlowStart: Runs a check over all monsters on the field for the ability Slow Start, and lowers the speed of those who have it.\n\nNo params
+---
+DefenderAbilityIsActive: Checks if a defender has an active ability that isn't disabled by an attacker's Mold Breaker.\n\nThere are two versions of this function, which share the same logic but have slightly different assembly. This is probably due to differences in compiler optimizations at different addresses.\n\nr0: atta
+---
+TryActivateTruant: Checks if an entity has the ability Truant, and if so tries to apply the pause status to it.\n\nr0: pointer to entity
+---
+TryEndStatusWithAbility: Checks if any of the defender's active abilities would end one of their current status\nconditions. For example, if the ability Own Tempo will stop confusion.\n\nCalled after changing a monster's ability with skill swap, role play, or trace to\nremove statuses the monster should no longer be affecte
+---
+TryActivateFlashFireOnAllMonsters: Checks every monster for apply_flash_fire_boost. If it's true, activates Flash Fire for the monster and sets\napply_flash_fire_boost back to false.\n\nNo params.
+---
+MonsterHasAttackInterferingStatus: Checks if a monster has one of the statuses in the 'cringe' group, which includes status conditions that interfere with the monster's ability to attack: STATUS_CRINGE, STATUS_CONFUSED, STATUS_PAUSED, STATUS_COWERING, STATUS_TAUNTED, STATUS_ENCORE, STATUS_INFATUATED, and STATUS_DOUBLE_SPEED.\n\nSTATU
+---
+MonsterHasSkillInterferingStatus: Checks if a monster has one of the non-self-inflicted statuses in the 'curse' group, which loosely includes status conditions that interfere with the monster's skills or ability to do things: STATUS_CURSED, STATUS_DECOY, STATUS_GASTRO_ACID, STATUS_HEAL_BLOCK, STATUS_EMBARGO.\n\nr0: entity pointer\nr
+---
+LeafGuardIsActive: Checks if the monster is protected by the ability Leaf Guard.\n\nr0: user entity pointer\nr1: target entity pointer\nr2: flag to log a message\nreturn: bool
+---
+AbilityIsActive: Checks if a monster has a certain ability that isn't disabled by Gastro Acid.\n\nr0: entity pointer\nr1: ability ID\nreturn: bool
+---
+AbilityIsActiveVeneer: Likely a linker-generated veneer for AbilityIsActive.\n\nSee https://developer.arm.com/documentation/dui0474/k/image-structure-and-generation/linker-generated-veneers/what-is-a-veneer-\n\nr0: entity pointer\nr1: ability ID\nreturn: bool
+---
+OtherMonsterAbilityIsActive: Checks if there are any other monsters on the floor besides the user that have the specified ability active, subject to the user being on the floor.\n\nIt also seems like there might be some other range or validity check, so this might not actually check ALL other monsters?\n\nr0: user entity pointe
+---
+AftermathCheck: Checks if the defender has the Aftermath ability and tries to activate it if so (50% chance).\n\nThe ability won't trigger if the damage source is DAMAGE_SOURCE_EXPLOSION.\n\nr0: Attacker pointer\nr1: Defender pointer\nr2: Damage source\nreturn: True if Aftermath was activated, false if it wasn't
+---
+GetTypeMatchupBothTypes: Gets the type matchup for a given combat interaction, accounting for both of the user's types.\n\nCalls GetTypeMatchup twice and combines the result.\n\nr0: attacker pointer\nr1: defender pointer\nr2: attack type\nreturn: enum type_matchup
+---
+ScrappyShouldActivate: Checks whether Scrappy should activate.\n\nScrappy activates when the ability is active on the attacker, the move type is Normal or Fighting, and the defender is a Ghost type.\n\nr0: attacker pointer\nr1: defender pointer\nr2: move type ID\nreturn: bool
+---
+GhostImmunityIsActive: Checks whether the defender's typing would give it Ghost immunities.\n\nThis only checks one of the defender's types at a time. It checks whether the defender has the exposed status and whether the attacker has the Scrappy-like exclusive item effect, but does NOT check whether the attacker has the S
+---
+GetTypeMatchup: Gets the type matchup for a given combat interaction.\n\nNote that the actual monster's types on the attacker and defender pointers are not used; the pointers are only used to check conditions. The actual type matchup table lookup is done solely using the attack and target type parameters.\n\nThis f
+---
+CalcTypeBasedDamageEffects: Calculates type-based effects on damage.\n\nLoosely, this includes type matchup effects (including modifications due to abilities, IQ skills, and exclusive items), STAB, pinch abilities like Overgrow, weather/floor condition effects on certain types, and miscellaneous effects like Charge.\n\nr0: [ou
+---
+CalcDamage: The damage calculation function.\n\nAt a high level, the damage formula is:\n  M * [(153/256)*(A + P) - 0.5*D + 50*ln(10*[L + (A - D)/8 + 50]) - 311]\nwhere:\n  - A is the offensive stat (attack or special attack) with relevant modifiers applied (stat stages, certain items, certain abilities, etc.)\
+---
+CalcRecoilDamageFixed: Appears to calculate recoil damage to a monster.\n\nThis function wraps CalcDamageFixed using the monster as both the attacker and the defender, after doing some basic checks (like if the monster is already at 0 HP) and applying a boost from the Reckless ability if applicable.\n\nr0: entity pointer\
+---
+TrySpawnMonsterAndTickSpawnCounter: First ticks up the spawn counter, and if it's equal or greater than the spawn cooldown, it will try to spawn an enemy if the number of enemies is below the spawn cap.\n\nIf the spawn counter is greater than 900, it will instead perform the special spawn caused by the ability Illuminate.\n\nNo params
+---
+GetPossibleAiThrownItemDirections: If the entity can throw an item at a target in a certain direction,\nadds that direction to AI_THROWN_ITEM_DIRECTIONS and the probability of throwing it to AI_THROWN_ITEM_PROBABILITIES (if it is not already present).\nThe size of the arrays will be stored in AI_THROWN_ITEM_ACTION_CHOICE_COUNT.\nThe 
+---
+GetPossibleAiArcItemTargets: Gets the positions of all targets that an AI can hit with an item thrown in an arc, such as a Gravelerock.\nThe number of positions in the array will be stored in AI_THROWN_ITEM_ACTION_CHOICE_COUNT.\n\nr0: Entity pointer\nr1: Item struct pointer\nr2: [output] Array of size 20 for storing position st
+---
+BoostOrLowerSpeed: Randomly boosts or lowers the speed of the target monster by one stage with equal probability.\n\nr0: user entity pointer\nr1: target entity pointer
+---
+TryActivateQuickFeet: Activate the Quick Feet ability on the defender, if the monster has it and it's active.\n\nr0: attacker pointer\nr1: defender pointer\nreturn: bool, whether or not the ability was activated
+---
+IsFloating: Checks if a monster is currently floating for reasons other than its typing or ability.\n\nIn particular, this checks for Gravity and Magnet Rise.\n\nr0: entity pointer\nreturn: bool
+---
+ActivateMotorDrive: Displays the message and applies the speed boost for the ability Motor Drive.\n\nr0: monster pointer
+---
+TryActivateFrisk: Tries to activate the Frisk ability on the defender. The attacker has to be on the team and the defender has to be\nholding an item or be able to drop a treasure box.\n\nr0: attacker pointer\nr1: defender pointer
+---
+ActivateStench: Activate the Stench ability on the monster.\n\nr0: monster pointer
+---
+TryActivateSteadfast: Activate the Steadfast ability on the defender, if the monster has it and it's active.\n\nr0: attacker pointer\nr1: defender pointer
+---
+ApplyGrimyFoodEffect: Randomly inflicts poison, shadow hold, burn, paralysis, or an offensive stat debuff\nto the target. If the survivalist iq skill or gluttony ability is active, the target\nhas a 50% chance not to be affected.\n\nr0: user entity pointer\nr1: target entity pointer
+---
+GetAiUseItemProbability: Called to get the probability of an item being used or thrown by an AI on the current turn.\n\nr0: Pointer to either the user if it is an item used by the AI or the target if it is an item thrown by the AI\nr1: Pointer to item\nr2: Size-2 bitvector: if bit 0 is set, the AI is throwing the item. If b
+---
+TryAftermathExplosion: Creates the explosion for the ability aftermath if possible.\n\nThe target monster is considered the source of the explosion.\n\nr0: user entity pointer\nr1: target entity pointer\nr2: coordinates where the explosion should take place (center)\nr3: explosion radius (only works correctly with 1 and 2
+---
+TryActivateNondamagingDefenderAbility: Applies the effects of a defender's ability on an attacker. After a move is used,\nthis function is called to see if any of the bitflags for an ability were set and\napplies the corresponding effect. (The way leech seed removes certain statuses is\nalso handled here.)\n\nr0: entity pointer
+---
+ExecuteMoveEffect: Handles the effects that happen after a move is used. Includes a loop that is run for each target, mutiple ability checks and the giant switch statement that executes the effect of the move used given its ID.\n\nr0: pointer to some struct\nr1: attacker pointer\nr2: pointer to move data\nr3: ?\nstack
+---
+DealDamage: Deals damage from a move or item used by an attacking monster on a defending monster.\n\nr0: attacker pointer\nr1: defender pointer\nr2: move\nr3: damage multiplier (as a binary fixed-point number with 8 fraction bits)\nstack[0]: item ID\nreturn: amount of damage dealt
+---
+DealDamageWithTypeAndPowerBoost: Same as DealDamage, except with an explicit move type and a base power boost.\n\nr0: attacker pointer\nr1: defender pointer\nr2: move\nr3: damage multiplier (as a binary fixed-point number with 8 fraction bits)\nstack[0]: item ID\nstack[1]: move type\nstack[2]: base power boost\nreturn: amount of da
+---
+DealDamageProjectile: Deals damage from a variable-damage projectile.\n\nr0: entity pointer 1?\nr1: entity pointer 2?\nr2: move pointer\nr3: move power\nstack[0]: damage multiplier (as a binary fixed-point number with 8 fraction bits)\nstack[1]: item ID of the projectile\nreturn: Calculated damage
+---
+DealDamageWithType: Same as DealDamage, except with an explicit move type.\n\nr0: attacker pointer\nr1: defender pointer\nr2: move type\nr3: move\nstack[0]: damage multiplier (as a binary fixed-point number with 8 fraction bits)\nstack[1]: item ID\nreturn: amount of damage dealt
+---
+AssignGridCellConnections: Randomly assigns connections between adjacent grid cells.\n\nConnections are created via a random walk with momentum, starting from the grid cell at (cursor x, cursor y). A connection is drawn in a random direction from the current cursor, and this process is repeated a certain number of times (the 
+---
+GenerateKecleonShop: Possibly generate a Kecleon shop on the floor.\n\nA Kecleon shop will be generated with a probability determined by the Kecleon shop spawn chance parameter. A Kecleon shop will be generated in a random room that is valid, connected, has no other special features, and has dimensions of at least 5x4. 
+---
+GenerateMonsterHouse: Possibly generate a Monster House on the floor.\n\nA Monster House will be generated with a probability determined by the Monster House spawn chance parameter, and only if the current floor can support one (no non-Monster-House outlaw missions or special floor types). A Monster House will be generat
+---
+GenerateMazeRoom: Possibly generate a maze room on the floor.\n\nA maze room will be generated with a probability determined by the maze room chance parameter. A maze will be generated in a random room that is valid, connected, has odd dimensions, and has no other features.\n\nr0: grid to update\nr1: grid size x\nr2:
+---
+DUNGEON_PRNG_LCG_MULTIPLIER: The multiplier shared by all of the dungeon PRNG's LCGs, 1566083941 (0x5D588B65).
+---
+MSG_ID_SLOW_START: ID of the message printed when a monster has the ability Slow Start at the beginning of the floor.
+---
+DAMAGE_MULTIPLIER_0_5: A generic damage multiplier of 0.5 used in various places, as a 64-bit fixed-point number with 16 fraction bits.
+---
+DAMAGE_MULTIPLIER_1_5: A generic damage multiplier of 1.5 used in various places, as a 64-bit fixed-point number with 16 fraction bits.
+---
+DAMAGE_MULTIPLIER_2: A generic damage multiplier of 2 used in various places, as a 64-bit fixed-point number with 16 fraction bits.
+---
+CLOUDY_DAMAGE_MULTIPLIER: The extra damage multiplier for non-Normal-type moves when the weather is Cloudy, as a 64-bit fixed-point number with 16 fraction bits (0.75).
+---
+SOLID_ROCK_MULTIPLIER: The extra damage multiplier for super-effective moves when Solid Rock or Filter is active, as a 64-bit fixed-point number with 16 fraction bits (0.75).
+---
+WONDER_GUARD_MULTIPLIER: The damage multiplier for moves affected by Wonder Guard, as a 64-bit fixed-point number with 16 fraction bits (0).
+---
+ROLLOUT_DAMAGE_MULT_TABLE: A table of damage multipliers for each successive hit of Rollout/Ice Ball. Each entry is a binary fixed-point number with 8 fraction bits.\n\ntype: int32_t[10]

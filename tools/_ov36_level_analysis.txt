@@ -1,0 +1,176 @@
+
+=== IsLevelResetDungeon hook (0x51318) @ ov36+0x1115C ===
+ov36+0x1111C  RAM 0x23B819C: ldmibvs pc!, {r0, r1, r2, r3, r4, r5, r6, r7, sb, ip, sp} ^
+ov36+0x11120  RAM 0x23B81A0: svcpl   #0x785f78
+
+=== Team level hook (0x57868) @ ov36+0x11170 ===
+ov36+0x11130  RAM 0x23B81B0: eorspl  r6, r2, r0, asr lr
+ov36+0x11134  RAM 0x23B81B4: ldcllo  p13, c2, [pc], #0x3fc
+ov36+0x11138  RAM 0x23B81B8: ldmvc   r6, {r3, r4, r5, r6, sl, sp, lr}
+ov36+0x1113C  RAM 0x23B81BC: bpl     #0x238edc0
+ov36+0x11140  RAM 0x23B81C0: ldrvs   r7, [r6], #0x878
+ov36+0x11144  RAM 0x23B81C4: ldrbtvs r5, [pc], #0xaff
+ov36+0x11148  RAM 0x23B81C8: strdeq  r0, r1, [r0], -pc
+ov36+0x1114C  RAM 0x23B81CC: cmp     sl, #0x64
+ov36+0x11150  RAM 0x23B81D0: beq     #0x2014754
+ov36+0x11154  RAM 0x23B81D4: mov     r4, #0
+ov36+0x11158  RAM 0x23B81D8: b       #0x20146f4
+ov36+0x1115C  RAM 0x23B81DC: cmp     r0, #0x64
+ov36+0x11160  RAM 0x23B81E0: moveq   r0, #1
+ov36+0x11164  RAM 0x23B81E4: beq     #0x2051334
+ov36+0x11168  RAM 0x23B81E8: mov     r1, #0xc
+ov36+0x1116C  RAM 0x23B81EC: b       #0x205131c
+ov36+0x11170  RAM 0x23B81F0: push    {r0, r1, r2, r3, r4, r5, r6}
+ov36+0x11174  RAM 0x23B81F4: mov     r6, lr
+ov36+0x11178  RAM 0x23B81F8: cmp     sl, #0x64
+ov36+0x1117C  RAM 0x23B81FC: cmpne   sl, #0xa5
+ov36+0x11180  RAM 0x23B8200: popne   {r0, r1, r2, r3, r4, r5, r6}
+ov36+0x11184  RAM 0x23B8204: ldrbne  r0, [sp, #9]
+ov36+0x11188  RAM 0x23B8208: bne     #0x205786c
+ov36+0x1118C  RAM 0x23B820C: ldrh    r5, [r8, #0xc]
+ov36+0x11190  RAM 0x23B8210: cmp     r5, #0x258
+ov36+0x11194  RAM 0x23B8214: subge   r5, r5, #0x258
+ov36+0x11198  RAM 0x23B8218: cmp     r5, #0x140
+ov36+0x1119C  RAM 0x23B821C: moveq   r0, #1
+ov36+0x111A0  RAM 0x23B8220: strheq  r0, [sp, #0x2e]
+ov36+0x111A4  RAM 0x23B8224: lsl     r5, r5, #3
+ov36+0x111A8  RAM 0x23B8228: ldr     r4, [pc, #0x288]
+ov36+0x111AC  RAM 0x23B822C: add     r4, r4, r5
+ov36+0x111B0  RAM 0x23B8230: ldrb    r0, [r4]
+ov36+0x111B4  RAM 0x23B8234: ldrb    r1, [r8, #2]
+ov36+0x111B8  RAM 0x23B8238: mov     r2, #0
+ov36+0x111BC  RAM 0x23B823C: bl      #0x23b845c
+ov36+0x111C0  RAM 0x23B8240: strb    r0, [sp, #0x30]
+ov36+0x111C4  RAM 0x23B8244: ldrb    r0, [r4, #1]
+ov36+0x111C8  RAM 0x23B8248: mov     r2, #0
+ov36+0x111CC  RAM 0x23B824C: bl      #0x23b845c
+ov36+0x111D0  RAM 0x23B8250: strb    r0, [sp, #0x32]
+ov36+0x111D4  RAM 0x23B8254: ldrb    r0, [r4, #2]
+ov36+0x111D8  RAM 0x23B8258: mov     r2, #0
+ov36+0x111DC  RAM 0x23B825C: bl      #0x23b845c
+ov36+0x111E0  RAM 0x23B8260: strb    r0, [sp, #0x31]
+ov36+0x111E4  RAM 0x23B8264: ldrb    r0, [r4, #3]
+ov36+0x111E8  RAM 0x23B8268: mov     r2, #0
+ov36+0x111EC  RAM 0x23B826C: bl      #0x23b845c
+ov36+0x111F0  RAM 0x23B8270: strb    r0, [sp, #0x33]
+ov36+0x111F4  RAM 0x23B8274: ldrh    r0, [sp, #0x2e]
+ov36+0x111F8  RAM 0x23B8278: cmp     r0, #1
+ov36+0x111FC  RAM 0x23B827C: beq     #0x23b8298
+ov36+0x11200  RAM 0x23B8280: ldrb    r0, [r4, #7]
+ov36+0x11204  RAM 0x23B8284: mov     r2, #1
+ov36+0x11208  RAM 0x23B8288: bl      #0x23b845c
+ov36+0x1120C  RAM 0x23B828C: cmp     sl, #0xa5
+ov36+0x11210  RAM 0x23B8290: lsleq   r0, r0, #1
+ov36+0x11214  RAM 0x23B8294: strh    r0, [sp, #0x2e]
+ov36+0x11218  RAM 0x23B8298: mov     lr, r6
+ov36+0x1121C  RAM 0x23B829C: pop     {r0, r1, r2, r3, r4, r5, r6}
+ov36+0x11220  RAM 0x23B82A0: add     r3, r8, #0x4c
+ov36+0x11224  RAM 0x23B82A4: b       #0x205787c
+ov36+0x11228  RAM 0x23B82A8: mov     r7, r1
+ov36+0x1122C  RAM 0x23B82AC: push    {r1, r2, r3}
+ov36+0x11230  RAM 0x23B82B0: stmdb   sp!, {r0}
+ov36+0x11234  RAM 0x23B82B4: mov     r0, #0
+ov36+0x11238  RAM 0x23B82B8: str     r0, [pc, #0x78]
+ov36+0x1123C  RAM 0x23B82BC: ldr     r0, [pc, #0x1f8]
+ov36+0x11240  RAM 0x23B82C0: ldr     r0, [r0]
+ov36+0x11244  RAM 0x23B82C4: ldrb    r0, [r0, #0x748]
+ov36+0x11248  RAM 0x23B82C8: cmp     r0, #0x64
+ov36+0x1124C  RAM 0x23B82CC: cmpne   r0, #0xa5
+ov36+0x11250  RAM 0x23B82D0: moveq   r0, #1
+ov36+0x11254  RAM 0x23B82D4: streq   r0, [pc, #0x5c]
+ov36+0x11258  RAM 0x23B82D8: ldm     sp!, {r0}
+ov36+0x1125C  RAM 0x23B82DC: popne   {r1, r2, r3}
+ov36+0x11260  RAM 0x23B82E0: bne     #0x22fe30c
+ov36+0x11264  RAM 0x23B82E4: cmp     r0, #0x258
+ov36+0x11268  RAM 0x23B82E8: subge   r0, r0, #0x258
+ov36+0x1126C  RAM 0x23B82EC: cmp     r0, #0x140
+ov36+0x11270  RAM 0x23B82F0: bne     #0x23b8308
+ov36+0x11274  RAM 0x23B82F4: ldr     r1, [pc, #0x3c]
+ov36+0x11278  RAM 0x23B82F8: cmp     r1, #1
+ov36+0x1127C  RAM 0x23B82FC: movne   r0, #1
+ov36+0x11280  RAM 0x23B8300: popne   {r1, r2, r3}
+ov36+0x11284  RAM 0x23B8304: bne     #0x22fe348
+ov36+0x11288  RAM 0x23B8308: lsl     r0, r0, #3
+ov36+0x1128C  RAM 0x23B830C: ldr     r3, [pc, #0x1a4]
+ov36+0x11290  RAM 0x23B8310: add     r3, r3, r0
+ov36+0x11294  RAM 0x23B8314: ldrb    r0, [r3, #7]
+ov36+0x11298  RAM 0x23B8318: mov     r2, #1
+ov36+0x1129C  RAM 0x23B831C: bl      #0x23b845c
+ov36+0x112A0  RAM 0x23B8320: ldr     r1, [pc, #0x10]
+ov36+0x112A4  RAM 0x23B8324: cmp     r1, #1
+ov36+0x112A8  RAM 0x23B8328: lsreq   r1, r1, #2
+ov36+0x112AC  RAM 0x23B832C: addeq   r0, r0, r1
+ov36+0x112B0  RAM 0x23B8330: pop     {r1, r2, r3}
+ov36+0x112B4  RAM 0x23B8334: b       #0x22fe348
+ov36+0x112B8  RAM 0x23B8338: andeq   r0, r0, r0
+ov36+0x112BC  RAM 0x23B833C: mov     r5, r0
+ov36+0x112C0  RAM 0x23B8340: push    {r1, r2, r3}
+ov36+0x112C4  RAM 0x23B8344: stmdb   sp!, {r0}
+ov36+0x112C8  RAM 0x23B8348: ldr     r0, [pc, #0x16c]
+ov36+0x112CC  RAM 0x23B834C: ldr     r0, [r0]
+ov36+0x112D0  RAM 0x23B8350: ldrb    r0, [r0, #0x748]
+ov36+0x112D4  RAM 0x23B8354: cmp     r0, #0x64
+ov36+0x112D8  RAM 0x23B8358: ldm     sp!, {r0}
+ov36+0x112DC  RAM 0x23B835C: popne   {r1, r2, r3}
+ov36+0x112E0  RAM 0x23B8360: bne     #0x22fe368
+ov36+0x112E4  RAM 0x23B8364: cmp     r0, #0x258
+ov36+0x112E8  RAM 0x23B8368: subge   r0, r0, #0x258
+ov36+0x112EC  RAM 0x23B836C: lsl     r0, r0, #3
+ov36+0x112F0  RAM 0x23B8370: ldr     r3, [pc, #0x140]
+ov36+0x112F4  RAM 0x23B8374: add     r3, r3, r0
+ov36+0x112F8  RAM 0x23B8378: lsl     r2, r2, #1
+ov36+0x112FC  RAM 0x23B837C: add     r3, r3, r2
+ov36+0x11300  RAM 0x23B8380: ldrb    r0, [r3]
+ov36+0x11304  RAM 0x23B8384: mov     r1, r4
+ov36+0x11308  RAM 0x23B8388: mov     r2, #0
+ov36+0x1130C  RAM 0x23B838C: bl      #0x23b845c
+ov36+0x11310  RAM 0x23B8390: pop     {r1, r2, r3}
+ov36+0x11314  RAM 0x23B8394: b       #0x22fe3b0
+ov36+0x11318  RAM 0x23B8398: mov     r5, r0
+ov36+0x1131C  RAM 0x23B839C: push    {r1, r2, r3}
+ov36+0x11320  RAM 0x23B83A0: stmdb   sp!, {r0}
+ov36+0x11324  RAM 0x23B83A4: ldr     r0, [pc, #0x110]
+ov36+0x11328  RAM 0x23B83A8: ldr     r0, [r0]
+ov36+0x1132C  RAM 0x23B83AC: ldrb    r0, [r0, #0x748]
+ov36+0x11330  RAM 0x23B83B0: cmp     r0, #0x64
+ov36+0x11334  RAM 0x23B83B4: ldm     sp!, {r0}
+ov36+0x11338  RAM 0x23B83B8: popne   {r1, r2, r3}
+ov36+0x1133C  RAM 0x23B83BC: bne     #0x22fe3d0
+ov36+0x11340  RAM 0x23B83C0: cmp     r0, #0x258
+ov36+0x11344  RAM 0x23B83C4: subge   r0, r0, #0x258
+ov36+0x11348  RAM 0x23B83C8: lsl     r0, r0, #3
+ov36+0x1134C  RAM 0x23B83CC: ldr     r3, [pc, #0xe4]
+ov36+0x11350  RAM 0x23B83D0: add     r3, r3, r0
+ov36+0x11354  RAM 0x23B83D4: lsl     r2, r2, #1
+ov36+0x11358  RAM 0x23B83D8: add     r2, r2, #1
+ov36+0x1135C  RAM 0x23B83DC: add     r3, r3, r2
+ov36+0x11360  RAM 0x23B83E0: ldrb    r0, [r3]
+ov36+0x11364  RAM 0x23B83E4: mov     r1, r4
+ov36+0x11368  RAM 0x23B83E8: mov     r2, #0
+ov36+0x1136C  RAM 0x23B83EC: bl      #0x23b845c
+ov36+0x11370  RAM 0x23B83F0: pop     {r1, r2, r3}
+ov36+0x11374  RAM 0x23B83F4: b       #0x22fe418
+ov36+0x11378  RAM 0x23B83F8: push    {r1, r2, r3, r5}
+ov36+0x1137C  RAM 0x23B83FC: stmdb   sp!, {r0}
+ov36+0x11380  RAM 0x23B8400: ldr     r0, [pc, #0xb4]
+ov36+0x11384  RAM 0x23B8404: ldr     r0, [r0]
+ov36+0x11388  RAM 0x23B8408: ldrb    r0, [r0, #0x748]
+ov36+0x1138C  RAM 0x23B840C: cmp     r0, #0x64
+ov36+0x11390  RAM 0x23B8410: ldm     sp!, {r0}
+ov36+0x11394  RAM 0x23B8414: bne     #0x23b8450
+ov36+0x11398  RAM 0x23B8418: mov     r5, r0
+ov36+0x1139C  RAM 0x23B841C: ldr     r1, [r7, #0xb4]
+ov36+0x113A0  RAM 0x23B8420: ldrh    r1, [r1, #2]
+ov36+0x113A4  RAM 0x23B8424: cmp     r1, #0x258
+ov36+0x113A8  RAM 0x23B8428: subge   r1, r1, #0x258
+ov36+0x113AC  RAM 0x23B842C: lsl     r1, r1, #3
+
+=== cluster start @ ov36+0x1114C ===
+ov36+0x1110C  RAM 0x23B818C: ldmibmi pc!, {r0, r1, r2, r3, r4, r5, r6, r7, r8, sl, fp, sp, lr} ^
+ov36+0x11110  RAM 0x23B8190: eorlo   r3, r8, #80, #4
+ov36+0x11114  RAM 0x23B8194: ldrshtpl r1, [pc], #0x9f
+ov36+0x11118  RAM 0x23B8198: strbvs  r4, [r1], #-0xb69
+ov36+0x1111C  RAM 0x23B819C: ldmibvs pc!, {r0, r1, r2, r3, r4, r5, r6, r7, sb, ip, sp} ^
+ov36+0x11120  RAM 0x23B81A0: svcpl   #0x785f78
+
+=== All bl to key funcs in ov36 ===

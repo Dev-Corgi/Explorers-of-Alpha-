@@ -1,0 +1,103 @@
+Metadata-Version: 2.1
+Name: skytemple-files
+Version: 1.8.5
+Summary: Python library to edit the ROM of Pokémon Mystery Dungeon Explorers of Sky
+Author-email: "Marco \"Capypara\" Köpcke" <hello@capypara.de>
+License: GPL-3.0-or-later
+Project-URL: Homepage, https://skytemple.org
+Project-URL: Announcements, https://blog.skytemple.org
+Project-URL: Documentation, https://wiki.skytemple.org
+Project-URL: Repository, https://github.com/SkyTemple/skytemple-files.git
+Project-URL: Issues, https://github.com/SkyTemple/skytemple-files/issues
+Project-URL: Discord, https://discord.gg/skytemple
+Keywords: rom-hacking,game-modding,skytemple
+Classifier: Development Status :: 4 - Beta
+Classifier: Programming Language :: Python
+Classifier: License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Programming Language :: Python :: 3.13
+Requires-Python: >=3.10
+Description-Content-Type: text/x-rst
+License-File: LICENSE
+Requires-Dist: pmdsky-debug-py==10.0.48
+Requires-Dist: ndspy>=3.0.0
+Requires-Dist: range-typed-integers>=1.0.1
+Requires-Dist: Pillow>=6.1.0
+Requires-Dist: appdirs>=1.4.0
+Requires-Dist: explorerscript<0.3.0,>=0.2.2
+Requires-Dist: skytemple-rust<1.9.0,>=1.8.5
+Requires-Dist: pyobjc==10.3.2; sys_platform == "darwin"
+Requires-Dist: dungeon-eos==0.0.5
+Provides-Extra: spritecollab
+Requires-Dist: gql[aiohttp]>=3.5.0; extra == "spritecollab"
+Requires-Dist: graphql-core>=3.2.0; extra == "spritecollab"
+Requires-Dist: aiohttp[speedups]; extra == "spritecollab"
+Requires-Dist: lru-dict>=1.1.8; extra == "spritecollab"
+
+|logo|
+
+SkyTemple Files
+===============
+
+|build| |pypi-version| |pypi-downloads| |pypi-license| |pypi-pyversions| |discord|
+
+.. |logo| image:: https://raw.githubusercontent.com/SkyTemple/skytemple/master/skytemple/data/icons/hicolor/256x256/apps/skytemple.png
+
+.. |build| image:: https://img.shields.io/github/actions/workflow/status/SkyTemple/skytemple-files/build-test-publish.yml
+    :target: https://pypi.org/project/skytemple-files/
+    :alt: Build Status
+
+.. |pypi-version| image:: https://img.shields.io/pypi/v/skytemple-files
+    :target: https://pypi.org/project/skytemple-files/
+    :alt: Version
+
+.. |pypi-downloads| image:: https://img.shields.io/pypi/dm/skytemple-files
+    :target: https://pypi.org/project/skytemple-files/
+    :alt: Downloads
+
+.. |pypi-license| image:: https://img.shields.io/pypi/l/skytemple-files
+    :alt: License (GPLv3)
+
+.. |pypi-pyversions| image:: https://img.shields.io/pypi/pyversions/skytemple-files
+    :alt: Supported Python versions
+
+.. |discord| image:: https://img.shields.io/discord/710190644152369162?label=Discord
+    :target: https://discord.gg/skytemple
+    :alt: Discord
+
+.. |kofi| image:: https://www.ko-fi.com/img/githubbutton_sm.svg
+    :target: https://ko-fi.com/I2I81E5KH
+    :alt: Ko-Fi
+
+Python library to work with the files inside the ROM of Pokémon Mystery Dungeon Explorers of Sky.
+
+The main handlers for file types can be found in the members of the class ``skytemple_files.common.types.file_types.FileType``.
+
+You can find the handlers inside the packages of this Python package, with ``README.rst`` files explaining the
+file formats. Additional documentation for misc. things can be found in the ``/docs`` directory. For usage examples
+see the ``dbg`` packages and the SkyTemple main application.
+
+Directly in the package (``skytemple_files`` directory) you can find a few an example script that help with understanding
+how to use this library. After installing the package you will have is as a cli command: ``skytemple_export_maps``.
+
+In addition to the dependencies in the ``requirements.txt`` and ``pyproject.toml``, ARMIPS must
+be installed and in the system's ``PATH`` to be able to apply ROM patches.
+
+Extras
+~~~~~~
+
+spritecollab
+------------
+With the ``spritecollab`` extra, the package ``skytemple_files.common.spritecollab.client`` is available to
+interact with the SpriteCollab GraphQL server for retrieving portrait and sprite assets by the community.
+
+More information:
+
+- https://sprites.pmdcollab.org
+- https://spriteserver.pmdcollab.org
+- https://github.com/PMDCollab/SpriteCollab
+- https://github.com/PMDCollab/spritecollab-srv
+
+|kofi|
