@@ -16,11 +16,7 @@ ControlModeEnhance_DungeonStart:
 	b CmeFloorInitSite
 
 ControlModeEnhance_PrepareFloor:
-	push {r4-r8, lr}
-	bl ControlModeEnhance_ResolveEntry
-	mov r8, r0
-	cmp r8, #0
-	blt @@done
+	push {r4-r7, lr}
 	ldr r0, =CeDeadMask
 	ldr r7, [r0]
 	mov r4, #0
@@ -37,10 +33,6 @@ ControlModeEnhance_PrepareFloor:
 	bl IsGuestTeamMember
 	cmp r0, #0
 	bne @@next
-	mov r0, #0
-	cmp r4, r8
-	moveq r0, #1
-	strb r0, [r5, #1]
 	; Backups follow guild identity, not a slot that may have been reordered.
 	ldrsh r3, [r5, #8]
 	ldr r2, =CeDeadMemberId
@@ -86,45 +78,21 @@ ControlModeEnhance_PrepareFloor:
 	mov r1, #0
 	str r1, [r0]
 @@done:
-	pop {r4-r8, pc}
+	pop {r4-r7, pc}
 
 ControlModeEnhance_SpawnTeam:
 	push {r4-r8, lr}
 	bl SpawnTeam
 	mov r8, r0
-	; Spawn can reorder physical slots and retain an engine leader selection.
-	; Once entry identity is captured, resolve it afresh instead of adopting
-	; LeaderPtr (which may still designate the previous floor's last leader).
-	bl ControlModeEnhance_ResolveEntry
-	cmp r0, #0
-	bge @@restore_entry
-	ldr r0, =CeEntryMemberId
-	ldr r0, [r0]
-	cmp r0, #0
-	bge @@done
-	b @@capture
-@@restore_entry:
-	bl ControlModeEnhance_FindMember
-	cmp r0, #0
-	beq @@done
-	mov r4, r0
-	b @@captured
-@@capture:
+	; Keep the leader selected during the dungeon. SpawnTeam normally retains
+	; that leader across a floor; synchronize our manual-mode state to the same
+	; live entity without restoring the dungeon-entry leader.
 	ldr r0, =LeaderPtrAddr
 	ldr r4, [r0]
 	mov r0, r4
 	bl ControlModeEnhance_RegularAlive
 	cmp r0, #0
 	beq @@done
-	ldr r0, [r4, #0xB4]
-	ldrsh r0, [r0, #0xC]
-	ldr r5, =CeEntryLeader
-	str r0, [r5]
-	bl GetActiveTeamMember
-	ldrsh r0, [r0, #8]
-	ldr r5, =CeEntryMemberId
-	str r0, [r5]
-@@captured:
 	mov r0, r4
 	bl ControlModeEnhance_SetLeader
 	ldr r0, =CeHome
@@ -136,8 +104,8 @@ ControlModeEnhance_SpawnTeam:
 	mov r0, r8
 	pop {r4-r8, pc}
 
-; Stable entry guild ID -> current active-roster index, or -1.
-; Search even inactive/fainted records so dungeon exit can restore the flag.
+; Stable entry guild ID -> current active-roster index, or -1. Kept for
+; diagnostics and death bookkeeping; dungeon exits no longer restore it.
 ControlModeEnhance_ResolveEntry:
 	push {r4-r6, lr}
 	ldr r0, =CeEntryMemberId
@@ -167,26 +135,16 @@ ControlModeEnhance_ResolveEntry:
 	str r0, [r1]
 	pop {r4-r6, pc}
 
-; All exits: restore identity only, preserving result, death HP, PP and items.
+; All exits: preserve the current leader, clear only our death reservations, and
+; preserve result, death HP, PP and items.
 ControlModeEnhance_DungeonEnd:
 	push {r0-r12, lr}
-	bl ControlModeEnhance_ResolveEntry
-	cmp r0, #0
-	blt @@done
-	mov r4, r0
-	bl ControlModeEnhance_FindMember
-	cmp r0, #0
-	blne ControlModeEnhance_SetLeader
 	mov r5, #0
 @@slot:
 	mov r0, r5
 	bl GetActiveTeamMember
 	cmp r0, #0
 	beq @@next
-	mov r1, #0
-	cmp r5, r4
-	moveq r1, #1
-	strb r1, [r0, #1]
 	; Drop only our reservation marker; never turn a dead member into alive.
 	mov r6, r0
 	ldrsh r9, [r6, #8]

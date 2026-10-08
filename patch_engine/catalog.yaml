@@ -133,7 +133,8 @@ modules:
     path: control_mode_enhance
     description: Full control mode. Manual rounds wrap through the party; auto uses vanilla ally and
       deferred movement phases. Manual to auto synchronizes the selected leader. Regular-member fainting passes
-      leadership while teammates live; recruitment pauses until next-floor revival and entry-leader restoration.
+      leadership while teammates live; recruitment pauses until next-floor revival, while floors and exits keep
+      the current leader. Chimecho Assembly leader selection is unlocked in the main game.
     kind: asm
   belly_union:
     path: belly_union

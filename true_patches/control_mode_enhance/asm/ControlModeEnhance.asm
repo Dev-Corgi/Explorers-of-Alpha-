@@ -12,8 +12,8 @@
 ; ally batch and deferred movement phase before enemies. Manual to auto makes
 ; that pokemon the leader; the next round starts on them. At each turn the leader is
 ; controlled. Anyone else is controlled in manual and takes the ally turn in
-; auto. The next floor restores the dungeon-entry leader. CeLeader stays at cave+8 for
-; belly_union.
+; auto. A floor transition keeps the current living leader. CeLeader stays at cave+8
+; for belly_union; the town assembly can choose a different leader after the run.
 ;
 ; A guest (team member_idx 0x55AA, 0x5AA5, or negative) always takes the AI
 ; turn, in either mode.
@@ -43,6 +43,11 @@
 .org CmeTryRecruitSite
 	b ControlModeEnhance_TryRecruit
 
+.close
+
+.open "arm9.bin", 0x02000000
+.org CmeLeaderSwitchFlagSite
+	b ControlModeEnhance_ForceLeaderSwitch
 .close
 
 .open "overlay_0036.bin", ov_36
@@ -111,6 +116,13 @@ CeEntryMemberId:
 CeDeadMemberId:
 .word -1, -1, -1, -1
 .align 4
+
+; Performance flag 7 normally unlocks Chimecho Assembly leader selection only
+; after graduation. Always report it as enabled for the main game. The caller
+; has already saved r4 and expects the ordinary function epilogue here.
+ControlModeEnhance_ForceLeaderSwitch:
+	mov r0, #1
+	pop {r4, pc}
 
 ; r0 = entity. Returns that entity when it is a live team member, else 0.
 ControlModeEnhance_LeaderOk:

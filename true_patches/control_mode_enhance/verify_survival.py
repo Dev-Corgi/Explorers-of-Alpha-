@@ -188,8 +188,14 @@ def main():
     original = loadOverlayTable(base.arm9OverlayTable, lambda _, n: base.files[n])[29]
     for hook in cfg['hooks'][-6:]:
         address = profile['symbols'][hook['symbol']]
-        assert struct.unpack_from('<I', original.data, address - original.ramAddress)[0] == hook['vanilla_word']
-        current = struct.unpack_from('<I', overlays[29].data, address - original.ramAddress)[0]
+        if hook['binary'] == 'arm9':
+            source_data, source_base = bytes(base.arm9), 0x02000000
+            current_data = bytes(rom.arm9)
+        else:
+            source_data, source_base = original.data, original.ramAddress
+            current_data = overlays[29].data
+        assert struct.unpack_from('<I', source_data, address - source_base)[0] == hook['vanilla_word']
+        current = struct.unpack_from('<I', current_data, address - source_base)[0]
         # The read-only fixture may already be a v14 build. The application
         # engine separately enforces hook ownership/expected words on rebuild.
         assert current == hook['vanilla_word'] or current >> 24 in [0xEA, 0xEB], hook['name']
@@ -201,6 +207,7 @@ def main():
         ov36 = bytes(overlays[36].data).ljust(offset + cfg['cave']['estimated_bytes'], b'\0')
         (work / 'overlay_0036.bin').write_bytes(ov36)
         (work / 'overlay_0029.bin').write_bytes(overlays[29].data)
+        (work / 'arm9.bin').write_bytes(bytes(rom.arm9))
         (work / 'generated.inc').write_text(f'ControlModeEnhanceCodeAddress equ 0x{offset:X}\n', encoding='utf-8')
         result = subprocess.run([str(ROOT / 'tools/armips.exe'), '-sym', 'test.sym', 'main.asm'],
                                 cwd=work, capture_output=True, text=True)
@@ -239,9 +246,9 @@ def main():
             assert machine.half(machine.member(leader) + 0xE) == 120
             assert [machine.byte(machine.member(leader) + 0x1C + j * 8 + 6) for j in range(4)] == [0, 2, 7, 11]
             assert machine.word(symbols['cedeadmask']) == 0
-            assert [machine.byte(machine.member(i) + 1) for i in range(4)] == [int(i == leader) for i in range(4)]
+            assert [machine.byte(machine.member(i) + 1) for i in range(4)] == [int(i == expected) for i in range(4)]
             machine.run('ControlModeEnhance_SpawnTeam')
-            assert machine.word(symbols['celeader']) == machine.entity(leader)
+            assert machine.word(symbols['celeader']) == machine.entity(expected)
             cases += 1
 
     # A guest must not prevent loss; guest fainting stays entirely vanilla.
@@ -304,7 +311,7 @@ def main():
     assert [machine.byte(machine.info(0) + 0x124 + j * 8 + 6) for j in range(4)] == [2, 4, 9, 13]
     machine.spawn_pp_bonus = 0
 
-    # Restore the saved entry identity after spawn even when the engine keeps
+    # Keep the current dungeon leader after spawn even when the engine keeps
     # the last-floor leader; physical slot order is independent of roster ID.
     for entry in range(4):
         for last in range(4):
@@ -317,12 +324,12 @@ def main():
             machine.run('ControlModeEnhance_PrepareFloor')
             machine.spawn_retained_leader = last
             assert machine.run('ControlModeEnhance_SpawnTeam') == 0x1234
-            assert machine.word(0x0235355C) == machine.entity(entry)
-            assert machine.word(symbols['celeader']) == machine.entity(entry)
-            assert machine.word(symbols['cehome']) == machine.entity(entry)
+            assert machine.word(0x0235355C) == machine.entity(last)
+            assert machine.word(symbols['celeader']) == machine.entity(last)
+            assert machine.word(symbols['cehome']) == machine.entity(last)
             assert machine.word(symbols['ceentryleader']) == entry
-            assert [machine.byte(machine.member(i) + 1) for i in range(4)] == [int(i == entry) for i in range(4)]
-            assert [machine.byte(machine.info(i) + 7) for i in range(4)] == [int(i == entry) for i in range(4)]
+            assert [machine.byte(machine.member(i) + 1) for i in range(4)] == [int(i == last) for i in range(4)]
+            assert [machine.byte(machine.info(i) + 7) for i in range(4)] == [int(i == last) for i in range(4)]
     machine.spawn_retained_leader = None
 
     # Actual active-record reorder, rather than just physical entity order:
@@ -341,12 +348,12 @@ def main():
     assert machine.word(symbols['cedeadmask']) == 3
     assert [machine.word(symbols['cedeadmemberid'] + i * 4) for i in range(2)] == [0, 1]
     machine.run('ControlModeEnhance_PrepareFloor')
-    assert machine.word(symbols['ceentryleader']) == 1
+    assert machine.word(symbols['ceentryleader']) == 0
     assert machine.half(machine.member(1) + 0xE) == 120
     assert machine.half(machine.member(0) + 0xE) == 150
     machine.spawn_retained_leader = 2
     machine.run('ControlModeEnhance_SpawnTeam')
-    assert machine.word(symbols['celeader']) == machine.entity(1)
+    assert machine.word(symbols['celeader']) == machine.entity(2)
     assert machine.word(symbols['ceentrymemberid']) == 0
     machine.spawn_retained_leader = None
 
@@ -372,13 +379,12 @@ def main():
             assert machine.uc.reg_read(UC_ARM_REG_R1) == 0x76543210
             assert machine.uc.reg_read(UC_ARM_REG_R2) == 0x12345678
             assert machine.uc.reg_read(UC_ARM_REG_SP) == SP
-            assert [machine.byte(machine.member(i) + 1) for i in range(4)] == [0, 1, 0, 0]
+            assert [machine.byte(machine.member(i) + 1) for i in range(4)] == [1, 0, 0, 0]
             assert before == [(machine.half(machine.member(i) + 0xE), bytes(machine.uc.mem_read(machine.member(i) + 0x1C, 34))) for i in range(4)]
             assert machine.word(symbols['cedeadmask']) == 0
             if entry_dead:
                 assert machine.half(machine.info(0) + 0x10) == 0
-            else:
-                assert machine.word(symbols['celeader']) == machine.entity(0)
+            assert machine.word(symbols['celeader']) == machine.entity(1)
 
     machine.setup()
     machine.half(machine.info(0) + 0x10, 0)
@@ -406,11 +412,11 @@ def main():
     assert machine.word(symbols['ceentryleader']) == 0xFFFFFFFF
     assert machine.word(symbols['cedeadmask']) == 0
     machine.run('ControlModeEnhance_SpawnTeam')
-    assert machine.word(symbols['ceentryleader']) == 0
+    assert machine.word(symbols['ceentryleader']) == 0xFFFFFFFF
     machine.setup(leader=3)
     machine.run('ControlModeEnhance_DungeonStart', 0, 0, stop=0x022E1644)
     machine.run('ControlModeEnhance_SpawnTeam')
-    assert machine.word(symbols['ceentryleader']) == 3
+    assert machine.word(symbols['ceentryleader']) == 0xFFFFFFFF
 
     # Manual's temporary actor can already be the engine leader while the
     # persistent roster still says somebody else. Auto selection must fix both.
@@ -475,7 +481,7 @@ def main():
         if isinstance(doc, dict):
             assert all(x.get('id') != 19299 for x in doc.get('entries', []) if isinstance(x, dict)), path
     print(json.dumps({'leader_guest_permutations': cases, 'full_HP_and_PP_before_vanilla': 'passed',
-                      'entry_leader_restored': 'passed', 'guild_identity_after_roster_reorder': 'passed',
+                      'current_leader_preserved': 'passed', 'guild_identity_after_roster_reorder': 'passed',
                       'shared_exit_clear_escape_defeat': 'passed', 'guest_only_game_over': 'passed',
                       'recruit_gate_and_message': 'passed', 'korean_message_index': 19299,
                       'Z_gauge_hook_unchanged': True, 'manual_auto_leader_flags': 'passed',

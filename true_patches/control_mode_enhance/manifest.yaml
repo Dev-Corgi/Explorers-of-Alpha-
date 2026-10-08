@@ -1,5 +1,5 @@
 id: control_mode_enhance
-version: 17
+version: 18
 region: US
 description: >
   Full control mode. Start on any team member's turn toggles auto/manual, and
@@ -12,14 +12,13 @@ description: >
   Guests always take the AI turn and cannot inherit leadership after a faint.
   A regular member faint preserves its roster slot while another regular member
   lives; recruiting is blocked until the next floor. The next floor revives those
-  members at full HP with death-time PP, then follows vanilla floor processing,
-  and restores the dungeon-entry leader.
+  members at full HP with death-time PP, then follows vanilla floor processing
+  while keeping the current leader. Chimecho Assembly leader selection is always
+  enabled in the main game so the leader can be changed after returning to town.
   Leader selection synchronizes persistent roster flags even when manual
   control already made that actor the engine's temporary leader.
-  After spawning each new floor, resolve the saved dungeon-entry roster index
-  again and explicitly restore that member as engine/roster/control leader.
-  v17: Resolve the stable guild member identity after active-roster reordering;
-  restore leadership on all shared dungeon exits without reviving fainted HP.
+  v18: Keep the active leader across floors and dungeon exits; force the
+  graduation leader-switch flag on so Chimecho Assembly can change it in town.
 
 kind: asm
 rom_profile: us_vanilla
@@ -157,6 +156,13 @@ hooks:
     vanilla_word: 0xEB01B33B
     chain: first
     target_symbol: ControlModeEnhance_DungeonEnd
+
+  - name: CmeLeaderSwitchFlag
+    symbol: CmeLeaderSwitchFlagSite
+    binary: arm9
+    vanilla_word: 0xEA000009
+    chain: first
+    target_symbol: ControlModeEnhance_ForceLeaderSwitch
 
 cave:
   binary: ov36

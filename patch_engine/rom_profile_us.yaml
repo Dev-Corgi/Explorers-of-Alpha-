@@ -260,6 +260,7 @@ symbols:
   CmeDungeonStartSite: 0x022DF0F8
   CmeSpawnTeamSite: 0x022DF6A4
   CmeDungeonEndSite: 0x022E026C
+  CmeLeaderSwitchFlagSite: 0x0204CAC0
   CmeFaintSite: 0x022F8024
   CmeRecruitCheckSite: 0x0230DBD0
   CmeTryRecruitSite: 0x0230E064
