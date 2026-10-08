@@ -12,7 +12,7 @@
 ; that full lap. Manual to auto makes that pokemon the leader and leaves this
 ; lap where it is; the next round starts on them. At each turn the leader is
 ; controlled. Anyone else is controlled in manual and takes the ally turn in
-; auto. The next floor's leader is vanilla. CeLeader stays at cave+8 for
+; auto. The next floor restores the dungeon-entry leader. CeLeader stays at cave+8 for
 ; belly_union.
 ;
 ; A guest (team member_idx 0x55AA, 0x5AA5, or negative) always takes the AI
@@ -28,6 +28,17 @@
 
 .org CmeFloorInitSite
 	b ControlModeEnhance_FloorClear
+
+.org CmeDungeonStartSite
+	bl ControlModeEnhance_DungeonStart
+.org CmeSpawnTeamSite
+	bl ControlModeEnhance_SpawnTeam
+.org CmeFaintSite
+	b ControlModeEnhance_Faint
+.org CmeRecruitCheckSite
+	b ControlModeEnhance_RecruitCheck
+.org CmeTryRecruitSite
+	b ControlModeEnhance_TryRecruit
 
 .close
 
@@ -64,7 +75,7 @@
 	bl ControlModeEnhance_ScanEnd
 
 .org ov_36 + ControlModeEnhanceCodeAddress
-.area 3072
+.area 5120
 
 .align 4
 CeHome:
@@ -81,6 +92,16 @@ CeRoundOrigin:
 ; Entity whose turn just ran. The walk continues after this entity.
 CeLastAct:
 .word 0
+; Persistent roster indices, not entity addresses (entities change per floor).
+CeEntryLeader:
+.word -1
+CeDeadMask:
+.word 0
+CeDeadHp:
+.word 0, 0, 0, 0
+; Four PP bytes per roster member. Zero PP is preserved as zero.
+CeDeadPp:
+.word 0, 0, 0, 0
 .align 4
 
 ; r0 = entity. Returns that entity when it is a live team member, else 0.
@@ -390,7 +411,8 @@ ControlModeEnhance_SpeedReady:
 ; Slot init runs on floor entry. Drop entity pointers from the previous floor.
 ; Entered by b, so lr is still the caller's return. Replay the replaced push.
 ControlModeEnhance_FloorClear:
-	push {r0, r1}
+	push {r0-r3, r12, lr}
+	bl ControlModeEnhance_PrepareFloor
 	ldr r0, =CeHome
 	mov r1, #0
 	str r1, [r0]
@@ -398,7 +420,7 @@ ControlModeEnhance_FloorClear:
 	str r1, [r0, #8]
 	str r1, [r0, #12]
 	str r1, [r0, #16]
-	pop {r0, r1}
+	pop {r0-r3, r12, lr}
 	push {r4, r5, r6, r7, r8, lr}
 	b CmeFloorInitResume
 
@@ -707,6 +729,7 @@ ControlModeEnhance_GuestAiAbort:
 	mov r0, #1
 	pop {r4, r5, r6, r7, lr}
 	bx lr
+	.include "Survival.asm"
 	.pool
 
 .endarea

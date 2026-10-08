@@ -81,6 +81,10 @@ def _patch_strings(rom: NintendoDSRom, module_dir: Path, manifest: dict[str, Any
             if not filename.endswith("text_e.str"):
                 continue
             strings = StrHandler.deserialize(rom.getFileByName(filename))
+            if item.get("expected_empty") and strings.strings[string_id].strip():
+                raise RuntimeError(
+                    f"{module_dir.name}: text_e index {string_id} is already in use"
+                )
             strings.strings[string_id] = text
             rom.setFileByName(filename, StrHandler.serialize(strings))
 

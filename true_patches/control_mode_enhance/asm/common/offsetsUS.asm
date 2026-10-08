@@ -57,3 +57,26 @@ ov_36 equ 0x023A7080
 .definelabel CmeFloorInitResume,    0x022E1644
 ; RunLeaderTurn, after its push. r0 is still the fractional-turn argument.
 .definelabel CmeRunLeaderTurnSite,  0x022EC30C
+
+; The first slot-init call is outside RunDungeon's per-floor loop.
+.definelabel CmeDungeonStartSite,   0x022DF0F8
+.definelabel CmeSpawnTeamSite,      0x022DF6A4
+.definelabel SpawnTeam,             0x022FC50C
+; After vanilla faint status cleanup and after reviver handling. The Z gauge
+; owns HandleFaint's entry, so this module hooks its unclaimed body instead.
+.definelabel CmeFaintSite,           0x022F8024
+.definelabel CmeFaintResume,         0x022F8028
+.definelabel CmeFaintReturn,         0x022F85C8
+.definelabel UpdateTeamMember,      0x022FE048
+.definelabel DetachMonster,         0x022E1C0C
+.definelabel FreeMonsterSprite,     0x022DDB68
+.definelabel RefreshMonsterTiles,   0x022E2978
+.definelabel RefreshDungeonView1,   0x022E8104
+.definelabel RefreshDungeonView2,   0x022E81F8
+.definelabel CmeRecruitCheckSite,   0x0230DBD0
+.definelabel CmeRecruitCheckBody,   0x0230DBD4
+.definelabel CmeTryRecruitSite,     0x0230E064
+.definelabel CmeTryRecruitBody,     0x0230E068
+.definelabel LogMessageById,        0x0234B714
+; text_e index 19299, confirmed empty in English and Korean full_stack.
+.definelabel CmeRecruitBlockedId,   19300

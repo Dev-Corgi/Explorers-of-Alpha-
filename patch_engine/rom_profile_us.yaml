@@ -257,6 +257,11 @@ symbols:
   CmeFloorInitSite: 0x022E1640
   CmeRunLeaderTurnSite: 0x022EC30C
   CmeLeaderMenuSite: 0x022EC460
+  CmeDungeonStartSite: 0x022DF0F8
+  CmeSpawnTeamSite: 0x022DF6A4
+  CmeFaintSite: 0x022F8024
+  CmeRecruitCheckSite: 0x0230DBD0
+  CmeTryRecruitSite: 0x0230E064
   GetMonsterMovesEntrySite: 0x02303B18
   GetOutlawLevelSite: 0x0204F88C
   GetOutlawLeaderLevelSite: 0x0204F8A8

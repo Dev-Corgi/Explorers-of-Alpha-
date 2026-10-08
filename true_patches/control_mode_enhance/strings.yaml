@@ -1,0 +1,8 @@
+# Zero-based text_e index. LogMessageById receives 19300 (= 19299 + 1).
+# Checked empty in English and Korean full_stack. Spinda has already expanded
+# the original Alpha string table by this module's position in FULL_STACK_MODULES.
+# The next Spinda menu range starts at text_e index 19300 (code 19301).
+entries:
+  - id: 19299
+    expected_empty: true
+    text: "You can't recruit while a teammate\nis fainted."

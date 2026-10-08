@@ -1,5 +1,5 @@
 id: control_mode_enhance
-version: 13
+version: 14
 region: US
 description: >
   Full control mode. Start on any team member's turn toggles auto/manual, and
@@ -8,7 +8,11 @@ description: >
   Manual to auto makes that pokemon the leader without reordering the lap
   already running; the next round starts on them. The leader is controlled.
   Anyone else is controlled in manual and takes the ally turn in auto.
-  Guests always take the AI turn. The next floor's leader is vanilla.
+  Guests always take the AI turn and cannot inherit leadership after a faint.
+  A regular member faint preserves its roster slot while another regular member
+  lives; recruiting is blocked until the next floor. The next floor revives those
+  members at full HP with death-time PP, then follows vanilla floor processing,
+  and restores the dungeon-entry leader.
 
 kind: asm
 rom_profile: us_vanilla
@@ -105,9 +109,44 @@ hooks:
     chain: first
     target_symbol: ControlModeEnhance_BeginRound
 
+  - name: CmeDungeonStart
+    symbol: CmeDungeonStartSite
+    binary: ov29
+    vanilla_word: 0xEB000950
+    chain: first
+    target_symbol: ControlModeEnhance_DungeonStart
+
+  - name: CmeSpawnTeam
+    symbol: CmeSpawnTeamSite
+    binary: ov29
+    vanilla_word: 0xEB007398
+    chain: first
+    target_symbol: ControlModeEnhance_SpawnTeam
+
+  - name: CmeFaint
+    symbol: CmeFaintSite
+    binary: ov29
+    vanilla_word: 0xE5D70007
+    chain: first
+    target_symbol: ControlModeEnhance_Faint
+
+  - name: CmeRecruitCheck
+    symbol: CmeRecruitCheckSite
+    binary: ov29
+    vanilla_word: 0xE92D43F8
+    chain: first
+    target_symbol: ControlModeEnhance_RecruitCheck
+
+  - name: CmeTryRecruit
+    symbol: CmeTryRecruitSite
+    binary: ov29
+    vanilla_word: 0xE92D4FF0
+    chain: first
+    target_symbol: ControlModeEnhance_TryRecruit
+
 cave:
   binary: ov36
-  estimated_bytes: 3072
+  estimated_bytes: 5120
   alignment: 4
   base_label: ControlModeEnhanceCodeAddress
   export_symbols:
@@ -116,6 +155,9 @@ cave:
 
 asm:
   entry: asm/main.asm
+
+strings:
+  yaml: strings.yaml
 
 verify:
   - type: hooks_are_branch

@@ -132,7 +132,8 @@ modules:
   control_mode_enhance:
     path: control_mode_enhance
     description: Full control mode. Each round starts on the current leader and wraps through the party
-      before enemies. Manual to auto makes that pokemon the leader for the next round.
+      before enemies. Manual to auto selects the next-round leader. Regular-member fainting passes
+      leadership while teammates live; recruitment pauses until next-floor revival and entry-leader restoration.
     kind: asm
   belly_union:
     path: belly_union
@@ -215,8 +216,10 @@ notes:
     the party slots forward and wraps back to that leader before the enemy phase. Manual to auto makes
     the pokemon who switched the leader without reordering the lap already running; the next round starts
     on them. The leader is player controlled. Anyone else is player controlled in manual and takes the
-    ally turn in auto. Guests always take the AI turn. The next floor's leader is vanilla. Exports CeLeader
-    at cave+8 for belly_union.
+    ally turn in auto. Guests always take the AI turn and cannot inherit after fainting or prevent
+    regular-team wipeout. Fainted regular slots remain reserved; recruitment is blocked with text_e
+    index 19299 (code 19300). Before the next floor, revive at full HP with death-time PP, then follow
+    vanilla floor processing and restore the dungeon-entry leader. Exports CeLeader at cave+8 for belly_union.
   belly_union: ov36 cave. Team members share the leader's belly. TryIncreaseBelly and TryDecreaseBelly
     update that value and copy it to the party. The end-of-turn walk drain runs only for the leader (in
     manual state, the stored leader, not once per member). Held items that change the drain are summed
