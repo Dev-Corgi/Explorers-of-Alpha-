@@ -308,6 +308,24 @@ ControlModeEnhance_ReserveFaint:
 	bl ControlModeEnhance_IsRegular
 	cmp r0, #0
 	beq @@vanilla
+	; The initial floor can enter through a vanilla spawn path that does not
+	; reach our SpawnTeam wrapper.  If the entry identity is still unset,
+	; capture the designated leader while that entity is still alive.  This is
+	; the last reliable point before a leader faint removes its entity.
+	ldr r0, =CeEntryMemberId
+	ldr r1, [r0]
+	cmp r1, #0
+	bge @@entry_ready
+	ldr r0, =CeHome
+	ldr r0, [r0]
+	bl ControlModeEnhance_RegularAlive
+	cmp r0, #0
+	beq @@entry_ready
+	ldr r1, [r0, #0xB4]
+	ldrsh r1, [r1, #0xC]
+	ldr r2, =CeEntryMemberId
+	str r1, [r2]
+@@entry_ready:
 	ldr r5, [r4, #0xB4]
 	ldrsh r6, [r5, #0xC]
 	mov r7, #1
