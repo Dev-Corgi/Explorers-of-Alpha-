@@ -45,9 +45,9 @@
 
 .close
 
-.open "arm9.bin", 0x02000000
+.open "overlay_0017.bin", 0x0238A140
 .org CmeLeaderSwitchFlagSite
-	b ControlModeEnhance_ForceLeaderSwitch
+	mov r0, #1
 .close
 
 .open "overlay_0036.bin", ov_36
@@ -116,17 +116,6 @@ CeEntryMemberId:
 CeDeadMemberId:
 .word -1, -1, -1, -1
 .align 4
-
-; Performance flag 7 normally unlocks Chimecho Assembly leader selection only
-; after graduation. Always report it as enabled for the main game. The caller
-; has already saved r4 and expects the ordinary function epilogue here.
-ControlModeEnhance_ForceLeaderSwitch:
-	bl GetGameMode
-	cmp r0, #3
-	moveq r0, #0
-	movne r0, #1
-	and r0, r0, #0xff
-	pop {r4, pc}
 
 ; r0 = entity. Returns that entity when it is a live team member, else 0.
 ControlModeEnhance_LeaderOk:

@@ -159,10 +159,9 @@ hooks:
 
   - name: CmeLeaderSwitchFlag
     symbol: CmeLeaderSwitchFlagSite
-    binary: arm9
-    vanilla_word: 0xEA000009
+    binary: ov17
+    vanilla_word: 0xEBF30798
     chain: first
-    target_symbol: ControlModeEnhance_ForceLeaderSwitch
 
 cave:
   binary: ov36

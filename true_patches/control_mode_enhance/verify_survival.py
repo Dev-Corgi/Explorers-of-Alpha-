@@ -185,12 +185,16 @@ def main():
     cfg = yaml.safe_load((MODULE / 'manifest.yaml').read_text(encoding='utf-8'))
     profile = yaml.safe_load((ROOT / 'patch_engine/rom_profile_us.yaml').read_text(encoding='utf-8'))
     base = NintendoDSRom.fromFile(ROOT / 'PatchTesting/Explorers of Alpha/Explorers of Alpha.nds')
-    original = loadOverlayTable(base.arm9OverlayTable, lambda _, n: base.files[n])[29]
+    base_overlays = loadOverlayTable(base.arm9OverlayTable, lambda _, n: base.files[n])
+    original = base_overlays[29]
     for hook in cfg['hooks'][-6:]:
         address = profile['symbols'][hook['symbol']]
         if hook['binary'] == 'arm9':
             source_data, source_base = bytes(base.arm9), 0x02000000
             current_data = bytes(rom.arm9)
+        elif hook['binary'] == 'ov17':
+            source_data, source_base = base_overlays[17].data, base_overlays[17].ramAddress
+            current_data = overlays[17].data
         else:
             source_data, source_base = original.data, original.ramAddress
             current_data = overlays[29].data
@@ -207,6 +211,7 @@ def main():
         ov36 = bytes(overlays[36].data).ljust(offset + cfg['cave']['estimated_bytes'], b'\0')
         (work / 'overlay_0036.bin').write_bytes(ov36)
         (work / 'overlay_0029.bin').write_bytes(overlays[29].data)
+        (work / 'overlay_0017.bin').write_bytes(overlays[17].data)
         (work / 'arm9.bin').write_bytes(bytes(rom.arm9))
         (work / 'generated.inc').write_text(f'ControlModeEnhanceCodeAddress equ 0x{offset:X}\n', encoding='utf-8')
         result = subprocess.run([str(ROOT / 'tools/armips.exe'), '-sym', 'test.sym', 'main.asm'],
@@ -222,6 +227,8 @@ def main():
                     pass
         assert symbols['celeader'] == overlays[36].ramAddress + offset + 8
         candidate29 = (work / 'overlay_0029.bin').read_bytes()
+        candidate17 = (work / 'overlay_0017.bin').read_bytes()
+        assert struct.unpack_from('<I', candidate17, 0x0238AC2C - overlays[17].ramAddress)[0] == 0xE3A00001
         assert candidate29[0x022F7F30 - original.ramAddress:0x022F7F34 - original.ramAddress] == bytes(overlays[29].data[0x022F7F30 - original.ramAddress:0x022F7F34 - original.ramAddress])
         machine = Machine(rom, candidate29, (work / 'overlay_0036.bin').read_bytes(), symbols)
 
