@@ -220,7 +220,8 @@ notes:
     ally turn in auto. Guests always take the AI turn and cannot inherit after fainting or prevent
     regular-team wipeout. Fainted regular slots remain reserved; recruitment is blocked with text_e
     index 19299 (code 19300). Before the next floor, revive at full HP with death-time PP, then follow
-    vanilla floor processing and restore the dungeon-entry leader. Exports CeLeader at cave+8 for belly_union.
+    vanilla floor processing and explicitly restore the dungeon-entry roster identity after SpawnTeam,
+    even if the engine retains the last-floor leader pointer. Exports CeLeader at cave+8 for belly_union.
   belly_union: ov36 cave. Team members share the leader's belly. TryIncreaseBelly and TryDecreaseBelly
     update that value and copy it to the party. The end-of-turn walk drain runs only for the leader (in
     manual state, the stored leader, not once per member). Held items that change the drain are summed

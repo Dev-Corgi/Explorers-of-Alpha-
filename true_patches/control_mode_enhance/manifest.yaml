@@ -1,5 +1,5 @@
 id: control_mode_enhance
-version: 15
+version: 16
 region: US
 description: >
   Full control mode. Start on any team member's turn toggles auto/manual, and
@@ -16,6 +16,8 @@ description: >
   and restores the dungeon-entry leader.
   Leader selection synchronizes persistent roster flags even when manual
   control already made that actor the engine's temporary leader.
+  After spawning each new floor, resolve the saved dungeon-entry roster index
+  again and explicitly restore that member as engine/roster/control leader.
 
 kind: asm
 rom_profile: us_vanilla

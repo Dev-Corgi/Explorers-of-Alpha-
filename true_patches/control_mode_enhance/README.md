@@ -34,6 +34,10 @@ No terrain-traversal permissions or pathfinding algorithms are changed.
   vanilla floor/spawn processing follows. There is no PP-refill suppression or
   post-spawn PP overwrite. The entry leader is selected in the active roster and
   rebound to the newly spawned entity on the new floor.
+  After `SpawnTeam` returns, the wrapper searches the new entities by the saved
+  entry roster index and explicitly synchronizes the engine pointer, entity
+  leader flags, roster flags, `CeLeader`, and `CeHome`. It does not adopt a
+  retained last-floor engine leader pointer.
 - When no living regular member remains, vanilla leader-loss handling runs even
   if living guests remain. It retains the normal dungeon failure behavior.
 

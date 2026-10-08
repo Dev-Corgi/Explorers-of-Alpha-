@@ -77,16 +77,25 @@ ControlModeEnhance_SpawnTeam:
 	push {r4-r8, lr}
 	bl SpawnTeam
 	mov r8, r0
+	; Spawn can reorder physical slots and retain an engine leader selection.
+	; Once entry identity is captured, resolve it afresh instead of adopting
+	; LeaderPtr (which may still designate the previous floor's last leader).
+	ldr r5, =CeEntryLeader
+	ldr r0, [r5]
+	cmp r0, #0
+	blt @@capture
+	bl ControlModeEnhance_FindMember
+	cmp r0, #0
+	beq @@done
+	mov r4, r0
+	b @@captured
+@@capture:
 	ldr r0, =LeaderPtrAddr
 	ldr r4, [r0]
 	mov r0, r4
 	bl ControlModeEnhance_RegularAlive
 	cmp r0, #0
 	beq @@done
-	ldr r5, =CeEntryLeader
-	ldr r0, [r5]
-	cmp r0, #0
-	bge @@captured
 	ldr r0, [r4, #0xB4]
 	ldrsh r0, [r0, #0xC]
 	str r0, [r5]

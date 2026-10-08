@@ -41,6 +41,7 @@ class Machine:
         self.stopped = False
         self.recruit_result = 1
         self.spawn_pp_bonus = 0
+        self.spawn_retained_leader = None
         self.uc.hook_add(UC_HOOK_CODE, self.code)
 
     def address(self, name):
@@ -108,6 +109,12 @@ class Machine:
                 self.byte(info + 7, self.byte(m + 1))
                 if self.byte(m + 1):
                     self.word(0x0235355C, entity)
+            if self.spawn_retained_leader is not None:
+                # Regression: do not assume the engine pointer follows the
+                # repaired flags. Simulate its retained last-floor selection.
+                self.word(0x0235355C, self.entity(self.spawn_retained_leader))
+                for i in range(4):
+                    self.byte(self.info(i) + 7, int(i == self.spawn_retained_leader))
             self.return_from_stub(0x1234)
         elif address == 0x0230DBD4:
             # Wrapper has replayed RecruitCheck's original push, eight words.
@@ -293,6 +300,27 @@ def main():
     machine.run('ControlModeEnhance_SpawnTeam')
     assert [machine.byte(machine.info(0) + 0x124 + j * 8 + 6) for j in range(4)] == [2, 4, 9, 13]
     machine.spawn_pp_bonus = 0
+
+    # Restore the saved entry identity after spawn even when the engine keeps
+    # the last-floor leader; physical slot order is independent of roster ID.
+    for entry in range(4):
+        for last in range(4):
+            if entry == last:
+                continue
+            machine.setup(leader=entry, order=(2, 0, 3, 1))
+            machine.run('ControlModeEnhance_SetLeader', machine.entity(last))
+            machine.half(machine.info(entry) + 0x10, 0)
+            assert machine.run('ControlModeEnhance_ReserveFaint', machine.entity(entry)) == 1
+            machine.run('ControlModeEnhance_PrepareFloor')
+            machine.spawn_retained_leader = last
+            assert machine.run('ControlModeEnhance_SpawnTeam') == 0x1234
+            assert machine.word(0x0235355C) == machine.entity(entry)
+            assert machine.word(symbols['celeader']) == machine.entity(entry)
+            assert machine.word(symbols['cehome']) == machine.entity(entry)
+            assert machine.word(symbols['ceentryleader']) == entry
+            assert [machine.byte(machine.member(i) + 1) for i in range(4)] == [int(i == entry) for i in range(4)]
+            assert [machine.byte(machine.info(i) + 7) for i in range(4)] == [int(i == entry) for i in range(4)]
+    machine.spawn_retained_leader = None
 
     machine.setup()
     machine.half(machine.info(0) + 0x10, 0)
