@@ -1,7 +1,9 @@
 id: base_stats_speed
-version: 41
+version: 42
 region: US
 description: >
+  v42: Charmander seats in FR200/202/206/211/214/215/217/218/219/220/221/250
+  use party-max + 5 (cap 100) and CalcStat HP x2; other seats retain x1.25.
   v41: exclusive HP folding reads the monster effect bitmap through r7;
   r4 has become the move-list pointer at ApplyExclusive's epilogue.
   Phase 0: main-series base stats, evolution rate, CalcStat, and EvoRate.
@@ -31,7 +33,9 @@ description: >
   HP is CalcStat. Combat A/D still use CalcStat. Strong Enemy table levels
   are remapped so CalcStat Atk+Def+SpA+SpD at that level matches the table
   combat-stat sum. Charmander-placeholder Strong Enemies (stats_entry 30
-  and fixed_room_id >= 200) use party-max level and HP = CalcStat×1.25
+  and fixed_room_id >= 200) use party-max level and HP = CalcStat×1.25;
+  FR200/202/206/211/214/215/217/218/219/220/221/250 use min(100, party-max+5)
+  and HP = CalcStat×2
   after ApplyFixedRoomStats (distinct from normal Strong Enemies). Same
   Species ×3+ swarms (except FR41 / entry 30) and FR11/13/17/19/75 (except
   listed bosses) rewrite table HP to CalcStat(species, table level); FR51

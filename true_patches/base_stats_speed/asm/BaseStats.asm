@@ -1,6 +1,6 @@
 ; Phase 0 tables, phase-1 hit rank, phase-2 spawn/level-up, phase-3 combat,
 ; phase-4 speed on the hit check, phase-5 recompute on evolution,
-; phase-6 Strong Enemy keeps table HP (Charmander seats: party-max + HP×1.25);
+; phase-6 Strong Enemy keeps table HP (Charmander seats: party-max, boosted rooms +5/HPx2);
 ; Helping Ally writes CalcStat HP.
 ; Phase 8: summary Stats tab prints CalcStat and Speed (arm9 copy).
 ;
@@ -499,7 +499,8 @@ BaseStats_Evolve:
 ; Types 6 and 0xA still run ApplyFixedRoomStats for flags / exp / IQ.
 ; Strong Enemy (6) keeps the table HP on +0x12/+0x10, except Charmander
 ; placeholder seats (stats_entry == 30 and fixed_room_id >= 200): party
-; max level, then HP = CalcStat(HP)×1.25. Helping Ally (0xA) rewrites HP
+; max level, then HP = CalcStat(HP)×1.25; selected rooms use max+5 / HPx2.
+; Helping Ally (0xA) rewrites HP
 ; from CalcStat. Combat A/D still use CalcStat.
 BaseStats_FixedApply:
 	cmp r9, #6
@@ -569,12 +570,15 @@ BaseStats_CharmanderSeScale:
 	ldrb r0, [r0, #FIXED_ROOM_ID_LO]
 	cmp r0, #0xC8
 	blt BaseStats_CharmanderSeDone
+	bl BaseStats_CharmanderBoostRoom
 	ldr r7, [r4, #0xB4]
 	cmp r7, #0
 	beq BaseStats_CharmanderSeDone
 	bl BaseStats_PartyMaxLevel
 	cmp r0, #0
 	beq BaseStats_CharmanderSeDone
+	cmp r6, #1
+	addeq r0, r0, #5
 	cmp r0, #100
 	movgt r0, #100
 	strb r0, [r7, #0xa]
@@ -584,7 +588,9 @@ BaseStats_CharmanderSeScale:
 	mov r2, #0
 	mov r3, #0
 	bl BaseStats_CalcStat
-	add r0, r0, r0, lsr #2
+	cmp r6, #1
+	moveq r0, r0, lsl #1
+	addne r0, r0, r0, lsr #2
 	ldr r1, =32767
 	cmp r0, r1
 	movgt r0, r1
@@ -600,6 +606,22 @@ BaseStats_CharmanderSeDone:
 .endif
 
 .org ov_36 + BaseStatsCodeAddress + BaseStats_InitOff
+; r0 = fixed room. r6 = 1 only for boosted Charmander seats.
+; Bits 0,2,6,11,14,15,17,18,19,20,21 represent rooms 200..221.
+BaseStats_CharmanderBoostRoom:
+	mov r6, #0
+	cmp r0, #250
+	moveq r6, #1
+	bxeq lr
+	sub r0, r0, #200
+	cmp r0, #21
+	bxhi lr
+	ldr r6, =0x3EC845
+	mov r6, r6, lsr r0
+	and r6, r6, #1
+	bx lr
+	.pool
+
 ; r5 = team_member*, r8 = dungeon monster*, r3 = 0.
 ; Replaces the max-HP copy. The uint8 V copy still runs after this.
 ; Guests use the same CalcStat(V) path as the hero and partner.

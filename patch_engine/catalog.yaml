@@ -233,7 +233,8 @@ notes:
     Spawn, new-game, recruit, and guest init write V=0. Guests use CalcStat like the hero and partner;
     level_scaling_guest_fix keeps their table level. Guest table levels 3/5/7-12/17 are 15/55/70/60/62/60/60/65/15.
     Special-episode PC levels 1/6/8/9 are 20/72/70/24. Strong Enemy table levels match CalcStat combat-stat
-    sums; Charmander-placeholder seats (entry 30, room >= 200) use party-max and CalcStat×1.25 HP; Same
+    sums; Charmander-placeholder seats (entry 30, room >= 200) use party-max and CalcStat×1.25 HP;
+    FR200/202/206/211/214/215/217/218/219/220/221/250 use party-max+5 (cap 100) and CalcStat×2 HP. Same
     Species / FR11/13/17/19/75 table HP → CalcStat; FR51 Deoxys 86-89 HP = 500. Deep Star Cave 1F Snover
     is 12. Every mappa Kecleon Level (BALANCE/UTILITY mappa_s/t/y, 383/384/983/984) is 100. Dungeon level-up
     stat lines are CalcStat(new) minus CalcStat(old level), including Spe. MoveHitCheck uses Accuracy

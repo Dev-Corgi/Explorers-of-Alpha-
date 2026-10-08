@@ -9,7 +9,7 @@
 .definelabel BaseStats_SpeedOff, 0x2134
 .definelabel BaseStats_EvoOff, 0x22B4
 .definelabel BaseStats_FixedOff, 0x2434
-.definelabel BaseStats_InitOff, 0x25B4
+.definelabel BaseStats_InitOff, 0x25D4
 .definelabel BaseStats_UiOff, 0x26B4
 .definelabel BaseStats_CaveBytes, 0x3000
 .definelabel BaseStats_PrimaryCount, 1155

@@ -62,6 +62,14 @@ HP is this CalcStat result with no extra multiply. Charmander-placeholder
 Strong Enemies (stats_entry 30 and `fixed_room_id >= 200`) set party-max
 level and rewrite HP to `CalcStat×1.25` after `ApplyFixedRoomStats`; that
 Alpha seat condition keeps them distinct from normal Strong Enemies.
+In FR **200, 202, 206, 211, 214, 215, 217, 218, 219, 220, 221, 250**,
+these entry-30 seats instead use `min(100, party-max + 5)` and
+`CalcStat(species, that level, HP, V=0) × 2`. Party-max excludes guests.
+This runs after fixed-room stat application, independently of dungeon level
+scaling. Both current and maximum HP receive the result (cap 32767).
+Other rooms retain party-max and HP ×1.25; other stats entries are unchanged.
+Run `verify_fixed_scaling.py` to assemble a temporary fixture and check all
+256 room IDs, level boundaries, guest exclusion, HP caps and register preservation.
 Same Species ×3+ swarms (except FR41 / entry 30) and FR11/13/17/19/75
 (except listed bosses) rewrite overlay10 table HP to
 `CalcStat(species, table level)` after the level remap; FR51 Deoxys
