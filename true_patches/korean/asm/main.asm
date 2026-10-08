@@ -21,11 +21,11 @@
 .org KoWidthGlyphEntry
 	b Ko_GlyphWidth
 
-; Lead bytes 0x88..0x9F join with a non-zero, non-'[' trail byte.
+; Dense lead bytes 0x88..0x9E join only with a valid trail byte.
 .org KoLeadCheck
-	cmp r0, #0x88
+	b Ko_ReadChar
 	blt KoLeadSingle
-	cmp r0, #0x9F
+	cmp r0, #0x9E
 	bgt KoLeadSingle
 	ldrb r1, [r6, #1]
 	b Ko_TrailCheck
@@ -79,4 +79,6 @@ KoRenderReturn:
 	strb r4, [sp, #0x2C]
 .org KoPuRegion2
 	.word 0x023F001F
+.org KoPreprocessCopy
+	b Ko_PreprocessCopy
 .close

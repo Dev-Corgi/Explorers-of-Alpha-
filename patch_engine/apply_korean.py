@@ -30,6 +30,7 @@ from .korean_codec import (
     parse_str_file,
     rebuild_ssb_strings,
     rom_paths,
+    translation_issues,
 )
 from .cave_reservations import FileRange
 from .overlay_caves import allocate_overlay_cave, get_rom_binary, write_rom_binary
@@ -93,6 +94,7 @@ class KoreanPlan:
     expected_eos_id: list[int] = field(default_factory=list)
     # Translations whose English no longer matches the ROM: (path or "text_e", index, en, ko).
     user_stale: list[tuple[str, int, str, str]] = field(default_factory=list)
+    rejected: list[dict[str, Any]] = field(default_factory=list)
 
     def final_text_e(self) -> list[str]:
         return [d.ko if d.ko is not None else s for s, d in zip(self.text_e, self.text_dec)]
@@ -145,7 +147,7 @@ def match_text_e(alpha: list[str], en: list[str], ko: list[str]) -> tuple[list[D
     for j, t in enumerate(alpha):
         exp = expected(j)
         exp_ids.append(exp)
-        if not t:
+        if not t.strip():
             out.append(Decision(NO_TEXT))
             continue
         texty = has_text(t)
@@ -192,7 +194,7 @@ def match_scripts(
         decs: list[Decision] = []
         for k, t in enumerate(strings):
             texty = has_text(t)
-            if not t:
+            if not t.strip():
                 decs.append(Decision(NO_TEXT))
                 continue
             if k < len(en) and en[k] == t:
@@ -251,6 +253,19 @@ def plan_translation(rom: NintendoDSRom, src: KoreanSource) -> KoreanPlan:
             _apply_user(path, scripts[path], script_dec[path], entries, plan.user_stale)
         else:
             plan.user_stale.extend((path, int(k), e["en"], e["ko"]) for k, e in entries.items())
+    for where, originals, decisions in [
+        ("text_e", text, text_dec),
+        *((path, scripts[path], script_dec[path]) for path in scripts),
+    ]:
+        for i, (english, decision) in enumerate(zip(originals, decisions)):
+            if decision.ko is None:
+                continue
+            # The reference intentionally blanks some credits in text_e.
+            # A nonempty SSB dialogue must not disappear during translation.
+            issues = translation_issues(english, decision.ko, allow_empty=where == "text_e")
+            if issues:
+                plan.rejected.append({"where": where, "index": i, "issues": issues,
+                                      "en": english, "ko": decision.ko})
     return plan
 
 
@@ -344,6 +359,13 @@ def _patch_files(rom: NintendoDSRom, patches: list[dict[str, Any]]) -> None:
 
 
 def _write_strings(rom: NintendoDSRom, plan: KoreanPlan, enc: DenseEncoder) -> dict[str, int]:
+    if plan.rejected:
+        first = plan.rejected[0]
+        raise RuntimeError(
+            f"korean: {len(plan.rejected)} translations have unsafe tags; "
+            f"repair them before applying: {first['where']}#{first['index']}: "
+            + "; ".join(first["issues"])
+        )
     finals_text = plan.final_text_e()
     finals_scripts = {p: plan.final_script(p) for p in plan.scripts}
     for s in finals_text:
@@ -538,6 +560,7 @@ def apply_korean_module(
                 "text_e": stats["text_e"],
                 "scripts": stats["scripts"],
                 "translations_stale": len(plan.user_stale),
+                "translations_rejected": plan.rejected,
                 "sanitized": enc.stats.sanitized,
                 "unmapped": enc.stats.unmapped,
                 **write_info,

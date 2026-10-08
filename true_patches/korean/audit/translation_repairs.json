@@ -1,0 +1,3116 @@
+{
+  "count": 311,
+  "repairs": [
+    {
+      "where": "SCRIPT/D73P11A/s31a0201.ssb",
+      "index": 12,
+      "en": " Nice to meet you!\nWe're Team [team:]!",
+      "before": " 반갑다!\n우린 [team].\n잘 부탁한다!",
+      "after": " 반갑다!\n우린 [team:].\n잘 부탁한다!",
+      "reason": [
+        "missing data slots: team:0"
+      ]
+    },
+    {
+      "where": "SCRIPT/D73P11A/s31a0201.ssb",
+      "index": 13,
+      "en": " Nice to meet you!\nWe're Team [team:]!",
+      "before": "가워!\n우린 [team].\n잘 부탁해!",
+      "after": " 반가워!\n우린 [team:].\n잘 부탁해!",
+      "reason": [
+        "missing data slots: team:0"
+      ]
+    },
+    {
+      "where": "SCRIPT/D73P11A/s31a0201.ssb",
+      "index": 14,
+      "en": " Nice to meet you!\nWe're Team [team:]!",
+      "before": "ô!\n우린 [team].\n잘 부탁해!",
+      "after": " 반가워!\n우린 [team:].\n잘 부탁해!",
+      "reason": [
+        "missing data slots: team:0"
+      ]
+    },
+    {
+      "where": "SCRIPT/D73P11A/s31a0201.ssb",
+      "index": 15,
+      "en": " Did you come to climb\n[CS:P]Sky Peak[CR] too, Team [team:]?",
+      "before": "o들도\n[CS:P]하늘의 절정[CR]을 오르러 오신 건가요?",
+      "after": " [team:] 팀도\n[CS:P]하늘의 절정[CR]을 오르러 오신 건가요?",
+      "reason": [
+        "missing data slots: team:0"
+      ]
+    },
+    {
+      "where": "SCRIPT/D73P11A/s31a0201.ssb",
+      "index": 50,
+      "en": " For some reason, while talking\nto you, Team [team:], I've begun to really\nwant to climb the mountain with you.",
+      "before": "m] 팀과\n대화를 나누다 보니까\n같이 올라가고 싶어져서요.",
+      "after": " [team:] 팀과\n대화를 나누다 보니까\n같이 올라가고 싶어져서요.",
+      "reason": [
+        "missing data slots: team:0",
+        "unmatched bracket: ]"
+      ]
+    },
+    {
+      "where": "SCRIPT/D73P11A/s31a0201.ssb",
+      "index": 54,
+      "en": " Hey, [hero]?\nWhat do you think? Should we let [CS:N]Shaymin[CR]\njoin us?",
+      "before": "o]?\n[CS:N]쉐이미[CR]에게 안내를\n부탁해도 괜찮지?",
+      "after": " [hero], 어때?\n[CS:N]쉐이미[CR]에게 안내를\n부탁해도 괜찮지?",
+      "reason": [
+        "unmatched bracket: ]"
+      ]
+    },
+    {
+      "where": "SCRIPT/D73P11A/us0207.ssb",
+      "index": 84,
+      "en": " If there is any reply for\nTeam [team:], we will pass it along to\n[CS:N]Spinda[CR] to deliver to you...",
+      "before": " 또 [team] 앞으로 답장이 오면\n[CS:N]얼루기[CR]님께서 맡으시는 걸로 되어있으므로...",
+      "after": " 또 [team:] 앞으로 답장이 오면\n[CS:N]얼루기[CR]님께서 맡으시는 걸로 되어있으므로...",
+      "reason": [
+        "missing data slots: team:0"
+      ]
+    },
+    {
+      "where": "SCRIPT/D73P11A/us0207.ssb",
+      "index": 88,
+      "en": " If there is any reply for\nTeam [team:], we will pass it along to\n[CS:N]Spinda[CR] to deliver to you...",
+      "before": " 또 [team] 앞으로 답장이 오면\n[CS:N]얼루기[CR]님께서 맡으시는 걸로 되어있으므로...",
+      "after": " 또 [team:] 앞으로 답장이 오면\n[CS:N]얼루기[CR]님께서 맡으시는 걸로 되어있으므로...",
+      "reason": [
+        "missing data slots: team:0"
+      ]
+    },
+    {
+      "where": "SCRIPT/D73P11A/us0207.ssb",
+      "index": 92,
+      "en": " If there is any reply for\nTeam [team:], we will pass it along to\n[CS:N]Spinda[CR] to deliver to you...",
+      "before": " 또 [team] 앞으로 답장이 오면\n[CS:N]얼루기[CR]님께서 맡으시는 걸로 되어있으므로...",
+      "after": " 또 [team:] 앞으로 답장이 오면\n[CS:N]얼루기[CR]님께서 맡으시는 걸로 되어있으므로...",
+      "reason": [
+        "missing data slots: team:0"
+      ]
+    },
+    {
+      "where": "SCRIPT/D73P11A/us0207.ssb",
+      "index": 96,
+      "en": " If there is any reply for\nTeam [team:], we will pass it along to\n[CS:N]Spinda[CR] to deliver to you...",
+      "before": " 또 [team] 앞으로 답장이 오면\n[CS:N]얼루기[CR]님께서 맡으시는 걸로 되어있으므로...",
+      "after": " 또 [team:] 앞으로 답장이 오면\n[CS:N]얼루기[CR]님께서 맡으시는 걸로 되어있으므로...",
+      "reason": [
+        "missing data slots: team:0"
+      ]
+    },
+    {
+      "where": "SCRIPT/D73P11A/us0207.ssb",
+      "index": 100,
+      "en": " If there is any reply for\nTeam [team:], we will pass it along to\n[CS:N]Spinda[CR] to deliver to you...",
+      "before": " 또 [team] 앞으로 답장이 오면\n[CS:N]얼루기[CR]님께서 맡으시는 걸로 되어있으므로...",
+      "after": " 또 [team:] 앞으로 답장이 오면\n[CS:N]얼루기[CR]님께서 맡으시는 걸로 되어있으므로...",
+      "reason": [
+        "missing data slots: team:0"
+      ]
+    },
+    {
+      "where": "SCRIPT/D73P11A/us0207.ssb",
+      "index": 104,
+      "en": " If there is any reply for\nTeam [team:], we will pass it along to\n[CS:N]Spinda[CR] to deliver to you...",
+      "before": " 또 [team] 앞으로 답장이 오면\n[CS:N]얼루기[CR]님께서 맡으시는 걸로 되어있으므로...",
+      "after": " 또 [team:] 앞으로 답장이 오면\n[CS:N]얼루기[CR]님께서 맡으시는 걸로 되어있으므로...",
+      "reason": [
+        "missing data slots: team:0"
+      ]
+    },
+    {
+      "where": "SCRIPT/D73P11A/us0207.ssb",
+      "index": 108,
+      "en": " If there is any reply for\nTeam [team:], we will pass it along to\n[CS:N]Spinda[CR] to deliver to you...",
+      "before": " 또 [team] 앞으로 답장이 오면\n[CS:N]얼루기[CR]님께서 맡으시는 걸로 되어있으므로...",
+      "after": " 또 [team:] 앞으로 답장이 오면\n[CS:N]얼루기[CR]님께서 맡으시는 걸로 되어있으므로...",
+      "reason": [
+        "missing data slots: team:0"
+      ]
+    },
+    {
+      "where": "SCRIPT/D73P11A/us0207.ssb",
+      "index": 112,
+      "en": " If there is any reply for\nTeam [team:], we will pass it along to\n[CS:N]Spinda[CR] to deliver to you...",
+      "before": " 또 [team] 앞으로 답장이 오면\n[CS:N]얼루기[CR]님께서 맡으시는 걸로 되어있으므로...",
+      "after": " 또 [team:] 앞으로 답장이 오면\n[CS:N]얼루기[CR]님께서 맡으시는 걸로 되어있으므로...",
+      "reason": [
+        "missing data slots: team:0"
+      ]
+    },
+    {
+      "where": "SCRIPT/D73P11A/us0207.ssb",
+      "index": 116,
+      "en": " If there is any reply for\nTeam [team:], we will pass it along to\n[CS:N]Spinda[CR] to deliver to you...",
+      "before": " 또 [team] 앞으로 답장이 오면\n[CS:N]얼루기[CR]님께서 맡으시는 걸로 되어있으므로...",
+      "after": " 또 [team:] 앞으로 답장이 오면\n[CS:N]얼루기[CR]님께서 맡으시는 걸로 되어있으므로...",
+      "reason": [
+        "missing data slots: team:0"
+      ]
+    },
+    {
+      "where": "SCRIPT/D73P11A/us0207.ssb",
+      "index": 120,
+      "en": " If there is any reply for\nTeam [team:], we will pass it along to\n[CS:N]Spinda[CR] to deliver to you...",
+      "before": " 또 [team] 앞으로 답장이 오면\n[CS:N]얼루기[CR]님께서 맡으시는 걸로 되어있으므로...",
+      "after": " 또 [team:] 앞으로 답장이 오면\n[CS:N]얼루기[CR]님께서 맡으시는 걸로 되어있으므로...",
+      "reason": [
+        "missing data slots: team:0"
+      ]
+    },
+    {
+      "where": "SCRIPT/D73P11A/us0207.ssb",
+      "index": 124,
+      "en": " If there is any reply for\nTeam [team:], we will pass it along to\n[CS:N]Spinda[CR] to deliver to you...",
+      "before": " 또 [team] 앞으로 답장이 오면\n[CS:N]얼루기[CR]님께서 맡으시는 걸로 되어있으므로...",
+      "after": " 또 [team:] 앞으로 답장이 오면\n[CS:N]얼루기[CR]님께서 맡으시는 걸로 되어있으므로...",
+      "reason": [
+        "missing data slots: team:0"
+      ]
+    },
+    {
+      "where": "SCRIPT/D73P11A/us0207.ssb",
+      "index": 134,
+      "en": " If the person Team [team:]\nsent a gift to sends a reply in return...",
+      "before": " 또 선물한 상대에게서\n[team] 앞으로 답장이 온 경우에는...",
+      "after": " 또 선물한 상대에게서\n[team:] 앞으로 답장이 온 경우에는...",
+      "reason": [
+        "missing data slots: team:0"
+      ]
+    },
+    {
+      "where": "SCRIPT/D73P11A/us0310.ssb",
+      "index": 84,
+      "en": " If there is any reply for\nTeam [team:], we will pass it along to\n[CS:N]Spinda[CR] to deliver to you...",
+      "before": " 또 [team] 앞으로 답장이 오면\n[CS:N]얼루기[CR]님께서 맡으시는 걸로 되어있으므로...",
+      "after": " 또 [team:] 앞으로 답장이 오면\n[CS:N]얼루기[CR]님께서 맡으시는 걸로 되어있으므로...",
+      "reason": [
+        "missing data slots: team:0"
+      ]
+    },
+    {
+      "where": "SCRIPT/D73P11A/us0310.ssb",
+      "index": 88,
+      "en": " If there is any reply for\nTeam [team:], we will pass it along to\n[CS:N]Spinda[CR] to deliver to you...",
+      "before": " 또 [team] 앞으로 답장이 오면\n[CS:N]얼루기[CR]님께서 맡으시는 걸로 되어있으므로...",
+      "after": " 또 [team:] 앞으로 답장이 오면\n[CS:N]얼루기[CR]님께서 맡으시는 걸로 되어있으므로...",
+      "reason": [
+        "missing data slots: team:0"
+      ]
+    },
+    {
+      "where": "SCRIPT/D73P11A/us0310.ssb",
+      "index": 92,
+      "en": " If there is any reply for\nTeam [team:], we will pass it along to\n[CS:N]Spinda[CR] to deliver to you...",
+      "before": " 또 [team] 앞으로 답장이 오면\n[CS:N]얼루기[CR]님께서 맡으시는 걸로 되어있으므로...",
+      "after": " 또 [team:] 앞으로 답장이 오면\n[CS:N]얼루기[CR]님께서 맡으시는 걸로 되어있으므로...",
+      "reason": [
+        "missing data slots: team:0"
+      ]
+    },
+    {
+      "where": "SCRIPT/D73P11A/us0310.ssb",
+      "index": 96,
+      "en": " If there is any reply for\nTeam [team:], we will pass it along to\n[CS:N]Spinda[CR] to deliver to you...",
+      "before": " 또 [team] 앞으로 답장이 오면\n[CS:N]얼루기[CR]님께서 맡으시는 걸로 되어있으므로...",
+      "after": " 또 [team:] 앞으로 답장이 오면\n[CS:N]얼루기[CR]님께서 맡으시는 걸로 되어있으므로...",
+      "reason": [
+        "missing data slots: team:0"
+      ]
+    },
+    {
+      "where": "SCRIPT/D73P11A/us0310.ssb",
+      "index": 100,
+      "en": " If there is any reply for\nTeam [team:], we will pass it along to\n[CS:N]Spinda[CR] to deliver to you...",
+      "before": " 또 [team] 앞으로 답장이 오면\n[CS:N]얼루기[CR]님께서 맡으시는 걸로 되어있으므로...",
+      "after": " 또 [team:] 앞으로 답장이 오면\n[CS:N]얼루기[CR]님께서 맡으시는 걸로 되어있으므로...",
+      "reason": [
+        "missing data slots: team:0"
+      ]
+    },
+    {
+      "where": "SCRIPT/D73P11A/us0310.ssb",
+      "index": 104,
+      "en": " If there is any reply for\nTeam [team:], we will pass it along to\n[CS:N]Spinda[CR] to deliver to you...",
+      "before": " 또 [team] 앞으로 답장이 오면\n[CS:N]얼루기[CR]님께서 맡으시는 걸로 되어있으므로...",
+      "after": " 또 [team:] 앞으로 답장이 오면\n[CS:N]얼루기[CR]님께서 맡으시는 걸로 되어있으므로...",
+      "reason": [
+        "missing data slots: team:0"
+      ]
+    },
+    {
+      "where": "SCRIPT/D73P11A/us0310.ssb",
+      "index": 108,
+      "en": " If there is any reply for\nTeam [team:], we will pass it along to\n[CS:N]Spinda[CR] to deliver to you...",
+      "before": " 또 [team] 앞으로 답장이 오면\n[CS:N]얼루기[CR]님께서 맡으시는 걸로 되어있으므로...",
+      "after": " 또 [team:] 앞으로 답장이 오면\n[CS:N]얼루기[CR]님께서 맡으시는 걸로 되어있으므로...",
+      "reason": [
+        "missing data slots: team:0"
+      ]
+    },
+    {
+      "where": "SCRIPT/D73P11A/us0310.ssb",
+      "index": 112,
+      "en": " If there is any reply for\nTeam [team:], we will pass it along to\n[CS:N]Spinda[CR] to deliver to you...",
+      "before": " 또 [team] 앞으로 답장이 오면\n[CS:N]얼루기[CR]님께서 맡으시는 걸로 되어있으므로...",
+      "after": " 또 [team:] 앞으로 답장이 오면\n[CS:N]얼루기[CR]님께서 맡으시는 걸로 되어있으므로...",
+      "reason": [
+        "missing data slots: team:0"
+      ]
+    },
+    {
+      "where": "SCRIPT/D73P11A/us0310.ssb",
+      "index": 116,
+      "en": " If there is any reply for\nTeam [team:], we will pass it along to\n[CS:N]Spinda[CR] to deliver to you...",
+      "before": " 또 [team] 앞으로 답장이 오면\n[CS:N]얼루기[CR]님께서 맡으시는 걸로 되어있으므로...",
+      "after": " 또 [team:] 앞으로 답장이 오면\n[CS:N]얼루기[CR]님께서 맡으시는 걸로 되어있으므로...",
+      "reason": [
+        "missing data slots: team:0"
+      ]
+    },
+    {
+      "where": "SCRIPT/D73P11A/us0310.ssb",
+      "index": 120,
+      "en": " If there is any reply for\nTeam [team:], we will pass it along to\n[CS:N]Spinda[CR] to deliver to you...",
+      "before": " 또 [team] 앞으로 답장이 오면\n[CS:N]얼루기[CR]님께서 맡으시는 걸로 되어있으므로...",
+      "after": " 또 [team:] 앞으로 답장이 오면\n[CS:N]얼루기[CR]님께서 맡으시는 걸로 되어있으므로...",
+      "reason": [
+        "missing data slots: team:0"
+      ]
+    },
+    {
+      "where": "SCRIPT/D73P11A/us0310.ssb",
+      "index": 124,
+      "en": " If there is any reply for\nTeam [team:], we will pass it along to\n[CS:N]Spinda[CR] to deliver to you...",
+      "before": " 또 [team] 앞으로 답장이 오면\n[CS:N]얼루기[CR]님께서 맡으시는 걸로 되어있으므로...",
+      "after": " 또 [team:] 앞으로 답장이 오면\n[CS:N]얼루기[CR]님께서 맡으시는 걸로 되어있으므로...",
+      "reason": [
+        "missing data slots: team:0"
+      ]
+    },
+    {
+      "where": "SCRIPT/D73P11A/us0310.ssb",
+      "index": 134,
+      "en": " If the person Team [team:]\nsent a gift to sends a reply in return...",
+      "before": " 또 선물한 상대에게서\n[team] 앞으로 답장이 온 경우에는...",
+      "after": " 또 선물한 상대에게서\n[team:] 앞으로 답장이 온 경우에는...",
+      "reason": [
+        "missing data slots: team:0"
+      ]
+    },
+    {
+      "where": "SCRIPT/D73P11A/us0401.ssb",
+      "index": 84,
+      "en": " If there is any reply for\nTeam [team:], we will pass it along to\n[CS:N]Spinda[CR] to deliver to you...",
+      "before": " 또 [team] 앞으로 답장이 오면\n[CS:N]얼루기[CR]님께서 맡으시는 걸로 되어있으므로...",
+      "after": " 또 [team:] 앞으로 답장이 오면\n[CS:N]얼루기[CR]님께서 맡으시는 걸로 되어있으므로...",
+      "reason": [
+        "missing data slots: team:0"
+      ]
+    },
+    {
+      "where": "SCRIPT/D73P11A/us0401.ssb",
+      "index": 88,
+      "en": " If there is any reply for\nTeam [team:], we will pass it along to\n[CS:N]Spinda[CR] to deliver to you...",
+      "before": " 또 [team] 앞으로 답장이 오면\n[CS:N]얼루기[CR]님께서 맡으시는 걸로 되어있으므로...",
+      "after": " 또 [team:] 앞으로 답장이 오면\n[CS:N]얼루기[CR]님께서 맡으시는 걸로 되어있으므로...",
+      "reason": [
+        "missing data slots: team:0"
+      ]
+    },
+    {
+      "where": "SCRIPT/D73P11A/us0401.ssb",
+      "index": 92,
+      "en": " If there is any reply for\nTeam [team:], we will pass it along to\n[CS:N]Spinda[CR] to deliver to you...",
+      "before": " 또 [team] 앞으로 답장이 오면\n[CS:N]얼루기[CR]님께서 맡으시는 걸로 되어있으므로...",
+      "after": " 또 [team:] 앞으로 답장이 오면\n[CS:N]얼루기[CR]님께서 맡으시는 걸로 되어있으므로...",
+      "reason": [
+        "missing data slots: team:0"
+      ]
+    },
+    {
+      "where": "SCRIPT/D73P11A/us0401.ssb",
+      "index": 96,
+      "en": " If there is any reply for\nTeam [team:], we will pass it along to\n[CS:N]Spinda[CR] to deliver to you...",
+      "before": " 또 [team] 앞으로 답장이 오면\n[CS:N]얼루기[CR]님께서 맡으시는 걸로 되어있으므로...",
+      "after": " 또 [team:] 앞으로 답장이 오면\n[CS:N]얼루기[CR]님께서 맡으시는 걸로 되어있으므로...",
+      "reason": [
+        "missing data slots: team:0"
+      ]
+    },
+    {
+      "where": "SCRIPT/D73P11A/us0401.ssb",
+      "index": 100,
+      "en": " If there is any reply for\nTeam [team:], we will pass it along to\n[CS:N]Spinda[CR] to deliver to you...",
+      "before": " 또 [team] 앞으로 답장이 오면\n[CS:N]얼루기[CR]님께서 맡으시는 걸로 되어있으므로...",
+      "after": " 또 [team:] 앞으로 답장이 오면\n[CS:N]얼루기[CR]님께서 맡으시는 걸로 되어있으므로...",
+      "reason": [
+        "missing data slots: team:0"
+      ]
+    },
+    {
+      "where": "SCRIPT/D73P11A/us0401.ssb",
+      "index": 104,
+      "en": " If there is any reply for\nTeam [team:], we will pass it along to\n[CS:N]Spinda[CR] to deliver to you...",
+      "before": " 또 [team] 앞으로 답장이 오면\n[CS:N]얼루기[CR]님께서 맡으시는 걸로 되어있으므로...",
+      "after": " 또 [team:] 앞으로 답장이 오면\n[CS:N]얼루기[CR]님께서 맡으시는 걸로 되어있으므로...",
+      "reason": [
+        "missing data slots: team:0"
+      ]
+    },
+    {
+      "where": "SCRIPT/D73P11A/us0401.ssb",
+      "index": 108,
+      "en": " If there is any reply for\nTeam [team:], we will pass it along to\n[CS:N]Spinda[CR] to deliver to you...",
+      "before": " 또 [team] 앞으로 답장이 오면\n[CS:N]얼루기[CR]님께서 맡으시는 걸로 되어있으므로...",
+      "after": " 또 [team:] 앞으로 답장이 오면\n[CS:N]얼루기[CR]님께서 맡으시는 걸로 되어있으므로...",
+      "reason": [
+        "missing data slots: team:0"
+      ]
+    },
+    {
+      "where": "SCRIPT/D73P11A/us0401.ssb",
+      "index": 112,
+      "en": " If there is any reply for\nTeam [team:], we will pass it along to\n[CS:N]Spinda[CR] to deliver to you...",
+      "before": " 또 [team] 앞으로 답장이 오면\n[CS:N]얼루기[CR]님께서 맡으시는 걸로 되어있으므로...",
+      "after": " 또 [team:] 앞으로 답장이 오면\n[CS:N]얼루기[CR]님께서 맡으시는 걸로 되어있으므로...",
+      "reason": [
+        "missing data slots: team:0"
+      ]
+    },
+    {
+      "where": "SCRIPT/D73P11A/us0401.ssb",
+      "index": 116,
+      "en": " If there is any reply for\nTeam [team:], we will pass it along to\n[CS:N]Spinda[CR] to deliver to you...",
+      "before": " 또 [team] 앞으로 답장이 오면\n[CS:N]얼루기[CR]님께서 맡으시는 걸로 되어있으므로...",
+      "after": " 또 [team:] 앞으로 답장이 오면\n[CS:N]얼루기[CR]님께서 맡으시는 걸로 되어있으므로...",
+      "reason": [
+        "missing data slots: team:0"
+      ]
+    },
+    {
+      "where": "SCRIPT/D73P11A/us0401.ssb",
+      "index": 120,
+      "en": " If there is any reply for\nTeam [team:], we will pass it along to\n[CS:N]Spinda[CR] to deliver to you...",
+      "before": " 또 [team] 앞으로 답장이 오면\n[CS:N]얼루기[CR]님께서 맡으시는 걸로 되어있으므로...",
+      "after": " 또 [team:] 앞으로 답장이 오면\n[CS:N]얼루기[CR]님께서 맡으시는 걸로 되어있으므로...",
+      "reason": [
+        "missing data slots: team:0"
+      ]
+    },
+    {
+      "where": "SCRIPT/D73P11A/us0401.ssb",
+      "index": 124,
+      "en": " If there is any reply for\nTeam [team:], we will pass it along to\n[CS:N]Spinda[CR] to deliver to you...",
+      "before": " 또 [team] 앞으로 답장이 오면\n[CS:N]얼루기[CR]님께서 맡으시는 걸로 되어있으므로...",
+      "after": " 또 [team:] 앞으로 답장이 오면\n[CS:N]얼루기[CR]님께서 맡으시는 걸로 되어있으므로...",
+      "reason": [
+        "missing data slots: team:0"
+      ]
+    },
+    {
+      "where": "SCRIPT/D73P11A/us0401.ssb",
+      "index": 134,
+      "en": " If the person Team [team:]\nsent a gift to sends a reply in return...",
+      "before": " 또 선물한 상대에게서\n[team] 앞으로 답장이 온 경우에는...",
+      "after": " 또 선물한 상대에게서\n[team:] 앞으로 답장이 온 경우에는...",
+      "reason": [
+        "missing data slots: team:0"
+      ]
+    },
+    {
+      "where": "SCRIPT/D73P11A/us2007.ssb",
+      "index": 84,
+      "en": " If there is any reply for\nTeam [team:], we will pass it along to\n[CS:N]Spinda[CR] to deliver to you...",
+      "before": " 또 [team] 앞으로 답장이 오면\n[CS:N]얼루기[CR]님께서 맡으시는 걸로 되어있으므로...",
+      "after": " 또 [team:] 앞으로 답장이 오면\n[CS:N]얼루기[CR]님께서 맡으시는 걸로 되어있으므로...",
+      "reason": [
+        "missing data slots: team:0"
+      ]
+    },
+    {
+      "where": "SCRIPT/D73P11A/us2007.ssb",
+      "index": 88,
+      "en": " If there is any reply for\nTeam [team:], we will pass it along to\n[CS:N]Spinda[CR] to deliver to you...",
+      "before": " 또 [team] 앞으로 답장이 오면\n[CS:N]얼루기[CR]님께서 맡으시는 걸로 되어있으므로...",
+      "after": " 또 [team:] 앞으로 답장이 오면\n[CS:N]얼루기[CR]님께서 맡으시는 걸로 되어있으므로...",
+      "reason": [
+        "missing data slots: team:0"
+      ]
+    },
+    {
+      "where": "SCRIPT/D73P11A/us2007.ssb",
+      "index": 92,
+      "en": " If there is any reply for\nTeam [team:], we will pass it along to\n[CS:N]Spinda[CR] to deliver to you...",
+      "before": " 또 [team] 앞으로 답장이 오면\n[CS:N]얼루기[CR]님께서 맡으시는 걸로 되어있으므로...",
+      "after": " 또 [team:] 앞으로 답장이 오면\n[CS:N]얼루기[CR]님께서 맡으시는 걸로 되어있으므로...",
+      "reason": [
+        "missing data slots: team:0"
+      ]
+    },
+    {
+      "where": "SCRIPT/D73P11A/us2007.ssb",
+      "index": 96,
+      "en": " If there is any reply for\nTeam [team:], we will pass it along to\n[CS:N]Spinda[CR] to deliver to you...",
+      "before": " 또 [team] 앞으로 답장이 오면\n[CS:N]얼루기[CR]님께서 맡으시는 걸로 되어있으므로...",
+      "after": " 또 [team:] 앞으로 답장이 오면\n[CS:N]얼루기[CR]님께서 맡으시는 걸로 되어있으므로...",
+      "reason": [
+        "missing data slots: team:0"
+      ]
+    },
+    {
+      "where": "SCRIPT/D73P11A/us2007.ssb",
+      "index": 100,
+      "en": " If there is any reply for\nTeam [team:], we will pass it along to\n[CS:N]Spinda[CR] to deliver to you...",
+      "before": " 또 [team] 앞으로 답장이 오면\n[CS:N]얼루기[CR]님께서 맡으시는 걸로 되어있으므로...",
+      "after": " 또 [team:] 앞으로 답장이 오면\n[CS:N]얼루기[CR]님께서 맡으시는 걸로 되어있으므로...",
+      "reason": [
+        "missing data slots: team:0"
+      ]
+    },
+    {
+      "where": "SCRIPT/D73P11A/us2007.ssb",
+      "index": 104,
+      "en": " If there is any reply for\nTeam [team:], we will pass it along to\n[CS:N]Spinda[CR] to deliver to you...",
+      "before": " 또 [team] 앞으로 답장이 오면\n[CS:N]얼루기[CR]님께서 맡으시는 걸로 되어있으므로...",
+      "after": " 또 [team:] 앞으로 답장이 오면\n[CS:N]얼루기[CR]님께서 맡으시는 걸로 되어있으므로...",
+      "reason": [
+        "missing data slots: team:0"
+      ]
+    },
+    {
+      "where": "SCRIPT/D73P11A/us2007.ssb",
+      "index": 108,
+      "en": " If there is any reply for\nTeam [team:], we will pass it along to\n[CS:N]Spinda[CR] to deliver to you...",
+      "before": " 또 [team] 앞으로 답장이 오면\n[CS:N]얼루기[CR]님께서 맡으시는 걸로 되어있으므로...",
+      "after": " 또 [team:] 앞으로 답장이 오면\n[CS:N]얼루기[CR]님께서 맡으시는 걸로 되어있으므로...",
+      "reason": [
+        "missing data slots: team:0"
+      ]
+    },
+    {
+      "where": "SCRIPT/D73P11A/us2007.ssb",
+      "index": 112,
+      "en": " If there is any reply for\nTeam [team:], we will pass it along to\n[CS:N]Spinda[CR] to deliver to you...",
+      "before": " 또 [team] 앞으로 답장이 오면\n[CS:N]얼루기[CR]님께서 맡으시는 걸로 되어있으므로...",
+      "after": " 또 [team:] 앞으로 답장이 오면\n[CS:N]얼루기[CR]님께서 맡으시는 걸로 되어있으므로...",
+      "reason": [
+        "missing data slots: team:0"
+      ]
+    },
+    {
+      "where": "SCRIPT/D73P11A/us2007.ssb",
+      "index": 116,
+      "en": " If there is any reply for\nTeam [team:], we will pass it along to\n[CS:N]Spinda[CR] to deliver to you...",
+      "before": " 또 [team] 앞으로 답장이 오면\n[CS:N]얼루기[CR]님께서 맡으시는 걸로 되어있으므로...",
+      "after": " 또 [team:] 앞으로 답장이 오면\n[CS:N]얼루기[CR]님께서 맡으시는 걸로 되어있으므로...",
+      "reason": [
+        "missing data slots: team:0"
+      ]
+    },
+    {
+      "where": "SCRIPT/D73P11A/us2007.ssb",
+      "index": 120,
+      "en": " If there is any reply for\nTeam [team:], we will pass it along to\n[CS:N]Spinda[CR] to deliver to you...",
+      "before": " 또 [team] 앞으로 답장이 오면\n[CS:N]얼루기[CR]님께서 맡으시는 걸로 되어있으므로...",
+      "after": " 또 [team:] 앞으로 답장이 오면\n[CS:N]얼루기[CR]님께서 맡으시는 걸로 되어있으므로...",
+      "reason": [
+        "missing data slots: team:0"
+      ]
+    },
+    {
+      "where": "SCRIPT/D73P11A/us2007.ssb",
+      "index": 124,
+      "en": " If there is any reply for\nTeam [team:], we will pass it along to\n[CS:N]Spinda[CR] to deliver to you...",
+      "before": " 또 [team] 앞으로 답장이 오면\n[CS:N]얼루기[CR]님께서 맡으시는 걸로 되어있으므로...",
+      "after": " 또 [team:] 앞으로 답장이 오면\n[CS:N]얼루기[CR]님께서 맡으시는 걸로 되어있으므로...",
+      "reason": [
+        "missing data slots: team:0"
+      ]
+    },
+    {
+      "where": "SCRIPT/D73P11A/us2007.ssb",
+      "index": 134,
+      "en": " If the person Team [team:]\nsent a gift to sends a reply in return...",
+      "before": " 또 선물한 상대에게서\n[team] 앞으로 답장이 온 경우에는...",
+      "after": " 또 선물한 상대에게서\n[team:] 앞으로 답장이 온 경우에는...",
+      "reason": [
+        "missing data slots: team:0"
+      ]
+    },
+    {
+      "where": "SCRIPT/D73P11A/us2107.ssb",
+      "index": 84,
+      "en": " If there is any reply for\nTeam [team:], we will pass it along to\n[CS:N]Spinda[CR] to deliver to you...",
+      "before": " 또 [team] 앞으로 답장이 오면\n[CS:N]얼루기[CR]님께서 맡으시는 걸로 되어있으므로...",
+      "after": " 또 [team:] 앞으로 답장이 오면\n[CS:N]얼루기[CR]님께서 맡으시는 걸로 되어있으므로...",
+      "reason": [
+        "missing data slots: team:0"
+      ]
+    },
+    {
+      "where": "SCRIPT/D73P11A/us2107.ssb",
+      "index": 88,
+      "en": " If there is any reply for\nTeam [team:], we will pass it along to\n[CS:N]Spinda[CR] to deliver to you...",
+      "before": " 또 [team] 앞으로 답장이 오면\n[CS:N]얼루기[CR]님께서 맡으시는 걸로 되어있으므로...",
+      "after": " 또 [team:] 앞으로 답장이 오면\n[CS:N]얼루기[CR]님께서 맡으시는 걸로 되어있으므로...",
+      "reason": [
+        "missing data slots: team:0"
+      ]
+    },
+    {
+      "where": "SCRIPT/D73P11A/us2107.ssb",
+      "index": 92,
+      "en": " If there is any reply for\nTeam [team:], we will pass it along to\n[CS:N]Spinda[CR] to deliver to you...",
+      "before": " 또 [team] 앞으로 답장이 오면\n[CS:N]얼루기[CR]님께서 맡으시는 걸로 되어있으므로...",
+      "after": " 또 [team:] 앞으로 답장이 오면\n[CS:N]얼루기[CR]님께서 맡으시는 걸로 되어있으므로...",
+      "reason": [
+        "missing data slots: team:0"
+      ]
+    },
+    {
+      "where": "SCRIPT/D73P11A/us2107.ssb",
+      "index": 96,
+      "en": " If there is any reply for\nTeam [team:], we will pass it along to\n[CS:N]Spinda[CR] to deliver to you...",
+      "before": " 또 [team] 앞으로 답장이 오면\n[CS:N]얼루기[CR]님께서 맡으시는 걸로 되어있으므로...",
+      "after": " 또 [team:] 앞으로 답장이 오면\n[CS:N]얼루기[CR]님께서 맡으시는 걸로 되어있으므로...",
+      "reason": [
+        "missing data slots: team:0"
+      ]
+    },
+    {
+      "where": "SCRIPT/D73P11A/us2107.ssb",
+      "index": 100,
+      "en": " If there is any reply for\nTeam [team:], we will pass it along to\n[CS:N]Spinda[CR] to deliver to you...",
+      "before": " 또 [team] 앞으로 답장이 오면\n[CS:N]얼루기[CR]님께서 맡으시는 걸로 되어있으므로...",
+      "after": " 또 [team:] 앞으로 답장이 오면\n[CS:N]얼루기[CR]님께서 맡으시는 걸로 되어있으므로...",
+      "reason": [
+        "missing data slots: team:0"
+      ]
+    },
+    {
+      "where": "SCRIPT/D73P11A/us2107.ssb",
+      "index": 104,
+      "en": " If there is any reply for\nTeam [team:], we will pass it along to\n[CS:N]Spinda[CR] to deliver to you...",
+      "before": " 또 [team] 앞으로 답장이 오면\n[CS:N]얼루기[CR]님께서 맡으시는 걸로 되어있으므로...",
+      "after": " 또 [team:] 앞으로 답장이 오면\n[CS:N]얼루기[CR]님께서 맡으시는 걸로 되어있으므로...",
+      "reason": [
+        "missing data slots: team:0"
+      ]
+    },
+    {
+      "where": "SCRIPT/D73P11A/us2107.ssb",
+      "index": 108,
+      "en": " If there is any reply for\nTeam [team:], we will pass it along to\n[CS:N]Spinda[CR] to deliver to you...",
+      "before": " 또 [team] 앞으로 답장이 오면\n[CS:N]얼루기[CR]님께서 맡으시는 걸로 되어있으므로...",
+      "after": " 또 [team:] 앞으로 답장이 오면\n[CS:N]얼루기[CR]님께서 맡으시는 걸로 되어있으므로...",
+      "reason": [
+        "missing data slots: team:0"
+      ]
+    },
+    {
+      "where": "SCRIPT/D73P11A/us2107.ssb",
+      "index": 112,
+      "en": " If there is any reply for\nTeam [team:], we will pass it along to\n[CS:N]Spinda[CR] to deliver to you...",
+      "before": " 또 [team] 앞으로 답장이 오면\n[CS:N]얼루기[CR]님께서 맡으시는 걸로 되어있으므로...",
+      "after": " 또 [team:] 앞으로 답장이 오면\n[CS:N]얼루기[CR]님께서 맡으시는 걸로 되어있으므로...",
+      "reason": [
+        "missing data slots: team:0"
+      ]
+    },
+    {
+      "where": "SCRIPT/D73P11A/us2107.ssb",
+      "index": 116,
+      "en": " If there is any reply for\nTeam [team:], we will pass it along to\n[CS:N]Spinda[CR] to deliver to you...",
+      "before": " 또 [team] 앞으로 답장이 오면\n[CS:N]얼루기[CR]님께서 맡으시는 걸로 되어있으므로...",
+      "after": " 또 [team:] 앞으로 답장이 오면\n[CS:N]얼루기[CR]님께서 맡으시는 걸로 되어있으므로...",
+      "reason": [
+        "missing data slots: team:0"
+      ]
+    },
+    {
+      "where": "SCRIPT/D73P11A/us2107.ssb",
+      "index": 120,
+      "en": " If there is any reply for\nTeam [team:], we will pass it along to\n[CS:N]Spinda[CR] to deliver to you...",
+      "before": " 또 [team] 앞으로 답장이 오면\n[CS:N]얼루기[CR]님께서 맡으시는 걸로 되어있으므로...",
+      "after": " 또 [team:] 앞으로 답장이 오면\n[CS:N]얼루기[CR]님께서 맡으시는 걸로 되어있으므로...",
+      "reason": [
+        "missing data slots: team:0"
+      ]
+    },
+    {
+      "where": "SCRIPT/D73P11A/us2107.ssb",
+      "index": 124,
+      "en": " If there is any reply for\nTeam [team:], we will pass it along to\n[CS:N]Spinda[CR] to deliver to you...",
+      "before": " 또 [team] 앞으로 답장이 오면\n[CS:N]얼루기[CR]님께서 맡으시는 걸로 되어있으므로...",
+      "after": " 또 [team:] 앞으로 답장이 오면\n[CS:N]얼루기[CR]님께서 맡으시는 걸로 되어있으므로...",
+      "reason": [
+        "missing data slots: team:0"
+      ]
+    },
+    {
+      "where": "SCRIPT/D73P11A/us2107.ssb",
+      "index": 134,
+      "en": " If the person Team [team:]\nsent a gift to sends a reply in return...",
+      "before": " 또 선물한 상대에게서\n[team] 앞으로 답장이 온 경우에는...",
+      "after": " 또 선물한 상대에게서\n[team:] 앞으로 답장이 온 경우에는...",
+      "reason": [
+        "missing data slots: team:0"
+      ]
+    },
+    {
+      "where": "SCRIPT/D73P11A/us2207.ssb",
+      "index": 84,
+      "en": " If there is any reply for\nTeam [team:], we will pass it along to\n[CS:N]Spinda[CR] to deliver to you...",
+      "before": " 또 [team] 앞으로 답장이 오면\n[CS:N]얼루기[CR]님께서 맡으시는 걸로 되어있으므로...",
+      "after": " 또 [team:] 앞으로 답장이 오면\n[CS:N]얼루기[CR]님께서 맡으시는 걸로 되어있으므로...",
+      "reason": [
+        "missing data slots: team:0"
+      ]
+    },
+    {
+      "where": "SCRIPT/D73P11A/us2207.ssb",
+      "index": 88,
+      "en": " If there is any reply for\nTeam [team:], we will pass it along to\n[CS:N]Spinda[CR] to deliver to you...",
+      "before": " 또 [team] 앞으로 답장이 오면\n[CS:N]얼루기[CR]님께서 맡으시는 걸로 되어있으므로...",
+      "after": " 또 [team:] 앞으로 답장이 오면\n[CS:N]얼루기[CR]님께서 맡으시는 걸로 되어있으므로...",
+      "reason": [
+        "missing data slots: team:0"
+      ]
+    },
+    {
+      "where": "SCRIPT/D73P11A/us2207.ssb",
+      "index": 92,
+      "en": " If there is any reply for\nTeam [team:], we will pass it along to\n[CS:N]Spinda[CR] to deliver to you...",
+      "before": " 또 [team] 앞으로 답장이 오면\n[CS:N]얼루기[CR]님께서 맡으시는 걸로 되어있으므로...",
+      "after": " 또 [team:] 앞으로 답장이 오면\n[CS:N]얼루기[CR]님께서 맡으시는 걸로 되어있으므로...",
+      "reason": [
+        "missing data slots: team:0"
+      ]
+    },
+    {
+      "where": "SCRIPT/D73P11A/us2207.ssb",
+      "index": 96,
+      "en": " If there is any reply for\nTeam [team:], we will pass it along to\n[CS:N]Spinda[CR] to deliver to you...",
+      "before": " 또 [team] 앞으로 답장이 오면\n[CS:N]얼루기[CR]님께서 맡으시는 걸로 되어있으므로...",
+      "after": " 또 [team:] 앞으로 답장이 오면\n[CS:N]얼루기[CR]님께서 맡으시는 걸로 되어있으므로...",
+      "reason": [
+        "missing data slots: team:0"
+      ]
+    },
+    {
+      "where": "SCRIPT/D73P11A/us2207.ssb",
+      "index": 100,
+      "en": " If there is any reply for\nTeam [team:], we will pass it along to\n[CS:N]Spinda[CR] to deliver to you...",
+      "before": " 또 [team] 앞으로 답장이 오면\n[CS:N]얼루기[CR]님께서 맡으시는 걸로 되어있으므로...",
+      "after": " 또 [team:] 앞으로 답장이 오면\n[CS:N]얼루기[CR]님께서 맡으시는 걸로 되어있으므로...",
+      "reason": [
+        "missing data slots: team:0"
+      ]
+    },
+    {
+      "where": "SCRIPT/D73P11A/us2207.ssb",
+      "index": 104,
+      "en": " If there is any reply for\nTeam [team:], we will pass it along to\n[CS:N]Spinda[CR] to deliver to you...",
+      "before": " 또 [team] 앞으로 답장이 오면\n[CS:N]얼루기[CR]님께서 맡으시는 걸로 되어있으므로...",
+      "after": " 또 [team:] 앞으로 답장이 오면\n[CS:N]얼루기[CR]님께서 맡으시는 걸로 되어있으므로...",
+      "reason": [
+        "missing data slots: team:0"
+      ]
+    },
+    {
+      "where": "SCRIPT/D73P11A/us2207.ssb",
+      "index": 108,
+      "en": " If there is any reply for\nTeam [team:], we will pass it along to\n[CS:N]Spinda[CR] to deliver to you...",
+      "before": " 또 [team] 앞으로 답장이 오면\n[CS:N]얼루기[CR]님께서 맡으시는 걸로 되어있으므로...",
+      "after": " 또 [team:] 앞으로 답장이 오면\n[CS:N]얼루기[CR]님께서 맡으시는 걸로 되어있으므로...",
+      "reason": [
+        "missing data slots: team:0"
+      ]
+    },
+    {
+      "where": "SCRIPT/D73P11A/us2207.ssb",
+      "index": 112,
+      "en": " If there is any reply for\nTeam [team:], we will pass it along to\n[CS:N]Spinda[CR] to deliver to you...",
+      "before": " 또 [team] 앞으로 답장이 오면\n[CS:N]얼루기[CR]님께서 맡으시는 걸로 되어있으므로...",
+      "after": " 또 [team:] 앞으로 답장이 오면\n[CS:N]얼루기[CR]님께서 맡으시는 걸로 되어있으므로...",
+      "reason": [
+        "missing data slots: team:0"
+      ]
+    },
+    {
+      "where": "SCRIPT/D73P11A/us2207.ssb",
+      "index": 116,
+      "en": " If there is any reply for\nTeam [team:], we will pass it along to\n[CS:N]Spinda[CR] to deliver to you...",
+      "before": " 또 [team] 앞으로 답장이 오면\n[CS:N]얼루기[CR]님께서 맡으시는 걸로 되어있으므로...",
+      "after": " 또 [team:] 앞으로 답장이 오면\n[CS:N]얼루기[CR]님께서 맡으시는 걸로 되어있으므로...",
+      "reason": [
+        "missing data slots: team:0"
+      ]
+    },
+    {
+      "where": "SCRIPT/D73P11A/us2207.ssb",
+      "index": 120,
+      "en": " If there is any reply for\nTeam [team:], we will pass it along to\n[CS:N]Spinda[CR] to deliver to you...",
+      "before": " 또 [team] 앞으로 답장이 오면\n[CS:N]얼루기[CR]님께서 맡으시는 걸로 되어있으므로...",
+      "after": " 또 [team:] 앞으로 답장이 오면\n[CS:N]얼루기[CR]님께서 맡으시는 걸로 되어있으므로...",
+      "reason": [
+        "missing data slots: team:0"
+      ]
+    },
+    {
+      "where": "SCRIPT/D73P11A/us2207.ssb",
+      "index": 124,
+      "en": " If there is any reply for\nTeam [team:], we will pass it along to\n[CS:N]Spinda[CR] to deliver to you...",
+      "before": " 또 [team] 앞으로 답장이 오면\n[CS:N]얼루기[CR]님께서 맡으시는 걸로 되어있으므로...",
+      "after": " 또 [team:] 앞으로 답장이 오면\n[CS:N]얼루기[CR]님께서 맡으시는 걸로 되어있으므로...",
+      "reason": [
+        "missing data slots: team:0"
+      ]
+    },
+    {
+      "where": "SCRIPT/D73P11A/us2207.ssb",
+      "index": 134,
+      "en": " If the person Team [team:]\nsent a gift to sends a reply in return...",
+      "before": " 또 선물한 상대에게서\n[team] 앞으로 답장이 온 경우에는...",
+      "after": " 또 선물한 상대에게서\n[team:] 앞으로 답장이 온 경우에는...",
+      "reason": [
+        "missing data slots: team:0"
+      ]
+    },
+    {
+      "where": "SCRIPT/D73P11A/us2307.ssb",
+      "index": 84,
+      "en": " If there is any reply for\nTeam [team:], we will pass it along to\n[CS:N]Spinda[CR] to deliver to you...",
+      "before": " 또 [team] 앞으로 답장이 오면\n[CS:N]얼루기[CR]님께서 맡으시는 걸로 되어있으므로...",
+      "after": " 또 [team:] 앞으로 답장이 오면\n[CS:N]얼루기[CR]님께서 맡으시는 걸로 되어있으므로...",
+      "reason": [
+        "missing data slots: team:0"
+      ]
+    },
+    {
+      "where": "SCRIPT/D73P11A/us2307.ssb",
+      "index": 88,
+      "en": " If there is any reply for\nTeam [team:], we will pass it along to\n[CS:N]Spinda[CR] to deliver to you...",
+      "before": " 또 [team] 앞으로 답장이 오면\n[CS:N]얼루기[CR]님께서 맡으시는 걸로 되어있으므로...",
+      "after": " 또 [team:] 앞으로 답장이 오면\n[CS:N]얼루기[CR]님께서 맡으시는 걸로 되어있으므로...",
+      "reason": [
+        "missing data slots: team:0"
+      ]
+    },
+    {
+      "where": "SCRIPT/D73P11A/us2307.ssb",
+      "index": 92,
+      "en": " If there is any reply for\nTeam [team:], we will pass it along to\n[CS:N]Spinda[CR] to deliver to you...",
+      "before": " 또 [team] 앞으로 답장이 오면\n[CS:N]얼루기[CR]님께서 맡으시는 걸로 되어있으므로...",
+      "after": " 또 [team:] 앞으로 답장이 오면\n[CS:N]얼루기[CR]님께서 맡으시는 걸로 되어있으므로...",
+      "reason": [
+        "missing data slots: team:0"
+      ]
+    },
+    {
+      "where": "SCRIPT/D73P11A/us2307.ssb",
+      "index": 96,
+      "en": " If there is any reply for\nTeam [team:], we will pass it along to\n[CS:N]Spinda[CR] to deliver to you...",
+      "before": " 또 [team] 앞으로 답장이 오면\n[CS:N]얼루기[CR]님께서 맡으시는 걸로 되어있으므로...",
+      "after": " 또 [team:] 앞으로 답장이 오면\n[CS:N]얼루기[CR]님께서 맡으시는 걸로 되어있으므로...",
+      "reason": [
+        "missing data slots: team:0"
+      ]
+    },
+    {
+      "where": "SCRIPT/D73P11A/us2307.ssb",
+      "index": 100,
+      "en": " If there is any reply for\nTeam [team:], we will pass it along to\n[CS:N]Spinda[CR] to deliver to you...",
+      "before": " 또 [team] 앞으로 답장이 오면\n[CS:N]얼루기[CR]님께서 맡으시는 걸로 되어있으므로...",
+      "after": " 또 [team:] 앞으로 답장이 오면\n[CS:N]얼루기[CR]님께서 맡으시는 걸로 되어있으므로...",
+      "reason": [
+        "missing data slots: team:0"
+      ]
+    },
+    {
+      "where": "SCRIPT/D73P11A/us2307.ssb",
+      "index": 104,
+      "en": " If there is any reply for\nTeam [team:], we will pass it along to\n[CS:N]Spinda[CR] to deliver to you...",
+      "before": " 또 [team] 앞으로 답장이 오면\n[CS:N]얼루기[CR]님께서 맡으시는 걸로 되어있으므로...",
+      "after": " 또 [team:] 앞으로 답장이 오면\n[CS:N]얼루기[CR]님께서 맡으시는 걸로 되어있으므로...",
+      "reason": [
+        "missing data slots: team:0"
+      ]
+    },
+    {
+      "where": "SCRIPT/D73P11A/us2307.ssb",
+      "index": 108,
+      "en": " If there is any reply for\nTeam [team:], we will pass it along to\n[CS:N]Spinda[CR] to deliver to you...",
+      "before": " 또 [team] 앞으로 답장이 오면\n[CS:N]얼루기[CR]님께서 맡으시는 걸로 되어있으므로...",
+      "after": " 또 [team:] 앞으로 답장이 오면\n[CS:N]얼루기[CR]님께서 맡으시는 걸로 되어있으므로...",
+      "reason": [
+        "missing data slots: team:0"
+      ]
+    },
+    {
+      "where": "SCRIPT/D73P11A/us2307.ssb",
+      "index": 112,
+      "en": " If there is any reply for\nTeam [team:], we will pass it along to\n[CS:N]Spinda[CR] to deliver to you...",
+      "before": " 또 [team] 앞으로 답장이 오면\n[CS:N]얼루기[CR]님께서 맡으시는 걸로 되어있으므로...",
+      "after": " 또 [team:] 앞으로 답장이 오면\n[CS:N]얼루기[CR]님께서 맡으시는 걸로 되어있으므로...",
+      "reason": [
+        "missing data slots: team:0"
+      ]
+    },
+    {
+      "where": "SCRIPT/D73P11A/us2307.ssb",
+      "index": 116,
+      "en": " If there is any reply for\nTeam [team:], we will pass it along to\n[CS:N]Spinda[CR] to deliver to you...",
+      "before": " 또 [team] 앞으로 답장이 오면\n[CS:N]얼루기[CR]님께서 맡으시는 걸로 되어있으므로...",
+      "after": " 또 [team:] 앞으로 답장이 오면\n[CS:N]얼루기[CR]님께서 맡으시는 걸로 되어있으므로...",
+      "reason": [
+        "missing data slots: team:0"
+      ]
+    },
+    {
+      "where": "SCRIPT/D73P11A/us2307.ssb",
+      "index": 120,
+      "en": " If there is any reply for\nTeam [team:], we will pass it along to\n[CS:N]Spinda[CR] to deliver to you...",
+      "before": " 또 [team] 앞으로 답장이 오면\n[CS:N]얼루기[CR]님께서 맡으시는 걸로 되어있으므로...",
+      "after": " 또 [team:] 앞으로 답장이 오면\n[CS:N]얼루기[CR]님께서 맡으시는 걸로 되어있으므로...",
+      "reason": [
+        "missing data slots: team:0"
+      ]
+    },
+    {
+      "where": "SCRIPT/D73P11A/us2307.ssb",
+      "index": 124,
+      "en": " If there is any reply for\nTeam [team:], we will pass it along to\n[CS:N]Spinda[CR] to deliver to you...",
+      "before": " 또 [team] 앞으로 답장이 오면\n[CS:N]얼루기[CR]님께서 맡으시는 걸로 되어있으므로...",
+      "after": " 또 [team:] 앞으로 답장이 오면\n[CS:N]얼루기[CR]님께서 맡으시는 걸로 되어있으므로...",
+      "reason": [
+        "missing data slots: team:0"
+      ]
+    },
+    {
+      "where": "SCRIPT/D73P11A/us2307.ssb",
+      "index": 134,
+      "en": " If the person Team [team:]\nsent a gift to sends a reply in return...",
+      "before": " 또 선물한 상대에게서\n[team] 앞으로 답장이 온 경우에는...",
+      "after": " 또 선물한 상대에게서\n[team:] 앞으로 답장이 온 경우에는...",
+      "reason": [
+        "missing data slots: team:0"
+      ]
+    },
+    {
+      "where": "SCRIPT/D73P11A/us3104.ssb",
+      "index": 29,
+      "en": " Oh, Team [team:]!",
+      "before": " 아! [team] 팀!",
+      "after": " 아! [team:] 팀!",
+      "reason": [
+        "missing data slots: team:0"
+      ]
+    },
+    {
+      "where": "SCRIPT/D73P11A/us3104.ssb",
+      "index": 35,
+      "en": " That reminds me,\nTeam [team:].",
+      "before": " 그런데요 [team] 팀.",
+      "after": " 그런데요 [team:] 팀.",
+      "reason": [
+        "missing data slots: team:0"
+      ]
+    },
+    {
+      "where": "SCRIPT/D73P11A/us3104.ssb",
+      "index": 39,
+      "en": " I was deeply moved while\nclimbing the mountain with you,\nTeam [team:]. I won't forget it...",
+      "before": " [team] 팀과\n이 산을 오를 때의 감동이\n잊혀지지 않아서 그런데요...",
+      "after": " [team:] 팀과\n이 산을 오를 때의 감동이\n잊혀지지 않아서 그런데요...",
+      "reason": [
+        "missing data slots: team:0"
+      ]
+    },
+    {
+      "where": "SCRIPT/D73P11A/us3104.ssb",
+      "index": 40,
+      "en": " What do you think...\nThat is...letting me join Team [team:]?",
+      "before": " 어떠신가요...\n절 [team]에\n들어가게 해주실 수 없으신가요?",
+      "after": " 어떠신가요...\n절 [team:]에\n들어가게 해주실 수 없으신가요?",
+      "reason": [
+        "missing data slots: team:0"
+      ]
+    },
+    {
+      "where": "SCRIPT/D73P11A/us3104.ssb",
+      "index": 49,
+      "en": " I was deeply moved while\nclimbing the mountain with you,\nTeam [team:]. I won't forget it...",
+      "before": " [team] 팀과\n이 산을 오를 때의 감동이\n잊혀지지 않아서 그런데요...",
+      "after": " [team:] 팀과\n이 산을 오를 때의 감동이\n잊혀지지 않아서 그런데요...",
+      "reason": [
+        "missing data slots: team:0"
+      ]
+    },
+    {
+      "where": "SCRIPT/D73P11A/us3104.ssb",
+      "index": 50,
+      "en": " What do you think...\nThat is...letting me join Team [team:]?",
+      "before": " 어떠신가요...\n절 [team]에\n들어가게 해주실 수 없으신가요?",
+      "after": " 어떠신가요...\n절 [team:]에\n들어가게 해주실 수 없으신가요?",
+      "reason": [
+        "missing data slots: team:0"
+      ]
+    },
+    {
+      "where": "SCRIPT/D73P11A/us3106.ssb",
+      "index": 84,
+      "en": " If there is any reply for\nTeam [team:], we will pass it along to\n[CS:N]Spinda[CR] to deliver to you...",
+      "before": " 또 [team] 앞으로 답장이 오면\n[CS:N]얼루기[CR]님께서 맡으시는 걸로 되어있으므로...",
+      "after": " 또 [team:] 앞으로 답장이 오면\n[CS:N]얼루기[CR]님께서 맡으시는 걸로 되어있으므로...",
+      "reason": [
+        "missing data slots: team:0"
+      ]
+    },
+    {
+      "where": "SCRIPT/D73P11A/us3106.ssb",
+      "index": 88,
+      "en": " If there is any reply for\nTeam [team:], we will pass it along to\n[CS:N]Spinda[CR] to deliver to you...",
+      "before": " 또 [team] 앞으로 답장이 오면\n[CS:N]얼루기[CR]님께서 맡으시는 걸로 되어있으므로...",
+      "after": " 또 [team:] 앞으로 답장이 오면\n[CS:N]얼루기[CR]님께서 맡으시는 걸로 되어있으므로...",
+      "reason": [
+        "missing data slots: team:0"
+      ]
+    },
+    {
+      "where": "SCRIPT/D73P11A/us3106.ssb",
+      "index": 92,
+      "en": " If there is any reply for\nTeam [team:], we will pass it along to\n[CS:N]Spinda[CR] to deliver to you...",
+      "before": " 또 [team] 앞으로 답장이 오면\n[CS:N]얼루기[CR]님께서 맡으시는 걸로 되어있으므로...",
+      "after": " 또 [team:] 앞으로 답장이 오면\n[CS:N]얼루기[CR]님께서 맡으시는 걸로 되어있으므로...",
+      "reason": [
+        "missing data slots: team:0"
+      ]
+    },
+    {
+      "where": "SCRIPT/D73P11A/us3106.ssb",
+      "index": 96,
+      "en": " If there is any reply for\nTeam [team:], we will pass it along to\n[CS:N]Spinda[CR] to deliver to you...",
+      "before": " 또 [team] 앞으로 답장이 오면\n[CS:N]얼루기[CR]님께서 맡으시는 걸로 되어있으므로...",
+      "after": " 또 [team:] 앞으로 답장이 오면\n[CS:N]얼루기[CR]님께서 맡으시는 걸로 되어있으므로...",
+      "reason": [
+        "missing data slots: team:0"
+      ]
+    },
+    {
+      "where": "SCRIPT/D73P11A/us3106.ssb",
+      "index": 100,
+      "en": " If there is any reply for\nTeam [team:], we will pass it along to\n[CS:N]Spinda[CR] to deliver to you...",
+      "before": " 또 [team] 앞으로 답장이 오면\n[CS:N]얼루기[CR]님께서 맡으시는 걸로 되어있으므로...",
+      "after": " 또 [team:] 앞으로 답장이 오면\n[CS:N]얼루기[CR]님께서 맡으시는 걸로 되어있으므로...",
+      "reason": [
+        "missing data slots: team:0"
+      ]
+    },
+    {
+      "where": "SCRIPT/D73P11A/us3106.ssb",
+      "index": 104,
+      "en": " If there is any reply for\nTeam [team:], we will pass it along to\n[CS:N]Spinda[CR] to deliver to you...",
+      "before": " 또 [team] 앞으로 답장이 오면\n[CS:N]얼루기[CR]님께서 맡으시는 걸로 되어있으므로...",
+      "after": " 또 [team:] 앞으로 답장이 오면\n[CS:N]얼루기[CR]님께서 맡으시는 걸로 되어있으므로...",
+      "reason": [
+        "missing data slots: team:0"
+      ]
+    },
+    {
+      "where": "SCRIPT/D73P11A/us3106.ssb",
+      "index": 108,
+      "en": " If there is any reply for\nTeam [team:], we will pass it along to\n[CS:N]Spinda[CR] to deliver to you...",
+      "before": " 또 [team] 앞으로 답장이 오면\n[CS:N]얼루기[CR]님께서 맡으시는 걸로 되어있으므로...",
+      "after": " 또 [team:] 앞으로 답장이 오면\n[CS:N]얼루기[CR]님께서 맡으시는 걸로 되어있으므로...",
+      "reason": [
+        "missing data slots: team:0"
+      ]
+    },
+    {
+      "where": "SCRIPT/D73P11A/us3106.ssb",
+      "index": 112,
+      "en": " If there is any reply for\nTeam [team:], we will pass it along to\n[CS:N]Spinda[CR] to deliver to you...",
+      "before": " 또 [team] 앞으로 답장이 오면\n[CS:N]얼루기[CR]님께서 맡으시는 걸로 되어있으므로...",
+      "after": " 또 [team:] 앞으로 답장이 오면\n[CS:N]얼루기[CR]님께서 맡으시는 걸로 되어있으므로...",
+      "reason": [
+        "missing data slots: team:0"
+      ]
+    },
+    {
+      "where": "SCRIPT/D73P11A/us3106.ssb",
+      "index": 116,
+      "en": " If there is any reply for\nTeam [team:], we will pass it along to\n[CS:N]Spinda[CR] to deliver to you...",
+      "before": " 또 [team] 앞으로 답장이 오면\n[CS:N]얼루기[CR]님께서 맡으시는 걸로 되어있으므로...",
+      "after": " 또 [team:] 앞으로 답장이 오면\n[CS:N]얼루기[CR]님께서 맡으시는 걸로 되어있으므로...",
+      "reason": [
+        "missing data slots: team:0"
+      ]
+    },
+    {
+      "where": "SCRIPT/D73P11A/us3106.ssb",
+      "index": 120,
+      "en": " If there is any reply for\nTeam [team:], we will pass it along to\n[CS:N]Spinda[CR] to deliver to you...",
+      "before": " 또 [team] 앞으로 답장이 오면\n[CS:N]얼루기[CR]님께서 맡으시는 걸로 되어있으므로...",
+      "after": " 또 [team:] 앞으로 답장이 오면\n[CS:N]얼루기[CR]님께서 맡으시는 걸로 되어있으므로...",
+      "reason": [
+        "missing data slots: team:0"
+      ]
+    },
+    {
+      "where": "SCRIPT/D73P11A/us3106.ssb",
+      "index": 124,
+      "en": " If there is any reply for\nTeam [team:], we will pass it along to\n[CS:N]Spinda[CR] to deliver to you...",
+      "before": " 또 [team] 앞으로 답장이 오면\n[CS:N]얼루기[CR]님께서 맡으시는 걸로 되어있으므로...",
+      "after": " 또 [team:] 앞으로 답장이 오면\n[CS:N]얼루기[CR]님께서 맡으시는 걸로 되어있으므로...",
+      "reason": [
+        "missing data slots: team:0"
+      ]
+    },
+    {
+      "where": "SCRIPT/D73P11A/us3106.ssb",
+      "index": 134,
+      "en": " If the person Team [team:]\nsent a gift to sends a reply in return...",
+      "before": " 또 선물한 상대에게서\n[team] 앞으로 답장이 온 경우에는...",
+      "after": " 또 선물한 상대에게서\n[team:] 앞으로 답장이 온 경우에는...",
+      "reason": [
+        "missing data slots: team:0"
+      ]
+    },
+    {
+      "where": "SCRIPT/D73P21A/us3109.ssb",
+      "index": 29,
+      "en": " Oh, Team [team:]!",
+      "before": " 아! [team] 팀!",
+      "after": " 아! [team:] 팀!",
+      "reason": [
+        "missing data slots: team:0"
+      ]
+    },
+    {
+      "where": "SCRIPT/D73P21A/us3109.ssb",
+      "index": 35,
+      "en": " That reminds me,\nTeam [team:].",
+      "before": " 그런데요 [team] 팀.",
+      "after": " 그런데요 [team:] 팀.",
+      "reason": [
+        "missing data slots: team:0"
+      ]
+    },
+    {
+      "where": "SCRIPT/D73P21A/us3109.ssb",
+      "index": 39,
+      "en": " I was deeply moved while\nclimbing the mountain with you,\nTeam [team:]. I won't forget it...",
+      "before": " [team] 팀과\n이 산을 오를 때의 감동이\n잊혀지지 않아서 그런데요...",
+      "after": " [team:] 팀과\n이 산을 오를 때의 감동이\n잊혀지지 않아서 그런데요...",
+      "reason": [
+        "missing data slots: team:0"
+      ]
+    },
+    {
+      "where": "SCRIPT/D73P21A/us3109.ssb",
+      "index": 40,
+      "en": " What do you think...\nThat is...letting me join Team [team:]?",
+      "before": " 어떠신가요...\n절 [team]에\n들어가게 해주실 수 없으신가요?",
+      "after": " 어떠신가요...\n절 [team:]에\n들어가게 해주실 수 없으신가요?",
+      "reason": [
+        "missing data slots: team:0"
+      ]
+    },
+    {
+      "where": "SCRIPT/D73P21A/us3109.ssb",
+      "index": 49,
+      "en": " I was deeply moved while\nclimbing the mountain with you,\nTeam [team:]. I won't forget it...",
+      "before": " [team] 팀과\n이 산을 오를 때의 감동이\n잊혀지지 않아서 그런데요...",
+      "after": " [team:] 팀과\n이 산을 오를 때의 감동이\n잊혀지지 않아서 그런데요...",
+      "reason": [
+        "missing data slots: team:0"
+      ]
+    },
+    {
+      "where": "SCRIPT/D73P21A/us3109.ssb",
+      "index": 50,
+      "en": " What do you think...\nThat is...letting me join Team [team:]?",
+      "before": " 어떠신가요...\n절 [team]에\n들어가게 해주실 수 없으신가요?",
+      "after": " 어떠신가요...\n절 [team:]에\n들어가게 해주실 수 없으신가요?",
+      "reason": [
+        "missing data slots: team:0"
+      ]
+    },
+    {
+      "where": "SCRIPT/D73P22A/us3101.ssb",
+      "index": 29,
+      "en": " Oh, Team [team:]!",
+      "before": " 아! [team] 팀!",
+      "after": " 아! [team:] 팀!",
+      "reason": [
+        "missing data slots: team:0"
+      ]
+    },
+    {
+      "where": "SCRIPT/D73P22A/us3101.ssb",
+      "index": 35,
+      "en": " That reminds me,\nTeam [team:].",
+      "before": " 그런데요 [team] 팀.",
+      "after": " 그런데요 [team:] 팀.",
+      "reason": [
+        "missing data slots: team:0"
+      ]
+    },
+    {
+      "where": "SCRIPT/D73P22A/us3101.ssb",
+      "index": 39,
+      "en": " I was deeply moved while\nclimbing the mountain with you,\nTeam [team:]. I won't forget it...",
+      "before": " [team] 팀과\n이 산을 오를 때의 감동이\n잊혀지지 않아서 그런데요...",
+      "after": " [team:] 팀과\n이 산을 오를 때의 감동이\n잊혀지지 않아서 그런데요...",
+      "reason": [
+        "missing data slots: team:0"
+      ]
+    },
+    {
+      "where": "SCRIPT/D73P22A/us3101.ssb",
+      "index": 40,
+      "en": " What do you think...\nThat is...letting me join Team [team:]?",
+      "before": " 어떠신가요...\n절 [team]에\n들어가게 해주실 수 없으신가요?",
+      "after": " 어떠신가요...\n절 [team:]에\n들어가게 해주실 수 없으신가요?",
+      "reason": [
+        "missing data slots: team:0"
+      ]
+    },
+    {
+      "where": "SCRIPT/D73P22A/us3101.ssb",
+      "index": 49,
+      "en": " I was deeply moved while\nclimbing the mountain with you,\nTeam [team:]. I won't forget it...",
+      "before": " [team] 팀과\n이 산을 오를 때의 감동이\n잊혀지지 않아서 그런데요...",
+      "after": " [team:] 팀과\n이 산을 오를 때의 감동이\n잊혀지지 않아서 그런데요...",
+      "reason": [
+        "missing data slots: team:0"
+      ]
+    },
+    {
+      "where": "SCRIPT/D73P22A/us3101.ssb",
+      "index": 50,
+      "en": " What do you think...\nThat is...letting me join Team [team:]?",
+      "before": " 어떠신가요...\n절 [team]에\n들어가게 해주실 수 없으신가요?",
+      "after": " 어떠신가요...\n절 [team:]에\n들어가게 해주실 수 없으신가요?",
+      "reason": [
+        "missing data slots: team:0"
+      ]
+    },
+    {
+      "where": "SCRIPT/D73P23A/us3101.ssb",
+      "index": 29,
+      "en": " Oh, Team [team:]!",
+      "before": " 아! [team] 팀!",
+      "after": " 아! [team:] 팀!",
+      "reason": [
+        "missing data slots: team:0"
+      ]
+    },
+    {
+      "where": "SCRIPT/D73P23A/us3101.ssb",
+      "index": 35,
+      "en": " That reminds me,\nTeam [team:].",
+      "before": " 그런데요 [team] 팀.",
+      "after": " 그런데요 [team:] 팀.",
+      "reason": [
+        "missing data slots: team:0"
+      ]
+    },
+    {
+      "where": "SCRIPT/D73P23A/us3101.ssb",
+      "index": 39,
+      "en": " I was deeply moved while\nclimbing the mountain with you,\nTeam [team:]. I won't forget it...",
+      "before": " [team] 팀과\n이 산을 오를 때의 감동이\n잊혀지지 않아서 그런데요...",
+      "after": " [team:] 팀과\n이 산을 오를 때의 감동이\n잊혀지지 않아서 그런데요...",
+      "reason": [
+        "missing data slots: team:0"
+      ]
+    },
+    {
+      "where": "SCRIPT/D73P23A/us3101.ssb",
+      "index": 40,
+      "en": " What do you think...\nThat is...letting me join Team [team:]?",
+      "before": " 어떠신가요...\n절 [team]에\n들어가게 해주실 수 없으신가요?",
+      "after": " 어떠신가요...\n절 [team:]에\n들어가게 해주실 수 없으신가요?",
+      "reason": [
+        "missing data slots: team:0"
+      ]
+    },
+    {
+      "where": "SCRIPT/D73P23A/us3101.ssb",
+      "index": 49,
+      "en": " I was deeply moved while\nclimbing the mountain with you,\nTeam [team:]. I won't forget it...",
+      "before": " [team] 팀과\n이 산을 오를 때의 감동이\n잊혀지지 않아서 그런데요...",
+      "after": " [team:] 팀과\n이 산을 오를 때의 감동이\n잊혀지지 않아서 그런데요...",
+      "reason": [
+        "missing data slots: team:0"
+      ]
+    },
+    {
+      "where": "SCRIPT/D73P23A/us3101.ssb",
+      "index": 50,
+      "en": " What do you think...\nThat is...letting me join Team [team:]?",
+      "before": " 어떠신가요...\n절 [team]에\n들어가게 해주실 수 없으신가요?",
+      "after": " 어떠신가요...\n절 [team:]에\n들어가게 해주실 수 없으신가요?",
+      "reason": [
+        "missing data slots: team:0"
+      ]
+    },
+    {
+      "where": "SCRIPT/D73P23A/us3107.ssb",
+      "index": 23,
+      "en": " Thanks, Team [team:].",
+      "before": " 고마워, [team].",
+      "after": " 고마워, [team:].",
+      "reason": [
+        "missing data slots: team:0"
+      ]
+    },
+    {
+      "where": "SCRIPT/D73P23A/us3107.ssb",
+      "index": 27,
+      "en": " Team [team:] saved the\nworld, and I owe you for many things, so...",
+      "before": " [team] 팀에게는\n세계를 구원받기도 하고\n여러모로 신세를 지고 있으니...",
+      "after": " [team:] 팀에게는\n세계를 구원받기도 하고\n여러모로 신세를 지고 있으니...",
+      "reason": [
+        "missing data slots: team:0"
+      ]
+    },
+    {
+      "where": "SCRIPT/D73P24A/us3101.ssb",
+      "index": 29,
+      "en": " Oh, Team [team:]!",
+      "before": " 아! [team] 팀!",
+      "after": " 아! [team:] 팀!",
+      "reason": [
+        "missing data slots: team:0"
+      ]
+    },
+    {
+      "where": "SCRIPT/D73P24A/us3101.ssb",
+      "index": 35,
+      "en": " That reminds me,\nTeam [team:].",
+      "before": " 그런데요 [team] 팀.",
+      "after": " 그런데요 [team:] 팀.",
+      "reason": [
+        "missing data slots: team:0"
+      ]
+    },
+    {
+      "where": "SCRIPT/D73P24A/us3101.ssb",
+      "index": 39,
+      "en": " I was deeply moved while\nclimbing the mountain with you,\nTeam [team:]. I won't forget it...",
+      "before": " [team] 팀과\n이 산을 오를 때의 감동이\n잊혀지지 않아서 그런데요...",
+      "after": " [team:] 팀과\n이 산을 오를 때의 감동이\n잊혀지지 않아서 그런데요...",
+      "reason": [
+        "missing data slots: team:0"
+      ]
+    },
+    {
+      "where": "SCRIPT/D73P24A/us3101.ssb",
+      "index": 40,
+      "en": " What do you think...\nThat is...letting me join Team [team:]?",
+      "before": " 어떠신가요...\n절 [team]에\n들어가게 해주실 수 없으신가요?",
+      "after": " 어떠신가요...\n절 [team:]에\n들어가게 해주실 수 없으신가요?",
+      "reason": [
+        "missing data slots: team:0"
+      ]
+    },
+    {
+      "where": "SCRIPT/D73P24A/us3101.ssb",
+      "index": 49,
+      "en": " I was deeply moved while\nclimbing the mountain with you,\nTeam [team:]. I won't forget it...",
+      "before": " [team] 팀과\n이 산을 오를 때의 감동이\n잊혀지지 않아서 그런데요...",
+      "after": " [team:] 팀과\n이 산을 오를 때의 감동이\n잊혀지지 않아서 그런데요...",
+      "reason": [
+        "missing data slots: team:0"
+      ]
+    },
+    {
+      "where": "SCRIPT/D73P24A/us3101.ssb",
+      "index": 50,
+      "en": " What do you think...\nThat is...letting me join Team [team:]?",
+      "before": " 어떠신가요...\n절 [team]에\n들어가게 해주실 수 없으신가요?",
+      "after": " 어떠신가요...\n절 [team:]에\n들어가게 해주실 수 없으신가요?",
+      "reason": [
+        "missing data slots: team:0"
+      ]
+    },
+    {
+      "where": "SCRIPT/D73P24A/us3104.ssb",
+      "index": 23,
+      "en": " Thanks, Team [team:].",
+      "before": " 고마워, [team].",
+      "after": " 고마워, [team:].",
+      "reason": [
+        "missing data slots: team:0"
+      ]
+    },
+    {
+      "where": "SCRIPT/D73P24A/us3104.ssb",
+      "index": 27,
+      "en": " Team [team:] saved the\nworld, and I owe you for many things, so...",
+      "before": " [team] 팀에게는\n세계를 구원받기도 하고\n여러모로 신세를 지고 있으니...",
+      "after": " [team:] 팀에게는\n세계를 구원받기도 하고\n여러모로 신세를 지고 있으니...",
+      "reason": [
+        "missing data slots: team:0"
+      ]
+    },
+    {
+      "where": "SCRIPT/D73P25A/us3101.ssb",
+      "index": 29,
+      "en": " Oh, Team [team:]!",
+      "before": " 아! [team] 팀!",
+      "after": " 아! [team:] 팀!",
+      "reason": [
+        "missing data slots: team:0"
+      ]
+    },
+    {
+      "where": "SCRIPT/D73P25A/us3101.ssb",
+      "index": 35,
+      "en": " That reminds me,\nTeam [team:].",
+      "before": " 그런데요 [team] 팀.",
+      "after": " 그런데요 [team:] 팀.",
+      "reason": [
+        "missing data slots: team:0"
+      ]
+    },
+    {
+      "where": "SCRIPT/D73P25A/us3101.ssb",
+      "index": 39,
+      "en": " I was deeply moved while\nclimbing the mountain with you,\nTeam [team:]. I won't forget it...",
+      "before": " [team] 팀과\n이 산을 오를 때의 감동이\n잊혀지지 않아서 그런데요...",
+      "after": " [team:] 팀과\n이 산을 오를 때의 감동이\n잊혀지지 않아서 그런데요...",
+      "reason": [
+        "missing data slots: team:0"
+      ]
+    },
+    {
+      "where": "SCRIPT/D73P25A/us3101.ssb",
+      "index": 40,
+      "en": " What do you think...\nThat is...letting me join Team [team:]?",
+      "before": " 어떠신가요...\n절 [team]에\n들어가게 해주실 수 없으신가요?",
+      "after": " 어떠신가요...\n절 [team:]에\n들어가게 해주실 수 없으신가요?",
+      "reason": [
+        "missing data slots: team:0"
+      ]
+    },
+    {
+      "where": "SCRIPT/D73P25A/us3101.ssb",
+      "index": 49,
+      "en": " I was deeply moved while\nclimbing the mountain with you,\nTeam [team:]. I won't forget it...",
+      "before": " [team] 팀과\n이 산을 오를 때의 감동이\n잊혀지지 않아서 그런데요...",
+      "after": " [team:] 팀과\n이 산을 오를 때의 감동이\n잊혀지지 않아서 그런데요...",
+      "reason": [
+        "missing data slots: team:0"
+      ]
+    },
+    {
+      "where": "SCRIPT/D73P25A/us3101.ssb",
+      "index": 50,
+      "en": " What do you think...\nThat is...letting me join Team [team:]?",
+      "before": " 어떠신가요...\n절 [team]에\n들어가게 해주실 수 없으신가요?",
+      "after": " 어떠신가요...\n절 [team:]에\n들어가게 해주실 수 없으신가요?",
+      "reason": [
+        "missing data slots: team:0"
+      ]
+    },
+    {
+      "where": "SCRIPT/D73P26A/us3101.ssb",
+      "index": 29,
+      "en": " Oh, Team [team:]!",
+      "before": " 아! [team] 팀!",
+      "after": " 아! [team:] 팀!",
+      "reason": [
+        "missing data slots: team:0"
+      ]
+    },
+    {
+      "where": "SCRIPT/D73P26A/us3101.ssb",
+      "index": 35,
+      "en": " That reminds me,\nTeam [team:].",
+      "before": " 그런데요 [team] 팀.",
+      "after": " 그런데요 [team:] 팀.",
+      "reason": [
+        "missing data slots: team:0"
+      ]
+    },
+    {
+      "where": "SCRIPT/D73P26A/us3101.ssb",
+      "index": 39,
+      "en": " I was deeply moved while\nclimbing the mountain with you,\nTeam [team:]. I won't forget it...",
+      "before": " [team] 팀과\n이 산을 오를 때의 감동이\n잊혀지지 않아서 그런데요...",
+      "after": " [team:] 팀과\n이 산을 오를 때의 감동이\n잊혀지지 않아서 그런데요...",
+      "reason": [
+        "missing data slots: team:0"
+      ]
+    },
+    {
+      "where": "SCRIPT/D73P26A/us3101.ssb",
+      "index": 40,
+      "en": " What do you think...\nThat is...letting me join Team [team:]?",
+      "before": " 어떠신가요...\n절 [team]에\n들어가게 해주실 수 없으신가요?",
+      "after": " 어떠신가요...\n절 [team:]에\n들어가게 해주실 수 없으신가요?",
+      "reason": [
+        "missing data slots: team:0"
+      ]
+    },
+    {
+      "where": "SCRIPT/D73P26A/us3101.ssb",
+      "index": 49,
+      "en": " I was deeply moved while\nclimbing the mountain with you,\nTeam [team:]. I won't forget it...",
+      "before": " [team] 팀과\n이 산을 오를 때의 감동이\n잊혀지지 않아서 그런데요...",
+      "after": " [team:] 팀과\n이 산을 오를 때의 감동이\n잊혀지지 않아서 그런데요...",
+      "reason": [
+        "missing data slots: team:0"
+      ]
+    },
+    {
+      "where": "SCRIPT/D73P26A/us3101.ssb",
+      "index": 50,
+      "en": " What do you think...\nThat is...letting me join Team [team:]?",
+      "before": " 어떠신가요...\n절 [team]에\n들어가게 해주실 수 없으신가요?",
+      "after": " 어떠신가요...\n절 [team:]에\n들어가게 해주실 수 없으신가요?",
+      "reason": [
+        "missing data slots: team:0"
+      ]
+    },
+    {
+      "where": "SCRIPT/D73P27A/us3101.ssb",
+      "index": 29,
+      "en": " Oh, Team [team:]!",
+      "before": " 아! [team] 팀!",
+      "after": " 아! [team:] 팀!",
+      "reason": [
+        "missing data slots: team:0"
+      ]
+    },
+    {
+      "where": "SCRIPT/D73P27A/us3101.ssb",
+      "index": 35,
+      "en": " That reminds me,\nTeam [team:].",
+      "before": " 그런데요 [team] 팀.",
+      "after": " 그런데요 [team:] 팀.",
+      "reason": [
+        "missing data slots: team:0"
+      ]
+    },
+    {
+      "where": "SCRIPT/D73P27A/us3101.ssb",
+      "index": 39,
+      "en": " I was deeply moved while\nclimbing the mountain with you,\nTeam [team:]. I won't forget it...",
+      "before": " [team] 팀과\n이 산을 오를 때의 감동이\n잊혀지지 않아서 그런데요...",
+      "after": " [team:] 팀과\n이 산을 오를 때의 감동이\n잊혀지지 않아서 그런데요...",
+      "reason": [
+        "missing data slots: team:0"
+      ]
+    },
+    {
+      "where": "SCRIPT/D73P27A/us3101.ssb",
+      "index": 40,
+      "en": " What do you think...\nThat is...letting me join Team [team:]?",
+      "before": " 어떠신가요...\n절 [team]에\n들어가게 해주실 수 없으신가요?",
+      "after": " 어떠신가요...\n절 [team:]에\n들어가게 해주실 수 없으신가요?",
+      "reason": [
+        "missing data slots: team:0"
+      ]
+    },
+    {
+      "where": "SCRIPT/D73P27A/us3101.ssb",
+      "index": 49,
+      "en": " I was deeply moved while\nclimbing the mountain with you,\nTeam [team:]. I won't forget it...",
+      "before": " [team] 팀과\n이 산을 오를 때의 감동이\n잊혀지지 않아서 그런데요...",
+      "after": " [team:] 팀과\n이 산을 오를 때의 감동이\n잊혀지지 않아서 그런데요...",
+      "reason": [
+        "missing data slots: team:0"
+      ]
+    },
+    {
+      "where": "SCRIPT/D73P27A/us3101.ssb",
+      "index": 50,
+      "en": " What do you think...\nThat is...letting me join Team [team:]?",
+      "before": " 어떠신가요...\n절 [team]에\n들어가게 해주실 수 없으신가요?",
+      "after": " 어떠신가요...\n절 [team:]에\n들어가게 해주실 수 없으신가요?",
+      "reason": [
+        "missing data slots: team:0"
+      ]
+    },
+    {
+      "where": "SCRIPT/D73P28A/enter12.ssb",
+      "index": 17,
+      "en": " Hey.\nIf it isn't Team [team:].",
+      "before": " 오,\n[team] 팀 아닌가.",
+      "after": " 오,\n[team:] 팀 아닌가.",
+      "reason": [
+        "missing data slots: team:0"
+      ]
+    },
+    {
+      "where": "SCRIPT/D73P28A/s32a0101.ssb",
+      "index": 0,
+      "en": " Oh! It's Team [team:]!",
+      "before": " 오!\n[team] 팀 아닌가.",
+      "after": " 오!\n[team:] 팀 아닌가.",
+      "reason": [
+        "missing data slots: team:0"
+      ]
+    },
+    {
+      "where": "SCRIPT/D73P28A/us3101.ssb",
+      "index": 29,
+      "en": " Oh, Team [team:]!",
+      "before": " 아! [team] 팀!",
+      "after": " 아! [team:] 팀!",
+      "reason": [
+        "missing data slots: team:0"
+      ]
+    },
+    {
+      "where": "SCRIPT/D73P28A/us3101.ssb",
+      "index": 35,
+      "en": " That reminds me,\nTeam [team:].",
+      "before": " 그런데요 [team] 팀.",
+      "after": " 그런데요 [team:] 팀.",
+      "reason": [
+        "missing data slots: team:0"
+      ]
+    },
+    {
+      "where": "SCRIPT/D73P28A/us3101.ssb",
+      "index": 39,
+      "en": " I was deeply moved while\nclimbing the mountain with you,\nTeam [team:]. I won't forget it...",
+      "before": " [team] 팀과\n이 산을 오를 때의 감동이\n잊혀지지 않아서 그런데요...",
+      "after": " [team:] 팀과\n이 산을 오를 때의 감동이\n잊혀지지 않아서 그런데요...",
+      "reason": [
+        "missing data slots: team:0"
+      ]
+    },
+    {
+      "where": "SCRIPT/D73P28A/us3101.ssb",
+      "index": 40,
+      "en": " What do you think...\nThat is...letting me join Team [team:]?",
+      "before": " 어떠신가요...\n절 [team]에\n들어가게 해주실 수 없으신가요?",
+      "after": " 어떠신가요...\n절 [team:]에\n들어가게 해주실 수 없으신가요?",
+      "reason": [
+        "missing data slots: team:0"
+      ]
+    },
+    {
+      "where": "SCRIPT/D73P28A/us3101.ssb",
+      "index": 49,
+      "en": " I was deeply moved while\nclimbing the mountain with you,\nTeam [team:]. I won't forget it...",
+      "before": " [team] 팀과\n이 산을 오를 때의 감동이\n잊혀지지 않아서 그런데요...",
+      "after": " [team:] 팀과\n이 산을 오를 때의 감동이\n잊혀지지 않아서 그런데요...",
+      "reason": [
+        "missing data slots: team:0"
+      ]
+    },
+    {
+      "where": "SCRIPT/D73P28A/us3101.ssb",
+      "index": 50,
+      "en": " What do you think...\nThat is...letting me join Team [team:]?",
+      "before": " 어떠신가요...\n절 [team]에\n들어가게 해주실 수 없으신가요?",
+      "after": " 어떠신가요...\n절 [team:]에\n들어가게 해주실 수 없으신가요?",
+      "reason": [
+        "missing data slots: team:0"
+      ]
+    },
+    {
+      "where": "SCRIPT/D73P29A/us3101.ssb",
+      "index": 29,
+      "en": " Oh, Team [team:]!",
+      "before": " 아! [team] 팀!",
+      "after": " 아! [team:] 팀!",
+      "reason": [
+        "missing data slots: team:0"
+      ]
+    },
+    {
+      "where": "SCRIPT/D73P29A/us3101.ssb",
+      "index": 35,
+      "en": " That reminds me,\nTeam [team:].",
+      "before": " 그런데요 [team] 팀.",
+      "after": " 그런데요 [team:] 팀.",
+      "reason": [
+        "missing data slots: team:0"
+      ]
+    },
+    {
+      "where": "SCRIPT/D73P29A/us3101.ssb",
+      "index": 39,
+      "en": " I was deeply moved while\nclimbing the mountain with you,\nTeam [team:]. I won't forget it...",
+      "before": " [team] 팀과\n이 산을 오를 때의 감동이\n잊혀지지 않아서 그런데요...",
+      "after": " [team:] 팀과\n이 산을 오를 때의 감동이\n잊혀지지 않아서 그런데요...",
+      "reason": [
+        "missing data slots: team:0"
+      ]
+    },
+    {
+      "where": "SCRIPT/D73P29A/us3101.ssb",
+      "index": 40,
+      "en": " What do you think...\nThat is...letting me join Team [team:]?",
+      "before": " 어떠신가요...\n절 [team]에\n들어가게 해주실 수 없으신가요?",
+      "after": " 어떠신가요...\n절 [team:]에\n들어가게 해주실 수 없으신가요?",
+      "reason": [
+        "missing data slots: team:0"
+      ]
+    },
+    {
+      "where": "SCRIPT/D73P29A/us3101.ssb",
+      "index": 49,
+      "en": " I was deeply moved while\nclimbing the mountain with you,\nTeam [team:]. I won't forget it...",
+      "before": " [team] 팀과\n이 산을 오를 때의 감동이\n잊혀지지 않아서 그런데요...",
+      "after": " [team:] 팀과\n이 산을 오를 때의 감동이\n잊혀지지 않아서 그런데요...",
+      "reason": [
+        "missing data slots: team:0"
+      ]
+    },
+    {
+      "where": "SCRIPT/D73P29A/us3101.ssb",
+      "index": 50,
+      "en": " What do you think...\nThat is...letting me join Team [team:]?",
+      "before": " 어떠신가요...\n절 [team]에\n들어가게 해주실 수 없으신가요?",
+      "after": " 어떠신가요...\n절 [team:]에\n들어가게 해주실 수 없으신가요?",
+      "reason": [
+        "missing data slots: team:0"
+      ]
+    },
+    {
+      "where": "SCRIPT/D73P31A/enter09.ssb",
+      "index": 9,
+      "en": " That reminds me,\nTeam [team:].",
+      "before": " 그런데요 [team] 팀.",
+      "after": " 그런데요 [team:] 팀.",
+      "reason": [
+        "missing data slots: team:0"
+      ]
+    },
+    {
+      "where": "SCRIPT/D73P31A/enter12.ssb",
+      "index": 8,
+      "en": " That reminds me,\nTeam [team:].",
+      "before": " 그런데요 [team] 팀.",
+      "after": " 그런데요 [team:] 팀.",
+      "reason": [
+        "missing data slots: team:0"
+      ]
+    },
+    {
+      "where": "SCRIPT/D73P31A/us0203.ssb",
+      "index": 23,
+      "en": " Thanks, Team [team:].",
+      "before": " 고마워, [team].",
+      "after": " 고마워, [team:].",
+      "reason": [
+        "missing data slots: team:0"
+      ]
+    },
+    {
+      "where": "SCRIPT/D73P31A/us0203.ssb",
+      "index": 27,
+      "en": " Team [team:] saved the\nworld, and I owe you for many things, so...",
+      "before": " [team] 팀에게는\n세계를 구원받기도 하고\n여러모로 신세를 지고 있으니...",
+      "after": " [team:] 팀에게는\n세계를 구원받기도 하고\n여러모로 신세를 지고 있으니...",
+      "reason": [
+        "missing data slots: team:0"
+      ]
+    },
+    {
+      "where": "SCRIPT/D73P31A/us0303.ssb",
+      "index": 23,
+      "en": " Thanks, Team [team:].",
+      "before": " 고마워, [team].",
+      "after": " 고마워, [team:].",
+      "reason": [
+        "missing data slots: team:0"
+      ]
+    },
+    {
+      "where": "SCRIPT/D73P31A/us0303.ssb",
+      "index": 27,
+      "en": " Team [team:] saved the\nworld, and I owe you for many things, so...",
+      "before": " [team] 팀에게는\n세계를 구원받기도 하고\n여러모로 신세를 지고 있으니...",
+      "after": " [team:] 팀에게는\n세계를 구원받기도 하고\n여러모로 신세를 지고 있으니...",
+      "reason": [
+        "missing data slots: team:0"
+      ]
+    },
+    {
+      "where": "SCRIPT/D73P31A/us0403.ssb",
+      "index": 23,
+      "en": " Thanks, Team [team:].",
+      "before": " 고마워, [team].",
+      "after": " 고마워, [team:].",
+      "reason": [
+        "missing data slots: team:0"
+      ]
+    },
+    {
+      "where": "SCRIPT/D73P31A/us0403.ssb",
+      "index": 27,
+      "en": " Team [team:] saved the\nworld, and I owe you for many things, so...",
+      "before": " [team] 팀에게는\n세계를 구원받기도 하고\n여러모로 신세를 지고 있으니...",
+      "after": " [team:] 팀에게는\n세계를 구원받기도 하고\n여러모로 신세를 지고 있으니...",
+      "reason": [
+        "missing data slots: team:0"
+      ]
+    },
+    {
+      "where": "SCRIPT/D73P31A/us3104.ssb",
+      "index": 23,
+      "en": " Thanks, Team [team:].",
+      "before": " 고마워, [team].",
+      "after": " 고마워, [team:].",
+      "reason": [
+        "missing data slots: team:0"
+      ]
+    },
+    {
+      "where": "SCRIPT/D73P31A/us3104.ssb",
+      "index": 27,
+      "en": " Team [team:] saved the\nworld, and I owe you for many things, so...",
+      "before": " [team] 팀에게는\n세계를 구원받기도 하고\n여러모로 신세를 지고 있으니...",
+      "after": " [team:] 팀에게는\n세계를 구원받기도 하고\n여러모로 신세를 지고 있으니...",
+      "reason": [
+        "missing data slots: team:0"
+      ]
+    },
+    {
+      "where": "SCRIPT/G01P05A/n04a0106.ssb",
+      "index": 27,
+      "en": " We already sent\nTeam [team:] out to explore\nthe waterfall...",
+      "before": " [team]에겐 아까 폭포 조사를\n부탁한 참이고...",
+      "after": " [team:]에겐 아까 폭포 조사를\n부탁한 참이고...",
+      "reason": [
+        "missing data slots: team:0"
+      ]
+    },
+    {
+      "where": "SCRIPT/P01P01A/um0305.ssb",
+      "index": 1,
+      "en": " There is a package here for\nTeam [team:]!",
+      "before": " [team] 앞으로\n소포가 왔어요!",
+      "after": " [team:] 앞으로\n소포가 왔어요!",
+      "reason": [
+        "missing data slots: team:0"
+      ]
+    },
+    {
+      "where": "SCRIPT/P01P04A/enter06.ssb",
+      "index": 9,
+      "en": " There is a package here for\nTeam [team:]!",
+      "before": " [team] 앞으로\n소포가 왔어요!",
+      "after": " [team:] 앞으로\n소포가 왔어요!",
+      "reason": [
+        "missing data slots: team:0"
+      ]
+    },
+    {
+      "where": "SCRIPT/P01P04A/enter11.ssb",
+      "index": 0,
+      "en": " If it isn't Team [team:]!\nI had something I wanted to ask you!",
+      "before": " [team] 팀이군요!\n상담하고 싶은 것이 있어요!",
+      "after": " [team:] 팀이군요!\n상담하고 싶은 것이 있어요!",
+      "reason": [
+        "missing data slots: team:0"
+      ]
+    },
+    {
+      "where": "SCRIPT/P01P04A/enter11.ssb",
+      "index": 9,
+      "en": " Oh, no...\nI really thought Team [team:] could help\n[c_name:RANDOM_REQUEST_NPC02]...",
+      "before": " 이럴수가...\n[c_name:RANDOM_REQUEST_NPC02](을)를 구하러 가줄 팀은\n[team]뿐일 거라고 믿고 있었는데...",
+      "after": " 이럴수가...\n[c_name:RANDOM_REQUEST_NPC02](을)를 구하러 가줄 팀은\n[team:]뿐일 거라고 믿고 있었는데...",
+      "reason": [
+        "missing data slots: team:0"
+      ]
+    },
+    {
+      "where": "SCRIPT/P01P04A/enter11.ssb",
+      "index": 11,
+      "en": " Oh, Team [team:]!\nPerfect timing!",
+      "before": " 아아! [team]!\n마침 잘됐어요!",
+      "after": " 아아! [team:]!\n마침 잘됐어요!",
+      "reason": [
+        "missing data slots: team:0"
+      ]
+    },
+    {
+      "where": "SCRIPT/P01P04A/enter11.ssb",
+      "index": 22,
+      "en": " Now, Team [team:]!\nCould you please escort me to meet\n[c_name:RANDOM_REQUEST_NPC02]?",
+      "before": " 그래서 말인데요 [team] 팀!\n이런 절 [c_name:RANDOM_REQUEST_NPC02](이)가 있는 곳까지\n데려가주실 수 없겠나요!",
+      "after": " 그래서 말인데요 [team:] 팀!\n이런 절 [c_name:RANDOM_REQUEST_NPC02](이)가 있는 곳까지\n데려가주실 수 없겠나요!",
+      "reason": [
+        "missing data slots: team:0"
+      ]
+    },
+    {
+      "where": "SCRIPT/P01P04A/enter11.ssb",
+      "index": 31,
+      "en": " Team [team:]!\nWill you take me exploring with you?",
+      "before": " [team] 팀!\n같이 탐험해주시지 않겠습니까?",
+      "after": " [team:] 팀!\n같이 탐험해주시지 않겠습니까?",
+      "reason": [
+        "missing data slots: team:0"
+      ]
+    },
+    {
+      "where": "SCRIPT/P01P04A/enter11.ssb",
+      "index": 38,
+      "en": " Aah...\nI really wanted to explore with you,\nTeam [team:].",
+      "before": " 아-아.\n[team] 팀 분들과\n탐험하고 싶었는데...",
+      "after": " 아-아.\n[team:] 팀 분들과\n탐험하고 싶었는데...",
+      "reason": [
+        "missing data slots: team:0"
+      ]
+    },
+    {
+      "where": "SCRIPT/P01P04A/enter11.ssb",
+      "index": 39,
+      "en": " Yay! Yay!\nI get to explore with Team [team:]!\nLet's do our best!",
+      "before": " 와-아. 와-아.\n[team] 팀과 탐험한다-.\n같이 열심히 해요!",
+      "after": " 와-아. 와-아.\n[team:] 팀과 탐험한다-.\n같이 열심히 해요!",
+      "reason": [
+        "missing data slots: team:0"
+      ]
+    },
+    {
+      "where": "SCRIPT/P01P04A/enter11.ssb",
+      "index": 42,
+      "en": " I'd really like it if you could\ncome with me, Team [team:]...",
+      "before": " 그래서 말인데요! [team] 팀께\n같이 가달라는 부탁을 하고 싶은데요...",
+      "after": " 그래서 말인데요! [team:] 팀께\n같이 가달라는 부탁을 하고 싶은데요...",
+      "reason": [
+        "missing data slots: team:0"
+      ]
+    },
+    {
+      "where": "SCRIPT/P01P04A/enter11.ssb",
+      "index": 52,
+      "en": " Oh! Team [team:]!\nI've got something I wanted to ask you!",
+      "before": " 앗! [team]!\n부탁이 있어요!",
+      "after": " 앗! [team:]!\n부탁이 있어요!",
+      "reason": [
+        "missing data slots: team:0"
+      ]
+    },
+    {
+      "where": "SCRIPT/P01P04A/enter11.ssb",
+      "index": 61,
+      "en": " I know you can get back my\nitem, Team [team:]! I'm counting on you!",
+      "before": " [team](이)라면 도구를\n되찾아와 주실 거라고 믿고 있어요!\n아무쪼록 잘 부탁합니다!",
+      "after": " [team:](이)라면 도구를\n되찾아와 주실 거라고 믿고 있어요!\n아무쪼록 잘 부탁합니다!",
+      "reason": [
+        "missing data slots: team:0"
+      ]
+    },
+    {
+      "where": "SCRIPT/P01P04A/enter11.ssb",
+      "index": 63,
+      "en": " Huh? What did you say?\nYou'll really get my item back for me,\nTeam [team:]?",
+      "before": " 에? 뭐라구요?\n[team] 팀이 도구를\n되찾아 주신다구요!?",
+      "after": " 에? 뭐라구요?\n[team:] 팀이 도구를\n되찾아 주신다구요!?",
+      "reason": [
+        "missing data slots: team:0"
+      ]
+    },
+    {
+      "where": "SCRIPT/P01P04A/enter11.ssb",
+      "index": 72,
+      "en": " ZZZT! Hello, Team [team:].\nThank you for your continuing assistance in\ncapturing outlaws. ZZZT!",
+      "before": " [team]. 안녕하십니까.\n항상 체포에 협력해 주셔서\n감사합니다.",
+      "after": " [team:]. 안녕하십니까.\n항상 체포에 협력해 주셔서\n감사합니다.",
+      "reason": [
+        "missing data slots: team:0"
+      ]
+    },
+    {
+      "where": "SCRIPT/P01P04A/enter11.ssb",
+      "index": 80,
+      "en": " ZZZT! I see... There's no way\naround it. Team [team:] is busy too.\nZZZT!",
+      "before": " 그렇습니까...\n어쩔 수 없지요.\n[team] 팀도 바쁠 테니까요...",
+      "after": " 그렇습니까...\n어쩔 수 없지요.\n[team:] 팀도 바쁠 테니까요...",
+      "reason": [
+        "missing data slots: team:0"
+      ]
+    },
+    {
+      "where": "SCRIPT/P01P04A/enter11.ssb",
+      "index": 82,
+      "en": " ZZZT! Good day, Team\n[team:]. I have something I wish to\ndiscuss with you... ZZZT!",
+      "before": " [team] 팀. 안녕하십니까.\n다름이 아니고 긴히 상의드릴 게\n있습니다만...",
+      "after": " [team:] 팀. 안녕하십니까.\n다름이 아니고 긴히 상의드릴 게\n있습니다만...",
+      "reason": [
+        "missing data slots: team:0"
+      ]
+    },
+    {
+      "where": "SCRIPT/P01P04A/enter11.ssb",
+      "index": 90,
+      "en": " ZZZT! I see...\nIf Team [team:] is too busy, then I'll\nhave to ask someone else... ZZZT!",
+      "before": " 그렇습니까...\n[team] 팀이 안된다고 하면\n누구에게 협력을 부탁할지...",
+      "after": " 그렇습니까...\n[team:] 팀이 안된다고 하면\n누구에게 협력을 부탁할지...",
+      "reason": [
+        "missing data slots: team:0"
+      ]
+    },
+    {
+      "where": "SCRIPT/P01P04A/enter11.ssb",
+      "index": 92,
+      "en": " I heard that Team [team:]\nis a great exploration team. Is it true?",
+      "before": " 저기 있잖아요. [team](은)는\n굉장한 탐험대 맞죠?",
+      "after": " 저기 있잖아요. [team:](은)는\n굉장한 탐험대 맞죠?",
+      "reason": [
+        "missing data slots: team:0"
+      ]
+    },
+    {
+      "where": "SCRIPT/P01P04A/enter11.ssb",
+      "index": 99,
+      "en": " Thank you!\nI knew the rumors about the superb Team\n[team:] had to be true!",
+      "before": " 고맙습니다!\n역시 소문대로 [team](은)는\n굉장한 탐험대군!",
+      "after": " 고맙습니다!\n역시 소문대로 [team:](은)는\n굉장한 탐험대군!",
+      "reason": [
+        "missing data slots: team:0"
+      ]
+    },
+    {
+      "where": "SCRIPT/P01P04A/enter11.ssb",
+      "index": 101,
+      "en": " You know, everyone talks about\nhow Team [team:] is an incredible\nexploration team.",
+      "before": " [team](은)는\n굉장하고 멋진 탐험대라고\n다들 그래요.",
+      "after": " [team:](은)는\n굉장하고 멋진 탐험대라고\n다들 그래요.",
+      "reason": [
+        "missing data slots: team:0"
+      ]
+    },
+    {
+      "where": "SCRIPT/P01P04A/enter11.ssb",
+      "index": 102,
+      "en": " Are you Team [team:]?",
+      "before": " [team] 팀 맞습니까?",
+      "after": " [team:] 팀 맞습니까?",
+      "reason": [
+        "missing data slots: team:0"
+      ]
+    },
+    {
+      "where": "SCRIPT/P01P04A/enter11.ssb",
+      "index": 115,
+      "en": " Team [team:] must be an\nincredible team to take on a challenge like that.",
+      "before": " 그런데 도전장을 받을 정도라니\n[team] 팀은 굉장한 팀이네요...",
+      "after": " 그런데 도전장을 받을 정도라니\n[team:] 팀은 굉장한 팀이네요...",
+      "reason": [
+        "missing data slots: team:0"
+      ]
+    },
+    {
+      "where": "SCRIPT/P01P04A/enter11.ssb",
+      "index": 116,
+      "en": " Hey, Team [team:]!\nYou've arrived at just the right time.",
+      "before": " 아 [team] 팀!\n딱 좋을 때 와주셨어요.",
+      "after": " 아 [team:] 팀!\n딱 좋을 때 와주셨어요.",
+      "reason": [
+        "missing data slots: team:0"
+      ]
+    },
+    {
+      "where": "SCRIPT/P01P04A/enter11.ssb",
+      "index": 117,
+      "en": " Earlier, a strange Pokémon\nappeared and asked me to give this to\nTeam [team:].",
+      "before": " 아까 모르는 포켓몬한테\n[team] 팀에게 이걸 전해달라고\n부탁받았어요.",
+      "after": " 아까 모르는 포켓몬한테\n[team:] 팀에게 이걸 전해달라고\n부탁받았어요.",
+      "reason": [
+        "missing data slots: team:0"
+      ]
+    },
+    {
+      "where": "SCRIPT/P01P04A/enter11.ssb",
+      "index": 118,
+      "en": " Earlier, a strange Pokémon\nappeared and asked me to give this to\nTeam [team:].",
+      "before": " 아까 모르는 포켓몬한테\n[team] 팀에게 이걸 전해달라고\n부탁받았어요.",
+      "after": " 아까 모르는 포켓몬한테\n[team:] 팀에게 이걸 전해달라고\n부탁받았어요.",
+      "reason": [
+        "missing data slots: team:0"
+      ]
+    },
+    {
+      "where": "SCRIPT/P01P04A/enter11.ssb",
+      "index": 121,
+      "en": "[CN]To Team [team:],\n[CN]From Exploration Team Federation!",
+      "before": "[CN]포켓몬 탐험대 연맹에서\n[CN][team]에게 고한다!",
+      "after": "[CN]포켓몬 탐험대 연맹에서\n[CN][team:]에게 고한다!",
+      "reason": [
+        "missing data slots: team:0"
+      ]
+    },
+    {
+      "where": "SCRIPT/P01P04A/enter11.ssb",
+      "index": 135,
+      "en": " Hey, Team [team:]!\nDo you think you could lend me a hand?",
+      "before": " [team] 팀!\n제발 힘을 빌려주세요!",
+      "after": " [team:] 팀!\n제발 힘을 빌려주세요!",
+      "reason": [
+        "missing data slots: team:0"
+      ]
+    },
+    {
+      "where": "SCRIPT/P01P04A/enter11.ssb",
+      "index": 139,
+      "en": " Hey, Team [team:]!\nDo you think you could lend me a hand?",
+      "before": " [team]!\n제발 힘을 빌려주세요!",
+      "after": " [team:]!\n제발 힘을 빌려주세요!",
+      "reason": [
+        "missing data slots: team:0"
+      ]
+    },
+    {
+      "where": "SCRIPT/P01P04A/enter11.ssb",
+      "index": 147,
+      "en": " I really thought that if anyone\nwould help me, it would definitely be\nTeam [team:]!",
+      "before": " [team] 팀이라면\n힘을 빌려주실 거라고 믿었는데...",
+      "after": " [team:] 팀이라면\n힘을 빌려주실 거라고 믿었는데...",
+      "reason": [
+        "missing data slots: team:0"
+      ]
+    },
+    {
+      "where": "SCRIPT/P01P04A/um0607.ssb",
+      "index": 23,
+      "en": " Thanks, Team [team:].",
+      "before": " 고마워, [team].",
+      "after": " 고마워, [team:].",
+      "reason": [
+        "missing data slots: team:0"
+      ]
+    },
+    {
+      "where": "SCRIPT/P01P04A/um0607.ssb",
+      "index": 27,
+      "en": " Team [team:] saved the\nworld, and I owe you for many things, so...",
+      "before": " [team] 팀에게는\n세계를 구원받기도 하고\n여러모로 신세를 지고 있으니...",
+      "after": " [team:] 팀에게는\n세계를 구원받기도 하고\n여러모로 신세를 지고 있으니...",
+      "reason": [
+        "missing data slots: team:0"
+      ]
+    },
+    {
+      "where": "SCRIPT/P01P04A/um0703.ssb",
+      "index": 23,
+      "en": " Thanks, Team [team:].",
+      "before": " 고마워, [team].",
+      "after": " 고마워, [team:].",
+      "reason": [
+        "missing data slots: team:0"
+      ]
+    },
+    {
+      "where": "SCRIPT/P01P04A/um0703.ssb",
+      "index": 27,
+      "en": " Team [team:] saved the\nworld, and I owe you for many things, so...",
+      "before": " [team] 팀에게는\n세계를 구원받기도 하고\n여러모로 신세를 지고 있으니...",
+      "after": " [team:] 팀에게는\n세계를 구원받기도 하고\n여러모로 신세를 지고 있으니...",
+      "reason": [
+        "missing data slots: team:0"
+      ]
+    },
+    {
+      "where": "SCRIPT/P01P04A/um0711.ssb",
+      "index": 23,
+      "en": " Thanks, Team [team:].",
+      "before": " 고마워, [team].",
+      "after": " 고마워, [team:].",
+      "reason": [
+        "missing data slots: team:0"
+      ]
+    },
+    {
+      "where": "SCRIPT/P01P04A/um0711.ssb",
+      "index": 27,
+      "en": " Team [team:] saved the\nworld, and I owe you for many things, so...",
+      "before": " [team] 팀에게는\n세계를 구원받기도 하고\n여러모로 신세를 지고 있으니...",
+      "after": " [team:] 팀에게는\n세계를 구원받기도 하고\n여러모로 신세를 지고 있으니...",
+      "reason": [
+        "missing data slots: team:0"
+      ]
+    },
+    {
+      "where": "SCRIPT/P01P04A/um0721.ssb",
+      "index": 23,
+      "en": " Thanks, Team [team:].",
+      "before": " 고마워, [team].",
+      "after": " 고마워, [team:].",
+      "reason": [
+        "missing data slots: team:0"
+      ]
+    },
+    {
+      "where": "SCRIPT/P01P04A/um0721.ssb",
+      "index": 27,
+      "en": " Team [team:] saved the\nworld, and I owe you for many things, so...",
+      "before": " [team] 팀에게는\n세계를 구원받기도 하고\n여러모로 신세를 지고 있으니...",
+      "after": " [team:] 팀에게는\n세계를 구원받기도 하고\n여러모로 신세를 지고 있으니...",
+      "reason": [
+        "missing data slots: team:0"
+      ]
+    },
+    {
+      "where": "SCRIPT/P01P04A/um0727.ssb",
+      "index": 1,
+      "en": " There is a package here for\nTeam [team:]!",
+      "before": " [team] 앞으로\n소포가 왔어요!",
+      "after": " [team:] 앞으로\n소포가 왔어요!",
+      "reason": [
+        "missing data slots: team:0"
+      ]
+    },
+    {
+      "where": "SCRIPT/P01P04A/um0803.ssb",
+      "index": 23,
+      "en": " Thanks, Team [team:].",
+      "before": " 고마워, [team].",
+      "after": " 고마워, [team:].",
+      "reason": [
+        "missing data slots: team:0"
+      ]
+    },
+    {
+      "where": "SCRIPT/P01P04A/um0803.ssb",
+      "index": 27,
+      "en": " Team [team:] saved the\nworld, and I owe you for many things, so...",
+      "before": " [team] 팀에게는\n세계를 구원받기도 하고\n여러모로 신세를 지고 있으니...",
+      "after": " [team:] 팀에게는\n세계를 구원받기도 하고\n여러모로 신세를 지고 있으니...",
+      "reason": [
+        "missing data slots: team:0"
+      ]
+    },
+    {
+      "where": "SCRIPT/P01P04A/um1102.ssb",
+      "index": 23,
+      "en": " Thanks, Team [team:].",
+      "before": " 고마워, [team].",
+      "after": " 고마워, [team:].",
+      "reason": [
+        "missing data slots: team:0"
+      ]
+    },
+    {
+      "where": "SCRIPT/P01P04A/um1102.ssb",
+      "index": 27,
+      "en": " Team [team:] saved the\nworld, and I owe you for many things, so...",
+      "before": " [team] 팀에게는\n세계를 구원받기도 하고\n여러모로 신세를 지고 있으니...",
+      "after": " [team:] 팀에게는\n세계를 구원받기도 하고\n여러모로 신세를 지고 있으니...",
+      "reason": [
+        "missing data slots: team:0"
+      ]
+    },
+    {
+      "where": "SCRIPT/P01P04A/um1202.ssb",
+      "index": 23,
+      "en": " Thanks, Team [team:].",
+      "before": " 고마워, [team].",
+      "after": " 고마워, [team:].",
+      "reason": [
+        "missing data slots: team:0"
+      ]
+    },
+    {
+      "where": "SCRIPT/P01P04A/um1202.ssb",
+      "index": 27,
+      "en": " Team [team:] saved the\nworld, and I owe you for many things, so...",
+      "before": " [team] 팀에게는\n세계를 구원받기도 하고\n여러모로 신세를 지고 있으니...",
+      "after": " [team:] 팀에게는\n세계를 구원받기도 하고\n여러모로 신세를 지고 있으니...",
+      "reason": [
+        "missing data slots: team:0"
+      ]
+    },
+    {
+      "where": "SCRIPT/P01P04A/um1303.ssb",
+      "index": 23,
+      "en": " Thanks, Team [team:].",
+      "before": " 고마워, [team].",
+      "after": " 고마워, [team:].",
+      "reason": [
+        "missing data slots: team:0"
+      ]
+    },
+    {
+      "where": "SCRIPT/P01P04A/um1303.ssb",
+      "index": 27,
+      "en": " Team [team:] saved the\nworld, and I owe you for many things, so...",
+      "before": " [team] 팀에게는\n세계를 구원받기도 하고\n여러모로 신세를 지고 있으니...",
+      "after": " [team:] 팀에게는\n세계를 구원받기도 하고\n여러모로 신세를 지고 있으니...",
+      "reason": [
+        "missing data slots: team:0"
+      ]
+    },
+    {
+      "where": "SCRIPT/P01P04A/um1403.ssb",
+      "index": 23,
+      "en": " Thanks, Team [team:].",
+      "before": " 고마워, [team].",
+      "after": " 고마워, [team:].",
+      "reason": [
+        "missing data slots: team:0"
+      ]
+    },
+    {
+      "where": "SCRIPT/P01P04A/um1403.ssb",
+      "index": 27,
+      "en": " Team [team:] saved the\nworld, and I owe you for many things, so...",
+      "before": " [team] 팀에게는\n세계를 구원받기도 하고\n여러모로 신세를 지고 있으니...",
+      "after": " [team:] 팀에게는\n세계를 구원받기도 하고\n여러모로 신세를 지고 있으니...",
+      "reason": [
+        "missing data slots: team:0"
+      ]
+    },
+    {
+      "where": "SCRIPT/P01P04A/um1409.ssb",
+      "index": 23,
+      "en": " Thanks, Team [team:].",
+      "before": " 고마워, [team].",
+      "after": " 고마워, [team:].",
+      "reason": [
+        "missing data slots: team:0"
+      ]
+    },
+    {
+      "where": "SCRIPT/P01P04A/um1409.ssb",
+      "index": 27,
+      "en": " Team [team:] saved the\nworld, and I owe you for many things, so...",
+      "before": " [team] 팀에게는\n세계를 구원받기도 하고\n여러모로 신세를 지고 있으니...",
+      "after": " [team:] 팀에게는\n세계를 구원받기도 하고\n여러모로 신세를 지고 있으니...",
+      "reason": [
+        "missing data slots: team:0"
+      ]
+    },
+    {
+      "where": "SCRIPT/P01P04A/um1503.ssb",
+      "index": 23,
+      "en": " Thanks, Team [team:].",
+      "before": " 고마워, [team].",
+      "after": " 고마워, [team:].",
+      "reason": [
+        "missing data slots: team:0"
+      ]
+    },
+    {
+      "where": "SCRIPT/P01P04A/um1503.ssb",
+      "index": 27,
+      "en": " Team [team:] saved the\nworld, and I owe you for many things, so...",
+      "before": " [team] 팀에게는\n세계를 구원받기도 하고\n여러모로 신세를 지고 있으니...",
+      "after": " [team:] 팀에게는\n세계를 구원받기도 하고\n여러모로 신세를 지고 있으니...",
+      "reason": [
+        "missing data slots: team:0"
+      ]
+    },
+    {
+      "where": "SCRIPT/P01P04A/um1603.ssb",
+      "index": 23,
+      "en": " Thanks, Team [team:].",
+      "before": " 고마워, [team].",
+      "after": " 고마워, [team:].",
+      "reason": [
+        "missing data slots: team:0"
+      ]
+    },
+    {
+      "where": "SCRIPT/P01P04A/um1603.ssb",
+      "index": 27,
+      "en": " Team [team:] saved the\nworld, and I owe you for many things, so...",
+      "before": " [team] 팀에게는\n세계를 구원받기도 하고\n여러모로 신세를 지고 있으니...",
+      "after": " [team:] 팀에게는\n세계를 구원받기도 하고\n여러모로 신세를 지고 있으니...",
+      "reason": [
+        "missing data slots: team:0"
+      ]
+    },
+    {
+      "where": "SCRIPT/P01P04A/um2104.ssb",
+      "index": 23,
+      "en": " Thanks, Team [team:].",
+      "before": " 고마워, [team].",
+      "after": " 고마워, [team:].",
+      "reason": [
+        "missing data slots: team:0"
+      ]
+    },
+    {
+      "where": "SCRIPT/P01P04A/um2104.ssb",
+      "index": 27,
+      "en": " Team [team:] saved the\nworld, and I owe you for many things, so...",
+      "before": " [team] 팀에게는\n세계를 구원받기도 하고\n여러모로 신세를 지고 있으니...",
+      "after": " [team:] 팀에게는\n세계를 구원받기도 하고\n여러모로 신세를 지고 있으니...",
+      "reason": [
+        "missing data slots: team:0"
+      ]
+    },
+    {
+      "where": "SCRIPT/P01P04A/um2204.ssb",
+      "index": 23,
+      "en": " Thanks, Team [team:].",
+      "before": " 고마워, [team].",
+      "after": " 고마워, [team:].",
+      "reason": [
+        "missing data slots: team:0"
+      ]
+    },
+    {
+      "where": "SCRIPT/P01P04A/um2204.ssb",
+      "index": 27,
+      "en": " Team [team:] saved the\nworld, and I owe you for many things, so...",
+      "before": " [team] 팀에게는\n세계를 구원받기도 하고\n여러모로 신세를 지고 있으니...",
+      "after": " [team:] 팀에게는\n세계를 구원받기도 하고\n여러모로 신세를 지고 있으니...",
+      "reason": [
+        "missing data slots: team:0"
+      ]
+    },
+    {
+      "where": "SCRIPT/P01P04A/um2304.ssb",
+      "index": 23,
+      "en": " Thanks, Team [team:].",
+      "before": " 고마워, [team].",
+      "after": " 고마워, [team:].",
+      "reason": [
+        "missing data slots: team:0"
+      ]
+    },
+    {
+      "where": "SCRIPT/P01P04A/um2304.ssb",
+      "index": 27,
+      "en": " Team [team:] saved the\nworld, and I owe you for many things, so...",
+      "before": " [team] 팀에게는\n세계를 구원받기도 하고\n여러모로 신세를 지고 있으니...",
+      "after": " [team:] 팀에게는\n세계를 구원받기도 하고\n여러모로 신세를 지고 있으니...",
+      "reason": [
+        "missing data slots: team:0"
+      ]
+    },
+    {
+      "where": "SCRIPT/P01P04A/um2403.ssb",
+      "index": 23,
+      "en": " Thanks, Team [team:].",
+      "before": " 고마워, [team].",
+      "after": " 고마워, [team:].",
+      "reason": [
+        "missing data slots: team:0"
+      ]
+    },
+    {
+      "where": "SCRIPT/P01P04A/um2403.ssb",
+      "index": 27,
+      "en": " Team [team:] saved the\nworld, and I owe you for many things, so...",
+      "before": " [team] 팀에게는\n세계를 구원받기도 하고\n여러모로 신세를 지고 있으니...",
+      "after": " [team:] 팀에게는\n세계를 구원받기도 하고\n여러모로 신세를 지고 있으니...",
+      "reason": [
+        "missing data slots: team:0"
+      ]
+    },
+    {
+      "where": "SCRIPT/P01P04A/um2503.ssb",
+      "index": 23,
+      "en": " Thanks, Team [team:].",
+      "before": " 고마워, [team].",
+      "after": " 고마워, [team:].",
+      "reason": [
+        "missing data slots: team:0"
+      ]
+    },
+    {
+      "where": "SCRIPT/P01P04A/um2503.ssb",
+      "index": 27,
+      "en": " Team [team:] saved the\nworld, and I owe you for many things, so...",
+      "before": " [team] 팀에게는\n세계를 구원받기도 하고\n여러모로 신세를 지고 있으니...",
+      "after": " [team:] 팀에게는\n세계를 구원받기도 하고\n여러모로 신세를 지고 있으니...",
+      "reason": [
+        "missing data slots: team:0"
+      ]
+    },
+    {
+      "where": "SCRIPT/P01P04A/us0103.ssb",
+      "index": 23,
+      "en": " Thanks, Team [team:].",
+      "before": " 고마워, [team].",
+      "after": " 고마워, [team:].",
+      "reason": [
+        "missing data slots: team:0"
+      ]
+    },
+    {
+      "where": "SCRIPT/P01P04A/us0103.ssb",
+      "index": 27,
+      "en": " Team [team:] saved the\nworld, and I owe you for many things, so...",
+      "before": " [team] 팀에게는\n세계를 구원받기도 하고\n여러모로 신세를 지고 있으니...",
+      "after": " [team:] 팀에게는\n세계를 구원받기도 하고\n여러모로 신세를 지고 있으니...",
+      "reason": [
+        "missing data slots: team:0"
+      ]
+    },
+    {
+      "where": "SCRIPT/P01P04A/us2003.ssb",
+      "index": 23,
+      "en": " Thanks, Team [team:].",
+      "before": " 고마워, [team].",
+      "after": " 고마워, [team:].",
+      "reason": [
+        "missing data slots: team:0"
+      ]
+    },
+    {
+      "where": "SCRIPT/P01P04A/us2003.ssb",
+      "index": 27,
+      "en": " Team [team:] saved the\nworld, and I owe you for many things, so...",
+      "before": " [team] 팀에게는\n세계를 구원받기도 하고\n여러모로 신세를 지고 있으니...",
+      "after": " [team:] 팀에게는\n세계를 구원받기도 하고\n여러모로 신세를 지고 있으니...",
+      "reason": [
+        "missing data slots: team:0"
+      ]
+    },
+    {
+      "where": "SCRIPT/P01P04A/us2103.ssb",
+      "index": 23,
+      "en": " Thanks, Team [team:].",
+      "before": " 고마워, [team].",
+      "after": " 고마워, [team:].",
+      "reason": [
+        "missing data slots: team:0"
+      ]
+    },
+    {
+      "where": "SCRIPT/P01P04A/us2103.ssb",
+      "index": 27,
+      "en": " Team [team:] saved the\nworld, and I owe you for many things, so...",
+      "before": " [team] 팀에게는\n세계를 구원받기도 하고\n여러모로 신세를 지고 있으니...",
+      "after": " [team:] 팀에게는\n세계를 구원받기도 하고\n여러모로 신세를 지고 있으니...",
+      "reason": [
+        "missing data slots: team:0"
+      ]
+    },
+    {
+      "where": "SCRIPT/P01P04A/us2203.ssb",
+      "index": 23,
+      "en": " Thanks, Team [team:].",
+      "before": " 고마워, [team].",
+      "after": " 고마워, [team:].",
+      "reason": [
+        "missing data slots: team:0"
+      ]
+    },
+    {
+      "where": "SCRIPT/P01P04A/us2203.ssb",
+      "index": 27,
+      "en": " Team [team:] saved the\nworld, and I owe you for many things, so...",
+      "before": " [team] 팀에게는\n세계를 구원받기도 하고\n여러모로 신세를 지고 있으니...",
+      "after": " [team:] 팀에게는\n세계를 구원받기도 하고\n여러모로 신세를 지고 있으니...",
+      "reason": [
+        "missing data slots: team:0"
+      ]
+    },
+    {
+      "where": "SCRIPT/P01P04A/us2303.ssb",
+      "index": 23,
+      "en": " Thanks, Team [team:].",
+      "before": " 고마워, [team].",
+      "after": " 고마워, [team:].",
+      "reason": [
+        "missing data slots: team:0"
+      ]
+    },
+    {
+      "where": "SCRIPT/P01P04A/us2303.ssb",
+      "index": 27,
+      "en": " Team [team:] saved the\nworld, and I owe you for many things, so...",
+      "before": " [team] 팀에게는\n세계를 구원받기도 하고\n여러모로 신세를 지고 있으니...",
+      "after": " [team:] 팀에게는\n세계를 구원받기도 하고\n여러모로 신세를 지고 있으니...",
+      "reason": [
+        "missing data slots: team:0"
+      ]
+    },
+    {
+      "where": "SCRIPT/P01P04A/us3108.ssb",
+      "index": 23,
+      "en": " Thanks, Team [team:].",
+      "before": " 고마워, [team].",
+      "after": " 고마워, [team:].",
+      "reason": [
+        "missing data slots: team:0"
+      ]
+    },
+    {
+      "where": "SCRIPT/P01P04A/us3108.ssb",
+      "index": 27,
+      "en": " Team [team:] saved the\nworld, and I owe you for many things, so...",
+      "before": " [team] 팀에게는\n세계를 구원받기도 하고\n여러모로 신세를 지고 있으니...",
+      "after": " [team:] 팀에게는\n세계를 구원받기도 하고\n여러모로 신세를 지고 있으니...",
+      "reason": [
+        "missing data slots: team:0"
+      ]
+    },
+    {
+      "where": "SCRIPT/P01P04A/us3111.ssb",
+      "index": 1,
+      "en": " There is a package here for\nTeam [team:]!",
+      "before": " [team] 앞으로\n소포가 왔어요!",
+      "after": " [team:] 앞으로\n소포가 왔어요!",
+      "reason": [
+        "missing data slots: team:0"
+      ]
+    },
+    {
+      "where": "SCRIPT/T00P02/enter03.ssb",
+      "index": 20,
+      "en": "\n[CN]Received [s_item:0].",
+      "before": "\n[CN]파란구미를 손에 넣었다",
+      "after": "\n[CN][s_item:0](을)를 손에 넣었다.",
+      "reason": [
+        "missing data slots: s_item:0"
+      ]
+    },
+    {
+      "where": "SCRIPT/T01P02A/m11a0501.ssb",
+      "index": 43,
+      "en": " Oh! And Team [team:] too!",
+      "before": " [partner]님 일행도.",
+      "after": " 아! [team:] 팀도 왔군요!",
+      "reason": [
+        "missing data slots: team:0"
+      ]
+    },
+    {
+      "where": "SCRIPT/V37P03A/s31a3706.ssb",
+      "index": 4,
+      "en": "[CN]And so Team [team:],\n[CN]which had successfully climbed to the\n[CN][CS:P]Sky Peak[CR] Summit...",
+      "before": "[CN]이렇게 해서 [CS:P]하늘의 절정[CR]\n[CN]등정에 성공한\n[CN][team](은)는...",
+      "after": "[CN]이렇게 해서 [CS:P]하늘의 절정[CR]\n[CN]등정에 성공한\n[CN][team:](은)는...",
+      "reason": [
+        "missing data slots: team:0"
+      ]
+    },
+    {
+      "where": "SCRIPT/D73P11A/s31a0201.ssb",
+      "index": 16,
+      "en": " Yep. That's it.",
+      "before": "",
+      "after": " 응. 맞아.",
+      "reason": [
+        "source translation does not preserve this dialogue entry; checked adjacent entries"
+      ]
+    },
+    {
+      "where": "SCRIPT/D73P11A/s31a0201.ssb",
+      "index": 17,
+      "en": " Yeah, that's right.",
+      "before": "",
+      "after": " 응, 맞아.",
+      "reason": [
+        "source translation does not preserve this dialogue entry; checked adjacent entries"
+      ]
+    },
+    {
+      "where": "SCRIPT/D73P11A/s31a0201.ssb",
+      "index": 18,
+      "en": " Yes, that's correct.",
+      "before": "",
+      "after": " 네, 맞아요.",
+      "reason": [
+        "source translation does not preserve this dialogue entry; checked adjacent entries"
+      ]
+    },
+    {
+      "where": "SCRIPT/D73P11A/s31a0201.ssb",
+      "index": 22,
+      "en": " That's right. We've lived here\nfor a very long time...",
+      "before": "ç은 아주 오래전부터\n여기서 살면서...",
+      "after": " 맞아요. 저희는 아주 오래전부터\n이곳에 살면서...",
+      "reason": [
+        "source translation does not preserve this dialogue entry; checked adjacent entries"
+      ]
+    },
+    {
+      "where": "SCRIPT/D73P11A/s31a0201.ssb",
+      "index": 23,
+      "en": " We're here to guide travelers up\nthe mountain.",
+      "before": "는 분들의\n가이드를 해왔습니다.",
+      "after": " 산에 오르는 여행자들을\n안내해 왔습니다.",
+      "reason": [
+        "source translation does not preserve this dialogue entry; checked adjacent entries"
+      ]
+    },
+    {
+      "where": "SCRIPT/D73P11A/s31a0201.ssb",
+      "index": 24,
+      "en": " But we haven't actually done that\nin quite some time.",
+      "before": "것도 이젠\n아-주 오래전 얘기입니다.",
+      "after": " 하지만 그 일을 못 한 지도\n꽤 오래됐어요.",
+      "reason": [
+        "source translation does not preserve this dialogue entry; checked adjacent entries"
+      ]
+    },
+    {
+      "where": "SCRIPT/D73P11A/s31a0201.ssb",
+      "index": 25,
+      "en": " That is, the earthquake that\nhappened here some time ago destroyed\nthe mountain path that led here...",
+      "before": " 것이 먼 옛날에 생긴\n지진 때문에 여기로 통하는 산길이\n무너져버려서...",
+      "after": " 얼마 전에 일어난 지진 때문에\n이곳으로 이어지는 산길이\n무너져 버렸거든요...",
+      "reason": [
+        "source translation does not preserve this dialogue entry; checked adjacent entries"
+      ]
+    },
+    {
+      "where": "SCRIPT/D73P11A/s31a0201.ssb",
+      "index": 26,
+      "en": " So explorers from outside\ncouldn't get here very easily, and they\nstopped coming.",
+      "before": "탐험가가\n좀처럼 찾아오지 못하게 돼버렸어요.",
+      "after": " 그래서 바깥의 탐험가들이\n이곳에 오기 어려워졌고,\n발길도 끊겼어요.",
+      "reason": [
+        "source translation does not preserve this dialogue entry; checked adjacent entries"
+      ]
+    },
+    {
+      "where": "SCRIPT/D73P11A/s31a0201.ssb",
+      "index": 27,
+      "en": " We were pretty surprised\nwhen the survey team walked into our\nlittle village.",
+      "before": " 마을에\n조사팀 분들께서 찾아오셨을 땐\n엄청 놀랐지 뭐예요.",
+      "after": " 조사팀 분들이 저희 작은 마을에\n들어오셨을 때는\n정말 놀랐답니다.",
+      "reason": [
+        "source translation does not preserve this dialogue entry; checked adjacent entries"
+      ]
+    },
+    {
+      "where": "SCRIPT/D73P11A/s31a0201.ssb",
+      "index": 28,
+      "en": " Really? I see.",
+      "before": "렇구나.",
+      "after": " 정말? 그렇구나.",
+      "reason": [
+        "source translation does not preserve this dialogue entry; checked adjacent entries"
+      ]
+    },
+    {
+      "where": "SCRIPT/D73P11A/s31a0201.ssb",
+      "index": 29,
+      "en": " Really? I see.",
+      "before": "렇구나.",
+      "after": " 정말? 그렇구나.",
+      "reason": [
+        "source translation does not preserve this dialogue entry; checked adjacent entries"
+      ]
+    },
+    {
+      "where": "SCRIPT/D73P11A/s31a0201.ssb",
+      "index": 30,
+      "en": " Really? I see.",
+      "before": "렇구나.",
+      "after": " 정말요? 그렇군요.",
+      "reason": [
+        "source translation does not preserve this dialogue entry; checked adjacent entries"
+      ]
+    },
+    {
+      "where": "SCRIPT/D73P11A/s31a0201.ssb",
+      "index": 31,
+      "en": " That explains why this place has\nonly been talked about in legends, and nobody's\ncome to visit.",
+      "before": "금까지\n전설로밖에 전해지지 않은 거였군.",
+      "after": " 그래서 아무도 찾아오지 않고\n지금까지 전설로만\n전해졌던 거군.",
+      "reason": [
+        "source translation does not preserve this dialogue entry; checked adjacent entries"
+      ]
+    },
+    {
+      "where": "SCRIPT/D73P11A/s31a0201.ssb",
+      "index": 32,
+      "en": " That explains why this place has\nonly been talked about in legends, and nobody's\ncome to visit.",
+      "before": "금까지\n전설로밖에 전해지지 않은 거였구나.",
+      "after": " 그래서 아무도 찾아오지 않고\n지금까지 전설로만\n전해졌던 거구나.",
+      "reason": [
+        "source translation does not preserve this dialogue entry; checked adjacent entries"
+      ]
+    },
+    {
+      "where": "SCRIPT/D73P11A/s31a0201.ssb",
+      "index": 33,
+      "en": " That explains why this place has\nonly been talked about in legends, and nobody's\ncome to visit.",
+      "before": "금까지\n전설로밖에 전해지지 않은 거였네.",
+      "after": " 그래서 아무도 찾아오지 않고\n지금까지 전설로만\n전해졌던 거네요.",
+      "reason": [
+        "source translation does not preserve this dialogue entry; checked adjacent entries"
+      ]
+    },
+    {
+      "where": "SCRIPT/D73P11A/s31a0201.ssb",
+      "index": 34,
+      "en": " Oh, yeah! Speaking of legends...",
+      "before": "얘기가 나와서 말인데!",
+      "after": " 아, 맞다! 전설 얘기가 나와서 말인데...",
+      "reason": [
+        "source translation does not preserve this dialogue entry; checked adjacent entries"
+      ]
+    },
+    {
+      "where": "SCRIPT/D73P11A/s31a0201.ssb",
+      "index": 35,
+      "en": " Oh, yeah! Speaking of legends...",
+      "before": "얘기가 나와서 말인데!",
+      "after": " 아, 맞다! 전설 얘기가 나와서 말인데...",
+      "reason": [
+        "source translation does not preserve this dialogue entry; checked adjacent entries"
+      ]
+    },
+    {
+      "where": "SCRIPT/D73P11A/s31a0201.ssb",
+      "index": 36,
+      "en": " Oh, yeah! Speaking of legends...",
+      "before": "얘기가 나와서 말인데!",
+      "after": " 아, 맞아요! 전설 얘기가 나와서 말인데...",
+      "reason": [
+        "source translation does not preserve this dialogue entry; checked adjacent entries"
+      ]
+    },
+    {
+      "where": "SCRIPT/D73P11A/s31a0201.ssb",
+      "index": 37,
+      "en": " Is it true that there's an\nincredible treasure hidden here, one that\nrivals all other treasures?",
+      "before": "\n어떤 보물에도 견주지 못할 비보가\n잠들어 있다는 게 정말이야?",
+      "after": " 이곳에 다른 어떤 보물과도\n견줄 수 없는 엄청난 보물이\n숨겨져 있다는 게 정말이야?",
+      "reason": [
+        "source translation does not preserve this dialogue entry; checked adjacent entries"
+      ]
+    },
+    {
+      "where": "SCRIPT/D73P11A/s31a0201.ssb",
+      "index": 38,
+      "en": " Is it true that there's an\nincredible treasure hidden here, one that\nrivals all other treasures?",
+      "before": "\n어떤 보물에도 견주지 못할 비보가\n잠들어 있다는 게 정말이야?",
+      "after": " 이곳에 다른 어떤 보물과도\n견줄 수 없는 엄청난 보물이\n숨겨져 있다는 게 정말이야?",
+      "reason": [
+        "source translation does not preserve this dialogue entry; checked adjacent entries"
+      ]
+    },
+    {
+      "where": "SCRIPT/D73P11A/s31a0201.ssb",
+      "index": 39,
+      "en": " Is it true that there's an\nincredible treasure hidden here, one that\nrivals all other treasures?",
+      "before": "\n어떤 보물에도 견주지 못할 비보가\n잠들어 있다는 게 정말이야?",
+      "after": " 이곳에 다른 어떤 보물과도\n견줄 수 없는 엄청난 보물이\n숨겨져 있다는 게 정말인가요?",
+      "reason": [
+        "source translation does not preserve this dialogue entry; checked adjacent entries"
+      ]
+    },
+    {
+      "where": "SCRIPT/D73P11A/s31a0201.ssb",
+      "index": 40,
+      "en": " Hee hee hee...\nWhat do you think?",
+      "before": "\n과연 어떨까요?",
+      "after": " 후후후...\n과연 어떨까요?",
+      "reason": [
+        "source translation does not preserve this dialogue entry; checked adjacent entries"
+      ]
+    },
+    {
+      "where": "SCRIPT/D73P11A/s31a0201.ssb",
+      "index": 41,
+      "en": " Our job is not limited to simply\nacting as your guides.",
+      "before": "만 안내하는 것이\n저희들의 일이 아닙니다.",
+      "after": " 저희 일은 여러분을\n안내하는 것만이 아니랍니다.",
+      "reason": [
+        "source translation does not preserve this dialogue entry; checked adjacent entries"
+      ]
+    },
+    {
+      "where": "SCRIPT/D73P11A/s31a0201.ssb",
+      "index": 42,
+      "en": " But in the end, those climbing\nthe mountain must discover some things\nfor themselves.",
+      "before": "¨ 주인공은\n산을 오르는 여러분들.",
+      "after": " 하지만 산을 오르며 발견하는 건\n결국 여러분 자신이\n해야 하는 일이에요.",
+      "reason": [
+        "source translation does not preserve this dialogue entry; checked adjacent entries"
+      ]
+    },
+    {
+      "where": "SCRIPT/D73P11A/s31a0201.ssb",
+      "index": 43,
+      "en": " We are merely assigned to\nassist in those discoveries.",
+      "before": " 분들을\n보조하는 역할에 지나지 않습니다.",
+      "after": " 저희는 그런 발견을\n도와드리는 역할일 뿐이죠.",
+      "reason": [
+        "source translation does not preserve this dialogue entry; checked adjacent entries"
+      ]
+    },
+    {
+      "where": "SCRIPT/D73P11A/s31a0201.ssb",
+      "index": 44,
+      "en": " Really? I'm not sure I get it, but\nI think there's more to it than just that.",
+      "before": "¸지 잘 모르지만 심오하네.",
+      "after": " 그래? 잘 모르겠지만\n뭔가 깊은 뜻이 있는 것 같네.",
+      "reason": [
+        "source translation does not preserve this dialogue entry; checked adjacent entries"
+      ]
+    },
+    {
+      "where": "SCRIPT/D73P11A/s31a0201.ssb",
+      "index": 45,
+      "en": " Really? I'm not sure I fully\nunderstand, but I think there's a little more to\nit than that.",
+      "before": "¸지 잘 모르지만 심오하네.",
+      "after": " 그래? 잘 모르겠지만\n뭔가 깊은 뜻이 있는 것 같아.",
+      "reason": [
+        "source translation does not preserve this dialogue entry; checked adjacent entries"
+      ]
+    },
+    {
+      "where": "SCRIPT/D73P11A/s31a0201.ssb",
+      "index": 46,
+      "en": " Really? I'm not sure I fully\nunderstand, but I think there's a little more to\nit than that.",
+      "before": "¸지 잘 모르지만 심오하네.",
+      "after": " 그런가요? 잘 모르겠지만\n뭔가 깊은 뜻이 있는 것 같네요.",
+      "reason": [
+        "source translation does not preserve this dialogue entry; checked adjacent entries"
+      ]
+    },
+    {
+      "where": "SCRIPT/D73P11A/s31a0201.ssb",
+      "index": 47,
+      "en": " That's right.",
+      "before": "그건 그렇고...[K]\n이렇게 이야기할 수 있게 된 것도\n무슨 인연이었을지도 모릅니다.",
+      "after": " 맞아요.",
+      "reason": [
+        "source translation does not preserve this dialogue entry; checked adjacent entries"
+      ]
+    },
+    {
+      "where": "SCRIPT/D73P11A/s31a0201.ssb",
+      "index": 48,
+      "en": " By the way...[K]\nNow that we've discussed all this...",
+      "before": "고...[K]\n이렇게 이야기할 수 있게 된 것도\n무슨 인연이었을지도 모릅니다.",
+      "after": " 그건 그렇고...[K]\n이렇게 이야기를 나누게 됐으니...",
+      "reason": [
+        "source translation does not preserve this dialogue entry; checked adjacent entries"
+      ]
+    },
+    {
+      "where": "SCRIPT/D73P11A/s31a0201.ssb",
+      "index": 49,
+      "en": " If you're interested, I could be\nyour guide. What do you think?",
+      "before": "으시다면\n절 가이드로 쓰시는 게\n어떻겠습니까?",
+      "after": " 괜찮으시다면 제가\n안내해 드려도 될까요?",
+      "reason": [
+        "source translation does not preserve this dialogue entry; checked adjacent entries"
+      ]
+    },
+    {
+      "where": "SCRIPT/D73P11A/s31a0201.ssb",
+      "index": 51,
+      "en": " Really? That's nice of you\nto offer.",
+      "before": "\n우리야 고맙지!",
+      "after": " 정말? 안내해 준다니 고맙지!",
+      "reason": [
+        "source translation does not preserve this dialogue entry; checked adjacent entries"
+      ]
+    },
+    {
+      "where": "SCRIPT/D73P11A/s31a0201.ssb",
+      "index": 52,
+      "en": " Really? That's a nice offer.\nI was thinking the same thing.",
+      "before": "\n우리야 고맙지!",
+      "after": " 정말? 고마워!\n나도 그렇게 생각하고 있었어.",
+      "reason": [
+        "source translation does not preserve this dialogue entry; checked adjacent entries"
+      ]
+    },
+    {
+      "where": "SCRIPT/D73P11A/s31a0201.ssb",
+      "index": 53,
+      "en": " Really? Why, thank you!\nI was thinking that too.",
+      "before": "\n우리야 고맙지!",
+      "after": " 정말요? 고마워요!\n저도 그렇게 생각하고 있었어요.",
+      "reason": [
+        "source translation does not preserve this dialogue entry; checked adjacent entries"
+      ]
+    },
+    {
+      "where": "SCRIPT/D73P11A/s31a0201.ssb",
+      "index": 55,
+      "en": " Hey, [hero]?\nWhat do you think? Should we let [CS:N]Shaymin[CR]\njoin us?",
+      "before": "쉐이미[CR]에게 안내를\n부탁해도 괜찮지?",
+      "after": " [hero], 어때?\n[CS:N]쉐이미[CR]에게 안내를\n부탁해도 괜찮지?",
+      "reason": [
+        "source translation does not preserve this dialogue entry; checked adjacent entries"
+      ]
+    },
+    {
+      "where": "SCRIPT/D73P11A/s31a0201.ssb",
+      "index": 56,
+      "en": " Hey, [hero]?\nWhat do you think? Should we let [CS:N]Shaymin[CR]\njoin us?",
+      "before": "에게 안내를\n부탁해도 괜찮지?",
+      "after": " [hero], 어때?\n[CS:N]쉐이미[CR]에게 안내를\n부탁해도 괜찮지?",
+      "reason": [
+        "source translation does not preserve this dialogue entry; checked adjacent entries"
+      ]
+    },
+    {
+      "where": "SCRIPT/D73P11A/s31a0201.ssb",
+      "index": 57,
+      "en": "Yes",
+      "before": "! 말도 안돼!!",
+      "after": "예",
+      "reason": [
+        "source translation does not preserve this dialogue entry; checked adjacent entries"
+      ]
+    },
+    {
+      "where": "SCRIPT/D73P11A/s31a0201.ssb",
+      "index": 58,
+      "en": "No",
+      "before": "Z도 안돼!!",
+      "after": "아니요",
+      "reason": [
+        "source translation does not preserve this dialogue entry; checked adjacent entries"
+      ]
+    },
+    {
+      "where": "SCRIPT/D73P11A/s31a0201.ssb",
+      "index": 59,
+      "en": " Whaat?! Really?!",
+      "before": "Ã!!",
+      "after": " 뭐?! 정말이야?!",
+      "reason": [
+        "source translation does not preserve this dialogue entry; checked adjacent entries"
+      ]
+    },
+    {
+      "where": "SCRIPT/D73P11A/s31a0201.ssb",
+      "index": 60,
+      "en": " Whaat?! Really?!",
+      "before": "Ã!!",
+      "after": " 뭐?! 정말이야?!",
+      "reason": [
+        "source translation does not preserve this dialogue entry; checked adjacent entries"
+      ]
+    },
+    {
+      "where": "SCRIPT/D73P11A/s31a0201.ssb",
+      "index": 61,
+      "en": " Whaat?! Really?!",
+      "before": "k\n무조건 좋을 거 같잖아.",
+      "after": " 네?! 정말인가요?!",
+      "reason": [
+        "source translation does not preserve this dialogue entry; checked adjacent entries"
+      ]
+    },
+    {
+      "where": "SCRIPT/D73P11A/s31a0201.ssb",
+      "index": 62,
+      "en": " Don't you think it would\ndefinitely be better if we had a guide?",
+      "before": "e.",
+      "after": " 안내해 주는 포켓몬이 있으면\n훨씬 좋을 것 같지 않아?",
+      "reason": [
+        "source translation does not preserve this dialogue entry; checked adjacent entries"
+      ]
+    },
+    {
+      "where": "SCRIPT/D73P11A/s31a0201.ssb",
+      "index": 63,
+      "en": " Don't you think it would\nbe better if we had a guide?",
+      "before": "e.",
+      "after": " 안내해 주는 포켓몬이 있으면\n더 좋을 것 같지 않아?",
+      "reason": [
+        "source translation does not preserve this dialogue entry; checked adjacent entries"
+      ]
+    },
+    {
+      "where": "SCRIPT/D73P11A/s31a0201.ssb",
+      "index": 64,
+      "en": " Don't you think it would\nbe better if we had a guide?",
+      "before": "e.",
+      "after": " 안내해 주는 포켓몬이 있으면\n더 좋을 것 같지 않나요?",
+      "reason": [
+        "source translation does not preserve this dialogue entry; checked adjacent entries"
+      ]
+    },
+    {
+      "where": "SCRIPT/D73P11A/s31a0201.ssb",
+      "index": 65,
+      "en": " We should ask [CS:N]Shaymin[CR]\nto guide us, OK?",
+      "before": "E 부탁하자, 응?",
+      "after": " [CS:N]쉐이미[CR]에게 안내를\n부탁하자, 응?",
+      "reason": [
+        "source translation does not preserve this dialogue entry; checked adjacent entries"
+      ]
+    },
+    {
+      "where": "SCRIPT/D73P11A/s31a0201.ssb",
+      "index": 66,
+      "en": " I really think we should ask\n[CS:N]Shaymin[CR] to guide us. OK?",
+      "before": "E 부탁하자, 응?",
+      "after": " [CS:N]쉐이미[CR]에게 안내를\n부탁하는 게 좋겠어. 응?",
+      "reason": [
+        "source translation does not preserve this dialogue entry; checked adjacent entries"
+      ]
+    },
+    {
+      "where": "SCRIPT/D73P11A/s31a0201.ssb",
+      "index": 67,
+      "en": " I really think we should ask\n[CS:N]Shaymin[CR] to guide us. OK?",
+      "before": "E 부탁하자, 응?",
+      "after": " [CS:N]쉐이미[CR]에게 안내를\n부탁하는 게 좋겠어요. 그렇죠?",
+      "reason": [
+        "source translation does not preserve this dialogue entry; checked adjacent entries"
+      ]
+    },
+    {
+      "where": "SCRIPT/D73P11A/s31a0201.ssb",
+      "index": 68,
+      "en": " Hee hee hee. Yay!",
+      "before": "¶에서\n기다리고 있을게요.",
+      "after": " 후후후. 좋아요!",
+      "reason": [
+        "source translation does not preserve this dialogue entry; checked adjacent entries"
+      ]
+    },
+    {
+      "where": "SCRIPT/D73P11A/s31a0201.ssb",
+      "index": 69,
+      "en": " OK, I'll be waiting at the\nmountain-path entrance for you.",
+      "before": "게요.",
+      "after": " 그럼 산길 입구에서\n기다리고 있을게요.",
+      "reason": [
+        "source translation does not preserve this dialogue entry; checked adjacent entries"
+      ]
+    },
+    {
+      "where": "SCRIPT/D73P11A/s31a0201.ssb",
+      "index": 70,
+      "en": " The mountain path is straight\nahead from here.",
+      "before": "다.",
+      "after": " 산길은 여기서\n곧장 앞으로 가면 됩니다.",
+      "reason": [
+        "source translation does not preserve this dialogue entry; checked adjacent entries"
+      ]
+    },
+    {
+      "where": "SCRIPT/D73P11A/s31a0201.ssb",
+      "index": 71,
+      "en": " Please come once you've finished\nyour preparations.",
+      "before": "봐요.",
+      "after": " 준비가 끝나시면\n찾아와 주세요.",
+      "reason": [
+        "source translation does not preserve this dialogue entry; checked adjacent entries"
+      ]
+    },
+    {
+      "where": "SCRIPT/D73P11A/s31a0201.ssb",
+      "index": 72,
+      "en": " See you later!",
+      "before": "",
+      "after": " 그럼 나중에 봐요!",
+      "reason": [
+        "source translation does not preserve this dialogue entry; checked adjacent entries"
+      ]
+    }
+  ]
+}

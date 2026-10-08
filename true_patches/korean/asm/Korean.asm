@@ -95,9 +95,14 @@ Ko_WidthCharFetch:
 	ldrb r0, [r4], #1
 	cmp r0, #0x88
 	blt KoWidthCharResume
-	cmp r0, #0x9F
+	cmp r0, #0x9E
 	bgt KoWidthCharResume
-	ldrb r1, [r4], #1
+	ldrb r1, [r4]
+	cmp r1, #0x80
+	blo KoWidthCharResume
+	cmp r1, #0xFE
+	bhi KoWidthCharResume
+	add r4, r4, #1
 	orr r0, r1, r0, lsl #8
 	b KoWidthCharResume
 
@@ -106,33 +111,101 @@ Ko_DrawCharFetch:
 	ldrb r8, [r6], #1
 	cmp r8, #0x88
 	blt KoDrawCharResume
-	cmp r8, #0x9F
+	cmp r8, #0x9E
 	bgt KoDrawCharResume
-	ldrb r0, [r6], #1
+	ldrb r0, [r6]
+	cmp r0, #0x80
+	blo KoDrawCharResume
+	cmp r0, #0xFE
+	bhi KoDrawCharResume
+	add r6, r6, #1
 	orr r8, r0, r8, lsl #8
 	b KoDrawGlyphResume
 
-; Lead-byte check: r1 = trail byte. A terminator or '[' keeps the lead single.
-Ko_TrailCheck:
+; Lead-byte check: only dense trails 0x80..0xFE may be joined.
+Ko_ReadChar:
+	cmp r0, #0x88
+	blo @@legacy
+	cmp r0, #0x9E
+	bhi KoLeadSingle
+	ldrb r1, [r6, #1]
+	b Ko_TrailCheck
+@@legacy:
+	cmp r0, #0x81
+	blo KoLeadSingle
+	cmp r0, #0x84
+	bls @@trail
+	cmp r0, #0x87
+	bne KoLeadSingle
+@@trail:
+	ldrb r1, [r6, #1]
 	cmp r1, #0
 	beq KoLeadSingle
 	cmp r1, #0x5B
+	beq KoLeadSingle
+	cmp r1, #0
 	b KoLeadJoin
+
+Ko_TrailCheck:
+	cmp r1, #0x80
+	blo KoLeadSingle
+	cmp r1, #0xFE
+	bhi KoLeadSingle
+	; The ARM9 join instructions execute on NE; every valid trail is nonzero.
+	cmp r1, #0
+	b KoLeadJoin
+
+; PreprocessString uses a different copier from KoLeadCheck. Both bytes of a
+; dense glyph must be consumed here, otherwise trails 0x81..0x84/0x87 look like
+; legacy leads and can swallow the NUL after a dungeon name. Preserve the
+; legacy SJIS path for the remaining English symbols.
+Ko_PreprocessCopy:
+	cmp r0, #0x88
+	blo @@legacy
+	cmp r0, #0x9E
+	bhi KoPreprocessCopySingle
+	ldrb r2, [r5, #1]
+	cmp r2, #0x80
+	blo KoPreprocessCopySingle
+	cmp r2, #0xFE
+	bhi KoPreprocessCopySingle
+	b KoPreprocessCopyPair
+@@legacy:
+	cmp r0, #0x81
+	blo KoPreprocessCopySingle
+	cmp r0, #0x84
+	bls @@trail
+	cmp r0, #0x87
+	bne KoPreprocessCopySingle
+@@trail:
+	ldrb r2, [r5, #1]
+	cmp r2, #0
+	beq KoPreprocessCopySingle
+	cmp r2, #0x5B
+	beq KoPreprocessCopySingle
+	b KoPreprocessCopyPair
 
 ; Character copy: keep both bytes of a 2-byte code together.
 Ko_CopyCharFetch:
-	ldrb r4, [r0, #-4]
+	; %c receives an integer code (lead << 8 | trail), not two raw bytes.
+	ldr r0, [r0, #-4]
+	mov r4, r0, lsr #8
 	cmp r4, #0x88
-	blt KoCopyCharSingle
-	cmp r4, #0x9F
-	bgt KoCopyCharSingle
-	ldrb r0, [r0, #-3]
-	cmp r0, #0
-	beq KoCopyCharSingle
+	blo @@single
+	cmp r4, #0x9E
+	bhi @@single
+	and r0, r0, #0xFF
+	cmp r0, #0x80
+	blo @@single
+	cmp r0, #0xFE
+	bhi @@single
 	strb r4, [sp, #0x2C]
 	strb r0, [sp, #0x2D]
 	mov r6, #2
 	b KoCopyCharJoin
+@@single:
+	mov r4, r0
+	b KoCopyCharSingle
 
 Ko_SkipTrail:
 	.word 0
@@ -152,11 +225,13 @@ Ko_MeasureCharFetch:
 	ldrb r5, [r0, #0xFC]
 	cmp r5, #0x88
 	blt @@resume
-	cmp r5, #0x9F
+	cmp r5, #0x9E
 	bgt @@resume
 	ldrb r0, [r0, #0xFD]
-	cmp r0, #0
-	beq @@resume
+	cmp r0, #0x80
+	blo @@resume
+	cmp r0, #0xFE
+	bhi @@resume
 	orr r5, r5, r0, lsl #8
 	mov r2, #1
 	strb r2, [r3]

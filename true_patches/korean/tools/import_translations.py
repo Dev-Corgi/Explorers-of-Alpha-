@@ -19,6 +19,8 @@ from pathlib import Path
 import openpyxl
 
 MODULE_DIR = Path(__file__).resolve().parent.parent
+sys.path.insert(0, str(MODULE_DIR.parents[1]))
+from patch_engine.korean_codec import translation_issues
 TEXT_SHEET = "text_e 미번역"
 SCRIPT_SHEET = "스크립트 미번역"
 KO_HEADER = "한국어 번역"
@@ -68,6 +70,14 @@ def main() -> None:
     xlsx = Path(sys.argv[1])
     out = Path(sys.argv[2]) if len(sys.argv) > 2 else MODULE_DIR / "data" / "translations.json.gz"
     doc = read_translations(xlsx)
+    errors = []
+    for where, entries in [("text_e", doc["text_e"]), *doc["scripts"].items()]:
+        for index, entry in entries.items():
+            issues = translation_issues(entry["en"], entry["ko"])
+            if issues:
+                errors.append(f"{where}#{index}: {'; '.join(issues)}")
+    if errors:
+        raise SystemExit("Translation tag errors; output was not changed:\n" + "\n".join(errors))
     raw = json.dumps(doc, ensure_ascii=False, sort_keys=True, indent=0).encode("utf-8")
     with gzip.GzipFile(out, "wb", mtime=0) as fh:
         fh.write(raw)

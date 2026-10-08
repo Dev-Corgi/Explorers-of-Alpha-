@@ -6,6 +6,7 @@
 .definelabel KoWidthCharFetch, 0x020161E0         ; ldrb r0,[r4],#1
 .definelabel KoWidthGlyphEntry, 0x0201628C        ; push {r3,lr}
 .definelabel KoLeadCheck, 0x020206C8              ; cmp r0,#0x81 ...
+.definelabel KoPreprocessCopy, 0x020207F0        ; cmp r0,#0x81 (second character copier)
 .definelabel KoGlyphPrep, 0x02025480              ; push {r3,lr} (function replaced)
 .definelabel KoFontLookupEntry, 0x02025C7C        ; push {r4,lr}
 .definelabel KoFontLookupExit, 0x02025D38         ; pop {r4,pc}
@@ -22,6 +23,8 @@
 .definelabel KoWidthBody, 0x02016290
 .definelabel KoLeadSingle, 0x020206F0
 .definelabel KoLeadJoin, 0x020206E0
+.definelabel KoPreprocessCopySingle, 0x02020850
+.definelabel KoPreprocessCopyPair, 0x02020808
 .definelabel KoFontLookupBody, 0x02025C80
 .definelabel KoMeasureCharResume, 0x02038080
 .definelabel KoCopyCharSingle, 0x020892C0

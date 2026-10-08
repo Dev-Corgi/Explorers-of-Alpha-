@@ -1,5 +1,5 @@
 id: korean
-version: 5
+version: 6
 region: US
 description: >
   Korean text. Ports the unofficial Explorers of Sky Korean patch
@@ -35,9 +35,9 @@ arm9_sites:
   - {address: 0x02015A30, vanilla: 0xEB003E92, korean: 0xEB003E93, name: KoDrawGlyphCall}
   - {address: 0x020161E0, vanilla: 0xE4D40001, korean: 0xEA086DFE, branch_to_cave: true, name: KoWidthCharFetch}
   - {address: 0x0201628C, vanilla: 0xE92D4008, korean: 0xEA086D82, branch_to_cave: true, name: KoWidthGlyphEntry}
-  - {address: 0x020206C8, vanilla: 0xE3500081, korean: 0xE3500088, name: KoLeadCheck}
+  - {address: 0x020206C8, vanilla: 0xE3500081, korean: 0xEA000000, branch_to_cave: true, name: KoLeadCheck}
   - {address: 0x020206CC, vanilla: 0x3A000001, korean: 0xBA000007}
-  - {address: 0x020206D0, vanilla: 0xE3500084, korean: 0xE350009F}
+  - {address: 0x020206D0, vanilla: 0xE3500084, korean: 0xE350009E}
   - {address: 0x020206D4, vanilla: 0x9A000001, korean: 0xCA000005}
   - {address: 0x020206D8, vanilla: 0xE3500087, korean: 0xE5D61001}
   - {address: 0x020206DC, vanilla: 0x1A000003, korean: 0xEA0844D0, branch_to_cave: true, name: KoLeadTrailCheck}
@@ -45,6 +45,7 @@ arm9_sites:
   - {address: 0x020206E4, vanilla: 0xE1810400, korean: 0x11810400}
   - {address: 0x020206E8, vanilla: 0xE1A00800, korean: 0x11A00800}
   - {address: 0x020206EC, vanilla: 0xE1A00820, korean: 0x11A00820}
+  - {address: 0x020207F0, vanilla: 0xE3500081, korean: 0xEA000000, branch_to_cave: true, name: KoPreprocessCopy}
   - {address: 0x02025480, vanilla: 0xE92D4008, korean: 0xE12FFF1E, name: KoGlyphPrep}
   - {address: 0x02025484, vanilla: 0xE3500000, korean: 0xE3500B22}
   - {address: 0x02025488, vanilla: 0x03A00000, korean: 0xB12FFF1E}
@@ -73,6 +74,7 @@ arm9_sites:
   - {address: 0x02025D38, vanilla: 0xE8BD8010, korean: 0xE8BD80F0, name: KoFontLookupExit}
   - {address: 0x0203807C, vanilla: 0xE5D050FC, korean: 0xEA07E679, branch_to_cave: true, name: KoMeasureCharFetch}
   - {address: 0x020892BC, vanilla: 0xE5100004, korean: 0xEA06A1DC, branch_to_cave: true, name: KoCopyCharFetch}
+  - {address: 0x020892C4, vanilla: 0xE5CD002C, korean: 0xE5CD402C, name: KoCopyCharStore}
   - {address: 0x0207A520, vanilla: 0x023E0021, korean: 0x023F001F, name: KoPuRegion2}
 
 # Text window layout constants for Korean glyph metrics.

@@ -1,0 +1,24 @@
+{
+  "source": "current English full_stack + korean source data",
+  "index_convention": "text_e is zero based; LogMessageById adds one",
+  "stats": {
+    "text_e": {
+      "no_text": 993,
+      "same_id": 12500,
+      "user": 4519,
+      "unmatched": 5,
+      "moved": 434,
+      "icon_prefix": 1156
+    },
+    "scripts": {
+      "same_id": 83151,
+      "global": 1700,
+      "user": 4227,
+      "same_file": 6575,
+      "no_text": 1208,
+      "unmatched": 4
+    }
+  },
+  "rejected_count": 0,
+  "rejected": []
+}

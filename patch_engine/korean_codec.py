@@ -24,6 +24,44 @@ DENSE_CAPACITY = (DENSE_LEAD_MAX - LEAD_MIN + 1) * DENSE_PER_LEAD
 _ESCAPE_RE = re.compile(r"\{([0-9A-F]{2}|[0-9A-F]{4})\}")
 
 
+def translation_issues(english: str, korean: str, *, allow_empty: bool = True) -> list[str]:
+    """Check runtime placeholders, allowing Korean word order and repetition.
+
+    Uppercase layout tags may differ. A numbered lowercase tag selects caller
+    data, so its type and slot must stay the same; an empty slot means zero.
+    """
+    tag_re = re.compile(r"\[[^\[\]]*\]")
+
+    def slots(text: str) -> set[str]:
+        result = set()
+        for tag in tag_re.findall(text):
+            m = re.fullmatch(r"\[([a-z_]+):([0-9]*)(?::[^\]]*)?\]", tag)
+            if m:
+                result.add(f"{m[1]}:{int(m[2] or '0')}")
+        return result
+
+    issues = []
+    original, translated = slots(english), slots(korean)
+    if translated - original:
+        issues.append("added data slots: " + ", ".join(sorted(translated - original)))
+    if original - translated:
+        issues.append("missing data slots: " + ", ".join(sorted(original - translated)))
+    for tag in tag_re.findall(korean):
+        if tag not in tag_re.findall(english) and re.fullmatch(
+            r"\[(?:string|digits_c|digits|item|move|name|kind)[0-9]+\]", tag
+        ):
+            issues.append("malformed placeholder: " + tag)
+    # A cut-off source translation can leave a bare 'm]' or '[CS:'.
+    for bracket in "[]":
+        if bracket in tag_re.sub("", korean) and bracket not in tag_re.sub("", english):
+            issues.append("unmatched bracket: " + bracket)
+    if "\x00" in korean:
+        issues.append("embedded NUL")
+    if not allow_empty and re.search(r"[A-Za-z]", tag_re.sub("", english)) and not korean.strip():
+        issues.append("empty translation for a nonempty dialogue entry")
+    return issues
+
+
 def _syllable(idx: int) -> str:
     return bytes([0xB0 + idx // 94, 0xA1 + idx % 94]).decode("euc-kr")
 
