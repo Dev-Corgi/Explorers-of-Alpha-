@@ -22,7 +22,9 @@ No terrain-traversal permissions or pathfinding algorithms are changed.
 ## Fainting and floors
 
 - The original leader is the regular member leading when the dungeon was entered,
-  identified by active roster index. Start changes do not replace that identity.
+  identified by the stable guild `team_member.member_idx` at +8. Start changes
+  and active-roster reordering do not replace that identity. `CeEntryLeader` is
+  only the resolved current roster index, not the stored identity.
 - After reviver handling fails, a regular member's faint can continue the run if
   another regular member lives. A fainted leader passes leadership to the next
   living regular member in roster order, wrapping to the start. Nonleader fainting
@@ -34,10 +36,17 @@ No terrain-traversal permissions or pathfinding algorithms are changed.
   vanilla floor/spawn processing follows. There is no PP-refill suppression or
   post-spawn PP overwrite. The entry leader is selected in the active roster and
   rebound to the newly spawned entity on the new floor.
-  After `SpawnTeam` returns, the wrapper searches the new entities by the saved
-  entry roster index and explicitly synchronizes the engine pointer, entity
+  After `SpawnTeam` returns, the wrapper resolves the saved guild identity to
+  its current roster index, finds its new entity, and synchronizes the engine pointer, entity
   leader flags, roster flags, `CeLeader`, and `CeHome`. It does not adopt a
   retained last-floor engine leader pointer.
+- Death-time HP/PP backups are allocated separately and keyed by guild member
+  identity, so moving a successor into a dead member's former slot cannot
+  overwrite that dead member's backup.
+- RunDungeon's shared exit at `0x022E026C` restores the entry member's roster
+  leader flag before final team export/free on clear, escape, and defeat.
+  A living entry member also becomes the engine leader. A dead entry member
+  stays dead; the exit path does not revive HP, refill PP, or change the result.
 - When no living regular member remains, vanilla leader-loss handling runs even
   if living guests remain. It retains the normal dungeon failure behavior.
 

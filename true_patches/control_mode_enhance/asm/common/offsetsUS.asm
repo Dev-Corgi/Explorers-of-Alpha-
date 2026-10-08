@@ -62,6 +62,9 @@ ov_36 equ 0x023A7080
 .definelabel CmeDungeonStartSite,   0x022DF0F8
 .definelabel CmeSpawnTeamSite,      0x022DF6A4
 .definelabel SpawnTeam,             0x022FC50C
+; Shared RunDungeon exit before the final team/result export and DungeonFree.
+.definelabel CmeDungeonEndSite,     0x022E026C
+.definelabel CmeDungeonEndOriginal, 0x0234CF60
 ; After vanilla faint status cleanup and after reviver handling. The Z gauge
 ; owns HandleFaint's entry, so this module hooks its unclaimed body instead.
 .definelabel CmeFaintSite,           0x022F8024

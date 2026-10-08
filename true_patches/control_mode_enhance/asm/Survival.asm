@@ -7,6 +7,8 @@ ControlModeEnhance_DungeonStart:
 	ldr r0, =CeEntryLeader
 	mvn r1, #0
 	str r1, [r0]
+	ldr r0, =CeEntryMemberId
+	str r1, [r0]
 	ldr r0, =CeDeadMask
 	mov r1, #0
 	str r1, [r0]
@@ -15,8 +17,8 @@ ControlModeEnhance_DungeonStart:
 
 ControlModeEnhance_PrepareFloor:
 	push {r4-r8, lr}
-	ldr r0, =CeEntryLeader
-	ldr r8, [r0]
+	bl ControlModeEnhance_ResolveEntry
+	mov r8, r0
 	cmp r8, #0
 	blt @@done
 	ldr r0, =CeDeadMask
@@ -39,17 +41,30 @@ ControlModeEnhance_PrepareFloor:
 	cmp r4, r8
 	moveq r0, #1
 	strb r0, [r5, #1]
-	mov r6, #1
-	mov r6, r6, lsl r4
-	tst r7, r6
-	beq @@next
+	; Backups follow guild identity, not a slot that may have been reordered.
+	ldrsh r3, [r5, #8]
+	ldr r2, =CeDeadMemberId
+	mov r6, #0
+@@backup:
+	mov r0, #1
+	tst r7, r0, lsl r6
+	beq @@backup_next
+	ldr r1, [r2, r6, lsl #2]
+	cmp r1, r3
+	beq @@restore
+@@backup_next:
+	add r6, r6, #1
+	cmp r6, #4
+	blt @@backup
+	b @@next
+@@restore:
 	ldr r0, =CeDeadHp
-	ldr r0, [r0, r4, lsl #2]
+	ldr r0, [r0, r6, lsl #2]
 	strh r0, [r5, #0xE]
 	; Restore the death-time PP in the active roster BEFORE vanilla floor
 	; initialization/spawning. Subsequent vanilla PP processing is unchanged.
 	ldr r1, =CeDeadPp
-	add r1, r1, r4, lsl #2
+	add r1, r1, r6, lsl #2
 	add r2, r5, #0x1C
 	mov r3, #0
 @@pp:
@@ -80,10 +95,15 @@ ControlModeEnhance_SpawnTeam:
 	; Spawn can reorder physical slots and retain an engine leader selection.
 	; Once entry identity is captured, resolve it afresh instead of adopting
 	; LeaderPtr (which may still designate the previous floor's last leader).
-	ldr r5, =CeEntryLeader
-	ldr r0, [r5]
+	bl ControlModeEnhance_ResolveEntry
 	cmp r0, #0
-	blt @@capture
+	bge @@restore_entry
+	ldr r0, =CeEntryMemberId
+	ldr r0, [r0]
+	cmp r0, #0
+	bge @@done
+	b @@capture
+@@restore_entry:
 	bl ControlModeEnhance_FindMember
 	cmp r0, #0
 	beq @@done
@@ -98,6 +118,11 @@ ControlModeEnhance_SpawnTeam:
 	beq @@done
 	ldr r0, [r4, #0xB4]
 	ldrsh r0, [r0, #0xC]
+	ldr r5, =CeEntryLeader
+	str r0, [r5]
+	bl GetActiveTeamMember
+	ldrsh r0, [r0, #8]
+	ldr r5, =CeEntryMemberId
 	str r0, [r5]
 @@captured:
 	mov r0, r4
@@ -110,6 +135,90 @@ ControlModeEnhance_SpawnTeam:
 @@done:
 	mov r0, r8
 	pop {r4-r8, pc}
+
+; Stable entry guild ID -> current active-roster index, or -1.
+; Search even inactive/fainted records so dungeon exit can restore the flag.
+ControlModeEnhance_ResolveEntry:
+	push {r4-r6, lr}
+	ldr r0, =CeEntryMemberId
+	ldr r5, [r0]
+	cmp r5, #0
+	blt @@missing
+	mov r4, #0
+@@slot:
+	mov r0, r4
+	bl GetActiveTeamMember
+	cmp r0, #0
+	beq @@next
+	ldrsh r1, [r0, #8]
+	cmp r1, r5
+	beq @@found
+@@next:
+	add r4, r4, #1
+	cmp r4, #4
+	blt @@slot
+@@missing:
+	mvn r0, #0
+	b @@done
+@@found:
+	mov r0, r4
+@@done:
+	ldr r1, =CeEntryLeader
+	str r0, [r1]
+	pop {r4-r6, pc}
+
+; All exits: restore identity only, preserving result, death HP, PP and items.
+ControlModeEnhance_DungeonEnd:
+	push {r0-r12, lr}
+	bl ControlModeEnhance_ResolveEntry
+	cmp r0, #0
+	blt @@done
+	mov r4, r0
+	bl ControlModeEnhance_FindMember
+	cmp r0, #0
+	blne ControlModeEnhance_SetLeader
+	mov r5, #0
+@@slot:
+	mov r0, r5
+	bl GetActiveTeamMember
+	cmp r0, #0
+	beq @@next
+	mov r1, #0
+	cmp r5, r4
+	moveq r1, #1
+	strb r1, [r0, #1]
+	; Drop only our reservation marker; never turn a dead member into alive.
+	mov r6, r0
+	ldrsh r9, [r6, #8]
+	ldr r0, =CeDeadMask
+	ldr r7, [r0]
+	ldr r3, =CeDeadMemberId
+	mov r8, #0
+@@record:
+	mov r1, #1
+	tst r7, r1, lsl r8
+	beq @@record_next
+	ldr r1, [r3, r8, lsl #2]
+	cmp r1, r9
+	bne @@record_next
+	ldrb r1, [r6]
+	bic r1, r1, #8
+	strb r1, [r6]
+	b @@next
+@@record_next:
+	add r8, r8, #1
+	cmp r8, #4
+	blt @@record
+@@next:
+	add r5, r5, #1
+	cmp r5, #4
+	blt @@slot
+@@done:
+	ldr r0, =CeDeadMask
+	mov r1, #0
+	str r1, [r0]
+	pop {r0-r12, lr}
+	b CmeDungeonEndOriginal
 
 ; r0 = entity -> bool, regardless of HP. Check the roster range BEFORE lookup.
 ControlModeEnhance_IsRegular:
@@ -229,6 +338,23 @@ ControlModeEnhance_ReserveFaint:
 	bl UpdateTeamMember
 	mov r0, r6
 	bl GetActiveTeamMember
+	ldrsh r9, [r0, #8]
+	ldr r1, =CeDeadMask
+	ldr r2, [r1]
+	ldr r3, =CeDeadMemberId
+	mov r1, #0
+@@record:
+	mov r12, #1
+	tst r2, r12, lsl r1
+	beq @@record_free
+	add r1, r1, #1
+	cmp r1, #4
+	blt @@record
+	; Four living-slot deaths cannot fill a fifth record while play continues.
+	b @@vanilla
+@@record_free:
+	str r9, [r3, r1, lsl #2]
+	mov r9, r1
 	ldrb r1, [r0]
 	orr r1, r1, #0xB
 	strb r1, [r0]
@@ -242,9 +368,9 @@ ControlModeEnhance_ReserveFaint:
 	cmp r0, r1
 	movgt r0, r1
 	ldr r1, =CeDeadHp
-	str r0, [r1, r6, lsl #2]
+	str r0, [r1, r9, lsl #2]
 	ldr r1, =CeDeadPp
-	add r1, r1, r6, lsl #2
+	add r1, r1, r9, lsl #2
 	add r2, r5, #0x124
 	mov r3, #0
 @@pp:
@@ -257,7 +383,7 @@ ControlModeEnhance_ReserveFaint:
 	ldr r0, =CeDeadMask
 	ldr r1, [r0]
 	mov r2, #1
-	orr r1, r1, r2, lsl r6
+	orr r1, r1, r2, lsl r9
 	str r1, [r0]
 	mov r0, r8
 	bl ControlModeEnhance_SetLeader

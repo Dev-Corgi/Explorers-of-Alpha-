@@ -1,5 +1,5 @@
 id: control_mode_enhance
-version: 16
+version: 17
 region: US
 description: >
   Full control mode. Start on any team member's turn toggles auto/manual, and
@@ -18,6 +18,8 @@ description: >
   control already made that actor the engine's temporary leader.
   After spawning each new floor, resolve the saved dungeon-entry roster index
   again and explicitly restore that member as engine/roster/control leader.
+  v17: Resolve the stable guild member identity after active-roster reordering;
+  restore leadership on all shared dungeon exits without reviving fainted HP.
 
 kind: asm
 rom_profile: us_vanilla
@@ -148,6 +150,13 @@ hooks:
     vanilla_word: 0xE92D4FF0
     chain: first
     target_symbol: ControlModeEnhance_TryRecruit
+
+  - name: CmeDungeonEnd
+    symbol: CmeDungeonEndSite
+    binary: ov29
+    vanilla_word: 0xEB01B33B
+    chain: first
+    target_symbol: ControlModeEnhance_DungeonEnd
 
 cave:
   binary: ov36

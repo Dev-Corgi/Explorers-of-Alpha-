@@ -101,6 +101,7 @@ class Machine:
                 if self.byte(m) & 3 != 3:
                     continue
                 self.word(entity, 1)
+                self.half(info + 0xC, i)
                 self.half(info + 0x10, self.half(m + 0xE))
                 self.uc.mem_write(info + 0x124, bytes(self.uc.mem_read(m + 0x1C, 34)))
                 for move in range(4):
@@ -173,6 +174,7 @@ class Machine:
         for name in ['CeHome', 'CeLeader', 'CeRoundOrigin', 'CeLastAct']:
             self.word(self.address(name), self.entity(leader))
         self.word(self.address('CeEntryLeader'), leader)
+        self.word(self.address('CeEntryMemberId'), leader)
         self.word(self.address('CeDeadMask'), 0)
         self.logs.clear()
 
@@ -184,7 +186,7 @@ def main():
     profile = yaml.safe_load((ROOT / 'patch_engine/rom_profile_us.yaml').read_text(encoding='utf-8'))
     base = NintendoDSRom.fromFile(ROOT / 'PatchTesting/Explorers of Alpha/Explorers of Alpha.nds')
     original = loadOverlayTable(base.arm9OverlayTable, lambda _, n: base.files[n])[29]
-    for hook in cfg['hooks'][-5:]:
+    for hook in cfg['hooks'][-6:]:
         address = profile['symbols'][hook['symbol']]
         assert struct.unpack_from('<I', original.data, address - original.ramAddress)[0] == hook['vanilla_word']
         current = struct.unpack_from('<I', overlays[29].data, address - original.ramAddress)[0]
@@ -227,7 +229,8 @@ def main():
             assert machine.run('ControlModeEnhance_ReserveFaint', machine.entity(leader)) == 1
             expected = next(i % 4 for i in range(leader + 1, leader + 4) if i % 4 != guest)
             assert machine.word(symbols['celeader']) == machine.entity(expected)
-            assert machine.word(symbols['cedeadmask']) == 1 << leader
+            assert machine.word(symbols['cedeadmask']) == 1
+            assert machine.word(symbols['cedeadmemberid']) == leader
             assert machine.byte(machine.member(leader)) & 3 == 3
             assert machine.word(machine.entity(leader)) == 0
             assert machine.run('ControlModeEnhance_TryRecruit', machine.entity(expected)) == 0
@@ -321,6 +324,61 @@ def main():
             assert [machine.byte(machine.member(i) + 1) for i in range(4)] == [int(i == entry) for i in range(4)]
             assert [machine.byte(machine.info(i) + 7) for i in range(4)] == [int(i == entry) for i in range(4)]
     machine.spawn_retained_leader = None
+
+    # Actual active-record reorder, rather than just physical entity order:
+    # original member 0 moves to roster slot 1; its successor now occupies 0.
+    machine.setup()
+    machine.half(machine.info(0) + 0x10, 0)
+    assert machine.run('ControlModeEnhance_ReserveFaint', machine.entity(0)) == 1
+    records = [bytes(machine.uc.mem_read(machine.member(i), 0x80)) for i in range(4)]
+    for slot, identity in enumerate([1, 0, 2, 3]):
+        machine.uc.mem_write(machine.member(slot), records[identity])
+        machine.half(machine.info(identity) + 0xC, slot)
+    machine.half(machine.info(1) + 0x12, 150)
+    machine.half(machine.info(1) + 0x16, 0)
+    machine.half(machine.info(1) + 0x10, 0)
+    assert machine.run('ControlModeEnhance_ReserveFaint', machine.entity(1)) == 1
+    assert machine.word(symbols['cedeadmask']) == 3
+    assert [machine.word(symbols['cedeadmemberid'] + i * 4) for i in range(2)] == [0, 1]
+    machine.run('ControlModeEnhance_PrepareFloor')
+    assert machine.word(symbols['ceentryleader']) == 1
+    assert machine.half(machine.member(1) + 0xE) == 120
+    assert machine.half(machine.member(0) + 0xE) == 150
+    machine.spawn_retained_leader = 2
+    machine.run('ControlModeEnhance_SpawnTeam')
+    assert machine.word(symbols['celeader']) == machine.entity(1)
+    assert machine.word(symbols['ceentrymemberid']) == 0
+    machine.spawn_retained_leader = None
+
+    # Shared exit is after result selection, before final export/free. Do not
+    # revive, refill PP or change the result, even if entry member is dead.
+    for outcome in [1, 2, 3]:  # clear, escape, defeat fixture values
+        for entry_dead in [False, True]:
+            machine.setup()
+            machine.run('ControlModeEnhance_SetLeader', machine.entity(1))
+            if entry_dead:
+                machine.half(machine.info(0) + 0x10, 0)
+                assert machine.run('ControlModeEnhance_ReserveFaint', machine.entity(0)) == 1
+            records = [bytes(machine.uc.mem_read(machine.member(i), 0x80)) for i in range(4)]
+            for slot, identity in enumerate([1, 0, 2, 3]):
+                machine.uc.mem_write(machine.member(slot), records[identity])
+                machine.half(machine.info(identity) + 0xC, slot)
+            # Vanilla defeat can deactivate the original member record.
+            if outcome == 3 and entry_dead:
+                machine.byte(machine.member(1), machine.byte(machine.member(1)) & ~3)
+            before = [(machine.half(machine.member(i) + 0xE), bytes(machine.uc.mem_read(machine.member(i) + 0x1C, 34))) for i in range(4)]
+            machine.run('ControlModeEnhance_DungeonEnd', outcome, 0x76543210, 0x12345678, stop=0x0234CF60)
+            assert machine.uc.reg_read(UC_ARM_REG_R0) == outcome
+            assert machine.uc.reg_read(UC_ARM_REG_R1) == 0x76543210
+            assert machine.uc.reg_read(UC_ARM_REG_R2) == 0x12345678
+            assert machine.uc.reg_read(UC_ARM_REG_SP) == SP
+            assert [machine.byte(machine.member(i) + 1) for i in range(4)] == [0, 1, 0, 0]
+            assert before == [(machine.half(machine.member(i) + 0xE), bytes(machine.uc.mem_read(machine.member(i) + 0x1C, 34))) for i in range(4)]
+            assert machine.word(symbols['cedeadmask']) == 0
+            if entry_dead:
+                assert machine.half(machine.info(0) + 0x10) == 0
+            else:
+                assert machine.word(symbols['celeader']) == machine.entity(0)
 
     machine.setup()
     machine.half(machine.info(0) + 0x10, 0)
@@ -417,7 +475,8 @@ def main():
         if isinstance(doc, dict):
             assert all(x.get('id') != 19299 for x in doc.get('entries', []) if isinstance(x, dict)), path
     print(json.dumps({'leader_guest_permutations': cases, 'full_HP_and_PP_before_vanilla': 'passed',
-                      'entry_leader_restored': 'passed', 'guest_only_game_over': 'passed',
+                      'entry_leader_restored': 'passed', 'guild_identity_after_roster_reorder': 'passed',
+                      'shared_exit_clear_escape_defeat': 'passed', 'guest_only_game_over': 'passed',
                       'recruit_gate_and_message': 'passed', 'korean_message_index': 19299,
                       'Z_gauge_hook_unchanged': True, 'manual_auto_leader_flags': 'passed',
                       'auto_returns_to_vanilla_ally_batch': 'passed', 'ROM_written': False}, indent=2))

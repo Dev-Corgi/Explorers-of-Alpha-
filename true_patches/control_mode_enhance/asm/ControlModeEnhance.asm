@@ -33,6 +33,9 @@
 	bl ControlModeEnhance_DungeonStart
 .org CmeSpawnTeamSite
 	bl ControlModeEnhance_SpawnTeam
+
+.org CmeDungeonEndSite
+	bl ControlModeEnhance_DungeonEnd
 .org CmeFaintSite
 	b ControlModeEnhance_Faint
 .org CmeRecruitCheckSite
@@ -102,6 +105,11 @@ CeDeadHp:
 ; Four PP bytes per roster member. Zero PP is preserved as zero.
 CeDeadPp:
 .word 0, 0, 0, 0
+; Stable guild member identity; unlike active roster / physical slot indices.
+CeEntryMemberId:
+.word -1
+CeDeadMemberId:
+.word -1, -1, -1, -1
 .align 4
 
 ; r0 = entity. Returns that entity when it is a live team member, else 0.
