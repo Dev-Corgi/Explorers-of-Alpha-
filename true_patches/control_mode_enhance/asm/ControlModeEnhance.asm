@@ -121,7 +121,11 @@ CeDeadMemberId:
 ; after graduation. Always report it as enabled for the main game. The caller
 ; has already saved r4 and expects the ordinary function epilogue here.
 ControlModeEnhance_ForceLeaderSwitch:
-	mov r0, #1
+	bl GetGameMode
+	cmp r0, #3
+	moveq r0, #0
+	movne r0, #1
+	and r0, r0, #0xff
 	pop {r4, pc}
 
 ; r0 = entity. Returns that entity when it is a live team member, else 0.

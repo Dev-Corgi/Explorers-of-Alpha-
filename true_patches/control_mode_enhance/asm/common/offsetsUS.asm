@@ -66,6 +66,7 @@ ov_36 equ 0x023A7080
 .definelabel CmeDungeonEndSite,     0x022E026C
 .definelabel CmeDungeonEndOriginal, 0x0234CF60
 .definelabel CmeLeaderSwitchFlagSite, 0x0204CAC0
+.definelabel GetGameMode,              0x0204AFC0
 ; After vanilla faint status cleanup and after reviver handling. The Z gauge
 ; owns HandleFaint's entry, so this module hooks its unclaimed body instead.
 .definelabel CmeFaintSite,           0x022F8024
