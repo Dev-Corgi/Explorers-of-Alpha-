@@ -1,8 +1,23 @@
-# control_mode_enhance v14
+# control_mode_enhance v15
 
 Start on a regular member's manual turn selects that member as the auto leader.
 Guests remain AI-controlled. `CeLeader` stays at cave+8 for `belly_union`; the
 larger ov36 cave is allocated by the patch engine, never pinned in source.
+
+## Auto following
+
+Auto returns to ExecuteRound's vanilla ally phase, including its batched deferred
+movement retries ordered by distance from the leader. The earlier per-member
+immediate retry could run the rear follower before the intervening teammate had
+moved, producing repeated blocked steps in narrow passages. Manual keeps the
+wrapping party scan; auto movement uses vanilla ordering.
+
+Selecting the auto leader synchronizes both entity leader flags and active-roster
+leader flags. It does this even if manual control already made that entity the
+engine's temporary leader. The old early return only updated `CeLeader` and left
+the active-roster leader stale. A change to the designated leader marks the
+existing dungeon refresh flag so the normal refresh path recomputes team state.
+No terrain-traversal permissions or pathfinding algorithms are changed.
 
 ## Fainting and floors
 
@@ -58,6 +73,7 @@ handlers in Unicorn with stubbed game services. It checks 12 leader/guest
 permutations, reordered entity slots, multiple deaths, guest-only loss,
 HP/PP restoration before vanilla processing, entry-leader identity, recruitment
 results/arguments, message-slot conflicts, Korean encoding and the unchanged
-Z-gauge hook. No ROM is written. Full dungeon gameplay, in-game quicksave/resume,
+Z-gauge hook. It also checks leader-flag synchronization and the auto/manual
+scan return ABI. No ROM is written. Full dungeon gameplay, in-game quicksave/resume,
 and floor transitions still need an emulator integration test when a build is
 requested.

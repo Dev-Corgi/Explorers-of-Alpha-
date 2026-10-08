@@ -1,18 +1,21 @@
 id: control_mode_enhance
-version: 14
+version: 15
 region: US
 description: >
   Full control mode. Start on any team member's turn toggles auto/manual, and
-  Select stays camera mode. Each round starts on the current leader and walks
-  the party in slot order, wrapping back to that leader before enemies.
-  Manual to auto makes that pokemon the leader without reordering the lap
-  already running; the next round starts on them. The leader is controlled.
+  Select stays camera mode. Manual rounds walk the party in slot order,
+  wrapping back to the current leader before enemies. Auto uses the vanilla
+  ally phase and its distance-ordered deferred movement retries.
+  Manual to auto makes that pokemon the leader; remaining auto actions use
+  vanilla ordering and the next round starts on them. The leader is controlled.
   Anyone else is controlled in manual and takes the ally turn in auto.
   Guests always take the AI turn and cannot inherit leadership after a faint.
   A regular member faint preserves its roster slot while another regular member
   lives; recruiting is blocked until the next floor. The next floor revives those
   members at full HP with death-time PP, then follows vanilla floor processing,
   and restores the dungeon-entry leader.
+  Leader selection synchronizes persistent roster flags even when manual
+  control already made that actor the engine's temporary leader.
 
 kind: asm
 rom_profile: us_vanilla

@@ -7,10 +7,10 @@
 ; party slots and wraps, and stops when the next one is the round opener
 ; (CeRoundOrigin), so each living member acts once.
 ;
-; A new round starts on the current leader, then walks forward through the
-; party slots and wraps, until it returns to that leader. Enemies come after
-; that full lap. Manual to auto makes that pokemon the leader and leaves this
-; lap where it is; the next round starts on them. At each turn the leader is
+; A manual round starts on the current leader, then walks forward through the
+; party slots and wraps, until it returns to that leader. Auto follows vanilla's
+; ally batch and deferred movement phase before enemies. Manual to auto makes
+; that pokemon the leader; the next round starts on them. At each turn the leader is
 ; controlled. Anyone else is controlled in manual and takes the ally turn in
 ; auto. The next floor restores the dungeon-entry leader. CeLeader stays at cave+8 for
 ; belly_union.
@@ -468,10 +468,30 @@ ControlModeEnhance_LeaderOrAi:
 ControlModeEnhance_LeaderMenu:
 	b LeaderMenuFn
 
-; Replaces the scan's return-if-auto. Both modes walk the party from the
-; member who just acted. The leader swap and action display that used to run
-; first are the pause before an automatic turn, so the walk starts at the loop.
+; In auto, return to ExecuteRound's vanilla ally phase. Its deferred movement
+; pass groups blocked followers by leader distance before retrying them. Doing
+; retries immediately per member can make the rear member lose its move before
+; the member in front has acted. Manual still uses the wrapping party scan.
 ControlModeEnhance_ScanStay:
+	push {r0, r1, lr}
+	ldr r0, =CeManualFlag
+	ldrb r0, [r0]
+	cmp r0, #0
+	pop {r0, r1, lr}
+	bne ControlModeEnhance_ScanStayManual
+	push {r0-r12, lr}
+	ldr r0, =CeLeader
+	ldr r0, [r0]
+	bl ControlModeEnhance_LeaderOk
+	cmp r0, #0
+	blne ControlModeEnhance_SetLeader
+	ldr r0, =CeRoundPending
+	mov r1, #1
+	str r1, [r0]
+	pop {r0-r12, lr}
+	; Replay Alpha's original auto return. Its frame is r0-r12 plus saved lr.
+	pop {r0-r12, pc}
+ControlModeEnhance_ScanStayManual:
 	push {r0, lr}
 	ldr r0, =DungeonPtrAddr
 	ldr r0, [r0]
@@ -529,17 +549,8 @@ ControlModeEnhance_SetLeader:
 	mov r4, r0
 	ldr r1, =LeaderPtrAddr
 	ldr r5, [r1]
-	cmp r5, r4
-	bne ControlModeEnhance_SetLeaderTransfer
-	ldr r0, [r4, #0xb4]
-	cmp r0, #0
-	beq ControlModeEnhance_SetLeaderDone
-	ldrb r0, [r0, #7]
-	cmp r0, #1
-	bne ControlModeEnhance_SetLeaderTransfer
-	ldr r0, =CeLeader
-	str r4, [r0]
-	b ControlModeEnhance_SetLeaderDone
+	; Manual already made this actor the engine's temporary leader. Even if
+	; LeaderPtrAddr matches, synchronize all entity AND persistent roster flags.
 ControlModeEnhance_SetLeaderTransfer:
 	ldr r8, =DungeonPtrAddr
 	ldr r8, [r8]
@@ -602,7 +613,15 @@ ControlModeEnhance_SetLeaderStore:
 	ldr r0, =LeaderPtrAddr
 	str r4, [r0]
 	ldr r0, =CeLeader
+	ldr r1, [r0]
 	str r4, [r0]
+	cmp r1, r4
+	beq ControlModeEnhance_SetLeaderDone
+	; Let the existing dungeon refresh path recompute its cached team view.
+	ldr r0, =DungeonPtrAddr
+	ldr r0, [r0]
+	mov r1, #1
+	strb r1, [r0, #0xE]
 ControlModeEnhance_SetLeaderDone:
 	pop {r4, r5, r6, r7, r8, lr}
 	bx lr

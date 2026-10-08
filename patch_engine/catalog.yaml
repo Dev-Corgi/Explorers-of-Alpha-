@@ -131,8 +131,8 @@ modules:
     kind: balance_change
   control_mode_enhance:
     path: control_mode_enhance
-    description: Full control mode. Each round starts on the current leader and wraps through the party
-      before enemies. Manual to auto selects the next-round leader. Regular-member fainting passes
+    description: Full control mode. Manual rounds wrap through the party; auto uses vanilla ally and
+      deferred movement phases. Manual to auto synchronizes the selected leader. Regular-member fainting passes
       leadership while teammates live; recruitment pauses until next-floor revival and entry-leader restoration.
     kind: asm
   belly_union:
@@ -212,10 +212,11 @@ notes:
     IsLevelResetDungeon early-out; floor event divisor always 10; no empty move-slot penalty; Special
     Episode storage allowed on all difficulties.'
   control_mode_enhance: ov36 cave plus retargeted loads in Alpha's control mode code. Select is unchanged
-    (camera mode). Start works on any teammate's turn. Each round starts on the current leader, then walks
-    the party slots forward and wraps back to that leader before the enemy phase. Manual to auto makes
-    the pokemon who switched the leader without reordering the lap already running; the next round starts
-    on them. The leader is player controlled. Anyone else is player controlled in manual and takes the
+    (camera mode). Start works on any teammate's turn. Manual rounds walk the party slots forward and
+    wrap back to the leader before the enemy phase; auto returns to the vanilla ally batch and deferred
+    movement retry order. Manual to auto makes
+    the pokemon who switched the leader; remaining auto actions use vanilla ordering and the next round
+    starts on them. The leader is player controlled. Anyone else is player controlled in manual and takes the
     ally turn in auto. Guests always take the AI turn and cannot inherit after fainting or prevent
     regular-team wipeout. Fainted regular slots remain reserved; recruitment is blocked with text_e
     index 19299 (code 19300). Before the next floor, revive at full HP with death-time PP, then follow

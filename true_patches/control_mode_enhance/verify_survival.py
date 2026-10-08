@@ -326,6 +326,39 @@ def main():
     machine.run('ControlModeEnhance_SpawnTeam')
     assert machine.word(symbols['ceentryleader']) == 3
 
+    # Manual's temporary actor can already be the engine leader while the
+    # persistent roster still says somebody else. Auto selection must fix both.
+    machine.setup()
+    machine.word(0x0235355C, machine.entity(2))
+    machine.byte(machine.info(0) + 7, 0)
+    machine.byte(machine.info(2) + 7, 1)
+    machine.run('ControlModeEnhance_SetLeader', machine.entity(2))
+    assert [machine.byte(machine.member(i) + 1) for i in range(4)] == [0, 0, 1, 0]
+    assert machine.word(symbols['celeader']) == machine.entity(2)
+    assert machine.byte(DUNGEON + 0xE) == 1
+    machine.byte(DUNGEON + 0xE, 0)
+    machine.run('ControlModeEnhance_SetLeader', machine.entity(2))
+    assert machine.byte(DUNGEON + 0xE) == 0
+
+    # Auto returns out of Alpha's scan to vanilla's complete ally/deferred
+    # phases. Manual still enters the custom scan. Check the real stack ABI.
+    for manual in [0, 1]:
+        machine.setup()
+        machine.byte(0x023A7090, manual)
+        frame = [0x11000000 + i for i in range(13)] + [RETURN]
+        machine.uc.mem_write(SP, struct.pack('<14I', *frame))
+        machine.uc.reg_write(UC_ARM_REG_CPSR, 0x1F)
+        machine.uc.reg_write(UC_ARM_REG_SP, SP)
+        machine.uc.reg_write(UC_ARM_REG_LR, 0x023A73C8)
+        machine.stop = 0x023A7430 if manual else RETURN
+        machine.stopped = False
+        machine.uc.emu_start(symbols['controlmodeenhance_scanstay'], 0, count=30000)
+        assert machine.stopped
+        assert machine.uc.reg_read(UC_ARM_REG_SP) == SP + (0 if manual else 56)
+        if not manual:
+            assert machine.uc.reg_read(UC_ARM_REG_R5) == frame[5]
+            assert machine.word(symbols['ceroundpending']) == 1
+
     # English/Korean slot reservation and import are tested on in-memory ROMs.
     fixture_text = parse_str_file(rom.getFileByName('MESSAGE/text_e.str'))
     expected_text = yaml.safe_load((MODULE / 'strings.yaml').read_text(encoding='utf-8'))['entries'][0]['text'].encode('ascii')
@@ -358,7 +391,8 @@ def main():
     print(json.dumps({'leader_guest_permutations': cases, 'full_HP_and_PP_before_vanilla': 'passed',
                       'entry_leader_restored': 'passed', 'guest_only_game_over': 'passed',
                       'recruit_gate_and_message': 'passed', 'korean_message_index': 19299,
-                      'Z_gauge_hook_unchanged': True, 'ROM_written': False}, indent=2))
+                      'Z_gauge_hook_unchanged': True, 'manual_auto_leader_flags': 'passed',
+                      'auto_returns_to_vanilla_ally_batch': 'passed', 'ROM_written': False}, indent=2))
 
 
 if __name__ == '__main__':
