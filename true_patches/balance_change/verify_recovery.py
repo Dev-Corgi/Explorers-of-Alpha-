@@ -28,6 +28,18 @@ def check(path, simulate=False):
             continue
         address = resolve_symbol(profile, hook["symbol"])
         old = struct.unpack("<I", uc.mem_read(address, 4))[0]
+        if hook["name"] == "RegenStrongEnemyCheck":
+            if simulate:
+                assert old == hook["vanilla_word"]
+                helper = 0x02710000
+                branch = lambda source, target: 0xEA000000 | (((target - source - 8) // 4) & 0xFFFFFF)
+                words = (0xE92D0001, 0xE5D700BC, 0xE3500006, 0x03A04000,
+                         0xE8BD0001, 0xE3540000, branch(helper + 24, address + 4))
+                uc.mem_write(helper, struct.pack("<7I", *words))
+                uc.mem_write(address, struct.pack("<I", branch(address, helper)))
+            else:
+                assert old & 0xFF000000 == 0xEA000000, hex(old)
+            continue
         assert old == hook["vanilla_word" if simulate else "patched_word"], hook
         if simulate:
             uc.mem_write(address, struct.pack("<I", hook["patched_word"]))
@@ -60,15 +72,18 @@ def check(path, simulate=False):
 
     uc.hook_add(UC_HOOK_CODE, service)
     count = 0
-    for base, weather, non_team, flags in product(
-        (40, 200, 201, 800), (0, 4, 5), (0, 1), product((False, True), repeat=7)
+    for base, weather, non_team, room, behavior, flags in product(
+        (40, 200, 201, 800), (0, 4, 5), (0, 1), (6, 8), (0, 6, 10),
+        product((False, True), repeat=7)
     ):
         ribbon, quick, wish, rain, dry, exclusive, ice = flags
         case.update(base=base, weather=weather, ribbon=ribbon, quick=quick,
                     rain=rain, dry=dry, exclusive=exclusive, ice=ice)
+        uc.mem_write(0x021040DA, bytes([room]))
         uc.mem_write(MONSTER, bytes(0x240))
         uc.mem_write(MONSTER + 2, struct.pack("<H", 139))
         uc.mem_write(MONSTER + 6, bytes([non_team]))
+        uc.mem_write(MONSTER + 0xBC, bytes([behavior]))
         uc.mem_write(MONSTER + 0x10, struct.pack("<HHHH", 100, 600, 0, 75))
         uc.mem_write(MONSTER + 0xD5, bytes([6 if wish else 0]))
         # Carry a remainder to check the actual recovery accumulator as well.
@@ -79,12 +94,18 @@ def check(path, simulate=False):
         uc.emu_start(0x02311104, 0x023112A8, count=10000)
         active = (ribbon, quick, wish, rain and weather == 4,
                   dry and weather == 4, exclusive)
-        expected = max(25, min(400, base // (2 ** sum(active))))
-        context = (base, weather, non_team, flags)
+        scaled_base = base // 4 if room == 6 and non_team else base
+        expected = max(25, min(400, scaled_base // (2 ** sum(active))))
+        context = (base, weather, non_team, room, behavior, flags)
         assert uc.reg_read(UC_ARM_REG_PC) == 0x023112A8, context
-        assert uc.reg_read(UC_ARM_REG_R4) == expected, context
-        assert struct.unpack("<H", uc.mem_read(MONSTER + 0x10, 2))[0] == 100 + 682 // expected, context
-        assert struct.unpack("<H", uc.mem_read(MONSTER + 0x210, 2))[0] == 682 % expected, context
+        if behavior == 6:
+            assert uc.reg_read(UC_ARM_REG_R4) == 0, context
+            assert struct.unpack("<H", uc.mem_read(MONSTER + 0x10, 2))[0] == 100, context
+            assert struct.unpack("<H", uc.mem_read(MONSTER + 0x210, 2))[0] == 7, context
+        else:
+            assert uc.reg_read(UC_ARM_REG_R4) == expected, context
+            assert struct.unpack("<H", uc.mem_read(MONSTER + 0x10, 2))[0] == 100 + 682 // expected, context
+            assert struct.unpack("<H", uc.mem_read(MONSTER + 0x210, 2))[0] == 682 % expected, context
         assert struct.unpack("<H", uc.mem_read(MONSTER + 0x16, 2))[0] == 75, context
         count += 1
     print(f"OK {path.name}: {count} recovery cases (simulation={simulate})")

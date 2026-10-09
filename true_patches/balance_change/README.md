@@ -25,3 +25,13 @@ both built full-stack ROMs, including the Hail NOP. Cases cover independent
 and stacked effects, both ability slots, all relevant weather, odd division,
 minimum clamping, and actual HP/accumulator updates. No ROM is saved by this
 validator.
+
+## Strong Enemy natural recovery (v14)
+
+The existing monster behavior byte at +0xBC stores spawn behavior 6 for
+Strong Enemy. At the original zero-regeneration-speed check, set the working
+denominator to zero for that behavior and use the original recovery exit.
+The natural recovery accumulator and HP stay unchanged, even with Wish,
+Quick Healer, held/exclusive items, or rain abilities. Subsequent status
+processing continues. Other behaviors, including Helping Ally (10), retain
+v13 recovery. No new monster fields or persistent data are introduced.

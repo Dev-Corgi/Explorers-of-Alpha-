@@ -1,5 +1,5 @@
 id: balance_change
-version: 13
+version: 14
 region: US
 description: >
   v11: the expanded fixed-room monster stats table is allocated and reserved
@@ -38,6 +38,8 @@ description: >
   ApplyFixedRoomStats is redirected there; BALANCE/fr_mst.bin mirrors it.
   Entries 35/55 stay at vanilla Alpha bytes (Registeel/Regidrago use append
   indices, not those slots).
+  v14: monsters with stored behavior 6 (Strong Enemy) skip natural HP
+  recovery, including the accumulator; other recovery services are unchanged.
   v13: each Heal Ribbon, Quick Healer, Wish, Rain Dish in rain, Dry Skin in
   rain, and exclusive HP recovery effect independently halves the natural
   recovery denominator (integer floor), with a final minimum of 25.
@@ -103,6 +105,13 @@ boss_movesets:
 special_episode_storage_ok: true
 
 hooks:
+  - name: RegenStrongEnemyCheck
+    symbol: RegenStrongEnemyCheckSite
+    binary: ov29
+    vanilla_word: 0xE3540000
+    target_symbol: BalanceChange_RegenStrongEnemyCheck
+    chain: first
+
   - name: RegenHealRibbon
     symbol: RegenHealRibbonSite
     binary: ov29

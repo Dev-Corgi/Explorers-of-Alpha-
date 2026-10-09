@@ -267,6 +267,7 @@ symbols:
   CmeDungeonStartSite: 0x022DF0F8
   CmeSpawnTeamSite: 0x022DF6A4
   CmeDungeonEndSite: 0x022E026C
+  RegenStrongEnemyCheckSite: 0x02311120
   RegenHealRibbonSite: 0x02311138
   RegenQuickHealerSite: 0x02311158
   RegenWishSite: 0x02311170

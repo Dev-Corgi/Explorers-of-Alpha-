@@ -35,6 +35,9 @@
 .org OutlawHpSite
 	bl BalanceChange_OutlawHp
 
+.org RegenStrongEnemyCheckSite
+	b BalanceChange_RegenStrongEnemyCheck
+
 ; Heal Ribbon no longer skips the Quick Healer check: both stack.
 .org RegenHealRibbonSite
 	movne r4, r4, asr #1
@@ -336,5 +339,16 @@ DiffRebalance_HardcoreLSSet:
 DiffRebalance_EHLSDone:
 	pop {r0, r1, lr}
 	b DiffRebalance_LSLoopCont
+
+; Stored behavior is statuses.monster_behavior (+0xA9 +0x13).
+; Skip only natural recovery; the original zero-speed exit resumes status processing.
+BalanceChange_RegenStrongEnemyCheck:
+	push {r0}
+	ldrb r0, [r7, #0xBC]
+	cmp r0, #6
+	moveq r4, #0
+	pop {r0}
+	cmp r4, #0
+	b 0x02311124
 
 .close

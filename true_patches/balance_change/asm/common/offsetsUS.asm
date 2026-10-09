@@ -51,3 +51,5 @@ BOSS_ENTRY_SIZE equ 12
 .definelabel RegenExclusiveSite, 0x02311214
 .definelabel RegenMinimumCompareSite, 0x02311224
 .definelabel RegenMinimumSetSite, 0x0231122C
+
+.definelabel RegenStrongEnemyCheckSite, 0x02311120
