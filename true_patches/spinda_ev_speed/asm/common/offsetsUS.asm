@@ -1,6 +1,6 @@
 ; US Explorers of Sky — Spinda Cafe EV for the CalcStat / Spe V stack.
 ; Dynamic caves: SpindaEvArm9CodeAddress, SpindaEvResetCaveAddress, SpindaEvTeamSubmenuTable (generated.inc).
-; Summary/Drink scratch: dungeon stat cave +0x480 (generated.inc); without that cave, fixed @ 9FB30.
+; Summary/Drink scratch: dungeon stat cave +0x2D00 (generated.inc); without that cave, fixed @ 9FB30.
 .arm
 
 .include "generated.inc"

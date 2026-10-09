@@ -1,12 +1,12 @@
 id: spinda_ev_speed
-version: 18
+version: 19
 region: US
 description: >
   Spinda Cafe EV for the CalcStat stack. Save HP/Atk/SpA/Def/SpD/Spe bytes
   are doping V (Drink + outing). Caps stay floor(level/10)*5 per stat and
   floor(level/10)*13 total, now including Spe. Drink menu is
   HP/Atk/SpA/Def/SpD/Spe/Reset. EvFillBoosts reads those bytes directly.
-  Snapshot restore writes the snapshot V back with no m_level add.
+  Permanent and outing V are saved separately with a versioned slot tail.
   The team stats page does not print (Vn); it shows CalcStat only.
   Drink Reset writes HP/Atk/SpA/Def/SpD/Spe V to 0. ExtraBits returns the
   remaining gummi mask in r1 so vanilla Atk GroundAdd cannot clamp a zeroed
@@ -22,9 +22,9 @@ description: >
   Floor Gravity multiplies Accuracy by 5/3 on that same rank/Spe roll.
   Outing-end restore reads DUNGEON_PTR_MASTER (the pointer DungeonFree
   frees). The working DUNGEON_PTR is often already null on escape.
-  Mid-outing NoteSave peels live V aside, writes the first-floor snapshot
-  V into the save stream, then restores live V in RAM so outing vitamins
-  do not pollute the save file. Snapshot itself stays RAM-only.
+  Slot-tail schema v1 preserves full Speed and roster-indexed outing V.
+  Stock monster streams contain permanent V without mutating live RAM.
+  Unmarked saves require an explicit Alpha / Alpha+ import choice.
   Exclusive-item Atk/SpA/Def/SpD/HP boosts (vanilla amounts) enter CalcStat
   as volatile r3 doping via base_stats_speed; save V bytes are unchanged and
   post-CalcDamage / post-summary exclusive flats are removed there.
@@ -188,7 +188,7 @@ hooks:
     chain: first
     target_symbol: WonderGummi_Exit
 
-  - name: DungeonStatFloorSnapshot
+  - name: DungeonStatFloorMember
     symbol: InitTeamMember
     binary: ov29
     vanilla_word: 0xE92D47F8
@@ -204,12 +204,90 @@ hooks:
     vanilla_resume: 0x022DEAB4
     target_symbol: DungeonStat_OnDungeonGroupEnd
 
-  - name: DungeonStatSaveClean
-    symbol: GetMonsterInfoForSave
+  - name: DopingSaveRead
+    symbol: DopingReadSaveFile
+    binary: arm9
+    vanilla_word: 0xE92D4038
+    chain: first
+    target_symbol: EvSave_Read
+
+  - name: DopingSaveWrite
+    symbol: DopingWriteSaveFile
+    binary: arm9
+    vanilla_word: 0xE92D4070
+    chain: first
+    target_symbol: EvSave_Write
+
+  - name: DopingSerializePermanent
+    symbol: DopingCopyMonsterToStream
+    binary: arm9
+    vanilla_word: 0xE92D4038
+    chain: first
+    target_symbol: EvSave_CopyMonster
+
+  - name: DopingLoadValues
+    symbol: DopingReadMonsterInfo
     binary: arm9
     vanilla_word: 0xE92D41F0
     chain: first
-    target_symbol: DungeonStat_SaveMonstersClean
+    target_symbol: EvSave_ReadMonsters
+
+  - name: DopingNewGame
+    symbol: DopingNewGame
+    binary: arm9
+    vanilla_word: 0xE92D4018
+    chain: first
+    target_symbol: EvSave_StartNewGame
+
+  - name: DopingMigrationChoice
+    symbol: DopingSpecialProcess
+    binary: ov11
+    vanilla_word: 0xE92D4FF8
+    chain: first
+    target_symbol: EvSave_SpecialProcess
+
+  - name: DopingTemporaryProtein
+    symbol: DopingProteinEffect
+    binary: ov29
+    vanilla_word: 0xE92D4070
+    chain: first
+    target_symbol: EvSave_Protein
+
+  - name: DopingTemporaryCalcium
+    symbol: DopingCalciumEffect
+    binary: ov29
+    vanilla_word: 0xE92D4070
+    chain: first
+    target_symbol: EvSave_Calcium
+
+  - name: DopingTemporaryIron
+    symbol: DopingIronEffect
+    binary: ov29
+    vanilla_word: 0xE92D4070
+    chain: first
+    target_symbol: EvSave_Iron
+
+  - name: DopingTemporaryZinc
+    symbol: DopingZincEffect
+    binary: ov29
+    vanilla_word: 0xE92D4070
+    chain: first
+    target_symbol: EvSave_Zinc
+
+  - name: DopingTemporaryHp
+    symbol: DopingHpEffect
+    binary: ov29
+    vanilla_word: 0xE92D4FF8
+    chain: first
+    target_symbol: EvSave_Hp
+
+
+  - name: DopingQuickSaveImport
+    symbol: DopingLeaderTurn
+    binary: ov29
+    vanilla_word: 0xE92D4FF8
+    chain: first
+    target_symbol: EvSave_LeaderTurn
 
 arm9_code_cave:
   base_label: SpindaEvArm9CodeAddress
@@ -243,7 +321,7 @@ arm9_reset_cave:
 
 arm9_dungeon_stat_cave:
   base_label: SpindaEvDungeonStatCave
-  estimated_bytes: 1200
+  estimated_bytes: 11776
   alignment: 4
   preferred: 0x94D94
   max_file_offset: 0x94D94

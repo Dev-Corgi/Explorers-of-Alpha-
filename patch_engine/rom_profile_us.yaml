@@ -364,3 +364,16 @@ symbols:
   BuMoveSetSite: 0x0232ACD0
   BuSkipDrainSite: 0x023D6E94
   HasHeldItemSite: 0x023467E4
+
+  DopingReadSaveFile: 0x02048ED0
+  DopingWriteSaveFile: 0x02048E74
+  DopingCopyMonsterToStream: 0x02059334
+  DopingReadMonsterInfo: 0x02059224
+  DopingNewGame: 0x020487C4
+  DopingSpecialProcess: 0x022E7118
+  DopingProteinEffect: 0x02317F50
+  DopingCalciumEffect: 0x02317FE4
+  DopingIronEffect: 0x02318078
+  DopingZincEffect: 0x0231810C
+  DopingHpEffect: 0x023152E4
+  DopingLeaderTurn: 0x022EC308

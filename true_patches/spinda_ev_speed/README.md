@@ -60,17 +60,63 @@ by 5/3 on that roll, same as the main series: hit when
 Integer floor. Z-Move still skips the roll. The Accuracy>100 sure-hit
 exit already ran, so a 90 that becomes 150 still goes through rank/Spe.
 
-## Snapshot
+## Save schema v1
 
-First-floor snapshot stores those V bytes. DungeonFree restore (group
-outing end: escape / give-up / faint, or last group-floor clear) writes
-the snapshot back with no m_level add. Outing protein / ribbon /
-Wonder Gummi / Life Seed on those bytes drop off; Drink V stays.
+RAM V remains permanent + temporary doping for CalcStat. Temporary doping
+is recorded separately for all 555 guild roster IDs, not active slots or
+leader identity. Dungeon vitamins, gummis and HP boosts record the actual
+clamped delta, including nested Wonder Gummi calls. Returning a member to
+the guild keeps its temporary record until the outing ends. Recruitment
+uses a vacant guild record (temporary V = 0). Release/sorting in town occurs
+after group-end cleanup, when all temporary records are zero.
 
-Mid-outing saves (`GetMonsterInfoForSave`): live V is peeled aside, the
-snapshot V is what goes into the save stream, then live V is restored in
-RAM. Outing vitamins stay for the current session but do not pollute the
-save. The snapshot itself is still RAM-only (lost on quit).
+DungeonFree clears temporary V only on group completion, escape, defeat
+or give-up. Intermediate floors and group segments do not reset it.
+All guild records and all three active rosters are reconciled by member ID.
+There is no initial-floor snapshot, save-time peel, or RAM restore afterward.
+
+The stock 0xB65C-byte main save and its checksum stay unchanged in size.
+Reserved header bytes +0x35..+0x37 contain `EV`, version 1. A separately
+checksummed 3908-byte tail starts at slot +0xB700: magic `EVS1`, main checksum,
+version/count, full permanent Speed for 555 guild + 4 maze records, then
+six temporary bytes per guild member. Main + tail end at +0xC644, before
+the next slot at +0xC800. Main slots begin at backup pages 0 and 200;
+quicksave starts at page 400. One device write writes each main/tail pair.
+A damaged/mismatched tail fails that slot and permits the stock backup path.
+Unknown extension versions are rejected, never treated as an old save.
+
+Stock monster serialization uses a stack copy containing permanent doping.
+Its 10-bit HP width is retained, with Speed in that word cleared; the tail
+preserves all 8 Speed bits. Saving never temporarily alters the live team.
+The tail is loaded before monster decoding and applied afterward, before
+normal active-member initialization. Quicksave writes its dungeon payload
+and then NoteSaveBase, so both payloads retain the same outing doping.
+
+Unmarked saves require an explicit choice: original Alpha zeros +0xA..+0xF
+for every guild/maze monster and the corresponding active copies; existing
+Alpha+ keeps the saved permanent doping. Level, experience, moves, IQ and
+recruitment data are unchanged. The town updater coroutine asks once; an
+old dungeon quicksave that skips it asks before the first playable leader
+turn. An unresolved choice cannot be saved. Previously truncated Speed
+bits and old RAM-only temporary snapshots cannot be recovered.
+
+The schema leaves Alpha's 0xFF update mark and script VAR_VERSION intact.
+Runtime state resides in dynamically allocated ARM9 cave RAM, outside
+Alpha's item cache and independent of dungeon heap lifetimes. The build
+requires arm-none-eabi-gcc (or ARM_GCC); it links at the allocated cave,
+then emits the binary and labels only in a temporary directory.
+
+Verification (no fullstack build or ROM output):
+
+```powershell
+.venv\Scripts\python.exe -B true_patches\spinda_ev_speed\verify_save.py
+```
+
+This executes the ARM codec in Unicorn with device I/O stubbed, checking
+Speed boundaries, nested item gains, slot/leader changes, sent-home group
+cleanup, legacy policies, corruption/backup and script jump relocation.
+Actual dialogue and complete dungeon gameplay still require an emulator
+integration check on a user-requested ROM build.
 
 ## Apply
 

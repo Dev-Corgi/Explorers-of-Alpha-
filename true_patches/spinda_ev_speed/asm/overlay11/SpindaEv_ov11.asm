@@ -1,1 +1,2 @@
-; Dungeon-eat stat restore moved to DungeonFree (ov29). ov11 stays vanilla.
+.org 0x022E7118
+ b EvSave_SpecialProcess

@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import struct
+import shutil
 import tempfile
 from pathlib import Path
 from typing import Any
@@ -23,6 +24,7 @@ from .arm9_layout import spinda_arm9_legacy_range
 from .cave_reservations import FileRange, reserved_file_ranges
 from .hook_registry import collect_hook_records, hook_word_kind, resolve_prior_target
 from .manifest import load_yaml, resolve_symbol
+from .spinda_save_runtime import build_runtime, patch_import_prompt
 from .state import AppliedModule, BuildState, CaveAllocation, HookRecord
 
 ARM9_LOAD = 0x02000000
@@ -48,9 +50,8 @@ VANILLA_LOAD_HOOK_WORD = 0xEA000000
 VANILLA_WRITE_HOOK_WORD = 0xEB004038
 
 LEGACY_SCRATCH_BASE = 0x0209FB30
-DUNGEON_STAT_SNAP_OFFSET = 0x400
-DUNGEON_STAT_PEEL_OFFSET = 0x434
-DUNGEON_STAT_SCRATCH_OFFSET = 0x480
+DUNGEON_STAT_STATE_OFFSET = 0x1D00
+DUNGEON_STAT_SCRATCH_OFFSET = 0x2D00
 # Alpha GetItemIdFromList cache: 6 lists x 0x2F8 B, rewritten at runtime.
 ALPHA_ITEM_LIST_CACHE = (0x0209F904, 0x020A0AD4)
 ALPHA_PADDING_BYTE = 0xCC
@@ -510,11 +511,23 @@ def apply_spinda_ev_module(
         ov11_path.write_bytes(bytes(ov11_data))
 
         gen_inc = tmp_path / "generated.inc"
+        base_stats = state.get_module("base_stats_speed") if state else None
+        calc_stat = next((data["BaseStats_CalcStat"] for data in base_stats.data
+                          if "BaseStats_CalcStat" in data), None) if base_stats else None
+        if calc_stat is None:
+            raise RuntimeError("spinda_ev_speed save codec requires base_stats_speed exports")
+        runtime, labels = build_runtime(module_dir, tmp_path, stat_slot.load_address,
+                                        int(calc_stat, 16))
+        gen_text += labels
         write_generated_inc_text(gen_inc, gen_text)
+
+        bundled_asm = tmp_path / "asm"
+        shutil.copytree(asm_dir, bundled_asm)
+        shutil.copy2(runtime, bundled_asm / "save_v1.bin")
 
         run_armips_bundle(
             armips=armips,
-            asm_dir=asm_dir,
+            asm_dir=bundled_asm,
             asm_entry=asm_entry,
             binaries={
                 "arm9.bin": arm9_path,
@@ -585,6 +598,7 @@ def apply_spinda_ev_module(
     patch_strings(rom, module_dir, manifest)
     if module_id == "spinda_ev_speed":
         patch_drink_ingredients(rom)
+        patch_import_prompt(rom, config)
 
     hook_records: list[dict[str, Any]] = []
     for hook in hooks_cfg:
@@ -725,9 +739,9 @@ def verify_spinda_ev_module(
         tail = stat_cave.file_offset + stat_cave.size
         if any(arm9[tail - 16 : tail]):
             raise AssertionError("dungeon-stat cave overflowed")
-        snap = stat_cave.file_offset + DUNGEON_STAT_SNAP_OFFSET
-        if any(arm9[snap : snap + 52]):
-            raise AssertionError("dungeon stat snapshot must stay 0 in the ROM")
+        state_word = stat_cave.file_offset + DUNGEON_STAT_STATE_OFFSET
+        if any(arm9[state_word : state_word + 3904]):
+            raise AssertionError("doping runtime state must stay 0 in the ROM")
         scratch_off = stat_cave.file_offset + DUNGEON_STAT_SCRATCH_OFFSET
         if any(arm9[scratch_off : scratch_off + 12]):
             raise AssertionError("spinda scratch words must stay 0 in the ROM")
@@ -742,7 +756,7 @@ def verify_spinda_ev_module(
         if not (
             stat_cave.load_address
             <= stub
-            < stat_cave.load_address + DUNGEON_STAT_SNAP_OFFSET
+            < stat_cave.load_address + 0x800
         ):
             raise AssertionError(
                 f"DungeonFree jumps {stub:#x}, not the dungeon-stat cave"
@@ -774,9 +788,6 @@ def verify_spinda_ev_module(
                     break
             if not found_grav:
                 raise AssertionError("arm9 code cave missing GravityIsActive call")
-            peel = stat_cave.file_offset + DUNGEON_STAT_PEEL_OFFSET
-            if any(arm9[peel : peel + 52]):
-                raise AssertionError("dungeon stat peel buffer must stay 0 in the ROM")
 
     drink_off = SPINDA_DRINK_CAVE_FILE
     if any(arm9[drink_off : drink_off + SPINDA_DRINK_CAVE_SIZE]):

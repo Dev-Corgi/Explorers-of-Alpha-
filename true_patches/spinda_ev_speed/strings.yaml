@@ -35,3 +35,8 @@ entries:
     text: "HP"
   - id: 19246
     text: "Speed"
+
+  - id: 19610
+    text: "Is this a save from the original Alpha?\nYes: reset old stats to zero doping.\nChoose No if this is an Alpha+ save."
+  - id: 19611
+    text: "Is this an existing Alpha+ save?\nYes: keep existing permanent doping.\nChoose No to return to the import question."
