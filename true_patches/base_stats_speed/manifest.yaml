@@ -1,7 +1,9 @@
 id: base_stats_speed
-version: 42
+version: 43
 region: US
 description: >
+  v43: clear table Atk/SpA/Def/SpD only after initial fixed-room stat
+  application, retaining HP policy and later real doping/exclusive boosts.
   v42: Charmander seats in FR200/202/206/211/214/215/217/218/219/220/221/250
   use party-max + 5 (cap 100) and CalcStat HP x2; other seats retain x1.25.
   v41: exclusive HP folding reads the monster effect bitmap through r7;

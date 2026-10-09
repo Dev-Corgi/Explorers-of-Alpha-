@@ -513,6 +513,16 @@ BaseStats_FixedApply:
 	mov r1, r6
 	ldr r2, [sp, #0x24]
 	bl ApplyFixedRoomStats
+	; The table's four base stats are not doping. Clear them only here,
+	; immediately after initial fixed-room creation; HP/flags/exp/IQ stay.
+	ldr r0, [r4, #0xB4]
+	cmp r0, #0
+	beq BaseStats_FixedDone
+	mov r1, #0
+	strb r1, [r0, #0x1a]
+	strb r1, [r0, #0x1b]
+	strb r1, [r0, #0x1c]
+	strb r1, [r0, #0x1d]
 	cmp r5, #6
 	bne BaseStats_FixedHelping
 	mov r0, r4

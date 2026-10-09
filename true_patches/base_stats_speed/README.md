@@ -38,6 +38,14 @@ Dungeon `+0x12` is the real max HP from `CalcStat(HP, HP V [+ excl])`.
 Wild spawn writes V=0. Level-up and evolution keep V. `InitTeamMember`
 copies the four V bytes and writes CalcStat HP.
 
+Fixed-room Strong Enemy and Helping Ally creation clears the four V bytes
+immediately after `ApplyFixedRoomStats`: table Atk/SpA/Def/SpD must not
+become doping bonuses. Table flags, experience, IQ and the existing HP
+policies remain. This cleanup is not in combat, team initialization,
+quicksave restoration or evolution, so later doping is preserved.
+Guest table conversion already initializes all six V values to zero in
+`BaseStats_ZeroGuestV`; copying existing team/guest V remains unchanged.
+
 Exclusive boost table (`EXCLUSIVE_ITEM_STAT_BOOST_DATA`): type Silk/Dust
 classes (1–4) set every nonzero Atk/Def/SpA/SpD boost to **15**. Every
 remaining **3** in the table becomes **5** (Pokémon exclusives). Gems and
@@ -67,9 +75,11 @@ these entry-30 seats instead use `min(100, party-max + 5)` and
 `CalcStat(species, that level, HP, V=0) × 2`. Party-max excludes guests.
 This runs after fixed-room stat application, independently of dungeon level
 scaling. Both current and maximum HP receive the result (cap 32767).
-Other rooms retain party-max and HP ×1.25; other stats entries are unchanged.
+Other rooms retain party-max and HP ×1.25; other stats entries keep their HP policy.
 Run `verify_fixed_scaling.py` to assemble a temporary fixture and check all
 256 room IDs, level boundaries, guest exclusion, HP caps and register preservation.
+It also checks initial fixed-table V cleanup, later doping plus exclusive
+bonuses, guest creation, and V preservation on team initialization/evolution.
 Same Species ×3+ swarms (except FR41 / entry 30) and FR11/13/17/19/75
 (except listed bosses) rewrite overlay10 table HP to
 `CalcStat(species, table level)` after the level remap; FR51 Deoxys
