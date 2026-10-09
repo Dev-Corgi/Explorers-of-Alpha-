@@ -28,8 +28,8 @@ recommended_order:
 modules:
   bug_fixes:
     path: bug_fixes
-    description: Remove passive Hail recovery acceleration for monsters without Ice Body.
-    kind: data
+    description: Hail recovery, Mirror Armor reflection pointers, Trace suppression, and adjacent Neutralizing Gas.
+    kind: asm
   team_push:
     path: team_push
     description: Teammate push. The leader can push an adjacent ally while holding the direction.
@@ -158,7 +158,7 @@ modules:
       balance_change.
     kind: asm
 notes:
-  bug_fixes: In-place ov29 instruction fix at 0x023111F0. No cave or strings; apply before korean.
+  bug_fixes: Hail NOP plus dynamically allocated ov36 ability fixes. Gas affects live monsters on the eight adjacent tiles on either side; apply before korean.
   fixed_room_orbs: Data-only; needs ChangeFixedFloorProperties on base ROM (not applied here).
   shop_sell_price: Data-only; patches BALANCE/item_p.bin + UTILITY/item_p.bin sell_price fields.
   difficulty_unlock: Data-only; SCRIPT/COMMON/unionall.ssb Expert/Hardcore BranchPerformance(18) → Jump.

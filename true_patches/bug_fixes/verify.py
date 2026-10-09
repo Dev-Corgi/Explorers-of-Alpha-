@@ -1,8 +1,7 @@
-"""Apply only bug_fixes in temporary files and exercise the ARM recovery path."""
+"""Apply only bug_fixes in temporary files and exercise recovery and abilities."""
 
 from __future__ import annotations
 
-import copy
 import struct
 import sys
 import tempfile
@@ -22,14 +21,13 @@ from unicorn.arm_const import (
 
 from patch_engine.apply_module import apply_module, verify_module_applied
 from patch_engine.build_full_stack import FULL_STACK_MODULES
-from patch_engine.manifest import load_module_manifest, load_yaml
-from patch_engine.overlay_caves import get_rom_binary, write_rom_binary
-from skytemple_files.common.util import get_ppmdu_config_for_rom
-from true_patches.bug_fixes.patch import apply_bug_fixes_rom, verify_bug_fixes_rom
+from patch_engine.manifest import load_module_manifest, load_yaml, load_rom_profile, resolve_symbol
+from patch_engine.overlay_caves import get_rom_binary
+from patch_engine.state import AppliedModule, BuildState, save_state
+from patch_engine.hook_registry import assert_hooks_on_binary
 
 MODULE = Path(__file__).resolve().parent
 SOURCE = ROOT / "PatchTesting/Explorers of Alpha/Explorers of Alpha.nds"
-SITE = 0x023111F0
 ENTITY, MONSTER = 0x02120000, 0x02121000
 
 
@@ -108,33 +106,12 @@ def main() -> None:
     assert FULL_STACK_MODULES.count("bug_fixes") == 1
     assert FULL_STACK_MODULES[-1] == "bug_fixes"
     assert catalog["recommended_order"].index("bug_fixes") < catalog["recommended_order"].index("korean")
-    assert catalog["modules"]["bug_fixes"]["kind"] == "data"
+    assert catalog["modules"]["bug_fixes"]["kind"] == "asm"
     original = NintendoDSRom.fromFile(str(SOURCE))
-    before = get_rom_binary(original, "ov29")
-    fixed = copy.deepcopy(original)
-    record = apply_bug_fixes_rom(fixed, manifest)
-    verify_bug_fixes_rom(fixed, manifest)
-    assert record.fields_changed == 1
-    after = get_rom_binary(fixed, "ov29")
-    off = SITE - 0x022DC240
-    assert before[:off] == after[:off] and before[off + 4:] == after[off + 4:]
-    assert get_rom_binary(original, "ov36") == get_rom_binary(fixed, "ov36")
-    assert apply_bug_fixes_rom(fixed, manifest).fields_changed == 0
-    damaged = copy.deepcopy(original)
-    bad = get_rom_binary(damaged, "ov29")
-    struct.pack_into("<I", bad, off, 0)
-    write_rom_binary(damaged, get_ppmdu_config_for_rom(damaged), "ov29", bytes(bad))
-    try:
-        apply_bug_fixes_rom(damaged, manifest)
-    except RuntimeError:
-        pass
-    else:
-        raise AssertionError("unexpected instruction accepted")
-
-    print(f"ARM recovery: {check_recovery(original, fixed=False)} before, "
-          f"{check_recovery(fixed, fixed=True)} after cases passed")
+    print(f"ARM recovery before: {check_recovery(original, fixed=False)} cases passed")
     with tempfile.TemporaryDirectory(prefix="alpha_bug_fixes_") as temp:
         temp = Path(temp)
+        initial_cave = None
         inputs = [SOURCE]
         inputs.extend(path for path in (
             ROOT / "PatchTesting/Export Rom/Explorers of Alpha+.nds",
@@ -144,8 +121,66 @@ def main() -> None:
             output, state_path = temp / f"patched_{index}.nds", temp / f"state_{index}.json"
             state = apply_module("bug_fixes", source, output, state_path=state_path)
             verify_module_applied(output, MODULE, state)
-            assert not state.get_module("bug_fixes").caves
+            fixed = NintendoDSRom.fromFile(str(output))
+            # Only the declared hook words and newly allocated cave may change.
+            source_rom = original if source == SOURCE else NintendoDSRom.fromFile(str(source))
+            profile = load_rom_profile(ROOT / "patch_engine", "us_vanilla")
+            module_record = state.get_module("bug_fixes")
+            if source == SOURCE:
+                initial_cave = module_record.caves[0]
+            for binary, load in (("ov29", 0x022DC240), ("ov36", 0x023A7080)):
+                before, after = get_rom_binary(source_rom, binary), get_rom_binary(fixed, binary)
+                allowed = set()
+                for hook in manifest["hooks"]:
+                    if hook["binary"] == binary:
+                        off = resolve_symbol(profile, hook["symbol"]) - load
+                        allowed.update(range(off, off + 4))
+                for cave in module_record.caves:
+                    if cave.overlay == binary:
+                        allowed.update(range(cave.file_offset, cave.file_offset + cave.size))
+                assert len(before) == len(after)
+                assert all(a == b or off in allowed for off, (a, b) in enumerate(zip(before, after)))
+            print(f"ARM recovery after: {check_recovery(fixed, fixed=True)} cases passed")
+            from verify_abilities import check_abilities
+
+            check_abilities(fixed)
             print(f"Module apply/verify: {source.name}")
+            output.unlink()
+            state_path.unlink()
+        # Reserving the first slot must relocate every helper without changing
+        # the protected bytes or breaking any ability path.
+        reservation = BuildState("us_vanilla", 0x022DC240, [
+            AppliedModule("fixture_reservation", 1, caves=[initial_cave]),
+        ])
+        reservation_path = temp / "reservation.json"
+        save_state(reservation_path, reservation)
+        relocated_output = temp / "relocated.nds"
+        relocated_state = apply_module("bug_fixes", SOURCE, relocated_output, state_path=reservation_path)
+        verify_module_applied(relocated_output, MODULE, relocated_state)
+        new_cave = relocated_state.get_module("bug_fixes").caves[0]
+        assert new_cave.load_address != initial_cave.load_address
+        relocated = NintendoDSRom.fromFile(str(relocated_output))
+        first, end = initial_cave.file_offset, initial_cave.file_offset + initial_cave.size
+        assert get_rom_binary(original, "ov36")[first:end] == get_rom_binary(relocated, "ov36")[first:end]
+        check_abilities(relocated)
+        print("Dynamic cave relocation and reservation passed")
+        # An unknown original instruction must fail instead of silently patching it.
+        damaged = NintendoDSRom.fromFile(str(SOURCE))
+        overlays = loadOverlayTable(damaged.arm9OverlayTable, lambda _i, f: damaged.files[f])
+        ov29 = overlays[29]
+        blob = bytearray(damaged.files[ov29.fileID])
+        struct.pack_into("<I", blob, 0x023111F0 - ov29.ramAddress, 0)
+        damaged.files[ov29.fileID] = bytes(blob)
+        try:
+            assert_hooks_on_binary(
+                bytes(blob), ov29.ramAddress,
+                [hook for hook in manifest["hooks"] if hook["binary"] == "ov29"],
+                profile, set(),
+            )
+        except RuntimeError:
+            pass
+        else:
+            raise AssertionError("unexpected original instruction accepted")
     print("OK bug_fixes; no full-stack rebuild")
 
 

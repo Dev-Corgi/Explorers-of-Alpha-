@@ -367,10 +367,6 @@ def apply_data_module(
         record = apply_team_body_size_limit(rom, manifest)
     elif handler == "ground_sprite_replace":
         record = apply_ground_sprite_replace(rom, manifest, root / module_id)
-    elif handler == "bug_fixes_overlay_words":
-        from true_patches.bug_fixes.patch import apply_bug_fixes_rom
-
-        record = apply_bug_fixes_rom(rom, manifest)
     else:
         raise NotImplementedError(f"data handler {handler!r}")
 
@@ -406,10 +402,6 @@ def verify_data_module(
         verify_team_body_size_limit(rom_path, manifest)
     elif handler == "ground_sprite_replace":
         verify_ground_sprite_replace(rom_path, manifest, Path(module_dir))
-    elif handler == "bug_fixes_overlay_words":
-        from true_patches.bug_fixes.patch import verify_bug_fixes_rom
-
-        verify_bug_fixes_rom(NintendoDSRom.fromFile(str(rom_path)), manifest)
     else:
         raise NotImplementedError(f"verify for data handler {handler!r}")
 

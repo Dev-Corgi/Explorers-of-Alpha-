@@ -10,6 +10,12 @@ overlay19_load: 0x0238A140
 arm9_load: 0x02000000
 
 symbols:
+  BugFixHailRegenBonusSite: 0x023111F0
+  BugFixMirrorAttackSite: 0x023BB0B0
+  BugFixMirrorDefenseSite: 0x023BB10C
+  BugFixMirrorHitChanceSite: 0x023BB168
+  BugFixTraceAbilityReadSite: 0x022F9538
+  BugFixGasSuppressionSite: 0x023C03A8
   LoadOverlay: 0x020040AC
   UnloadOverlay: 0x02004868
   OverlayIsLoaded: 0x02003ED0

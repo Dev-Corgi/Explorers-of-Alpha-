@@ -1,26 +1,63 @@
 id: bug_fixes
-version: 1
+version: 2
 region: US
 description: >
   Remove Alpha's passive Hail recovery bonus for monsters without Ice Body.
-  Ice Body's contact frostbite effect, Quick Healer, Rain Dish, Dry Skin,
-  and other recovery modifiers retain their existing behavior.
+  Repair Mirror Armor reflection pointers, respect ability suppression for
+  Trace, and restrict Neutralizing Gas to adjacent live monsters on either side.
+  Ice Body's contact frostbite and other recovery modifiers retain their behavior.
 
-kind: data
+kind: asm
 rom_profile: us_vanilla
 
-data:
-  handler: bug_fixes_overlay_words
-  binary: ov29
-  word_patches:
-    - name: RemoveNonIceBodyHailRegenBonus
-      address: 0x023111F0
-      expected: 0x00844000  # addeq r4, r4, r0 (Hail recovery denominator -100)
-      replace: 0xE1A00000   # nop
+hooks:
+  - name: RemoveNonIceBodyHailRegenBonus
+    symbol: BugFixHailRegenBonusSite
+    binary: ov29
+    vanilla_word: 0x00844000
+    patched_word: 0xE1A00000
+  - name: MirrorArmorAttackReflection
+    symbol: BugFixMirrorAttackSite
+    binary: ov36
+    vanilla_word: 0xE1A08000
+    target_symbol: BugFix_MirrorAttack
+  - name: MirrorArmorDefenseReflection
+    symbol: BugFixMirrorDefenseSite
+    binary: ov36
+    vanilla_word: 0xE1A08000
+    target_symbol: BugFix_MirrorDefense
+  - name: MirrorArmorHitChanceReflection
+    symbol: BugFixMirrorHitChanceSite
+    binary: ov36
+    vanilla_word: 0xE1A07000
+    target_symbol: BugFix_MirrorHitChance
+  - name: TraceSuppressionCheck
+    symbol: BugFixTraceAbilityReadSite
+    binary: ov29
+    vanilla_word: 0xE5D60060
+    target_symbol: BugFix_Trace
+  - name: NeutralizingGasRange
+    symbol: BugFixGasSuppressionSite
+    binary: ov36
+    vanilla_word: 0xE92D0002
+    target_symbol: BugFix_GasSuppression
+
+cave:
+  binary: ov36
+  estimated_bytes: 768
+  alignment: 4
+  base_label: BugFixCodeAddress
+
+asm:
+  entry: asm/main.asm
 
 verify:
-  - type: bug_fixes_overlay_words
+  - type: hooks_are_branch
+  - type: cave_nonempty
+    overlay: ov36
 
 notes: >
-  In-place overlay29 instruction fix; no cave or new strings.
-  Apply after the other gameplay modules and before korean.
+  Preserve the Hail fix from v1. Dynamically allocate the v2 helpers in overlay36.
+  Nearby means the eight adjacent tiles; a gas holder does not suppress itself
+  or another Neutralizing Gas ability. Gastro Acid and Ability Monitor still
+  disable the gas holder. Apply after other gameplay modules, before korean.
