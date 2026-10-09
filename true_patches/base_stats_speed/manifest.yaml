@@ -1,7 +1,9 @@
 id: base_stats_speed
-version: 43
+version: 44
 region: US
 description: >
+  v44: town's other-screen team LV/HP panel reads CalcStat HP instead of
+  packed HP/Spe doping. Exclusive HP enters CalcStat; effect-0x38 stays flat.
   v43: clear table Atk/SpA/Def/SpD only after initial fixed-room stat
   application, retaining HP policy and later real doping/exclusive boosts.
   v42: Charmander seats in FR200/202/206/211/214/215/217/218/219/220/221/250
@@ -97,6 +99,18 @@ data:
     - UTILITY/waza_p2.bin
 
 hooks:
+  - name: TownTeamHpBase
+    symbol: TownTeamHpBase
+    binary: ov11
+    vanilla_word: 0xE1D840FE
+    chain: first
+    target_symbol: BaseStats_TownHpBase
+  - name: TownTeamHpTotal
+    symbol: TownTeamHpTotal
+    binary: ov11
+    vanilla_word: 0xE1D811F0
+    chain: first
+    target_symbol: BaseStats_TownHpTotal
   - name: MoveHitOnce
     symbol: MoveHitCheck
     binary: ov29

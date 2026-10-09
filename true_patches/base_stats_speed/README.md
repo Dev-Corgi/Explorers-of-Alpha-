@@ -138,6 +138,14 @@ moves use `data/rom_accuracy_overrides.json`. The rest stay.
   summary `+0x3D`. DrawWindowText ids are table index + 1. The arm9 file tail
   (from `0xDCD3C`) is inside the static BSS `0x020B3380`–`0x022BCA80` and is
   cleared at boot, so no code lives there.
+- Town's team LV/HP panel on the other DS screen: ov11 `0x022DC580` and
+  `0x022DC5F4` calculate HP with `CalcStat(species, level, HP, HP V + exclusive)`.
+  HP V is the low byte of team `+0x10`; Spe V in `+0x11` does not enter HP.
+  Effect `0x38` adds one eighth of calculated HP afterward, with saturation at
+  32767. The existing current-HP override during dungeon entry is preserved.
+  This changes display calculations only, without writing calculated stats
+  into saved doping fields. `verify_town_ui.py` executes the ground update
+  and the shared LV/HP panel setter in temporary ARM fixtures; no ROM is built.
 - New-game / recruit / species-refresh write V=0 (HP/Spe halfword and the four uint8s)
 - Guests start at V=0 and use `CalcStat` like the hero and partner. `level_scaling_guest_fix` keeps their table level out of the party-max rewrite so CalcStat is not run at the party's level. GuestMonsterToGroundMonster restores dest+0x14 so the learned-move bitset write does not clear the valid flag.
 - Dungeon level-up stat lines: CalcStat(new) − CalcStat(saved old level), plus Spe. Spe digits overwrite the `[string:1]` tag in the format buffer (that tag copies 16-bit units, so ASCII itoa drew leftover bytes).
@@ -151,7 +159,7 @@ moves use `data/rom_accuracy_overrides.json`. The rest stay.
 - Explorer Maze (`0xB`–`0xE`) saved records
 - Alpha dungeon-wide tables for Zero Isle East / Realm of Perfection
 - Ground Luminous Spring species change (ov36 is unloaded; next dungeon write refreshes)
-- Top-screen LV/HP sprites, dungeon X-menu (HP only)
+- Dungeon top-screen LV/HP sprites, dungeon X-menu (HP only)
 - Dungeon 3-digit number printers `0x0233C830`, `0x0233C9CC`
 - `better_equipment` / `balance_change` / `damage_formula` leftover 999s
 - Wonder Gummi / vitamin writers that still touch the uint8 cache

@@ -1,6 +1,7 @@
 ; Explorers of Alpha US.
 
 ov_29 equ 0x022DC240
+ov_11 equ 0x022DC240
 ov_36 equ 0x023A7080
 
 SoftDiv equ 0x0208FEA4
@@ -87,6 +88,11 @@ InitTeamMemberHpCopy equ 0x022FD50C
 InitTeamMemberAfterHp equ 0x022FD514
 SummaryHpFill equ 0x0205AE6C
 SummaryHpFillContinue equ 0x0205AE74
+; Ground's other-screen team LV/HP panel. r8 is the active team member.
+TownTeamHpBase equ 0x022DC580
+TownTeamHpBaseContinue equ 0x022DC584
+TownTeamHpTotal equ 0x022DC5F4
+TownTeamHpTotalContinue equ 0x022DC608
 DungeonSummaryLevel equ 0x022F8A18
 DungeonSummaryLevelContinue equ 0x022F8A20
 GroundInitV equ 0x02052D20

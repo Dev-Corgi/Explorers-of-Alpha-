@@ -1181,11 +1181,50 @@ BaseStats_LifeSeedVanilla:
 	ldrsh r1, [r9, #0x12]
 	b TryIncreaseHpBoostResume
 
+; Town team panel: cached current HP can still contain the initial V value.
+; Compute real HP for the existing effect-0x38 one-eighth HP bonus.
+BaseStats_TownHpBase:
+	push {r0-r3, lr}
+	ldrsh r0, [r8, #0xc]
+	ldrb r1, [r8, #2]
+	mov r2, #0
+	ldrb r3, [r8, #0x10]
+	bl BaseStats_CalcStat
+	mov r4, r0
+	pop {r0-r3, lr}
+	b TownTeamHpBaseContinue
+
+; r0 = exclusive HP + effect-0x38 flat, r9 = effect-0x38 flat.
+; Fold only exclusive HP into CalcStat, as on the summary/dungeon paths.
+; Read the HP byte, not the packed HP|Spe V halfword. Keep saves untouched.
+BaseStats_TownHpTotal:
+	push {r0-r3, lr}
+	sub r3, r0, r9
+	ldrb r1, [r8, #0x10]
+	add r3, r3, r1
+	ldrsh r0, [r8, #0xc]
+	ldrb r1, [r8, #2]
+	mov r2, #0
+	bl BaseStats_CalcStat
+	add r9, r9, r0
+	ldr r0, =32767
+	cmp r9, r0
+	movgt r9, r0
+	pop {r0-r3, lr}
+	b TownTeamHpTotalContinue
+
 	.pool
 .if . > ov_36 + BaseStatsCodeAddress + BaseStats_CaveBytes
 	.error "V writers / summary UI run past the cave"
 .endif
 
+.close
+
+.open "overlay_0011.bin", ov_11
+.org TownTeamHpBase
+	b BaseStats_TownHpBase
+.org TownTeamHpTotal
+	b BaseStats_TownHpTotal
 .close
 
 .open "arm9.bin", ov_arm9

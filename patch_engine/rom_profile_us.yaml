@@ -212,6 +212,8 @@ symbols:
   InitTeamMember: 0x022FD3B4
   InitTeamMemberHpCopy: 0x022FD50C
   SummaryHpFill: 0x0205AE6C
+  TownTeamHpBase: 0x022DC580
+  TownTeamHpTotal: 0x022DC5F4
   DungeonSummaryLevel: 0x022F8A18
   GroundInitV: 0x02052D20
   GuestInitV: 0x02052E74

@@ -28,6 +28,7 @@ def main():
         offset = (len(ovs[36].data) + 3) & ~3
         (work / 'overlay_0036.bin').write_bytes(bytes(ovs[36].data).ljust(offset + 0x3000, b'\0'))
         (work / 'overlay_0029.bin').write_bytes(ovs[29].data)
+        (work / 'overlay_0011.bin').write_bytes(ovs[11].data)
         (work / 'arm9.bin').write_bytes(rom.arm9)
         (work / 'generated.inc').write_text(f'BaseStatsCodeAddress equ 0x{offset:X}\n')
         result = subprocess.run([str(ROOT / 'tools/armips.exe'), '-sym', 'test.sym', 'main.asm'], cwd=work, capture_output=True, text=True)
