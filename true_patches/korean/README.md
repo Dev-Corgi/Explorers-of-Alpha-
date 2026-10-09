@@ -69,3 +69,29 @@ The ARM execution check uses Unicorn (also available in
 `tools/.korean_jit_test_deps`), assembles only temporary binary fixtures, verifies
 manifest hooks, reproduces the original crash, and exercises all 2,921 dense
 character combinations. It does not write a ROM or replace an Android gameplay test.
+
+
+## Live name preview (v7)
+
+The name redraw hook now produces `lead << 8 | trail`, matching glyph lookup
+and `%c`, instead of reversing the bytes. It resets its pending-trail state at
+the start of each redraw. The keyboard's byte-indexed position/width arrays
+now account for a dense pair as one glyph: both byte positions have the same
+x coordinate, and the trail has zero additional width. Name layouts that use
+stock single-glyph drawing route Korean codes through DrawTextInWindow so
+the 1bpp Korean rows use the existing renderer. ASCII stays on the stock path;
+the original character color and centering are retained.
+
+Name-key assembly remains internally included by korean. Validation executes
+the ARM name redraw and cursor functions, with UI/font services supplied by
+the harness. It checks every loaded glyph, all ten layout modes, an actual
+symbol-pair key event, and end-of-name deletion. This is not an emulator
+screen capture or a test of arbitrary edits in the middle of a name.
+
+```powershell
+.venv\Scripts\python.exe -B true_patches\korean\tools\verify_name_preview.py --simulate
+.venv\Scripts\python.exe -B true_patches\korean\tools\verify_name_preview.py
+```
+
+The first command compiles candidate code into an isolated in-memory fixture;
+the second checks the built Korean ROM. Neither writes a ROM.

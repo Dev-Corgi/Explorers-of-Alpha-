@@ -1,7 +1,9 @@
 id: korean
-version: 6
+version: 7
 region: US
 description: >
+  v7: correct live name-preview byte order, measure dense syllables as one
+  character, and draw name-entry syllables through the Korean text renderer.
   Korean text. Ports the unofficial Explorers of Sky Korean patch
   (하늘의 탐험대 1-101b) to Explorers of Alpha. Each text_e.str and script
   string takes the Korean translation only when its English text equals the
@@ -17,7 +19,7 @@ rom_profile: us_vanilla
 
 cave:
   binary: ov36
-  code_bytes: 1280
+  code_bytes: 2048
   alignment: 4
 
 asm:
@@ -76,6 +78,12 @@ arm9_sites:
   - {address: 0x020892BC, vanilla: 0xE5100004, korean: 0xEA06A1DC, branch_to_cave: true, name: KoCopyCharFetch}
   - {address: 0x020892C4, vanilla: 0xE5CD002C, korean: 0xE5CD402C, name: KoCopyCharStore}
   - {address: 0x0207A520, vanilla: 0x023E0021, korean: 0x023F001F, name: KoPuRegion2}
+
+  - {address: 0x02038ADC, vanilla: 0xE92D4070, korean: 0xEA000000, branch_to_cave: true, name: KoNameCursor}
+  - {address: 0x02038110, vanilla: 0xEBFFB8F8, korean: 0xEB000000, branch_to_cave: true, name: KoNameDrawGlyph5}
+  - {address: 0x020381C0, vanilla: 0xEBFFB8CC, korean: 0xEB000000, branch_to_cave: true, name: KoNameDrawGlyph6}
+  - {address: 0x02038254, vanilla: 0xEBFFB8A7, korean: 0xEB000000, branch_to_cave: true, name: KoNameDrawGlyph7}
+  - {address: 0x020382A8, vanilla: 0xEBFFB892, korean: 0xEB000000, branch_to_cave: true, name: KoNameDrawGlyph}
 
 # Text window layout constants for Korean glyph metrics.
 overlay_words:

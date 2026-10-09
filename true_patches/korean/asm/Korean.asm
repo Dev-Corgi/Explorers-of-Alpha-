@@ -216,6 +216,9 @@ Ko_MeasureCharFetch:
 	; Preserve r3 at every exit: this hook replaces a single ldrb instruction.
 	push {r3}
 	ldr r3, =Ko_SkipTrail
+	cmp r6, #0
+	moveq r2, #0
+	streqb r2, [r3]
 	ldrb r2, [r3]
 	cmp r2, #1
 	addeq r6, r6, #1
@@ -232,11 +235,103 @@ Ko_MeasureCharFetch:
 	blo @@resume
 	cmp r0, #0xFE
 	bhi @@resume
-	orr r5, r5, r0, lsl #8
+	orr r5, r0, r5, lsl #8
 	mov r2, #1
 	strb r2, [r3]
 @@resume:
 	pop {r3}
 	b KoMeasureCharResume
+
+
+; Cursor positions remain indexed by bytes, but a dense pair has one width.
+; Both byte positions point at the same glyph; the next character starts after it.
+Ko_NameCursor:
+	push {r3-r9, lr}
+	ldr r0, =KoKeyboardPtr
+	ldr r6, [r0]
+	ldr r7, [r6, #0xF8]
+	ldrb r8, [r6, #0x1B]
+	mov r4, #0
+	mov r5, #0
+@@loop:
+	cmp r5, r8
+	bge @@done
+	add r9, r6, r5, lsl #1
+	strh r4, [r9, #0x20]
+	ldrb r0, [r7, r5]
+	cmp r0, #0
+	moveq r0, #8
+	streqh r0, [r9, #0x8C]
+	beq @@done
+	mov r3, #1
+	cmp r0, #0x88
+	blo @@width
+	cmp r0, #0x9E
+	bhi @@width
+	add r1, r5, #1
+	cmp r1, r8
+	bge @@width
+	ldrb r1, [r7, r1]
+	cmp r1, #0x80
+	blo @@width
+	cmp r1, #0xFE
+	bhi @@width
+	orr r0, r1, r0, lsl #8
+	mov r3, #2
+@@width:
+	; The original font mapper is an identity function in Alpha.
+	push {r3, r9}
+	bl Ko_GlyphLookup
+	pop {r3, r9}
+	ldrb r0, [r0, #2]
+	strh r0, [r9, #0x8C]
+	cmp r3, #2
+	bne @@next
+	strh r4, [r9, #0x22]
+	mov r1, #0
+	strh r1, [r9, #0x8E]
+@@next:
+	add r4, r4, r0
+	add r5, r5, r3
+	b @@loop
+@@done:
+	pop {r3-r9, pc}
+
+; Single-character name layouts otherwise interpret our 1bpp rows as stock
+; font data. Route dense syllables through the already supported text renderer.
+Ko_NameDrawGlyph:
+	cmp r3, #0x8800
+	blo KoDrawNameGlyphOriginal
+	cmp r3, #0x9F00
+	bhs KoDrawNameGlyphOriginal
+	push {r0-r4, lr}
+	sub sp, sp, #16
+	mov r4, r3
+	mov r0, r3
+	bl Ko_GlyphEntry
+	ldrb r3, [r0, #2]
+	ldr r1, [sp, #20]
+	cmp r3, #12
+	rsblo r3, r3, #12
+	addlo r1, r1, r3, lsr #1
+	ldr r0, [sp, #16]
+	ldr r2, [sp, #24]
+	ldr r3, =0x3A53435B ; [CS:
+	str r3, [sp]
+	ldrb r3, [sp, #40] ; caller's character color
+	strb r3, [sp, #4]
+	mov r3, #0x5D
+	strb r3, [sp, #5]
+	mov r3, r4, lsr #8
+	strb r3, [sp, #6]
+	strb r4, [sp, #7]
+	ldr r3, =0x5D52435B ; [CR]
+	str r3, [sp, #8]
+	mov r3, #0
+	strb r3, [sp, #12]
+	mov r3, sp
+	bl KoDrawWindowText
+	add sp, sp, #16
+	pop {r0-r4, pc}
 
 .pool

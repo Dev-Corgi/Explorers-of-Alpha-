@@ -77,6 +77,16 @@ KoRenderReturn:
 	b Ko_CopyCharFetch
 .org KoCopyCharStore
 	strb r4, [sp, #0x2C]
+.org KoNameCursorSite
+	b Ko_NameCursor
+.org 0x02038110
+	bl Ko_NameDrawGlyph
+.org 0x020381C0
+	bl Ko_NameDrawGlyph
+.org 0x02038254
+	bl Ko_NameDrawGlyph
+.org KoNameDrawGlyphSite
+	bl Ko_NameDrawGlyph
 .org KoPuRegion2
 	.word 0x023F001F
 .org KoPreprocessCopy

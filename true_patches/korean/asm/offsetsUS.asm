@@ -32,3 +32,9 @@
 
 ; Current font state pointer (same literal as the vanilla draw path).
 .definelabel KoFontStatePtr, 0x020AF710
+
+.definelabel KoNameCursorSite, 0x02038ADC
+.definelabel KoNameDrawGlyphSite, 0x020382A8
+.definelabel KoKeyboardPtr, 0x020AFDF0
+.definelabel KoDrawNameGlyphOriginal, 0x020264F8
+.definelabel KoDrawWindowText, 0x02026214
