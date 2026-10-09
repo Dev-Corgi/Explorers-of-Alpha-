@@ -248,15 +248,20 @@ ControlModeEnhance_FindMember:
 @@done:
 	pop {r4-r6, pc}
 
-; Entered in HandleFaint with r10 = victim, r7 = monster. Reviver seeds have
-; already failed. Returning to the original epilogue retains its stack frame.
+; Entered in HandleFaint with r10 = victim, r7 = monster, r9 = damage source.
+; The send-home action also calls HandleFaint, with DAMAGE_SOURCE_WENT_AWAY
+; (604). Let vanilla remove that member instead of reserving it for revival.
+; Returning to the original epilogue retains its stack frame.
 ControlModeEnhance_Faint:
+	cmp r9, #604
+	beq @@vanilla
 	push {r0-r12, lr}
 	mov r0, r10
 	bl ControlModeEnhance_ReserveFaint
 	cmp r0, #0
 	pop {r0-r12, lr}
 	bne CmeFaintReturn
+@@vanilla:
 	ldrb r0, [r7, #7]
 	b CmeFaintResume
 

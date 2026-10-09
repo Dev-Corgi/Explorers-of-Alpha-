@@ -1,5 +1,5 @@
 id: control_mode_enhance
-version: 18
+version: 19
 region: US
 description: >
   Full control mode. Start on any team member's turn toggles auto/manual, and
@@ -17,8 +17,8 @@ description: >
   enabled in the main game so the leader can be changed after returning to town.
   Leader selection synchronizes persistent roster flags even when manual
   control already made that actor the engine's temporary leader.
-  v18: Keep the active leader across floors and dungeon exits; force the
-  graduation leader-switch flag on so Chimecho Assembly can change it in town.
+  v19: Members explicitly sent home use vanilla removal and are not reserved
+  for revival on the next floor.
 
 kind: asm
 rom_profile: us_vanilla

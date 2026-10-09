@@ -187,6 +187,10 @@ def main():
     base = NintendoDSRom.fromFile(ROOT / 'PatchTesting/Explorers of Alpha/Explorers of Alpha.nds')
     base_overlays = loadOverlayTable(base.arm9OverlayTable, lambda _, n: base.files[n])
     original = base_overlays[29]
+    # Alpha's send-home caller passes WENT_AWAY (604); HandleFaint keeps the
+    # incoming source in r9 before reaching our later-body hook.
+    assert struct.unpack_from('<I', original.data, 0x022F5ED0 - original.ramAddress)[0] == 0xE3A01F97
+    assert struct.unpack_from('<I', original.data, 0x022F7F40 - original.ramAddress)[0] == 0xE1A09001
     for hook in cfg['hooks'][-6:]:
         address = profile['symbols'][hook['symbol']]
         if hook['binary'] == 'arm9':
@@ -231,6 +235,64 @@ def main():
         assert struct.unpack_from('<I', candidate17, 0x0238AC2C - overlays[17].ramAddress)[0] == 0xE3A00001
         assert candidate29[0x022F7F30 - original.ramAddress:0x022F7F34 - original.ramAddress] == bytes(overlays[29].data[0x022F7F30 - original.ramAddress:0x022F7F34 - original.ramAddress])
         machine = Machine(rom, candidate29, (work / 'overlay_0036.bin').read_bytes(), symbols)
+
+    # Exercise the real HandleFaint hook, including the displaced instruction
+    # and ABI. Sending somebody home must leave existing death backups intact.
+    sent_home_cases = 0
+    for sent_home in [1, 2, 3]:
+        for hp in [100, 0]:
+            machine.setup()
+            dead = 1 + sent_home % 3
+            machine.half(machine.info(dead) + 0x10, 0)
+            assert machine.run('ControlModeEnhance_ReserveFaint', machine.entity(dead)) == 1
+            machine.half(machine.info(sent_home) + 0x10, hp)
+            before_team = bytes(machine.uc.mem_read(TEAM, 0x200))
+            before_backup = bytes(machine.uc.mem_read(symbols['cedeadmemberid'], 16))
+            before_calls = list(machine.calls)
+            machine.uc.reg_write(UC_ARM_REG_R7, machine.info(sent_home))
+            machine.uc.reg_write(UC_ARM_REG_R9, 604)
+            machine.uc.reg_write(UC_ARM_REG_R10, machine.entity(sent_home))
+            assert machine.run('ControlModeEnhance_Faint', 0x12345678, 0x87654321,
+                               0x13572468, stop=0x022F8028) == 0
+            assert machine.uc.reg_read(UC_ARM_REG_SP) == SP
+            assert machine.uc.reg_read(UC_ARM_REG_R1) == 0x87654321
+            assert machine.uc.reg_read(UC_ARM_REG_R2) == 0x13572468
+            assert machine.uc.reg_read(UC_ARM_REG_R7) == machine.info(sent_home)
+            assert machine.uc.reg_read(UC_ARM_REG_R9) == 604
+            assert machine.uc.reg_read(UC_ARM_REG_R10) == machine.entity(sent_home)
+            assert machine.word(symbols['cedeadmask']) == 1
+            assert machine.word(symbols['celeader']) == machine.entity(0)
+            assert bytes(machine.uc.mem_read(TEAM, 0x200)) == before_team
+            assert bytes(machine.uc.mem_read(symbols['cedeadmemberid'], 16)) == before_backup
+            assert machine.calls == before_calls
+            # Model vanilla's removal of the active record/entity, then run
+            # the actual next-floor restoration and spawn wrappers.
+            machine.byte(machine.member(sent_home), 0)
+            machine.word(machine.entity(sent_home), 0)
+            machine.run('ControlModeEnhance_PrepareFloor')
+            machine.run('ControlModeEnhance_SpawnTeam')
+            assert machine.word(machine.entity(sent_home)) == 0
+            assert machine.byte(machine.member(sent_home)) == 0
+            assert machine.word(machine.entity(dead)) == 1
+            assert machine.half(machine.info(dead) + 0x10) == 120
+            assert machine.word(symbols['cedeadmask']) == 0
+            sent_home_cases += 1
+
+    # Ordinary battle fainting still takes the reservation/epilogue branch.
+    machine.setup()
+    machine.half(machine.info(1) + 0x10, 0)
+    machine.uc.reg_write(UC_ARM_REG_R7, machine.info(1))
+    machine.uc.reg_write(UC_ARM_REG_R9, 1)  # Move damage source.
+    machine.uc.reg_write(UC_ARM_REG_R10, machine.entity(1))
+    machine.run('ControlModeEnhance_Faint', 0x12345678, stop=0x022F85C8)
+    assert machine.uc.reg_read(UC_ARM_REG_R0) == 0x12345678
+    assert machine.uc.reg_read(UC_ARM_REG_SP) == SP
+    assert machine.word(symbols['cedeadmask']) == 1
+    assert machine.word(machine.entity(1)) == 0
+    machine.run('ControlModeEnhance_PrepareFloor')
+    machine.run('ControlModeEnhance_SpawnTeam')
+    assert machine.word(machine.entity(1)) == 1
+    assert machine.half(machine.info(1) + 0x10) == 120
 
     # Each possible leader hands off in roster order, excluding guest slots.
     cases = 0
@@ -488,6 +550,7 @@ def main():
         if isinstance(doc, dict):
             assert all(x.get('id') != 19299 for x in doc.get('entries', []) if isinstance(x, dict)), path
     print(json.dumps({'leader_guest_permutations': cases, 'full_HP_and_PP_before_vanilla': 'passed',
+                      'sent_home_excluded_cases': sent_home_cases, 'battle_faint_hook': 'passed',
                       'current_leader_preserved': 'passed', 'guild_identity_after_roster_reorder': 'passed',
                       'shared_exit_clear_escape_defeat': 'passed', 'guest_only_game_over': 'passed',
                       'recruit_gate_and_message': 'passed', 'korean_message_index': 19299,
