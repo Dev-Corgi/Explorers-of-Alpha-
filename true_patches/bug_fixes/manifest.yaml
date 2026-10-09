@@ -1,0 +1,26 @@
+id: bug_fixes
+version: 1
+region: US
+description: >
+  Remove Alpha's passive Hail recovery bonus for monsters without Ice Body.
+  Ice Body's contact frostbite effect, Quick Healer, Rain Dish, Dry Skin,
+  and other recovery modifiers retain their existing behavior.
+
+kind: data
+rom_profile: us_vanilla
+
+data:
+  handler: bug_fixes_overlay_words
+  binary: ov29
+  word_patches:
+    - name: RemoveNonIceBodyHailRegenBonus
+      address: 0x023111F0
+      expected: 0x00844000  # addeq r4, r4, r0 (Hail recovery denominator -100)
+      replace: 0xE1A00000   # nop
+
+verify:
+  - type: bug_fixes_overlay_words
+
+notes: >
+  In-place overlay29 instruction fix; no cave or new strings.
+  Apply after the other gameplay modules and before korean.

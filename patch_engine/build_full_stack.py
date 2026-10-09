@@ -42,6 +42,7 @@ FULL_STACK_MODULES = [
     "balance_change",
     "control_mode_enhance",
     "belly_union",
+    "bug_fixes",
 ]
 
 
