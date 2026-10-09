@@ -131,7 +131,7 @@ modules:
   balance_change:
     path: balance_change
     description: Bidoof's Wish movesets, outlaws at party max +10 with 2*CalcStat HP, guild kit extras,
-      save-only mid-rest statues, and v8 difficulty rebalance (enemy fx 0.8/1/1/1.2x, LS/spawn/trap/EXP/move-scale/storage
+      save-only mid-rest statues, independent half-denominator recovery bonuses (minimum 25), and v8 difficulty rebalance (enemy fx 0.8/1/1/1.2x, LS/spawn/trap/EXP/move-scale/storage
       tweaks).
     kind: balance_change
   control_mode_enhance:

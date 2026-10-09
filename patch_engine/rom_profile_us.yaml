@@ -267,6 +267,14 @@ symbols:
   CmeDungeonStartSite: 0x022DF0F8
   CmeSpawnTeamSite: 0x022DF6A4
   CmeDungeonEndSite: 0x022E026C
+  RegenHealRibbonSite: 0x02311138
+  RegenQuickHealerSite: 0x02311158
+  RegenWishSite: 0x02311170
+  RegenRainDishSite: 0x02311198
+  RegenDrySkinSite: 0x023111C4
+  RegenExclusiveSite: 0x02311214
+  RegenMinimumCompareSite: 0x02311224
+  RegenMinimumSetSite: 0x0231122C
   ExpSharePercentageSite: 0x02097E34
   ExpShareUpgradeSite: 0x023A9378
   ExpShareToggleSite: 0x023A99A8

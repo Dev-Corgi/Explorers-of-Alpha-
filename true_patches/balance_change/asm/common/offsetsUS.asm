@@ -41,3 +41,13 @@ BOSS_ENTRY_SIZE equ 12
 .definelabel DiffRebalance_ApplyEnemyMultsCont, 0x023AA0D8
 .definelabel DiffRebalance_A5MultCont,         0x023A9DE4
 .definelabel DiffRebalance_LSLoopCont,         0x023D9274
+
+; Independent natural recovery multipliers and final denominator floor.
+.definelabel RegenHealRibbonSite, 0x02311138
+.definelabel RegenQuickHealerSite, 0x02311158
+.definelabel RegenWishSite, 0x02311170
+.definelabel RegenRainDishSite, 0x02311198
+.definelabel RegenDrySkinSite, 0x023111C4
+.definelabel RegenExclusiveSite, 0x02311214
+.definelabel RegenMinimumCompareSite, 0x02311224
+.definelabel RegenMinimumSetSite, 0x0231122C

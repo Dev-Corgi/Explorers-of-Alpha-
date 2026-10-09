@@ -1,5 +1,5 @@
 id: balance_change
-version: 12
+version: 13
 region: US
 description: >
   v11: the expanded fixed-room monster stats table is allocated and reserved
@@ -38,6 +38,10 @@ description: >
   ApplyFixedRoomStats is redirected there; BALANCE/fr_mst.bin mirrors it.
   Entries 35/55 stay at vanilla Alpha bytes (Registeel/Regidrago use append
   indices, not those slots).
+  v13: each Heal Ribbon, Quick Healer, Wish, Rain Dish in rain, Dry Skin in
+  rain, and exclusive HP recovery effect independently halves the natural
+  recovery denominator (integer floor), with a final minimum of 25.
+  Hail recovery removal remains owned by bug_fixes.
   v12: standby Exp. Share is always enabled at 100%, independent of the
   options toggle and Porygon2 upgrade stage.
 
@@ -99,6 +103,62 @@ boss_movesets:
 special_episode_storage_ok: true
 
 hooks:
+  - name: RegenHealRibbon
+    symbol: RegenHealRibbonSite
+    binary: ov29
+    vanilla_word: 0x1A000004
+    patched_word: 0x11A040C4
+    chain: first
+
+  - name: RegenQuickHealer
+    symbol: RegenQuickHealerSite
+    binary: ov29
+    vanilla_word: 0xE0844000
+    patched_word: 0xE1A040C4
+    chain: first
+
+  - name: RegenWish
+    symbol: RegenWishSite
+    binary: ov29
+    vanilla_word: 0x00844000
+    patched_word: 0x01A040C4
+    chain: first
+
+  - name: RegenRainDish
+    symbol: RegenRainDishSite
+    binary: ov29
+    vanilla_word: 0x00844000
+    patched_word: 0x01A040C4
+    chain: first
+
+  - name: RegenDrySkin
+    symbol: RegenDrySkinSite
+    binary: ov29
+    vanilla_word: 0x00844000
+    patched_word: 0x01A040C4
+    chain: first
+
+  - name: RegenExclusive
+    symbol: RegenExclusiveSite
+    binary: ov29
+    vanilla_word: 0x10844000
+    patched_word: 0x11A040C4
+    chain: first
+
+  - name: RegenMinimumCompare
+    symbol: RegenMinimumCompareSite
+    binary: ov29
+    vanilla_word: 0xE3540014
+    patched_word: 0xE3540019
+    chain: first
+
+  - name: RegenMinimumSet
+    symbol: RegenMinimumSetSite
+    binary: ov29
+    vanilla_word: 0xB3A04014
+    patched_word: 0xB3A04019
+    chain: first
+
   - name: ExpSharePercentage
     symbol: ExpSharePercentageSite
     binary: arm9

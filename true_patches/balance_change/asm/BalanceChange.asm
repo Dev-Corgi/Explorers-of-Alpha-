@@ -35,6 +35,24 @@
 .org OutlawHpSite
 	bl BalanceChange_OutlawHp
 
+; Heal Ribbon no longer skips the Quick Healer check: both stack.
+.org RegenHealRibbonSite
+	movne r4, r4, asr #1
+.org RegenQuickHealerSite
+	mov r4, r4, asr #1
+.org RegenWishSite
+	moveq r4, r4, asr #1
+.org RegenRainDishSite
+	moveq r4, r4, asr #1
+.org RegenDrySkinSite
+	moveq r4, r4, asr #1
+.org RegenExclusiveSite
+	movne r4, r4, asr #1
+.org RegenMinimumCompareSite
+	cmp r4, #25
+.org RegenMinimumSetSite
+	movlt r4, #25
+
 .close
 
 .open "overlay_0036.bin", ov_36
