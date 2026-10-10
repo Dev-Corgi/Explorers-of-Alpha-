@@ -86,6 +86,9 @@ class Machine:
             self.return_from_stub(self.member(r0))
         elif address == 0x02056228:
             self.return_from_stub(int(r0 & 0x80000000 != 0 or (r0 & 0xFFFF) in [0x55AA, 0x5AA5]))
+        elif address in [0x02056294, 0x0200FB54]:
+            # Guild persistence and status clearing are outside the roster cleanup.
+            self.return_from_stub(0)
         elif address == 0x022FE048:
             m = self.member(r0)
             self.half(m + 0xE, self.half(r1 + 0x10))
@@ -265,10 +268,10 @@ def main():
             assert bytes(machine.uc.mem_read(TEAM, 0x200)) == before_team
             assert bytes(machine.uc.mem_read(symbols['cedeadmemberid'], 16)) == before_backup
             assert machine.calls == before_calls
-            # Model vanilla's removal of the active record/entity, then run
-            # the actual next-floor restoration and spawn wrappers.
-            machine.byte(machine.member(sent_home), 0)
-            machine.word(machine.entity(sent_home), 0)
+            # Execute the real vanilla roster cleanup, rather than assuming
+            # send-home always clears the roster (temporary leaders do not).
+            symbols['vanilla_sendhome_cleanup'] = 0x022F84AC
+            machine.run('vanilla_sendhome_cleanup', stop=0x022F85C8)
             machine.run('ControlModeEnhance_PrepareFloor')
             machine.run('ControlModeEnhance_SpawnTeam')
             assert machine.word(machine.entity(sent_home)) == 0
@@ -277,6 +280,67 @@ def main():
             assert machine.half(machine.info(dead) + 0x10) == 120
             assert machine.word(symbols['cedeadmask']) == 0
             sent_home_cases += 1
+
+    # Reproduce v19's remaining fault: vanilla retains a temporary leader.
+    machine.setup()
+    machine.byte(machine.info(1) + 7, 1)
+    machine.byte(machine.info(0) + 7, 0)
+    machine.uc.reg_write(UC_ARM_REG_R7, machine.info(1))
+    machine.uc.reg_write(UC_ARM_REG_R10, machine.entity(1))
+    machine.run('vanilla_sendhome_cleanup', stop=0x022F85C8)
+    assert machine.byte(machine.member(1)) == 11
+    machine.run('ControlModeEnhance_PrepareFloor')
+    machine.run('ControlModeEnhance_SpawnTeam')
+    assert machine.word(machine.entity(1)) == 1
+
+    # Send-home on a manually controlled actor, with another member reserved
+    # as dead. Preserve the selected leader and the unrelated death backup.
+    temporary_leader_cases = 0
+    for sent_home in [0, 1, 2, 3]:
+        for order in [(0, 1, 2, 3), (3, 1, 0, 2)]:
+            for hp in [100, 0]:
+                chosen = (sent_home + 1) % 4
+                dead = (sent_home + 2) % 4
+                machine.setup(leader=chosen, order=order)
+                machine.half(machine.info(dead) + 0x10, 0)
+                assert machine.run('ControlModeEnhance_ReserveFaint', machine.entity(dead)) == 1
+                backup = bytes(machine.uc.mem_read(symbols['cedeadmemberid'], 16))
+                machine.half(machine.info(sent_home) + 0x10, hp)
+                machine.word(0x0235355C, machine.entity(sent_home))
+                machine.byte(machine.info(chosen) + 7, 0)
+                machine.byte(machine.info(sent_home) + 7, 1)
+                machine.uc.reg_write(UC_ARM_REG_R7, machine.info(sent_home))
+                machine.uc.reg_write(UC_ARM_REG_R9, 604)
+                machine.uc.reg_write(UC_ARM_REG_R10, machine.entity(sent_home))
+                machine.run('ControlModeEnhance_Faint', stop=0x022F8028)
+                assert machine.byte(machine.info(sent_home) + 7) == 0
+                assert machine.word(0x0235355C) == machine.entity(chosen)
+                assert machine.word(symbols['celeader']) == machine.entity(chosen)
+                assert machine.word(symbols['cedeadmask']) == 1
+                assert bytes(machine.uc.mem_read(symbols['cedeadmemberid'], 16)) == backup
+                machine.run('vanilla_sendhome_cleanup', stop=0x022F85C8)
+                assert machine.byte(machine.member(sent_home)) == 0
+                machine.run('ControlModeEnhance_PrepareFloor')
+                machine.run('ControlModeEnhance_SpawnTeam')
+                assert machine.word(machine.entity(sent_home)) == 0
+                assert machine.byte(machine.member(sent_home)) == 0
+                assert machine.word(machine.entity(dead)) == 1
+                assert machine.half(machine.info(dead) + 0x10) == 120
+                temporary_leader_cases += 1
+
+    # Cancel a reservation by guild identity after roster reordering; retain
+    # other records. The designated leader can hand off if it is sent home.
+    machine.setup()
+    machine.word(symbols['cedeadmask'], 3)
+    machine.half(machine.member(1) + 8, 99)
+    machine.word(symbols['cedeadmemberid'], 99)
+    machine.word(symbols['cedeadmemberid'] + 4, 2)
+    machine.run('ControlModeEnhance_SendHome', machine.entity(1))
+    assert machine.word(symbols['cedeadmask']) == 2
+    machine.setup()
+    machine.run('ControlModeEnhance_SendHome', machine.entity(0))
+    assert machine.word(symbols['celeader']) == machine.entity(1)
+    assert machine.byte(machine.info(0) + 7) == 0
 
     # Ordinary battle fainting still takes the reservation/epilogue branch.
     machine.setup()
@@ -550,7 +614,10 @@ def main():
         if isinstance(doc, dict):
             assert all(x.get('id') != 19299 for x in doc.get('entries', []) if isinstance(x, dict)), path
     print(json.dumps({'leader_guest_permutations': cases, 'full_HP_and_PP_before_vanilla': 'passed',
-                      'sent_home_excluded_cases': sent_home_cases, 'battle_faint_hook': 'passed',
+                      'sent_home_excluded_cases': sent_home_cases,
+                      'temporary_leader_send_home_cases': temporary_leader_cases,
+                      'vanilla_temporary_leader_retention_reproduced': True,
+                      'battle_faint_hook': 'passed',
                       'current_leader_preserved': 'passed', 'guild_identity_after_roster_reorder': 'passed',
                       'shared_exit_clear_escape_defeat': 'passed', 'guest_only_game_over': 'passed',
                       'recruit_gate_and_message': 'passed', 'korean_message_index': 19299,

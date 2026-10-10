@@ -254,7 +254,13 @@ ControlModeEnhance_FindMember:
 ; Returning to the original epilogue retains its stack frame.
 ControlModeEnhance_Faint:
 	cmp r9, #604
-	beq @@vanilla
+	bne @@battle
+	push {r0-r12, lr}
+	mov r0, r10
+	bl ControlModeEnhance_SendHome
+	pop {r0-r12, lr}
+	b @@vanilla
+@@battle:
 	push {r0-r12, lr}
 	mov r0, r10
 	bl ControlModeEnhance_ReserveFaint
@@ -264,6 +270,66 @@ ControlModeEnhance_Faint:
 @@vanilla:
 	ldrb r0, [r7, #7]
 	b CmeFaintResume
+
+; Manual control may have made the departing member the engine's leader.
+; Vanilla preserves that leader's roster instead of removing it. Synchronize
+; a surviving designated leader first, then let vanilla remove the member.
+ControlModeEnhance_SendHome:
+	push {r4-r9, r12, lr}
+	mov r4, r0
+	bl ControlModeEnhance_IsRegular
+	cmp r0, #0
+	beq @@done
+	ldr r5, [r4, #0xB4]
+	ldrsh r0, [r5, #0xC]
+	bl GetActiveTeamMember
+	ldrsh r6, [r0, #8]
+	ldr r7, =CeDeadMask
+	ldr r8, [r7]
+	ldr r9, =CeDeadMemberId
+	mov r3, #0
+@@record:
+	ldr r0, [r9, r3, lsl #2]
+	cmp r0, r6
+	mov r1, #1
+	biceq r8, r8, r1, lsl r3
+	add r3, r3, #1
+	cmp r3, #4
+	blt @@record
+	str r8, [r7]
+	ldr r0, =CeLeader
+	ldr r0, [r0]
+	cmp r0, r4
+	beq @@find
+	bl ControlModeEnhance_RegularAlive
+	cmp r0, #0
+	bne @@leader
+@@find:
+	ldrsh r6, [r5, #0xC]
+	mov r7, #1
+@@next:
+	add r0, r6, r7
+	and r0, r0, #3
+	bl ControlModeEnhance_FindMember
+	cmp r0, #0
+	bne @@leader
+	add r7, r7, #1
+	cmp r7, #4
+	blt @@next
+	; No surviving regular member: retain vanilla's last-member exit rules.
+	b @@done
+@@leader:
+	mov r6, r0
+	bl ControlModeEnhance_SetLeader
+	; Even if the entity array was reordered, the departing entity is nonleader.
+	mov r0, #0
+	strb r0, [r5, #7]
+	ldr r0, =CeHome
+	ldr r1, [r0]
+	cmp r1, r4
+	streq r6, [r0]
+@@done:
+	pop {r4-r9, r12, pc}
 
 ControlModeEnhance_ReserveFaint:
 	push {r4-r9, r12, lr}

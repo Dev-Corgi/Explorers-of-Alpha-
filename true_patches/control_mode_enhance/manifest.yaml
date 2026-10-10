@@ -1,5 +1,5 @@
 id: control_mode_enhance
-version: 19
+version: 20
 region: US
 description: >
   Full control mode. Start on any team member's turn toggles auto/manual, and
@@ -17,6 +17,9 @@ description: >
   enabled in the main game so the leader can be changed after returning to town.
   Leader selection synchronizes persistent roster flags even when manual
   control already made that actor the engine's temporary leader.
+  v20: Before send-home removal, synchronize the surviving designated leader
+  so a manually controlled departing member is not preserved as a dead leader.
+  Cancel only that guild member's pending revival reservation.
   v19: Members explicitly sent home use vanilla removal and are not reserved
   for revival on the next floor.
 

@@ -35,6 +35,12 @@ No terrain-traversal permissions or pathfinding algorithms are changed.
   reserved or revived on the next floor. The send-home action calls
   `HandleFaint` at `0x022F5ED8` with damage source `604` (`WENT_AWAY`), passed
   through `r9` at this module's hook. That source bypasses faint reservation.
+  v20 also synchronizes the designated living leader before vanilla cleanup:
+  a manual actor's temporary `monster+7` leader flag otherwise makes vanilla
+  retain its active roster with flag 8 instead of clearing it. The departing
+  member becomes a nonleader; if the designated leader itself departs, a living
+  regular successor is selected. With no regular survivor, vanilla exit rules
+  remain. Pending revival records for only that guild identity are cancelled.
 - Before the next floor initializes, reserved members are revived at full HP
   (maximum HP including HP boost) and death-time PP, including zero PP. Normal
   vanilla floor/spawn processing follows. There is no PP-refill suppression or
@@ -91,8 +97,16 @@ HP/PP restoration before vanilla processing, entry-leader identity, recruitment
 results/arguments, message-slot conflicts, Korean encoding and the unchanged
 Z-gauge hook. It also checks leader-flag synchronization and the auto/manual
 scan return ABI, send-home hook bypass with intact death backups, and ordinary
-battle fainting through the hook. Next-floor tests model vanilla send-home
+battle fainting through the hook. Next-floor tests execute the vanilla active-roster cleanup for send-home
 removal before running the real restoration/spawn wrappers. No ROM is written.
 Full dungeon gameplay, in-game quicksave/resume,
 and floor transitions still need an emulator integration test when a build is
 requested.
+
+
+The send-home regression also reproduces vanilla's temporary-leader retention
+(`active flags 3 -> 11`) before applying the fix. Six ordinary send-home cases
+and sixteen manual-actor cases execute actual roster cleanup and the next-floor
+wrappers, with guild persistence, sprite/UI services, and spawning supplied by
+the fixture. They retain unrelated death backups, the designated leader, and
+normal battle-faint revival. Validation writes no ROM.
