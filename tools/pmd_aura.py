@@ -322,6 +322,19 @@ def file_hashes(directory: Path) -> dict:
             for p in sorted(directory.rglob('*')) if p.is_file() and p.name != 'batch-job.json'}
 
 
+def preview_existing(source: Path, output: Path, selected: list[str], ticks: float, scale: int) -> None:
+    report = json.loads((output / 'aura-report.json').read_text(encoding='utf-8'))
+    padding = int(report['padding_per_side'])
+    for name in selected:
+        meta = report['animations'][name]
+        fw, fh = meta['source_frame_size']
+        source_im = np.array(Image.open(source / f'{name}-Anim.png').convert('RGBA'))
+        result_im = np.array(Image.open(output / f'{name}-Anim.png').convert('RGBA'))
+        preview = output / 'Preview'; preview.mkdir(exist_ok=True)
+        save_preview(preview / f'{name}-comparison.gif', source_im, result_im, fw, fh, padding,
+                     meta['durations'], ticks, scale)
+
+
 def batch(args: argparse.Namespace) -> dict:
     root, output = args.sprite_root.resolve(), args.output.resolve()
     if not root.is_dir() or root == output or root in output.parents or output in root.parents:
@@ -384,7 +397,14 @@ def batch(args: argparse.Namespace) -> dict:
                                colors_hash=hashlib.sha256(args.type_colors.read_bytes()).hexdigest() if args.type_colors else None)
             try:
                 marker = job.output / 'batch-job.json'
-                if job.output.exists():
+                if args.preview_existing:
+                    if not job.output.is_dir() or not (job.output / 'aura-report.json').is_file():
+                        raise ValueError('Existing aura package is missing aura-report.json.')
+                    selected = [a.findtext('Name') for a in ET.parse(source / 'AnimData.xml').findall('./Anims/Anim')
+                                if a.find('CopyOf') is None] if job.all else (job.animations or ['Idle'])
+                    preview_existing(source, job.output, selected, job.ticks_per_second, job.preview_scale)
+                    item['status'] = 'previews_updated'
+                elif job.output.exists():
                     saved = json.loads(marker.read_text(encoding='utf-8')) if marker.is_file() else {}
                     if saved.get('fingerprint') != fingerprint or saved.get('output_hashes') != file_hashes(job.output):
                         raise ValueError('Existing output is incomplete or source/settings/output changed; use a new output root.')
@@ -414,6 +434,7 @@ def parser() -> argparse.ArgumentParser:
     p.add_argument('--only-dex', nargs='+')
     p.add_argument('--dry-run', action='store_true')
     p.add_argument('--resume', action='store_true')
+    p.add_argument('--preview-existing', action='store_true', help='Add/refresh Preview inside existing packages.')
     p.add_argument('--previews', action='store_true', help='Enable previews in batch mode.')
     p.add_argument('--variants', choices=['normal', 'shiny', 'both'], default='both',
                    help='Batch variants: normal=AltMeta, shiny=AltMetaColor, both (default).')
@@ -445,7 +466,7 @@ def main() -> int:
             report = batch(args)
             print(json.dumps(report['summary'], ensure_ascii=False))
             return int(bool(report['summary'].get('failed')))
-        if not args.types or args.csv or args.dry_run or args.resume or args.only_dex:
+        if not args.types or args.csv or args.dry_run or args.resume or args.only_dex or args.preview_existing:
             raise ValueError('Single mode requires --types; CSV/dry-run/resume/only-dex are batch options.')
         report = build(args)
     except (ValueError, OSError, ET.ParseError) as exc:
