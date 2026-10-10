@@ -282,13 +282,13 @@ RoomChargeCallExecuteMoveEffect:
 RoomChargeExecuteMoveEffectReturn:
 	pop {r4-r7, pc}
 
-; Safety net if secondary rolls run while Pending.
+; Safety net if secondary rolls run while Pending. The state check clobbers
+; r0/r1, so restore all incoming arguments before the original probability roll.
 RoomChargeDungeonRandOutcomeGate:
-	push {r4, lr}
-	mov r4, r0
+	push {r0-r3, r4, lr}
 	bl ShouldBlockRoomChargeSecondaryEffect
 	cmp r0, #0
-	pop {r4, lr}
+	pop {r0-r3, r4, lr}
 	movne r0, #0
 	bxne lr
 	push {r4, r5, r6, lr}

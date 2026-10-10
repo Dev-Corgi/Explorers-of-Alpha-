@@ -1,5 +1,5 @@
 id: room_charge_pending
-version: 4
+version: 5
 region: US
 description: >
   Legacy 2-turn room-wide attacks (status 0x173/0x174), charge-skip variant:
@@ -7,6 +7,9 @@ description: >
   RestoreChargeMovePp so PP is only net−1 on release (same as legacy room_charge);
   turn 2 force-releases with full room damage. Cave in ov36; ov29 hooks only.
   Based on room_charge v3 (MonsterCannotAttack cancel).
+  v5: Preserve attacker, defender, and probability arguments around the
+  secondary-effect charge-state check. Pending still blocks secondary effects;
+  idle and releasing attacks use the original probability roll.
 
 kind: asm
 rom_profile: us_vanilla
