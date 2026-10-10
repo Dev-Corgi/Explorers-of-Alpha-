@@ -94,8 +94,8 @@ Hurt에는 땀/충격 효과처럼 캐릭터가 아닌 불투명 픽셀이 있�
 - `*-Anim.png`: 투명 인덱스 0과 공통 팔레트를 사용하는 시트.
 - `AnimData.xml`, `*-Offsets.png`, `*-Shadow.png`: 여백에 맞춰 갱신된 구성.
 - `aura-report.json`: 색상, 규격, 연결 기준, 프레임별 추가/잘림 픽셀, 원본 SHA-256, 경고.
-- `previews/*-comparison.gif`: 원본(왼쪽)과 아우라(오른쪽) 동시 재생.
-- `previews/*-comparison.png`: 같은 비교의 첫 시간 프레임.
+- `Preview/*-comparison.gif`: 원본(왼쪽)과 아우라(오른쪽) 동시 재생.
+- `Preview/*-comparison.png`: 같은 비교의 첫 시간 프레임.
 
 GIF는 원본 Durations를 사용하지만 초당 tick은 `--ticks-per-second 60`을 가정합니다. XML 자체에는 재생률이 없으므로 실제 게임 시간의 검증은 아닙니다. 미리보기만 최근접 확대하며 게임 시트는 확대하지 않습니다. `--no-previews`로 미리보기를 생략할 수 있습니다.
 

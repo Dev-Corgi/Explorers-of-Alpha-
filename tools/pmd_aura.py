@@ -305,7 +305,7 @@ def build(args: argparse.Namespace) -> dict:
         for suffix, companion in companions.items():
             padded_sheet(companion, fw, fh, padding).save(out / f'{name}-{suffix}.png')
         if not args.no_previews:
-            preview = out / 'previews'; preview.mkdir(exist_ok=True)
+            preview = out / 'Preview'; preview.mkdir(exist_ok=True)
             save_preview(preview / f'{name}-comparison.gif', image, result, fw, fh, padding,
                          ds, args.ticks_per_second, args.preview_scale)
     tree.write(out / 'AnimData.xml', encoding='utf-8', xml_declaration=True)

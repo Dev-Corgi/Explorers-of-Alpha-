@@ -116,7 +116,7 @@ class AuraTests(unittest.TestCase):
             self.assertFalse(args.output.exists())
             args.dry_run = False
             self.assertEqual(batch(args)['summary'], {'created': 1, 'skipped_missing': 1})
-            self.assertFalse((args.output / '0012/AltMeta/previews').exists())
+            self.assertFalse((args.output / '0012/AltMeta/Preview').exists())
             args.resume = True
             self.assertEqual(batch(args)['summary'], {'skipped_completed': 1, 'skipped_missing': 1})
             (args.output / '0012/AltMeta/credits.txt').write_text('modified')
