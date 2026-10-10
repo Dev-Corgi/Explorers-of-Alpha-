@@ -25,6 +25,8 @@ python tools/pmd_aura.py --sprite-root SpriteCollab-master/SpriteCollab-master/s
 
 배치 모드는 기본적으로 모든 실제 동작을 처리하고 미리보기는 생성하지 않습니다. `--animations Idle`로 일부만 선택하고 `--previews`로 미리보기를 켤 수 있습니다. `--only-dex 0012`는 버터플만 처리합니다.
 
+배치 대상 색상은 `--variants normal`(원본 `AltMeta`만), `--variants shiny`(이로치 `AltMetaColor`만), `--variants both`(기본값, 둘 다)로 선택합니다.
+
 입력과 출력 대응:
 
 | 입력 | 출력 |

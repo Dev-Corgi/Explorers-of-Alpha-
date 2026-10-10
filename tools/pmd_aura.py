@@ -348,7 +348,12 @@ def batch(args: argparse.Namespace) -> dict:
                 raise ValueError(f'{dex}: enabled must be 0 or 1')
             if row['enabled'].strip() == '0' or (only and dex not in only):
                 continue
-            for variant, relative in [('AltMeta', dex), ('AltMetaColor', f'{dex}/0000/0001')]:
+            variants = [('AltMeta', dex), ('AltMetaColor', f'{dex}/0000/0001')]
+            if args.variants == 'normal':
+                variants = variants[:1]
+            elif args.variants == 'shiny':
+                variants = variants[1:]
+            for variant, relative in variants:
                 source = (root / relative).resolve()
                 if root not in source.parents:
                     raise ValueError(f'Source path escapes root: {source}')
@@ -410,6 +415,8 @@ def parser() -> argparse.ArgumentParser:
     p.add_argument('--dry-run', action='store_true')
     p.add_argument('--resume', action='store_true')
     p.add_argument('--previews', action='store_true', help='Enable previews in batch mode.')
+    p.add_argument('--variants', choices=['normal', 'shiny', 'both'], default='both',
+                   help='Batch variants: normal=AltMeta, shiny=AltMetaColor, both (default).')
     p.add_argument('--output', type=Path, required=True)
     p.add_argument('--types', nargs='+', help='One or two English/Korean type names (single mode).')
     select = p.add_mutually_exclusive_group()

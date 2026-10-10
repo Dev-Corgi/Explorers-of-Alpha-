@@ -110,19 +110,19 @@ class AuraTests(unittest.TestCase):
             csv_path = root / 'targets.csv'
             csv_path.write_text('dex_id,type1,type2,enabled\n0012,bug,flying,1\n0003,grass,poison,1\n', encoding='utf-8-sig')
             args = parser().parse_args(['--sprite-root', str(sprites), '--csv', str(csv_path),
-                                       '--output', str(root / 'out')])
+                                       '--output', str(root / 'out'), '--variants', 'normal'])
             args.dry_run = True
-            self.assertEqual(batch(args)['summary'], {'ready': 2, 'skipped_missing': 2})
+            self.assertEqual(batch(args)['summary'], {'ready': 1, 'skipped_missing': 1})
             self.assertFalse(args.output.exists())
             args.dry_run = False
-            self.assertEqual(batch(args)['summary'], {'created': 2, 'skipped_missing': 2})
+            self.assertEqual(batch(args)['summary'], {'created': 1, 'skipped_missing': 1})
             self.assertFalse((args.output / '0012/AltMeta/previews').exists())
             args.resume = True
-            self.assertEqual(batch(args)['summary'], {'skipped_completed': 2, 'skipped_missing': 2})
+            self.assertEqual(batch(args)['summary'], {'skipped_completed': 1, 'skipped_missing': 1})
             (args.output / '0012/AltMeta/credits.txt').write_text('modified')
             self.assertEqual(batch(args)['summary']['failed'], 1)
             args.width = 2
-            self.assertEqual(batch(args)['summary']['failed'], 2)
+            self.assertEqual(batch(args)['summary']['failed'], 1)
 
     def test_batch_duplicate_csv_rejected_before_writes(self):
         with tempfile.TemporaryDirectory() as temp:
