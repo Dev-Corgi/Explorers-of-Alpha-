@@ -5,6 +5,8 @@ Dependencies: Pillow, numpy, scipy. No image-generation service or ROM required.
 from __future__ import annotations
 
 import argparse
+import csv
+from collections import Counter
 import hashlib
 import json
 import math
@@ -193,7 +195,7 @@ def build(args: argparse.Namespace) -> dict:
     tree = ET.parse(src / 'AnimData.xml')
     anims = tree.findall('./Anims/Anim')
     by_name = {a.findtext('Name'): a for a in anims}
-    selected = [a.findtext('Name') for a in anims if a.find('CopyOf') is None] if args.all else args.animations
+    selected = [a.findtext('Name') for a in anims if a.find('CopyOf') is None] if args.all else (args.animations or ['Idle'])
     if len(set(selected)) != len(selected):
         raise ValueError('Duplicate animation names.')
     for name in selected:
@@ -315,13 +317,103 @@ def build(args: argparse.Namespace) -> dict:
     return report
 
 
+def file_hashes(directory: Path) -> dict:
+    return {p.relative_to(directory).as_posix(): hashlib.sha256(p.read_bytes()).hexdigest()
+            for p in sorted(directory.rglob('*')) if p.is_file() and p.name != 'batch-job.json'}
+
+
+def batch(args: argparse.Namespace) -> dict:
+    root, output = args.sprite_root.resolve(), args.output.resolve()
+    if not root.is_dir() or root == output or root in output.parents or output in root.parents:
+        raise ValueError('Input must exist and output must be outside the input tree.')
+    if not args.csv or args.types:
+        raise ValueError('Batch mode requires --csv and reads types from CSV, not --types.')
+    jobs = []
+    seen = set()
+    only = {str(int(x)).zfill(4) for x in args.only_dex or []}
+    with args.csv.open(encoding='utf-8-sig', newline='') as stream:
+        reader = csv.DictReader(stream)
+        required = {'dex_id', 'type1', 'type2', 'enabled'}
+        if not required <= set(reader.fieldnames or []):
+            raise ValueError(f'CSV needs columns: {sorted(required)}')
+        for row in reader:
+            dex = str(int(row['dex_id'])).zfill(4)
+            if not 1 <= int(dex) <= 1025 or dex in seen:
+                raise ValueError(f'Invalid or duplicate dex_id: {dex}')
+            seen.add(dex)
+            types = [TYPE_ALIASES.get(t.strip(), t.strip().lower()) for t in (row['type1'], row['type2']) if t.strip()]
+            if not types or len(types) != len(set(types)) or set(types) - TYPE_COLORS.keys():
+                raise ValueError(f'{dex}: invalid types {types}')
+            if row['enabled'].strip() not in {'0', '1'}:
+                raise ValueError(f'{dex}: enabled must be 0 or 1')
+            if row['enabled'].strip() == '0' or (only and dex not in only):
+                continue
+            for variant, relative in [('AltMeta', dex), ('AltMetaColor', f'{dex}/0000/0001')]:
+                source = (root / relative).resolve()
+                if root not in source.parents:
+                    raise ValueError(f'Source path escapes root: {source}')
+                jobs.append((dex, variant, source, types))
+    if only - seen:
+        raise ValueError(f'IDs not in CSV: {sorted(only - seen)}')
+    if output.exists() and not args.resume and not args.dry_run:
+        raise ValueError('Batch output already exists; choose a new root or --resume.')
+    results = []
+    for dex, variant, source, types in jobs:
+        item = dict(dex_id=dex, variant=variant, source=str(source))
+        if not (source / 'AnimData.xml').is_file():
+            item['status'] = 'skipped_missing'
+        elif args.dry_run:
+            item['status'] = 'ready'
+        else:
+            job = argparse.Namespace(**vars(args))
+            job.sprite_dir, job.output, job.types = source, output / dex / variant, types
+            job.all = args.all or args.animations is None
+            job.no_previews = not args.previews or args.no_previews
+            job.mask_dir = args.mask_dir / dex / variant if args.mask_dir else None
+            settings = {k: str(v) if isinstance(v, Path) else v for k, v in vars(job).items()
+                        if k not in {'resume', 'dry_run', 'only_dex', 'csv', 'sprite_root'}}
+            source_hashes = {p.name: hashlib.sha256(p.read_bytes()).hexdigest() for p in source.iterdir() if p.is_file()}
+            fingerprint = dict(settings=settings, source_hashes=source_hashes,
+                               program_hash=hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),
+                               mask_hashes=file_hashes(job.mask_dir) if job.mask_dir else {},
+                               colors_hash=hashlib.sha256(args.type_colors.read_bytes()).hexdigest() if args.type_colors else None)
+            try:
+                marker = job.output / 'batch-job.json'
+                if job.output.exists():
+                    saved = json.loads(marker.read_text(encoding='utf-8')) if marker.is_file() else {}
+                    if saved.get('fingerprint') != fingerprint or saved.get('output_hashes') != file_hashes(job.output):
+                        raise ValueError('Existing output is incomplete or source/settings/output changed; use a new output root.')
+                    item['status'] = 'skipped_completed'
+                else:
+                    build(job)
+                    marker.write_text(json.dumps(dict(fingerprint=fingerprint, output_hashes=file_hashes(job.output)),
+                                                 ensure_ascii=False, indent=2), encoding='utf-8')
+                    item['status'] = 'created'
+            except (ValueError, OSError, ET.ParseError) as exc:
+                item.update(status='failed', error=str(exc))
+            print(f'{dex}/{variant}: {item["status"]}', flush=True)
+        results.append(item)
+    report = dict(summary=dict(Counter(x['status'] for x in results)), jobs=results, rom_validated=False)
+    if not args.dry_run:
+        output.mkdir(parents=True, exist_ok=True)
+        (output / 'batch-report.json').write_text(json.dumps(report, ensure_ascii=False, indent=2), encoding='utf-8')
+    return report
+
+
 def parser() -> argparse.ArgumentParser:
     p = argparse.ArgumentParser(description=__doc__)
-    p.add_argument('--sprite-dir', type=Path, required=True)
+    source = p.add_mutually_exclusive_group(required=True)
+    source.add_argument('--sprite-dir', type=Path)
+    source.add_argument('--sprite-root', type=Path)
+    p.add_argument('--csv', type=Path)
+    p.add_argument('--only-dex', nargs='+')
+    p.add_argument('--dry-run', action='store_true')
+    p.add_argument('--resume', action='store_true')
+    p.add_argument('--previews', action='store_true', help='Enable previews in batch mode.')
     p.add_argument('--output', type=Path, required=True)
-    p.add_argument('--types', nargs='+', required=True, help='One or two English/Korean type names.')
+    p.add_argument('--types', nargs='+', help='One or two English/Korean type names (single mode).')
     select = p.add_mutually_exclusive_group()
-    select.add_argument('--animations', nargs='+', default=['Idle'])
+    select.add_argument('--animations', nargs='+')
     select.add_argument('--all', action='store_true', help='All real sheets, not CopyOf aliases.')
     p.add_argument('--width', type=float, default=3, help='Aura width in native pixels.')
     p.add_argument('--flame-height', type=float, default=4, help='Extra upward flame reach.')
@@ -342,6 +434,12 @@ def parser() -> argparse.ArgumentParser:
 def main() -> int:
     args = parser().parse_args()
     try:
+        if args.sprite_root:
+            report = batch(args)
+            print(json.dumps(report['summary'], ensure_ascii=False))
+            return int(bool(report['summary'].get('failed')))
+        if not args.types or args.csv or args.dry_run or args.resume or args.only_dex:
+            raise ValueError('Single mode requires --types; CSV/dry-run/resume/only-dex are batch options.')
         report = build(args)
     except (ValueError, OSError, ET.ParseError) as exc:
         print(f'Error: {exc}', file=sys.stderr)

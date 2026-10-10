@@ -1,0 +1,7 @@
+{
+  "source": "https://raw.githubusercontent.com/PokeAPI/pokeapi/c80757193bd0889054e36f4209762360bdaa4b95/data/v2/csv/",
+  "basis": "Terminal evolution of default form across mainline games, including single-stage species",
+  "count": 574,
+  "asset_availability_snapshot": "2026-10-10",
+  "excluded_forms": "Regional, alternate, gender-specific and shiny-only evolution variants"
+}

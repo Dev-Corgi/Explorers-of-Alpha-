@@ -10,7 +10,39 @@ Python 3.10 이상과 Pillow, numpy, scipy가 필요합니다.
 python -m pip install Pillow numpy scipy
 ```
 
-## 버터플 Idle 시험
+## 최종진화 기본형 일괄 처리
+
+`tools/data/pmd_aura_targets.csv`에는 574종의 도감 번호, 한글·영문 이름, `type1/type2`, `enabled`, 원본·이로치 경로 및 에셋 존재 여부가 있습니다. UTF-8 BOM 형식이며 번호는 4자리입니다. Excel에서 앞자리 0을 지워도 프로그램은 복원합니다. `enabled=0`으로 제외하거나 타입을 수정할 수 있습니다. 경로 열은 참고용이며 프로그램은 아래의 검증된 기본형 경로만 사용합니다. 존재 여부는 CSV 생성 시점의 참고값으로, 실행할 때 실제 파일을 다시 확인합니다.
+
+목록 기준은 PokeAPI의 고정된 소스 버전에 있는 본가 기본형입니다. 진화가 없는 단일종·전설·환상도 포함합니다. 지역 폼에만 진화가 있는 파오리·코산호·직구리·침바루 등은 기본형에 후속 진화가 없으므로 포함합니다. 다른 폼·성별 폴더는 처리하지 않습니다. Alpha의 진화 조건 및 타입이 본가와 다르면 CSV를 수정하세요. 데이터 출처와 버전은 `pmd_aura_targets.source.json`에 기록했습니다.
+
+저장소 루트 `C:\Working\SkyTemple`에서 실행합니다:
+
+```powershell
+python tools/pmd_aura.py --sprite-root SpriteCollab-master/SpriteCollab-master/sprite --csv tools/data/pmd_aura_targets.csv --output output/aura/final-evolutions-v1 --dry-run
+python tools/pmd_aura.py --sprite-root SpriteCollab-master/SpriteCollab-master/sprite --csv tools/data/pmd_aura_targets.csv --output output/aura/final-evolutions-v1
+```
+
+배치 모드는 기본적으로 모든 실제 동작을 처리하고 미리보기는 생성하지 않습니다. `--animations Idle`로 일부만 선택하고 `--previews`로 미리보기를 켤 수 있습니다. `--only-dex 0012`는 버터플만 처리합니다.
+
+입력과 출력 대응:
+
+| 입력 | 출력 |
+|---|---|
+| `sprite/번호/` | `출력/번호/AltMeta/` |
+| `sprite/번호/0000/0001/` | `출력/번호/AltMetaColor/` |
+
+원본 디렉터리와 tracker는 수정하지 않습니다. AltMeta·AltMetaColor는 생성 패키지의 폴더 이름이며 게임 등록·ROM 적용은 별도 작업입니다. 마스크를 쓰면 `--mask-dir` 아래의 `번호/AltMeta/동작-Mask.png`, `번호/AltMetaColor/동작-Mask.png`를 준비합니다.
+
+전체 실행이 끝나면 출력 루트의 `batch-report.json`에 생성·누락·실패 결과가 남습니다. 누락은 건너뛰고, 개별 실패 후에도 다른 포켓몬을 계속 처리합니다. 색상 여유가 없는 원본은 실패로 기록되며 원본을 줄이거나 덮어쓰지 않습니다. 종료 코드 1은 실패 항목이 있다는 뜻입니다.
+
+실제 버터플 전체 동작 검증에서 원본은 16색 제한으로 성공했고, 이로치는 두 타입색을 추가할 슬롯이 부족했습니다. `--palette-limit 32`로 올리면 양쪽 파일을 생성할 수 있지만, 이 출력의 게임 팔레트 호환성은 별도로 확인해야 합니다. 기본 제한은 계속 16색입니다.
+
+중단 후 같은 명령에 `--resume`을 추가하면 소스·옵션·프로그램·출력 해시가 일치하는 완료 항목만 건너뜁니다. 불완전하거나 변경된 출력은 덮어쓰지 않습니다. 옵션이나 CSV 타입을 바꾼 경우 새 출력 루트를 사용하세요. `--dry-run`은 파일을 생성하지 않고 입력의 존재만 확인하며 팔레트 등 렌더링 검증은 실제 실행에서 수행합니다.
+
+목록 재현용 `pmd_aura_catalog.py`는 고정된 PokeAPI CSV를 캐시에 내려받아 분석 JSON을 출력합니다. 원본 데이터 파일은 커밋하지 않습니다.
+
+## 단일 포켓몬 Idle 시험
 
 저장소 루트 `C:\Working\SkyTemple`에서 실행합니다. 출력 폴더는 매번 새 이름을 사용합니다.
 

@@ -8,7 +8,7 @@ import xml.etree.ElementTree as ET
 import numpy as np
 from PIL import Image
 
-from pmd_aura import build, color_ramp, parser, render_frame
+from pmd_aura import batch, build, color_ramp, parser, render_frame
 
 
 class AuraTests(unittest.TestCase):
@@ -100,6 +100,40 @@ class AuraTests(unittest.TestCase):
             args.padding = 'auto'; args.palette_limit = 3
             with self.assertRaisesRegex(ValueError, 'at least two'): build(args)
             self.assertFalse(out.exists())
+
+    def test_batch_variants_resume_missing_and_modified_output(self):
+        with tempfile.TemporaryDirectory() as temp:
+            root = Path(temp); sprites = root / 'sprites'; sprites.mkdir()
+            self.fixture(sprites / '0012')
+            shiny = sprites / '0012/0000'; shiny.mkdir()
+            self.fixture(shiny / '0001')
+            csv_path = root / 'targets.csv'
+            csv_path.write_text('dex_id,type1,type2,enabled\n0012,bug,flying,1\n0003,grass,poison,1\n', encoding='utf-8-sig')
+            args = parser().parse_args(['--sprite-root', str(sprites), '--csv', str(csv_path),
+                                       '--output', str(root / 'out')])
+            args.dry_run = True
+            self.assertEqual(batch(args)['summary'], {'ready': 2, 'skipped_missing': 2})
+            self.assertFalse(args.output.exists())
+            args.dry_run = False
+            self.assertEqual(batch(args)['summary'], {'created': 2, 'skipped_missing': 2})
+            self.assertFalse((args.output / '0012/AltMeta/previews').exists())
+            args.resume = True
+            self.assertEqual(batch(args)['summary'], {'skipped_completed': 2, 'skipped_missing': 2})
+            (args.output / '0012/AltMeta/credits.txt').write_text('modified')
+            self.assertEqual(batch(args)['summary']['failed'], 1)
+            args.width = 2
+            self.assertEqual(batch(args)['summary']['failed'], 2)
+
+    def test_batch_duplicate_csv_rejected_before_writes(self):
+        with tempfile.TemporaryDirectory() as temp:
+            root = Path(temp); sprites = root / 'sprites'; sprites.mkdir()
+            csv_path = root / 'targets.csv'
+            csv_path.write_text('dex_id,type1,type2,enabled\n12,bug,flying,1\n0012,bug,flying,1\n')
+            args = parser().parse_args(['--sprite-root', str(sprites), '--csv', str(csv_path),
+                                       '--output', str(root / 'out')])
+            with self.assertRaisesRegex(ValueError, 'duplicate'):
+                batch(args)
+            self.assertFalse(args.output.exists())
 
 
 if __name__ == '__main__':
