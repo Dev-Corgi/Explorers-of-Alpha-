@@ -10,6 +10,11 @@ The first visit preserves Teddiursa's evolution and the Spring introduction,
 then opens the native evolution menu for the hero and partner only. Final forms,
 unmet requirements and cancellation skip evolution. The warning about a space
 distortion follows the menu regardless of whether either member evolved.
+The scene uses both native `message_Menu(21)` and `message_Menu(22)`, including
+the original appearance/actor result loop from `evolve.ssb`. Starting menu 21
+alone does not wait for the controller to finish; the warning must wait until
+menu 22 reports completion and the shop has closed its own windows. An empty
+eligible list waits for the no-eligible notice to be acknowledged before closing.
 Repeat warnings, bedroom recollections and the later mysterious-energy report
 use matching English/Korean dialogue. The Gengar letter no longer promises a
 Stone; its dialogue moves from Alpha's neutral constants into language strings
@@ -86,6 +91,14 @@ Regression/Change Form/Evolve dispatch, window-close delay, No/Yes confirmation
 and the native conversion call site. The original state-6 and state-14 menus
 look similar but use separate dispatchers; attaching member actions to state 6
 would leave them appearing only after declining evolution and inert there.
+
+First-visit checks also exercise the native no-eligible popup through actual
+window closure, plus the script result loop for no change, repeated evolution
+and appearance events. Level-63 Pikachu/Eevee fixtures demonstrate that ordinary
+item conditions remain: without suitable items Pikachu can regress to Pichu,
+while Eevee has no eligible action; a Thunderstone makes both eligible with
+the Spring-unlock flag set and the late hero-evolution flag unset. No Ascend
+Stone is needed, but levels alone do not replace their normal item conditions.
 
 Full-stack building remains opt-in under the repository instructions. After a
 requested rebuild, emulator QA should cover the first graduation scene, the

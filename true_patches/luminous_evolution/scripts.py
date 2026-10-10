@@ -16,6 +16,7 @@ def rewrite(ssb, config, edits):
         if left[1] > right[0]:
             raise ValueError("overlapping SSB edits")
     mapping = {}
+    labels = {}
     new_routines = []
     cursor = 2 + 3 * len(ssb.routine_info)
     by_start = {start: (end, items) for start, end, items in edits}
@@ -34,6 +35,12 @@ def rewrite(ssb, config, edits):
                 replacement_start = cursor
                 consumed.add(old.offset)
                 for name, params in items:
+                    if name == "label":
+                        label = params[0]
+                        if label in labels:
+                            raise ValueError(f"duplicate SSB replacement label: {label}")
+                        labels[label] = cursor
+                        continue
                     codes = config.script_data.op_codes__by_name[name]
                     code = next(c for c in codes if c.params in (len(params), -1))
                     op = SkyTempleSsbOperation(cursor, code, list(params))
@@ -53,10 +60,47 @@ def rewrite(ssb, config, edits):
             for arg in op.op_code.arguments:
                 if arg.name == "jump_address":
                     destination = op.params[arg.id]
+                    if isinstance(destination, str):
+                        if destination not in labels:
+                            raise RuntimeError(f"undefined SSB replacement label: {destination}")
+                        op.params[arg.id] = labels[destination]
+                        continue
                     if destination not in mapping:
                         raise RuntimeError(f"invalid SSB branch {destination:#x}")
                     op.params[arg.id] = mapping[destination]
     ssb.routine_ops = new_routines
+
+
+def first_visit_menu(rom, config):
+    """Reuse the actual Spring menu/result handshake and appearance events.
+
+    Menu 21 starts the controller asynchronously. Menu 22 waits for its result;
+    results 1..4 request visual/actor work before waiting again. Only result 0
+    permits the story to continue after the controller closes its windows.
+    """
+    native = SsbHandler.deserialize(rom.getFileByName("SCRIPT/P14P01A/evolve.ssb"),
+                                    static_data=config)
+    ops = [op for op in native.routine_ops[0] if 0x27 <= op.offset < 0x60]
+    if ([(op.op_code.name, op.params) for op in ops[:2]] !=
+            [("message_Menu", [21]), ("message_Menu", [22])] or
+            [(op.op_code.name, op.params[0]) for op in ops[2:6]] !=
+            [("Case", i) for i in range(1, 5)]):
+        raise RuntimeError("native Spring menu/result sequence changed")
+    labels = {0x29: "spring_wait", 0x39: "spring_flash", 0x4D: "spring_fade",
+              0x52: "spring_refresh", 0x5A: "spring_resume", 0x60: "spring_done"}
+    items = []
+    for op in ops:
+        if op.offset in labels:
+            items.append(("label", [labels[op.offset]]))
+        params = list(op.params)
+        for arg in op.op_code.arguments:
+            if arg.name == "jump_address":
+                if params[arg.id] not in labels:
+                    raise RuntimeError("native Spring result branch changed")
+                params[arg.id] = labels[params[arg.id]]
+        items.append((op.op_code.name, params))
+    items.append(("label", ["spring_done"]))
+    return items
 
 
 def apply_scripts(rom, config, texts):
@@ -92,13 +136,16 @@ def apply_scripts(rom, config, texts):
                     ops[0x2DF].op_code.name != "message_EmptyActor"):
                 raise RuntimeError("first Spring scene changed")
             # Teddiursa's evolution and partner's conditional invitation remain.
-            # The native menu handles cancellation/final forms and sprite refresh.
-            rewrite(ssb, config, [(0x1A4, 0x2DF, [
+            # Wait through the native controller's result/appearance loop before
+            # resuming the warning, including its no-eligible-Pokemon dialog.
+            items = [
                 ("message_Close", []), ("message_EmptyActor", []),
                 ("message_Talk", [64]), ("message_Close", []),
-                ("message_Menu", [21]),
+            ] + first_visit_menu(rom, config) + [
+                ("message_Close", []), ("screen_FadeIn", [1, 30]),
                 ("bgm_PlayFadeIn", [14, 0, 256]),
-            ])])
+            ]
+            rewrite(ssb, config, [(0x1A4, 0x2DF, items)])
         rom.setFileByName(path, SsbHandler.serialize(ssb, static_data=config))
         changed[path] = [int(i) for i in entries]
 

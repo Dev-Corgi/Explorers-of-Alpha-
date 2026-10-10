@@ -61,6 +61,7 @@ class Machine:
         self.string_requests = []
         self.evolution_count = 0
         self.spawned = []
+        self.bag = set()
         self.stops = {RETURN: self.stop}
         self.stubs = {}
         self.write32(_word(rom.arm9, 0x020555CC, 0x02000000), ROSTER)
@@ -72,7 +73,7 @@ class Machine:
         self.stub(0x0204CA94, lambda: self.flags.get(self.reg(0), 0))
         self.stub(0x0204CB2C, self.set_flag)
         self.stub(0x0204AFC0, lambda: 1)
-        self.stub(0x0200D278, lambda: -1)  # no item, including no Ascend Stones
+        self.stub(0x0200D278, lambda: 0 if self.reg(0) in self.bag else -1)
         self.stub(0x0204FDFC, lambda: 0)
         self.stub(0x0204FCDC, self.count_evolution)
         self.stub(0x02055CCC, self.spawn)
@@ -210,6 +211,9 @@ def check_scripts(before, after):
             menus=[i for i,o in enumerate(operations) if o.op_code.name=="message_Menu" and o.params==[21]]
             warning=[i for i,o in enumerate(operations) if o.op_code.name=="message_Talk" and o.params==[85]]
             assert len(menus)==1 and menus[0]<warning[0]
+            assert operations[menus[0]+1].op_code.name=="message_Menu"
+            assert operations[menus[0]+1].params==[22]
+            check_first_visit_results(operations,menus[0],warning[0])
             assert not any(o.op_code.name=="message_Talk" and o.params==[63] for o in operations)
         if path in ("SCRIPT/COMMON/unionall.ssb","SCRIPT/D01P11A/us2306.ssb"):
             assert not any(o.op_code.name=="item_Set" and o.params[1] in (427,428)
@@ -248,6 +252,97 @@ def check_scripts(before, after):
         raw=parse_ssb_strings(translated.getFileByName(path)).strings
         for index,e in entries.items():
             assert raw[int(index)]==encoder.encode(e["ko"])
+
+
+def check_first_visit_results(operations,start,warning):
+    """Run the inserted result branches, including repeated appearance events.
+
+    Menu 21 leaves the controller/window active. Only a completed Menu 22 result
+    can release it. This catches story advancement while the shop still owns a
+    window, which a static 'menu appears before warning' assertion misses.
+    """
+    offsets={op.offset:i for i,op in enumerate(operations)}
+    for results in ([0],[1,0],[2,0],[3,1,4,0],[3,1,4,3,1,4,0]):
+        pending=list(results);pc=start;active=False;last=None;waits=0;events=[]
+        for _ in range(200):
+            if pc==warning:
+                assert not active and not pending
+                assert waits==len(results)
+                assert events==[19 if r==3 else 3 for r in results if r in (3,4)]
+                break
+            op=operations[pc];pc+=1
+            if op.op_code.name=="message_Menu":
+                if op.params==[21]:
+                    assert not active;active=True
+                elif op.params==[22]:
+                    assert active and pending
+                    last=pending.pop(0);waits+=1
+                    if last==0: active=False
+            elif op.op_code.name=="Case" and op.params[0]==last:
+                pc=offsets[op.params[1]]
+            elif op.op_code.name=="Jump":
+                pc=offsets[op.params[0]]
+            elif op.op_code.name=="supervision_SpecialActing":
+                events.append(op.params[0])
+        else:
+            raise AssertionError('first-visit Spring result loop did not finish')
+
+
+def check_story_item_conditions(rom, record):
+    m=Machine(rom,record.data[0]["symbols"])
+    m.record(0,25,63,0xD6);m.record(1,133,63,0xD7)
+    m.u.mem_write(ROSTER+8,b'\0\0');m.u.mem_write(ROSTER+0x44+8,b'\0\0')
+    m.flags[5]=0;m.run("Spring_Prepare")
+    assert m.flags[5]==1 and m.flags[10]==0
+    # Reproduce the user's level-63 Pikachu/Eevee with no evolution items.
+    assert m.run("Spring_Count")==0
+    for index in (0,1):
+        assert m.run(0x0205A210,ROSTER+index*0x44)==0
+    # The ordinary Thunderstone makes both eligible from the unlock visit;
+    # neither Ascend Stone nor late hero-evolution flag 10 is needed.
+    m.bag.add(141)
+    assert m.run("Spring_Count")==2
+    for index in (0,1):
+        assert m.run(0x0205A210,ROSTER+index*0x44)==1
+    m.run("Spring_Prepare") # revisit after Spring unlock
+    m.bag.clear()
+    m.select(0);m.native_state(14)
+    assert [a for _,a in m.menus[-1]]==[10,8,1]
+    m.run("Spring_Eligibility",ROSTER+0x44,OUT)
+    assert m.read16(OUT+8)==0 # Eevee has no regression or eligible evolution
+    m.bag.add(141)
+    m.select(0);m.native_state(14)
+    assert [a for _,a in m.menus[-1]]==[3,10,8,1]
+    m.select(1);m.native_state(14)
+    assert [a for _,a in m.menus[-1]]==[3,8,1]
+    # Execute the real first-visit empty-menu lifecycle until window destruction.
+    m.bag.clear();m.flags[5]=0;m.select(0)
+    active=set();busy=True;closed=[]
+    def window_create(): active.add(3);return 3
+    def window_destroy():
+        closed.append(m.reg(0));active.discard(m.reg(0))
+    for address in (0x02023690,0x022E6E68,0x0230D220,0x0202F3A4,
+                    0x0202836C,0x0202F2C4):
+        m.stub(address,lambda: 0)
+    m.stub(0x022E6EC8,lambda: 1)
+    m.stub(0x0202F0B0,window_create)
+    m.stub(0x0202F148,window_destroy)
+    m.stub(0x0202F180,lambda: int(busy))
+    m.stub(0x022E6E8C,lambda: 0)
+    setter=m.stubs.pop(0x0238A140)
+    try:
+        assert m.run(0x0238C148)==1
+        assert m.messages[-1]==1069 and active=={3}, (m.messages,active,m.flags,
+                                                    m.u.mem_read(STATE+0x70,4).hex())
+        for _ in range(5): assert m.run(0x0238C1F8)==1
+        assert active=={3} # no-eligible notice must wait for acknowledgement
+        busy=False
+        for _ in range(10):
+            if m.run(0x0238C1F8)==4: break
+        else: raise AssertionError('Spring empty-menu controller did not exit')
+        assert not active and closed==[3]
+    finally:
+        m.stub(0x0238A140,setter)
 
 
 def check_arm(rom, record):
@@ -503,8 +598,10 @@ def main():
     check_scripts(baseline,after)
     check_arm(after,record)
     check_menu_path(after,record)
+    check_story_item_conditions(after,record)
     print("OK: native entry/member menus, action dispatch, Yes/No and actual conversion hooks,")
     print("    ARM evolution gates, final-form access, record/XP/doping preservation,")
+    print("    first-visit result/appearance loop, empty-menu window closure, level-63 Pikachu/Eevee item gates,")
     print("    Shedinja only on normal evolution, form cycles, repeated changes, SSB relocation and EN/KO exact matches.")
     print("No ROM or full-stack build was written.")
 
