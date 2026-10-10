@@ -1,5 +1,5 @@
 id: z_move_v2
-version: 24
+version: 25
 region: US
 description: >
   Z-Move v2 — move submenu, Z-Move (559) temp slot-3 shell, Z gauge (WRAM + HUD),
@@ -14,6 +14,8 @@ description: >
   v12: ForceRestoreAll on LevelUp / RestorePp / TeachItem (clear deferral before learn UI / revive).
   v13: Z-Move powers retuned for Gen9 BP scale — Normal 240, other types 120.
   v14: Steel Z-Move ally buff — Reflect + Light Screen (was Magic Coat).
+  v25: Preserve HandleFaint source/context arguments across Z-gauge helpers;
+  send-home source 604 must reach control_mode_enhance unchanged.
   v24: DoMoveLightScreen pointed at Camouflage; now TryInflictLightScreenStatus.
   v15: Zero Z-gauge when unionall coroutine 52 starts (save-prompt step),
   not at GetDungeonResultMsg (story dungeons can skip the results window).

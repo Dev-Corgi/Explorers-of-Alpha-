@@ -270,7 +270,9 @@ ZMove_ApplyDamageHook_Continue:
 
 ; HandleFaint entry: +2 for non-team faints, then vanilla prologue.
 ZMove_HandleFaintHook:
-	push {r4, lr}
+	; GetTeamMemberIndex clobbers r1-r3. Preserve HandleFaint's damage
+	; source (r1) and optional message/context pointer (r2) before the call.
+	push {r1-r4, r12, lr}
 	mov r4, r0
 	mov r0, r4
 	bl GetTeamMemberIndex
@@ -280,7 +282,7 @@ ZMove_HandleFaintHook:
 	bl ZMove_AddZGauge
 ZMove_HandleFaintHook_Continue:
 	mov r0, r4
-	pop {r4, lr}
+	pop {r1-r4, r12, lr}
 	push {r4, r5, r6, r7, r8, r9, r10, r11, lr}
 	b HandleFaintBody
 

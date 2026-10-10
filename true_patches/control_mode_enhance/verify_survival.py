@@ -237,7 +237,36 @@ def main():
         candidate17 = (work / 'overlay_0017.bin').read_bytes()
         assert struct.unpack_from('<I', candidate17, 0x0238AC2C - overlays[17].ramAddress)[0] == 0xE3A00001
         assert candidate29[0x022F7F30 - original.ramAddress:0x022F7F34 - original.ramAddress] == bytes(overlays[29].data[0x022F7F30 - original.ramAddress:0x022F7F34 - original.ramAddress])
-        machine = Machine(rom, candidate29, (work / 'overlay_0036.bin').read_bytes(), symbols)
+        candidate36 = (work / 'overlay_0036.bin').read_bytes()
+        machine = Machine(rom, candidate29, candidate36, symbols)
+
+    # Start at the actual send-home caller, through the Z-Move entry wrapper
+    # and native HandleFaint argument capture. This catches corruption before
+    # the later control-mode hook, with no explicit leader change.
+    from true_patches.z_move_v2.verify_handle_faint import compile_wrapper
+    symbols['sendhome_caller'] = 0x022F5ECC
+    symbols['vanilla_sendhome_cleanup'] = 0x022F84AC
+    z_entry = 0x02200000
+    branch = 0xEA000000 | (((z_entry - 0x022F7F38) // 4) & 0xFFFFFF)
+    for broken in (True, False):
+        # Fresh machines avoid Unicorn's translated-code cache between fixtures.
+        integration = Machine(rom, candidate29, candidate36, symbols)
+        integration.word(0x022F7F30, branch)
+        integration.uc.mem_write(z_entry, compile_wrapper(z_entry, broken=broken))
+        integration.setup()
+        integration.uc.reg_write(UC_ARM_REG_R7, integration.entity(1))
+        integration.run('sendhome_caller', stop=0x022F7F44)
+        assert integration.uc.reg_read(UC_ARM_REG_R9) == (integration.entity(1) if broken else 604)
+        assert integration.uc.reg_read(UC_ARM_REG_R8) == (1 if broken else 0)
+        integration.uc.reg_write(UC_ARM_REG_R7, integration.info(1))
+        integration.run('ControlModeEnhance_Faint', stop=0x022F85C8 if broken else 0x022F8028)
+        if not broken:
+            integration.run('vanilla_sendhome_cleanup', stop=0x022F85C8)
+        integration.run('ControlModeEnhance_PrepareFloor')
+        integration.run('ControlModeEnhance_SpawnTeam')
+        assert integration.word(integration.entity(1)) == int(broken)
+        assert bool(integration.byte(integration.member(1))) == broken
+        assert integration.word(symbols['celeader']) == integration.entity(0)
 
     # Exercise the real HandleFaint hook, including the displaced instruction
     # and ABI. Sending somebody home must leave existing death backups intact.
@@ -617,6 +646,7 @@ def main():
                       'sent_home_excluded_cases': sent_home_cases,
                       'temporary_leader_send_home_cases': temporary_leader_cases,
                       'vanilla_temporary_leader_retention_reproduced': True,
+                      'sendhome_caller_and_z_move_entry_integration': 'passed',
                       'battle_faint_hook': 'passed',
                       'current_leader_preserved': 'passed', 'guild_identity_after_roster_reorder': 'passed',
                       'shared_exit_clear_escape_defeat': 'passed', 'guest_only_game_over': 'passed',

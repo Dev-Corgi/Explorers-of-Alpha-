@@ -110,3 +110,10 @@ and sixteen manual-actor cases execute actual roster cleanup and the next-floor
 wrappers, with guild persistence, sprite/UI services, and spawning supplied by
 the fixture. They retain unrelated death backups, the designated leader, and
 normal battle-faint revival. Validation writes no ROM.
+
+
+The send-home integration test also covers the Z-Move entry wrapper before
+this module's hook. z_move_v2 v25 is required: older wrappers corrupt source
+604 during native GetTeamMemberIndex, so even a nonleader is treated as a
+battle faint. The fixture demonstrates reproduction without any leader change,
+then verifies removal with the fixed wrapper and normal battle-faint revival.
