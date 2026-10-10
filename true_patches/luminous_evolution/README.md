@@ -1,0 +1,81 @@
+# luminous_evolution
+
+Luminous Spring permits hero/partner evolution as soon as the graduation visit
+opens the Spring. Normal level, IQ, move and evolution-item requirements still
+apply. Ascend Stone Mark I/II requirements and scripted rewards are removed.
+Alpha's direct Luxio/Luxray Stone requirements are restored to levels 15/30 in
+both gender blocks. Old inventory Stones remain harmless relics.
+
+The first visit preserves Teddiursa's evolution and the Spring introduction,
+then opens the native evolution menu for the hero and partner only. Final forms,
+unmet requirements and cancellation skip evolution. The warning about a space
+distortion follows the menu regardless of whether either member evolved.
+Repeat warnings, bedroom recollections and the later mysterious-energy report
+use matching English/Korean dialogue. The Gengar letter no longer promises a
+Stone; its dialogue moves from Alpha's neutral constants into language strings
+so the Korean translator can translate it.
+
+Later visits show `Evolve`, optional `Regression`, optional `Change Form`,
+`Summary`, `Cancel`. Korean labels are `퇴화` and `폼 변환`. Final forms remain
+selectable for regression. Explicit form groups are Castform, Deoxys, Burmy,
+Wormadam, Cherrim, Shaymin and Giratina. Form options have distinct localized
+labels and use the native target selector, confirmation and appearance-change
+sequence. Gender blocks are preserved where applicable. Form links/cycles do
+not become regression targets. Sunshine Cherrim shares Cherubi as its previous
+stage; Shedinja has an explicit Nincada regression relationship.
+
+Every species change retains nickname, level, experience, moves, IQ, permanent
+doping and the other saved record fields. Normal evolution updates the existing
+two evolution-history level bytes; regression removes the latest history entry;
+form changes preserve history. No evolution stat bonus is added. Existing
+`base_stats_speed` summary and dungeon initialization calculate stats for the
+new species from the retained doping values. The original Nincada-to-Ninjask
+wrapper still creates Shedinja. Regression and form changes call the resident
+species writer directly and cannot create Shedinja or increment evolution count.
+
+## Placement and application
+
+Apply after `base_stats_speed`/`spinda_ev_speed`, before `korean`; it is last in
+`FULL_STACK_MODULES`. `patch_engine/apply_luminous_evolution.py` compiles the
+runtime with `arm-none-eabi-gcc` and assembles hooks with armips. Code, tables and
+scratch storage occupy an aligned, dynamically allocated extension of ov16.
+Overlay metadata is updated, BSS/overlap checks are enforced, and no ov36 cave
+or `team_push` reservation is used. ARM9 calls the shop-local eligibility helper
+only from the Spring's mode-5 team-list path. The permanent record writer stays
+resident in its original ARM9 function space.
+
+Hook guards check the canonical Alpha instructions, complete record-writer
+body, Stone requirements, script anchors and occupied message slots. Linker
+state records the cave hash, hook words and writer hash for verification.
+New `text_e` slots are 19700–19706 and 19710–19729; code passes index + 1.
+Authored script indices are independent of `text_e` IDs. All authored text is
+registered in `korean/data/translations.json.gz` with its exact edited English.
+
+## Verification without building a ROM
+
+Run from the repository root:
+
+```powershell
+.venv\Scripts\python.exe -B true_patches\luminous_evolution\verify.py
+.venv\Scripts\python.exe -B true_patches\luminous_evolution\verify.py --integration
+```
+
+The first uses the canonical Alpha input. The second reads the existing English
+full-stack output and checks applying this module in memory. Neither writes an
+NDS file or state file, or rebuilds the full stack. Temporary binaries and linker
+files are outside the repository and are deleted after linking.
+
+Checks execute the real ARM MD condition reader and evolution checker, the
+compiled runtime, resident record writer, original Shedinja wrapper, native
+target selector and native No/cancel dispatch. File, bag and graphical services
+are supplied by the harness. Coverage includes Stone-free first/second
+evolutions (including Shinx and its gender counterpart), ordinary requirements,
+first-visit filtering/final forms, conditional menu rows, gender/branch
+regression, localized form selection, record and doping preservation, Shedinja,
+repeated changes, script branch relocation, story progress flags, reward removal
+and Korean exact matching/tag safety. These are ARM execution and data checks,
+not an emulator playthrough or a screen-layout certification.
+
+Full-stack building remains opt-in under the repository instructions. After a
+requested rebuild, emulator QA should cover the first graduation scene, the
+appearance-change sequence, saving/reloading and later story visits in EN/KO.

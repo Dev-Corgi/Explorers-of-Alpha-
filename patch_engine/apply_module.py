@@ -140,6 +140,18 @@ def apply_module(
 
     armips_exe = armips or (_repo_root() / "tools" / "armips.exe")
 
+    if kind == "luminous_evolution":
+        from .apply_luminous_evolution import apply_luminous_evolution_module
+
+        record = apply_luminous_evolution_module(
+            module_id, module_dir, manifest, rom, armips_exe, state,
+        )
+        state.upsert_module(record)
+        rom_out.write_bytes(rom.save())
+        if state_path:
+            save_state(state_path, state)
+        return state
+
     if kind == "berry_boost":
         if not armips_exe.is_file():
             raise FileNotFoundError(f"armips not found: {armips_exe}")
@@ -390,6 +402,13 @@ def verify_module_applied(
 ) -> None:
     manifest = load_module_manifest(module_dir)
     kind = manifest.get("kind", "asm")
+
+    if kind == "luminous_evolution":
+        from .apply_luminous_evolution import verify_luminous_evolution_module
+
+        mod_state = state.get_module(manifest["id"]) if state else None
+        verify_luminous_evolution_module(rom_path, module_dir, manifest, mod_state)
+        return
 
     if kind == "team_push":
         from true_patches.team_push.patch_team_push import verify_team_push_module

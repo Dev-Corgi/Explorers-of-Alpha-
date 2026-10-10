@@ -43,6 +43,7 @@ FULL_STACK_MODULES = [
     "control_mode_enhance",
     "belly_union",
     "bug_fixes",
+    "luminous_evolution",
 ]
 
 

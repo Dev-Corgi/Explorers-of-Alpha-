@@ -1,0 +1,12 @@
+{
+  "regression_overrides": {"320": 318, "920": 918},
+  "groups": [
+    {"name": "Castform", "ids": [379, 564, 565, 566]},
+    {"name": "Deoxys", "ids": [418, 419, 420, 421]},
+    {"name": "Burmy", "ids": [447, 448, 449]},
+    {"name": "Wormadam", "ids": [450, 451, 452]},
+    {"name": "Cherrim", "ids": [460, 461]},
+    {"name": "Shaymin", "ids": [534, 535]},
+    {"name": "Giratina", "ids": [529, 536]}
+  ]
+}

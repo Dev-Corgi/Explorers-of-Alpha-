@@ -1,0 +1,521 @@
+{
+  "text_e": [
+    {
+      "index": 19700,
+      "en": "Regression",
+      "ko": "퇴화"
+    },
+    {
+      "index": 19701,
+      "en": "Change Form",
+      "ko": "폼 변환"
+    },
+    {
+      "index": 19702,
+      "en": "[CN][name:0] shall return to [kind:1].\n[CN]Will you proceed?",
+      "ko": "[CN][name:0]의 모습을 [kind:1]의 모습으로\n[CN]되돌리겠느냐?"
+    },
+    {
+      "index": 19703,
+      "en": "[CN][name:0] shall take a different form.\n[CN]Will you proceed?",
+      "ko": "[CN][name:0]의 폼을 바꾸겠느냐?"
+    },
+    {
+      "index": 19704,
+      "en": "[CN][kind:0] regressed into [kind:1]![C]",
+      "ko": "[CN][kind:0]은(는) [kind:1](으)로 퇴화했다![C]"
+    },
+    {
+      "index": 19705,
+      "en": "[CN][kind:0] changed form![C]",
+      "ko": "[CN][kind:0]의 폼이 바뀌었다![C]"
+    },
+    {
+      "index": 19710,
+      "en": "Castform - Normal",
+      "ko": "캐스퐁 - 보통",
+      "species": 379
+    },
+    {
+      "index": 19711,
+      "en": "Castform - Snowy",
+      "ko": "캐스퐁 - 설운",
+      "species": 564
+    },
+    {
+      "index": 19712,
+      "en": "Castform - Sunny",
+      "ko": "캐스퐁 - 태양",
+      "species": 565
+    },
+    {
+      "index": 19713,
+      "en": "Castform - Rainy",
+      "ko": "캐스퐁 - 빗방울",
+      "species": 566
+    },
+    {
+      "index": 19714,
+      "en": "Deoxys - Normal",
+      "ko": "테오키스 - 노말폼",
+      "species": 418
+    },
+    {
+      "index": 19715,
+      "en": "Deoxys - Attack",
+      "ko": "테오키스 - 어택폼",
+      "species": 419
+    },
+    {
+      "index": 19716,
+      "en": "Deoxys - Defense",
+      "ko": "테오키스 - 디펜스폼",
+      "species": 420
+    },
+    {
+      "index": 19717,
+      "en": "Deoxys - Speed",
+      "ko": "테오키스 - 스피드폼",
+      "species": 421
+    },
+    {
+      "index": 19718,
+      "en": "Burmy - Plant",
+      "ko": "도롱충이 - 초목도롱",
+      "species": 447
+    },
+    {
+      "index": 19719,
+      "en": "Burmy - Sandy",
+      "ko": "도롱충이 - 모래땅도롱",
+      "species": 448
+    },
+    {
+      "index": 19720,
+      "en": "Burmy - Trash",
+      "ko": "도롱충이 - 슈레도롱",
+      "species": 449
+    },
+    {
+      "index": 19721,
+      "en": "Wormadam - Plant",
+      "ko": "도롱마담 - 초목도롱",
+      "species": 450
+    },
+    {
+      "index": 19722,
+      "en": "Wormadam - Sandy",
+      "ko": "도롱마담 - 모래땅도롱",
+      "species": 451
+    },
+    {
+      "index": 19723,
+      "en": "Wormadam - Trash",
+      "ko": "도롱마담 - 슈레도롱",
+      "species": 452
+    },
+    {
+      "index": 19724,
+      "en": "Cherrim - Overcast",
+      "ko": "체리꼬 - 네거폼",
+      "species": 460
+    },
+    {
+      "index": 19725,
+      "en": "Cherrim - Sunshine",
+      "ko": "체리꼬 - 포지폼",
+      "species": 461
+    },
+    {
+      "index": 19726,
+      "en": "Shaymin - Land",
+      "ko": "쉐이미 - 랜드폼",
+      "species": 534
+    },
+    {
+      "index": 19727,
+      "en": "Shaymin - Sky",
+      "ko": "쉐이미 - 스카이폼",
+      "species": 535
+    },
+    {
+      "index": 19728,
+      "en": "Giratina - Altered",
+      "ko": "기라티나 - 어나더폼",
+      "species": 529
+    },
+    {
+      "index": 19729,
+      "en": "Giratina - Origin",
+      "ko": "기라티나 - 오리진폼",
+      "species": 536
+    },
+    {
+      "index": 1068,
+      "en": "[CN]No changes are available at present.",
+      "ko": "[CN]지금은 모습을 바꿀 수 있는 포켓몬이 없구나.",
+      "before": "[CN]This place serves no purpose to you.\n[CN]Begone."
+    },
+    {
+      "index": 1087,
+      "en": "[CN]No changes are available at present.[C]",
+      "ko": "[CN]지금은 모습을 바꿀 수 있는 포켓몬이 없구나.[C]",
+      "before": "[CN]This place serves no\n[CN]purpose to you now.[C]\n[CN]Begone."
+    },
+    {
+      "index": 1074,
+      "en": "[CN]Which Pokemon seeks a change?",
+      "ko": "[CN]어느 포켓몬이 모습을 바꾸려 하느냐?",
+      "before": "[CN]Which Pokémon seeks evolution?"
+    },
+    {
+      "index": 1089,
+      "en": "[CN]Pokemon can evolve here when\n[CN]their usual requirements are met.[C]\n[CN]Those with an earlier evolutionary stage\n[CN]may also choose Regression.[C]\n[CN]Those with another supported form\n[CN]may choose Change Form.[C]\n[CN]These changes retain levels, experience,\n[CN]moves, IQ, nicknames and permanent boosts.",
+      "ko": "[CN]일반적인 진화 조건을 갖추면\n[CN]이곳에서 진화할 수 있다.[C]\n[CN]이전 진화 단계가 있는 포켓몬은\n[CN]퇴화도 선택할 수 있다.[C]\n[CN]다른 폼으로 바꿀 수 있는 포켓몬은\n[CN]폼 변환을 선택할 수 있다.[C]\n[CN]모습이 바뀌어도 레벨, 경험치, 기술,\n[CN]지능, 별명과 도핑값은 유지된다.",
+      "before": "[CN]There are those among Pokémon\n[CN]that can evolve.[C]\n[CN]Such Pokémon can evolve at this very\n[CN]spot if they satisfy certain conditions.[C]\n[CN]Evolution brings about changes\n[CN]in appearance and abilities.[C]\n[CN]Not only that, some Pokémon even change\n[CN]type and learn different moves.[C]\n[CN]However...[K]the requirements for\n[CN]evolution differ among Pokémon.[C]\n[CN]Some become ready for evolution\n[CN]merely by leveling up.[C]\n[CN]Still others may need special items\n[CN]to attain evolution.[C]\n[CN]You must also be aware of this:[C]\n[CN]once it has evolved, a Pokémon\n[CN]can never regain its previous form.[C]\n[CN]That is why you must think carefully\n[CN]before committing to evolution."
+    },
+    {
+      "index": 11131,
+      "en": "A relic from another dimension.\nIt is no longer required for evolution.",
+      "ko": "다른 차원에서 온 유물.\n이제 진화에 필요하지 않다.",
+      "before": "An odd stone from an other dimension.\nIt allows certain kinds of Pokémon to\nevolve."
+    },
+    {
+      "index": 11132,
+      "en": "A relic from another dimension.\nIt is no longer required for evolution.",
+      "ko": "다른 차원에서 온 유물.\n이제 진화에 필요하지 않다.",
+      "before": "An odd stone from an other dimension.\nIt allows certain kinds of Pokémon to\nevolve."
+    },
+    {
+      "index": 12531,
+      "en": "An old relic. Not needed for evolution.",
+      "ko": "오래된 유물. 진화에 필요하지 않다.",
+      "before": "Needed for evolution."
+    },
+    {
+      "index": 12532,
+      "en": "An old relic. Not needed for evolution.",
+      "ko": "오래된 유물. 진화에 필요하지 않다.",
+      "before": "Needed for evolution."
+    },
+    {
+      "index": 19706,
+      "en": "[CN]Which form would you like to take?",
+      "ko": "[CN]어느 폼으로 바꾸려 하느냐?"
+    }
+  ],
+  "scripts": {
+    "SCRIPT/P14P01A/s01p1005.ssb": {
+      "40": {
+        "before": " We should try evolving too,\n[hero]!",
+        "en": " If we want to evolve, we can\ntry here, [hero]!",
+        "ko": " 진화하고 싶으면 여기서\n해 볼 수 있겠네, [hero]!"
+      },
+      "41": {
+        "before": " Let's try evolving too,\n[hero]!",
+        "en": " If we want to evolve, we can\ntry here, [hero]!",
+        "ko": " 진화하고 싶으면 여기서\n해 볼 수 있겠네, [hero]!"
+      },
+      "42": {
+        "before": " We should try evolving too,\n[hero]!",
+        "en": " If we want to evolve, we can\ntry here, [hero]!",
+        "ko": " 진화하고 싶으면 여기서\n해 볼 수 있겠네, [hero]!"
+      },
+      "64": {
+        "before": "[CN]No.[K] Impossible...\n[CN]You may not evolve.",
+        "en": "[CN]If you seek evolution,\n[CN]I shall examine your qualifications.",
+        "ko": "[CN]진화를 원한다면,\n[CN]그 자격을 살펴보겠다."
+      },
+      "85": {
+        "before": "[CN]Why can you not evolve...?",
+        "en": "[CN]Before you leave...",
+        "ko": "[CN]떠나기 전에…"
+      },
+      "86": {
+        "before": "[CN]It may be influenced by a distortion\n[CN]in the fabric of space...",
+        "en": "[CN]I sense a distortion in the fabric\n[CN]of space around you both...",
+        "ko": "[CN]너희 둘에게서\n[CN]공간의 뒤틀림이 느껴진다…"
+      },
+      "87": {
+        "before": " Distortion?[K] The fabric of space?",
+        "en": " A distortion?[K] In space?",
+        "ko": " 뒤틀림이라고?[K] 공간의 뒤틀림?"
+      },
+      "88": {
+        "before": " Distortion?[K] The fabric of space?",
+        "en": " A distortion?[K] In space?",
+        "ko": " 뒤틀림이라고?[K] 공간의 뒤틀림?"
+      },
+      "89": {
+        "before": " Distortion?[K] The fabric of space?",
+        "en": " A distortion?[K] In space?",
+        "ko": " 뒤틀림이라고?[K] 공간의 뒤틀림?"
+      },
+      "90": {
+        "before": "[CN]Why that should be, I do not know...",
+        "en": "[CN]I do not know its cause...",
+        "ko": "[CN]그 원인은 나도 알 수 없다…"
+      },
+      "91": {
+        "before": "[CN]But your presence...[K]is somehow related\n[CN]to the distortion of space itself.",
+        "en": "[CN]But your presence is somehow related\n[CN]to the distortion of space itself.",
+        "ko": "[CN]하지만 너희의 존재는 어째서인지\n[CN]공간의 뒤틀림과 관련이 있구나."
+      },
+      "92": {
+        "before": "[CN]And as a result of that,\n[CN]you cannot evolve...\n[CN]At least through normal means it seems...",
+        "en": "[CN]This is a matter apart from evolution.",
+        "ko": "[CN]이것은 진화와는 별개의 문제다."
+      },
+      "93": {
+        "before": "[CN]No.[K] It is not only you...[K]\n[CN]There is yet another...",
+        "en": "[CN]It is not only one of you...",
+        "ko": "[CN]너희 중 하나만이 아니라…"
+      },
+      "94": {
+        "before": "[CN]The one behind you...[K]is also\n[CN]forbidden its evolution.",
+        "en": "[CN]It surrounds you both.\n[CN]Take care on your journey.",
+        "ko": "[CN]너희 둘 모두에게서 느껴진다.\n[CN]앞으로의 여정에 주의하도록 하여라."
+      },
+      "95": {
+        "before": " Huh?! [hero] too?!",
+        "en": " [hero] too?!",
+        "ko": " [hero]에게도?!"
+      },
+      "96": {
+        "before": " What?! [hero] too?!",
+        "en": " [hero] too?!",
+        "ko": " [hero]에게도?!"
+      },
+      "97": {
+        "before": " What?! [hero] too?!",
+        "en": " [hero] too?!",
+        "ko": " [hero]에게도?!"
+      },
+      "98": {
+        "before": "(What...[K]me too?)",
+        "en": "(Space is still distorted around us...?)",
+        "ko": "(우리 주변의 공간이 아직 뒤틀려 있다고…?)"
+      },
+      "99": {
+        "before": "(What...[K]me too?)",
+        "en": "(Space is still distorted around us...?)",
+        "ko": "(우리 주변의 공간이 아직 뒤틀려 있다고…?)"
+      },
+      "101": {
+        "before": "[CN]This is [CS:P]Luminous Spring[CR].[K]\n[CN]If you seek new evolution,\n[CN]then you shall return...",
+        "en": "[CN]If you seek a change,\n[CN]you may return here...",
+        "ko": "[CN]모습을 바꾸고 싶다면,\n[CN]이곳으로 돌아오도록 하여라…"
+      },
+      "102": {
+        "before": " I guess it's not just me...",
+        "en": " So that warning was for both of us...",
+        "ko": " 그 경고는 우리 둘 모두에게 한 말이었구나…"
+      },
+      "103": {
+        "before": " Looks like it's not just me...",
+        "en": " So that warning was for both of us...",
+        "ko": " 그 경고는 우리 둘 모두에게 한 말이었구나…"
+      },
+      "104": {
+        "before": " Looks like it's not just me...",
+        "en": " So that warning was for both of us...",
+        "ko": " 그 경고는 우리 둘 모두에게 한 말이었구나…"
+      },
+      "105": {
+        "before": " I guess you can't evolve, either,\n[hero].",
+        "en": " We should be careful, [hero].",
+        "ko": " 우리 조심해야겠어, [hero]."
+      },
+      "106": {
+        "before": " I guess you can't evolve, either,\n[hero].",
+        "en": " We should be careful, [hero].",
+        "ko": " 우리 조심해야겠어, [hero]."
+      },
+      "107": {
+        "before": " You can't evolve, either,\n[hero].",
+        "en": " We should be careful, [hero].",
+        "ko": " 우리 조심해야겠어, [hero]."
+      },
+      "108": {
+        "before": " I don't get why we're not\nallowed to evolve, though.",
+        "en": " I wonder what that distortion\nin space could mean...",
+        "ko": " 공간의 뒤틀림이라니…\n무슨 뜻일까…"
+      },
+      "109": {
+        "before": " I don't understand why we can't\nevolve, though.",
+        "en": " I wonder what that distortion\nin space could mean...",
+        "ko": " 공간의 뒤틀림이라니…\n무슨 뜻일까…"
+      },
+      "110": {
+        "before": " I don't understand why we're not\nallowed to evolve, though.",
+        "en": " I wonder what that distortion\nin space could mean...",
+        "ko": " 공간의 뒤틀림이라니…\n무슨 뜻일까…"
+      }
+    },
+    "SCRIPT/P14P01A/s20p0103.ssb": {
+      "0": {
+        "before": " Why can't I evolve?",
+        "en": " Before we go...",
+        "ko": " 돌아가기 전에…"
+      },
+      "1": {
+        "before": " Why can't I evolve?",
+        "en": " Before we go...",
+        "ko": " 돌아가기 전에…"
+      },
+      "2": {
+        "before": " Why can't I evolve?",
+        "en": " Before we go...",
+        "ko": " 돌아가기 전에…"
+      },
+      "3": {
+        "before": "[CN]Why can you not evolve...?",
+        "en": "[CN]Before you leave...",
+        "ko": "[CN]떠나기 전에…"
+      },
+      "4": {
+        "before": "[CN]It may be influenced by a distortion\n[CN]in the fabric of space...",
+        "en": "[CN]I sense a distortion in the fabric\n[CN]of space around you both...",
+        "ko": "[CN]너희 둘에게서\n[CN]공간의 뒤틀림이 느껴진다…"
+      },
+      "5": {
+        "before": " Distortion?[K] The fabric of space?",
+        "en": " A distortion?[K] In space?",
+        "ko": " 뒤틀림이라고?[K] 공간의 뒤틀림?"
+      },
+      "6": {
+        "before": " Distortion?[K] The fabric of space?",
+        "en": " A distortion?[K] In space?",
+        "ko": " 뒤틀림이라고?[K] 공간의 뒤틀림?"
+      },
+      "7": {
+        "before": " Distortion?[K] The fabric of space?",
+        "en": " A distortion?[K] In space?",
+        "ko": " 뒤틀림이라고?[K] 공간의 뒤틀림?"
+      },
+      "8": {
+        "before": "[CN]Why that should be, I do not know...",
+        "en": "[CN]I do not know its cause...",
+        "ko": "[CN]그 원인은 나도 알 수 없다…"
+      },
+      "9": {
+        "before": "[CN]But your presence...[K]is somehow related\n[CN]to the distortion of space itself.",
+        "en": "[CN]But your presence is somehow related\n[CN]to the distortion of space itself.",
+        "ko": "[CN]하지만 너희의 존재는 어째서인지\n[CN]공간의 뒤틀림과 관련이 있구나."
+      },
+      "10": {
+        "before": "[CN]And as a result of that,\n[CN]you cannot evolve...",
+        "en": "[CN]This is a matter apart from evolution.",
+        "ko": "[CN]이것은 진화와는 별개의 문제다."
+      },
+      "11": {
+        "before": "[CN]No.[K] It is not only you...[K]\n[CN]There is yet another...",
+        "en": "[CN]It is not only one of you...",
+        "ko": "[CN]너희 중 하나만이 아니라…"
+      },
+      "12": {
+        "before": "[CN]The one behind you...[K]is also\n[CN]forbidden its evolution.",
+        "en": "[CN]It surrounds you both.\n[CN]Take care on your journey.",
+        "ko": "[CN]너희 둘 모두에게서 느껴진다.\n[CN]앞으로의 여정에 주의하도록 하여라."
+      },
+      "13": {
+        "before": " Huh?! [hero] too?!",
+        "en": " [hero] too?!",
+        "ko": " [hero]에게도?!"
+      },
+      "14": {
+        "before": " What?! [hero] too?!",
+        "en": " [hero] too?!",
+        "ko": " [hero]에게도?!"
+      },
+      "15": {
+        "before": " What?! [hero] too?!",
+        "en": " [hero] too?!",
+        "ko": " [hero]에게도?!"
+      }
+    },
+    "SCRIPT/P14P01A/s20p0304.ssb": {
+      "0": {
+        "before": "[CN]Why can you not evolve...?",
+        "en": "[CN]Before you leave...",
+        "ko": "[CN]떠나기 전에…"
+      },
+      "1": {
+        "before": "[CN]It may be influenced by a distortion\n[CN]in the fabric of space...",
+        "en": "[CN]I sense a distortion in the fabric\n[CN]of space around you both...",
+        "ko": "[CN]너희 둘에게서\n[CN]공간의 뒤틀림이 느껴진다…"
+      }
+    },
+    "SCRIPT/H02P99C/s20p0102.ssb": {
+      "32": {
+        "before": "(Everyone but us, that is. We were told that\nwe can't evolve at [CS:P]Luminous Spring[CR]...)",
+        "en": "(But at Luminous Spring, we were told that a\ndistortion in the fabric of space could be felt\naround us both...)",
+        "ko": "(하지만 빛의 샘에서는 우리 둘에게서\n공간의 뒤틀림이 느껴진다고 했다…)"
+      },
+      "33": {
+        "before": "(Everyone but us, that is. We were told that\nwe can't evolve at [CS:P]Luminous Spring[CR]...)",
+        "en": "(But at Luminous Spring, we were told that a\ndistortion in the fabric of space could be felt\naround us both...)",
+        "ko": "(하지만 빛의 샘에서는 우리 둘에게서\n공간의 뒤틀림이 느껴진다고 했다…)"
+      }
+    },
+    "SCRIPT/H02P99C/s20p0104.ssb": {
+      "0": {
+        "before": "(We were told why [partner] and I can't\nevolve yet.)",
+        "en": "(At Luminous Spring, [partner] and I were\nwarned about the distortion of space.)",
+        "ko": "(빛의 샘에서 [partner]와 나는\n공간의 뒤틀림에 관한 경고를 들었다.)"
+      },
+      "1": {
+        "before": "(We were told why [partner] and I can't\nevolve yet.)",
+        "en": "(At Luminous Spring, [partner] and I were\nwarned about the distortion of space.)",
+        "ko": "(빛의 샘에서 [partner]와 나는\n공간의 뒤틀림에 관한 경고를 들었다.)"
+      },
+      "2": {
+        "before": "(We were told that there was distortion in the\nfabric of space that prevented our evolution.)",
+        "en": "(The voice sensed a distortion in the fabric\nof space around us both.)",
+        "ko": "(그 목소리는 우리 둘에게서\n공간의 뒤틀림이 느껴진다고 했다.)"
+      },
+      "3": {
+        "before": "(We were told that there was distortion in the\nfabric of space that prevented our evolution.)",
+        "en": "(The voice sensed a distortion in the fabric\nof space around us both.)",
+        "ko": "(그 목소리는 우리 둘에게서\n공간의 뒤틀림이 느껴진다고 했다.)"
+      }
+    },
+    "SCRIPT/T01P01A/m00p1401.ssb": {
+      "29": {
+        "before": " We were told now this matter has\nbeen settled, everyone should be able to evolve\nlike they should normally.",
+        "en": " We heard that a mysterious energy\ncan be felt at Luminous Spring.",
+        "ko": " 빛의 샘에서 신비한 기운이\n느껴진다는 이야기를 들었어."
+      },
+      "32": {
+        "before": " I think that you might be\nable to evolve now, if you want to.",
+        "en": " Why not go and see for yourselves?",
+        "ko": " 너희도 한번 가 보는 게 어때?"
+      },
+      "34": {
+        "before": " Really? [K]We can evolve now?",
+        "en": " A mysterious energy?[K]\nAt Luminous Spring?",
+        "ko": " 신비한 기운이라고?[K]\n빛의 샘에서?"
+      },
+      "35": {
+        "before": " Really? [K]We can evolve now?",
+        "en": " A mysterious energy?[K]\nAt Luminous Spring?",
+        "ko": " 신비한 기운이라고?[K]\n빛의 샘에서?"
+      }
+    },
+    "SCRIPT/D01P11A/us2306.ssb": {
+      "0": {
+        "before": "Oh? This box contains two stones and a letter.",
+        "en": "Oh? This box contains a letter.",
+        "ko": "어? 이 상자 안에 편지가 들어 있어."
+      },
+      "1": {
+        "before": "The letter says: \"I went alone to save\nmy friend [CS:K]Gengar[CR]. Here are my only treasures.\nTake care...\"",
+        "en": "The letter says: \"I went alone to save\nmy friend [CS:K]Gengar[CR].\nTake care...\"",
+        "ko": "편지에는 이렇게 쓰여 있다. \"나는 친구\n[CS:K]팬텀[CR]을 구하러 혼자 떠났어.\n몸조심해…\""
+      }
+    }
+  },
+  "constant_dialogues": [
+    "SCRIPT/D01P11A/us2306.ssb"
+  ]
+}

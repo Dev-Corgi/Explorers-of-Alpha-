@@ -24,8 +24,13 @@ recommended_order:
 - control_mode_enhance
 - belly_union
 - bug_fixes
+- luminous_evolution
 - korean
 modules:
+  luminous_evolution:
+    path: luminous_evolution
+    description: Spring evolution without Ascend Stones, regression, form changes and bilingual story continuity.
+    kind: luminous_evolution
   bug_fixes:
     path: bug_fixes
     description: Hail recovery, Mirror Armor reflection pointers, Trace suppression, and adjacent Neutralizing Gas.
