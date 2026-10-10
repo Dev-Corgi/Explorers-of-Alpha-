@@ -177,6 +177,13 @@ class Machine:
         self.u.mem_write(STATE+0x44, struct.pack("<h", index))
         self.u.mem_write(INDEX, struct.pack("<h", index))
 
+    def native_state(self, value):
+        setter = self.stubs.pop(0x0238A140)
+        try:
+            self.run(0x0238A140, value)
+        finally:
+            self.stub(0x0238A140, setter)
+
 
 def check_scripts(before, after):
     config=get_ppmdu_config_for_rom(after)
@@ -273,14 +280,14 @@ def check_arm(rom, record):
     m.record(1,4,16,0xD7)
     assert m.run("Spring_Count")==1
     m.select(0); m.run("Spring_Submenu")
-    assert [a for _,a in m.menus[-1]]==[3,8,1]
+    assert [a for _,a in m.menus[-1]]==[8,1]
     # Reopening the unlocked Spring exposes regression even to final forms.
     m.run("Spring_Prepare")
     m.select(0);m.run("Spring_Submenu")
-    assert [a for _,a in m.menus[-1]]==[3,10,8,1]
+    assert [a for _,a in m.menus[-1]]==[10,8,1]
     old=m.record(0,3)
     m.select(0)
-    assert m.run("Spring_Action",10)==1 and m.calls[-1]==22
+    assert m.run("Spring_Action",10)==1 and m.calls[-1]==24
     assert m.read16(STATE+0xC)==2
     m.run("Spring_RecordEvolution")
     assert m.evolution_count==0
@@ -312,7 +319,7 @@ def check_arm(rom, record):
     # Cyclic Giratina relationships are form changes, never regression/evolution.
     old=m.record(0,529)
     m.select(0);m.run("Spring_Submenu")
-    assert [a for _,a in m.menus[-1]]==[3,11,8,1]
+    assert [a for _,a in m.menus[-1]]==[11,8,1]
     assert m.run("Spring_Action",11)==1
     assert m.read16(STATE+0xC)==536
     m.run("Spring_Convert",INDEX,536)
@@ -382,17 +389,122 @@ def check_arm(rom, record):
         assert now[6]==original[1] and now[7]==0
 
 
+def check_menu_path(rom, record):
+    """Enter through native member selection and dispatch actual menu actions.
+
+    Calling Spring_Submenu/Action directly cannot catch a hook on the wrong
+    state: state 6 and state 14 look similar but have different dispatchers.
+    """
+    m=Machine(rom,record.data[0]["symbols"])
+    m.run("Spring_Prepare")
+    for address in (0x0202F0B0,0x0202F3A4,0x0202F2C4,0x0203C9E4,
+                    0x0203C940,0x02017CB4,0x02017C50,0x02056880,0x0202F650):
+        m.stub(address,lambda: 0)
+    m.stub(0x0202B4F0,lambda: 0)
+    m.stub(0x0203C8E0,lambda: 0)
+    m.stub(0x0203A5A8,lambda: 0)  # team selection completed
+    m.stub(0x0203AA20,lambda: 0)  # selected permanent roster index
+    m.stub(0x0200224C,lambda: 0)
+    m.stub(0x0208FEA4,lambda: 0)
+    m.stub(0x02056410,lambda: 0)
+    m.stub(0x0200F26C,lambda: -1) # no evolution-item inventory consumption
+    m.stub(0x0238CB98,lambda: 0) # close message window / graphical service
+    def select_record():
+        m.write32(STATE+0x3C,ROSTER+m.reg(0)*0x44)
+    m.stub(0x0238CC64,select_record)
+    def update():
+        setter=m.stubs.pop(0x0238A140)
+        try:
+            m.run(0x0238C1F8)
+        finally:
+            m.stub(0x0238A140,setter)
+    def pick(species,level=50):
+        old=m.record(0,species,level)
+        m.select(0)
+        m.write32(STATE+0xD8,1)
+        m.write32(STATE+0x70,11)
+        update()  # native team selection -> native state 14 -> linked submenu
+        assert struct.unpack('<I',m.u.mem_read(STATE+0x70,4))[0]==14
+        return old
+    def action(value):
+        m.stub(0x0202B57C,lambda: value)
+        update()
+    # Entry menu remains the original Evolve / Summary / Cancel.
+    m.select(0);m.native_state(6)
+    assert [a for _,a in m.menus[-1]]==[3,2,1]
+    pick(3)
+    assert [a for _,a in m.menus[-1]]==[10,8,1]
+    pick(1,15)
+    assert [a for _,a in m.menus[-1]]==[8,1] # requirements unmet
+    pick(2,32)
+    assert [a for _,a in m.menus[-1]]==[3,10,8,1]
+    pick(461)
+    assert [a for _,a in m.menus[-1]]==[10,11,8,1]
+    pick(529)
+    assert [a for _,a in m.menus[-1]]==[11,8,1]
+    # Summary and Cancel still use their native branches.
+    pick(3);action(8)
+    assert struct.unpack('<I',m.u.mem_read(STATE+0x70,4))[0]==25
+    assert struct.unpack('<I',m.u.mem_read(STATE+0x74,4))[0]==13
+    m.stub(0x0203A638,lambda: 0)
+    pick(3);action(1)
+    assert struct.unpack('<I',m.u.mem_read(STATE+0x70,4))[0]==11
+    # No action is added to the original entry-menu dispatcher.
+    m.native_state(6)
+    assert [a for _,a in m.menus[-1]]==[3,2,1]
+    for species,choice,target in [(3,10,2),(529,11,536),(2,3,3)]:
+        old=pick(species)
+        action(choice)
+        assert struct.unpack('<I',m.u.mem_read(STATE+0x70,4))[0]==24, (species,choice)
+        assert struct.unpack('<I',m.u.mem_read(STATE+0x74,4))[0]==22
+        for _ in range(12):
+            update()  # actual state 24 wait -> 22 -> target/confirmation prompt
+            if struct.unpack('<I',m.u.mem_read(STATE+0x70,4))[0]!=24:
+                break
+        assert struct.unpack('<I',m.u.mem_read(STATE+0x70,4))[0]==18
+        assert m.read16(STATE+0xC)==target
+        m.native_state(19) # actual Yes/No dialog
+        action(7)
+        assert bytes(m.u.mem_read(ROSTER,0x44))==old
+        # Re-enter and confirm; exercise the real native conversion call site.
+        pick(species);action(choice)
+        for _ in range(12):
+            update()
+            if struct.unpack('<I',m.u.mem_read(STATE+0x70,4))[0]!=24:
+                break
+        m.native_state(19);action(6)
+        assert struct.unpack('<I',m.u.mem_read(STATE+0x70,4))[0]==28
+        def native_auto_rename():
+            raise AssertionError('conversion must not request native nickname replacement')
+        m.stub(0x02056070,native_auto_rename)
+        m.native_state(31) # normal animation's mutation stage, actual BL hook
+        changed=bytearray(m.u.mem_read(ROSTER,0x44))
+        assert struct.unpack_from('<H',changed,4)[0]==target
+        struct.pack_into('<H',changed,4,species)
+        assert changed[:6]+changed[8:]==old[:6]+old[8:]
+        assert m.messages[-1]==({10:19705,11:19706}.get(choice,1087))
+        assert not m.spawned
+
+
 def main():
     source=(ROOT/"PatchTesting/Export Rom/Explorers of Alpha+.nds" if "--integration" in sys.argv
             else ROOT/"PatchTesting/Explorers of Alpha/Explorers of Alpha.nds")
     before=NintendoDSRom.fromFile(str(source))
-    after=NintendoDSRom(bytes(before.save()))
-    record=apply_luminous_evolution_module("luminous_evolution",MODULE,{"version":1},after,
+    installed=("--integration" in sys.argv and _word(before.arm9,0x02052AC4,0x02000000)==0xE2812008)
+    # Rebuilt outputs include this module already. Reconstruct its linker record
+    # from canonical Alpha, then verify the installed output against current code.
+    baseline=(NintendoDSRom.fromFile(str(ROOT/"PatchTesting/Explorers of Alpha/Explorers of Alpha.nds"))
+              if installed else before)
+    fixture=NintendoDSRom(bytes(baseline.save()))
+    record=apply_luminous_evolution_module("luminous_evolution",MODULE,{"version":1},fixture,
                                           ROOT/"tools/armips.exe",BuildState("us_vanilla",0x022DC240))
+    after=before if installed else fixture
     verify_luminous_evolution_module(after,MODULE,{"version":1},record)
-    check_scripts(before,after)
+    check_scripts(baseline,after)
     check_arm(after,record)
-    print("OK: ARM evolution gates, final-form access, conditional menus, record/XP/doping preservation,")
+    check_menu_path(after,record)
+    print("OK: native entry/member menus, action dispatch, Yes/No and actual conversion hooks,")
+    print("    ARM evolution gates, final-form access, record/XP/doping preservation,")
     print("    Shedinja only on normal evolution, form cycles, repeated changes, SSB relocation and EN/KO exact matches.")
     print("No ROM or full-stack build was written.")
 

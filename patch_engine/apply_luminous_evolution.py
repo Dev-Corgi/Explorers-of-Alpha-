@@ -60,8 +60,8 @@ def build_runtime(module_dir, work, cave, ov16, rom, texts):
             labels[item["species"]] = item["index"] + 1
     constants = {
         "SPRING_STATE_PTR": _word(ov16, 0x0238B0CC, LOAD),
-        "SUBMENU_WINDOW": _word(ov16, 0x0238B0D8, LOAD),
-        "SUBMENU_FLAGS": _word(ov16, 0x0238B0DC, LOAD),
+        "SUBMENU_WINDOW": _word(ov16, 0x0238B0F8, LOAD),
+        "SUBMENU_FLAGS": 0x13,
         "TEAM_COUNT": _word(ov16, 0x0238CC60, LOAD),
         "MD_COUNT": len(md.entries), "ORIGINAL_TARGET_LABEL": cave + RUNTIME_LIMIT + 0x100,
         "STR_REGRESSION": 19701, "STR_FORM": 19702,
@@ -143,9 +143,9 @@ def apply_luminous_evolution_module(module_id, module_dir, manifest, rom, armips
     base16 = bytes(base_tables[16].data)
     arm_sites = [0x02052AC4, 0x02059B0C, 0x0205A230, 0x0205A234,
                  0x02039F30, 0x02039F74, 0x02039FF0]
-    ov_sites = [0x0238C148, 0x0238A318, 0x0238B318, 0x0238C57C, 0x0238CBD0,
+    ov_sites = [0x0238C148, 0x0238A614, 0x0238B614, 0x0238C57C, 0x0238CBD0,
                 0x0238C484, 0x0238ABB4, 0x0238BBB4, 0x0238AC04, 0x0238BC04, 0x0238CB30,
-                0x0238AB14, 0x0238BB14]
+                0x0238AB14, 0x0238BB14, 0x0238AAF8, 0x0238BAF8]
     for blob, old, sites, load in [(arm9, reference.arm9, arm_sites, 0x02000000),
                                     (source, base16, ov_sites, LOAD)]:
         for site in sites:
@@ -186,7 +186,7 @@ def apply_luminous_evolution_module(module_id, module_dir, manifest, rom, armips
         if len(message_sites) < 20:
             raise RuntimeError("Spring message call inventory changed")
         # Width/height are byte fields +6/+7; zero allows native auto-sizing.
-        window_offset = _word(source, 0x0238B0D8, LOAD) - LOAD
+        window_offset = _word(source, 0x0238B0F8, LOAD) - LOAD
         patched[window_offset+6:window_offset+8] = b"\0\0"
         rom.arm9 = bytearray(assembled_arm9)
         ov.data = patched

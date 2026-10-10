@@ -64,8 +64,12 @@ void Spring_Submenu(void) {
     u8 *s=state();
     mode=0;
     int species=RD16((u8 *)RD32(s,0x3C),4);
+    u8 out[60];
+    Spring_Possibilities((u8 *)RD32(s,0x3C),out);
     int count=0;
-    submenu[count*2]=1077; submenu[count++*2+1]=3;
+    if (RD16(out,8)) {
+        submenu[count*2]=1077; submenu[count++*2+1]=3;
+    }
     if (!story && previous(species)) {
         submenu[count*2]=STR_REGRESSION; submenu[count++*2+1]=10;
     }
@@ -103,7 +107,11 @@ int Spring_Action(int action) {
     FN(0x0238CAE8,void,(void))();
     FN(0x0203A51C,void,(void))();
     FN(0x0203C874,void,(void))();
-    FN(0x0238A140,void,(int))(22);
+    /* Match normal Evolve's delayed transition: the roster/portrait must close
+     * before target selection. Keep the native confirmation/cancel flow. */
+    RD32(s,0x78)=10;
+    RD32(s,0x74)=22;
+    FN(0x0238A140,void,(int))(24);
     return 1;
 }
 int Spring_Convert(s16 *index,int target) {

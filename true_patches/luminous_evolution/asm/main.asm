@@ -92,9 +92,9 @@ Spring_ActionStub:
  b 0x0238CB34
 .org 0x0238C148
  b Spring_InitStub
-.org 0x0238A318
+.org 0x0238A614 ; state 14: selected Pokemon's submenu, not state 6 entry menu
  b Spring_SubmenuA
-.org 0x0238B318
+.org 0x0238B614
  b Spring_SubmenuB
 .org 0x0238C57C
  b Spring_ActionStub
@@ -112,6 +112,10 @@ Spring_ActionStub:
  bl Spring_RecordEvolution
 .org 0x0238BB14
  bl Spring_RecordEvolution
+.org 0x0238AAF8
+ mov r0,#0 ; retain even a species-default nickname; skip native auto-renaming
+.org 0x0238BAF8
+ mov r0,#0
 .org 0x0238AC04
  nop ; doping is not a cached stat and must never receive evolution bonuses
 .org 0x0238BC04
