@@ -373,7 +373,7 @@ def batch(args: argparse.Namespace) -> dict:
                 jobs.append((dex, variant, source, types))
     if only - seen:
         raise ValueError(f'IDs not in CSV: {sorted(only - seen)}')
-    if output.exists() and not args.resume and not args.dry_run:
+    if output.exists() and not args.resume and not args.dry_run and not args.preview_existing:
         raise ValueError('Batch output already exists; choose a new root or --resume.')
     results = []
     for dex, variant, source, types in jobs:
