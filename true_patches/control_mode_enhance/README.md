@@ -1,4 +1,4 @@
-# control_mode_enhance v19
+# control_mode_enhance v21
 
 Start on a regular member's manual turn selects that member as the auto leader.
 Guests remain AI-controlled. `CeLeader` stays at cave+8 for `belly_union`; the
@@ -30,7 +30,15 @@ No terrain-traversal permissions or pathfinding algorithms are changed.
   living regular member in roster order, wrapping to the start. Nonleader fainting
   keeps the designated living leader. Guests cannot inherit or keep a run alive.
 - The fainted member's active roster slot and equipment remain reserved; its
-  dungeon entity is removed. Guest deaths keep vanilla escort/story behavior.
+  dungeon entity is removed.
+- v21: A guest faint after reviver handling latches `CeGuestLoss` until dungeon
+  exit. It sets forced escort loss when no loss is already pending, including
+  guests that vanilla would merely remove. The original guest cleanup and
+  forced-loss processing then run. The subsequent forced leader faint bypasses
+  reservation and leader inheritance; pending regular deaths cannot revive on
+  another floor during that loss. Dungeon start/exit clears the latch.
+  Ordinary leaders and partners retain revival: forced-loss reason alone does
+  not set this latch. Sending a guest home does not count as guest death.
 - Members explicitly sent back to the guild use vanilla removal and are not
   reserved or revived on the next floor. The send-home action calls
   `HandleFaint` at `0x022F5ED8` with damage source `604` (`WENT_AWAY`), passed

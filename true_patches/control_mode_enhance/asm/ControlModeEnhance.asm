@@ -115,6 +115,9 @@ CeEntryMemberId:
 .word -1
 CeDeadMemberId:
 .word -1, -1, -1, -1
+; Latched until dungeon exit: a guest death must finish vanilla forced loss.
+CeGuestLoss:
+.word 0
 .align 4
 
 ; r0 = entity. Returns that entity when it is a live team member, else 0.

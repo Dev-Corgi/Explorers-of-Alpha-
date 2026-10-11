@@ -179,6 +179,7 @@ class Machine:
         self.word(self.address('CeEntryLeader'), leader)
         self.word(self.address('CeEntryMemberId'), leader)
         self.word(self.address('CeDeadMask'), 0)
+        self.word(self.address('CeGuestLoss'), 0)
         self.logs.clear()
 
 
@@ -422,6 +423,64 @@ def main():
     assert machine.run('ControlModeEnhance_ReserveFaint', machine.entity(1)) == 0
     assert machine.word(symbols['cedeadmask']) == 0
 
+    # Guest death -> vanilla forced leader faint must not reserve or detach
+    # that leader. Test the hook, not just ReserveFaint's guest rejection.
+    for leader in range(4):
+        for guest in range(4):
+            if guest == leader:
+                continue
+            machine.setup(guests=[guest], leader=leader)
+            machine.half(machine.info(guest) + 0x10, 0)
+            machine.uc.reg_write(UC_ARM_REG_R7, machine.info(guest))
+            machine.uc.reg_write(UC_ARM_REG_R10, machine.entity(guest))
+            machine.uc.reg_write(UC_ARM_REG_R9, 1)
+            machine.run('ControlModeEnhance_Faint', stop=0x022F8028)
+            assert machine.word(symbols['ceguestloss']) == 1
+            assert machine.word(DUNGEON + 0x14) == 3
+            for reason, source in ((1, 606), (2, 609), (3, 614)):
+                machine.word(DUNGEON + 0x14, reason)
+                machine.uc.reg_write(UC_ARM_REG_R7, machine.info(leader))
+                machine.uc.reg_write(UC_ARM_REG_R10, machine.entity(leader))
+                machine.uc.reg_write(UC_ARM_REG_R9, source)
+                machine.run('ControlModeEnhance_Faint', stop=0x022F8028)
+                assert machine.word(symbols['cedeadmask']) == 0
+                assert machine.word(machine.entity(leader)) == 1
+                assert machine.word(symbols['celeader']) == machine.entity(leader)
+                assert machine.word(DUNGEON + 0x14) == reason
+            machine.run('ControlModeEnhance_DungeonEnd', 0, stop=0x0234CF60)
+            assert machine.word(symbols['ceguestloss']) == 0
+
+    # Previous ordinary deaths cannot revive while guest loss is in progress.
+    machine.setup(guests=[3])
+    machine.half(machine.info(1) + 0x10, 0)
+    assert machine.run('ControlModeEnhance_ReserveFaint', machine.entity(1)) == 1
+    machine.word(symbols['ceguestloss'], 1)
+    before = bytes(machine.uc.mem_read(TEAM, 0x200))
+    machine.run('ControlModeEnhance_PrepareFloor')
+    assert bytes(machine.uc.mem_read(TEAM, 0x200)) == before
+    assert machine.word(symbols['cedeadmask']) == 1
+    machine.run('ControlModeEnhance_DungeonStart', 0, 0, stop=0x022E1644)
+    assert machine.word(symbols['ceguestloss']) == 0
+
+    machine.setup(guests=[3])
+    machine.uc.reg_write(UC_ARM_REG_R7, machine.info(3))
+    machine.uc.reg_write(UC_ARM_REG_R10, machine.entity(3))
+    machine.uc.reg_write(UC_ARM_REG_R9, 604)
+    machine.run('ControlModeEnhance_Faint', stop=0x022F8028)
+    assert machine.word(symbols['ceguestloss']) == 0
+    assert machine.word(DUNGEON + 0x14) == 0
+
+    # Story mode alone must not disable ordinary leader/partner revival.
+    machine.setup()
+    machine.word(DUNGEON + 0x14, 1)
+    machine.half(machine.info(0) + 0x10, 0)
+    machine.uc.reg_write(UC_ARM_REG_R7, machine.info(0))
+    machine.uc.reg_write(UC_ARM_REG_R10, machine.entity(0))
+    machine.uc.reg_write(UC_ARM_REG_R9, 1)
+    machine.run('ControlModeEnhance_Faint', stop=0x022F85C8)
+    assert machine.word(symbols['cedeadmask']) == 1
+    assert machine.word(symbols['ceguestloss']) == 0
+
     machine.setup()
     machine.byte(machine.info(1) + 6, 1)
     assert machine.run('ControlModeEnhance_ReserveFaint', machine.entity(1)) == 0
@@ -648,6 +707,10 @@ def main():
                       'vanilla_temporary_leader_retention_reproduced': True,
                       'sendhome_caller_and_z_move_entry_integration': 'passed',
                       'battle_faint_hook': 'passed',
+                      'guest_loss_followup_cases': 36,
+                      'guest_loss_blocks_pending_revival': 'passed',
+                      'guest_send_home_does_not_fail': 'passed',
+                      'regular_story_partner_revival': 'passed',
                       'current_leader_preserved': 'passed', 'guild_identity_after_roster_reorder': 'passed',
                       'shared_exit_clear_escape_defeat': 'passed', 'guest_only_game_over': 'passed',
                       'recruit_gate_and_message': 'passed', 'korean_message_index': 19299,

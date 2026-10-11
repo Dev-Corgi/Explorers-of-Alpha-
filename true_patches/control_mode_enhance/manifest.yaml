@@ -1,5 +1,5 @@
 id: control_mode_enhance
-version: 20
+version: 21
 region: US
 description: >
   Full control mode. Start on any team member's turn toggles auto/manual, and
@@ -17,6 +17,9 @@ description: >
   enabled in the main game so the leader can be changed after returning to town.
   Leader selection synchronizes persistent roster flags even when manual
   control already made that actor the engine's temporary leader.
+  v21: A guest faint latches forced loss until dungeon exit; the subsequent
+  forced leader faint cannot reserve revival or pass leadership to a survivor.
+  Regular leader/partner faints retain next-floor revival.
   v20: Before send-home removal, synchronize the surviving designated leader
   so a manually controlled departing member is not preserved as a dead leader.
   Cancel only that guild member's pending revival reservation.

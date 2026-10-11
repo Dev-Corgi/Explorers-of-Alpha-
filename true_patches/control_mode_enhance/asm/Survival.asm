@@ -12,11 +12,17 @@ ControlModeEnhance_DungeonStart:
 	ldr r0, =CeDeadMask
 	mov r1, #0
 	str r1, [r0]
+	ldr r0, =CeGuestLoss
+	str r1, [r0]
 	pop {r0, r1}
 	b CmeFloorInitSite
 
 ControlModeEnhance_PrepareFloor:
 	push {r4-r7, lr}
+	ldr r0, =CeGuestLoss
+	ldr r0, [r0]
+	cmp r0, #0
+	bne @@done
 	ldr r0, =CeDeadMask
 	ldr r7, [r0]
 	mov r4, #0
@@ -175,6 +181,8 @@ ControlModeEnhance_DungeonEnd:
 	ldr r0, =CeDeadMask
 	mov r1, #0
 	str r1, [r0]
+	ldr r0, =CeGuestLoss
+	str r1, [r0]
 	pop {r0-r12, lr}
 	b CmeDungeonEndOriginal
 
@@ -262,14 +270,54 @@ ControlModeEnhance_Faint:
 	b @@vanilla
 @@battle:
 	push {r0-r12, lr}
+	; A guest itself is not reserved, but vanilla then faints the regular
+	; leader to finish escort/story loss. Protect that entire follow-up chain.
+	mov r0, r10
+	bl ControlModeEnhance_LatchGuestLoss
+	ldr r0, =CeGuestLoss
+	ldr r0, [r0]
+	cmp r0, #0
+	bne @@guest_loss
 	mov r0, r10
 	bl ControlModeEnhance_ReserveFaint
 	cmp r0, #0
 	pop {r0-r12, lr}
 	bne CmeFaintReturn
+	b @@vanilla
+@@guest_loss:
+	pop {r0-r12, lr}
 @@vanilla:
 	ldrb r0, [r7, #7]
 	b CmeFaintResume
+
+; Only a real team guest latches loss. Ordinary leaders/partners still use
+; reservation, even in story mode. WENT_AWAY never reaches this helper.
+ControlModeEnhance_LatchGuestLoss:
+	push {r4, lr}
+	mov r4, r0
+	bl ControlModeEnhance_LeaderOk
+	cmp r0, #0
+	beq @@done
+	ldr r1, [r4, #0xB4]
+	ldrsh r0, [r1, #0xC]
+	cmp r0, #4
+	bhs @@done
+	mov r0, r4
+	bl ControlModeEnhance_IsGuest
+	cmp r0, #0
+	beq @@done
+	ldr r0, =CeGuestLoss
+	mov r1, #1
+	str r1, [r0]
+	ldr r0, =DungeonPtrAddr
+	ldr r0, [r0]
+	ldr r1, [r0, #0x14]
+	cmp r1, #0
+	; Also fail on guests whose original joined_at rules allow departure.
+	moveq r1, #3
+	streq r1, [r0, #0x14]
+@@done:
+	pop {r4, pc}
 
 ; Manual control may have made the departing member the engine's leader.
 ; Vanilla preserves that leader's roster instead of removing it. Synchronize
