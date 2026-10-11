@@ -22,7 +22,9 @@ class NormalizeTests(unittest.TestCase):
             tracker = home / 'tracker.json'
             tracker.write_text(json.dumps({'0012': {'subgroups': {
                 '0000': {'name': ''}, '0001': {'name': 'Mega_X'},
-                '0002': {'name': 'Altcolor'}, '0003': {'name': 'Mega_Altcolor'}}}}))
+                '0002': {'name': 'Altcolor'}, '0003': {'name': 'Mega_Altcolor'},
+                '0004': {'name': 'Alternate'}, '0005': {'name': 'Purple_Cutscene'},
+                '0006': {'name': 'Shadow'}}}, '0013': {'subgroups': {'0000': {'name': ''}}}}))
             package(root / '0012', 'shared-normal')
             package(root / '0012/0000/0000/0001', 'male-normal')
             package(root / '0012/0000/0000/0002', 'female-normal')
@@ -30,19 +32,29 @@ class NormalizeTests(unittest.TestCase):
             package(root / '0012/0001', 'mega-normal')
             package(root / '0012/0002', 'altcolor')
             package(root / '0012/0003', 'mega-altcolor')
+            package(root / '0012/0004', 'alternate')
+            package(root / '0012/0005', 'cutscene')
+            package(root / '0012/0006', 'shadow')
+            package(root / '0013', 'non-final')
+            target_csv = home / 'targets.csv'
+            target_csv.write_text('dex_id,enabled\n0012,1\n0013,0\n')
             args = argparse.Namespace(sprite_root=root, tracker=tracker, output=home / 'normalized',
-                                      report=home / 'report.json', dry_run=True, resume=False)
+                                      report=home / 'report.json', targets_csv=target_csv,
+                                      dry_run=True, resume=False)
             self.assertEqual(run(args)['summary']['ready'], 3)
             self.assertFalse(args.output.exists())
             args.dry_run = False
             report = run(args)
             self.assertEqual(report['summary']['copied'], 3)
+            self.assertEqual(report['summary']['alternate_excluded'], 1)
+            self.assertEqual(report['summary']['other_forms_excluded'], 2)
             self.assertEqual(report['summary']['female_fallback'], 1)
             self.assertEqual((args.output / '0012/Base/Normal/AnimData.xml').read_text(), 'male-normal')
             self.assertEqual((args.output / '0012/Base/Shiny/AnimData.xml').read_text(), 'female-shiny')
             self.assertEqual((args.output / '0012/0001-Mega_X/Normal/AnimData.xml').read_text(), 'mega-normal')
             self.assertFalse((args.output / '0012/0001-Mega_X/Shiny').exists())
             self.assertEqual(len(list(args.output.rglob('AnimData.xml'))), 3)
+            self.assertFalse((args.output / '0013').exists())
             self.assertFalse(any(p.is_file() for p in (args.output / '0012').iterdir()))
             self.assertEqual((root / '0012/AnimData.xml').read_text(), 'shared-normal')
             args.resume = True

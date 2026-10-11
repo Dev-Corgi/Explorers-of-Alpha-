@@ -1,0 +1,780 @@
+{
+  "source": "https://raw.githubusercontent.com/PokeAPI/pokeapi/c80757193bd0889054e36f4209762360bdaa4b95/data/v2/csv/",
+  "types": {
+    "0006/0001-Mega_X": [
+      "fire",
+      "dragon"
+    ],
+    "0006/0003-Gigantamax": [
+      "fire",
+      "flying"
+    ],
+    "0020/0001-Alola": [
+      "dark",
+      "normal"
+    ],
+    "0026/0001-Alola": [
+      "electric",
+      "psychic"
+    ],
+    "0028/0001-Alola": [
+      "ice",
+      "steel"
+    ],
+    "0038/0001-Alola": [
+      "ice",
+      "fairy"
+    ],
+    "0051/0001-Alola": [
+      "ground",
+      "steel"
+    ],
+    "0053/0001-Alola": [
+      "dark"
+    ],
+    "0059/0001-Hisui": [
+      "fire",
+      "rock"
+    ],
+    "0065/0001-Mega": [
+      "psychic"
+    ],
+    "0076/0001-Alola": [
+      "rock",
+      "electric"
+    ],
+    "0078/0001-Galar": [
+      "psychic",
+      "fairy"
+    ],
+    "0080/0001-Galar": [
+      "poison",
+      "psychic"
+    ],
+    "0080/0002-Mega": [
+      "water",
+      "psychic"
+    ],
+    "0083/0001-Galar": [
+      "fighting"
+    ],
+    "0089/0001-Alola": [
+      "poison",
+      "dark"
+    ],
+    "0094/0001-Mega": [
+      "ghost",
+      "poison"
+    ],
+    "0101/0001-Hisui": [
+      "electric",
+      "grass"
+    ],
+    "0103/0001-Alola": [
+      "grass",
+      "dragon"
+    ],
+    "0105/0001-Alola": [
+      "fire",
+      "ghost"
+    ],
+    "0110/0001-Galar": [
+      "poison",
+      "fairy"
+    ],
+    "0115/0001-Mega": [
+      "normal"
+    ],
+    "0122/0001-Galar": [
+      "ice",
+      "psychic"
+    ],
+    "0128/0001-Paldea": [
+      "fighting"
+    ],
+    "0128/0002-Paldea_Blaze": [
+      "fighting",
+      "fire"
+    ],
+    "0128/0003-Paldea_Aqua": [
+      "fighting",
+      "water"
+    ],
+    "0142/0001-Mega": [
+      "rock",
+      "flying"
+    ],
+    "0144/0001-Galar": [
+      "psychic",
+      "flying"
+    ],
+    "0145/0001-Galar": [
+      "fighting",
+      "flying"
+    ],
+    "0146/0001-Galar": [
+      "dark",
+      "flying"
+    ],
+    "0150/0002-Mega_Y": [
+      "psychic"
+    ],
+    "0157/0001-Hisui": [
+      "fire",
+      "ghost"
+    ],
+    "0199/0001-Galar": [
+      "poison",
+      "psychic"
+    ],
+    "0208/0001-Mega": [
+      "steel",
+      "ground"
+    ],
+    "0211/0001-Hisui": [
+      "dark",
+      "poison"
+    ],
+    "0222/0001-Galar": [
+      "ghost"
+    ],
+    "0227/0001-Mega": [
+      "steel",
+      "flying"
+    ],
+    "0229/0001-Mega": [
+      "dark",
+      "fire"
+    ],
+    "0248/0001-Mega": [
+      "rock",
+      "dark"
+    ],
+    "0254/0001-Mega": [
+      "grass",
+      "dragon"
+    ],
+    "0264/0001-Galar": [
+      "dark",
+      "normal"
+    ],
+    "0282/0001-Mega": [
+      "psychic",
+      "fairy"
+    ],
+    "0302/0001-Mega": [
+      "dark",
+      "ghost"
+    ],
+    "0303/0001-Mega": [
+      "steel",
+      "fairy"
+    ],
+    "0308/0001-Mega": [
+      "fighting",
+      "psychic"
+    ],
+    "0310/0001-Mega": [
+      "electric"
+    ],
+    "0319/0001-Mega": [
+      "water",
+      "dark"
+    ],
+    "0323/0001-Mega": [
+      "fire",
+      "ground"
+    ],
+    "0334/0001-Mega": [
+      "dragon",
+      "fairy"
+    ],
+    "0351/0001-Sunny": [
+      "fire"
+    ],
+    "0351/0002-Rainy": [
+      "water"
+    ],
+    "0351/0003-Snowy": [
+      "ice"
+    ],
+    "0354/0001-Mega": [
+      "ghost"
+    ],
+    "0358/0001-Mega": [
+      "psychic",
+      "steel"
+    ],
+    "0359/0001-Mega": [
+      "dark"
+    ],
+    "0362/0001-Mega": [
+      "ice"
+    ],
+    "0380/0001-Mega": [
+      "dragon",
+      "psychic"
+    ],
+    "0381/0001-Mega": [
+      "dragon",
+      "psychic"
+    ],
+    "0384/0001-Mega": [
+      "dragon",
+      "flying"
+    ],
+    "0386/0001-Attack": [
+      "psychic"
+    ],
+    "0386/0002-Defense": [
+      "psychic"
+    ],
+    "0386/0003-Speed": [
+      "psychic"
+    ],
+    "0413/0001-Sand": [
+      "bug",
+      "ground"
+    ],
+    "0413/0002-Trash": [
+      "bug",
+      "steel"
+    ],
+    "0428/0001-Mega": [
+      "normal",
+      "fighting"
+    ],
+    "0448/0001-Mega": [
+      "fighting",
+      "steel"
+    ],
+    "0475/0001-Mega": [
+      "psychic",
+      "fighting"
+    ],
+    "0479/0001-Heat": [
+      "electric",
+      "fire"
+    ],
+    "0479/0002-Wash": [
+      "electric",
+      "water"
+    ],
+    "0479/0003-Frost": [
+      "electric",
+      "ice"
+    ],
+    "0479/0004-Fan": [
+      "electric",
+      "flying"
+    ],
+    "0479/0005-Mow": [
+      "electric",
+      "grass"
+    ],
+    "0483/0001-Origin": [
+      "steel",
+      "dragon"
+    ],
+    "0484/0001-Origin": [
+      "water",
+      "dragon"
+    ],
+    "0487/0001-Origin": [
+      "ghost",
+      "dragon"
+    ],
+    "0491/0002-Mega": [
+      "dark"
+    ],
+    "0492/0001-Sky": [
+      "grass",
+      "flying"
+    ],
+    "0493/0001-Bug": [
+      "bug"
+    ],
+    "0493/0002-Dark": [
+      "dark"
+    ],
+    "0493/0003-Dragon": [
+      "dragon"
+    ],
+    "0493/0004-Electric": [
+      "electric"
+    ],
+    "0493/0005-Fighting": [
+      "fighting"
+    ],
+    "0493/0006-Fire": [
+      "fire"
+    ],
+    "0493/0007-Flying": [
+      "flying"
+    ],
+    "0493/0008-Ghost": [
+      "ghost"
+    ],
+    "0493/0009-Grass": [
+      "grass"
+    ],
+    "0493/0010-Ground": [
+      "ground"
+    ],
+    "0493/0011-Ice": [
+      "ice"
+    ],
+    "0493/0012-Poison": [
+      "poison"
+    ],
+    "0493/0013-Psychic": [
+      "psychic"
+    ],
+    "0493/0014-Rock": [
+      "rock"
+    ],
+    "0493/0015-Steel": [
+      "steel"
+    ],
+    "0493/0016-Water": [
+      "water"
+    ],
+    "0493/0017-Fairy": [
+      "fairy"
+    ],
+    "0503/0001-Hisui": [
+      "water",
+      "dark"
+    ],
+    "0530/0001-Mega": [
+      "ground",
+      "steel"
+    ],
+    "0549/0001-Hisui": [
+      "grass",
+      "fighting"
+    ],
+    "0550/0001-Blue": [
+      "water"
+    ],
+    "0550/0002-White": [
+      "water"
+    ],
+    "0555/0001-Zen": [
+      "fire",
+      "psychic"
+    ],
+    "0555/0002-Galar": [
+      "ice"
+    ],
+    "0560/0001-Mega": [
+      "dark",
+      "fighting"
+    ],
+    "0571/0001-Hisui": [
+      "normal",
+      "ghost"
+    ],
+    "0604/0001-Mega": [
+      "electric"
+    ],
+    "0628/0001-Hisui": [
+      "psychic",
+      "flying"
+    ],
+    "0645/0001-Therian": [
+      "ground",
+      "flying"
+    ],
+    "0646/0001-Black": [
+      "dragon",
+      "ice"
+    ],
+    "0646/0002-White": [
+      "dragon",
+      "ice"
+    ],
+    "0648/0001-Pirouette": [
+      "normal",
+      "fighting"
+    ],
+    "0681/0001-Blade": [
+      "steel",
+      "ghost"
+    ],
+    "0691/0001-Mega": [
+      "poison",
+      "dragon"
+    ],
+    "0701/0001-Mega": [
+      "fighting",
+      "flying"
+    ],
+    "0706/0001-Hisui": [
+      "steel",
+      "dragon"
+    ],
+    "0711/0003-Super": [
+      "ghost",
+      "grass"
+    ],
+    "0713/0001-Hisui": [
+      "ice",
+      "rock"
+    ],
+    "0718/0001-10": [
+      "dragon",
+      "ground"
+    ],
+    "0718/0002-Complete": [
+      "dragon",
+      "ground"
+    ],
+    "0718/0005-Mega": [
+      "dragon",
+      "ground"
+    ],
+    "0719/0001-Mega": [
+      "rock",
+      "fairy"
+    ],
+    "0720/0001-Unbound": [
+      "psychic",
+      "dark"
+    ],
+    "0724/0001-Hisui": [
+      "grass",
+      "fighting"
+    ],
+    "0741/0001-Pom_Pom": [
+      "electric",
+      "flying"
+    ],
+    "0741/0002-Pa_U": [
+      "psychic",
+      "flying"
+    ],
+    "0745/0001-Midnight": [
+      "rock"
+    ],
+    "0745/0002-Dusk": [
+      "rock"
+    ],
+    "0746/0001-School": [
+      "water"
+    ],
+    "0773/0001-Fighting": [
+      "fighting"
+    ],
+    "0773/0002-Flying": [
+      "flying"
+    ],
+    "0773/0003-Poison": [
+      "poison"
+    ],
+    "0773/0004-Ground": [
+      "ground"
+    ],
+    "0773/0005-Rock": [
+      "rock"
+    ],
+    "0773/0006-Bug": [
+      "bug"
+    ],
+    "0773/0007-Ghost": [
+      "ghost"
+    ],
+    "0773/0008-Steel": [
+      "steel"
+    ],
+    "0773/0009-Fire": [
+      "fire"
+    ],
+    "0773/0010-Water": [
+      "water"
+    ],
+    "0773/0011-Grass": [
+      "grass"
+    ],
+    "0773/0012-Electric": [
+      "electric"
+    ],
+    "0773/0013-Psychic": [
+      "psychic"
+    ],
+    "0773/0014-Ice": [
+      "ice"
+    ],
+    "0773/0015-Dragon": [
+      "dragon"
+    ],
+    "0773/0016-Dark": [
+      "dark"
+    ],
+    "0773/0017-Fairy": [
+      "fairy"
+    ],
+    "0774/0001-Red": [
+      "rock",
+      "flying"
+    ],
+    "0774/0002-Orange": [
+      "rock",
+      "flying"
+    ],
+    "0774/0003-Yellow": [
+      "rock",
+      "flying"
+    ],
+    "0774/0004-Green": [
+      "rock",
+      "flying"
+    ],
+    "0774/0005-Blue": [
+      "rock",
+      "flying"
+    ],
+    "0774/0006-Indigo": [
+      "rock",
+      "flying"
+    ],
+    "0774/0007-Violet": [
+      "rock",
+      "flying"
+    ],
+    "0778/0001-Busted": [
+      "ghost",
+      "fairy"
+    ],
+    "0780/0001-Mega": [
+      "normal",
+      "dragon"
+    ],
+    "0800/0003-Ultra": [
+      "psychic",
+      "dragon"
+    ],
+    "0801/0001-Original": [
+      "steel",
+      "fairy"
+    ],
+    "0807/0001-Mega": [
+      "electric"
+    ],
+    "0849/0001-Lowkey": [
+      "electric",
+      "poison"
+    ],
+    "0869/0063-Gigantamax": [
+      "fairy"
+    ],
+    "0875/0001-Noice": [
+      "ice"
+    ],
+    "0877/0001-Hangry": [
+      "electric",
+      "dark"
+    ],
+    "0888/0001-Crowned_Sword": [
+      "fairy",
+      "steel"
+    ],
+    "0889/0001-Crowned_Shield": [
+      "fighting",
+      "steel"
+    ],
+    "0890/0001-Eternamax": [
+      "poison",
+      "dragon"
+    ],
+    "0892/0001-Rapid_Strike": [
+      "fighting",
+      "water"
+    ],
+    "0901/0001-Bloodmoon": [
+      "ground",
+      "normal"
+    ],
+    "0905/0001-Therian": [
+      "fairy",
+      "flying"
+    ],
+    "0964/0001-Hero": [
+      "water"
+    ],
+    "0978/0001-Stretchy": [
+      "dragon",
+      "water"
+    ],
+    "0978/0002-Droopy": [
+      "dragon",
+      "water"
+    ],
+    "1017/0001-Wellspring": [
+      "grass",
+      "water"
+    ],
+    "1017/0002-Hearthflame": [
+      "grass",
+      "fire"
+    ],
+    "1017/0003-Cornerstone": [
+      "grass",
+      "rock"
+    ],
+    "1017/0004-Teal_Mask": [
+      "grass"
+    ],
+    "1017/0005-Wellspring_Mask": [
+      "grass",
+      "water"
+    ],
+    "1017/0006-Hearthflame_Mask": [
+      "grass",
+      "fire"
+    ],
+    "1017/0007-Cornerstone_Mask": [
+      "grass",
+      "rock"
+    ],
+    "1024/0001-Terastal": [
+      "normal"
+    ]
+  },
+  "unmatched_forms": [
+    "0201/0001-B",
+    "0201/0002-C",
+    "0201/0003-D",
+    "0201/0004-E",
+    "0201/0005-F",
+    "0201/0006-G",
+    "0201/0007-H",
+    "0201/0008-I",
+    "0201/0009-J",
+    "0201/0010-K",
+    "0201/0011-L",
+    "0201/0012-M",
+    "0201/0013-N",
+    "0201/0014-O",
+    "0201/0015-P",
+    "0201/0016-Q",
+    "0201/0017-R",
+    "0201/0018-S",
+    "0201/0019-T",
+    "0201/0020-U",
+    "0201/0021-V",
+    "0201/0022-W",
+    "0201/0023-X",
+    "0201/0024-Y",
+    "0201/0025-Z",
+    "0201/0026-Exclamation",
+    "0201/0027-Question",
+    "0352/0001-Purple",
+    "0421/0001-Sunshine",
+    "0423/0001-East",
+    "0476/0001-Beta",
+    "0479/0008-Drone",
+    "0493/0018-Question_Mark",
+    "0493/0019-Beta",
+    "0586/0001-Summer",
+    "0586/0002-Autumn",
+    "0586/0003-Winter",
+    "0649/0001-Douse",
+    "0649/0002-Shock",
+    "0649/0003-Burn",
+    "0649/0004-Chill",
+    "0666/0001-Icy_Snow",
+    "0666/0002-Polar",
+    "0666/0003-Tundra",
+    "0666/0004-Continental",
+    "0666/0005-Garden",
+    "0666/0006-Elegant",
+    "0666/0007-Modern",
+    "0666/0008-Marine",
+    "0666/0009-Archipelago",
+    "0666/0010-High_Plains",
+    "0666/0011-Sandstorm",
+    "0666/0012-River",
+    "0666/0013-Monsoon",
+    "0666/0014-Savannah",
+    "0666/0015-Sun",
+    "0666/0016-Ocean",
+    "0666/0017-Jungle",
+    "0666/0018-Fancy",
+    "0666/0019-Pokeball",
+    "0671/0001-Yellow",
+    "0671/0002-Orange",
+    "0671/0003-Blue",
+    "0671/0004-White",
+    "0676/0008-Kabuki",
+    "0701/0002-Beta",
+    "0716/0001-Neutral",
+    "0869/0001-Berry_Sweet",
+    "0869/0002-Love_Sweet",
+    "0869/0003-Star_Sweet",
+    "0869/0004-Clover_Sweet",
+    "0869/0005-Flower_Sweet",
+    "0869/0006-Ribbon_Sweet",
+    "0869/0007-Ruby_Cream_Strawberry_Sweet",
+    "0869/0008-Ruby_Cream_Berry_Sweet",
+    "0869/0009-Ruby_Cream_Love_Sweet",
+    "0869/0010-Ruby_Cream_Star_Sweet",
+    "0869/0011-Ruby_Cream_Clover_Sweet",
+    "0869/0012-Ruby_Cream_Flower_Sweet",
+    "0869/0013-Ruby_Cream_Ribbon_Sweet",
+    "0869/0014-Matcha_Cream_Strawberry_Sweet",
+    "0869/0015-Matcha_Cream_Berry_Sweet",
+    "0869/0016-Matcha_Cream_Love_Sweet",
+    "0869/0017-Matcha_Cream_Star_Sweet",
+    "0869/0018-Matcha_Cream_Clover_Sweet",
+    "0869/0019-Matcha_Cream_Flower_Sweet",
+    "0869/0020-Matcha_Cream_Ribbon_Sweet",
+    "0869/0021-Mint_Cream_Strawberry_Sweet",
+    "0869/0022-Mint_Cream_Berry_Sweet",
+    "0869/0023-Mint_Cream_Love_Sweet",
+    "0869/0024-Mint_Cream_Star_Sweet",
+    "0869/0025-Mint_Cream_Clover_Sweet",
+    "0869/0026-Mint_Cream_Flower_Sweet",
+    "0869/0027-Mint_Cream_Ribbon_Sweet",
+    "0869/0028-Lemon_Cream_Strawberry_Sweet",
+    "0869/0029-Lemon_Cream_Berry_Sweet",
+    "0869/0030-Lemon_Cream_Love_Sweet",
+    "0869/0031-Lemon_Cream_Star_Sweet",
+    "0869/0032-Lemon_Cream_Clover_Sweet",
+    "0869/0033-Lemon_Cream_Flower_Sweet",
+    "0869/0034-Lemon_Cream_Ribbon_Sweet",
+    "0869/0035-Salted_Cream_Strawberry_Sweet",
+    "0869/0036-Salted_Cream_Berry_Sweet",
+    "0869/0037-Salted_Cream_Love_Sweet",
+    "0869/0038-Salted_Cream_Star_Sweet",
+    "0869/0039-Salted_Cream_Clover_Sweet",
+    "0869/0040-Salted_Cream_Flower_Sweet",
+    "0869/0041-Salted_Cream_Ribbon_Sweet",
+    "0869/0042-Ruby_Swirl_Strawberry_Sweet",
+    "0869/0043-Ruby_Swirl_Berry_Sweet",
+    "0869/0044-Ruby_Swirl_Love_Sweet",
+    "0869/0045-Ruby_Swirl_Star_Sweet",
+    "0869/0046-Ruby_Swirl_Clover_Sweet",
+    "0869/0047-Ruby_Swirl_Flower_Sweet",
+    "0869/0048-Ruby_Swirl_Ribbon_Sweet",
+    "0869/0049-Caramel_Swirl_Strawberry_Sweet",
+    "0869/0050-Caramel_Swirl_Berry_Sweet",
+    "0869/0051-Caramel_Swirl_Love_Sweet",
+    "0869/0052-Caramel_Swirl_Star_Sweet",
+    "0869/0053-Caramel_Swirl_Clover_Sweet",
+    "0869/0054-Caramel_Swirl_Flower_Sweet",
+    "0869/0055-Caramel_Swirl_Ribbon_Sweet",
+    "0869/0056-Rainbow_Swirl_Strawberry_Sweet",
+    "0869/0057-Rainbow_Swirl_Berry_Sweet",
+    "0869/0058-Rainbow_Swirl_Love_Sweet",
+    "0869/0059-Rainbow_Swirl_Star_Sweet",
+    "0869/0060-Rainbow_Swirl_Clover_Sweet",
+    "0869/0061-Rainbow_Swirl_Flower_Sweet",
+    "0869/0062-Rainbow_Swirl_Ribbon_Sweet",
+    "0870/0002-Brass",
+    "0870/0003-Trooper",
+    "0978/0003-Mega",
+    "1003/0001-Temp",
+    "1008/0001-Low_Power"
+  ]
+}

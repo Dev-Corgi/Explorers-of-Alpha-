@@ -7,6 +7,7 @@ from __future__ import annotations
 
 import argparse
 from collections import Counter
+import csv
 import hashlib
 import json
 from pathlib import Path
@@ -36,12 +37,32 @@ def safe_form_name(value: str) -> str:
     return cleaned or 'Unnamed'
 
 
-def plan(sprite_root: Path, tracker_path: Path) -> tuple[list[dict], list[dict]]:
+def load_targets(path: Path) -> set[str]:
+    targets: set[str] = set()
+    with path.open(encoding='utf-8-sig', newline='') as stream:
+        reader = csv.DictReader(stream)
+        if not {'dex_id', 'enabled'} <= set(reader.fieldnames or []):
+            raise ValueError('Targets CSV must have dex_id and enabled columns.')
+        for row in reader:
+            dex = str(int(row['dex_id'])).zfill(4)
+            if not 1 <= int(dex) <= 1025 or dex in targets:
+                raise ValueError(f'Invalid or duplicate target number: {dex}')
+            if row['enabled'] not in ('0', '1'):
+                raise ValueError(f'{dex}: enabled must be 0 or 1')
+            if row['enabled'] == '1':
+                targets.add(dex)
+    return targets
+
+
+def plan(sprite_root: Path, tracker_path: Path,
+         targets: set[str] | None = None) -> tuple[list[dict], list[dict]]:
     tracker = json.loads(tracker_path.read_text(encoding='utf-8'))
     jobs: list[dict] = []
     omitted: list[dict] = []
     for species_id, species in sorted(tracker.items()):
         if not re.fullmatch(r'\d{4}', species_id) or species_id == '0000':
+            continue
+        if targets is not None and species_id not in targets:
             continue
         species_dir = sprite_root / species_id
         forms = species.get('subgroups', {})
@@ -50,9 +71,13 @@ def plan(sprite_root: Path, tracker_path: Path) -> tuple[list[dict], list[dict]]
             if form_id == '0000':
                 continue
             name = str(form.get('name', ''))
-            if 'altcolor' in re.sub(r'[^a-z]', '', name.lower()):
+            normalized_name = re.sub(r'[^a-z]', '', name.lower())
+            excluded = next((token for token in ('altcolor', 'alternate', 'cutscene', 'shadow',
+                                                  'skytemple', 'primal', 'baby', 'three')
+                             if token in normalized_name), None)
+            if excluded:
                 omitted.append(dict(dex_id=species_id, form_id=form_id, form=name,
-                                    reason='altcolor_excluded'))
+                                    reason=f'{excluded}_excluded'))
                 continue
             entries.append((f'{form_id}-{safe_form_name(name)}', species_dir / form_id, form, form_id))
         for label, normal_base, form_meta, form_id in entries:
@@ -113,7 +138,8 @@ def run(args: argparse.Namespace) -> dict:
         raise ValueError('Input and output trees must not overlap.')
     if output == report_path or output in report_path.parents:
         raise ValueError('Report must be outside the normalized tree.')
-    jobs, omitted = plan(root, tracker)
+    targets = load_targets(args.targets_csv.resolve()) if args.targets_csv else None
+    jobs, omitted = plan(root, tracker, targets)
     if output.exists() and not args.resume and not args.dry_run:
         raise ValueError('Output exists; use --resume or choose a new output directory.')
     results = []
@@ -133,9 +159,14 @@ def run(args: argparse.Namespace) -> dict:
         results.append(result)
     summary = dict(Counter(r['status'] for r in results))
     summary['altcolor_excluded'] = sum(r['reason'] == 'altcolor_excluded' for r in omitted)
+    summary['alternate_excluded'] = sum(r['reason'] == 'alternate_excluded' for r in omitted)
+    summary['other_forms_excluded'] = sum(r['reason'].endswith('_excluded') and
+                                          r['reason'] not in ('altcolor_excluded', 'alternate_excluded')
+                                          for r in omitted)
     summary['sprite_missing'] = sum(r['reason'] == 'sprite_missing' for r in omitted)
     summary['female_fallback'] = sum(r['gender_source'] == 'female_fallback' for r in results)
     report = dict(source_root=str(root), tracker=str(tracker), output_root=str(output),
+                  targets_csv=str(args.targets_csv.resolve()) if args.targets_csv else None,
                   rule='Exactly one package per form/color: Male, then shared, then Female fallback',
                   summary=summary, jobs=results, omitted=omitted)
     if not args.dry_run:
@@ -148,6 +179,7 @@ def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--sprite-root', type=Path, required=True)
     parser.add_argument('--tracker', type=Path, required=True)
+    parser.add_argument('--targets-csv', type=Path, help='Limit species to enabled dex_id rows.')
     parser.add_argument('--output', type=Path, required=True)
     parser.add_argument('--report', type=Path, required=True)
     parser.add_argument('--dry-run', action='store_true')
