@@ -1,0 +1,45 @@
+id: better_seed
+version: 1
+region: US
+description: >
+  Blast Seed hits on enemies create a radius-2 explosion centered on the
+  target, replacing the single-target hit. Each affected monster takes
+  projectile damage with power 100 using the seed user's stats. Native
+  explosion animation, terrain/items, Damp and rain checks remain.
+  Ally targets retain the preceding Blast Seed effect. Other explosions
+  keep their original damage calculation.
+kind: asm
+rom_profile: us_vanilla
+hooks:
+  - name: BlastSeedThrown
+    symbol: BetterSeedThrownSite
+    binary: ov29
+    replace: bl
+    chain: append
+    prior_label: BetterSeed_PriorThrown
+    target_symbol: BetterSeed_Thrown
+  - name: BlastSeedFront
+    symbol: BetterSeedFrontSite
+    binary: ov29
+    replace: bl
+    chain: append
+    prior_label: BetterSeed_PriorFront
+    target_symbol: BetterSeed_Front
+  - name: SeedExplosionDamage
+    symbol: BetterSeedExplosionDamageSite
+    binary: ov29
+    replace: bl
+    chain: append
+    prior_label: BetterSeed_PriorExplosionDamage
+    target_symbol: BetterSeed_ExplosionDamage
+cave:
+  binary: ov36
+  estimated_bytes: 384
+  alignment: 4
+  base_label: BetterSeedCodeAddress
+asm:
+  entry: asm/main.asm
+verify:
+  - type: hooks_are_branch
+  - type: cave_nonempty
+    overlay: ov36

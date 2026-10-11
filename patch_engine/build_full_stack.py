@@ -31,6 +31,7 @@ FULL_STACK_MODULES = [
     "status_adjust",
     "level_scaling_guest_fix",
     "damage_formula",
+    "better_seed",
     "size_adjust",
     "no_immediate_house",
     "utility_patch",

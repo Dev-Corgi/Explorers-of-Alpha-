@@ -12,6 +12,7 @@ recommended_order:
 - status_adjust
 - level_scaling_guest_fix
 - damage_formula
+- better_seed
 - size_adjust
 - no_immediate_house
 - utility_patch
@@ -105,6 +106,10 @@ modules:
     path: damage_formula
     description: CalcDamage base → main-series ((2L/5+2)*P*A/D)/50+2; EoS Type/STAB/Crit/Random, super-effective
       1.5; Psywave, Present, Magnitude, Natural Gift powers
+    kind: asm
+  better_seed:
+    path: better_seed
+    description: Blast Seed enemy hits explode at radius 2 with power 100; other explosions retain their damage rules.
     kind: asm
   size_adjust:
     path: size_adjust
