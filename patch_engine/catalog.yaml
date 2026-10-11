@@ -33,7 +33,7 @@ modules:
     kind: luminous_evolution
   bug_fixes:
     path: bug_fixes
-    description: Hail recovery, Mirror Armor reflection pointers, Trace suppression, and adjacent Neutralizing Gas.
+    description: Hail recovery, Mirror Armor, Trace, adjacent Neutralizing Gas, and Hardcore dungeon lengths on every difficulty without Mechanical Array shortening.
     kind: asm
   team_push:
     path: team_push
@@ -163,7 +163,7 @@ modules:
       balance_change.
     kind: asm
 notes:
-  bug_fixes: Hail NOP plus dynamically allocated ov36 ability fixes. Gas affects live monsters on the eight adjacent tiles on either side; apply before korean.
+  bug_fixes: Hail NOP plus dynamically allocated ov36 ability fixes; removes item/difficulty shortening exits from inter_d.bin. Gas affects live monsters on the eight adjacent tiles on either side; apply before korean.
   fixed_room_orbs: Data-only; needs ChangeFixedFloorProperties on base ROM (not applied here).
   shop_sell_price: Data-only; patches BALANCE/item_p.bin + UTILITY/item_p.bin sell_price fields.
   difficulty_unlock: Data-only; SCRIPT/COMMON/unionall.ssb Expert/Hardcore BranchPerformance(18) → Jump.

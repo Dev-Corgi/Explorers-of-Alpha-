@@ -388,6 +388,10 @@ def apply_module(
             state=state,
             rom_in=rom_in,
         )
+    if manifest.get("dungeon_floor_limits"):
+        from true_patches.bug_fixes.floor_limits import apply_floor_limits
+
+        record.data.append(apply_floor_limits(rom, manifest["dungeon_floor_limits"]))
     state.upsert_module(record)
     rom_out.write_bytes(rom.save())
     if state_path:
@@ -485,4 +489,9 @@ def verify_module_applied(
     mod_state = state.get_module(manifest["id"]) if state else None
 
     verify_asm_module(rom_path, manifest, profile, mod_state)
+
+    if manifest.get("dungeon_floor_limits"):
+        from true_patches.bug_fixes.floor_limits import verify_floor_limits
+
+        verify_floor_limits(NintendoDSRom(rom_path.read_bytes()), manifest["dungeon_floor_limits"])
 

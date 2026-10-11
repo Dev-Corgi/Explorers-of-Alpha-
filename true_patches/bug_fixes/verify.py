@@ -104,7 +104,7 @@ def main() -> None:
     manifest = load_module_manifest(MODULE)
     catalog = load_yaml(ROOT / "patch_engine/catalog.yaml")
     assert FULL_STACK_MODULES.count("bug_fixes") == 1
-    assert FULL_STACK_MODULES[-1] == "bug_fixes"
+    assert FULL_STACK_MODULES.index("balance_change") < FULL_STACK_MODULES.index("bug_fixes")
     assert catalog["recommended_order"].index("bug_fixes") < catalog["recommended_order"].index("korean")
     assert catalog["modules"]["bug_fixes"]["kind"] == "asm"
     original = NintendoDSRom.fromFile(str(SOURCE))
@@ -113,15 +113,14 @@ def main() -> None:
         temp = Path(temp)
         initial_cave = None
         inputs = [SOURCE]
-        inputs.extend(path for path in (
-            ROOT / "PatchTesting/Export Rom/Explorers of Alpha+.nds",
-            ROOT / "PatchTesting/Export Rom/Explorers of Alpha+_kor.nds",
-        ) if path.is_file())
         for index, source in enumerate(inputs):
             output, state_path = temp / f"patched_{index}.nds", temp / f"state_{index}.json"
             state = apply_module("bug_fixes", source, output, state_path=state_path)
             verify_module_applied(output, MODULE, state)
             fixed = NintendoDSRom.fromFile(str(output))
+            from verify_floor_limits import check_floor_limits
+
+            check_floor_limits(fixed)
             # Only the declared hook words and newly allocated cave may change.
             source_rom = original if source == SOURCE else NintendoDSRom.fromFile(str(source))
             profile = load_rom_profile(ROOT / "patch_engine", "us_vanilla")
@@ -147,6 +146,34 @@ def main() -> None:
             print(f"Module apply/verify: {source.name}")
             output.unlink()
             state_path.unlink()
+        # Existing exports already contain v2's ARM hooks. Reapplying those
+        # without their build state is invalid; exercise the new data change
+        # on temporary copies of each export instead.
+        from true_patches.bug_fixes.floor_limits import apply_floor_limits, verify_floor_limits
+
+        for index, source in enumerate((
+            ROOT / "PatchTesting/Export Rom/Explorers of Alpha+.nds",
+            ROOT / "PatchTesting/Export Rom/Explorers of Alpha+_kor.nds",
+        )):
+            if not source.is_file():
+                continue
+            exported = NintendoDSRom.fromFile(str(source))
+            settings = manifest["dungeon_floor_limits"]
+            apply_floor_limits(exported, settings)
+            snapshot = bytes(exported.getFileByName(settings["path"]))
+            assert apply_floor_limits(exported, settings)["entries"] == 0
+            assert bytes(exported.getFileByName(settings["path"])) == snapshot
+            output = temp / f"export_data_{index}.nds"
+            output.write_bytes(exported.save())
+            fixed = NintendoDSRom.fromFile(str(output))
+            untouched = NintendoDSRom.fromFile(str(source))
+            assert fixed.arm9 == untouched.arm9
+            assert all(before == after or untouched.filenames.filenameOf(i) == settings["path"]
+                       for i, (before, after) in enumerate(zip(untouched.files, fixed.files)))
+            verify_floor_limits(fixed, settings)
+            check_floor_limits(fixed)
+            print(f"Export data apply/verify: {source.name}")
+            output.unlink()
         # Reserving the first slot must relocate every helper without changing
         # the protected bytes or breaking any ability path.
         reservation = BuildState("us_vanilla", 0x022DC240, [
@@ -163,6 +190,7 @@ def main() -> None:
         first, end = initial_cave.file_offset, initial_cave.file_offset + initial_cave.size
         assert get_rom_binary(original, "ov36")[first:end] == get_rom_binary(relocated, "ov36")[first:end]
         check_abilities(relocated)
+        check_floor_limits(relocated)
         print("Dynamic cave relocation and reservation passed")
         # An unknown original instruction must fail instead of silently patching it.
         damaged = NintendoDSRom.fromFile(str(SOURCE))

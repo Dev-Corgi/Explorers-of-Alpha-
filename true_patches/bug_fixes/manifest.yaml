@@ -1,11 +1,13 @@
 id: bug_fixes
-version: 2
+version: 3
 region: US
 description: >
   Remove Alpha's passive Hail recovery bonus for monsters without Ice Body.
   Repair Mirror Armor reflection pointers, respect ability suppression for
   Trace, and restrict Neutralizing Gas to adjacent live monsters on either side.
   Ice Body's contact frostbite and other recovery modifiers retain their behavior.
+  Remove Mechanical Array and difficulty-based dungeon shortening so every
+  difficulty uses the Hardcore floor count, including mission destinations.
 
 kind: asm
 rom_profile: us_vanilla
@@ -51,6 +53,10 @@ cave:
 asm:
   entry: asm/main.asm
 
+dungeon_floor_limits:
+  path: UTILITY/inter_d.bin
+  remove_performance_flags: [45, 56, 57]
+
 verify:
   - type: hooks_are_branch
   - type: cave_nonempty
@@ -61,3 +67,4 @@ notes: >
   Nearby means the eight adjacent tiles; a gas holder does not suppress itself
   or another Neutralizing Gas ability. Gastro Acid and Ability Monitor still
   disable the gas holder. Apply after other gameplay modules, before korean.
+  v3 removes 62 shortening exits across 33 dungeon IDs; unrelated exits remain.
