@@ -351,4 +351,6 @@ BalanceChange_RegenStrongEnemyCheck:
 	cmp r4, #0
 	b 0x02311124
 
+.align 4
+BalanceChange_AbilitiesStart:
 .close

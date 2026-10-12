@@ -330,6 +330,18 @@ symbols:
   ItemIsActive_11: 0x0231513C
   ItemIsActive_12: 0x02347B50
   AbilityIsActive: 0x02301D10
+  BalanceAbilitySpeedSite: 0x022FFEFC
+  BalanceAbilityStabQuerySite: 0x0230B59C
+  BalanceAbilityStabFactorSite: 0x0230B5A8
+  BalanceAbilityDamageSite: 0x0230D03C
+  BalanceAbilityMoveSite: 0x0232E864
+  BalanceAbilityActionSite: 0x0232145C
+  BalanceAbilityFaintSite: 0x022F7F34
+  BalanceAbilityOldAdaptateSite: 0x023D4C0C
+  BalanceAbilityOldAdaptateTypeSite: 0x023DAE04
+  BalanceAbilityOldAdaptatePowerSite: 0x023D94A8
+  BalanceAbilityOldSkySite: 0x023AF128
+  BalanceAbilityOldSoundSite: 0x023B0338
   CalcDamageEntry: 0x0230BBAC
   CalcDamagePowerStore: 0x0230BBE0
   ShouldUsePp: 0x0231A7A0

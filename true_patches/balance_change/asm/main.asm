@@ -5,3 +5,4 @@
 .include "generated.inc"
 
 .include "BalanceChange.asm"
+.include "Abilities.asm"

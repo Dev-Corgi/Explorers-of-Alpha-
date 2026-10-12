@@ -366,6 +366,9 @@ def apply_balance_change_module(
 
     m_level_exp = patch_m_level_exp_to_pikachu(rom)
     se_split = patch_se_entry_split_and_levels(rom, state=state, record=record)
+    from true_patches.balance_change.patch_ability_names import patch_ability_names
+
+    ability_names = patch_ability_names(rom)
     record.data.append(
         {
             "arm9_edits": arm9_edits,
@@ -377,6 +380,7 @@ def apply_balance_change_module(
             "special_episode_storage_ok": storage_ok,
             **m_level_exp,
             **se_split,
+            **ability_names,
         }
     )
     return record
@@ -391,6 +395,9 @@ def verify_balance_change_module(
     verify_asm_module(rom_path, manifest, profile, state_mod)
 
     rom = NintendoDSRom(rom_path.read_bytes())
+    from true_patches.balance_change.patch_ability_names import verify_ability_names
+
+    verify_ability_names(rom)
     config = get_ppmdu_config_for_rom(rom)
     arm9 = get_binary_from_rom(rom, config.bin_sections.arm9)
     pcs = HardcodedDefaultStarters.get_special_episode_pcs(arm9, config)

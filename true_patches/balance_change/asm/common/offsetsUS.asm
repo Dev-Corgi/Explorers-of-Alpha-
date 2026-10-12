@@ -53,3 +53,28 @@ BOSS_ENTRY_SIZE equ 12
 .definelabel RegenMinimumSetSite, 0x0231122C
 
 .definelabel RegenStrongEnemyCheckSite, 0x02311120
+
+; Alpha ability paths and unclaimed EoS body instructions.
+.definelabel BalanceAbilitySpeedSite, 0x022FFEFC
+.definelabel BalanceAbilityStabQuerySite, 0x0230B59C
+.definelabel BalanceAbilityStabFactorSite, 0x0230B5A8
+.definelabel BalanceAbilityDamageSite, 0x0230D03C
+.definelabel BalanceAbilityMoveSite, 0x0232E864
+.definelabel BalanceAbilityActionSite, 0x0232145C
+.definelabel BalanceAbilityFaintSite, 0x022F7F34
+.definelabel BalanceAbilityOldAdaptateSite, 0x023D4C0C
+.definelabel BalanceAbilityOldAdaptateTypeSite, 0x023DAE04
+.definelabel BalanceAbilityOldAdaptatePowerSite, 0x023D94A8
+.definelabel BalanceAbilityOldSkySite, 0x023AF128
+.definelabel BalanceAbilityOldSoundSite, 0x023B0338
+.definelabel BalanceAbilityIsActive, 0x02301D78
+.definelabel BalanceIsMonster, 0x02301A60
+.definelabel BalanceMoveIsSound, 0x02013D5C
+.definelabel BalanceMoveGetCategory, 0x020151C8
+.definelabel BalanceSignedDivide, 0x0208FEA4
+.definelabel BalanceBoostOffensiveStat, 0x0231399C
+.definelabel BalanceAbility_OldAdaptateOff, 0x023D4C5C
+.definelabel BalanceAbility_OldAdaptateTypeOff, 0x023DAE3C
+.definelabel BalanceAbility_OldAdaptatePowerOff, 0x023D94BC
+.definelabel BalanceAbility_OldSkyOff, 0x023AF148
+.definelabel BalanceAbility_OldSoundOff, 0x023AF9E8

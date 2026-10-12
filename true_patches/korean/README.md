@@ -1,5 +1,14 @@
 # korean
 
+Ability terminology (v8): 38 Alpha ability name slots use the names in the
+user's `포켓몬_특성_강화완성.xlsx`. This includes the separate physical
+Marvel Veil -> 퍼코트 and special Wonder Veil -> 얼음인분 entries.
+The five replacement abilities and the existing Adaptability slot have
+descriptions matching balance_change v15's E-column effects. Explicit
+English/Korean pairs in `data/translations.json.gz` preserve string indices,
+color tags, and English-source matching. English renaming and gameplay effects
+are owned by balance_change.
+
 Korean text for Explorers of Alpha, ported from the unofficial Explorers of Sky (US) Korean patch (하늘의 탐험대 1-101b).
 
 Build, only when requested: `.venv\Scripts\python.exe patch_engine\build_korean.py --rebuild-full` rebuilds the English full_stack from `PatchTesting/Explorers of Alpha/Explorers of Alpha.nds`, then writes `PatchTesting/Export Rom/Explorers of Alpha+_kor.nds`. Apply Korean last. The build keeps its state in a temporary directory.

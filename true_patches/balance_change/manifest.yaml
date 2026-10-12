@@ -1,7 +1,9 @@
 id: balance_change
-version: 14
+version: 15
 region: US
 description: >
+  v15: canonical ability names and workbook E-column effects for Adaptability,
+  Gale Wings, Punk Rock, Grim Neigh, and Aura Break; ability IDs stay unchanged.
   v11: the expanded fixed-room monster stats table is allocated and reserved
   inside loaded overlay36 memory; overlay10 is not extended into overlay29.
   Bidoof's Wish movesets. Bidoof (special episode main character) starts with
@@ -105,6 +107,78 @@ boss_movesets:
 special_episode_storage_ok: true
 
 hooks:
+  - name: AbilitySpeed
+    symbol: BalanceAbilitySpeedSite
+    binary: ov29
+    vanilla_word: 0xE3540000
+    target_symbol: BalanceAbility_Speed
+    chain: first
+  - name: AbilityStabQuery
+    symbol: BalanceAbilityStabQuerySite
+    binary: ov29
+    vanilla_word: 0xEBFFD9F5
+    target_symbol: BalanceAbility_StabQuery
+    chain: first
+  - name: AbilityStabFactor
+    symbol: BalanceAbilityStabFactorSite
+    binary: ov29
+    vanilla_word: 0xE59F220C
+    target_symbol: BalanceAbility_StabFactor
+    chain: first
+  - name: AbilityDamage
+    symbol: BalanceAbilityDamageSite
+    binary: ov29
+    vanilla_word: 0xE5881004
+    target_symbol: BalanceAbility_Damage
+    chain: first
+  - name: AbilityMoveAction
+    symbol: BalanceAbilityMoveSite
+    binary: ov29
+    vanilla_word: 0xE92D4FF8
+    target_symbol: BalanceAbility_Move
+    chain: first
+  - name: AbilityFaint
+    symbol: BalanceAbilityFaintSite
+    binary: ov29
+    vanilla_word: 0xE24DD0BC
+    target_symbol: BalanceAbility_Faint
+    chain: first
+  - name: AbilityActionScope
+    symbol: BalanceAbilityActionSite
+    binary: ov29
+    vanilla_word: 0xE92D4FF0
+    target_symbol: BalanceAbility_ActionScope
+    chain: first
+  - name: RemoveAdaptateConversion
+    symbol: BalanceAbilityOldAdaptateSite
+    binary: ov36
+    vanilla_word: 0xE1A0000A
+    chain: first
+    target_symbol: BalanceAbility_OldAdaptateOff
+  - name: RemoveSkyPactRepeats
+    symbol: BalanceAbilityOldSkySite
+    binary: ov36
+    vanilla_word: 0xE1A0000A
+    chain: first
+    target_symbol: BalanceAbility_OldSkyOff
+  - name: RemoveAdaptateMoveType
+    symbol: BalanceAbilityOldAdaptateTypeSite
+    binary: ov36
+    vanilla_word: 0xE1A00005
+    chain: first
+    target_symbol: BalanceAbility_OldAdaptateTypeOff
+  - name: RemoveAdaptateOldPower
+    symbol: BalanceAbilityOldAdaptatePowerSite
+    binary: ov36
+    vanilla_word: 0xE1A00009
+    chain: first
+    target_symbol: BalanceAbility_OldAdaptatePowerOff
+  - name: RemoveSoundWavesPower
+    symbol: BalanceAbilityOldSoundSite
+    binary: ov36
+    vanilla_word: 0xE1A00008
+    chain: first
+    target_symbol: BalanceAbility_OldSoundOff
   - name: RegenStrongEnemyCheck
     symbol: RegenStrongEnemyCheckSite
     binary: ov29
@@ -261,7 +335,7 @@ hooks:
 
 cave:
   binary: ov36
-  estimated_bytes: 1536
+  estimated_bytes: 4096
   alignment: 4
   base_label: BalanceChangeCodeAddress
 
