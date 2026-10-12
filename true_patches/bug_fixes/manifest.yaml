@@ -1,5 +1,5 @@
 id: bug_fixes
-version: 3
+version: 4
 region: US
 description: >
   Remove Alpha's passive Hail recovery bonus for monsters without Ice Body.
@@ -8,11 +8,23 @@ description: >
   Ice Body's contact frostbite and other recovery modifiers retain their behavior.
   Remove Mechanical Array and difficulty-based dungeon shortening so every
   difficulty uses the Hardcore floor count, including mission destinations.
+  Restore enemy Imposter/Illusion spawn processing on normal floors and
+  safely skip empty disguise candidate lists.
 
 kind: asm
 rom_profile: us_vanilla
 
 hooks:
+  - name: SpawnTransformFloorGate
+    symbol: BugFixSpawnTransformSite
+    binary: ov36
+    vanilla_word: 0x1A00011E
+    target_symbol: BugFix_SpawnTransform
+  - name: SpawnTransformEmptyList
+    symbol: BugFixSpawnCandidatesSite
+    binary: ov36
+    vanilla_word: 0xE1A06000
+    target_symbol: BugFix_SpawnCandidates
   - name: RemoveNonIceBodyHailRegenBonus
     symbol: BugFixHailRegenBonusSite
     binary: ov29
@@ -46,7 +58,7 @@ hooks:
 
 cave:
   binary: ov36
-  estimated_bytes: 768
+  estimated_bytes: 832
   alignment: 4
   base_label: BugFixCodeAddress
 

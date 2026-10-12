@@ -6,6 +6,10 @@
 .close
 
 .open "overlay_0036.bin", ov_36
+.org BugFixSpawnTransformSite
+	b BugFix_SpawnTransform
+.org BugFixSpawnCandidatesSite
+	b BugFix_SpawnCandidates
 .org BugFixMirrorAttackSite
 	b BugFix_MirrorAttack
 .org BugFixMirrorDefenseSite
@@ -16,6 +20,21 @@
 	b BugFix_GasSuppression
 
 .org ov_36 + BugFixCodeAddress
+
+; Incoming Z is set only for full-floor fixed room + Imposter. Keep its
+; original fixed-room fallback. Illusion on fixed rooms remains disabled;
+; normal floors must reach candidate selection for both abilities.
+BugFix_SpawnTransform:
+	beq 0x023BF4AC
+	cmp r0, #1
+	beq 0x023BF928
+	b 0x023BF4B8
+
+BugFix_SpawnCandidates:
+	mov r6, r0
+	cmp r6, #0
+	beq 0x023BF928
+	b 0x023BF4C8
 
 ; Alpha's success branch still has the original r0-r3 saved on the stack.
 ; Restore actual pointers, then reverse the stat-change source and target.

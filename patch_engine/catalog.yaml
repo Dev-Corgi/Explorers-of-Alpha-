@@ -34,7 +34,7 @@ modules:
     kind: luminous_evolution
   bug_fixes:
     path: bug_fixes
-    description: Hail recovery, Mirror Armor, Trace, adjacent Neutralizing Gas, and Hardcore dungeon lengths on every difficulty without Mechanical Array shortening.
+    description: Hail recovery, Mirror Armor, Trace, adjacent Neutralizing Gas, Hardcore dungeon lengths, and normal-floor Imposter/Illusion spawn transforms.
     kind: asm
   team_push:
     path: team_push

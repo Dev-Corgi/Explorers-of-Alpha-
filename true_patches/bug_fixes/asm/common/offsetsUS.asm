@@ -1,5 +1,7 @@
 ov_29 equ 0x022DC240
 ov_36 equ 0x023A7080
+BugFixSpawnTransformSite equ 0x023BF4A8
+BugFixSpawnCandidatesSite equ 0x023BF4C4
 
 ; Existing Alpha code sites / functions, not locations for new code caves.
 BugFixHailRegenBonusSite equ 0x023111F0

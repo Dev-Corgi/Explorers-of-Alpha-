@@ -121,6 +121,9 @@ def main() -> None:
             from verify_floor_limits import check_floor_limits
 
             check_floor_limits(fixed)
+            from verify_spawn_transform import check_spawn_transform
+
+            check_spawn_transform(original, fixed)
             # Only the declared hook words and newly allocated cave may change.
             source_rom = original if source == SOURCE else NintendoDSRom.fromFile(str(source))
             profile = load_rom_profile(ROOT / "patch_engine", "us_vanilla")
@@ -191,6 +194,7 @@ def main() -> None:
         assert get_rom_binary(original, "ov36")[first:end] == get_rom_binary(relocated, "ov36")[first:end]
         check_abilities(relocated)
         check_floor_limits(relocated)
+        check_spawn_transform(original, relocated)
         print("Dynamic cave relocation and reservation passed")
         # An unknown original instruction must fail instead of silently patching it.
         damaged = NintendoDSRom.fromFile(str(SOURCE))
