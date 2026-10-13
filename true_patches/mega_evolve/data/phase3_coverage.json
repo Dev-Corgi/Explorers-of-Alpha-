@@ -15,7 +15,8 @@
     "python -B -X utf8 -m true_patches.mega_evolve.verify_phase3_events",
     "python -B -X utf8 -m true_patches.mega_evolve.verify_phase3_weight_wind",
     "python -B -X utf8 -m true_patches.mega_evolve.verify_phase3_tailwind",
-    "python -B -X utf8 -m true_patches.mega_evolve.verify_phase3_native_status"
+    "python -B -X utf8 -m true_patches.mega_evolve.verify_phase3_native_status",
+    "python -B -X utf8 -m true_patches.mega_evolve.verify_phase3_native_immunity"
   ],
   "work_classification": {
     "basis": "definition tags and existing effect identity; candidate classification is not implementation proof",
@@ -417,9 +418,11 @@
       "id": 292,
       "legacy_effect_id": 88,
       "family": "native_behavior",
-      "normal_status": "pending_audit",
+      "normal_status": "partial",
       "work_class_candidate": "reuse_candidate",
-      "verified_paths": [],
+      "verified_paths": [
+        "native_critical_threshold_times_two_three_slots_suppression_boundary_rolls"
+      ],
       "enhanced_status": "phase7"
     },
     {
@@ -836,9 +839,11 @@
       "id": 329,
       "legacy_effect_id": 60,
       "family": "native_behavior",
-      "normal_status": "pending_audit",
+      "normal_status": "partial",
       "work_class_candidate": "reuse_candidate",
-      "verified_paths": [],
+      "verified_paths": [
+        "native_move_effect_rejection_fifteen_sound_ids_three_slots_suppression_mold_breaker"
+      ],
       "enhanced_status": "phase7"
     },
     {
@@ -930,9 +935,11 @@
       "id": 338,
       "legacy_effect_id": 55,
       "family": "native_behavior",
-      "normal_status": "pending_audit",
+      "normal_status": "partial",
       "work_class_candidate": "reuse_candidate",
-      "verified_paths": [],
+      "verified_paths": [
+        "native_ground_immunity_branch_three_slots_suppression_mold_breaker_gravity"
+      ],
       "enhanced_status": "phase7"
     },
     {
@@ -1640,9 +1647,11 @@
       "id": 404,
       "legacy_effect_id": 19,
       "family": "native_behavior",
-      "normal_status": "pending_audit",
+      "normal_status": "partial",
       "work_class_candidate": "reuse_candidate",
-      "verified_paths": [],
+      "verified_paths": [
+        "native_critical_rejection_three_slots_suppression_mold_breaker"
+      ],
       "enhanced_status": "phase7"
     },
     {
@@ -1715,9 +1724,11 @@
       "id": 411,
       "legacy_effect_id": 19,
       "family": "native_behavior",
-      "normal_status": "pending_audit",
+      "normal_status": "partial",
       "work_class_candidate": "modify_or_connect",
-      "verified_paths": [],
+      "verified_paths": [
+        "native_shared_critical_rejection_three_slots_suppression_mold_breaker"
+      ],
       "enhanced_status": "phase7"
     },
     {

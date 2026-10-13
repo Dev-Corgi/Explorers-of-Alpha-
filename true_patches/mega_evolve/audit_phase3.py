@@ -6,6 +6,11 @@ from .phase3 import load
 MODULE=Path(__file__).resolve().parent
 
 VERIFIED={
+    '부유':['native_ground_immunity_branch_three_slots_suppression_mold_breaker_gravity'],
+    '방음':['native_move_effect_rejection_fifteen_sound_ids_three_slots_suppression_mold_breaker'],
+    '전투무장':['native_critical_rejection_three_slots_suppression_mold_breaker'],
+    '조가비갑옷':['native_shared_critical_rejection_three_slots_suppression_mold_breaker'],
+    '대운':['native_critical_threshold_times_two_three_slots_suppression_boundary_rolls'],
     '면역':['native_poison_and_bad_poison_bodies_three_slots_suppression_mold_breaker'],
     '수의베일':['native_burn_body_three_slots_suppression_mold_breaker'],
     '유연':['native_paralysis_body_three_slots_suppression_mold_breaker'],
@@ -78,7 +83,8 @@ def build():
                                 'python -B -X utf8 -m true_patches.mega_evolve.verify_phase3_events',
                                 'python -B -X utf8 -m true_patches.mega_evolve.verify_phase3_weight_wind',
                                 'python -B -X utf8 -m true_patches.mega_evolve.verify_phase3_tailwind',
-                                'python -B -X utf8 -m true_patches.mega_evolve.verify_phase3_native_status'],
+                                'python -B -X utf8 -m true_patches.mega_evolve.verify_phase3_native_status',
+                                'python -B -X utf8 -m true_patches.mega_evolve.verify_phase3_native_immunity'],
             'work_classification':{'basis':'definition tags and existing effect identity; candidate classification is not implementation proof',
                                    'counts':{k:len(v) for k,v in worklist().items()}},
             'boundary':'Verified paths are not whole-ability certification. Native ID matches are not proof of correct normal effects.',
