@@ -62,7 +62,7 @@ def locate_base_stats(ov36):
     return entity_speed,from_monster,calls
 
 
-def build_runtime(module_dir,work,cave,entity_speed,from_monster,phase=1,skill_swap_message=0):
+def build_runtime(module_dir,work,cave,entity_speed,from_monster,phase=1,skill_swap_message=0,additional_defines=None):
     compiler=shutil.which("arm-none-eabi-gcc")
     if not compiler:
         raise RuntimeError("mega_evolve needs arm-none-eabi-gcc")
@@ -70,11 +70,19 @@ def build_runtime(module_dir,work,cave,entity_speed,from_monster,phase=1,skill_s
     suffix=".exe" if compiler.lower().endswith(".exe") else ""
     defines={"DUNGEON_PTR":0x02353538,"ABILITY_ACTIVE":0x02301D78,
              "SIGNED_DIVIDE":0x0208FEA4,"LEGACY_STRONG_WEATHER":0x022AB46A,
-             "ENTITY_SPEED":entity_speed,"FROM_MONSTER_RESUME":from_monster+4}
+             "ENTITY_SPEED":entity_speed,"FROM_MONSTER_FN":from_monster,"FROM_MONSTER_RESUME":from_monster+4}
     if phase>=2:
         from true_patches.mega_evolve.phase2 import load,header
         (work/"abilities_generated.h").write_text(header(load()),encoding="ascii")
         defines.update(ME_PHASE2=1,SKILL_SWAP_MESSAGE=skill_swap_message)
+    if phase>=3:
+        from true_patches.mega_evolve.phase3 import load,header
+        (work/"phase3_generated.h").write_text(header(load()),encoding="ascii")
+        defines.update(ME_PHASE3=1)
+    defines.update(additional_defines or {})
+    if phase>=3:
+        from true_patches.mega_evolve.status_hooks import assembly
+        (work/"phase3_status_generated.S").write_text(assembly(defines),encoding="ascii")
     (work/"generated.h").write_text("".join(f"#define {k} 0x{v:X}\n" for k,v in defines.items()),encoding="ascii")
     linker=work/"phase1.ld"
     linker.write_text(f"SECTIONS {{ . = 0x{cave:X}; .text : {{ *(.text*) *(.rodata*) }} "
@@ -95,8 +103,8 @@ def build_runtime(module_dir,work,cave,entity_speed,from_monster,phase=1,skill_s
         address,kind,name=line.split()
         if name.startswith("ME_") or name in ("state","MERuntimeEnd"):
             symbols[name]=int(address,16)
-    if symbols["MERuntimeEnd"]>cave+(0x4000 if phase>=2 else SIZE):
-        raise RuntimeError("mega_evolve phase1 exceeds allocated runtime/BSS size")
+    if phase<3 and symbols["MERuntimeEnd"]>cave+(0x4000 if phase>=2 else SIZE):
+        raise RuntimeError("mega_evolve runtime bytes="+str(symbols["MERuntimeEnd"]-cave))
     return output.read_bytes(),symbols
 
 
@@ -167,11 +175,17 @@ def apply_phase1(rom,module_dir,manifest,state,metadata):
         if bytes(ov36[trace_target-OV36:trace_target-OV36+12])!=struct.pack("<III",0xE92D500F,0xE1A00008,0xE3A01028):
             raise RuntimeError("unexpected native Trace predicate owner")
     runtime_size=0x4000 if manifest["phase"]>=2 else SIZE
-    slot,ov36=allocate_runtime(ov36,state,runtime_size)
-    with tempfile.TemporaryDirectory(prefix="mega_evolve_phase1_") as temporary:
-        blob,symbols=build_runtime(module_dir,Path(temporary),slot.load_address,entity_speed,from_monster,manifest["phase"],word(ov29,0x02328790,OV29))
-    ov36[slot.file_offset:slot.file_offset+runtime_size]=bytes(runtime_size)
-    ov36[slot.file_offset:slot.file_offset+len(blob)]=blob
+    scatter_info={}
+    if manifest["phase"]>=3:
+        from .mega_evolve_phase3_runtime import scatter_link
+        caves,ov36,symbols,scatter_info=scatter_link(module_dir,ov29,ov36,state,entity_speed,from_monster)
+    else:
+        slot,ov36=allocate_runtime(ov36,state,runtime_size)
+        with tempfile.TemporaryDirectory(prefix="mega_evolve_phase1_") as temporary:
+            blob,symbols=build_runtime(module_dir,Path(temporary),slot.load_address,entity_speed,from_monster,manifest["phase"],word(ov29,0x02328790,OV29))
+        ov36[slot.file_offset:slot.file_offset+runtime_size]=bytes(runtime_size)
+        ov36[slot.file_offset:slot.file_offset+len(blob)]=blob
+        caves=[CaveAllocation("ov36",slot.file_offset,runtime_size,slot.load_address)]
     edits=[]
     hooks=[]
     def patch(ov,site,value,name,target=None):
@@ -199,7 +213,11 @@ def apply_phase1(rom,module_dir,manifest,state,metadata):
         for site,target in [(0x02301d10,"ME_AbilityActive"),(0x022f9538,"ME_TraceHook"),
                             (0x02328714,"ME_SkillSwapHook"),(0x0232a1c8,"ME_RolePlayHook"),
                             (0x0233493c,"ME_AbilitiesEqualHook"),(0x022f9220,"ME_RestoreAbilitiesHook")]:
+            if manifest["phase"]>=3 and site==0x02301d10:target="ME_NativeAbilityHook"
             patch(29,site,branch(site,symbols[target]),target,target)
+    if manifest["phase"]>=3:
+        from .mega_evolve_phase3_runtime import install_hooks
+        install_hooks(ov29,ov36,symbols,patch)
     strings=parse_str_file(rom.getFileByName("MESSAGE/text_e.str"))
     text_data=json.loads((module_dir/"data/phase1_strings.json").read_text(encoding="utf-8"))
     for entry in text_data["entries"]:
@@ -212,29 +230,45 @@ def apply_phase1(rom,module_dir,manifest,state,metadata):
         elif previous.strip() not in ("","[M:D1]"):
             raise RuntimeError(f"mega_evolve new string index {index} is occupied")
         strings[index]=entry["en"].encode("cp1252")
-    rom.setFileByName("MESSAGE/text_e.str",build_str_file(strings))
+    prepared_files={"MESSAGE/text_e.str":build_str_file(strings)}
+    profile_edits=[]
+    if manifest["phase"]>=3:
+        from .mega_evolve_phase3_data import prepare_data
+        files,profile_edits=prepare_data(rom,strings)
+        prepared_files.update(files)
+    for path,content in prepared_files.items():rom.setFileByName(path,content)
     rom.files[tables[29].fileID]=bytes(ov29)
     write_ov36_to_rom(rom,None,bytes(ov36))
     return AppliedModule("mega_evolve",manifest.get("version",1),
-        [CaveAllocation("ov36",slot.file_offset,runtime_size,slot.load_address)],hooks,
+        caves,hooks,
         [{"mega_evolve":metadata,"phase":manifest["phase"],"symbols":symbols,"edits":edits,
-          "cave_sha256":hashlib.sha256(ov36[slot.file_offset:slot.file_offset+runtime_size]).hexdigest(),
+          **scatter_info,
+          **({"cave_sha256":hashlib.sha256(ov36[caves[0].file_offset:caves[0].file_offset+caves[0].size]).hexdigest()} if len(caves)==1 else {}),
+          "cave_hashes":[hashlib.sha256(ov36[c.file_offset:c.file_offset+c.size]).hexdigest() for c in caves],
+          "base_profile_edits":profile_edits,
+          **({"phase3_md_sha256":hashlib.sha256(prepared_files["BALANCE/monster.md"]).hexdigest()} if manifest["phase"]>=3 else {}),
           "base_stats_helpers":{"entity_speed":entity_speed,"from_monster":from_monster},
           "save_component_schema":2 if manifest["phase"]>=2 else 1,"automatic_save_codec_integration_phase":4}])
 
 
 def verify_phase1(rom,module_dir,manifest,record,metadata):
-    if record is None or len(record.caves)!=1 or record.data[0].get("mega_evolve")!=metadata:
+    if record is None or not record.caves or record.data[0].get("mega_evolve")!=metadata:
         raise AssertionError("mega_evolve phase1 linker record missing/stale")
     if record.id!="mega_evolve" or record.version!=manifest["version"] or record.data[0].get("phase")!=manifest["phase"]:
         raise AssertionError("mega_evolve phase1 record version/phase mismatch")
     if not isinstance(rom,NintendoDSRom):
         rom=NintendoDSRom(Path(rom).read_bytes())
     tables=rom.loadArm9Overlays()
-    cave=record.caves[0]
-    blob=bytes(tables[36].data[cave.file_offset:cave.file_offset+cave.size])
-    if hashlib.sha256(blob).hexdigest()!=record.data[0]["cave_sha256"]:
-        raise AssertionError("mega_evolve phase1 cave hash mismatch")
+    if manifest['phase']>=3 and hashlib.sha256(rom.getFileByName('BALANCE/monster.md')).hexdigest()!=record.data[0].get('phase3_md_sha256'):
+        raise AssertionError('mega_evolve phase3 MD hash mismatch')
+    hashes=record.data[0].get('cave_hashes') or [record.data[0].get('cave_sha256')]
+    if len(record.caves)==1 and record.data[0].get('cave_sha256',hashes[0])!=hashes[0]:
+        raise AssertionError('mega_evolve conflicting single-cave hashes')
+    if len(hashes)!=len(record.caves):raise AssertionError('mega_evolve cave record mismatch')
+    for cave,expected in zip(record.caves,hashes):
+        blob=bytes(tables[36].data[cave.file_offset:cave.file_offset+cave.size])
+        if hashlib.sha256(blob).hexdigest()!=expected:
+            raise AssertionError("mega_evolve phase1 cave hash mismatch")
     for edit in record.data[0]["edits"]:
         base=OV29 if edit["overlay"]==29 else OV36
         if word(tables[edit["overlay"]].data,edit["site"],base)!=edit["after"]:

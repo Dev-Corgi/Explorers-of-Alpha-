@@ -1,0 +1,1911 @@
+{
+  "schema": 1,
+  "phase": 3,
+  "activation": "not_enabled",
+  "test": "python -B -X utf8 -m true_patches.mega_evolve.verify_phase3",
+  "boundary": "Verified paths are not whole-ability certification. Native ID matches are not proof of correct normal effects.",
+  "shared_phase7_research": [
+    "status_hooks.py",
+    "phase3.json",
+    "phase3_status_generated.S generated at link time",
+    "runtime/phase3_hooks.S"
+  ],
+  "abilities": [
+    {
+      "key": "Omniscience",
+      "id": 256,
+      "legacy_effect_id": 250,
+      "family": "native_behavior",
+      "normal_status": "pending_audit",
+      "verified_paths": [],
+      "enhanced_status": "phase7"
+    },
+    {
+      "key": "가뭄",
+      "id": 257,
+      "legacy_effect_id": 49,
+      "family": "weather_source",
+      "normal_status": "pending_audit",
+      "verified_paths": [],
+      "enhanced_status": "phase7"
+    },
+    {
+      "key": "가속",
+      "id": 258,
+      "legacy_effect_id": 11,
+      "family": "turn_tick",
+      "normal_status": "pending_audit",
+      "verified_paths": [],
+      "enhanced_status": "phase7"
+    },
+    {
+      "key": "갈지자걸음",
+      "id": 259,
+      "legacy_effect_id": 98,
+      "family": "status_or_stage",
+      "normal_status": "pending_audit",
+      "verified_paths": [],
+      "enhanced_status": "phase7"
+    },
+    {
+      "key": "감미로운꿀",
+      "id": 260,
+      "legacy_effect_id": 0,
+      "family": "floor_entry",
+      "normal_status": "pending_audit",
+      "verified_paths": [],
+      "enhanced_status": "phase7"
+    },
+    {
+      "key": "강철술사",
+      "id": 261,
+      "legacy_effect_id": 210,
+      "family": "calculation",
+      "normal_status": "pending_audit",
+      "verified_paths": [],
+      "enhanced_status": "phase7"
+    },
+    {
+      "key": "개미지옥",
+      "id": 262,
+      "legacy_effect_id": 5,
+      "family": "action_or_world",
+      "normal_status": "pending_audit",
+      "verified_paths": [],
+      "enhanced_status": "phase7"
+    },
+    {
+      "key": "건조피부",
+      "id": 263,
+      "legacy_effect_id": 85,
+      "family": "turn_tick",
+      "normal_status": "pending_audit",
+      "verified_paths": [],
+      "enhanced_status": "phase7"
+    },
+    {
+      "key": "게으름",
+      "id": 264,
+      "legacy_effect_id": 42,
+      "family": "calculation",
+      "normal_status": "pending_audit",
+      "verified_paths": [],
+      "enhanced_status": "phase7"
+    },
+    {
+      "key": "고대활성",
+      "id": 265,
+      "legacy_effect_id": 0,
+      "family": "faint",
+      "normal_status": "pending_audit",
+      "verified_paths": [],
+      "enhanced_status": "phase7"
+    },
+    {
+      "key": "곡예",
+      "id": 266,
+      "legacy_effect_id": 84,
+      "family": "item",
+      "normal_status": "pending_audit",
+      "verified_paths": [],
+      "enhanced_status": "phase7"
+    },
+    {
+      "key": "괴력집게",
+      "id": 267,
+      "legacy_effect_id": 9,
+      "family": "status_or_stage",
+      "normal_status": "pending_audit",
+      "verified_paths": [],
+      "enhanced_status": "phase7"
+    },
+    {
+      "key": "괴짜",
+      "id": 268,
+      "legacy_effect_id": 166,
+      "family": "native_behavior",
+      "normal_status": "pending_audit",
+      "verified_paths": [],
+      "enhanced_status": "phase7"
+    },
+    {
+      "key": "굳건한신념",
+      "id": 269,
+      "legacy_effect_id": 0,
+      "family": "action_or_world",
+      "normal_status": "pending_audit",
+      "verified_paths": [],
+      "enhanced_status": "phase7"
+    },
+    {
+      "key": "그림자밟기",
+      "id": 270,
+      "legacy_effect_id": 10,
+      "family": "action_or_world",
+      "normal_status": "pending_audit",
+      "verified_paths": [],
+      "enhanced_status": "phase7"
+    },
+    {
+      "key": "근성",
+      "id": 271,
+      "legacy_effect_id": 17,
+      "family": "calculation",
+      "normal_status": "pending_audit",
+      "verified_paths": [],
+      "enhanced_status": "phase7"
+    },
+    {
+      "key": "급류",
+      "id": 272,
+      "legacy_effect_id": 16,
+      "family": "calculation",
+      "normal_status": "pending_audit",
+      "verified_paths": [],
+      "enhanced_status": "phase7"
+    },
+    {
+      "key": "기분파",
+      "id": 273,
+      "legacy_effect_id": 37,
+      "family": "native_behavior",
+      "normal_status": "pending_audit",
+      "verified_paths": [],
+      "enhanced_status": "phase7"
+    },
+    {
+      "key": "긴장감",
+      "id": 274,
+      "legacy_effect_id": 163,
+      "family": "item",
+      "normal_status": "pending_audit",
+      "verified_paths": [],
+      "enhanced_status": "phase7"
+    },
+    {
+      "key": "까칠한피부",
+      "id": 275,
+      "legacy_effect_id": 18,
+      "family": "received_event",
+      "normal_status": "pending_audit",
+      "verified_paths": [],
+      "enhanced_status": "phase7"
+    },
+    {
+      "key": "깨어진갑옷",
+      "id": 276,
+      "legacy_effect_id": 0,
+      "family": "received_event",
+      "normal_status": "pending_audit",
+      "verified_paths": [],
+      "enhanced_status": "phase7"
+    },
+    {
+      "key": "끝의대지",
+      "id": 277,
+      "legacy_effect_id": 253,
+      "family": "weather_source",
+      "normal_status": "pending_audit",
+      "verified_paths": [],
+      "enhanced_status": "phase7"
+    },
+    {
+      "key": "나쁜손버릇",
+      "id": 278,
+      "legacy_effect_id": 168,
+      "family": "received_event",
+      "normal_status": "pending_audit",
+      "verified_paths": [],
+      "enhanced_status": "phase7"
+    },
+    {
+      "key": "나이트메어",
+      "id": 279,
+      "legacy_effect_id": 105,
+      "family": "turn_tick",
+      "normal_status": "pending_audit",
+      "verified_paths": [],
+      "enhanced_status": "phase7"
+    },
+    {
+      "key": "날씨부정",
+      "id": 280,
+      "legacy_effect_id": 45,
+      "family": "native_behavior",
+      "normal_status": "pending_audit",
+      "verified_paths": [],
+      "enhanced_status": "phase7"
+    },
+    {
+      "key": "날카로운눈",
+      "id": 281,
+      "legacy_effect_id": 30,
+      "family": "native_behavior",
+      "normal_status": "pending_audit",
+      "verified_paths": [],
+      "enhanced_status": "phase7"
+    },
+    {
+      "key": "내열",
+      "id": 282,
+      "legacy_effect_id": 95,
+      "family": "calculation",
+      "normal_status": "pending_audit",
+      "verified_paths": [],
+      "enhanced_status": "phase7"
+    },
+    {
+      "key": "내용물분출",
+      "id": 283,
+      "legacy_effect_id": 225,
+      "family": "action_or_world",
+      "normal_status": "pending_audit",
+      "verified_paths": [],
+      "enhanced_status": "phase7"
+    },
+    {
+      "key": "노가드",
+      "id": 284,
+      "legacy_effect_id": 106,
+      "family": "native_behavior",
+      "normal_status": "pending_audit",
+      "verified_paths": [],
+      "enhanced_status": "phase7"
+    },
+    {
+      "key": "노말스킨",
+      "id": 285,
+      "legacy_effect_id": 107,
+      "family": "calculation",
+      "normal_status": "pending_audit",
+      "verified_paths": [],
+      "enhanced_status": "phase7"
+    },
+    {
+      "key": "눈숨기",
+      "id": 286,
+      "legacy_effect_id": 119,
+      "family": "native_behavior",
+      "normal_status": "pending_audit",
+      "verified_paths": [],
+      "enhanced_status": "phase7"
+    },
+    {
+      "key": "눈치우기",
+      "id": 287,
+      "legacy_effect_id": 145,
+      "family": "native_behavior",
+      "normal_status": "partial",
+      "verified_paths": [
+        "numeric_weather_speed",
+        "movement_query_context"
+      ],
+      "enhanced_status": "phase7"
+    },
+    {
+      "key": "눈퍼뜨리기",
+      "id": 288,
+      "legacy_effect_id": 120,
+      "family": "weather_source",
+      "normal_status": "pending_audit",
+      "verified_paths": [],
+      "enhanced_status": "phase7"
+    },
+    {
+      "key": "다운로드",
+      "id": 289,
+      "legacy_effect_id": 96,
+      "family": "calculation",
+      "normal_status": "pending_audit",
+      "verified_paths": [],
+      "enhanced_status": "phase7"
+    },
+    {
+      "key": "단단한발톱",
+      "id": 290,
+      "legacy_effect_id": 144,
+      "family": "calculation",
+      "normal_status": "pending_audit",
+      "verified_paths": [],
+      "enhanced_status": "phase7"
+    },
+    {
+      "key": "단순",
+      "id": 291,
+      "legacy_effect_id": 97,
+      "family": "status_or_stage",
+      "normal_status": "pending_audit",
+      "verified_paths": [],
+      "enhanced_status": "phase7"
+    },
+    {
+      "key": "대운",
+      "id": 292,
+      "legacy_effect_id": 88,
+      "family": "native_behavior",
+      "normal_status": "pending_audit",
+      "verified_paths": [],
+      "enhanced_status": "phase7"
+    },
+    {
+      "key": "델타스트림",
+      "id": 293,
+      "legacy_effect_id": 254,
+      "family": "weather_source",
+      "normal_status": "pending_audit",
+      "verified_paths": [],
+      "enhanced_status": "phase7"
+    },
+    {
+      "key": "도주",
+      "id": 294,
+      "legacy_effect_id": 43,
+      "family": "floor_entry",
+      "normal_status": "pending_audit",
+      "verified_paths": [],
+      "enhanced_status": "phase7"
+    },
+    {
+      "key": "독가시",
+      "id": 295,
+      "legacy_effect_id": 39,
+      "family": "received_event",
+      "normal_status": "pending_audit",
+      "verified_paths": [],
+      "enhanced_status": "phase7"
+    },
+    {
+      "key": "독수",
+      "id": 296,
+      "legacy_effect_id": 126,
+      "family": "action_or_world",
+      "normal_status": "pending_audit",
+      "verified_paths": [],
+      "enhanced_status": "phase7"
+    },
+    {
+      "key": "독폭주",
+      "id": 297,
+      "legacy_effect_id": 0,
+      "family": "calculation",
+      "normal_status": "pending_audit",
+      "verified_paths": [],
+      "enhanced_status": "phase7"
+    },
+    {
+      "key": "돌머리",
+      "id": 298,
+      "legacy_effect_id": 7,
+      "family": "native_behavior",
+      "normal_status": "pending_audit",
+      "verified_paths": [],
+      "enhanced_status": "phase7"
+    },
+    {
+      "key": "되새김질",
+      "id": 299,
+      "legacy_effect_id": 218,
+      "family": "item",
+      "normal_status": "pending_audit",
+      "verified_paths": [],
+      "enhanced_status": "phase7"
+    },
+    {
+      "key": "두꺼운지방",
+      "id": 300,
+      "legacy_effect_id": 2,
+      "family": "calculation",
+      "normal_status": "pending_audit",
+      "verified_paths": [],
+      "enhanced_status": "phase7"
+    },
+    {
+      "key": "둔감",
+      "id": 301,
+      "legacy_effect_id": 41,
+      "family": "status_or_stage",
+      "normal_status": "pending_audit",
+      "verified_paths": [],
+      "enhanced_status": "phase7"
+    },
+    {
+      "key": "드래곤스킨",
+      "id": 302,
+      "legacy_effect_id": 0,
+      "family": "calculation",
+      "normal_status": "pending_audit",
+      "verified_paths": [],
+      "enhanced_status": "phase7"
+    },
+    {
+      "key": "떠도는영혼",
+      "id": 303,
+      "legacy_effect_id": 0,
+      "family": "received_event",
+      "normal_status": "pending_audit",
+      "verified_paths": [],
+      "enhanced_status": "phase7"
+    },
+    {
+      "key": "라이트메탈",
+      "id": 304,
+      "legacy_effect_id": 0,
+      "family": "item",
+      "normal_status": "pending_audit",
+      "verified_paths": [],
+      "enhanced_status": "phase7"
+    },
+    {
+      "key": "리프가드",
+      "id": 305,
+      "legacy_effect_id": 123,
+      "family": "status_or_stage",
+      "normal_status": "pending_audit",
+      "verified_paths": [],
+      "enhanced_status": "phase7"
+    },
+    {
+      "key": "마그마의무장",
+      "id": 306,
+      "legacy_effect_id": 65,
+      "family": "status_or_stage",
+      "normal_status": "pending_audit",
+      "verified_paths": [],
+      "enhanced_status": "phase7"
+    },
+    {
+      "key": "마이너스",
+      "id": 307,
+      "legacy_effect_id": 63,
+      "family": "calculation",
+      "normal_status": "pending_audit",
+      "verified_paths": [],
+      "enhanced_status": "phase7"
+    },
+    {
+      "key": "마이페이스",
+      "id": 308,
+      "legacy_effect_id": 64,
+      "family": "status_or_stage",
+      "normal_status": "pending_audit",
+      "verified_paths": [],
+      "enhanced_status": "phase7"
+    },
+    {
+      "key": "마중물",
+      "id": 309,
+      "legacy_effect_id": 122,
+      "family": "native_behavior",
+      "normal_status": "pending_audit",
+      "verified_paths": [],
+      "enhanced_status": "phase7"
+    },
+    {
+      "key": "매직가드",
+      "id": 310,
+      "legacy_effect_id": 115,
+      "family": "native_behavior",
+      "normal_status": "pending_audit",
+      "verified_paths": [],
+      "enhanced_status": "phase7"
+    },
+    {
+      "key": "매직미러",
+      "id": 311,
+      "legacy_effect_id": 135,
+      "family": "native_behavior",
+      "normal_status": "pending_audit",
+      "verified_paths": [],
+      "enhanced_status": "phase7"
+    },
+    {
+      "key": "맹화",
+      "id": 312,
+      "legacy_effect_id": 70,
+      "family": "calculation",
+      "normal_status": "pending_audit",
+      "verified_paths": [],
+      "enhanced_status": "phase7"
+    },
+    {
+      "key": "먹보",
+      "id": 313,
+      "legacy_effect_id": 89,
+      "family": "native_behavior",
+      "normal_status": "pending_audit",
+      "verified_paths": [],
+      "enhanced_status": "phase7"
+    },
+    {
+      "key": "멀티스케일",
+      "id": 314,
+      "legacy_effect_id": 12,
+      "family": "calculation",
+      "normal_status": "pending_audit",
+      "verified_paths": [],
+      "enhanced_status": "phase7"
+    },
+    {
+      "key": "멀티타입",
+      "id": 315,
+      "legacy_effect_id": 116,
+      "family": "calculation",
+      "normal_status": "pending_audit",
+      "verified_paths": [],
+      "enhanced_status": "phase7"
+    },
+    {
+      "key": "메가런처",
+      "id": 316,
+      "legacy_effect_id": 143,
+      "family": "calculation",
+      "normal_status": "pending_audit",
+      "verified_paths": [],
+      "enhanced_status": "phase7"
+    },
+    {
+      "key": "메가솔라",
+      "id": 317,
+      "legacy_effect_id": 0,
+      "family": "calculation",
+      "normal_status": "pending_audit",
+      "verified_paths": [],
+      "enhanced_status": "phase7"
+    },
+    {
+      "key": "면역",
+      "id": 318,
+      "legacy_effect_id": 69,
+      "family": "status_or_stage",
+      "normal_status": "pending_audit",
+      "verified_paths": [],
+      "enhanced_status": "phase7"
+    },
+    {
+      "key": "멸망의바디",
+      "id": 319,
+      "legacy_effect_id": 152,
+      "family": "received_event",
+      "normal_status": "pending_audit",
+      "verified_paths": [],
+      "enhanced_status": "phase7"
+    },
+    {
+      "key": "모래날림",
+      "id": 320,
+      "legacy_effect_id": 28,
+      "family": "weather_source",
+      "normal_status": "pending_audit",
+      "verified_paths": [],
+      "enhanced_status": "phase7"
+    },
+    {
+      "key": "모래숨기",
+      "id": 321,
+      "legacy_effect_id": 29,
+      "family": "native_behavior",
+      "normal_status": "pending_audit",
+      "verified_paths": [],
+      "enhanced_status": "phase7"
+    },
+    {
+      "key": "모래의힘",
+      "id": 322,
+      "legacy_effect_id": 138,
+      "family": "calculation",
+      "normal_status": "pending_audit",
+      "verified_paths": [],
+      "enhanced_status": "phase7"
+    },
+    {
+      "key": "모래헤치기",
+      "id": 323,
+      "legacy_effect_id": 132,
+      "family": "native_behavior",
+      "normal_status": "partial",
+      "verified_paths": [
+        "numeric_weather_speed",
+        "movement_query_context"
+      ],
+      "enhanced_status": "phase7"
+    },
+    {
+      "key": "무아지경",
+      "id": 324,
+      "legacy_effect_id": 213,
+      "family": "calculation",
+      "normal_status": "pending_audit",
+      "verified_paths": [],
+      "enhanced_status": "phase7"
+    },
+    {
+      "key": "미라클스킨",
+      "id": 325,
+      "legacy_effect_id": 175,
+      "family": "action_or_world",
+      "normal_status": "pending_audit",
+      "verified_paths": [],
+      "enhanced_status": "phase7"
+    },
+    {
+      "key": "바람타기",
+      "id": 326,
+      "legacy_effect_id": 216,
+      "family": "status_or_stage",
+      "normal_status": "pending_audit",
+      "verified_paths": [],
+      "enhanced_status": "phase7"
+    },
+    {
+      "key": "발광",
+      "id": 327,
+      "legacy_effect_id": 46,
+      "family": "received_event",
+      "normal_status": "pending_audit",
+      "verified_paths": [],
+      "enhanced_status": "phase7"
+    },
+    {
+      "key": "발끈",
+      "id": 328,
+      "legacy_effect_id": 169,
+      "family": "floor_entry",
+      "normal_status": "pending_audit",
+      "verified_paths": [],
+      "enhanced_status": "phase7"
+    },
+    {
+      "key": "방음",
+      "id": 329,
+      "legacy_effect_id": 60,
+      "family": "native_behavior",
+      "normal_status": "pending_audit",
+      "verified_paths": [],
+      "enhanced_status": "phase7"
+    },
+    {
+      "key": "방진",
+      "id": 330,
+      "legacy_effect_id": 130,
+      "family": "native_behavior",
+      "normal_status": "pending_audit",
+      "verified_paths": [],
+      "enhanced_status": "phase7"
+    },
+    {
+      "key": "방탄",
+      "id": 331,
+      "legacy_effect_id": 141,
+      "family": "calculation",
+      "normal_status": "pending_audit",
+      "verified_paths": [],
+      "enhanced_status": "phase7"
+    },
+    {
+      "key": "배짱",
+      "id": 332,
+      "legacy_effect_id": 87,
+      "family": "native_behavior",
+      "normal_status": "pending_audit",
+      "verified_paths": [],
+      "enhanced_status": "phase7"
+    },
+    {
+      "key": "벌레의알림",
+      "id": 333,
+      "legacy_effect_id": 67,
+      "family": "calculation",
+      "normal_status": "pending_audit",
+      "verified_paths": [],
+      "enhanced_status": "phase7"
+    },
+    {
+      "key": "변덕쟁이",
+      "id": 334,
+      "legacy_effect_id": 222,
+      "family": "floor_entry",
+      "normal_status": "pending_audit",
+      "verified_paths": [],
+      "enhanced_status": "phase7"
+    },
+    {
+      "key": "변색",
+      "id": 335,
+      "legacy_effect_id": 59,
+      "family": "native_behavior",
+      "normal_status": "pending_audit",
+      "verified_paths": [],
+      "enhanced_status": "phase7"
+    },
+    {
+      "key": "변환자재",
+      "id": 336,
+      "legacy_effect_id": 165,
+      "family": "native_behavior",
+      "normal_status": "pending_audit",
+      "verified_paths": [],
+      "enhanced_status": "phase7"
+    },
+    {
+      "key": "복안",
+      "id": 337,
+      "legacy_effect_id": 51,
+      "family": "native_behavior",
+      "normal_status": "pending_audit",
+      "verified_paths": [],
+      "enhanced_status": "phase7"
+    },
+    {
+      "key": "부유",
+      "id": 338,
+      "legacy_effect_id": 55,
+      "family": "native_behavior",
+      "normal_status": "pending_audit",
+      "verified_paths": [],
+      "enhanced_status": "phase7"
+    },
+    {
+      "key": "부자유친",
+      "id": 339,
+      "legacy_effect_id": 184,
+      "family": "calculation",
+      "normal_status": "pending_audit",
+      "verified_paths": [],
+      "enhanced_status": "phase7"
+    },
+    {
+      "key": "부풀린가슴",
+      "id": 340,
+      "legacy_effect_id": 0,
+      "family": "status_or_stage",
+      "normal_status": "pending_audit",
+      "verified_paths": [],
+      "enhanced_status": "phase7"
+    },
+    {
+      "key": "분노의경혈",
+      "id": 341,
+      "legacy_effect_id": 79,
+      "family": "received_event",
+      "normal_status": "pending_audit",
+      "verified_paths": [],
+      "enhanced_status": "phase7"
+    },
+    {
+      "key": "불가사의부적",
+      "id": 342,
+      "legacy_effect_id": 53,
+      "family": "calculation",
+      "normal_status": "pending_audit",
+      "verified_paths": [],
+      "enhanced_status": "phase7"
+    },
+    {
+      "key": "불굴의마음",
+      "id": 343,
+      "legacy_effect_id": 112,
+      "family": "received_event",
+      "normal_status": "partial",
+      "verified_paths": [
+        "native_event_numeric_speed"
+      ],
+      "enhanced_status": "phase7"
+    },
+    {
+      "key": "불꽃몸",
+      "id": 344,
+      "legacy_effect_id": 62,
+      "family": "received_event",
+      "normal_status": "pending_audit",
+      "verified_paths": [],
+      "enhanced_status": "phase7"
+    },
+    {
+      "key": "불꽃의갈기",
+      "id": 345,
+      "legacy_effect_id": 0,
+      "family": "calculation",
+      "normal_status": "pending_audit",
+      "verified_paths": [],
+      "enhanced_status": "phase7"
+    },
+    {
+      "key": "불면",
+      "id": 346,
+      "legacy_effect_id": 54,
+      "family": "native_behavior",
+      "normal_status": "pending_audit",
+      "verified_paths": [],
+      "enhanced_status": "phase7"
+    },
+    {
+      "key": "색안경",
+      "id": 347,
+      "legacy_effect_id": 80,
+      "family": "calculation",
+      "normal_status": "pending_audit",
+      "verified_paths": [],
+      "enhanced_status": "phase7"
+    },
+    {
+      "key": "선파워",
+      "id": 348,
+      "legacy_effect_id": 90,
+      "family": "calculation",
+      "normal_status": "pending_audit",
+      "verified_paths": [],
+      "enhanced_status": "phase7"
+    },
+    {
+      "key": "소울하트",
+      "id": 349,
+      "legacy_effect_id": 209,
+      "family": "faint",
+      "normal_status": "pending_audit",
+      "verified_paths": [],
+      "enhanced_status": "phase7"
+    },
+    {
+      "key": "속보",
+      "id": 350,
+      "legacy_effect_id": 109,
+      "family": "received_event",
+      "normal_status": "partial",
+      "verified_paths": [
+        "native_event_numeric_speed"
+      ],
+      "enhanced_status": "phase7"
+    },
+    {
+      "key": "수의베일",
+      "id": 351,
+      "legacy_effect_id": 66,
+      "family": "status_or_stage",
+      "normal_status": "pending_audit",
+      "verified_paths": [],
+      "enhanced_status": "phase7"
+    },
+    {
+      "key": "수확",
+      "id": 352,
+      "legacy_effect_id": 0,
+      "family": "item",
+      "normal_status": "pending_audit",
+      "verified_paths": [],
+      "enhanced_status": "phase7"
+    },
+    {
+      "key": "순수한힘",
+      "id": 353,
+      "legacy_effect_id": 34,
+      "family": "calculation",
+      "normal_status": "pending_audit",
+      "verified_paths": [],
+      "enhanced_status": "phase7"
+    },
+    {
+      "key": "스나이퍼",
+      "id": 354,
+      "legacy_effect_id": 93,
+      "family": "calculation",
+      "normal_status": "pending_audit",
+      "verified_paths": [],
+      "enhanced_status": "phase7"
+    },
+    {
+      "key": "스위트베일",
+      "id": 355,
+      "legacy_effect_id": 0,
+      "family": "status_or_stage",
+      "normal_status": "partial",
+      "verified_paths": [
+        "native_sleep_yawn_room_aura"
+      ],
+      "enhanced_status": "phase7"
+    },
+    {
+      "key": "스카이스킨",
+      "id": 356,
+      "legacy_effect_id": 0,
+      "family": "calculation",
+      "normal_status": "pending_audit",
+      "verified_paths": [],
+      "enhanced_status": "phase7"
+    },
+    {
+      "key": "스킬링크",
+      "id": 357,
+      "legacy_effect_id": 91,
+      "family": "native_behavior",
+      "normal_status": "pending_audit",
+      "verified_paths": [],
+      "enhanced_status": "phase7"
+    },
+    {
+      "key": "슬로스타트",
+      "id": 358,
+      "legacy_effect_id": 94,
+      "family": "floor_entry",
+      "normal_status": "pending_audit",
+      "verified_paths": [],
+      "enhanced_status": "phase7"
+    },
+    {
+      "key": "습기",
+      "id": 359,
+      "legacy_effect_id": 21,
+      "family": "native_behavior",
+      "normal_status": "pending_audit",
+      "verified_paths": [],
+      "enhanced_status": "phase7"
+    },
+    {
+      "key": "승기",
+      "id": 360,
+      "legacy_effect_id": 151,
+      "family": "native_behavior",
+      "normal_status": "pending_audit",
+      "verified_paths": [],
+      "enhanced_status": "phase7"
+    },
+    {
+      "key": "시간벌기",
+      "id": 361,
+      "legacy_effect_id": 78,
+      "family": "calculation",
+      "normal_status": "pending_audit",
+      "verified_paths": [],
+      "enhanced_status": "phase7"
+    },
+    {
+      "key": "시작의바다",
+      "id": 362,
+      "legacy_effect_id": 252,
+      "family": "weather_source",
+      "normal_status": "pending_audit",
+      "verified_paths": [],
+      "enhanced_status": "phase7"
+    },
+    {
+      "key": "심록",
+      "id": 363,
+      "legacy_effect_id": 26,
+      "family": "calculation",
+      "normal_status": "pending_audit",
+      "verified_paths": [],
+      "enhanced_status": "phase7"
+    },
+    {
+      "key": "심술꾸러기",
+      "id": 364,
+      "legacy_effect_id": 129,
+      "family": "status_or_stage",
+      "normal_status": "pending_audit",
+      "verified_paths": [],
+      "enhanced_status": "phase7"
+    },
+    {
+      "key": "싱크로",
+      "id": 365,
+      "legacy_effect_id": 25,
+      "family": "status_or_stage",
+      "normal_status": "pending_audit",
+      "verified_paths": [],
+      "enhanced_status": "phase7"
+    },
+    {
+      "key": "쓱쓱",
+      "id": 366,
+      "legacy_effect_id": 27,
+      "family": "native_behavior",
+      "normal_status": "partial",
+      "verified_paths": [
+        "numeric_weather_speed",
+        "movement_query_context"
+      ],
+      "enhanced_status": "phase7"
+    },
+    {
+      "key": "아로마베일",
+      "id": 367,
+      "legacy_effect_id": 0,
+      "family": "status_or_stage",
+      "normal_status": "partial",
+      "verified_paths": [
+        "native_infatuation_taunt_encore_seal_room_aura"
+      ],
+      "enhanced_status": "phase7"
+    },
+    {
+      "key": "아이스바디",
+      "id": 368,
+      "legacy_effect_id": 77,
+      "family": "turn_tick",
+      "normal_status": "pending_audit",
+      "verified_paths": [],
+      "enhanced_status": "phase7"
+    },
+    {
+      "key": "악취",
+      "id": 369,
+      "legacy_effect_id": 1,
+      "family": "received_event",
+      "normal_status": "pending_audit",
+      "verified_paths": [],
+      "enhanced_status": "phase7"
+    },
+    {
+      "key": "애널라이즈",
+      "id": 370,
+      "legacy_effect_id": 133,
+      "family": "calculation",
+      "normal_status": "pending_audit",
+      "verified_paths": [],
+      "enhanced_status": "phase7"
+    },
+    {
+      "key": "여왕의위엄",
+      "id": 371,
+      "legacy_effect_id": 147,
+      "family": "native_behavior",
+      "normal_status": "pending_audit",
+      "verified_paths": [],
+      "enhanced_status": "phase7"
+    },
+    {
+      "key": "열폭주",
+      "id": 372,
+      "legacy_effect_id": 0,
+      "family": "calculation",
+      "normal_status": "pending_audit",
+      "verified_paths": [],
+      "enhanced_status": "phase7"
+    },
+    {
+      "key": "엽록소",
+      "id": 373,
+      "legacy_effect_id": 74,
+      "family": "native_behavior",
+      "normal_status": "partial",
+      "verified_paths": [
+        "numeric_weather_speed",
+        "movement_query_context"
+      ],
+      "enhanced_status": "phase7"
+    },
+    {
+      "key": "예리함",
+      "id": 374,
+      "legacy_effect_id": 108,
+      "family": "calculation",
+      "normal_status": "pending_audit",
+      "verified_paths": [],
+      "enhanced_status": "phase7"
+    },
+    {
+      "key": "예지몽",
+      "id": 375,
+      "legacy_effect_id": 121,
+      "family": "native_behavior",
+      "normal_status": "pending_audit",
+      "verified_paths": [],
+      "enhanced_status": "phase7"
+    },
+    {
+      "key": "오기",
+      "id": 376,
+      "legacy_effect_id": 150,
+      "family": "native_behavior",
+      "normal_status": "pending_audit",
+      "verified_paths": [],
+      "enhanced_status": "phase7"
+    },
+    {
+      "key": "옹골찬턱",
+      "id": 377,
+      "legacy_effect_id": 75,
+      "family": "calculation",
+      "normal_status": "pending_audit",
+      "verified_paths": [],
+      "enhanced_status": "phase7"
+    },
+    {
+      "key": "옹골참",
+      "id": 378,
+      "legacy_effect_id": 13,
+      "family": "received_event",
+      "normal_status": "pending_audit",
+      "verified_paths": [],
+      "enhanced_status": "phase7"
+    },
+    {
+      "key": "용의턱",
+      "id": 379,
+      "legacy_effect_id": 0,
+      "family": "calculation",
+      "normal_status": "pending_audit",
+      "verified_paths": [],
+      "enhanced_status": "phase7"
+    },
+    {
+      "key": "우격다짐",
+      "id": 380,
+      "legacy_effect_id": 162,
+      "family": "calculation",
+      "normal_status": "pending_audit",
+      "verified_paths": [],
+      "enhanced_status": "phase7"
+    },
+    {
+      "key": "위험예지",
+      "id": 381,
+      "legacy_effect_id": 86,
+      "family": "calculation",
+      "normal_status": "pending_audit",
+      "verified_paths": [],
+      "enhanced_status": "phase7"
+    },
+    {
+      "key": "위협",
+      "id": 382,
+      "legacy_effect_id": 6,
+      "family": "calculation",
+      "normal_status": "pending_audit",
+      "verified_paths": [],
+      "enhanced_status": "phase7"
+    },
+    {
+      "key": "유연",
+      "id": 383,
+      "legacy_effect_id": 22,
+      "family": "status_or_stage",
+      "normal_status": "pending_audit",
+      "verified_paths": [],
+      "enhanced_status": "phase7"
+    },
+    {
+      "key": "유폭",
+      "id": 384,
+      "legacy_effect_id": 118,
+      "family": "action_or_world",
+      "normal_status": "pending_audit",
+      "verified_paths": [],
+      "enhanced_status": "phase7"
+    },
+    {
+      "key": "의기양양",
+      "id": 385,
+      "legacy_effect_id": 73,
+      "family": "native_behavior",
+      "normal_status": "pending_audit",
+      "verified_paths": [],
+      "enhanced_status": "phase7"
+    },
+    {
+      "key": "의욕",
+      "id": 386,
+      "legacy_effect_id": 48,
+      "family": "calculation",
+      "normal_status": "pending_audit",
+      "verified_paths": [],
+      "enhanced_status": "phase7"
+    },
+    {
+      "key": "이상한비늘",
+      "id": 387,
+      "legacy_effect_id": 52,
+      "family": "calculation",
+      "normal_status": "pending_audit",
+      "verified_paths": [],
+      "enhanced_status": "phase7"
+    },
+    {
+      "key": "이판사판",
+      "id": 388,
+      "legacy_effect_id": 92,
+      "family": "calculation",
+      "normal_status": "pending_audit",
+      "verified_paths": [],
+      "enhanced_status": "phase7"
+    },
+    {
+      "key": "인분",
+      "id": 389,
+      "legacy_effect_id": 76,
+      "family": "native_behavior",
+      "normal_status": "pending_audit",
+      "verified_paths": [],
+      "enhanced_status": "phase7"
+    },
+    {
+      "key": "일렉트릭스킨",
+      "id": 390,
+      "legacy_effect_id": 0,
+      "family": "calculation",
+      "normal_status": "partial",
+      "verified_paths": [
+        "resolved_type_conversion",
+        "action_scoped_multiplier",
+        "slot_priority"
+      ],
+      "enhanced_status": "phase7"
+    },
+    {
+      "key": "일루전",
+      "id": 391,
+      "legacy_effect_id": 125,
+      "family": "native_behavior",
+      "normal_status": "pending_audit",
+      "verified_paths": [],
+      "enhanced_status": "phase7"
+    },
+    {
+      "key": "일찍기상",
+      "id": 392,
+      "legacy_effect_id": 47,
+      "family": "status_or_stage",
+      "normal_status": "pending_audit",
+      "verified_paths": [],
+      "enhanced_status": "phase7"
+    },
+    {
+      "key": "자기과신",
+      "id": 393,
+      "legacy_effect_id": 170,
+      "family": "faint",
+      "normal_status": "pending_audit",
+      "verified_paths": [],
+      "enhanced_status": "phase7"
+    },
+    {
+      "key": "자력",
+      "id": 394,
+      "legacy_effect_id": 23,
+      "family": "action_or_world",
+      "normal_status": "pending_audit",
+      "verified_paths": [],
+      "enhanced_status": "phase7"
+    },
+    {
+      "key": "자연회복",
+      "id": 395,
+      "legacy_effect_id": 20,
+      "family": "status_or_stage",
+      "normal_status": "pending_audit",
+      "verified_paths": [],
+      "enhanced_status": "phase7"
+    },
+    {
+      "key": "잔비",
+      "id": 396,
+      "legacy_effect_id": 4,
+      "family": "weather_source",
+      "normal_status": "pending_audit",
+      "verified_paths": [],
+      "enhanced_status": "phase7"
+    },
+    {
+      "key": "잠복",
+      "id": 397,
+      "legacy_effect_id": 197,
+      "family": "calculation",
+      "normal_status": "pending_audit",
+      "verified_paths": [],
+      "enhanced_status": "phase7"
+    },
+    {
+      "key": "재생력",
+      "id": 398,
+      "legacy_effect_id": 131,
+      "family": "floor_entry",
+      "normal_status": "pending_audit",
+      "verified_paths": [],
+      "enhanced_status": "phase7"
+    },
+    {
+      "key": "저수",
+      "id": 399,
+      "legacy_effect_id": 36,
+      "family": "native_behavior",
+      "normal_status": "pending_audit",
+      "verified_paths": [],
+      "enhanced_status": "phase7"
+    },
+    {
+      "key": "저주받은바디",
+      "id": 400,
+      "legacy_effect_id": 149,
+      "family": "received_event",
+      "normal_status": "pending_audit",
+      "verified_paths": [],
+      "enhanced_status": "phase7"
+    },
+    {
+      "key": "적응력",
+      "id": 401,
+      "legacy_effect_id": 99,
+      "family": "calculation",
+      "normal_status": "pending_audit",
+      "verified_paths": [],
+      "enhanced_status": "phase7"
+    },
+    {
+      "key": "전기로바꾸기",
+      "id": 402,
+      "legacy_effect_id": 157,
+      "family": "calculation",
+      "normal_status": "partial",
+      "verified_paths": [
+        "calculation_does_not_consume",
+        "consume_on_successful_hit",
+        "same_action_multitarget_bonus"
+      ],
+      "enhanced_status": "phase7"
+    },
+    {
+      "key": "전기엔진",
+      "id": 403,
+      "legacy_effect_id": 102,
+      "family": "native_behavior",
+      "normal_status": "partial",
+      "verified_paths": [
+        "native_event_numeric_speed"
+      ],
+      "enhanced_status": "phase7"
+    },
+    {
+      "key": "전투무장",
+      "id": 404,
+      "legacy_effect_id": 19,
+      "family": "native_behavior",
+      "normal_status": "pending_audit",
+      "verified_paths": [],
+      "enhanced_status": "phase7"
+    },
+    {
+      "key": "절대안깸",
+      "id": 405,
+      "legacy_effect_id": 189,
+      "family": "status_or_stage",
+      "normal_status": "partial",
+      "verified_paths": [
+        "seven_native_status_immunities"
+      ],
+      "enhanced_status": "phase7"
+    },
+    {
+      "key": "점착",
+      "id": 406,
+      "legacy_effect_id": 44,
+      "family": "received_event",
+      "normal_status": "pending_audit",
+      "verified_paths": [],
+      "enhanced_status": "phase7"
+    },
+    {
+      "key": "정신력",
+      "id": 407,
+      "legacy_effect_id": 31,
+      "family": "native_behavior",
+      "normal_status": "pending_audit",
+      "verified_paths": [],
+      "enhanced_status": "phase7"
+    },
+    {
+      "key": "정의의마음",
+      "id": 408,
+      "legacy_effect_id": 167,
+      "family": "received_event",
+      "normal_status": "pending_audit",
+      "verified_paths": [],
+      "enhanced_status": "phase7"
+    },
+    {
+      "key": "정전기",
+      "id": 409,
+      "legacy_effect_id": 32,
+      "family": "received_event",
+      "normal_status": "pending_audit",
+      "verified_paths": [],
+      "enhanced_status": "phase7"
+    },
+    {
+      "key": "젖은접시",
+      "id": 410,
+      "legacy_effect_id": 3,
+      "family": "turn_tick",
+      "normal_status": "pending_audit",
+      "verified_paths": [],
+      "enhanced_status": "phase7"
+    },
+    {
+      "key": "조가비갑옷",
+      "id": 411,
+      "legacy_effect_id": 19,
+      "family": "native_behavior",
+      "normal_status": "pending_audit",
+      "verified_paths": [],
+      "enhanced_status": "phase7"
+    },
+    {
+      "key": "주눅",
+      "id": 412,
+      "legacy_effect_id": 0,
+      "family": "received_event",
+      "normal_status": "pending_audit",
+      "verified_paths": [],
+      "enhanced_status": "phase7"
+    },
+    {
+      "key": "지구력",
+      "id": 413,
+      "legacy_effect_id": 198,
+      "family": "received_event",
+      "normal_status": "pending_audit",
+      "verified_paths": [],
+      "enhanced_status": "phase7"
+    },
+    {
+      "key": "짓궂은마음",
+      "id": 414,
+      "legacy_effect_id": 137,
+      "family": "native_behavior",
+      "normal_status": "pending_audit",
+      "verified_paths": [],
+      "enhanced_status": "phase7"
+    },
+    {
+      "key": "천진",
+      "id": 415,
+      "legacy_effect_id": 103,
+      "family": "native_behavior",
+      "normal_status": "pending_audit",
+      "verified_paths": [],
+      "enhanced_status": "phase7"
+    },
+    {
+      "key": "천하장사",
+      "id": 416,
+      "legacy_effect_id": 34,
+      "family": "calculation",
+      "normal_status": "pending_audit",
+      "verified_paths": [],
+      "enhanced_status": "phase7"
+    },
+    {
+      "key": "철가시",
+      "id": 417,
+      "legacy_effect_id": 0,
+      "family": "received_event",
+      "normal_status": "partial",
+      "verified_paths": [
+        "once_per_action",
+        "fatal_hit",
+        "native_fixed_damage_wrapper_abi"
+      ],
+      "enhanced_status": "phase7"
+    },
+    {
+      "key": "철주먹",
+      "id": 418,
+      "legacy_effect_id": 101,
+      "family": "calculation",
+      "normal_status": "pending_audit",
+      "verified_paths": [],
+      "enhanced_status": "phase7"
+    },
+    {
+      "key": "초식",
+      "id": 419,
+      "legacy_effect_id": 161,
+      "family": "native_behavior",
+      "normal_status": "pending_audit",
+      "verified_paths": [],
+      "enhanced_status": "phase7"
+    },
+    {
+      "key": "촉촉바디",
+      "id": 420,
+      "legacy_effect_id": 81,
+      "family": "turn_tick",
+      "normal_status": "pending_audit",
+      "verified_paths": [],
+      "enhanced_status": "phase7"
+    },
+    {
+      "key": "축전",
+      "id": 421,
+      "legacy_effect_id": 35,
+      "family": "native_behavior",
+      "normal_status": "pending_audit",
+      "verified_paths": [],
+      "enhanced_status": "phase7"
+    },
+    {
+      "key": "치유의마음",
+      "id": 422,
+      "legacy_effect_id": 0,
+      "family": "turn_tick",
+      "normal_status": "pending_audit",
+      "verified_paths": [],
+      "enhanced_status": "phase7"
+    },
+    {
+      "key": "컬리헤어",
+      "id": 423,
+      "legacy_effect_id": 180,
+      "family": "received_event",
+      "normal_status": "partial",
+      "verified_paths": [
+        "once_per_action",
+        "numeric_speed_drop"
+      ],
+      "enhanced_status": "phase7"
+    },
+    {
+      "key": "클리어바디",
+      "id": 424,
+      "legacy_effect_id": 15,
+      "family": "status_or_stage",
+      "normal_status": "pending_audit",
+      "verified_paths": [],
+      "enhanced_status": "phase7"
+    },
+    {
+      "key": "타오르는불꽃",
+      "id": 425,
+      "legacy_effect_id": 72,
+      "family": "calculation",
+      "normal_status": "pending_audit",
+      "verified_paths": [],
+      "enhanced_status": "phase7"
+    },
+    {
+      "key": "탈피",
+      "id": 426,
+      "legacy_effect_id": 33,
+      "family": "turn_tick",
+      "normal_status": "pending_audit",
+      "verified_paths": [],
+      "enhanced_status": "phase7"
+    },
+    {
+      "key": "테일아머",
+      "id": 427,
+      "legacy_effect_id": 136,
+      "family": "native_behavior",
+      "normal_status": "pending_audit",
+      "verified_paths": [],
+      "enhanced_status": "phase7"
+    },
+    {
+      "key": "테크니션",
+      "id": 428,
+      "legacy_effect_id": 100,
+      "family": "calculation",
+      "normal_status": "pending_audit",
+      "verified_paths": [],
+      "enhanced_status": "phase7"
+    },
+    {
+      "key": "텔레파시",
+      "id": 429,
+      "legacy_effect_id": 0,
+      "family": "native_behavior",
+      "normal_status": "pending_audit",
+      "verified_paths": [],
+      "enhanced_status": "phase7"
+    },
+    {
+      "key": "통찰",
+      "id": 430,
+      "legacy_effect_id": 82,
+      "family": "calculation",
+      "normal_status": "pending_audit",
+      "verified_paths": [],
+      "enhanced_status": "phase7"
+    },
+    {
+      "key": "투쟁심",
+      "id": 431,
+      "legacy_effect_id": 104,
+      "family": "calculation",
+      "normal_status": "pending_audit",
+      "verified_paths": [],
+      "enhanced_status": "phase7"
+    },
+    {
+      "key": "트랜지스터",
+      "id": 432,
+      "legacy_effect_id": 0,
+      "family": "calculation",
+      "normal_status": "pending_audit",
+      "verified_paths": [],
+      "enhanced_status": "phase7"
+    },
+    {
+      "key": "트레이스",
+      "id": 433,
+      "legacy_effect_id": 40,
+      "family": "status_or_stage",
+      "normal_status": "pending_audit",
+      "verified_paths": [],
+      "enhanced_status": "phase7"
+    },
+    {
+      "key": "틀깨기",
+      "id": 434,
+      "legacy_effect_id": 83,
+      "family": "native_behavior",
+      "normal_status": "pending_audit",
+      "verified_paths": [],
+      "enhanced_status": "phase7"
+    },
+    {
+      "key": "틈새포착",
+      "id": 435,
+      "legacy_effect_id": 134,
+      "family": "native_behavior",
+      "normal_status": "pending_audit",
+      "verified_paths": [],
+      "enhanced_status": "phase7"
+    },
+    {
+      "key": "파동의방호",
+      "id": 436,
+      "legacy_effect_id": 0,
+      "family": "calculation",
+      "normal_status": "pending_audit",
+      "verified_paths": [],
+      "enhanced_status": "phase7"
+    },
+    {
+      "key": "파스텔베일",
+      "id": 437,
+      "legacy_effect_id": 159,
+      "family": "status_or_stage",
+      "normal_status": "pending_audit",
+      "verified_paths": [],
+      "enhanced_status": "phase7"
+    },
+    {
+      "key": "파워스폿",
+      "id": 438,
+      "legacy_effect_id": 217,
+      "family": "calculation",
+      "normal_status": "pending_audit",
+      "verified_paths": [],
+      "enhanced_status": "phase7"
+    },
+    {
+      "key": "퍼코트",
+      "id": 439,
+      "legacy_effect_id": 139,
+      "family": "calculation",
+      "normal_status": "pending_audit",
+      "verified_paths": [],
+      "enhanced_status": "phase7"
+    },
+    {
+      "key": "펑크록",
+      "id": 440,
+      "legacy_effect_id": 148,
+      "family": "calculation",
+      "normal_status": "pending_audit",
+      "verified_paths": [],
+      "enhanced_status": "phase7"
+    },
+    {
+      "key": "페어리스킨",
+      "id": 441,
+      "legacy_effect_id": 0,
+      "family": "calculation",
+      "normal_status": "pending_audit",
+      "verified_paths": [],
+      "enhanced_status": "phase7"
+    },
+    {
+      "key": "포이즌힐",
+      "id": 442,
+      "legacy_effect_id": 114,
+      "family": "turn_tick",
+      "normal_status": "pending_audit",
+      "verified_paths": [],
+      "enhanced_status": "phase7"
+    },
+    {
+      "key": "포자",
+      "id": 443,
+      "legacy_effect_id": 61,
+      "family": "received_event",
+      "normal_status": "pending_audit",
+      "verified_paths": [],
+      "enhanced_status": "phase7"
+    },
+    {
+      "key": "프레셔",
+      "id": 444,
+      "legacy_effect_id": 57,
+      "family": "action_or_world",
+      "normal_status": "pending_audit",
+      "verified_paths": [],
+      "enhanced_status": "phase7"
+    },
+    {
+      "key": "프렌드가드",
+      "id": 445,
+      "legacy_effect_id": 164,
+      "family": "calculation",
+      "normal_status": "pending_audit",
+      "verified_paths": [],
+      "enhanced_status": "phase7"
+    },
+    {
+      "key": "프리즈스킨",
+      "id": 446,
+      "legacy_effect_id": 0,
+      "family": "calculation",
+      "normal_status": "partial",
+      "verified_paths": [
+        "resolved_type_conversion",
+        "slot_priority"
+      ],
+      "enhanced_status": "phase7"
+    },
+    {
+      "key": "플라워기프트",
+      "id": 447,
+      "legacy_effect_id": 113,
+      "family": "calculation",
+      "normal_status": "pending_audit",
+      "verified_paths": [],
+      "enhanced_status": "phase7"
+    },
+    {
+      "key": "플라워베일",
+      "id": 448,
+      "legacy_effect_id": 158,
+      "family": "status_or_stage",
+      "normal_status": "pending_audit",
+      "verified_paths": [],
+      "enhanced_status": "phase7"
+    },
+    {
+      "key": "플러스",
+      "id": 449,
+      "legacy_effect_id": 56,
+      "family": "calculation",
+      "normal_status": "pending_audit",
+      "verified_paths": [],
+      "enhanced_status": "phase7"
+    },
+    {
+      "key": "피뢰침",
+      "id": 450,
+      "legacy_effect_id": 50,
+      "family": "native_behavior",
+      "normal_status": "pending_audit",
+      "verified_paths": [],
+      "enhanced_status": "phase7"
+    },
+    {
+      "key": "픽업",
+      "id": 451,
+      "legacy_effect_id": 71,
+      "family": "floor_entry",
+      "normal_status": "pending_audit",
+      "verified_paths": [],
+      "enhanced_status": "phase7"
+    },
+    {
+      "key": "필터",
+      "id": 452,
+      "legacy_effect_id": 110,
+      "family": "calculation",
+      "normal_status": "pending_audit",
+      "verified_paths": [],
+      "enhanced_status": "phase7"
+    },
+    {
+      "key": "하늘의은총",
+      "id": 453,
+      "legacy_effect_id": 38,
+      "family": "native_behavior",
+      "normal_status": "pending_audit",
+      "verified_paths": [],
+      "enhanced_status": "phase7"
+    },
+    {
+      "key": "하드록",
+      "id": 454,
+      "legacy_effect_id": 110,
+      "family": "calculation",
+      "normal_status": "pending_audit",
+      "verified_paths": [],
+      "enhanced_status": "phase7"
+    },
+    {
+      "key": "하얀연기",
+      "id": 455,
+      "legacy_effect_id": 15,
+      "family": "status_or_stage",
+      "normal_status": "pending_audit",
+      "verified_paths": [],
+      "enhanced_status": "phase7"
+    },
+    {
+      "key": "해감액",
+      "id": 456,
+      "legacy_effect_id": 58,
+      "family": "native_behavior",
+      "normal_status": "pending_audit",
+      "verified_paths": [],
+      "enhanced_status": "phase7"
+    },
+    {
+      "key": "헤롱헤롱바디",
+      "id": 457,
+      "legacy_effect_id": 68,
+      "family": "received_event",
+      "normal_status": "pending_audit",
+      "verified_paths": [],
+      "enhanced_status": "phase7"
+    },
+    {
+      "key": "헤비메탈",
+      "id": 458,
+      "legacy_effect_id": 0,
+      "family": "action_or_world",
+      "normal_status": "pending_audit",
+      "verified_paths": [],
+      "enhanced_status": "phase7"
+    },
+    {
+      "key": "화학변화가스",
+      "id": 459,
+      "legacy_effect_id": 160,
+      "family": "item",
+      "normal_status": "pending_audit",
+      "verified_paths": [],
+      "enhanced_status": "phase7"
+    },
+    {
+      "key": "화학의힘",
+      "id": 460,
+      "legacy_effect_id": 196,
+      "family": "faint",
+      "normal_status": "pending_audit",
+      "verified_paths": [],
+      "enhanced_status": "phase7"
+    },
+    {
+      "key": "흡반",
+      "id": 461,
+      "legacy_effect_id": 14,
+      "family": "action_or_world",
+      "normal_status": "pending_audit",
+      "verified_paths": [],
+      "enhanced_status": "phase7"
+    }
+  ]
+}

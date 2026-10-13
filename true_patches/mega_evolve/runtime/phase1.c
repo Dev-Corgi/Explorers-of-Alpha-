@@ -9,6 +9,12 @@ typedef signed short s16;
 #define FN(a,t) ((t)(a))
 #define U16(p,o) (*(u16 *)((u8 *)(p)+(o)))
 #define U32(p,o) (*(u32 *)((u8 *)(p)+(o)))
+#ifdef ME_PHASE3
+#include "phase3_generated.h"
+const BaseProfile *ME_FindProfile(int);
+int ME_AbilityActive(u8*,int);
+int ME_SpeedBonus(u8*);
+#endif
 #define BYTE(p,o) (*((u8 *)(p)+(o)))
 enum { COUNT=20, SOURCES=60, SNAPSHOT=1024, MAGIC=0x3147454d,
 #ifdef ME_PHASE2
@@ -32,7 +38,13 @@ static int clamp(int x,int lo,int hi) { return x<lo?lo:x>hi?hi:x; }
 static int divide(int a,int b) { return FN(SIGNED_DIVIDE,int (*)(int,int))(a,b); }
 static u8 *monster(u8 *e) { return e && U32(e,0)==1 ? (u8 *)U32(e,0xb4) : 0; }
 static int alive(u8 *e) { u8 *m=monster(e); return m && (s16)U16(m,0x10)>0; }
-static int has(u8 *e,int ability) { return FN(ABILITY_ACTIVE,int (*)(u8*,int))(e,ability); }
+static int has(u8 *e,int ability) {
+#ifdef ME_PHASE3
+    return ME_AbilityActive(e,ability);
+#else
+    return FN(ABILITY_ACTIVE,int (*)(u8*,int))(e,ability);
+#endif
+}
 static u8 *entity(int i) { u8 *d=dungeon(); return d?(u8 *)U32(d,0x12b78+i*4):0; }
 static int slot(u8 *e) { for(int i=0;i<COUNT;i++) if(e && entity(i)==e) return i; return -1; }
 #ifdef ME_PHASE2
@@ -81,6 +93,9 @@ int ME_ChangeSpeed(u8 *actor,u8 *target,int delta,int flags) {
 void ME_ResetMonster(u8 *m) {
     ensure();
 #ifdef ME_PHASE2
+#ifdef ME_PHASE3
+    if(ability_memory)
+#endif
     for(int i=0;i<COUNT;i++) if(banks[i].monster==(u32)m) zero(&banks[i],sizeof(AbilityBank));
 #endif
     for(int i=0;i<COUNT;i++) if(state.ranks[i].monster==(u32)m) {
@@ -91,6 +106,9 @@ void ME_ResetMonster(u8 *m) {
 int ME_ResetSpeed(u8 *e) { return ME_SetStoredSpeed(e,10); }
 int ME_GetSpeed(u8 *e,int base,u8 *opponent,int bonus) {
     int stage=ME_GetStoredSpeed(e);
+#ifdef ME_PHASE3
+    bonus+=ME_SpeedBonus(e);
+#endif
     /* Preserve balance_change's numeric Gale Wings effect, removing its accidental
      * movement-speed application at the legacy hook site. */
     u8 *m=monster(e);
@@ -282,3 +300,7 @@ int ME_ImportState(u8 *in,int size) {
     }
     return 1;
 }
+
+#ifdef ME_PHASE3
+#include "phase3.c"
+#endif

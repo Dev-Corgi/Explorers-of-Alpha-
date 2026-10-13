@@ -1,0 +1,7050 @@
+{
+  "schema": 1,
+  "start": 19800,
+  "entries": [
+    {
+      "index": 19800,
+      "en": "Omniscience",
+      "ko": "전지전능",
+      "new": true
+    },
+    {
+      "index": 19801,
+      "en": "[CS:E]Omniscience[CR]: When attacking,\nchanges into a favorable typing\nand deals more damage. When\nattacked, changes into a resistant\ntyping and takes less damage.\nImmune to stat drops and\ncritical hits.",
+      "ko": "[CS:E]전지전능[CR]:\n공격·방어에 유리한 타입으로 변화하며 피해를 강화·경감한다. 능력 저하와 급소를 막는다.",
+      "new": true
+    },
+    {
+      "index": 19802,
+      "en": "Omniscience II",
+      "ko": "전지전능Ⅱ",
+      "new": true
+    },
+    {
+      "index": 19803,
+      "en": "[CS:E]Omniscience II[CR]:\nBase effect; Judgment uses the\nholder's current primary-type\nZ-Move power and effects without\nrequiring, consuming or\nresetting the Z gauge.",
+      "ko": "[CS:E]전지전능Ⅱ[CR]:\n기존 Omniscience 효과 유지. 심판(467)을 현재 보유자의 주 타입 Z-Move 위력·효과로 처리한다. Z 게이지 요구·소모·초기화 없음.",
+      "new": true
+    },
+    {
+      "index": 19804,
+      "en": "Drought",
+      "ko": "가뭄",
+      "new": true
+    },
+    {
+      "index": 19805,
+      "en": "[CS:E]Drought[CR]:\nMakes the floor sunny.",
+      "ko": "[CS:E]가뭄[CR]:\n층 입장 시 쾌청을 만든다.",
+      "new": true
+    },
+    {
+      "index": 19806,
+      "en": "Drought II",
+      "ko": "가뭄Ⅱ",
+      "new": true
+    },
+    {
+      "index": 19807,
+      "en": "[CS:E]Drought II[CR]:\nMakes the floor harsh sunlight.",
+      "ko": "[CS:E]가뭄Ⅱ[CR]:\n층 입장 시 큰가뭄을 만든다.",
+      "new": true
+    },
+    {
+      "index": 19808,
+      "en": "Speed Boost",
+      "ko": "가속",
+      "new": true
+    },
+    {
+      "index": 19809,
+      "en": "[CS:E]Speed Boost[CR]:\nEvery 100 turn-end ticks,\nMovement speed +1 stage.",
+      "ko": "[CS:E]가속[CR]:\n자신의 턴 종료 처리 100회마다 이동속도 +1단계.",
+      "new": true
+    },
+    {
+      "index": 19810,
+      "en": "Speed Boost II",
+      "ko": "가속Ⅱ",
+      "new": true
+    },
+    {
+      "index": 19811,
+      "en": "[CS:E]Speed Boost II[CR]:\nEvery 50 turn-end ticks,\nMovement speed +1 stage.",
+      "ko": "[CS:E]가속Ⅱ[CR]:\n자신의 턴 종료 처리 50회마다 이동속도 +1단계.",
+      "new": true
+    },
+    {
+      "index": 19812,
+      "en": "Tangled Feet",
+      "ko": "갈지자걸음",
+      "new": true
+    },
+    {
+      "index": 19813,
+      "en": "[CS:E]Tangled Feet[CR]:\nEvasion +3 stages while confused\nor hallucinating.",
+      "ko": "[CS:E]갈지자걸음[CR]:\n혼란·환각 상태에서 회피 +3단계.",
+      "new": true
+    },
+    {
+      "index": 19814,
+      "en": "Tangled Feet II",
+      "ko": "갈지자걸음Ⅱ",
+      "new": true
+    },
+    {
+      "index": 19815,
+      "en": "[CS:E]Tangled Feet II[CR]:\nEvasion +4 stages while confused\nor hallucinating.",
+      "ko": "[CS:E]갈지자걸음Ⅱ[CR]:\n혼란·환각 상태에서 회피 +4단계.",
+      "new": true
+    },
+    {
+      "index": 19816,
+      "en": "Supersweet Syrup",
+      "ko": "감미로운꿀",
+      "new": true
+    },
+    {
+      "index": 19817,
+      "en": "[CS:E]Supersweet Syrup[CR]:\nOn floor entry, foes on the\nfloor get Evasion -1 stage.",
+      "ko": "[CS:E]감미로운꿀[CR]:\n층 입장 시 같은 층 적의 회피 −1단계. 층당 1회.",
+      "new": true
+    },
+    {
+      "index": 19818,
+      "en": "Supersweet Syrup II",
+      "ko": "감미로운꿀Ⅱ",
+      "new": true
+    },
+    {
+      "index": 19819,
+      "en": "[CS:E]Supersweet Syrup II[CR]:\nOn floor entry, foes on the\nfloor get Evasion -2 stages.",
+      "ko": "[CS:E]감미로운꿀Ⅱ[CR]:\n층 입장 시 같은 층 적의 회피 −2단계. 층당 1회.",
+      "new": true
+    },
+    {
+      "index": 19820,
+      "en": "Steelworker",
+      "ko": "강철술사",
+      "new": true
+    },
+    {
+      "index": 19821,
+      "en": "[CS:E]Steelworker[CR]:\nOwn Steel move damage ×1.2.",
+      "ko": "[CS:E]강철술사[CR]:\n자신이 사용하는 강철 기술의 피해 ×1.2.",
+      "new": true
+    },
+    {
+      "index": 19822,
+      "en": "Steelworker II",
+      "ko": "강철술사Ⅱ",
+      "new": true
+    },
+    {
+      "index": 19823,
+      "en": "[CS:E]Steelworker II[CR]:\nOwn Steel move damage ×1.3.",
+      "ko": "[CS:E]강철술사Ⅱ[CR]:\n자신이 사용하는 강철 기술의 피해 ×1.3.",
+      "new": true
+    },
+    {
+      "index": 19824,
+      "en": "Arena Trap",
+      "ko": "개미지옥",
+      "new": true
+    },
+    {
+      "index": 19825,
+      "en": "[CS:E]Arena Trap[CR]:\nAttackers have a 12% chance to\nbe immobilized\n(Flying/levitating exempt).",
+      "ko": "[CS:E]개미지옥[CR]:\n공격자를 12% 확률로 이동 봉쇄한다. 비행·부유는 제외. (3~5턴)",
+      "new": true
+    },
+    {
+      "index": 19826,
+      "en": "Arena Trap II",
+      "ko": "개미지옥Ⅱ",
+      "new": true
+    },
+    {
+      "index": 19827,
+      "en": "[CS:E]Arena Trap II[CR]:\nAttackers have a 20% chance to\nbe immobilized (4-6 turns;\nFlying exempt).",
+      "ko": "[CS:E]개미지옥Ⅱ[CR]:\n공격자를 20% 확률로 이동 봉쇄한다. 비행·부유는 제외. (4~6턴)",
+      "new": true
+    },
+    {
+      "index": 19828,
+      "en": "Dry Skin",
+      "ko": "건조피부",
+      "new": true
+    },
+    {
+      "index": 19829,
+      "en": "[CS:E]Dry Skin[CR]:\nRain: regen ÷2. Water damage\nheals you. Fire damage ×1.2 in\nsun.",
+      "ko": "[CS:E]건조피부[CR]:\n비에서 자연 회복 분모 1/2, 물 피해는 회복으로 전환, 햇살에서 불꽃 피해 ×1.2.",
+      "new": true
+    },
+    {
+      "index": 19830,
+      "en": "Dry Skin II",
+      "ko": "건조피부Ⅱ",
+      "new": true
+    },
+    {
+      "index": 19831,
+      "en": "[CS:E]Dry Skin II[CR]:\nRain: regen denominator ÷4.\nWater damage heals you.",
+      "ko": "[CS:E]건조피부Ⅱ[CR]:\n비에서 자연 회복 분모 1/4. 물 기술 피해를 HP 회복으로 전환한다.",
+      "new": true
+    },
+    {
+      "index": 19832,
+      "en": "Truant",
+      "ko": "게으름",
+      "new": true
+    },
+    {
+      "index": 19833,
+      "en": "[CS:E]Truant[CR]:\nIdle after attacking or using an\norb; damage taken ×0.8 while\nidle.",
+      "ko": "[CS:E]게으름[CR]:\n공격·구슬 사용 후 행동 정지. 정지 중 받는 피해 ×0.8.",
+      "new": true
+    },
+    {
+      "index": 19834,
+      "en": "Truant II",
+      "ko": "게으름Ⅱ",
+      "new": true
+    },
+    {
+      "index": 19835,
+      "en": "[CS:E]Truant II[CR]:\nIdle after attacking or using an\norb; damage taken ×0.7 while\nidle.",
+      "ko": "[CS:E]게으름Ⅱ[CR]:\n공격·구슬 사용 후 행동 정지. 정지 중 받는 피해 ×0.7.",
+      "new": true
+    },
+    {
+      "index": 19836,
+      "en": "Protosynthesis",
+      "ko": "고대활성",
+      "new": true
+    },
+    {
+      "index": 19837,
+      "en": "[CS:E]Protosynthesis[CR]:\nHighest stat +1 stage(s) when\nsunlight is newly applied or\nyour attack defeats a foe. Once\nper attack action.",
+      "ko": "[CS:E]고대활성[CR]:\n햇살이 새로 적용되거나 자신의 공격으로 적을 처치하면 가장 높은 능력 +1단계. 처치 효과는 한 공격 행동당 1회.",
+      "new": true
+    },
+    {
+      "index": 19838,
+      "en": "Protosynthesis II",
+      "ko": "고대활성Ⅱ",
+      "new": true
+    },
+    {
+      "index": 19839,
+      "en": "[CS:E]Protosynthesis II[CR]:\nHighest stat +2 stage(s) when\nsunlight is newly applied or\nyour attack defeats a foe. Once\nper attack action.",
+      "ko": "[CS:E]고대활성Ⅱ[CR]:\n햇살이 새로 적용되거나 자신의 공격으로 적을 처치하면 가장 높은 능력 +2단계. 처치 효과는 한 공격 행동당 1회.",
+      "new": true
+    },
+    {
+      "index": 19840,
+      "en": "Unburden",
+      "ko": "곡예",
+      "new": true
+    },
+    {
+      "index": 19841,
+      "en": "[CS:E]Unburden[CR]:\nSpeed +2 stages while holding no\nitem.",
+      "ko": "[CS:E]곡예[CR]:\n지닌 도구가 없으면 스피드 +2단계.",
+      "new": true
+    },
+    {
+      "index": 19842,
+      "en": "Unburden II",
+      "ko": "곡예Ⅱ",
+      "new": true
+    },
+    {
+      "index": 19843,
+      "en": "[CS:E]Unburden II[CR]:\nSpeed +3 stages while holding no\nitem.",
+      "ko": "[CS:E]곡예Ⅱ[CR]:\n지닌 도구가 없으면 스피드 +3단계.",
+      "new": true
+    },
+    {
+      "index": 19844,
+      "en": "Hyper Cutter",
+      "ko": "괴력집게",
+      "new": true
+    },
+    {
+      "index": 19845,
+      "en": "[CS:E]Hyper Cutter[CR]:\nBlocks foe-caused Attack drops;\nself-inflicted drops apply.",
+      "ko": "[CS:E]괴력집게[CR]:\n상대에 의한 공격 저하를 막는다. 자신의 기술로 인한 저하는 받는다.",
+      "new": true
+    },
+    {
+      "index": 19846,
+      "en": "Hyper Cutter II",
+      "ko": "괴력집게Ⅱ",
+      "new": true
+    },
+    {
+      "index": 19847,
+      "en": "[CS:E]Hyper Cutter II[CR]:\nBlocks Attack drops, including\nself-inflicted ones.",
+      "ko": "[CS:E]괴력집게Ⅱ[CR]:\n자신의 기술로 인한 공격 저하까지 모두 막는다.",
+      "new": true
+    },
+    {
+      "index": 19848,
+      "en": "Imposter",
+      "ko": "괴짜",
+      "new": true
+    },
+    {
+      "index": 19849,
+      "en": "[CS:E]Imposter[CR]:\nTransforms into a floor Pokémon,\ncopying moves, stats and type.",
+      "ko": "[CS:E]괴짜[CR]:\n플로어 포켓몬 하나로 변신해 기술·능력치·타입을 복사한다.",
+      "new": true
+    },
+    {
+      "index": 19850,
+      "en": "Imposter II",
+      "ko": "괴짜Ⅱ",
+      "new": true
+    },
+    {
+      "index": 19851,
+      "en": "[CS:E]Imposter II[CR]:\nTransforms into a floor Pokémon;\nAtk/Sp. Atk ×1.2 while\ntransformed.",
+      "ko": "[CS:E]괴짜Ⅱ[CR]:\n플로어 포켓몬으로 변신하며, 변신 중 공격·특공 ×1.2.",
+      "new": true
+    },
+    {
+      "index": 19852,
+      "en": "Stalwart",
+      "ko": "굳건한신념",
+      "new": true
+    },
+    {
+      "index": 19853,
+      "en": "[CS:E]Stalwart[CR]:\nFoes can't redirect your moves\nwith Lightning Rod-like effects.",
+      "ko": "[CS:E]굳건한신념[CR]:\n내 기술의 대상을 피뢰침·마중물 계열로 바꾸지 못하게 한다.",
+      "new": true
+    },
+    {
+      "index": 19854,
+      "en": "Stalwart II",
+      "ko": "굳건한신념Ⅱ",
+      "new": true
+    },
+    {
+      "index": 19855,
+      "en": "[CS:E]Stalwart II[CR]:\nSame as base; those moves deal\n×1.2 damage.",
+      "ko": "[CS:E]굳건한신념Ⅱ[CR]:\n동일하며, 대상 변경을 무시하는 해당 공격 기술 피해 ×1.2.",
+      "new": true
+    },
+    {
+      "index": 19856,
+      "en": "Shadow Tag",
+      "ko": "그림자밟기",
+      "new": true
+    },
+    {
+      "index": 19857,
+      "en": "[CS:E]Shadow Tag[CR]:\nAttackers have a 12% chance to\nbe immobilized (3-5 turns).",
+      "ko": "[CS:E]그림자밟기[CR]:\n공격자를 12% 확률로 이동 봉쇄한다. (3~5턴)",
+      "new": true
+    },
+    {
+      "index": 19858,
+      "en": "Shadow Tag II",
+      "ko": "그림자밟기Ⅱ",
+      "new": true
+    },
+    {
+      "index": 19859,
+      "en": "[CS:E]Shadow Tag II[CR]:\nAttackers have a 20% chance to\nbe immobilized (3-5 turns).",
+      "ko": "[CS:E]그림자밟기Ⅱ[CR]:\n공격자를 20% 확률로 이동 봉쇄한다. (3~5턴)",
+      "new": true
+    },
+    {
+      "index": 19860,
+      "en": "Guts",
+      "ko": "근성",
+      "new": true
+    },
+    {
+      "index": 19861,
+      "en": "[CS:E]Guts[CR]:\nPhysical Attack ×1.5 while\nstatused.",
+      "ko": "[CS:E]근성[CR]:\n나쁜 상태일 때 물리 공격 ×1.5.",
+      "new": true
+    },
+    {
+      "index": 19862,
+      "en": "Guts II",
+      "ko": "근성Ⅱ",
+      "new": true
+    },
+    {
+      "index": 19863,
+      "en": "[CS:E]Guts II[CR]:\nPhysical Attack ×1.6 while\nstatused.",
+      "ko": "[CS:E]근성Ⅱ[CR]:\n나쁜 상태일 때 물리 공격 ×1.6.",
+      "new": true
+    },
+    {
+      "index": 19864,
+      "en": "Torrent",
+      "ko": "급류",
+      "new": true
+    },
+    {
+      "index": 19865,
+      "en": "[CS:E]Torrent[CR]:\nAt HP <=1/4 max, Water move\ndamage ×1.5.",
+      "ko": "[CS:E]급류[CR]:\nHP가 최대의 1/4 이하이면 물 기술 피해 ×1.5.",
+      "new": true
+    },
+    {
+      "index": 19866,
+      "en": "Torrent II",
+      "ko": "급류Ⅱ",
+      "new": true
+    },
+    {
+      "index": 19867,
+      "en": "[CS:E]Torrent II[CR]:\nAt HP <=1/3 max, Water move\ndamage ×1.6.",
+      "ko": "[CS:E]급류Ⅱ[CR]:\nHP가 최대의 1/3 이하이면 물 기술 피해 ×1.6.",
+      "new": true
+    },
+    {
+      "index": 19868,
+      "en": "Forecast",
+      "ko": "기분파",
+      "new": true
+    },
+    {
+      "index": 19869,
+      "en": "[CS:E]Forecast[CR]:\nType changes with the weather.",
+      "ko": "[CS:E]기분파[CR]:\n날씨에 따라 타입이 변한다.",
+      "new": true
+    },
+    {
+      "index": 19870,
+      "en": "Forecast II",
+      "ko": "기분파Ⅱ",
+      "new": true
+    },
+    {
+      "index": 19871,
+      "en": "[CS:E]Forecast II[CR]:\nType changes with weather; moves\nof that changed type deal ×1.2.",
+      "ko": "[CS:E]기분파Ⅱ[CR]:\n날씨에 따라 타입이 변하고, 변한 타입의 기술 피해 ×1.2.",
+      "new": true
+    },
+    {
+      "index": 19872,
+      "en": "Unnerve",
+      "ko": "긴장감",
+      "new": true
+    },
+    {
+      "index": 19873,
+      "en": "[CS:E]Unnerve[CR]:\nFoes within 8 tiles can't eat\nseeds, berries or drinks.",
+      "ko": "[CS:E]긴장감[CR]:\n인접 8칸의 상대가 씨앗·열매·드링크를 먹지 못한다.",
+      "new": true
+    },
+    {
+      "index": 19874,
+      "en": "Unnerve II",
+      "ko": "긴장감Ⅱ",
+      "new": true
+    },
+    {
+      "index": 19875,
+      "en": "[CS:E]Unnerve II[CR]:\nSame-room foes can't eat them\nand take 80-power physical self-\ndamage.",
+      "ko": "[CS:E]긴장감Ⅱ[CR]:\n같은 방 상대가 먹지 못하며, 위력 80의 물리 자해 피해를 입는다.",
+      "new": true
+    },
+    {
+      "index": 19876,
+      "en": "Rough Skin",
+      "ko": "까칠한피부",
+      "new": true
+    },
+    {
+      "index": 19877,
+      "en": "[CS:E]Rough Skin[CR]:\nAdjacent physical hit: attacker\ntakes 1/8 max HP (min 1), once\nper attack.",
+      "ko": "[CS:E]까칠한피부[CR]:\n인접 물리 피격 시 공격자에게 최대 HP의 1/8(최소 1) 피해. 행동당 1회.",
+      "new": true
+    },
+    {
+      "index": 19878,
+      "en": "Rough Skin II",
+      "ko": "까칠한피부Ⅱ",
+      "new": true
+    },
+    {
+      "index": 19879,
+      "en": "[CS:E]Rough Skin II[CR]:\nAdjacent physical hit: attacker\ntakes 1/6 max HP (min 1), once\nper attack.",
+      "ko": "[CS:E]까칠한피부Ⅱ[CR]:\n인접 물리 피격 시 공격자에게 최대 HP의 1/6(최소 1) 피해. 행동당 1회.",
+      "new": true
+    },
+    {
+      "index": 19880,
+      "en": "Weak Armor",
+      "ko": "깨어진갑옷",
+      "new": true
+    },
+    {
+      "index": 19881,
+      "en": "[CS:E]Weak Armor[CR]:\nPhysical hit: Defense -1 stage,\nSpeed +1 stage (once per\nattack).",
+      "ko": "[CS:E]깨어진갑옷[CR]:\n물리 피격 시 방어 −1단계, 스피드 +1단계. 행동당 1회.",
+      "new": true
+    },
+    {
+      "index": 19882,
+      "en": "Weak Armor II",
+      "ko": "깨어진갑옷Ⅱ",
+      "new": true
+    },
+    {
+      "index": 19883,
+      "en": "[CS:E]Weak Armor II[CR]:\nPhysical hit: Defense -1 stage,\nSpeed +2 stages (once per\nattack).",
+      "ko": "[CS:E]깨어진갑옷Ⅱ[CR]:\n물리 피격 시 방어 −1단계, 스피드 +2단계. 행동당 1회.",
+      "new": true
+    },
+    {
+      "index": 19884,
+      "en": "Desolate Land",
+      "ko": "끝의대지",
+      "new": true
+    },
+    {
+      "index": 19885,
+      "en": "[CS:E]Desolate Land[CR]:\nOn floor entry, harsh sun (Fire\n×1.5, Water blocked); persists.",
+      "ko": "[CS:E]끝의대지[CR]:\n층 입장 시 강한 햇살. 불꽃 ×1.5, 물 기술 무효. 덮어쓰기 불가.",
+      "new": true
+    },
+    {
+      "index": 19886,
+      "en": "Desolate Land II",
+      "ko": "끝의대지Ⅱ",
+      "new": true
+    },
+    {
+      "index": 19887,
+      "en": "[CS:E]Desolate Land II[CR]:\nOn floor entry, makes the\nweather harsh sunlight; can't be\noverwritten.",
+      "ko": "[CS:E]끝의대지Ⅱ[CR]:\n층 입장 시 날씨를 강한 햇살로 만든다. 일반 날씨로 덮어쓸 수 없다.",
+      "new": true
+    },
+    {
+      "index": 19888,
+      "en": "Pickpocket",
+      "ko": "나쁜손버릇",
+      "new": true
+    },
+    {
+      "index": 19889,
+      "en": "[CS:E]Pickpocket[CR]:\nAdjacent physical hit: steals\nattacker's item if you hold\nnone.",
+      "ko": "[CS:E]나쁜손버릇[CR]:\n인접 물리 피격 시, 도구가 없으면 상대의 도구를 훔친다.",
+      "new": true
+    },
+    {
+      "index": 19890,
+      "en": "Pickpocket II",
+      "ko": "나쁜손버릇Ⅱ",
+      "new": true
+    },
+    {
+      "index": 19891,
+      "en": "[CS:E]Pickpocket II[CR]:\nSteals the item if you hold\nnone; Speed +2 stages on a\nsuccessful steal.",
+      "ko": "[CS:E]나쁜손버릇Ⅱ[CR]:\n도구가 없을 때 훔치고, 훔치면 스피드 +2단계.",
+      "new": true
+    },
+    {
+      "index": 19892,
+      "en": "Bad Dreams",
+      "ko": "나이트메어",
+      "new": true
+    },
+    {
+      "index": 19893,
+      "en": "[CS:E]Bad Dreams[CR]:\nAdjacent sleeping foes take\ndamage from the Def byte each\ntick (usually 0).",
+      "ko": "[CS:E]나이트메어[CR]:\n인접한 잠든 적이 방어 바이트 기준 피해를 입는다. (보통 0)",
+      "new": true
+    },
+    {
+      "index": 19894,
+      "en": "Bad Dreams II",
+      "ko": "나이트메어Ⅱ",
+      "new": true
+    },
+    {
+      "index": 19895,
+      "en": "[CS:E]Bad Dreams II[CR]:\nSleeping foes in the room lose\n1/8 of their max HP each turn\nend (min 1).",
+      "ko": "[CS:E]나이트메어Ⅱ[CR]:\n같은 방의 잠든 적이 턴 종료마다 최대 HP의 1/8(최소 1) 피해를 입는다.",
+      "new": true
+    },
+    {
+      "index": 19896,
+      "en": "Cloud Nine",
+      "ko": "날씨부정",
+      "new": true
+    },
+    {
+      "index": 19897,
+      "en": "[CS:E]Cloud Nine[CR]:\nProtects the whole team from\nweather effects.",
+      "ko": "[CS:E]날씨부정[CR]:\n팀 전체를 날씨의 영향에서 지킨다.",
+      "new": true
+    },
+    {
+      "index": 19898,
+      "en": "Cloud Nine II",
+      "ko": "날씨부정Ⅱ",
+      "new": true
+    },
+    {
+      "index": 19899,
+      "en": "[CS:E]Cloud Nine II[CR]:\nTeam ignores weather; in\nweather, own damage ×1.2, damage\ntaken ×0.8.",
+      "ko": "[CS:E]날씨부정Ⅱ[CR]:\n팀을 날씨에서 지키고, 날씨 중 주는 피해 ×1.2, 받는 피해 ×0.8.",
+      "new": true
+    },
+    {
+      "index": 19900,
+      "en": "Keen Eye",
+      "ko": "날카로운눈",
+      "new": true
+    },
+    {
+      "index": 19901,
+      "en": "[CS:E]Keen Eye[CR]:\nAccuracy cannot be lowered.",
+      "ko": "[CS:E]날카로운눈[CR]:\n명중률이 떨어지지 않는다.",
+      "new": true
+    },
+    {
+      "index": 19902,
+      "en": "Keen Eye II",
+      "ko": "날카로운눈Ⅱ",
+      "new": true
+    },
+    {
+      "index": 19903,
+      "en": "[CS:E]Keen Eye II[CR]:\nAccuracy cannot be lowered;\nAccuracy +2 stages in damage\ncalculation.",
+      "ko": "[CS:E]날카로운눈Ⅱ[CR]:\n명중률이 떨어지지 않고, 데미지 계산 시 명중률 +2단계.",
+      "new": true
+    },
+    {
+      "index": 19904,
+      "en": "Heatproof",
+      "ko": "내열",
+      "new": true
+    },
+    {
+      "index": 19905,
+      "en": "[CS:E]Heatproof[CR]:\nFire and Ice move damage taken\n×0.5.",
+      "ko": "[CS:E]내열[CR]:\n받는 불꽃·얼음 기술 피해 ×0.5.",
+      "new": true
+    },
+    {
+      "index": 19906,
+      "en": "Heatproof II",
+      "ko": "내열Ⅱ",
+      "new": true
+    },
+    {
+      "index": 19907,
+      "en": "[CS:E]Heatproof II[CR]:\nImmune to Fire and Ice move\ndamage.",
+      "ko": "[CS:E]내열Ⅱ[CR]:\n불꽃·얼음 기술 피해에 면역.",
+      "new": true
+    },
+    {
+      "index": 19908,
+      "en": "Innards Out",
+      "ko": "내용물분출",
+      "new": true
+    },
+    {
+      "index": 19909,
+      "en": "[CS:E]Innards Out[CR]:\nWhen fainting, 50% chance to\ncause an explosion.",
+      "ko": "[CS:E]내용물분출[CR]:\n쓰러질 때 50% 확률로 폭발을 일으킨다.",
+      "new": true
+    },
+    {
+      "index": 19910,
+      "en": "Innards Out II",
+      "ko": "내용물분출Ⅱ",
+      "new": true
+    },
+    {
+      "index": 19911,
+      "en": "[CS:E]Innards Out II[CR]:\nWhen fainting, 100% chance to\ncause an explosion.",
+      "ko": "[CS:E]내용물분출Ⅱ[CR]:\n쓰러질 때 100% 확률로 폭발을 일으킨다.",
+      "new": true
+    },
+    {
+      "index": 19912,
+      "en": "No Guard",
+      "ko": "노가드",
+      "new": true
+    },
+    {
+      "index": 19913,
+      "en": "[CS:E]No Guard[CR]:\nMoves used by and against you\nalways hit.",
+      "ko": "[CS:E]노가드[CR]:\n자신이 받는 기술과 사용하는 기술이 모두 반드시 명중한다.",
+      "new": true
+    },
+    {
+      "index": 19914,
+      "en": "No Guard II",
+      "ko": "노가드Ⅱ",
+      "new": true
+    },
+    {
+      "index": 19915,
+      "en": "[CS:E]No Guard II[CR]:\nMoves always hit; own move\ndamage ×1.2 and damage taken\n×1.2.",
+      "ko": "[CS:E]노가드Ⅱ[CR]:\n모든 기술이 반드시 명중하며, 주는 피해와 받는 피해가 ×1.2.",
+      "new": true
+    },
+    {
+      "index": 19916,
+      "en": "Normalize",
+      "ko": "노말스킨",
+      "new": true
+    },
+    {
+      "index": 19917,
+      "en": "[CS:E]Normalize[CR]:\nMoves become Normal-type with\ndamage ×1.2.",
+      "ko": "[CS:E]노말스킨[CR]:\n기술을 노말타입으로 바꾸고 피해 ×1.2.",
+      "new": true
+    },
+    {
+      "index": 19918,
+      "en": "Normalize II",
+      "ko": "노말스킨Ⅱ",
+      "new": true
+    },
+    {
+      "index": 19919,
+      "en": "[CS:E]Normalize II[CR]:\nMoves become Normal-type with\ndamage ×1.3.",
+      "ko": "[CS:E]노말스킨Ⅱ[CR]:\n기술을 노말타입으로 바꾸고 피해 ×1.3.",
+      "new": true
+    },
+    {
+      "index": 19920,
+      "en": "Snow Cloak",
+      "ko": "눈숨기",
+      "new": true
+    },
+    {
+      "index": 19921,
+      "en": "[CS:E]Snow Cloak[CR]:\nEvasion +2 stages in snow or\nsnow; immune to snow damage.",
+      "ko": "[CS:E]눈숨기[CR]:\n설경·눈에서 회피 +2단계. 설경 피해를 받지 않는다.",
+      "new": true
+    },
+    {
+      "index": 19922,
+      "en": "Snow Cloak II",
+      "ko": "눈숨기Ⅱ",
+      "new": true
+    },
+    {
+      "index": 19923,
+      "en": "[CS:E]Snow Cloak II[CR]:\nEvasion +3 stages in snow or\nsnow; immune to snow damage.",
+      "ko": "[CS:E]눈숨기Ⅱ[CR]:\n설경·눈에서 회피 +3단계. 설경 피해를 받지 않는다.",
+      "new": true
+    },
+    {
+      "index": 19924,
+      "en": "Slush Rush",
+      "ko": "눈치우기",
+      "new": true
+    },
+    {
+      "index": 19925,
+      "en": "[CS:E]Slush Rush[CR]:\nSpeed +2 stages in snow.",
+      "ko": "[CS:E]눈치우기[CR]:\n설경에서 스피드 +2단계.",
+      "new": true
+    },
+    {
+      "index": 19926,
+      "en": "Slush Rush II",
+      "ko": "눈치우기Ⅱ",
+      "new": true
+    },
+    {
+      "index": 19927,
+      "en": "[CS:E]Slush Rush II[CR]:\nSpeed +3 stages in snow.",
+      "ko": "[CS:E]눈치우기Ⅱ[CR]:\n설경에서 스피드 계산단계 +3단계.",
+      "new": true
+    },
+    {
+      "index": 19928,
+      "en": "Snow Warning",
+      "ko": "눈퍼뜨리기",
+      "new": true
+    },
+    {
+      "index": 19929,
+      "en": "[CS:E]Snow Warning[CR]:\nMakes the weather snow.",
+      "ko": "[CS:E]눈퍼뜨리기[CR]:\n날씨를 설경으로 만든다.",
+      "new": true
+    },
+    {
+      "index": 19930,
+      "en": "Snow Warning II",
+      "ko": "눈퍼뜨리기Ⅱ",
+      "new": true
+    },
+    {
+      "index": 19931,
+      "en": "[CS:E]Snow Warning II[CR]:\nMakes the weather strong snow.",
+      "ko": "[CS:E]눈퍼뜨리기Ⅱ[CR]:\n날씨를 강한 설경으로 만든다.",
+      "new": true
+    },
+    {
+      "index": 19932,
+      "en": "Download",
+      "ko": "다운로드",
+      "new": true
+    },
+    {
+      "index": 19933,
+      "en": "[CS:E]Download[CR]:\nFoe Def >= Sp. Def: Sp. Atk +1\nstage; otherwise Attack +1\nstage.",
+      "ko": "[CS:E]다운로드[CR]:\n상대 방어≥특방이면 특수공격 +1단계, 아니면 공격 +1단계.",
+      "new": true
+    },
+    {
+      "index": 19934,
+      "en": "Download II",
+      "ko": "다운로드Ⅱ",
+      "new": true
+    },
+    {
+      "index": 19935,
+      "en": "[CS:E]Download II[CR]:\nFoe Def >= Sp. Def: Sp. Atk +2\nstages; otherwise Attack +2\nstages.",
+      "ko": "[CS:E]다운로드Ⅱ[CR]:\n상대 방어≥특방이면 특수공격 +2단계, 아니면 공격 +2단계.",
+      "new": true
+    },
+    {
+      "index": 19936,
+      "en": "Tough Claws",
+      "ko": "단단한발톱",
+      "new": true
+    },
+    {
+      "index": 19937,
+      "en": "[CS:E]Tough Claws[CR]:\nFront-range (ID 0) moves deal\n×1.2 damage.",
+      "ko": "[CS:E]단단한발톱[CR]:\n정면 범위(ID 0) 기술의 피해 ×1.2.",
+      "new": true
+    },
+    {
+      "index": 19938,
+      "en": "Tough Claws II",
+      "ko": "단단한발톱Ⅱ",
+      "new": true
+    },
+    {
+      "index": 19939,
+      "en": "[CS:E]Tough Claws II[CR]:\nFront-range (ID 0) moves deal\n×1.3 damage.",
+      "ko": "[CS:E]단단한발톱Ⅱ[CR]:\n정면 범위(ID 0) 기술의 피해 ×1.3.",
+      "new": true
+    },
+    {
+      "index": 19940,
+      "en": "Simple",
+      "ko": "단순",
+      "new": true
+    },
+    {
+      "index": 19941,
+      "en": "[CS:E]Simple[CR]:\nDoubles stat stage changes\n(stage range limited to 4-16).",
+      "ko": "[CS:E]단순[CR]:\n능력 변화의 단계량이 2배가 된다. (저장 단계 4~16)",
+      "new": true
+    },
+    {
+      "index": 19942,
+      "en": "Simple II",
+      "ko": "단순Ⅱ",
+      "new": true
+    },
+    {
+      "index": 19943,
+      "en": "[CS:E]Simple II[CR]:\nDoubles stat boosts only (not\ndrops); stage range limited to\n4-16.",
+      "ko": "[CS:E]단순Ⅱ[CR]:\n능력 상승의 단계량만 2배가 된다. 저하에는 적용 안 함.",
+      "new": true
+    },
+    {
+      "index": 19944,
+      "en": "Super Luck",
+      "ko": "대운",
+      "new": true
+    },
+    {
+      "index": 19945,
+      "en": "[CS:E]Super Luck[CR]:\nCritical hit threshold ×2.",
+      "ko": "[CS:E]대운[CR]:\n급소 판정 임계값이 2배가 된다.",
+      "new": true
+    },
+    {
+      "index": 19946,
+      "en": "Super Luck II",
+      "ko": "대운Ⅱ",
+      "new": true
+    },
+    {
+      "index": 19947,
+      "en": "[CS:E]Super Luck II[CR]:\nCritical hit threshold ×3\n(capped at 100% chance).",
+      "ko": "[CS:E]대운Ⅱ[CR]:\n급소 판정 임계값이 3배가 된다. (확률 최대 100%)",
+      "new": true
+    },
+    {
+      "index": 19948,
+      "en": "Delta Stream",
+      "ko": "델타스트림",
+      "new": true
+    },
+    {
+      "index": 19949,
+      "en": "[CS:E]Delta Stream[CR]:\nOn floor entry, makes strong\nwinds; can't be overwritten.",
+      "ko": "[CS:E]델타스트림[CR]:\n층 입장 시 강풍을 만든다. 일반 날씨로 덮어쓸 수 없다.",
+      "new": true
+    },
+    {
+      "index": 19950,
+      "en": "Delta Stream II",
+      "ko": "델타스트림Ⅱ",
+      "new": true
+    },
+    {
+      "index": 19951,
+      "en": "[CS:E]Delta Stream II[CR]:\nOn floor entry, turns the\nweather into strong winds.",
+      "ko": "[CS:E]델타스트림Ⅱ[CR]:\n층 입장 시 날씨를 강풍으로 만든다. 일반 날씨로 덮어쓸 수 없다.",
+      "new": true
+    },
+    {
+      "index": 19952,
+      "en": "Run Away",
+      "ko": "도주",
+      "new": true
+    },
+    {
+      "index": 19953,
+      "en": "[CS:E]Run Away[CR]:\nAt <=1/4 max HP after a foe's\nattack, warps next to nearest\nally. Once per floor.",
+      "ko": "[CS:E]도주[CR]:\n상대 공격으로 HP 1/4 이하가 되면 가장 가까운 동료 옆으로 이동. 층당 1회.",
+      "new": true
+    },
+    {
+      "index": 19954,
+      "en": "Run Away II",
+      "ko": "도주Ⅱ",
+      "new": true
+    },
+    {
+      "index": 19955,
+      "en": "[CS:E]Run Away II[CR]:\nSame as base, and heals 1/4 max\nHP after the warp. Once per\nfloor.",
+      "ko": "[CS:E]도주Ⅱ[CR]:\n동일하게 이동하며, 이동 직후 최대 HP의 1/4을 회복한다. 층당 1회.",
+      "new": true
+    },
+    {
+      "index": 19956,
+      "en": "Poison Point",
+      "ko": "독가시",
+      "new": true
+    },
+    {
+      "index": 19957,
+      "en": "[CS:E]Poison Point[CR]:\nAdjacent hit: 12% chance to\npoison the attacker.",
+      "ko": "[CS:E]독가시[CR]:\n인접 공격을 받으면 12% 확률로 공격자를 독 상태로 만든다.",
+      "new": true
+    },
+    {
+      "index": 19958,
+      "en": "Poison Point II",
+      "ko": "독가시Ⅱ",
+      "new": true
+    },
+    {
+      "index": 19959,
+      "en": "[CS:E]Poison Point II[CR]:\nAdjacent hit: 20% chance to\npoison the attacker.",
+      "ko": "[CS:E]독가시Ⅱ[CR]:\n인접 공격을 받으면 20% 확률로 공격자를 독 상태로 만든다.",
+      "new": true
+    },
+    {
+      "index": 19960,
+      "en": "Poison Touch",
+      "ko": "독수",
+      "new": true
+    },
+    {
+      "index": 19961,
+      "en": "[CS:E]Poison Touch[CR]:\nMelee physical hit: 30% chance\nto poison the target.",
+      "ko": "[CS:E]독수[CR]:\n근접 물리 기술이 명중하면 30% 확률로 대상을 독 상태로 만든다.",
+      "new": true
+    },
+    {
+      "index": 19962,
+      "en": "Poison Touch II",
+      "ko": "독수Ⅱ",
+      "new": true
+    },
+    {
+      "index": 19963,
+      "en": "[CS:E]Poison Touch II[CR]:\nMelee physical hit: 50% chance\nto poison the target.",
+      "ko": "[CS:E]독수Ⅱ[CR]:\n근접 물리 기술이 명중하면 50% 확률로 대상을 독 상태로 만든다.",
+      "new": true
+    },
+    {
+      "index": 19964,
+      "en": "Toxic Boost",
+      "ko": "독폭주",
+      "new": true
+    },
+    {
+      "index": 19965,
+      "en": "[CS:E]Toxic Boost[CR]:\nWhile poisoned, physical move\ndamage ×1.5.",
+      "ko": "[CS:E]독폭주[CR]:\n독·맹독 상태에서 물리 기술 피해 ×1.5.",
+      "new": true
+    },
+    {
+      "index": 19966,
+      "en": "Toxic Boost II",
+      "ko": "독폭주Ⅱ",
+      "new": true
+    },
+    {
+      "index": 19967,
+      "en": "[CS:E]Toxic Boost II[CR]:\nWhile poisoned, physical move\ndamage ×1.6.",
+      "ko": "[CS:E]독폭주Ⅱ[CR]:\n독·맹독 상태에서 물리 기술 피해 ×1.6.",
+      "new": true
+    },
+    {
+      "index": 19968,
+      "en": "Rock Head",
+      "ko": "돌머리",
+      "new": true
+    },
+    {
+      "index": 19969,
+      "en": "[CS:E]Rock Head[CR]:\nNo recoil damage (other indirect\ndamage still applies).",
+      "ko": "[CS:E]돌머리[CR]:\n기술 반동 피해를 받지 않는다. 다른 간접 피해는 받는다.",
+      "new": true
+    },
+    {
+      "index": 19970,
+      "en": "Rock Head II",
+      "ko": "돌머리Ⅱ",
+      "new": true
+    },
+    {
+      "index": 19971,
+      "en": "[CS:E]Rock Head II[CR]:\nNo recoil damage; own recoil\nmoves deal ×1.2 damage.",
+      "ko": "[CS:E]돌머리Ⅱ[CR]:\n반동 피해를 받지 않고, 자신의 반동 기술 피해 ×1.2.",
+      "new": true
+    },
+    {
+      "index": 19972,
+      "en": "Cud Chew",
+      "ko": "되새김질",
+      "new": true
+    },
+    {
+      "index": 19973,
+      "en": "[CS:E]Cud Chew[CR]:\n20% chance a berry isn't\nconsumed when you eat it.",
+      "ko": "[CS:E]되새김질[CR]:\n20% 확률로 열매를 먹을 때 소모하지 않는다.",
+      "new": true
+    },
+    {
+      "index": 19974,
+      "en": "Cud Chew II",
+      "ko": "되새김질Ⅱ",
+      "new": true
+    },
+    {
+      "index": 19975,
+      "en": "[CS:E]Cud Chew II[CR]:\n30% chance a berry isn't\nconsumed when you eat it.",
+      "ko": "[CS:E]되새김질Ⅱ[CR]:\n30% 확률로 열매를 먹을 때 소모하지 않는다.",
+      "new": true
+    },
+    {
+      "index": 19976,
+      "en": "Thick Fat",
+      "ko": "두꺼운지방",
+      "new": true
+    },
+    {
+      "index": 19977,
+      "en": "[CS:E]Thick Fat[CR]:\nFire and Ice move damage taken\n×0.5.",
+      "ko": "[CS:E]두꺼운지방[CR]:\n받는 불꽃·얼음 기술 피해 ×0.5.",
+      "new": true
+    },
+    {
+      "index": 19978,
+      "en": "Thick Fat II",
+      "ko": "두꺼운지방Ⅱ",
+      "new": true
+    },
+    {
+      "index": 19979,
+      "en": "[CS:E]Thick Fat II[CR]:\nImmune to Fire and Ice move\ndamage.",
+      "ko": "[CS:E]두꺼운지방Ⅱ[CR]:\n불꽃·얼음 기술 피해에 면역.",
+      "new": true
+    },
+    {
+      "index": 19980,
+      "en": "Oblivious",
+      "ko": "둔감",
+      "new": true
+    },
+    {
+      "index": 19981,
+      "en": "[CS:E]Oblivious[CR]:\nCannot be infatuated.",
+      "ko": "[CS:E]둔감[CR]:\n헤롱헤롱 상태가 되지 않는다.",
+      "new": true
+    },
+    {
+      "index": 19982,
+      "en": "Oblivious II",
+      "ko": "둔감Ⅱ",
+      "new": true
+    },
+    {
+      "index": 19983,
+      "en": "[CS:E]Oblivious II[CR]:\nSelf and same-room allies cannot\nbe infatuated.",
+      "ko": "[CS:E]둔감Ⅱ[CR]:\n자신과 같은 방 아군 전체가 헤롱헤롱 상태가 되지 않는다.",
+      "new": true
+    },
+    {
+      "index": 19984,
+      "en": "Dragonize",
+      "ko": "드래곤스킨",
+      "new": true
+    },
+    {
+      "index": 19985,
+      "en": "[CS:E]Dragonize[CR]:\nNormal moves become Dragon-type\nwith damage ×1.2.",
+      "ko": "[CS:E]드래곤스킨[CR]:\n노말 기술을 드래곤타입으로 바꾸고 피해 ×1.2.",
+      "new": true
+    },
+    {
+      "index": 19986,
+      "en": "Dragonize II",
+      "ko": "드래곤스킨Ⅱ",
+      "new": true
+    },
+    {
+      "index": 19987,
+      "en": "[CS:E]Dragonize II[CR]:\nNormal moves become Dragon-type\nwith damage ×1.3.",
+      "ko": "[CS:E]드래곤스킨Ⅱ[CR]:\n노말 기술을 드래곤타입으로 바꾸고 피해 ×1.3.",
+      "new": true
+    },
+    {
+      "index": 19988,
+      "en": "Wandering Spirit",
+      "ko": "떠도는영혼",
+      "new": true
+    },
+    {
+      "index": 19989,
+      "en": "[CS:E]Wandering Spirit[CR]:\nAdjacent physical hit: swaps\nabilities with the attacker\nuntil next floor.",
+      "ko": "[CS:E]떠도는영혼[CR]:\n인접 물리 피격 시 공격자와 특성 하나를 맞바꾼다. (층 이동까지)",
+      "new": true
+    },
+    {
+      "index": 19990,
+      "en": "Wandering Spirit II",
+      "ko": "떠도는영혼Ⅱ",
+      "new": true
+    },
+    {
+      "index": 19991,
+      "en": "[CS:E]Wandering Spirit II[CR]:\nSame; on a swap, foe's Atk/Sp.\nAtk -1 stage and yours +1.",
+      "ko": "[CS:E]떠도는영혼Ⅱ[CR]:\n동일하며, 교환 성공 시 상대 공격·특공 −1단계, 자신 +1단계.",
+      "new": true
+    },
+    {
+      "index": 19992,
+      "en": "Light Metal",
+      "ko": "라이트메탈",
+      "new": true
+    },
+    {
+      "index": 19993,
+      "en": "[CS:E]Light Metal[CR]:\nWeight ×1/2; 50% chance to avoid\nfloor traps you step on.",
+      "ko": "[CS:E]라이트메탈[CR]:\n무게 ×1/2. 바닥 함정을 밟으면 50% 확률로 발동을 피한다.",
+      "new": true
+    },
+    {
+      "index": 19994,
+      "en": "Light Metal II",
+      "ko": "라이트메탈Ⅱ",
+      "new": true
+    },
+    {
+      "index": 19995,
+      "en": "[CS:E]Light Metal II[CR]:\nWeight ×1/2; always avoids\ntraps; Speed +2 stages.",
+      "ko": "[CS:E]라이트메탈Ⅱ[CR]:\n무게 ×1/2. 함정을 100% 피하고, 스피드 +2단계.",
+      "new": true
+    },
+    {
+      "index": 19996,
+      "en": "Leaf Guard",
+      "ko": "리프가드",
+      "new": true
+    },
+    {
+      "index": 19997,
+      "en": "[CS:E]Leaf Guard[CR]:\nCannot get bad status in harsh\nsunlight.",
+      "ko": "[CS:E]리프가드[CR]:\n강한 햇살에서는 나쁜 상태가 되지 않는다.",
+      "new": true
+    },
+    {
+      "index": 19998,
+      "en": "Leaf Guard II",
+      "ko": "리프가드Ⅱ",
+      "new": true
+    },
+    {
+      "index": 19999,
+      "en": "[CS:E]Leaf Guard II[CR]:\nIn harsh sun, self and room\nallies can't get new bad status.",
+      "ko": "[CS:E]리프가드Ⅱ[CR]:\n강한 햇살에서 같은 방 아군 전체가 새로 나쁜 상태가 되지 않는다.",
+      "new": true
+    },
+    {
+      "index": 20000,
+      "en": "Magma Armor",
+      "ko": "마그마의무장",
+      "new": true
+    },
+    {
+      "index": 20001,
+      "en": "[CS:E]Magma Armor[CR]:\nPrevents freezing and frostbite.",
+      "ko": "[CS:E]마그마의무장[CR]:\n얼음·동상 상태를 막는다.",
+      "new": true
+    },
+    {
+      "index": 20002,
+      "en": "Magma Armor II",
+      "ko": "마그마의무장Ⅱ",
+      "new": true
+    },
+    {
+      "index": 20003,
+      "en": "[CS:E]Magma Armor II[CR]:\nSelf and same-room allies cannot\nfreeze or get frostbite.",
+      "ko": "[CS:E]마그마의무장Ⅱ[CR]:\n자신과 같은 방 아군 전체가 얼음·동상 상태가 되지 않는다.",
+      "new": true
+    },
+    {
+      "index": 20004,
+      "en": "Minus",
+      "ko": "마이너스",
+      "new": true
+    },
+    {
+      "index": 20005,
+      "en": "[CS:E]Minus[CR]:\nSp. Atk ×1.5 if an ally with\nPlus is on the floor.",
+      "ko": "[CS:E]마이너스[CR]:\n같은 편 플러스가 플로어에 있으면 특수공격 ×1.5.",
+      "new": true
+    },
+    {
+      "index": 20006,
+      "en": "Minus II",
+      "ko": "마이너스Ⅱ",
+      "new": true
+    },
+    {
+      "index": 20007,
+      "en": "[CS:E]Minus II[CR]:\nSp. Atk ×1.6 if an ally with\nPlus is on the floor.",
+      "ko": "[CS:E]마이너스Ⅱ[CR]:\n같은 편 플러스가 플로어에 있으면 특수공격 ×1.6.",
+      "new": true
+    },
+    {
+      "index": 20008,
+      "en": "Own Tempo",
+      "ko": "마이페이스",
+      "new": true
+    },
+    {
+      "index": 20009,
+      "en": "[CS:E]Own Tempo[CR]:\nCannot be confused.",
+      "ko": "[CS:E]마이페이스[CR]:\n혼란 상태가 되지 않는다.",
+      "new": true
+    },
+    {
+      "index": 20010,
+      "en": "Own Tempo II",
+      "ko": "마이페이스Ⅱ",
+      "new": true
+    },
+    {
+      "index": 20011,
+      "en": "[CS:E]Own Tempo II[CR]:\nSelf and same-room allies cannot\nbe confused.",
+      "ko": "[CS:E]마이페이스Ⅱ[CR]:\n자신과 같은 방 아군 전체가 혼란 상태가 되지 않는다.",
+      "new": true
+    },
+    {
+      "index": 20012,
+      "en": "Storm Drain",
+      "ko": "마중물",
+      "new": true
+    },
+    {
+      "index": 20013,
+      "en": "[CS:E]Storm Drain[CR]:\nDraws in Water moves, blocks\ndamage, Sp. Atk +1 stage.",
+      "ko": "[CS:E]마중물[CR]:\n물 기술을 끌어와 피해를 막고 특수공격 +1단계.",
+      "new": true
+    },
+    {
+      "index": 20014,
+      "en": "Storm Drain II",
+      "ko": "마중물Ⅱ",
+      "new": true
+    },
+    {
+      "index": 20015,
+      "en": "[CS:E]Storm Drain II[CR]:\nDraws in Water moves, blocks\ndamage, Sp. Atk +2 stages.",
+      "ko": "[CS:E]마중물Ⅱ[CR]:\n물 기술을 끌어와 피해를 막고 특수공격 +2단계.",
+      "new": true
+    },
+    {
+      "index": 20016,
+      "en": "Magic Guard",
+      "ko": "매직가드",
+      "new": true
+    },
+    {
+      "index": 20017,
+      "en": "[CS:E]Magic Guard[CR]:\nTakes no damage except from\nmoves and attacks.",
+      "ko": "[CS:E]매직가드[CR]:\n기술이나 공격 이외의 데미지를 입지 않는다.",
+      "new": true
+    },
+    {
+      "index": 20018,
+      "en": "Magic Guard II",
+      "ko": "매직가드Ⅱ",
+      "new": true
+    },
+    {
+      "index": 20019,
+      "en": "[CS:E]Magic Guard II[CR]:\nSelf and room allies take no\nindirect damage (HP costs,\nhunger still apply).",
+      "ko": "[CS:E]매직가드Ⅱ[CR]:\n같은 방 아군 전체가 간접 피해를 받지 않는다. HP 소모·배고픔은 제외.",
+      "new": true
+    },
+    {
+      "index": 20020,
+      "en": "Magic Bounce",
+      "ko": "매직미러",
+      "new": true
+    },
+    {
+      "index": 20021,
+      "en": "[CS:E]Magic Bounce[CR]:\nReflects status moves aimed at\nyou back at the user.",
+      "ko": "[CS:E]매직미러[CR]:\n자신을 향한 변화 기술을 상대에게 반사한다.",
+      "new": true
+    },
+    {
+      "index": 20022,
+      "en": "Magic Bounce II",
+      "ko": "매직미러Ⅱ",
+      "new": true
+    },
+    {
+      "index": 20023,
+      "en": "[CS:E]Magic Bounce II[CR]:\nReflects status moves; the user\nalso takes 1/8 of its max HP in\ndamage.",
+      "ko": "[CS:E]매직미러Ⅱ[CR]:\n변화 기술을 반사하고, 사용한 상대에게 최대 HP의 1/8 피해를 준다.",
+      "new": true
+    },
+    {
+      "index": 20024,
+      "en": "Blaze",
+      "ko": "맹화",
+      "new": true
+    },
+    {
+      "index": 20025,
+      "en": "[CS:E]Blaze[CR]:\nAt HP <=1/4 max, Fire move\ndamage ×1.5.",
+      "ko": "[CS:E]맹화[CR]:\nHP가 최대의 1/4 이하이면 불꽃 기술 피해 ×1.5.",
+      "new": true
+    },
+    {
+      "index": 20026,
+      "en": "Blaze II",
+      "ko": "맹화Ⅱ",
+      "new": true
+    },
+    {
+      "index": 20027,
+      "en": "[CS:E]Blaze II[CR]:\nAt HP <=1/3 max, Fire move\ndamage ×1.6.",
+      "ko": "[CS:E]맹화Ⅱ[CR]:\nHP가 최대의 1/3 이하이면 불꽃 기술 피해 ×1.6.",
+      "new": true
+    },
+    {
+      "index": 20028,
+      "en": "Gluttony",
+      "ko": "먹보",
+      "new": true
+    },
+    {
+      "index": 20029,
+      "en": "[CS:E]Gluttony[CR]:\nBelly drains faster (+1); sets\nbelly to 120 on certain floor\nentries.",
+      "ko": "[CS:E]먹보[CR]:\n배고픔 소모 +1. 특정 입장 조건에서 배부름을 120으로 설정한다.",
+      "new": true
+    },
+    {
+      "index": 20030,
+      "en": "Gluttony II",
+      "ko": "먹보Ⅱ",
+      "new": true
+    },
+    {
+      "index": 20031,
+      "en": "[CS:E]Gluttony II[CR]:\nSame as base; food restores\nbelly ×1.5 (rounded down), up to\nmax.",
+      "ko": "[CS:E]먹보Ⅱ[CR]:\n기본 효과에 더해, 음식의 배부름 회복량 ×1.5. (최대치까지)",
+      "new": true
+    },
+    {
+      "index": 20032,
+      "en": "Multiscale",
+      "ko": "멀티스케일",
+      "new": true
+    },
+    {
+      "index": 20033,
+      "en": "[CS:E]Multiscale[CR]:\nAt full HP, move damage taken\n×1/2.",
+      "ko": "[CS:E]멀티스케일[CR]:\nHP가 가득할 때 기술로 받는 피해 ×1/2.",
+      "new": true
+    },
+    {
+      "index": 20034,
+      "en": "Multiscale II",
+      "ko": "멀티스케일Ⅱ",
+      "new": true
+    },
+    {
+      "index": 20035,
+      "en": "[CS:E]Multiscale II[CR]:\nAt full HP, move damage taken\n×1/4.",
+      "ko": "[CS:E]멀티스케일Ⅱ[CR]:\nHP가 가득할 때 기술로 받는 피해 ×1/4.",
+      "new": true
+    },
+    {
+      "index": 20036,
+      "en": "Multitype",
+      "ko": "멀티타입",
+      "new": true
+    },
+    {
+      "index": 20037,
+      "en": "[CS:E]Multitype[CR]:\nArceus changes type by\nplate/move; those moves deal\n×1.2.",
+      "ko": "[CS:E]멀티타입[CR]:\n아르세우스가 기술에 따라 타입이 변하고, 해당 기술 피해 ×1.2.",
+      "new": true
+    },
+    {
+      "index": 20038,
+      "en": "Multitype II",
+      "ko": "멀티타입Ⅱ",
+      "new": true
+    },
+    {
+      "index": 20039,
+      "en": "[CS:E]Multitype II[CR]:\nArceus changes type by\nplate/move; those moves deal\n×1.3.",
+      "ko": "[CS:E]멀티타입Ⅱ[CR]:\n아르세우스가 기술에 따라 타입이 변하고, 해당 기술 피해 ×1.3.",
+      "new": true
+    },
+    {
+      "index": 20040,
+      "en": "Mega Launcher",
+      "ko": "메가런처",
+      "new": true
+    },
+    {
+      "index": 20041,
+      "en": "[CS:E]Mega Launcher[CR]:\nListed pulse and beam moves deal\n×1.2 damage.",
+      "ko": "[CS:E]메가런처[CR]:\n지정된 파동·빔 기술의 피해 ×1.2.",
+      "new": true
+    },
+    {
+      "index": 20042,
+      "en": "Mega Launcher II",
+      "ko": "메가런처Ⅱ",
+      "new": true
+    },
+    {
+      "index": 20043,
+      "en": "[CS:E]Mega Launcher II[CR]:\nListed pulse and beam moves deal\n×1.3 damage.",
+      "ko": "[CS:E]메가런처Ⅱ[CR]:\n지정된 파동·빔 기술의 피해 ×1.3.",
+      "new": true
+    },
+    {
+      "index": 20044,
+      "en": "Mega Sol",
+      "ko": "메가솔라",
+      "new": true
+    },
+    {
+      "index": 20045,
+      "en": "[CS:E]Mega Sol[CR]:\nYour moves treat weather as sun:\nFire ×1.2, Water ×0.8.",
+      "ko": "[CS:E]메가솔라[CR]:\n내 기술에서 날씨를 햇살로 취급한다. 불꽃 ×1.2, 물 ×0.8.",
+      "new": true
+    },
+    {
+      "index": 20046,
+      "en": "Mega Sol II",
+      "ko": "메가솔라Ⅱ",
+      "new": true
+    },
+    {
+      "index": 20047,
+      "en": "[CS:E]Mega Sol II[CR]:\nYour moves treat the weather as\nharsh sunlight.",
+      "ko": "[CS:E]메가솔라Ⅱ[CR]:\n내 기술에서 날씨를 강한 햇살로 취급한다.",
+      "new": true
+    },
+    {
+      "index": 20048,
+      "en": "Immunity",
+      "ko": "면역",
+      "new": true
+    },
+    {
+      "index": 20049,
+      "en": "[CS:E]Immunity[CR]:\nCannot be poisoned or badly\npoisoned.",
+      "ko": "[CS:E]면역[CR]:\n독·맹독 상태가 되지 않는다.",
+      "new": true
+    },
+    {
+      "index": 20050,
+      "en": "Immunity II",
+      "ko": "면역Ⅱ",
+      "new": true
+    },
+    {
+      "index": 20051,
+      "en": "[CS:E]Immunity II[CR]:\nSelf and same-room allies cannot\nbe poisoned or badly poisoned.",
+      "ko": "[CS:E]면역Ⅱ[CR]:\n자신과 같은 방 아군 전체가 독·맹독 상태가 되지 않는다.",
+      "new": true
+    },
+    {
+      "index": 20052,
+      "en": "Perish Body",
+      "ko": "멸망의바디",
+      "new": true
+    },
+    {
+      "index": 20053,
+      "en": "[CS:E]Perish Body[CR]:\nAdjacent hit: 10% chance to\ninflict Perish on the attacker\n(4 turns).",
+      "ko": "[CS:E]멸망의바디[CR]:\n인접 공격을 받으면 10% 확률로 공격자에게 아포칼립스 상태. (4턴)",
+      "new": true
+    },
+    {
+      "index": 20054,
+      "en": "Perish Body II",
+      "ko": "멸망의바디Ⅱ",
+      "new": true
+    },
+    {
+      "index": 20055,
+      "en": "[CS:E]Perish Body II[CR]:\nAdjacent hit: 20% chance to\ninflict Perish on the attacker\n(4 turns).",
+      "ko": "[CS:E]멸망의바디Ⅱ[CR]:\n인접 공격을 받으면 20% 확률로 공격자에게 아포칼립스 상태. (4턴)",
+      "new": true
+    },
+    {
+      "index": 20056,
+      "en": "Sand Stream",
+      "ko": "모래날림",
+      "new": true
+    },
+    {
+      "index": 20057,
+      "en": "[CS:E]Sand Stream[CR]:\nMakes the floor a sandstorm.",
+      "ko": "[CS:E]모래날림[CR]:\n플로어를 모래바람으로 만든다.",
+      "new": true
+    },
+    {
+      "index": 20058,
+      "en": "Sand Stream II",
+      "ko": "모래날림Ⅱ",
+      "new": true
+    },
+    {
+      "index": 20059,
+      "en": "[CS:E]Sand Stream II[CR]:\nMakes the floor a strong\nsandstorm.",
+      "ko": "[CS:E]모래날림Ⅱ[CR]:\n플로어를 강한 모래바람으로 만든다.",
+      "new": true
+    },
+    {
+      "index": 20060,
+      "en": "Sand Veil",
+      "ko": "모래숨기",
+      "new": true
+    },
+    {
+      "index": 20061,
+      "en": "[CS:E]Sand Veil[CR]:\nEvasion +2 stages in sandstorm;\nimmune to weather damage.",
+      "ko": "[CS:E]모래숨기[CR]:\n모래바람에서 회피 +2단계. 날씨 피해를 받지 않는다.",
+      "new": true
+    },
+    {
+      "index": 20062,
+      "en": "Sand Veil II",
+      "ko": "모래숨기Ⅱ",
+      "new": true
+    },
+    {
+      "index": 20063,
+      "en": "[CS:E]Sand Veil II[CR]:\nEvasion +3 stages in sandstorm;\nimmune to weather damage.",
+      "ko": "[CS:E]모래숨기Ⅱ[CR]:\n모래바람에서 회피 +3단계. 날씨 피해를 받지 않는다.",
+      "new": true
+    },
+    {
+      "index": 20064,
+      "en": "Sand Force",
+      "ko": "모래의힘",
+      "new": true
+    },
+    {
+      "index": 20065,
+      "en": "[CS:E]Sand Force[CR]:\nIn sandstorm, Ground/Rock/Steel\nmove damage ×1.2.",
+      "ko": "[CS:E]모래의힘[CR]:\n모래바람에서 땅·바위·강철 기술의 피해 ×1.2.",
+      "new": true
+    },
+    {
+      "index": 20066,
+      "en": "Sand Force II",
+      "ko": "모래의힘Ⅱ",
+      "new": true
+    },
+    {
+      "index": 20067,
+      "en": "[CS:E]Sand Force II[CR]:\nIn sandstorm, Ground/Rock/Steel\nmove damage ×1.3.",
+      "ko": "[CS:E]모래의힘Ⅱ[CR]:\n모래바람에서 땅·바위·강철 기술의 피해 ×1.3.",
+      "new": true
+    },
+    {
+      "index": 20068,
+      "en": "Sand Rush",
+      "ko": "모래헤치기",
+      "new": true
+    },
+    {
+      "index": 20069,
+      "en": "[CS:E]Sand Rush[CR]:\nSpeed +2 stages in sandstorm;\nimmune to weather damage.",
+      "ko": "[CS:E]모래헤치기[CR]:\n모래바람에서 스피드 +2단계. 모래바람 피해를 받지 않는다.",
+      "new": true
+    },
+    {
+      "index": 20070,
+      "en": "Sand Rush II",
+      "ko": "모래헤치기Ⅱ",
+      "new": true
+    },
+    {
+      "index": 20071,
+      "en": "[CS:E]Sand Rush II[CR]:\nSpeed +3 stages in sandstorm;\nimmune to weather damage.",
+      "ko": "[CS:E]모래헤치기Ⅱ[CR]:\n모래바람에서 스피드 +3단계. 모래바람 피해를 받지 않는다.",
+      "new": true
+    },
+    {
+      "index": 20072,
+      "en": "Gorilla Tactics",
+      "ko": "무아지경",
+      "new": true
+    },
+    {
+      "index": 20073,
+      "en": "[CS:E]Gorilla Tactics[CR]:\nAttack ×1.5; locked into the\nfirst successful attack move\neach floor.",
+      "ko": "[CS:E]무아지경[CR]:\n공격 ×1.5. 층에서 처음 성공한 공격 기술만 쓸 수 있다.",
+      "new": true
+    },
+    {
+      "index": 20074,
+      "en": "Gorilla Tactics II",
+      "ko": "무아지경Ⅱ",
+      "new": true
+    },
+    {
+      "index": 20075,
+      "en": "[CS:E]Gorilla Tactics II[CR]:\nAttack ×1.6; locked into the\nfirst successful attack move\neach floor.",
+      "ko": "[CS:E]무아지경Ⅱ[CR]:\n공격 ×1.6. 층에서 처음 성공한 공격 기술만 쓸 수 있다.",
+      "new": true
+    },
+    {
+      "index": 20076,
+      "en": "Wonder Skin",
+      "ko": "미라클스킨",
+      "new": true
+    },
+    {
+      "index": 20077,
+      "en": "[CS:E]Wonder Skin[CR]:\n25% chance to negate foes'\nstatus moves aimed at you.",
+      "ko": "[CS:E]미라클스킨[CR]:\n자신을 향한 상대의 변화 기술을 25% 확률로 무효화한다.",
+      "new": true
+    },
+    {
+      "index": 20078,
+      "en": "Wonder Skin II",
+      "ko": "미라클스킨Ⅱ",
+      "new": true
+    },
+    {
+      "index": 20079,
+      "en": "[CS:E]Wonder Skin II[CR]:\n50% chance to negate foes'\nstatus moves aimed at you.",
+      "ko": "[CS:E]미라클스킨Ⅱ[CR]:\n자신을 향한 상대의 변화 기술을 50% 확률로 무효화한다.",
+      "new": true
+    },
+    {
+      "index": 20080,
+      "en": "Wind Rider",
+      "ko": "바람타기",
+      "new": true
+    },
+    {
+      "index": 20081,
+      "en": "[CS:E]Wind Rider[CR]:\nBlocks wind moves; Attack +1\nstage (also when Tailwind first\napplies).",
+      "ko": "[CS:E]바람타기[CR]:\n바람 기술 피해를 막고 공격 +1단계. 순풍이 처음 부여될 때도 +1단계.",
+      "new": true
+    },
+    {
+      "index": 20082,
+      "en": "Wind Rider II",
+      "ko": "바람타기Ⅱ",
+      "new": true
+    },
+    {
+      "index": 20083,
+      "en": "[CS:E]Wind Rider II[CR]:\nBlocks wind moves; Attack +2\nstages (also when Tailwind first\napplies).",
+      "ko": "[CS:E]바람타기Ⅱ[CR]:\n바람 기술 피해를 막고 공격 +2단계. 순풍이 처음 부여될 때도 +2단계.",
+      "new": true
+    },
+    {
+      "index": 20084,
+      "en": "Illuminate",
+      "ko": "발광",
+      "new": true
+    },
+    {
+      "index": 20085,
+      "en": "[CS:E]Illuminate[CR]:\nWhen attacked, a wild Pokémon\nappears in the dungeon.",
+      "ko": "[CS:E]발광[CR]:\n공격을 받으면 던전에 야생 포켓몬이 나타난다.",
+      "new": true
+    },
+    {
+      "index": 20086,
+      "en": "Illuminate II",
+      "ko": "발광Ⅱ",
+      "new": true
+    },
+    {
+      "index": 20087,
+      "en": "[CS:E]Illuminate II[CR]:\nWhen attacked, wild Pokémon\nappear with Atk, Def, Sp. Atk,\nSp. Def -1.",
+      "ko": "[CS:E]발광Ⅱ[CR]:\n공격을 받으면 야생 포켓몬이 나타나며, 공격·방어·특공·특방 −1단계.",
+      "new": true
+    },
+    {
+      "index": 20088,
+      "en": "Berserk",
+      "ko": "발끈",
+      "new": true
+    },
+    {
+      "index": 20089,
+      "en": "[CS:E]Berserk[CR]:\nWhen a foe's attack drops you to\n<=1/2 HP, Sp. Atk +1 (once per\nfloor).",
+      "ko": "[CS:E]발끈[CR]:\n상대 공격으로 HP가 절반 이하가 되면 특수공격 +1단계. 층당 1회.",
+      "new": true
+    },
+    {
+      "index": 20090,
+      "en": "Berserk II",
+      "ko": "발끈Ⅱ",
+      "new": true
+    },
+    {
+      "index": 20091,
+      "en": "[CS:E]Berserk II[CR]:\nWhen a foe's attack drops you to\n<=1/2 HP, Sp. Atk +2 (once per\nfloor).",
+      "ko": "[CS:E]발끈Ⅱ[CR]:\n상대 공격으로 HP가 절반 이하가 되면 특수공격 +2단계. 층당 1회.",
+      "new": true
+    },
+    {
+      "index": 20092,
+      "en": "Soundproof",
+      "ko": "방음",
+      "new": true
+    },
+    {
+      "index": 20093,
+      "en": "[CS:E]Soundproof[CR]:\nImmune to the effects of sound-\nbased moves.",
+      "ko": "[CS:E]방음[CR]:\n소리 기술의 효과를 받지 않는다.",
+      "new": true
+    },
+    {
+      "index": 20094,
+      "en": "Soundproof II",
+      "ko": "방음Ⅱ",
+      "new": true
+    },
+    {
+      "index": 20095,
+      "en": "[CS:E]Soundproof II[CR]:\nSelf and same-room allies are\nimmune to sound moves (not\nhealing/support).",
+      "ko": "[CS:E]방음Ⅱ[CR]:\n같은 방 아군 전체가 소리 기술을 받지 않는다. 회복·보조는 제외.",
+      "new": true
+    },
+    {
+      "index": 20096,
+      "en": "Overcoat",
+      "ko": "방진",
+      "new": true
+    },
+    {
+      "index": 20097,
+      "en": "[CS:E]Overcoat[CR]:\nImmune to weather damage and\npowder moves.",
+      "ko": "[CS:E]방진[CR]:\n날씨 피해와 지정된 가루 기술의 효과를 막는다.",
+      "new": true
+    },
+    {
+      "index": 20098,
+      "en": "Overcoat II",
+      "ko": "방진Ⅱ",
+      "new": true
+    },
+    {
+      "index": 20099,
+      "en": "[CS:E]Overcoat II[CR]:\nSelf and same-room allies are\nimmune to weather damage and\npowder moves.",
+      "ko": "[CS:E]방진Ⅱ[CR]:\n같은 방 아군 전체가 날씨 피해와 가루 기술에 면역.",
+      "new": true
+    },
+    {
+      "index": 20100,
+      "en": "Bulletproof",
+      "ko": "방탄",
+      "new": true
+    },
+    {
+      "index": 20101,
+      "en": "[CS:E]Bulletproof[CR]:\nImmune to designated ball and\nbomb moves.",
+      "ko": "[CS:E]방탄[CR]:\n지정된 탄 기술·투사체 피해를 막는다.",
+      "new": true
+    },
+    {
+      "index": 20102,
+      "en": "Bulletproof II",
+      "ko": "방탄Ⅱ",
+      "new": true
+    },
+    {
+      "index": 20103,
+      "en": "[CS:E]Bulletproof II[CR]:\nImmune to those moves; Def and\nSp. Def +1 stage when blocked.",
+      "ko": "[CS:E]방탄Ⅱ[CR]:\n지정된 탄 기술을 막고, 막으면 방어·특방 +1단계.",
+      "new": true
+    },
+    {
+      "index": 20104,
+      "en": "Scrappy",
+      "ko": "배짱",
+      "new": true
+    },
+    {
+      "index": 20105,
+      "en": "[CS:E]Scrappy[CR]:\nNormal and Fighting moves deal\nmore damage to Ghost types.",
+      "ko": "[CS:E]배짱[CR]:\n고스트타입에게 주는 노말·격투 기술의 피해가 올라간다.",
+      "new": true
+    },
+    {
+      "index": 20106,
+      "en": "Scrappy II",
+      "ko": "배짱Ⅱ",
+      "new": true
+    },
+    {
+      "index": 20107,
+      "en": "[CS:E]Scrappy II[CR]:\nNormal/Fighting moves deal ×1.2\nto Ghost types and still bypass\nimmunity.",
+      "ko": "[CS:E]배짱Ⅱ[CR]:\n고스트타입에게 노말·격투 기술 피해 ×1.2. 고스트 면역은 계속 무시한다.",
+      "new": true
+    },
+    {
+      "index": 20108,
+      "en": "Swarm",
+      "ko": "벌레의알림",
+      "new": true
+    },
+    {
+      "index": 20109,
+      "en": "[CS:E]Swarm[CR]:\nAt HP <=1/4 max, Bug move damage\n×1.5.",
+      "ko": "[CS:E]벌레의알림[CR]:\nHP가 최대의 1/4 이하이면 벌레 기술 피해 ×1.5.",
+      "new": true
+    },
+    {
+      "index": 20110,
+      "en": "Swarm II",
+      "ko": "벌레의알림Ⅱ",
+      "new": true
+    },
+    {
+      "index": 20111,
+      "en": "[CS:E]Swarm II[CR]:\nAt HP <=1/3 max, Bug move damage\n×1.6.",
+      "ko": "[CS:E]벌레의알림Ⅱ[CR]:\nHP가 최대의 1/3 이하이면 벌레 기술 피해 ×1.6.",
+      "new": true
+    },
+    {
+      "index": 20112,
+      "en": "Moody",
+      "ko": "변덕쟁이",
+      "new": true
+    },
+    {
+      "index": 20113,
+      "en": "[CS:E]Moody[CR]:\nOn floor entry, one random stat\n+2 stages and another -1 stage.",
+      "ko": "[CS:E]변덕쟁이[CR]:\n층 입장 시 능력 하나 +2단계, 다른 능력 하나 −1단계.",
+      "new": true
+    },
+    {
+      "index": 20114,
+      "en": "Moody II",
+      "ko": "변덕쟁이Ⅱ",
+      "new": true
+    },
+    {
+      "index": 20115,
+      "en": "[CS:E]Moody II[CR]:\nOn floor entry, one random stat\n+2 stages.",
+      "ko": "[CS:E]변덕쟁이Ⅱ[CR]:\n층 입장 시 무작위 능력 하나 +2단계.",
+      "new": true
+    },
+    {
+      "index": 20116,
+      "en": "Color Change",
+      "ko": "변색",
+      "new": true
+    },
+    {
+      "index": 20117,
+      "en": "[CS:E]Color Change[CR]:\nBecomes the type of the move\nthat hit it.",
+      "ko": "[CS:E]변색[CR]:\n받은 기술과 같은 타입이 된다.",
+      "new": true
+    },
+    {
+      "index": 20118,
+      "en": "Color Change II",
+      "ko": "변색Ⅱ",
+      "new": true
+    },
+    {
+      "index": 20119,
+      "en": "[CS:E]Color Change II[CR]:\nBecomes the hit move's type; own\nmoves of that type deal ×1.2.",
+      "ko": "[CS:E]변색Ⅱ[CR]:\n받은 기술의 타입이 되며, 그 타입의 자신의 기술 피해 ×1.2.",
+      "new": true
+    },
+    {
+      "index": 20120,
+      "en": "Protean",
+      "ko": "변환자재",
+      "new": true
+    },
+    {
+      "index": 20121,
+      "en": "[CS:E]Protean[CR]:\nChanges your type to the type of\nthe move you use.",
+      "ko": "[CS:E]변환자재[CR]:\n사용한 기술의 타입으로 자신의 타입을 바꾼다.",
+      "new": true
+    },
+    {
+      "index": 20122,
+      "en": "Protean II",
+      "ko": "변환자재Ⅱ",
+      "new": true
+    },
+    {
+      "index": 20123,
+      "en": "[CS:E]Protean II[CR]:\nChanges type to the move's; that\nmove deals ×1.2 right after.",
+      "ko": "[CS:E]변환자재Ⅱ[CR]:\n기술의 타입으로 바꾸고, 바꾼 직후 그 기술의 피해 ×1.2.",
+      "new": true
+    },
+    {
+      "index": 20124,
+      "en": "Compound Eyes",
+      "ko": "복안",
+      "new": true
+    },
+    {
+      "index": 20125,
+      "en": "[CS:E]Compound Eyes[CR]:\nAccuracy +1 stage in damage\ncalculation.",
+      "ko": "[CS:E]복안[CR]:\n데미지 계산 시 명중률 +1단계로 계산한다.",
+      "new": true
+    },
+    {
+      "index": 20126,
+      "en": "Compound Eyes II",
+      "ko": "복안Ⅱ",
+      "new": true
+    },
+    {
+      "index": 20127,
+      "en": "[CS:E]Compound Eyes II[CR]:\nAccuracy +2 stages in damage\ncalculation.",
+      "ko": "[CS:E]복안Ⅱ[CR]:\n데미지 계산 시 명중률 +2단계로 계산한다.",
+      "new": true
+    },
+    {
+      "index": 20128,
+      "en": "Levitate",
+      "ko": "부유",
+      "new": true
+    },
+    {
+      "index": 20129,
+      "en": "[CS:E]Levitate[CR]:\nImmune to Ground-type moves.",
+      "ko": "[CS:E]부유[CR]:\n땅타입 기술을 받지 않는다.",
+      "new": true
+    },
+    {
+      "index": 20130,
+      "en": "Levitate II",
+      "ko": "부유Ⅱ",
+      "new": true
+    },
+    {
+      "index": 20131,
+      "en": "[CS:E]Levitate II[CR]:\nImmune to Ground-type moves;\nalways avoids floor traps.",
+      "ko": "[CS:E]부유Ⅱ[CR]:\n땅타입 기술을 받지 않고, 바닥 함정을 100% 피한다.",
+      "new": true
+    },
+    {
+      "index": 20132,
+      "en": "Parental Bond",
+      "ko": "부자유친",
+      "new": true
+    },
+    {
+      "index": 20133,
+      "en": "[CS:E]Parental Bond[CR]:\nAttacks hit twice; second hit\ndeals ×1/4 damage; PP used once.",
+      "ko": "[CS:E]부자유친[CR]:\n공격이 2회 나간다. 2번째는 피해 ×1/4, PP는 1번만 소모.",
+      "new": true
+    },
+    {
+      "index": 20134,
+      "en": "Parental Bond II",
+      "ko": "부자유친Ⅱ",
+      "new": true
+    },
+    {
+      "index": 20135,
+      "en": "[CS:E]Parental Bond II[CR]:\nAttacks hit twice; second hit\ndeals ×1/3 damage; PP used once.",
+      "ko": "[CS:E]부자유친Ⅱ[CR]:\n공격이 2회 나간다. 2번째는 피해 ×1/3, PP는 1번만 소모.",
+      "new": true
+    },
+    {
+      "index": 20136,
+      "en": "Big Pecks",
+      "ko": "부풀린가슴",
+      "new": true
+    },
+    {
+      "index": 20137,
+      "en": "[CS:E]Big Pecks[CR]:\nBlocks foe-caused Defense drops;\nself-inflicted drops apply.",
+      "ko": "[CS:E]부풀린가슴[CR]:\n상대에 의한 방어 저하를 막는다. 자신의 기술로 인한 저하는 받는다.",
+      "new": true
+    },
+    {
+      "index": 20138,
+      "en": "Big Pecks II",
+      "ko": "부풀린가슴Ⅱ",
+      "new": true
+    },
+    {
+      "index": 20139,
+      "en": "[CS:E]Big Pecks II[CR]:\nBlocks Defense drops, including\nself-inflicted ones.",
+      "ko": "[CS:E]부풀린가슴Ⅱ[CR]:\n자신의 기술로 인한 방어 저하까지 모두 막는다.",
+      "new": true
+    },
+    {
+      "index": 20140,
+      "en": "Anger Point",
+      "ko": "분노의경혈",
+      "new": true
+    },
+    {
+      "index": 20141,
+      "en": "[CS:E]Anger Point[CR]:\nAfter taking a critical hit,\nAttack and Sp. Atk +3 stages.",
+      "ko": "[CS:E]분노의경혈[CR]:\n급소에 맞은 뒤 공격·특수공격 +3단계.",
+      "new": true
+    },
+    {
+      "index": 20142,
+      "en": "Anger Point II",
+      "ko": "분노의경혈Ⅱ",
+      "new": true
+    },
+    {
+      "index": 20143,
+      "en": "[CS:E]Anger Point II[CR]:\nAfter taking a critical hit,\nAttack and Sp. Atk +6 stages.",
+      "ko": "[CS:E]분노의경혈Ⅱ[CR]:\n급소에 맞은 뒤 공격·특수공격 +6단계.",
+      "new": true
+    },
+    {
+      "index": 20144,
+      "en": "Wonder Guard",
+      "ko": "불가사의부적",
+      "new": true
+    },
+    {
+      "index": 20145,
+      "en": "[CS:E]Wonder Guard[CR]:\nBlocks damage from moves that\nare not super effective.",
+      "ko": "[CS:E]불가사의부적[CR]:\n효과가 굉장한 기술 외의 기술 피해를 막는다.",
+      "new": true
+    },
+    {
+      "index": 20146,
+      "en": "Wonder Guard II",
+      "ko": "불가사의부적Ⅱ",
+      "new": true
+    },
+    {
+      "index": 20147,
+      "en": "[CS:E]Wonder Guard II[CR]:\nBlocks non-super-effective\ndamage; Atk, Def, Sp. Atk, Sp.\nDef, Speed +1 stage.",
+      "ko": "[CS:E]불가사의부적Ⅱ[CR]:\n효과가 굉장하지 않은 피해를 막고, 모든 능력 +1단계.",
+      "new": true
+    },
+    {
+      "index": 20148,
+      "en": "Steadfast",
+      "ko": "불굴의마음",
+      "new": true
+    },
+    {
+      "index": 20149,
+      "en": "[CS:E]Steadfast[CR]:\nSpeed +1 stage when\nhallucinating or flinched.",
+      "ko": "[CS:E]불굴의마음[CR]:\n환각·풀죽음 상태가 되면 스피드 +1단계.",
+      "new": true
+    },
+    {
+      "index": 20150,
+      "en": "Steadfast II",
+      "ko": "불굴의마음Ⅱ",
+      "new": true
+    },
+    {
+      "index": 20151,
+      "en": "[CS:E]Steadfast II[CR]:\nSpeed +2 stages when\nhallucinating or flinched.",
+      "ko": "[CS:E]불굴의마음Ⅱ[CR]:\n환각·풀죽음 상태가 되면 스피드 +2단계.",
+      "new": true
+    },
+    {
+      "index": 20152,
+      "en": "Flame Body",
+      "ko": "불꽃몸",
+      "new": true
+    },
+    {
+      "index": 20153,
+      "en": "[CS:E]Flame Body[CR]:\nAdjacent hit: 12% chance to burn\nthe attacker.",
+      "ko": "[CS:E]불꽃몸[CR]:\n인접 공격을 받으면 12% 확률로 공격자를 화상 상태로 만든다.",
+      "new": true
+    },
+    {
+      "index": 20154,
+      "en": "Flame Body II",
+      "ko": "불꽃몸Ⅱ",
+      "new": true
+    },
+    {
+      "index": 20155,
+      "en": "[CS:E]Flame Body II[CR]:\nAdjacent hit: 20% chance to burn\nthe attacker.",
+      "ko": "[CS:E]불꽃몸Ⅱ[CR]:\n인접 공격을 받으면 20% 확률로 공격자를 화상 상태로 만든다.",
+      "new": true
+    },
+    {
+      "index": 20156,
+      "en": "Fire Mane",
+      "ko": "불꽃의갈기",
+      "new": true
+    },
+    {
+      "index": 20157,
+      "en": "[CS:E]Fire Mane[CR]:\nOwn Fire move damage ×1.2.",
+      "ko": "[CS:E]불꽃의갈기[CR]:\n자신의 불꽃 기술 피해 ×1.2.",
+      "new": true
+    },
+    {
+      "index": 20158,
+      "en": "Fire Mane II",
+      "ko": "불꽃의갈기Ⅱ",
+      "new": true
+    },
+    {
+      "index": 20159,
+      "en": "[CS:E]Fire Mane II[CR]:\nOwn Fire move damage ×1.3.",
+      "ko": "[CS:E]불꽃의갈기Ⅱ[CR]:\n자신의 불꽃 기술 피해 ×1.3.",
+      "new": true
+    },
+    {
+      "index": 20160,
+      "en": "Insomnia",
+      "ko": "불면",
+      "new": true
+    },
+    {
+      "index": 20161,
+      "en": "[CS:E]Insomnia[CR]:\nCannot fall asleep.",
+      "ko": "[CS:E]불면[CR]:\n잠들지 않는다.",
+      "new": true
+    },
+    {
+      "index": 20162,
+      "en": "Insomnia II",
+      "ko": "불면Ⅱ",
+      "new": true
+    },
+    {
+      "index": 20163,
+      "en": "[CS:E]Insomnia II[CR]:\nSelf and same-room allies cannot\nfall asleep.",
+      "ko": "[CS:E]불면Ⅱ[CR]:\n자신과 같은 방 아군 전체가 잠들지 않는다.",
+      "new": true
+    },
+    {
+      "index": 20164,
+      "en": "Tinted Lens",
+      "ko": "색안경",
+      "new": true
+    },
+    {
+      "index": 20165,
+      "en": "[CS:E]Tinted Lens[CR]:\nNot-very-effective moves get an\nextra ×1.2 damage.",
+      "ko": "[CS:E]색안경[CR]:\n효과가 별로인 기술의 피해에 ×1.2 보정.",
+      "new": true
+    },
+    {
+      "index": 20166,
+      "en": "Tinted Lens II",
+      "ko": "색안경Ⅱ",
+      "new": true
+    },
+    {
+      "index": 20167,
+      "en": "[CS:E]Tinted Lens II[CR]:\nNot-very-effective moves get an\nextra ×1.3 damage.",
+      "ko": "[CS:E]색안경Ⅱ[CR]:\n효과가 별로인 기술의 피해에 ×1.3 보정.",
+      "new": true
+    },
+    {
+      "index": 20168,
+      "en": "Solar Power",
+      "ko": "선파워",
+      "new": true
+    },
+    {
+      "index": 20169,
+      "en": "[CS:E]Solar Power[CR]:\nSp. Atk +2 stages in sun; lose\nabout 1/16 max HP each tick.",
+      "ko": "[CS:E]선파워[CR]:\n햇살에서 특수공격 +2단계. 매 처리 최대 HP의 약 1/16 피해.",
+      "new": true
+    },
+    {
+      "index": 20170,
+      "en": "Solar Power II",
+      "ko": "선파워Ⅱ",
+      "new": true
+    },
+    {
+      "index": 20171,
+      "en": "[CS:E]Solar Power II[CR]:\nSp. Atk +3 stages in sun; lose\nabout 1/16 max HP each tick.",
+      "ko": "[CS:E]선파워Ⅱ[CR]:\n햇살에서 특수공격 +3단계. 매 처리 최대 HP의 약 1/16 피해.",
+      "new": true
+    },
+    {
+      "index": 20172,
+      "en": "Soul-Heart",
+      "ko": "소울하트",
+      "new": true
+    },
+    {
+      "index": 20173,
+      "en": "[CS:E]Soul-Heart[CR]:\nWhen another Pokémon faints in\nthe room, Sp. Atk +1 stage.",
+      "ko": "[CS:E]소울하트[CR]:\n같은 방에서 다른 포켓몬이 쓰러지면 특수공격 +1단계.",
+      "new": true
+    },
+    {
+      "index": 20174,
+      "en": "Soul-Heart II",
+      "ko": "소울하트Ⅱ",
+      "new": true
+    },
+    {
+      "index": 20175,
+      "en": "[CS:E]Soul-Heart II[CR]:\nWhen another Pokémon faints in\nthe room, Sp. Atk +2 stages.",
+      "ko": "[CS:E]소울하트Ⅱ[CR]:\n같은 방에서 다른 포켓몬이 쓰러지면 특수공격 +2단계.",
+      "new": true
+    },
+    {
+      "index": 20176,
+      "en": "Quick Feet",
+      "ko": "속보",
+      "new": true
+    },
+    {
+      "index": 20177,
+      "en": "[CS:E]Quick Feet[CR]:\nSpeed +1 stage when afflicted\nwith a bad status.",
+      "ko": "[CS:E]속보[CR]:\n해당 나쁜 상태가 되면 스피드 +1단계.",
+      "new": true
+    },
+    {
+      "index": 20178,
+      "en": "Quick Feet II",
+      "ko": "속보Ⅱ",
+      "new": true
+    },
+    {
+      "index": 20179,
+      "en": "[CS:E]Quick Feet II[CR]:\nSpeed +2 stages when afflicted\nwith a bad status.",
+      "ko": "[CS:E]속보Ⅱ[CR]:\n해당 나쁜 상태가 되면 스피드 +2단계.",
+      "new": true
+    },
+    {
+      "index": 20180,
+      "en": "Water Veil",
+      "ko": "수의베일",
+      "new": true
+    },
+    {
+      "index": 20181,
+      "en": "[CS:E]Water Veil[CR]:\nPrevents burns.",
+      "ko": "[CS:E]수의베일[CR]:\n화상 상태가 되지 않는다.",
+      "new": true
+    },
+    {
+      "index": 20182,
+      "en": "Water Veil II",
+      "ko": "수의베일Ⅱ",
+      "new": true
+    },
+    {
+      "index": 20183,
+      "en": "[CS:E]Water Veil II[CR]:\nSelf and same-room allies cannot\nbe burned.",
+      "ko": "[CS:E]수의베일Ⅱ[CR]:\n자신과 같은 방 아군 전체가 화상 상태가 되지 않는다.",
+      "new": true
+    },
+    {
+      "index": 20184,
+      "en": "Harvest",
+      "ko": "수확",
+      "new": true
+    },
+    {
+      "index": 20185,
+      "en": "[CS:E]Harvest[CR]:\n12% chance a berry isn't\nconsumed when eaten (25% in\nsun).",
+      "ko": "[CS:E]수확[CR]:\n열매를 먹을 때 12% 확률로 소모하지 않는다. (햇살에서 25%)",
+      "new": true
+    },
+    {
+      "index": 20186,
+      "en": "Harvest II",
+      "ko": "수확Ⅱ",
+      "new": true
+    },
+    {
+      "index": 20187,
+      "en": "[CS:E]Harvest II[CR]:\n20% chance a berry isn't\nconsumed when eaten (40% in\nsun).",
+      "ko": "[CS:E]수확Ⅱ[CR]:\n열매를 먹을 때 20% 확률로 소모하지 않는다. (햇살에서 40%)",
+      "new": true
+    },
+    {
+      "index": 20188,
+      "en": "Pure Power",
+      "ko": "순수한힘",
+      "new": true
+    },
+    {
+      "index": 20189,
+      "en": "[CS:E]Pure Power[CR]:\nPhysical move Attack ×1.2 (not\nspecial or fixed damage).",
+      "ko": "[CS:E]순수한힘[CR]:\n물리 기술의 공격 계산값 ×1.2. (특수·고정 피해는 제외)",
+      "new": true
+    },
+    {
+      "index": 20190,
+      "en": "Pure Power II",
+      "ko": "순수한힘Ⅱ",
+      "new": true
+    },
+    {
+      "index": 20191,
+      "en": "[CS:E]Pure Power II[CR]:\nPhysical move Attack ×1.3 (not\nspecial or fixed damage).",
+      "ko": "[CS:E]순수한힘Ⅱ[CR]:\n물리 기술의 공격 계산값 ×1.3. (특수·고정 피해는 제외)",
+      "new": true
+    },
+    {
+      "index": 20192,
+      "en": "Sniper",
+      "ko": "스나이퍼",
+      "new": true
+    },
+    {
+      "index": 20193,
+      "en": "[CS:E]Sniper[CR]:\nCritical hit damage ×2 (×1.2 vs\nCritical Dodger).",
+      "ko": "[CS:E]스나이퍼[CR]:\n급소 피해 배율 ×2. (Critical Dodger 상대는 ×1.2)",
+      "new": true
+    },
+    {
+      "index": 20194,
+      "en": "Sniper II",
+      "ko": "스나이퍼Ⅱ",
+      "new": true
+    },
+    {
+      "index": 20195,
+      "en": "[CS:E]Sniper II[CR]:\nCritical hit damage ×2.5 (×1.3\nvs Critical Dodger).",
+      "ko": "[CS:E]스나이퍼Ⅱ[CR]:\n급소 피해 배율 ×2.5. (Critical Dodger 상대는 ×1.3)",
+      "new": true
+    },
+    {
+      "index": 20196,
+      "en": "Sweet Veil",
+      "ko": "스위트베일",
+      "new": true
+    },
+    {
+      "index": 20197,
+      "en": "[CS:E]Sweet Veil[CR]:\nBlocks sleep and yawn on room\nallies; existing sleep stays.",
+      "ko": "[CS:E]스위트베일[CR]:\n같은 방 동료에게 수면·하품이 새로 걸리지 않는다.",
+      "new": true
+    },
+    {
+      "index": 20198,
+      "en": "Sweet Veil II",
+      "ko": "스위트베일Ⅱ",
+      "new": true
+    },
+    {
+      "index": 20199,
+      "en": "[CS:E]Sweet Veil II[CR]:\nBlocks sleep/yawn on room allies\nand reflects the attempts at\nfoes.",
+      "ko": "[CS:E]스위트베일Ⅱ[CR]:\n같은 방 동료를 지키고, 시도한 상대에게 수면·하품을 반사한다.",
+      "new": true
+    },
+    {
+      "index": 20200,
+      "en": "Aerilate",
+      "ko": "스카이스킨",
+      "new": true
+    },
+    {
+      "index": 20201,
+      "en": "[CS:E]Aerilate[CR]:\nNormal moves become Flying-type\nwith damage ×1.2.",
+      "ko": "[CS:E]스카이스킨[CR]:\n노말 기술을 비행타입으로 바꾸고 피해 ×1.2.",
+      "new": true
+    },
+    {
+      "index": 20202,
+      "en": "Aerilate II",
+      "ko": "스카이스킨Ⅱ",
+      "new": true
+    },
+    {
+      "index": 20203,
+      "en": "[CS:E]Aerilate II[CR]:\nNormal moves become Flying-type\nwith damage ×1.3.",
+      "ko": "[CS:E]스카이스킨Ⅱ[CR]:\n노말 기술을 비행타입으로 바꾸고 피해 ×1.3.",
+      "new": true
+    },
+    {
+      "index": 20204,
+      "en": "Skill Link",
+      "ko": "스킬링크",
+      "new": true
+    },
+    {
+      "index": 20205,
+      "en": "[CS:E]Skill Link[CR]:\nMulti-hit moves always use max\nhits (5); accuracy not\nguaranteed.",
+      "ko": "[CS:E]스킬링크[CR]:\n다단히트 기술이 항상 최대 타수로 나간다. 명중은 보장하지 않는다.",
+      "new": true
+    },
+    {
+      "index": 20206,
+      "en": "Skill Link II",
+      "ko": "스킬링크Ⅱ",
+      "new": true
+    },
+    {
+      "index": 20207,
+      "en": "[CS:E]Skill Link II[CR]:\nMulti-hit moves hit max times;\neach hit's accuracy ×1.2.",
+      "ko": "[CS:E]스킬링크Ⅱ[CR]:\n다단히트 기술이 최대 타수로 나가고, 각 타격의 명중률 ×1.2.",
+      "new": true
+    },
+    {
+      "index": 20208,
+      "en": "Slow Start",
+      "ko": "슬로스타트",
+      "new": true
+    },
+    {
+      "index": 20209,
+      "en": "[CS:E]Slow Start[CR]:\nSpeed -3 stages at the start of\na floor.",
+      "ko": "[CS:E]슬로스타트[CR]:\n플로어 시작 시 스피드 −3단계.",
+      "new": true
+    },
+    {
+      "index": 20210,
+      "en": "Slow Start II",
+      "ko": "슬로스타트Ⅱ",
+      "new": true
+    },
+    {
+      "index": 20211,
+      "en": "[CS:E]Slow Start II[CR]:\nSpeed -2 stages at the start of\na floor.",
+      "ko": "[CS:E]슬로스타트Ⅱ[CR]:\n플로어 시작 시 스피드 −2단계.",
+      "new": true
+    },
+    {
+      "index": 20212,
+      "en": "Damp",
+      "ko": "습기",
+      "new": true
+    },
+    {
+      "index": 20213,
+      "en": "[CS:E]Damp[CR]:\nPrevents explosions on floors\nwith Damp Pokémon.",
+      "ko": "[CS:E]습기[CR]:\n습기 포켓몬이 있는 플로어에서 폭발이 일어나지 않는다.",
+      "new": true
+    },
+    {
+      "index": 20214,
+      "en": "Damp II",
+      "ko": "습기Ⅱ",
+      "new": true
+    },
+    {
+      "index": 20215,
+      "en": "[CS:E]Damp II[CR]:\nPrevents explosions on the\nfloor; own Water move damage\n×1.2.",
+      "ko": "[CS:E]습기Ⅱ[CR]:\n플로어에서 폭발이 일어나지 않는다. 자신의 물 기술 피해 ×1.2.",
+      "new": true
+    },
+    {
+      "index": 20216,
+      "en": "Competitive",
+      "ko": "승기",
+      "new": true
+    },
+    {
+      "index": 20217,
+      "en": "[CS:E]Competitive[CR]:\nWhen foes lower your stats, Sp.\nAtk +2 stages.",
+      "ko": "[CS:E]승기[CR]:\n상대에게 능력이 내려가면 특수공격 +2단계.",
+      "new": true
+    },
+    {
+      "index": 20218,
+      "en": "Competitive II",
+      "ko": "승기Ⅱ",
+      "new": true
+    },
+    {
+      "index": 20219,
+      "en": "[CS:E]Competitive II[CR]:\nWhen foes lower your stats, Sp.\nAtk +3 stages.",
+      "ko": "[CS:E]승기Ⅱ[CR]:\n상대에게 능력이 내려가면 특수공격 +3단계.",
+      "new": true
+    },
+    {
+      "index": 20220,
+      "en": "Stall",
+      "ko": "시간벌기",
+      "new": true
+    },
+    {
+      "index": 20221,
+      "en": "[CS:E]Stall[CR]:\nDamage taken multiplier is ×0.8.",
+      "ko": "[CS:E]시간벌기[CR]:\n받는 피해 계수가 0.8이 된다.",
+      "new": true
+    },
+    {
+      "index": 20222,
+      "en": "Stall II",
+      "ko": "시간벌기Ⅱ",
+      "new": true
+    },
+    {
+      "index": 20223,
+      "en": "[CS:E]Stall II[CR]:\nDamage taken multiplier is ×0.7.",
+      "ko": "[CS:E]시간벌기Ⅱ[CR]:\n받는 피해 계수가 0.7이 된다.",
+      "new": true
+    },
+    {
+      "index": 20224,
+      "en": "Primordial Sea",
+      "ko": "시작의바다",
+      "new": true
+    },
+    {
+      "index": 20225,
+      "en": "[CS:E]Primordial Sea[CR]:\nOn floor entry, heavy rain\n(Water ×1.5, Fire blocked);\npersists.",
+      "ko": "[CS:E]시작의바다[CR]:\n층 입장 시 큰비. 물 기술 ×1.5, 불꽃 기술 무효. 덮어쓰기 불가.",
+      "new": true
+    },
+    {
+      "index": 20226,
+      "en": "Primordial Sea II",
+      "ko": "시작의바다Ⅱ",
+      "new": true
+    },
+    {
+      "index": 20227,
+      "en": "[CS:E]Primordial Sea II[CR]:\nOn floor entry, makes the\nweather heavy rain; can't be\noverwritten.",
+      "ko": "[CS:E]시작의바다Ⅱ[CR]:\n층 입장 시 날씨를 강한 비로 만든다. 일반 날씨로 덮어쓸 수 없다.",
+      "new": true
+    },
+    {
+      "index": 20228,
+      "en": "Overgrow",
+      "ko": "심록",
+      "new": true
+    },
+    {
+      "index": 20229,
+      "en": "[CS:E]Overgrow[CR]:\nAt HP <=1/4 max, Grass move\ndamage ×1.5.",
+      "ko": "[CS:E]심록[CR]:\nHP가 최대의 1/4 이하이면 풀 기술 피해 ×1.5.",
+      "new": true
+    },
+    {
+      "index": 20230,
+      "en": "Overgrow II",
+      "ko": "심록Ⅱ",
+      "new": true
+    },
+    {
+      "index": 20231,
+      "en": "[CS:E]Overgrow II[CR]:\nAt HP <=1/3 max, Grass move\ndamage ×1.6.",
+      "ko": "[CS:E]심록Ⅱ[CR]:\nHP가 최대의 1/3 이하이면 풀 기술 피해 ×1.6.",
+      "new": true
+    },
+    {
+      "index": 20232,
+      "en": "Contrary",
+      "ko": "심술꾸러기",
+      "new": true
+    },
+    {
+      "index": 20233,
+      "en": "[CS:E]Contrary[CR]:\nReverses the direction of stat\nstage changes.",
+      "ko": "[CS:E]심술꾸러기[CR]:\n능력 변화의 상승·하락 방향을 반전한다.",
+      "new": true
+    },
+    {
+      "index": 20234,
+      "en": "Contrary II",
+      "ko": "심술꾸러기Ⅱ",
+      "new": true
+    },
+    {
+      "index": 20235,
+      "en": "[CS:E]Contrary II[CR]:\nReverses stat changes; inverted\ndrops become boosts of ×2 size.",
+      "ko": "[CS:E]심술꾸러기Ⅱ[CR]:\n능력 변화를 반전하고, 저하가 상승으로 바뀔 때 상승량이 ×2.",
+      "new": true
+    },
+    {
+      "index": 20236,
+      "en": "Synchronize",
+      "ko": "싱크로",
+      "new": true
+    },
+    {
+      "index": 20237,
+      "en": "[CS:E]Synchronize[CR]:\nPasses poison, burn, paralysis\netc. to an adjacent foe.",
+      "ko": "[CS:E]싱크로[CR]:\n독·화상·마비 등의 상태를 인접 상대에게 전달한다.",
+      "new": true
+    },
+    {
+      "index": 20238,
+      "en": "Synchronize II",
+      "ko": "싱크로Ⅱ",
+      "new": true
+    },
+    {
+      "index": 20239,
+      "en": "[CS:E]Synchronize II[CR]:\nPasses status to adjacent foe;\nreflects 1/4 of damage taken to\nit.",
+      "ko": "[CS:E]싱크로Ⅱ[CR]:\n상태를 인접 상대에게 전달하고, 받는 피해의 1/4을 상대에게 전달한다.",
+      "new": true
+    },
+    {
+      "index": 20240,
+      "en": "Swift Swim",
+      "ko": "쓱쓱",
+      "new": true
+    },
+    {
+      "index": 20241,
+      "en": "[CS:E]Swift Swim[CR]:\nSpeed +2 stages in rain.",
+      "ko": "[CS:E]쓱쓱[CR]:\n비에서 스피드 +2단계.",
+      "new": true
+    },
+    {
+      "index": 20242,
+      "en": "Swift Swim II",
+      "ko": "쓱쓱Ⅱ",
+      "new": true
+    },
+    {
+      "index": 20243,
+      "en": "[CS:E]Swift Swim II[CR]:\nSpeed +3 stages in rain.",
+      "ko": "[CS:E]쓱쓱Ⅱ[CR]:\n비에서 스피드 +3단계.",
+      "new": true
+    },
+    {
+      "index": 20244,
+      "en": "Aroma Veil",
+      "ko": "아로마베일",
+      "new": true
+    },
+    {
+      "index": 20245,
+      "en": "[CS:E]Aroma Veil[CR]:\nBlocks infatuation, Taunt,\nEncore and Disable on room\nallies.",
+      "ko": "[CS:E]아로마베일[CR]:\n같은 방 동료의 헤롱헤롱·도발·앙코르·봉인 상태를 막는다.",
+      "new": true
+    },
+    {
+      "index": 20246,
+      "en": "Aroma Veil II",
+      "ko": "아로마베일Ⅱ",
+      "new": true
+    },
+    {
+      "index": 20247,
+      "en": "[CS:E]Aroma Veil II[CR]:\nBlocks those on room allies and\nreflects the attempts back at\nfoes.",
+      "ko": "[CS:E]아로마베일Ⅱ[CR]:\n같은 방 동료를 지키고, 시도한 적에게 해당 상태를 반사한다.",
+      "new": true
+    },
+    {
+      "index": 20248,
+      "en": "Ice Body",
+      "ko": "아이스바디",
+      "new": true
+    },
+    {
+      "index": 20249,
+      "en": "[CS:E]Ice Body[CR]:\nIn snow, natural HP regen\ndenominator ÷2.",
+      "ko": "[CS:E]아이스바디[CR]:\n설경에서 자연 HP 회복의 분모를 1/2로 줄인다.",
+      "new": true
+    },
+    {
+      "index": 20250,
+      "en": "Ice Body II",
+      "ko": "아이스바디Ⅱ",
+      "new": true
+    },
+    {
+      "index": 20251,
+      "en": "[CS:E]Ice Body II[CR]:\nIn snow, natural HP regen\ndenominator ÷4.",
+      "ko": "[CS:E]아이스바디Ⅱ[CR]:\n설경에서 자연 HP 회복의 분모를 1/4로 줄인다.",
+      "new": true
+    },
+    {
+      "index": 20252,
+      "en": "Stench",
+      "ko": "악취",
+      "new": true
+    },
+    {
+      "index": 20253,
+      "en": "[CS:E]Stench[CR]:\n12% chance to make adjacent\nattackers flee; own melee\nphysical hits 12% flinch.",
+      "ko": "[CS:E]악취[CR]:\n인접 공격자를 12% 확률로 도주시킨다. 근접 물리 기술 명중 시 12% 확률로 풀죽음.",
+      "new": true
+    },
+    {
+      "index": 20254,
+      "en": "Stench II",
+      "ko": "악취Ⅱ",
+      "new": true
+    },
+    {
+      "index": 20255,
+      "en": "[CS:E]Stench II[CR]:\n20% chance to make adjacent\nattackers flee; own melee\nphysical hits 20% flinch.",
+      "ko": "[CS:E]악취Ⅱ[CR]:\n인접 공격자를 20% 확률로 도주시킨다. 근접 물리 기술 명중 시 20% 확률로 풀죽음.",
+      "new": true
+    },
+    {
+      "index": 20256,
+      "en": "Analytic",
+      "ko": "애널라이즈",
+      "new": true
+    },
+    {
+      "index": 20257,
+      "en": "[CS:E]Analytic[CR]:\nRanged moves (range IDs 4, 5, 9)\ndeal ×1.2 damage.",
+      "ko": "[CS:E]애널라이즈[CR]:\n범위 ID 4·5·9인 원거리 기술의 피해 ×1.2.",
+      "new": true
+    },
+    {
+      "index": 20258,
+      "en": "Analytic II",
+      "ko": "애널라이즈Ⅱ",
+      "new": true
+    },
+    {
+      "index": 20259,
+      "en": "[CS:E]Analytic II[CR]:\nRanged moves (range IDs 4, 5, 9)\ndeal ×1.3 damage.",
+      "ko": "[CS:E]애널라이즈Ⅱ[CR]:\n범위 ID 4·5·9인 원거리 기술의 피해 ×1.3.",
+      "new": true
+    },
+    {
+      "index": 20260,
+      "en": "Queenly Majesty",
+      "ko": "여왕의위엄",
+      "new": true
+    },
+    {
+      "index": 20261,
+      "en": "[CS:E]Queenly Majesty[CR]:\nBlocks moves with a 2-tile or\nstraight-line range.",
+      "ko": "[CS:E]여왕의위엄[CR]:\n범위가 2칸 또는 직선인 기술을 막는다.",
+      "new": true
+    },
+    {
+      "index": 20262,
+      "en": "Queenly Majesty II",
+      "ko": "여왕의위엄Ⅱ",
+      "new": true
+    },
+    {
+      "index": 20263,
+      "en": "[CS:E]Queenly Majesty II[CR]:\nBlocks those moves; Defense and\nSp. Def +1 stage.",
+      "ko": "[CS:E]여왕의위엄Ⅱ[CR]:\n해당 기술을 막고, 방어·특수방어 +1단계.",
+      "new": true
+    },
+    {
+      "index": 20264,
+      "en": "Flare Boost",
+      "ko": "열폭주",
+      "new": true
+    },
+    {
+      "index": 20265,
+      "en": "[CS:E]Flare Boost[CR]:\nWhile burned, special move\ndamage ×1.5.",
+      "ko": "[CS:E]열폭주[CR]:\n화상 상태에서 특수 기술 피해 ×1.5.",
+      "new": true
+    },
+    {
+      "index": 20266,
+      "en": "Flare Boost II",
+      "ko": "열폭주Ⅱ",
+      "new": true
+    },
+    {
+      "index": 20267,
+      "en": "[CS:E]Flare Boost II[CR]:\nWhile burned, special move\ndamage ×1.6.",
+      "ko": "[CS:E]열폭주Ⅱ[CR]:\n화상 상태에서 특수 기술 피해 ×1.6.",
+      "new": true
+    },
+    {
+      "index": 20268,
+      "en": "Chlorophyll",
+      "ko": "엽록소",
+      "new": true
+    },
+    {
+      "index": 20269,
+      "en": "[CS:E]Chlorophyll[CR]:\nSpeed +2 stages in sunlight.",
+      "ko": "[CS:E]엽록소[CR]:\n햇살에서 스피드 +2단계.",
+      "new": true
+    },
+    {
+      "index": 20270,
+      "en": "Chlorophyll II",
+      "ko": "엽록소Ⅱ",
+      "new": true
+    },
+    {
+      "index": 20271,
+      "en": "[CS:E]Chlorophyll II[CR]:\nSpeed +3 stages in sunlight.",
+      "ko": "[CS:E]엽록소Ⅱ[CR]:\n햇살에서 스피드 +3단계.",
+      "new": true
+    },
+    {
+      "index": 20272,
+      "en": "Sharpness",
+      "ko": "예리함",
+      "new": true
+    },
+    {
+      "index": 20273,
+      "en": "[CS:E]Sharpness[CR]:\nListed slicing moves deal ×1.2\ndamage.",
+      "ko": "[CS:E]예리함[CR]:\n목록의 베기 기술 피해 ×1.2.",
+      "new": true
+    },
+    {
+      "index": 20274,
+      "en": "Sharpness II",
+      "ko": "예리함Ⅱ",
+      "new": true
+    },
+    {
+      "index": 20275,
+      "en": "[CS:E]Sharpness II[CR]:\nListed slicing moves deal ×1.3\ndamage.",
+      "ko": "[CS:E]예리함Ⅱ[CR]:\n목록의 베기 기술 피해 ×1.3.",
+      "new": true
+    },
+    {
+      "index": 20276,
+      "en": "Forewarn",
+      "ko": "예지몽",
+      "new": true
+    },
+    {
+      "index": 20277,
+      "en": "[CS:E]Forewarn[CR]:\n12% chance that incoming moves\nmiss.",
+      "ko": "[CS:E]예지몽[CR]:\n회피 판정에서 12% 확률로 기술을 빗나가게 한다.",
+      "new": true
+    },
+    {
+      "index": 20278,
+      "en": "Forewarn II",
+      "ko": "예지몽Ⅱ",
+      "new": true
+    },
+    {
+      "index": 20279,
+      "en": "[CS:E]Forewarn II[CR]:\n20% chance that incoming moves\nmiss.",
+      "ko": "[CS:E]예지몽Ⅱ[CR]:\n회피 판정에서 20% 확률로 기술을 빗나가게 한다.",
+      "new": true
+    },
+    {
+      "index": 20280,
+      "en": "Defiant",
+      "ko": "오기",
+      "new": true
+    },
+    {
+      "index": 20281,
+      "en": "[CS:E]Defiant[CR]:\nWhen foes lower your stats,\nAttack +2 stages.",
+      "ko": "[CS:E]오기[CR]:\n상대에게 능력이 내려가면 공격 +2단계.",
+      "new": true
+    },
+    {
+      "index": 20282,
+      "en": "Defiant II",
+      "ko": "오기Ⅱ",
+      "new": true
+    },
+    {
+      "index": 20283,
+      "en": "[CS:E]Defiant II[CR]:\nWhen foes lower your stats,\nAttack +3 stages.",
+      "ko": "[CS:E]오기Ⅱ[CR]:\n상대에게 능력이 내려가면 공격 +3단계.",
+      "new": true
+    },
+    {
+      "index": 20284,
+      "en": "Strong Jaw",
+      "ko": "옹골찬턱",
+      "new": true
+    },
+    {
+      "index": 20285,
+      "en": "[CS:E]Strong Jaw[CR]:\nListed biting moves deal ×1.2\ndamage.",
+      "ko": "[CS:E]옹골찬턱[CR]:\n목록의 물기 기술 피해 ×1.2.",
+      "new": true
+    },
+    {
+      "index": 20286,
+      "en": "Strong Jaw II",
+      "ko": "옹골찬턱Ⅱ",
+      "new": true
+    },
+    {
+      "index": 20287,
+      "en": "[CS:E]Strong Jaw II[CR]:\nListed biting moves deal ×1.3\ndamage.",
+      "ko": "[CS:E]옹골찬턱Ⅱ[CR]:\n목록의 물기 기술 피해 ×1.3.",
+      "new": true
+    },
+    {
+      "index": 20288,
+      "en": "Sturdy",
+      "ko": "옹골참",
+      "new": true
+    },
+    {
+      "index": 20289,
+      "en": "[CS:E]Sturdy[CR]:\nSurvives lethal hits at full HP\nwith 1 HP; blocks one-hit KO\nmoves.",
+      "ko": "[CS:E]옹골참[CR]:\n최대 HP에서 쓰러질 공격을 HP 1로 버틴다. 일격필살 기술을 막는다.",
+      "new": true
+    },
+    {
+      "index": 20290,
+      "en": "Sturdy II",
+      "ko": "옹골참Ⅱ",
+      "new": true
+    },
+    {
+      "index": 20291,
+      "en": "[CS:E]Sturdy II[CR]:\nSame as base; also 10% chance to\nsurvive any lethal hit with 1\nHP.",
+      "ko": "[CS:E]옹골참Ⅱ[CR]:\n기본 효과에 더해, 최대 HP가 아니어도 10% 확률로 HP 1로 버틴다.",
+      "new": true
+    },
+    {
+      "index": 20292,
+      "en": "Dragon's Maw",
+      "ko": "용의턱",
+      "new": true
+    },
+    {
+      "index": 20293,
+      "en": "[CS:E]Dragon's Maw[CR]:\nOwn Dragon move damage ×1.2.",
+      "ko": "[CS:E]용의턱[CR]:\n자신의 드래곤 기술 피해 ×1.2.",
+      "new": true
+    },
+    {
+      "index": 20294,
+      "en": "Dragon's Maw II",
+      "ko": "용의턱Ⅱ",
+      "new": true
+    },
+    {
+      "index": 20295,
+      "en": "[CS:E]Dragon's Maw II[CR]:\nOwn Dragon move damage ×1.3.",
+      "ko": "[CS:E]용의턱Ⅱ[CR]:\n자신의 드래곤 기술 피해 ×1.3.",
+      "new": true
+    },
+    {
+      "index": 20296,
+      "en": "Sheer Force",
+      "ko": "우격다짐",
+      "new": true
+    },
+    {
+      "index": 20297,
+      "en": "[CS:E]Sheer Force[CR]:\nRemoves extra effects of own\nmoves; those moves deal ×1.2.",
+      "ko": "[CS:E]우격다짐[CR]:\n자신의 기술의 추가 효과를 없애고, 그 기술의 피해 ×1.2.",
+      "new": true
+    },
+    {
+      "index": 20298,
+      "en": "Sheer Force II",
+      "ko": "우격다짐Ⅱ",
+      "new": true
+    },
+    {
+      "index": 20299,
+      "en": "[CS:E]Sheer Force II[CR]:\nRemoves extra effects of own\nmoves; those moves deal ×1.3.",
+      "ko": "[CS:E]우격다짐Ⅱ[CR]:\n자신의 기술의 추가 효과를 없애고, 그 기술의 피해 ×1.3.",
+      "new": true
+    },
+    {
+      "index": 20300,
+      "en": "Anticipation",
+      "ko": "위험예지",
+      "new": true
+    },
+    {
+      "index": 20301,
+      "en": "[CS:E]Anticipation[CR]:\nIf a foe has a super-effective\nmove on you, damage multiplier\n×1.5.",
+      "ko": "[CS:E]위험예지[CR]:\n상대가 효과가 굉장한 기술을 가지면 피해 계수 ×1.5.",
+      "new": true
+    },
+    {
+      "index": 20302,
+      "en": "Anticipation II",
+      "ko": "위험예지Ⅱ",
+      "new": true
+    },
+    {
+      "index": 20303,
+      "en": "[CS:E]Anticipation II[CR]:\nIf a foe has a super-effective\nmove on you, damage multiplier\n×1.6.",
+      "ko": "[CS:E]위험예지Ⅱ[CR]:\n상대가 효과가 굉장한 기술을 가지면 피해 계수 ×1.6.",
+      "new": true
+    },
+    {
+      "index": 20304,
+      "en": "Intimidate",
+      "ko": "위협",
+      "new": true
+    },
+    {
+      "index": 20305,
+      "en": "[CS:E]Intimidate[CR]:\nSame-room foes' physical Attack\n×0.8.",
+      "ko": "[CS:E]위협[CR]:\n같은 방 상대의 물리 공격 계산값 ×0.8.",
+      "new": true
+    },
+    {
+      "index": 20306,
+      "en": "Intimidate II",
+      "ko": "위협Ⅱ",
+      "new": true
+    },
+    {
+      "index": 20307,
+      "en": "[CS:E]Intimidate II[CR]:\nSame-room foes' physical Attack\n×0.7.",
+      "ko": "[CS:E]위협Ⅱ[CR]:\n같은 방 상대의 물리 공격 계산값 ×0.7.",
+      "new": true
+    },
+    {
+      "index": 20308,
+      "en": "Limber",
+      "ko": "유연",
+      "new": true
+    },
+    {
+      "index": 20309,
+      "en": "[CS:E]Limber[CR]:\nPrevents paralysis.",
+      "ko": "[CS:E]유연[CR]:\n마비 상태를 막는다.",
+      "new": true
+    },
+    {
+      "index": 20310,
+      "en": "Limber II",
+      "ko": "유연Ⅱ",
+      "new": true
+    },
+    {
+      "index": 20311,
+      "en": "[CS:E]Limber II[CR]:\nPrevents paralysis for self and\nall allies in the same room.",
+      "ko": "[CS:E]유연Ⅱ[CR]:\n자신과 같은 방 아군 전체의 마비 상태를 막는다.",
+      "new": true
+    },
+    {
+      "index": 20312,
+      "en": "Aftermath",
+      "ko": "유폭",
+      "new": true
+    },
+    {
+      "index": 20313,
+      "en": "[CS:E]Aftermath[CR]:\nWhen fainting, 50% chance to\ncause an explosion.",
+      "ko": "[CS:E]유폭[CR]:\n쓰러질 때 50% 확률로 폭발을 일으킨다.",
+      "new": true
+    },
+    {
+      "index": 20314,
+      "en": "Aftermath II",
+      "ko": "유폭Ⅱ",
+      "new": true
+    },
+    {
+      "index": 20315,
+      "en": "[CS:E]Aftermath II[CR]:\nWhen fainting, 100% chance to\ncause an explosion.",
+      "ko": "[CS:E]유폭Ⅱ[CR]:\n쓰러질 때 100% 확률로 폭발을 일으킨다.",
+      "new": true
+    },
+    {
+      "index": 20316,
+      "en": "Vital Spirit",
+      "ko": "의기양양",
+      "new": true
+    },
+    {
+      "index": 20317,
+      "en": "[CS:E]Vital Spirit[CR]:\nCannot fall asleep.",
+      "ko": "[CS:E]의기양양[CR]:\n잠들지 않는다.",
+      "new": true
+    },
+    {
+      "index": 20318,
+      "en": "Vital Spirit II",
+      "ko": "의기양양Ⅱ",
+      "new": true
+    },
+    {
+      "index": 20319,
+      "en": "[CS:E]Vital Spirit II[CR]:\nSelf and same-room allies cannot\nsleep or yawn; existing sleep\nstays.",
+      "ko": "[CS:E]의기양양Ⅱ[CR]:\n같은 방 아군 전체가 수면·하품 상태가 되지 않는다. 이미 걸린 수면은 유지.",
+      "new": true
+    },
+    {
+      "index": 20320,
+      "en": "Hustle",
+      "ko": "의욕",
+      "new": true
+    },
+    {
+      "index": 20321,
+      "en": "[CS:E]Hustle[CR]:\nPhysical Attack ×1.5, but foes\nget Evasion +2 stages against\nit.",
+      "ko": "[CS:E]의욕[CR]:\n물리 공격 ×1.5. 물리 기술 명중 시 상대 회피 +2단계 적용.",
+      "new": true
+    },
+    {
+      "index": 20322,
+      "en": "Hustle II",
+      "ko": "의욕Ⅱ",
+      "new": true
+    },
+    {
+      "index": 20323,
+      "en": "[CS:E]Hustle II[CR]:\nPhysical Attack ×1.6, but foes\nget Evasion +2 stages against\nit.",
+      "ko": "[CS:E]의욕Ⅱ[CR]:\n물리 공격 ×1.6. 물리 기술 명중 시 상대 회피 +2단계 적용.",
+      "new": true
+    },
+    {
+      "index": 20324,
+      "en": "Marvel Scale",
+      "ko": "이상한비늘",
+      "new": true
+    },
+    {
+      "index": 20325,
+      "en": "[CS:E]Marvel Scale[CR]:\nPhysical Defense ×1.5 while\nstatused.",
+      "ko": "[CS:E]이상한비늘[CR]:\n나쁜 상태에서 물리 방어 ×1.5.",
+      "new": true
+    },
+    {
+      "index": 20326,
+      "en": "Marvel Scale II",
+      "ko": "이상한비늘Ⅱ",
+      "new": true
+    },
+    {
+      "index": 20327,
+      "en": "[CS:E]Marvel Scale II[CR]:\nPhysical Defense ×1.6 and Sp.\nDef ×1.2 while statused.",
+      "ko": "[CS:E]이상한비늘Ⅱ[CR]:\n나쁜 상태에서 물리 방어 ×1.6, 특수방어 ×1.2.",
+      "new": true
+    },
+    {
+      "index": 20328,
+      "en": "Reckless",
+      "ko": "이판사판",
+      "new": true
+    },
+    {
+      "index": 20329,
+      "en": "[CS:E]Reckless[CR]:\nRecoil move power ×1.2; recoil\ndamage still applies.",
+      "ko": "[CS:E]이판사판[CR]:\n반동 기술의 위력 ×1.2. 반동 피해는 그대로 받는다.",
+      "new": true
+    },
+    {
+      "index": 20330,
+      "en": "Reckless II",
+      "ko": "이판사판Ⅱ",
+      "new": true
+    },
+    {
+      "index": 20331,
+      "en": "[CS:E]Reckless II[CR]:\nRecoil move power ×1.3; recoil\ndamage still applies.",
+      "ko": "[CS:E]이판사판Ⅱ[CR]:\n반동 기술의 위력 ×1.3. 반동 피해는 그대로 받는다.",
+      "new": true
+    },
+    {
+      "index": 20332,
+      "en": "Shield Dust",
+      "ko": "인분",
+      "new": true
+    },
+    {
+      "index": 20333,
+      "en": "[CS:E]Shield Dust[CR]:\nImmune to additional effects of\nmoves.",
+      "ko": "[CS:E]인분[CR]:\n기술의 추가 효과를 받지 않는다.",
+      "new": true
+    },
+    {
+      "index": 20334,
+      "en": "Shield Dust II",
+      "ko": "인분Ⅱ",
+      "new": true
+    },
+    {
+      "index": 20335,
+      "en": "[CS:E]Shield Dust II[CR]:\nSelf and same-room allies are\nimmune to additional move\neffects.",
+      "ko": "[CS:E]인분Ⅱ[CR]:\n자신과 같은 방 아군 전체가 기술의 추가 효과를 받지 않는다.",
+      "new": true
+    },
+    {
+      "index": 20336,
+      "en": "Galvanize",
+      "ko": "일렉트릭스킨",
+      "new": true
+    },
+    {
+      "index": 20337,
+      "en": "[CS:E]Galvanize[CR]:\nNormal moves become Electric-\ntype with damage ×1.2.",
+      "ko": "[CS:E]일렉트릭스킨[CR]:\n노말 기술을 전기타입으로 바꾸고 피해 ×1.2.",
+      "new": true
+    },
+    {
+      "index": 20338,
+      "en": "Galvanize II",
+      "ko": "일렉트릭스킨Ⅱ",
+      "new": true
+    },
+    {
+      "index": 20339,
+      "en": "[CS:E]Galvanize II[CR]:\nNormal moves become Electric-\ntype with damage ×1.3.",
+      "ko": "[CS:E]일렉트릭스킨Ⅱ[CR]:\n노말 기술을 전기타입으로 바꾸고 피해 ×1.3.",
+      "new": true
+    },
+    {
+      "index": 20340,
+      "en": "Illusion",
+      "ko": "일루전",
+      "new": true
+    },
+    {
+      "index": 20341,
+      "en": "[CS:E]Illusion[CR]:\nDisguises as a foe; Atk/Sp. Atk\nstage 11 (+1); -1 each on\nreveal.",
+      "ko": "[CS:E]일루전[CR]:\n적으로 위장하며 공격·특공 +1단계. 위장이 풀리면 각각 −1단계.",
+      "new": true
+    },
+    {
+      "index": 20342,
+      "en": "Illusion II",
+      "ko": "일루전Ⅱ",
+      "new": true
+    },
+    {
+      "index": 20343,
+      "en": "[CS:E]Illusion II[CR]:\nDisguises as a foe; Atk/Sp. Atk\nstage 12 (+2); -2 each on\nreveal.",
+      "ko": "[CS:E]일루전Ⅱ[CR]:\n적으로 위장하며 공격·특공 +2단계. 위장이 풀리면 각각 −2단계.",
+      "new": true
+    },
+    {
+      "index": 20344,
+      "en": "Early Bird",
+      "ko": "일찍기상",
+      "new": true
+    },
+    {
+      "index": 20345,
+      "en": "[CS:E]Early Bird[CR]:\nSleep duration ÷2 (min 1); fully\nheals HP on waking.",
+      "ko": "[CS:E]일찍기상[CR]:\n수면 지속시간을 1/2로 줄이고, 기상 시 HP를 모두 회복한다.",
+      "new": true
+    },
+    {
+      "index": 20346,
+      "en": "Early Bird II",
+      "ko": "일찍기상Ⅱ",
+      "new": true
+    },
+    {
+      "index": 20347,
+      "en": "[CS:E]Early Bird II[CR]:\nSleep duration ÷3 (min 1); fully\nheals HP on waking.",
+      "ko": "[CS:E]일찍기상Ⅱ[CR]:\n수면 지속시간을 1/3로 줄이고, 기상 시 HP를 모두 회복한다.",
+      "new": true
+    },
+    {
+      "index": 20348,
+      "en": "Moxie",
+      "ko": "자기과신",
+      "new": true
+    },
+    {
+      "index": 20349,
+      "en": "[CS:E]Moxie[CR]:\nKnocking out a foe gives Attack\n+1 stage (per KO).",
+      "ko": "[CS:E]자기과신[CR]:\n공격 기술로 상대를 쓰러뜨리면 공격 +1단계. (처치마다)",
+      "new": true
+    },
+    {
+      "index": 20350,
+      "en": "Moxie II",
+      "ko": "자기과신Ⅱ",
+      "new": true
+    },
+    {
+      "index": 20351,
+      "en": "[CS:E]Moxie II[CR]:\nKnocking out a foe gives Attack\n+2 stages (per KO).",
+      "ko": "[CS:E]자기과신Ⅱ[CR]:\n공격 기술로 상대를 쓰러뜨리면 공격 +2단계. (처치마다)",
+      "new": true
+    },
+    {
+      "index": 20352,
+      "en": "Magnet Pull",
+      "ko": "자력",
+      "new": true
+    },
+    {
+      "index": 20353,
+      "en": "[CS:E]Magnet Pull[CR]:\nSteel foes within 8 tiles can't\nmove; their Def and Sp. Def -1.",
+      "ko": "[CS:E]자력[CR]:\n인접 8칸 강철 적의 이동을 봉쇄하고, 방어·특방 −1단계로 계산.",
+      "new": true
+    },
+    {
+      "index": 20354,
+      "en": "Magnet Pull II",
+      "ko": "자력Ⅱ",
+      "new": true
+    },
+    {
+      "index": 20355,
+      "en": "[CS:E]Magnet Pull II[CR]:\nSteel foes within 8 tiles can't\nmove; their Def and Sp. Def -2.",
+      "ko": "[CS:E]자력Ⅱ[CR]:\n인접 8칸 강철 적의 이동을 봉쇄하고, 방어·특방 −2단계로 계산.",
+      "new": true
+    },
+    {
+      "index": 20356,
+      "en": "Natural Cure",
+      "ko": "자연회복",
+      "new": true
+    },
+    {
+      "index": 20357,
+      "en": "[CS:E]Natural Cure[CR]:\nCaps status duration at 5 turns.",
+      "ko": "[CS:E]자연회복[CR]:\n상태 이상의 지속시간을 최대 5턴으로 제한한다.",
+      "new": true
+    },
+    {
+      "index": 20358,
+      "en": "Natural Cure II",
+      "ko": "자연회복Ⅱ",
+      "new": true
+    },
+    {
+      "index": 20359,
+      "en": "[CS:E]Natural Cure II[CR]:\nCaps status duration at 3 turns.",
+      "ko": "[CS:E]자연회복Ⅱ[CR]:\n상태 이상의 지속시간을 최대 3턴으로 제한한다.",
+      "new": true
+    },
+    {
+      "index": 20360,
+      "en": "Drizzle",
+      "ko": "잔비",
+      "new": true
+    },
+    {
+      "index": 20361,
+      "en": "[CS:E]Drizzle[CR]:\nMakes the floor rainy.",
+      "ko": "[CS:E]잔비[CR]:\n플로어를 비 날씨로 만든다.",
+      "new": true
+    },
+    {
+      "index": 20362,
+      "en": "Drizzle II",
+      "ko": "잔비Ⅱ",
+      "new": true
+    },
+    {
+      "index": 20363,
+      "en": "[CS:E]Drizzle II[CR]:\nMakes the weather heavy rain.",
+      "ko": "[CS:E]잔비Ⅱ[CR]:\n날씨를 강한 비로 만든다.",
+      "new": true
+    },
+    {
+      "index": 20364,
+      "en": "Stakeout",
+      "ko": "잠복",
+      "new": true
+    },
+    {
+      "index": 20365,
+      "en": "[CS:E]Stakeout[CR]:\nAttacks deal ×1.2 vs foes that\nmoved last turn (first hit\nonly).",
+      "ko": "[CS:E]잠복[CR]:\n전 턴에 이동한 상대에게 공격 피해 ×1.2. (첫 명중 한정)",
+      "new": true
+    },
+    {
+      "index": 20366,
+      "en": "Stakeout II",
+      "ko": "잠복Ⅱ",
+      "new": true
+    },
+    {
+      "index": 20367,
+      "en": "[CS:E]Stakeout II[CR]:\nAttacks deal ×1.3 vs foes that\nmoved last turn (first hit\nonly).",
+      "ko": "[CS:E]잠복Ⅱ[CR]:\n전 턴에 이동한 상대에게 공격 피해 ×1.3. (첫 명중 한정)",
+      "new": true
+    },
+    {
+      "index": 20368,
+      "en": "Regenerator",
+      "ko": "재생력",
+      "new": true
+    },
+    {
+      "index": 20369,
+      "en": "[CS:E]Regenerator[CR]:\nFully heals HP on entering the\nnext floor.",
+      "ko": "[CS:E]재생력[CR]:\n다음 층 입장 시 HP를 모두 회복한다.",
+      "new": true
+    },
+    {
+      "index": 20370,
+      "en": "Regenerator II",
+      "ko": "재생력Ⅱ",
+      "new": true
+    },
+    {
+      "index": 20371,
+      "en": "[CS:E]Regenerator II[CR]:\nOn entering the next floor,\nfully heals self and all allies.",
+      "ko": "[CS:E]재생력Ⅱ[CR]:\n다음 층 입장 시 자신과 아군 전체의 HP를 모두 회복한다.",
+      "new": true
+    },
+    {
+      "index": 20372,
+      "en": "Water Absorb",
+      "ko": "저수",
+      "new": true
+    },
+    {
+      "index": 20373,
+      "en": "[CS:E]Water Absorb[CR]:\nWater damage is converted into\nHP recovery (up to max HP).",
+      "ko": "[CS:E]저수[CR]:\n물 기술 피해를 HP 회복으로 바꾼다. (최대 HP까지)",
+      "new": true
+    },
+    {
+      "index": 20374,
+      "en": "Water Absorb II",
+      "ko": "저수Ⅱ",
+      "new": true
+    },
+    {
+      "index": 20375,
+      "en": "[CS:E]Water Absorb II[CR]:\nWater damage heals you; 50% of\nthat damage is reflected to the\nattacker.",
+      "ko": "[CS:E]저수Ⅱ[CR]:\n물 기술 피해를 HP로 회복하고, 피해량의 50%를 공격자에게 반사한다.",
+      "new": true
+    },
+    {
+      "index": 20376,
+      "en": "Cursed Body",
+      "ko": "저주받은바디",
+      "new": true
+    },
+    {
+      "index": 20377,
+      "en": "[CS:E]Cursed Body[CR]:\nAdjacent hit: 12% chance to seal\none of the attacker's moves.",
+      "ko": "[CS:E]저주받은바디[CR]:\n인접 공격을 받으면 12% 확률로 공격자의 기술 하나를 봉인한다.",
+      "new": true
+    },
+    {
+      "index": 20378,
+      "en": "Cursed Body II",
+      "ko": "저주받은바디Ⅱ",
+      "new": true
+    },
+    {
+      "index": 20379,
+      "en": "[CS:E]Cursed Body II[CR]:\nAdjacent hit: 20% chance to seal\none of the attacker's moves.",
+      "ko": "[CS:E]저주받은바디Ⅱ[CR]:\n인접 공격을 받으면 20% 확률로 공격자의 기술 하나를 봉인한다.",
+      "new": true
+    },
+    {
+      "index": 20380,
+      "en": "Adaptability",
+      "ko": "적응력",
+      "new": true
+    },
+    {
+      "index": 20381,
+      "en": "[CS:E]Adaptability[CR]:\nSame-type move bonus is ×1.7\ninstead of ×1.5.",
+      "ko": "[CS:E]적응력[CR]:\n자속 기술의 피해 배율이 ×1.5 대신 ×1.7이 된다.",
+      "new": true
+    },
+    {
+      "index": 20382,
+      "en": "Adaptability II",
+      "ko": "적응력Ⅱ",
+      "new": true
+    },
+    {
+      "index": 20383,
+      "en": "[CS:E]Adaptability II[CR]:\nSame-type move bonus is ×1.8\ninstead of ×1.5.",
+      "ko": "[CS:E]적응력Ⅱ[CR]:\n자속 기술의 피해 배율이 ×1.5 대신 ×1.8이 된다.",
+      "new": true
+    },
+    {
+      "index": 20384,
+      "en": "Electromorphosis",
+      "ko": "전기로바꾸기",
+      "new": true
+    },
+    {
+      "index": 20385,
+      "en": "[CS:E]Electromorphosis[CR]:\nWhen hit, you get charged; next\nElectric move within 5 turns\n×1.5.",
+      "ko": "[CS:E]전기로바꾸기[CR]:\n공격 피격 시 충전. 5턴 안에 다음 전기 기술 피해 ×1.5.",
+      "new": true
+    },
+    {
+      "index": 20386,
+      "en": "Electromorphosis II",
+      "ko": "전기로바꾸기Ⅱ",
+      "new": true
+    },
+    {
+      "index": 20387,
+      "en": "[CS:E]Electromorphosis II[CR]:\nWhen hit, you get charged; next\nElectric move within 8 turns\n×1.6.",
+      "ko": "[CS:E]전기로바꾸기Ⅱ[CR]:\n공격 피격 시 충전. 8턴 안에 다음 전기 기술 피해 ×1.6.",
+      "new": true
+    },
+    {
+      "index": 20388,
+      "en": "Motor Drive",
+      "ko": "전기엔진",
+      "new": true
+    },
+    {
+      "index": 20389,
+      "en": "[CS:E]Motor Drive[CR]:\nBlocks Electric damage; Speed +1\nstage.",
+      "ko": "[CS:E]전기엔진[CR]:\n전기 기술 피해를 막고 스피드 +1단계.",
+      "new": true
+    },
+    {
+      "index": 20390,
+      "en": "Motor Drive II",
+      "ko": "전기엔진Ⅱ",
+      "new": true
+    },
+    {
+      "index": 20391,
+      "en": "[CS:E]Motor Drive II[CR]:\nBlocks Electric damage; Speed +2\nstages.",
+      "ko": "[CS:E]전기엔진Ⅱ[CR]:\n전기 기술 피해를 막고 스피드 +2단계.",
+      "new": true
+    },
+    {
+      "index": 20392,
+      "en": "Battle Armor",
+      "ko": "전투무장",
+      "new": true
+    },
+    {
+      "index": 20393,
+      "en": "[CS:E]Battle Armor[CR]:\nBlocks critical hits (crit\nchance 0%).",
+      "ko": "[CS:E]전투무장[CR]:\n급소 공격을 막는다. (급소 확률 0%)",
+      "new": true
+    },
+    {
+      "index": 20394,
+      "en": "Battle Armor II",
+      "ko": "전투무장Ⅱ",
+      "new": true
+    },
+    {
+      "index": 20395,
+      "en": "[CS:E]Battle Armor II[CR]:\nBlocks critical hits; Def and\nSp. Def +1 stage in damage\ncalculation.",
+      "ko": "[CS:E]전투무장Ⅱ[CR]:\n급소 공격을 막고, 데미지 계산 시 방어·특방 +1단계로 계산한다.",
+      "new": true
+    },
+    {
+      "index": 20396,
+      "en": "Comatose",
+      "ko": "절대안깸",
+      "new": true
+    },
+    {
+      "index": 20397,
+      "en": "[CS:E]Comatose[CR]:\nImmune to bad status; always\ncounts as asleep but acts\nnormally.",
+      "ko": "[CS:E]절대안깸[CR]:\n나쁜 상태가 되지 않는다. 항상 수면으로 취급되지만 정상 행동한다.",
+      "new": true
+    },
+    {
+      "index": 20398,
+      "en": "Comatose II",
+      "ko": "절대안깸Ⅱ",
+      "new": true
+    },
+    {
+      "index": 20399,
+      "en": "[CS:E]Comatose II[CR]:\nSame as base; own sleep-only\nmoves deal ×1.2 damage.",
+      "ko": "[CS:E]절대안깸Ⅱ[CR]:\n동일하며, 자신의 수면 전용 기술 피해 ×1.2.",
+      "new": true
+    },
+    {
+      "index": 20400,
+      "en": "Sticky Hold",
+      "ko": "점착",
+      "new": true
+    },
+    {
+      "index": 20401,
+      "en": "[CS:E]Sticky Hold[CR]:\nItems can't be stolen; adjacent\nhit: 12% to lower attacker's\nSpeed 1 stage.",
+      "ko": "[CS:E]점착[CR]:\n도구를 빼앗기지 않는다. 인접 피격 시 12% 확률로 공격자 스피드 −1단계.",
+      "new": true
+    },
+    {
+      "index": 20402,
+      "en": "Sticky Hold II",
+      "ko": "점착Ⅱ",
+      "new": true
+    },
+    {
+      "index": 20403,
+      "en": "[CS:E]Sticky Hold II[CR]:\nItems can't be stolen; adjacent\nhit: 20% to lower attacker's\nSpeed 1 stage.",
+      "ko": "[CS:E]점착Ⅱ[CR]:\n도구를 빼앗기지 않는다. 인접 피격 시 20% 확률로 공격자 스피드 −1단계.",
+      "new": true
+    },
+    {
+      "index": 20404,
+      "en": "Inner Focus",
+      "ko": "정신력",
+      "new": true
+    },
+    {
+      "index": 20405,
+      "en": "[CS:E]Inner Focus[CR]:\nImmune to flinching and the\nIntimidator IQ skill.",
+      "ko": "[CS:E]정신력[CR]:\n풀죽음과 IQ 스킬 Intimidator의 방해를 막는다.",
+      "new": true
+    },
+    {
+      "index": 20406,
+      "en": "Inner Focus II",
+      "ko": "정신력Ⅱ",
+      "new": true
+    },
+    {
+      "index": 20407,
+      "en": "[CS:E]Inner Focus II[CR]:\nSelf and same-room allies are\nimmune to flinch; existing\nflinch stays.",
+      "ko": "[CS:E]정신력Ⅱ[CR]:\n자신과 같은 방 아군 전체가 풀죽음을 막는다. 이미 걸린 상태는 유지.",
+      "new": true
+    },
+    {
+      "index": 20408,
+      "en": "Justified",
+      "ko": "정의의마음",
+      "new": true
+    },
+    {
+      "index": 20409,
+      "en": "[CS:E]Justified[CR]:\nWhen hit by Dark moves, Attack\n+3 stages (stacks up to 16).",
+      "ko": "[CS:E]정의의마음[CR]:\n악타입 공격을 받으면 공격 +3단계. (상한 16까지 중첩)",
+      "new": true
+    },
+    {
+      "index": 20410,
+      "en": "Justified II",
+      "ko": "정의의마음Ⅱ",
+      "new": true
+    },
+    {
+      "index": 20411,
+      "en": "[CS:E]Justified II[CR]:\nWhen hit by Dark moves, Attack\n+6 stages (stacks up to 16).",
+      "ko": "[CS:E]정의의마음Ⅱ[CR]:\n악타입 공격을 받으면 공격 +6단계. (상한 16까지 중첩)",
+      "new": true
+    },
+    {
+      "index": 20412,
+      "en": "Static",
+      "ko": "정전기",
+      "new": true
+    },
+    {
+      "index": 20413,
+      "en": "[CS:E]Static[CR]:\nWhen hit by an adjacent physical\nattack, 12% to paralyze the\nattacker.",
+      "ko": "[CS:E]정전기[CR]:\n인접 물리 공격을 받으면 12% 확률로 공격자를 마비시킨다.",
+      "new": true
+    },
+    {
+      "index": 20414,
+      "en": "Static II",
+      "ko": "정전기Ⅱ",
+      "new": true
+    },
+    {
+      "index": 20415,
+      "en": "[CS:E]Static II[CR]:\nWhen hit by an adjacent physical\nattack, 20% to paralyze the\nattacker.",
+      "ko": "[CS:E]정전기Ⅱ[CR]:\n인접 물리 공격을 받으면 20% 확률로 공격자를 마비시킨다.",
+      "new": true
+    },
+    {
+      "index": 20416,
+      "en": "Rain Dish",
+      "ko": "젖은접시",
+      "new": true
+    },
+    {
+      "index": 20417,
+      "en": "[CS:E]Rain Dish[CR]:\nIn rain, natural HP regen\ndenominator ÷2.",
+      "ko": "[CS:E]젖은접시[CR]:\n비에서 자연 HP 회복의 분모를 1/2로 줄인다.",
+      "new": true
+    },
+    {
+      "index": 20418,
+      "en": "Rain Dish II",
+      "ko": "젖은접시Ⅱ",
+      "new": true
+    },
+    {
+      "index": 20419,
+      "en": "[CS:E]Rain Dish II[CR]:\nIn rain, natural HP regen\ndenominator ÷4.",
+      "ko": "[CS:E]젖은접시Ⅱ[CR]:\n비에서 자연 HP 회복의 분모를 1/4로 줄인다.",
+      "new": true
+    },
+    {
+      "index": 20420,
+      "en": "Shell Armor",
+      "ko": "조가비갑옷",
+      "new": true
+    },
+    {
+      "index": 20421,
+      "en": "[CS:E]Shell Armor[CR]:\nNegates critical hits; fixed\ndamage is not reduced.",
+      "ko": "[CS:E]조가비갑옷[CR]:\n급소 판정을 무효화한다. 고정 피해는 줄이지 않는다.",
+      "new": true
+    },
+    {
+      "index": 20422,
+      "en": "Shell Armor II",
+      "ko": "조가비갑옷Ⅱ",
+      "new": true
+    },
+    {
+      "index": 20423,
+      "en": "[CS:E]Shell Armor II[CR]:\nNegates critical hits; Def and\nSp. Def +1 stage in damage\ncalculation.",
+      "ko": "[CS:E]조가비갑옷Ⅱ[CR]:\n급소를 무효화하고, 데미지 계산 시 방어·특방 +1단계.",
+      "new": true
+    },
+    {
+      "index": 20424,
+      "en": "Rattled",
+      "ko": "주눅",
+      "new": true
+    },
+    {
+      "index": 20425,
+      "en": "[CS:E]Rattled[CR]:\nHit by Dark/Ghost/Bug moves:\nSpeed +3 stages, once per\nattack.",
+      "ko": "[CS:E]주눅[CR]:\n악·고스트·벌레 기술로 피해를 받으면 스피드 +3단계. 행동당 1회.",
+      "new": true
+    },
+    {
+      "index": 20426,
+      "en": "Rattled II",
+      "ko": "주눅Ⅱ",
+      "new": true
+    },
+    {
+      "index": 20427,
+      "en": "[CS:E]Rattled II[CR]:\nHit by Dark/Ghost/Bug moves:\nSpeed +6 stages, once per\nattack.",
+      "ko": "[CS:E]주눅Ⅱ[CR]:\n악·고스트·벌레 기술로 피해를 받으면 스피드 +6단계. 행동당 1회.",
+      "new": true
+    },
+    {
+      "index": 20428,
+      "en": "Stamina",
+      "ko": "지구력",
+      "new": true
+    },
+    {
+      "index": 20429,
+      "en": "[CS:E]Stamina[CR]:\nHit by an attack: Defense +1\nstage (once per attack).",
+      "ko": "[CS:E]지구력[CR]:\n공격으로 피해를 받으면 방어 +1단계. 행동당 1회.",
+      "new": true
+    },
+    {
+      "index": 20430,
+      "en": "Stamina II",
+      "ko": "지구력Ⅱ",
+      "new": true
+    },
+    {
+      "index": 20431,
+      "en": "[CS:E]Stamina II[CR]:\nHit by an attack: Defense +2\nstages (once per attack).",
+      "ko": "[CS:E]지구력Ⅱ[CR]:\n공격으로 피해를 받으면 방어 +2단계. 행동당 1회.",
+      "new": true
+    },
+    {
+      "index": 20432,
+      "en": "Prankster",
+      "ko": "짓궂은마음",
+      "new": true
+    },
+    {
+      "index": 20433,
+      "en": "[CS:E]Prankster[CR]:\n12% chance status moves use no\nPP.",
+      "ko": "[CS:E]짓궂은마음[CR]:\n12% 확률로 변화 기술의 PP를 소모하지 않는다.",
+      "new": true
+    },
+    {
+      "index": 20434,
+      "en": "Prankster II",
+      "ko": "짓궂은마음Ⅱ",
+      "new": true
+    },
+    {
+      "index": 20435,
+      "en": "[CS:E]Prankster II[CR]:\n20% chance status moves use no\nPP.",
+      "ko": "[CS:E]짓궂은마음Ⅱ[CR]:\n20% 확률로 변화 기술의 PP를 소모하지 않는다.",
+      "new": true
+    },
+    {
+      "index": 20436,
+      "en": "Unaware",
+      "ko": "천진",
+      "new": true
+    },
+    {
+      "index": 20437,
+      "en": "[CS:E]Unaware[CR]:\nTreats foes' stat stages as\nneutral (10) in calculations.",
+      "ko": "[CS:E]천진[CR]:\n상대의 모든 능력 단계를 중립(10)으로 취급해 계산한다.",
+      "new": true
+    },
+    {
+      "index": 20438,
+      "en": "Unaware II",
+      "ko": "천진Ⅱ",
+      "new": true
+    },
+    {
+      "index": 20439,
+      "en": "[CS:E]Unaware II[CR]:\nIgnores foes' stages; own stages\nbelow neutral are treated as\nneutral.",
+      "ko": "[CS:E]천진Ⅱ[CR]:\n상대의 단계를 무시하고, 자신의 중립 미만 단계는 중립으로 취급한다.",
+      "new": true
+    },
+    {
+      "index": 20440,
+      "en": "Huge Power",
+      "ko": "천하장사",
+      "new": true
+    },
+    {
+      "index": 20441,
+      "en": "[CS:E]Huge Power[CR]:\nPhysical Attack ×1.2 (not\nspecial).",
+      "ko": "[CS:E]천하장사[CR]:\n물리 공격 계산값 ×1.2. (특수 공격은 제외)",
+      "new": true
+    },
+    {
+      "index": 20442,
+      "en": "Huge Power II",
+      "ko": "천하장사Ⅱ",
+      "new": true
+    },
+    {
+      "index": 20443,
+      "en": "[CS:E]Huge Power II[CR]:\nPhysical Attack ×1.3 (not\nspecial).",
+      "ko": "[CS:E]천하장사Ⅱ[CR]:\n물리 공격 계산값 ×1.3. (특수 공격은 제외)",
+      "new": true
+    },
+    {
+      "index": 20444,
+      "en": "Iron Barbs",
+      "ko": "철가시",
+      "new": true
+    },
+    {
+      "index": 20445,
+      "en": "[CS:E]Iron Barbs[CR]:\nAdjacent physical hit: attacker\ntakes 1/8 max HP (min 1).",
+      "ko": "[CS:E]철가시[CR]:\n인접 물리 피격 시 공격자에게 최대 HP의 1/8(최소 1) 피해. 행동당 1회.",
+      "new": true
+    },
+    {
+      "index": 20446,
+      "en": "Iron Barbs II",
+      "ko": "철가시Ⅱ",
+      "new": true
+    },
+    {
+      "index": 20447,
+      "en": "[CS:E]Iron Barbs II[CR]:\nAdjacent physical hit: attacker\ntakes 1/6 max HP (min 1).",
+      "ko": "[CS:E]철가시Ⅱ[CR]:\n인접 물리 피격 시 공격자에게 최대 HP의 1/6(최소 1) 피해. 행동당 1회.",
+      "new": true
+    },
+    {
+      "index": 20448,
+      "en": "Iron Fist",
+      "ko": "철주먹",
+      "new": true
+    },
+    {
+      "index": 20449,
+      "en": "[CS:E]Iron Fist[CR]:\nPunching move power ×1.2.",
+      "ko": "[CS:E]철주먹[CR]:\n펀치 기술의 위력 ×1.2.",
+      "new": true
+    },
+    {
+      "index": 20450,
+      "en": "Iron Fist II",
+      "ko": "철주먹Ⅱ",
+      "new": true
+    },
+    {
+      "index": 20451,
+      "en": "[CS:E]Iron Fist II[CR]:\nPunching move power ×1.3.",
+      "ko": "[CS:E]철주먹Ⅱ[CR]:\n펀치 기술의 위력 ×1.3.",
+      "new": true
+    },
+    {
+      "index": 20452,
+      "en": "Sap Sipper",
+      "ko": "초식",
+      "new": true
+    },
+    {
+      "index": 20453,
+      "en": "[CS:E]Sap Sipper[CR]:\nBlocks Grass damage; Attack +1\nstage.",
+      "ko": "[CS:E]초식[CR]:\n풀 기술 피해를 막고 공격 +1단계.",
+      "new": true
+    },
+    {
+      "index": 20454,
+      "en": "Sap Sipper II",
+      "ko": "초식Ⅱ",
+      "new": true
+    },
+    {
+      "index": 20455,
+      "en": "[CS:E]Sap Sipper II[CR]:\nBlocks Grass damage for self and\nroom allies; Attack +2 stages.",
+      "ko": "[CS:E]초식Ⅱ[CR]:\n같은 방 아군의 풀 기술 피해를 막고 공격 +2단계.",
+      "new": true
+    },
+    {
+      "index": 20456,
+      "en": "Hydration",
+      "ko": "촉촉바디",
+      "new": true
+    },
+    {
+      "index": 20457,
+      "en": "[CS:E]Hydration[CR]:\nIn rain, cures curable bad\nstatus at turn end.",
+      "ko": "[CS:E]촉촉바디[CR]:\n비에서 턴 종료 때 회복 가능한 나쁜 상태를 해제한다.",
+      "new": true
+    },
+    {
+      "index": 20458,
+      "en": "Hydration II",
+      "ko": "촉촉바디Ⅱ",
+      "new": true
+    },
+    {
+      "index": 20459,
+      "en": "[CS:E]Hydration II[CR]:\nIn rain, cures curable status at\nturn end; regen denominator ÷2.",
+      "ko": "[CS:E]촉촉바디Ⅱ[CR]:\n비에서 나쁜 상태를 해제하고, 자연 회복 분모 1/2.",
+      "new": true
+    },
+    {
+      "index": 20460,
+      "en": "Volt Absorb",
+      "ko": "축전",
+      "new": true
+    },
+    {
+      "index": 20461,
+      "en": "[CS:E]Volt Absorb[CR]:\nElectric damage is converted\ninto HP recovery (up to max HP).",
+      "ko": "[CS:E]축전[CR]:\n전기 기술 피해를 HP 회복으로 바꾼다. (최대 HP까지)",
+      "new": true
+    },
+    {
+      "index": 20462,
+      "en": "Volt Absorb II",
+      "ko": "축전Ⅱ",
+      "new": true
+    },
+    {
+      "index": 20463,
+      "en": "[CS:E]Volt Absorb II[CR]:\nElectric damage heals you; 50%\nof that damage is reflected to\nthe attacker.",
+      "ko": "[CS:E]축전Ⅱ[CR]:\n전기 기술 피해를 HP로 회복하고, 피해량의 50%를 공격자에게 반사한다.",
+      "new": true
+    },
+    {
+      "index": 20464,
+      "en": "Healer",
+      "ko": "치유의마음",
+      "new": true
+    },
+    {
+      "index": 20465,
+      "en": "[CS:E]Healer[CR]:\nTurn end: 50% to cure all\nstatuses of one adjacent ally.",
+      "ko": "[CS:E]치유의마음[CR]:\n턴 종료 시 50% 확률로 인접 동료 1마리의 나쁜 상태를 모두 해제한다.",
+      "new": true
+    },
+    {
+      "index": 20466,
+      "en": "Healer II",
+      "ko": "치유의마음Ⅱ",
+      "new": true
+    },
+    {
+      "index": 20467,
+      "en": "[CS:E]Healer II[CR]:\nTurn end: 75% to cure all\nstatuses of one same-room ally.",
+      "ko": "[CS:E]치유의마음Ⅱ[CR]:\n턴 종료 시 75% 확률로 같은 방 동료 1마리의 나쁜 상태를 모두 해제한다.",
+      "new": true
+    },
+    {
+      "index": 20468,
+      "en": "Tangling Hair",
+      "ko": "컬리헤어",
+      "new": true
+    },
+    {
+      "index": 20469,
+      "en": "[CS:E]Tangling Hair[CR]:\nAdjacent physical hit:\nattacker's Speed -1 stage.",
+      "ko": "[CS:E]컬리헤어[CR]:\n인접 물리 피격 시 공격자의 스피드 −1단계. 행동당 1회.",
+      "new": true
+    },
+    {
+      "index": 20470,
+      "en": "Tangling Hair II",
+      "ko": "컬리헤어Ⅱ",
+      "new": true
+    },
+    {
+      "index": 20471,
+      "en": "[CS:E]Tangling Hair II[CR]:\nAdjacent physical hit:\nattacker's Speed -2 stages.",
+      "ko": "[CS:E]컬리헤어Ⅱ[CR]:\n인접 물리 피격 시 공격자의 스피드 −2단계. 행동당 1회.",
+      "new": true
+    },
+    {
+      "index": 20472,
+      "en": "Clear Body",
+      "ko": "클리어바디",
+      "new": true
+    },
+    {
+      "index": 20473,
+      "en": "[CS:E]Clear Body[CR]:\nBlocks foe-caused stat drops;\nself-inflicted drops still\napply.",
+      "ko": "[CS:E]클리어바디[CR]:\n상대에 의한 능력 저하를 막는다. 자신의 반동 저하는 받는다.",
+      "new": true
+    },
+    {
+      "index": 20474,
+      "en": "Clear Body II",
+      "ko": "클리어바디Ⅱ",
+      "new": true
+    },
+    {
+      "index": 20475,
+      "en": "[CS:E]Clear Body II[CR]:\nBlocks foe-caused stat drops;\nalso blocks self-inflicted\ndrops.",
+      "ko": "[CS:E]클리어바디Ⅱ[CR]:\n상대에 의한 능력 저하와 자신의 기술로 인한 저하도 막는다.",
+      "new": true
+    },
+    {
+      "index": 20476,
+      "en": "Flash Fire",
+      "ko": "타오르는불꽃",
+      "new": true
+    },
+    {
+      "index": 20477,
+      "en": "[CS:E]Flash Fire[CR]:\nBlocks Fire damage; each trigger\ngives Fire moves +1 stage (max\n+2).",
+      "ko": "[CS:E]타오르는불꽃[CR]:\n불꽃 피해를 막고, 발동마다 불꽃 기술 공격 +1단계(최대 +2).",
+      "new": true
+    },
+    {
+      "index": 20478,
+      "en": "Flash Fire II",
+      "ko": "타오르는불꽃Ⅱ",
+      "new": true
+    },
+    {
+      "index": 20479,
+      "en": "[CS:E]Flash Fire II[CR]:\nBlocks Fire damage; +2 stage per\ntrigger (max +2); reflects 50%\ndamage.",
+      "ko": "[CS:E]타오르는불꽃Ⅱ[CR]:\n불꽃 피해를 막고 발동마다 +2단계(최대 +2). 피해량의 50%를 반사한다.",
+      "new": true
+    },
+    {
+      "index": 20480,
+      "en": "Shed Skin",
+      "ko": "탈피",
+      "new": true
+    },
+    {
+      "index": 20481,
+      "en": "[CS:E]Shed Skin[CR]:\nAt turn end, 30% chance to cure\ncurable bad status.",
+      "ko": "[CS:E]탈피[CR]:\n턴 종료 시 30% 확률로 회복 가능한 나쁜 상태를 해제한다.",
+      "new": true
+    },
+    {
+      "index": 20482,
+      "en": "Shed Skin II",
+      "ko": "탈피Ⅱ",
+      "new": true
+    },
+    {
+      "index": 20483,
+      "en": "[CS:E]Shed Skin II[CR]:\nAt turn end, 50% chance to cure\ncurable bad status.",
+      "ko": "[CS:E]탈피Ⅱ[CR]:\n턴 종료 시 50% 확률로 회복 가능한 나쁜 상태를 해제한다.",
+      "new": true
+    },
+    {
+      "index": 20484,
+      "en": "Armor Tail",
+      "ko": "테일아머",
+      "new": true
+    },
+    {
+      "index": 20485,
+      "en": "[CS:E]Armor Tail[CR]:\nBlocks moves with a 2-tile or\nstraight-line range.",
+      "ko": "[CS:E]테일아머[CR]:\n범위가 2칸 또는 직선인 기술을 막는다.",
+      "new": true
+    },
+    {
+      "index": 20486,
+      "en": "Armor Tail II",
+      "ko": "테일아머Ⅱ",
+      "new": true
+    },
+    {
+      "index": 20487,
+      "en": "[CS:E]Armor Tail II[CR]:\nBlocks those moves; then Defense\nand Sp. Def +1 stage.",
+      "ko": "[CS:E]테일아머Ⅱ[CR]:\n해당 기술을 막고, 막은 뒤 방어·특수방어 +1단계.",
+      "new": true
+    },
+    {
+      "index": 20488,
+      "en": "Technician",
+      "ko": "테크니션",
+      "new": true
+    },
+    {
+      "index": 20489,
+      "en": "[CS:E]Technician[CR]:\nMoves with base power <=60 deal\n×1.5 damage.",
+      "ko": "[CS:E]테크니션[CR]:\n기본 위력 60 이하인 기술의 피해 ×1.5.",
+      "new": true
+    },
+    {
+      "index": 20490,
+      "en": "Technician II",
+      "ko": "테크니션Ⅱ",
+      "new": true
+    },
+    {
+      "index": 20491,
+      "en": "[CS:E]Technician II[CR]:\nMoves with base power <=80 deal\n×1.6 damage.",
+      "ko": "[CS:E]테크니션Ⅱ[CR]:\n기본 위력 80 이하인 기술의 피해 ×1.6.",
+      "new": true
+    },
+    {
+      "index": 20492,
+      "en": "Telepathy",
+      "ko": "텔레파시",
+      "new": true
+    },
+    {
+      "index": 20493,
+      "en": "[CS:E]Telepathy[CR]:\nImmune to damage and effects of\nallies' attack moves.",
+      "ko": "[CS:E]텔레파시[CR]:\n같은 편이 쓴 공격 기술의 피해와 추가 효과를 받지 않는다.",
+      "new": true
+    },
+    {
+      "index": 20494,
+      "en": "Telepathy II",
+      "ko": "텔레파시Ⅱ",
+      "new": true
+    },
+    {
+      "index": 20495,
+      "en": "[CS:E]Telepathy II[CR]:\nSame as base; 12% chance that\nattacks from the front miss.",
+      "ko": "[CS:E]텔레파시Ⅱ[CR]:\n기본 효과에 더해, 정면 상대의 공격이 12% 확률로 빗나간다.",
+      "new": true
+    },
+    {
+      "index": 20496,
+      "en": "Frisk",
+      "ko": "통찰",
+      "new": true
+    },
+    {
+      "index": 20497,
+      "en": "[CS:E]Frisk[CR]:\nDamage ×1.2 vs foes holding\nitems; attacks reveal held\nitems.",
+      "ko": "[CS:E]통찰[CR]:\n도구를 지닌 상대에게 피해 ×1.2. 공격으로 상대의 도구를 알 수 있다.",
+      "new": true
+    },
+    {
+      "index": 20498,
+      "en": "Frisk II",
+      "ko": "통찰Ⅱ",
+      "new": true
+    },
+    {
+      "index": 20499,
+      "en": "[CS:E]Frisk II[CR]:\nDamage ×1.3 vs foes holding\nitems; attacks reveal held\nitems.",
+      "ko": "[CS:E]통찰Ⅱ[CR]:\n도구를 지닌 상대에게 피해 ×1.3. 공격으로 상대의 도구를 알 수 있다.",
+      "new": true
+    },
+    {
+      "index": 20500,
+      "en": "Rivalry",
+      "ko": "투쟁심",
+      "new": true
+    },
+    {
+      "index": 20501,
+      "en": "[CS:E]Rivalry[CR]:\nAttack +1 stage vs same gender,\n-1 vs opposite; none if\ngenderless.",
+      "ko": "[CS:E]투쟁심[CR]:\n동성 상대에게 공격 +1단계, 이성에게 −1단계. 무성이면 적용 안 함.",
+      "new": true
+    },
+    {
+      "index": 20502,
+      "en": "Rivalry II",
+      "ko": "투쟁심Ⅱ",
+      "new": true
+    },
+    {
+      "index": 20503,
+      "en": "[CS:E]Rivalry II[CR]:\nAttack +2 stages vs same gender,\n-1 vs opposite; none if\ngenderless.",
+      "ko": "[CS:E]투쟁심Ⅱ[CR]:\n동성 상대에게 공격 +2단계, 이성에게 −1단계. 무성이면 적용 안 함.",
+      "new": true
+    },
+    {
+      "index": 20504,
+      "en": "Transistor",
+      "ko": "트랜지스터",
+      "new": true
+    },
+    {
+      "index": 20505,
+      "en": "[CS:E]Transistor[CR]:\nOwn Electric move damage ×1.2.",
+      "ko": "[CS:E]트랜지스터[CR]:\n자신의 전기 기술 피해 ×1.2.",
+      "new": true
+    },
+    {
+      "index": 20506,
+      "en": "Transistor II",
+      "ko": "트랜지스터Ⅱ",
+      "new": true
+    },
+    {
+      "index": 20507,
+      "en": "[CS:E]Transistor II[CR]:\nOwn Electric move damage ×1.3.",
+      "ko": "[CS:E]트랜지스터Ⅱ[CR]:\n자신의 전기 기술 피해 ×1.3.",
+      "new": true
+    },
+    {
+      "index": 20508,
+      "en": "Trace",
+      "ko": "트레이스",
+      "new": true
+    },
+    {
+      "index": 20509,
+      "en": "[CS:E]Trace[CR]:\nReplaces this ability with the\nattacker's (random valid pick).",
+      "ko": "[CS:E]트레이스[CR]:\n공격해 온 상대의 특성(유효한 것 중 무작위)으로 대체한다.",
+      "new": true
+    },
+    {
+      "index": 20510,
+      "en": "Trace II",
+      "ko": "트레이스Ⅱ",
+      "new": true
+    },
+    {
+      "index": 20511,
+      "en": "[CS:E]Trace II[CR]:\nCopies the attacker's ability;\nnon-enhanced ones become their\nenhanced form.",
+      "ko": "[CS:E]트레이스Ⅱ[CR]:\n상대의 특성으로 대체하며, 강화 특성이 아니면 그 강화 특성으로 대체한다.",
+      "new": true
+    },
+    {
+      "index": 20512,
+      "en": "Mold Breaker",
+      "ko": "틀깨기",
+      "new": true
+    },
+    {
+      "index": 20513,
+      "en": "[CS:E]Mold Breaker[CR]:\nMoves ignore the target's\nability.",
+      "ko": "[CS:E]틀깨기[CR]:\n상대의 특성과 상관없이 기술을 쓸 수 있다.",
+      "new": true
+    },
+    {
+      "index": 20514,
+      "en": "Mold Breaker II",
+      "ko": "틀깨기Ⅱ",
+      "new": true
+    },
+    {
+      "index": 20515,
+      "en": "[CS:E]Mold Breaker II[CR]:\nIgnores abilities; ×1.5 damage\nvs targets with an ignorable\ndefensive ability.",
+      "ko": "[CS:E]틀깨기Ⅱ[CR]:\n특성을 무시하고, 무시 가능한 방어 특성이 있는 상대에게 피해 ×1.5.",
+      "new": true
+    },
+    {
+      "index": 20516,
+      "en": "Infiltrator",
+      "ko": "틈새포착",
+      "new": true
+    },
+    {
+      "index": 20517,
+      "en": "[CS:E]Infiltrator[CR]:\nIgnores Reflect, Light Screen,\nMist and Safeguard effects.",
+      "ko": "[CS:E]틈새포착[CR]:\n리플렉터·빛의장막·흰안개·신비의부적의 방어를 무시한다.",
+      "new": true
+    },
+    {
+      "index": 20518,
+      "en": "Infiltrator II",
+      "ko": "틈새포착Ⅱ",
+      "new": true
+    },
+    {
+      "index": 20519,
+      "en": "[CS:E]Infiltrator II[CR]:\nIgnores those barriers; ×1.5\ndamage vs targets protected by\nthem.",
+      "ko": "[CS:E]틈새포착Ⅱ[CR]:\n해당 장막을 무시하고, 장막이 있던 상대에게 피해 ×1.5.",
+      "new": true
+    },
+    {
+      "index": 20520,
+      "en": "Aura Guard",
+      "ko": "파동의방호",
+      "new": true
+    },
+    {
+      "index": 20521,
+      "en": "[CS:E]Aura Guard[CR]:\nAdjacent physical move damage\ntaken ×1/2.",
+      "ko": "[CS:E]파동의방호[CR]:\n인접한 상대의 물리 기술로 받는 피해 ×1/2.",
+      "new": true
+    },
+    {
+      "index": 20522,
+      "en": "Aura Guard II",
+      "ko": "파동의방호Ⅱ",
+      "new": true
+    },
+    {
+      "index": 20523,
+      "en": "[CS:E]Aura Guard II[CR]:\nAdjacent physical move damage\ntaken ×1/3.",
+      "ko": "[CS:E]파동의방호Ⅱ[CR]:\n인접한 상대의 물리 기술로 받는 피해 ×1/3.",
+      "new": true
+    },
+    {
+      "index": 20524,
+      "en": "Pastel Veil",
+      "ko": "파스텔베일",
+      "new": true
+    },
+    {
+      "index": 20525,
+      "en": "[CS:E]Pastel Veil[CR]:\nProtects same-room Fairy allies\nfrom status and stat drops.",
+      "ko": "[CS:E]파스텔베일[CR]:\n같은 방 페어리타입 동료를 나쁜 상태·능력 저하로부터 보호한다.",
+      "new": true
+    },
+    {
+      "index": 20526,
+      "en": "Pastel Veil II",
+      "ko": "파스텔베일Ⅱ",
+      "new": true
+    },
+    {
+      "index": 20527,
+      "en": "[CS:E]Pastel Veil II[CR]:\nSame as base; protected Fairy\nallies' regen denominator ÷2.",
+      "ko": "[CS:E]파스텔베일Ⅱ[CR]:\n동일하며, 보호받는 페어리타입 동료의 자연 회복 분모 1/2.",
+      "new": true
+    },
+    {
+      "index": 20528,
+      "en": "Power Spot",
+      "ko": "파워스폿",
+      "new": true
+    },
+    {
+      "index": 20529,
+      "en": "[CS:E]Power Spot[CR]:\nAllies within 8 tiles deal ×1.2\nattack damage (not self).",
+      "ko": "[CS:E]파워스폿[CR]:\n인접 8칸 동료의 공격 기술 피해 ×1.2. (자신 제외)",
+      "new": true
+    },
+    {
+      "index": 20530,
+      "en": "Power Spot II",
+      "ko": "파워스폿Ⅱ",
+      "new": true
+    },
+    {
+      "index": 20531,
+      "en": "[CS:E]Power Spot II[CR]:\nAllies within 8 tiles deal ×1.3\nattack damage (not self).",
+      "ko": "[CS:E]파워스폿Ⅱ[CR]:\n인접 8칸 동료의 공격 기술 피해 ×1.3. (자신 제외)",
+      "new": true
+    },
+    {
+      "index": 20532,
+      "en": "Fur Coat",
+      "ko": "퍼코트",
+      "new": true
+    },
+    {
+      "index": 20533,
+      "en": "[CS:E]Fur Coat[CR]:\nPhysical move damage taken ×1/2.",
+      "ko": "[CS:E]퍼코트[CR]:\n물리 기술로 받는 피해 ×1/2.",
+      "new": true
+    },
+    {
+      "index": 20534,
+      "en": "Fur Coat II",
+      "ko": "퍼코트Ⅱ",
+      "new": true
+    },
+    {
+      "index": 20535,
+      "en": "[CS:E]Fur Coat II[CR]:\nPhysical move damage taken ×1/3.",
+      "ko": "[CS:E]퍼코트Ⅱ[CR]:\n물리 기술로 받는 피해 ×1/3.",
+      "new": true
+    },
+    {
+      "index": 20536,
+      "en": "Punk Rock",
+      "ko": "펑크록",
+      "new": true
+    },
+    {
+      "index": 20537,
+      "en": "[CS:E]Punk Rock[CR]:\nOwn sound moves deal ×1.2; sound\ndamage taken ×0.5.",
+      "ko": "[CS:E]펑크록[CR]:\n자신의 소리 기술 피해 ×1.2, 받는 소리 기술 피해 ×0.5.",
+      "new": true
+    },
+    {
+      "index": 20538,
+      "en": "Punk Rock II",
+      "ko": "펑크록Ⅱ",
+      "new": true
+    },
+    {
+      "index": 20539,
+      "en": "[CS:E]Punk Rock II[CR]:\nOwn sound moves deal ×1.3;\nimmune to sound move damage.",
+      "ko": "[CS:E]펑크록Ⅱ[CR]:\n자신의 소리 기술 피해 ×1.3, 받는 소리 기술 피해 면역.",
+      "new": true
+    },
+    {
+      "index": 20540,
+      "en": "Pixilate",
+      "ko": "페어리스킨",
+      "new": true
+    },
+    {
+      "index": 20541,
+      "en": "[CS:E]Pixilate[CR]:\nNormal moves become Fairy-type\nwith damage ×1.2.",
+      "ko": "[CS:E]페어리스킨[CR]:\n노말 기술을 페어리타입으로 바꾸고 피해 ×1.2.",
+      "new": true
+    },
+    {
+      "index": 20542,
+      "en": "Pixilate II",
+      "ko": "페어리스킨Ⅱ",
+      "new": true
+    },
+    {
+      "index": 20543,
+      "en": "[CS:E]Pixilate II[CR]:\nNormal moves become Fairy-type\nwith damage ×1.3.",
+      "ko": "[CS:E]페어리스킨Ⅱ[CR]:\n노말 기술을 페어리타입으로 바꾸고 피해 ×1.3.",
+      "new": true
+    },
+    {
+      "index": 20544,
+      "en": "Poison Heal",
+      "ko": "포이즌힐",
+      "new": true
+    },
+    {
+      "index": 20545,
+      "en": "[CS:E]Poison Heal[CR]:\nPoison damage is converted into\nthe same amount of healing.",
+      "ko": "[CS:E]포이즌힐[CR]:\n독의 정기 피해를 같은 수치의 HP 회복으로 바꾼다.",
+      "new": true
+    },
+    {
+      "index": 20546,
+      "en": "Poison Heal II",
+      "ko": "포이즌힐Ⅱ",
+      "new": true
+    },
+    {
+      "index": 20547,
+      "en": "[CS:E]Poison Heal II[CR]:\nPoison damage becomes healing at\n×2 amount (up to max HP).",
+      "ko": "[CS:E]포이즌힐Ⅱ[CR]:\n독·맹독 피해를 2배의 HP 회복으로 바꾼다. (최대 HP까지)",
+      "new": true
+    },
+    {
+      "index": 20548,
+      "en": "Effect Spore",
+      "ko": "포자",
+      "new": true
+    },
+    {
+      "index": 20549,
+      "en": "[CS:E]Effect Spore[CR]:\nAdjacent physical hit: 12% to\npoison, paralyze or sleep the\nattacker.",
+      "ko": "[CS:E]포자[CR]:\n인접 물리 피격 시 12% 확률로 공격자를 독·마비·수면 중 하나로 만든다.",
+      "new": true
+    },
+    {
+      "index": 20550,
+      "en": "Effect Spore II",
+      "ko": "포자Ⅱ",
+      "new": true
+    },
+    {
+      "index": 20551,
+      "en": "[CS:E]Effect Spore II[CR]:\nAdjacent physical hit: 20% to\npoison, paralyze or sleep the\nattacker.",
+      "ko": "[CS:E]포자Ⅱ[CR]:\n인접 물리 피격 시 20% 확률로 공격자를 독·마비·수면 중 하나로 만든다.",
+      "new": true
+    },
+    {
+      "index": 20552,
+      "en": "Pressure",
+      "ko": "프레셔",
+      "new": true
+    },
+    {
+      "index": 20553,
+      "en": "[CS:E]Pressure[CR]:\nMoves targeting you cost double\nPP.",
+      "ko": "[CS:E]프레셔[CR]:\n자신을 대상으로 한 기술의 PP 소모가 2배가 된다.",
+      "new": true
+    },
+    {
+      "index": 20554,
+      "en": "Pressure II",
+      "ko": "프레셔Ⅱ",
+      "new": true
+    },
+    {
+      "index": 20555,
+      "en": "[CS:E]Pressure II[CR]:\nMoves targeting you cost triple\nPP; 20% to lower that foe's\nAtk/Sp. Atk 1 stage.",
+      "ko": "[CS:E]프레셔Ⅱ[CR]:\nPP 소모 3배. 20% 확률로 그 상대의 공격·특공 −1단계.",
+      "new": true
+    },
+    {
+      "index": 20556,
+      "en": "Friend Guard",
+      "ko": "프렌드가드",
+      "new": true
+    },
+    {
+      "index": 20557,
+      "en": "[CS:E]Friend Guard[CR]:\nAllies within 8 tiles take ×0.8\nmove damage.",
+      "ko": "[CS:E]프렌드가드[CR]:\n인접 8칸의 동료가 받는 기술 피해 ×0.8.",
+      "new": true
+    },
+    {
+      "index": 20558,
+      "en": "Friend Guard II",
+      "ko": "프렌드가드Ⅱ",
+      "new": true
+    },
+    {
+      "index": 20559,
+      "en": "[CS:E]Friend Guard II[CR]:\nAllies within 8 tiles take ×0.7\nmove damage.",
+      "ko": "[CS:E]프렌드가드Ⅱ[CR]:\n인접 8칸의 동료가 받는 기술 피해 ×0.7.",
+      "new": true
+    },
+    {
+      "index": 20560,
+      "en": "Refrigerate",
+      "ko": "프리즈스킨",
+      "new": true
+    },
+    {
+      "index": 20561,
+      "en": "[CS:E]Refrigerate[CR]:\nNormal moves become Ice-type\nwith damage ×1.2.",
+      "ko": "[CS:E]프리즈스킨[CR]:\n노말 기술을 얼음타입으로 바꾸고 피해 ×1.2.",
+      "new": true
+    },
+    {
+      "index": 20562,
+      "en": "Refrigerate II",
+      "ko": "프리즈스킨Ⅱ",
+      "new": true
+    },
+    {
+      "index": 20563,
+      "en": "[CS:E]Refrigerate II[CR]:\nNormal moves become Ice-type\nwith damage ×1.3.",
+      "ko": "[CS:E]프리즈스킨Ⅱ[CR]:\n노말 기술을 얼음타입으로 바꾸고 피해 ×1.3.",
+      "new": true
+    },
+    {
+      "index": 20564,
+      "en": "Flower Gift",
+      "ko": "플라워기프트",
+      "new": true
+    },
+    {
+      "index": 20565,
+      "en": "[CS:E]Flower Gift[CR]:\nIn sun, allies' Attack +1 stage\nand Sp. Def +1 stage.",
+      "ko": "[CS:E]플라워기프트[CR]:\n햇살에서 같은 편의 공격 +1단계, 특수방어 +1단계.",
+      "new": true
+    },
+    {
+      "index": 20566,
+      "en": "Flower Gift II",
+      "ko": "플라워기프트Ⅱ",
+      "new": true
+    },
+    {
+      "index": 20567,
+      "en": "[CS:E]Flower Gift II[CR]:\nIn sun, allies' Attack +2 stages\nand Sp. Def +2 stages.",
+      "ko": "[CS:E]플라워기프트Ⅱ[CR]:\n햇살에서 같은 편의 공격 +2단계, 특수방어 +2단계.",
+      "new": true
+    },
+    {
+      "index": 20568,
+      "en": "Flower Veil",
+      "ko": "플라워베일",
+      "new": true
+    },
+    {
+      "index": 20569,
+      "en": "[CS:E]Flower Veil[CR]:\nProtects same-room Grass allies\nfrom status and stat drops.",
+      "ko": "[CS:E]플라워베일[CR]:\n같은 방 풀타입 동료를 나쁜 상태·능력 저하로부터 보호한다.",
+      "new": true
+    },
+    {
+      "index": 20570,
+      "en": "Flower Veil II",
+      "ko": "플라워베일Ⅱ",
+      "new": true
+    },
+    {
+      "index": 20571,
+      "en": "[CS:E]Flower Veil II[CR]:\nSame as base; protected Grass\nallies' regen denominator ÷2.",
+      "ko": "[CS:E]플라워베일Ⅱ[CR]:\n동일하며, 보호받는 풀타입 동료의 자연 회복 분모 1/2.",
+      "new": true
+    },
+    {
+      "index": 20572,
+      "en": "Plus",
+      "ko": "플러스",
+      "new": true
+    },
+    {
+      "index": 20573,
+      "en": "[CS:E]Plus[CR]:\nSp. Atk ×1.5 if an ally with\nMinus is on the floor.",
+      "ko": "[CS:E]플러스[CR]:\n같은 편 마이너스가 플로어에 있으면 특수공격 ×1.5.",
+      "new": true
+    },
+    {
+      "index": 20574,
+      "en": "Plus II",
+      "ko": "플러스Ⅱ",
+      "new": true
+    },
+    {
+      "index": 20575,
+      "en": "[CS:E]Plus II[CR]:\nSp. Atk ×1.6 if an ally with\nMinus is on the floor.",
+      "ko": "[CS:E]플러스Ⅱ[CR]:\n같은 편 마이너스가 플로어에 있으면 특수공격 ×1.6.",
+      "new": true
+    },
+    {
+      "index": 20576,
+      "en": "Lightning Rod",
+      "ko": "피뢰침",
+      "new": true
+    },
+    {
+      "index": 20577,
+      "en": "[CS:E]Lightning Rod[CR]:\nDraws in Electric moves, blocks\ndamage, Sp. Atk +1 stage.",
+      "ko": "[CS:E]피뢰침[CR]:\n전기 기술을 끌어와 피해를 막고 특수공격 +1단계.",
+      "new": true
+    },
+    {
+      "index": 20578,
+      "en": "Lightning Rod II",
+      "ko": "피뢰침Ⅱ",
+      "new": true
+    },
+    {
+      "index": 20579,
+      "en": "[CS:E]Lightning Rod II[CR]:\nDraws in Electric moves, blocks\ndamage, Sp. Atk +2 stages.",
+      "ko": "[CS:E]피뢰침Ⅱ[CR]:\n전기 기술을 끌어와 피해를 막고 특수공격 +2단계.",
+      "new": true
+    },
+    {
+      "index": 20580,
+      "en": "Pickup",
+      "ko": "픽업",
+      "new": true
+    },
+    {
+      "index": 20581,
+      "en": "[CS:E]Pickup[CR]:\nOn floor entry, 50% to pick up 1\nberry/seed (no\nReviver/Golden/Joy Seed).",
+      "ko": "[CS:E]픽업[CR]:\n층 입장 시 50% 확률로 열매·씨앗 1개를 줍는다. (부활·황금·행복 씨앗 제외)",
+      "new": true
+    },
+    {
+      "index": 20582,
+      "en": "Pickup II",
+      "ko": "픽업Ⅱ",
+      "new": true
+    },
+    {
+      "index": 20583,
+      "en": "[CS:E]Pickup II[CR]:\nOn floor entry, 100% to pick up\n1 berry/seed (no\nReviver/Golden/Joy Seed).",
+      "ko": "[CS:E]픽업Ⅱ[CR]:\n층 입장 시 100% 확률로 열매·씨앗 1개를 줍는다. (부활·황금·행복 씨앗 제외)",
+      "new": true
+    },
+    {
+      "index": 20584,
+      "en": "Filter",
+      "ko": "필터",
+      "new": true
+    },
+    {
+      "index": 20585,
+      "en": "[CS:E]Filter[CR]:\nSuper-effective move damage\ntaken ×0.8.",
+      "ko": "[CS:E]필터[CR]:\n효과가 굉장한 기술로 받는 피해 ×0.8.",
+      "new": true
+    },
+    {
+      "index": 20586,
+      "en": "Filter II",
+      "ko": "필터Ⅱ",
+      "new": true
+    },
+    {
+      "index": 20587,
+      "en": "[CS:E]Filter II[CR]:\nSuper-effective move damage\ntaken ×0.5.",
+      "ko": "[CS:E]필터Ⅱ[CR]:\n효과가 굉장한 기술로 받는 피해 ×0.5.",
+      "new": true
+    },
+    {
+      "index": 20588,
+      "en": "Serene Grace",
+      "ko": "하늘의은총",
+      "new": true
+    },
+    {
+      "index": 20589,
+      "en": "[CS:E]Serene Grace[CR]:\nDoubles the chance of a move's\nadditional effects.",
+      "ko": "[CS:E]하늘의은총[CR]:\n기술의 추가 효과 확률이 2배가 된다.",
+      "new": true
+    },
+    {
+      "index": 20590,
+      "en": "Serene Grace II",
+      "ko": "하늘의은총Ⅱ",
+      "new": true
+    },
+    {
+      "index": 20591,
+      "en": "[CS:E]Serene Grace II[CR]:\nTriples additional-effect chance\n(capped at 100%).",
+      "ko": "[CS:E]하늘의은총Ⅱ[CR]:\n기술의 추가 효과 확률이 3배가 된다. (최대 100%)",
+      "new": true
+    },
+    {
+      "index": 20592,
+      "en": "Solid Rock",
+      "ko": "하드록",
+      "new": true
+    },
+    {
+      "index": 20593,
+      "en": "[CS:E]Solid Rock[CR]:\nSuper-effective move damage\ntaken ×0.8.",
+      "ko": "[CS:E]하드록[CR]:\n효과가 굉장한 기술로 받는 피해 ×0.8.",
+      "new": true
+    },
+    {
+      "index": 20594,
+      "en": "Solid Rock II",
+      "ko": "하드록Ⅱ",
+      "new": true
+    },
+    {
+      "index": 20595,
+      "en": "[CS:E]Solid Rock II[CR]:\nSuper-effective move damage\ntaken ×0.5.",
+      "ko": "[CS:E]하드록Ⅱ[CR]:\n효과가 굉장한 기술로 받는 피해 ×0.5.",
+      "new": true
+    },
+    {
+      "index": 20596,
+      "en": "White Smoke",
+      "ko": "하얀연기",
+      "new": true
+    },
+    {
+      "index": 20597,
+      "en": "[CS:E]White Smoke[CR]:\nBlocks foe-caused stat drops;\nself-inflicted drops apply.",
+      "ko": "[CS:E]하얀연기[CR]:\n상대에 의한 능력 저하를 막는다. 자신의 기술로 인한 저하는 받는다.",
+      "new": true
+    },
+    {
+      "index": 20598,
+      "en": "White Smoke II",
+      "ko": "하얀연기Ⅱ",
+      "new": true
+    },
+    {
+      "index": 20599,
+      "en": "[CS:E]White Smoke II[CR]:\nBlocks stat drops, including\nself-inflicted ones.",
+      "ko": "[CS:E]하얀연기Ⅱ[CR]:\n자신의 기술로 인한 단계 저하까지 모두 막는다.",
+      "new": true
+    },
+    {
+      "index": 20600,
+      "en": "Liquid Ooze",
+      "ko": "해감액",
+      "new": true
+    },
+    {
+      "index": 20601,
+      "en": "[CS:E]Liquid Ooze[CR]:\nDrain moves deal no heal; 50% of\nthe damage hits the attacker.",
+      "ko": "[CS:E]해감액[CR]:\n흡수 기술의 피해를 막고 피해량의 50%를 공격자에게 반사한다.",
+      "new": true
+    },
+    {
+      "index": 20602,
+      "en": "Liquid Ooze II",
+      "ko": "해감액Ⅱ",
+      "new": true
+    },
+    {
+      "index": 20603,
+      "en": "[CS:E]Liquid Ooze II[CR]:\nDrain moves deal no heal; 100%\nof the damage hits the attacker.",
+      "ko": "[CS:E]해감액Ⅱ[CR]:\n흡수 기술의 피해를 막고 피해량의 100%를 공격자에게 반사한다.",
+      "new": true
+    },
+    {
+      "index": 20604,
+      "en": "Cute Charm",
+      "ko": "헤롱헤롱바디",
+      "new": true
+    },
+    {
+      "index": 20605,
+      "en": "[CS:E]Cute Charm[CR]:\nAdjacent opposite-gender\nphysical hit: 12% to infatuate\nthe attacker.",
+      "ko": "[CS:E]헤롱헤롱바디[CR]:\n이성의 인접 물리 공격을 받으면 12% 확률로 헤롱헤롱 상태로 만든다.",
+      "new": true
+    },
+    {
+      "index": 20606,
+      "en": "Cute Charm II",
+      "ko": "헤롱헤롱바디Ⅱ",
+      "new": true
+    },
+    {
+      "index": 20607,
+      "en": "[CS:E]Cute Charm II[CR]:\nAdjacent opposite-gender\nphysical hit: 20% to infatuate\nthe attacker.",
+      "ko": "[CS:E]헤롱헤롱바디Ⅱ[CR]:\n이성의 인접 물리 공격을 받으면 20% 확률로 헤롱헤롱 상태로 만든다.",
+      "new": true
+    },
+    {
+      "index": 20608,
+      "en": "Heavy Metal",
+      "ko": "헤비메탈",
+      "new": true
+    },
+    {
+      "index": 20609,
+      "en": "[CS:E]Heavy Metal[CR]:\nWeight ×2 for weight-based\nmoves; blocks forced movement.",
+      "ko": "[CS:E]헤비메탈[CR]:\n무게 참조 기술에서 자신의 무게 ×2. 강제 이동을 막는다.",
+      "new": true
+    },
+    {
+      "index": 20610,
+      "en": "Heavy Metal II",
+      "ko": "헤비메탈Ⅱ",
+      "new": true
+    },
+    {
+      "index": 20611,
+      "en": "[CS:E]Heavy Metal II[CR]:\nSame as base; physical move\ndamage taken ×0.8.",
+      "ko": "[CS:E]헤비메탈Ⅱ[CR]:\n기본 효과에 더해, 물리 기술로 받는 피해 ×0.8.",
+      "new": true
+    },
+    {
+      "index": 20612,
+      "en": "Neutralizing Gas",
+      "ko": "화학변화가스",
+      "new": true
+    },
+    {
+      "index": 20613,
+      "en": "[CS:E]Neutralizing Gas[CR]:\nSeals abilities of Pokémon\nwithin 8 tiles (except other gas\nusers).",
+      "ko": "[CS:E]화학변화가스[CR]:\n인접 8칸 적·아군의 특성을 봉인한다. (다른 화학변화가스 제외)",
+      "new": true
+    },
+    {
+      "index": 20614,
+      "en": "Neutralizing Gas II",
+      "ko": "화학변화가스Ⅱ",
+      "new": true
+    },
+    {
+      "index": 20615,
+      "en": "[CS:E]Neutralizing Gas II[CR]:\nSeals abilities of Pokémon in\nthe same room (except other gas\nusers).",
+      "ko": "[CS:E]화학변화가스Ⅱ[CR]:\n같은 방 적·아군의 특성을 봉인한다. (다른 화학변화가스 제외)",
+      "new": true
+    },
+    {
+      "index": 20616,
+      "en": "Power of Alchemy",
+      "ko": "화학의힘",
+      "new": true
+    },
+    {
+      "index": 20617,
+      "en": "[CS:E]Power of Alchemy[CR]:\nCopies a fainted room ally's\nability until the next floor.",
+      "ko": "[CS:E]화학의힘[CR]:\n같은 방 동료가 쓰러지면 그 특성을 복사해 층 이동까지 유지한다.",
+      "new": true
+    },
+    {
+      "index": 20618,
+      "en": "Power of Alchemy II",
+      "ko": "화학의힘Ⅱ",
+      "new": true
+    },
+    {
+      "index": 20619,
+      "en": "[CS:E]Power of Alchemy II[CR]:\nSame; while copying, own Attack\nand Sp. Atk ×1.2.",
+      "ko": "[CS:E]화학의힘Ⅱ[CR]:\n동일하며, 복사한 동안 공격·특수공격 ×1.2.",
+      "new": true
+    },
+    {
+      "index": 20620,
+      "en": "Suction Cups",
+      "ko": "흡반",
+      "new": true
+    },
+    {
+      "index": 20621,
+      "en": "[CS:E]Suction Cups[CR]:\nBlocks forced movement such as\nblow-away and position swaps.",
+      "ko": "[CS:E]흡반[CR]:\n날려버리기·위치 교환 등 강제 이동을 막는다.",
+      "new": true
+    },
+    {
+      "index": 20622,
+      "en": "Suction Cups II",
+      "ko": "흡반Ⅱ",
+      "new": true
+    },
+    {
+      "index": 20623,
+      "en": "[CS:E]Suction Cups II[CR]:\nBlocks forced movement; if you\ndidn't move last turn, damage\ntaken ×0.8.",
+      "ko": "[CS:E]흡반Ⅱ[CR]:\n강제 이동을 막고, 직전 턴에 이동하지 않았다면 받는 피해 ×0.8.",
+      "new": true
+    },
+    {
+      "index": 18452,
+      "en": "Stench",
+      "ko": "악취",
+      "new": false
+    },
+    {
+      "index": 18708,
+      "en": "[CS:E]Stench[CR]:\n12% chance to make adjacent\nattackers flee; own melee\nphysical hits 12% flinch.",
+      "ko": "[CS:E]악취[CR]:\n인접 공격자를 12% 확률로 도주시킨다. 근접 물리 기술 명중 시 12% 확률로 풀죽음.",
+      "new": false
+    },
+    {
+      "index": 18453,
+      "en": "Thick Fat",
+      "ko": "두꺼운지방",
+      "new": false
+    },
+    {
+      "index": 18709,
+      "en": "[CS:E]Thick Fat[CR]:\nFire and Ice move damage taken\n×0.5.",
+      "ko": "[CS:E]두꺼운지방[CR]:\n받는 불꽃·얼음 기술 피해 ×0.5.",
+      "new": false
+    },
+    {
+      "index": 18454,
+      "en": "Rain Dish",
+      "ko": "젖은접시",
+      "new": false
+    },
+    {
+      "index": 18710,
+      "en": "[CS:E]Rain Dish[CR]:\nIn rain, natural HP regen\ndenominator ÷2.",
+      "ko": "[CS:E]젖은접시[CR]:\n비에서 자연 HP 회복의 분모를 1/2로 줄인다.",
+      "new": false
+    },
+    {
+      "index": 18455,
+      "en": "Drizzle",
+      "ko": "잔비",
+      "new": false
+    },
+    {
+      "index": 18711,
+      "en": "[CS:E]Drizzle[CR]:\nMakes the floor rainy.",
+      "ko": "[CS:E]잔비[CR]:\n플로어를 비 날씨로 만든다.",
+      "new": false
+    },
+    {
+      "index": 18456,
+      "en": "Arena Trap",
+      "ko": "개미지옥",
+      "new": false
+    },
+    {
+      "index": 18712,
+      "en": "[CS:E]Arena Trap[CR]:\nAttackers have a 12% chance to\nbe immobilized\n(Flying/levitating exempt).",
+      "ko": "[CS:E]개미지옥[CR]:\n공격자를 12% 확률로 이동 봉쇄한다. 비행·부유는 제외. (3~5턴)",
+      "new": false
+    },
+    {
+      "index": 18457,
+      "en": "Intimidate",
+      "ko": "위협",
+      "new": false
+    },
+    {
+      "index": 18713,
+      "en": "[CS:E]Intimidate[CR]:\nSame-room foes' physical Attack\n×0.8.",
+      "ko": "[CS:E]위협[CR]:\n같은 방 상대의 물리 공격 계산값 ×0.8.",
+      "new": false
+    },
+    {
+      "index": 18458,
+      "en": "Rock Head",
+      "ko": "돌머리",
+      "new": false
+    },
+    {
+      "index": 18714,
+      "en": "[CS:E]Rock Head[CR]:\nNo recoil damage (other indirect\ndamage still applies).",
+      "ko": "[CS:E]돌머리[CR]:\n기술 반동 피해를 받지 않는다. 다른 간접 피해는 받는다.",
+      "new": false
+    },
+    {
+      "index": 18460,
+      "en": "Hyper Cutter",
+      "ko": "괴력집게",
+      "new": false
+    },
+    {
+      "index": 18716,
+      "en": "[CS:E]Hyper Cutter[CR]:\nBlocks foe-caused Attack drops;\nself-inflicted drops apply.",
+      "ko": "[CS:E]괴력집게[CR]:\n상대에 의한 공격 저하를 막는다. 자신의 기술로 인한 저하는 받는다.",
+      "new": false
+    },
+    {
+      "index": 18461,
+      "en": "Shadow Tag",
+      "ko": "그림자밟기",
+      "new": false
+    },
+    {
+      "index": 18717,
+      "en": "[CS:E]Shadow Tag[CR]:\nAttackers have a 12% chance to\nbe immobilized (3-5 turns).",
+      "ko": "[CS:E]그림자밟기[CR]:\n공격자를 12% 확률로 이동 봉쇄한다. (3~5턴)",
+      "new": false
+    },
+    {
+      "index": 18462,
+      "en": "Speed Boost",
+      "ko": "가속",
+      "new": false
+    },
+    {
+      "index": 18718,
+      "en": "[CS:E]Speed Boost[CR]:\nEvery 100 turn-end ticks,\nMovement speed +1 stage.",
+      "ko": "[CS:E]가속[CR]:\n자신의 턴 종료 처리 100회마다 이동속도 +1단계.",
+      "new": false
+    },
+    {
+      "index": 18463,
+      "en": "Multiscale",
+      "ko": "멀티스케일",
+      "new": false
+    },
+    {
+      "index": 18719,
+      "en": "[CS:E]Multiscale[CR]:\nAt full HP, move damage taken\n×1/2.",
+      "ko": "[CS:E]멀티스케일[CR]:\nHP가 가득할 때 기술로 받는 피해 ×1/2.",
+      "new": false
+    },
+    {
+      "index": 18464,
+      "en": "Sturdy",
+      "ko": "옹골참",
+      "new": false
+    },
+    {
+      "index": 18720,
+      "en": "[CS:E]Sturdy[CR]:\nSurvives lethal hits at full HP\nwith 1 HP; blocks one-hit KO\nmoves.",
+      "ko": "[CS:E]옹골참[CR]:\n최대 HP에서 쓰러질 공격을 HP 1로 버틴다. 일격필살 기술을 막는다.",
+      "new": false
+    },
+    {
+      "index": 18465,
+      "en": "Suction Cups",
+      "ko": "흡반",
+      "new": false
+    },
+    {
+      "index": 18721,
+      "en": "[CS:E]Suction Cups[CR]:\nBlocks forced movement such as\nblow-away and position swaps.",
+      "ko": "[CS:E]흡반[CR]:\n날려버리기·위치 교환 등 강제 이동을 막는다.",
+      "new": false
+    },
+    {
+      "index": 18466,
+      "en": "Clear Body",
+      "ko": "클리어바디",
+      "new": false
+    },
+    {
+      "index": 18722,
+      "en": "[CS:E]Clear Body[CR]:\nBlocks foe-caused stat drops;\nself-inflicted drops still\napply.",
+      "ko": "[CS:E]클리어바디[CR]:\n상대에 의한 능력 저하를 막는다. 자신의 반동 저하는 받는다.",
+      "new": false
+    },
+    {
+      "index": 18467,
+      "en": "Torrent",
+      "ko": "급류",
+      "new": false
+    },
+    {
+      "index": 18723,
+      "en": "[CS:E]Torrent[CR]:\nAt HP <=1/4 max, Water move\ndamage ×1.5.",
+      "ko": "[CS:E]급류[CR]:\nHP가 최대의 1/4 이하이면 물 기술 피해 ×1.5.",
+      "new": false
+    },
+    {
+      "index": 18468,
+      "en": "Guts",
+      "ko": "근성",
+      "new": false
+    },
+    {
+      "index": 18724,
+      "en": "[CS:E]Guts[CR]:\nPhysical Attack ×1.5 while\nstatused.",
+      "ko": "[CS:E]근성[CR]:\n나쁜 상태일 때 물리 공격 ×1.5.",
+      "new": false
+    },
+    {
+      "index": 18469,
+      "en": "Rough Skin",
+      "ko": "까칠한피부",
+      "new": false
+    },
+    {
+      "index": 18725,
+      "en": "[CS:E]Rough Skin[CR]:\nAdjacent physical hit: attacker\ntakes 1/8 max HP (min 1), once\nper attack.",
+      "ko": "[CS:E]까칠한피부[CR]:\n인접 물리 피격 시 공격자에게 최대 HP의 1/8(최소 1) 피해. 행동당 1회.",
+      "new": false
+    },
+    {
+      "index": 18470,
+      "en": "Battle Armor",
+      "ko": "전투무장",
+      "new": false
+    },
+    {
+      "index": 18726,
+      "en": "[CS:E]Battle Armor[CR]:\nBlocks critical hits (crit\nchance 0%).",
+      "ko": "[CS:E]전투무장[CR]:\n급소 공격을 막는다. (급소 확률 0%)",
+      "new": false
+    },
+    {
+      "index": 18471,
+      "en": "Natural Cure",
+      "ko": "자연회복",
+      "new": false
+    },
+    {
+      "index": 18727,
+      "en": "[CS:E]Natural Cure[CR]:\nCaps status duration at 5 turns.",
+      "ko": "[CS:E]자연회복[CR]:\n상태 이상의 지속시간을 최대 5턴으로 제한한다.",
+      "new": false
+    },
+    {
+      "index": 18472,
+      "en": "Damp",
+      "ko": "습기",
+      "new": false
+    },
+    {
+      "index": 18728,
+      "en": "[CS:E]Damp[CR]:\nPrevents explosions on floors\nwith Damp Pokémon.",
+      "ko": "[CS:E]습기[CR]:\n습기 포켓몬이 있는 플로어에서 폭발이 일어나지 않는다.",
+      "new": false
+    },
+    {
+      "index": 18473,
+      "en": "Limber",
+      "ko": "유연",
+      "new": false
+    },
+    {
+      "index": 18729,
+      "en": "[CS:E]Limber[CR]:\nPrevents paralysis.",
+      "ko": "[CS:E]유연[CR]:\n마비 상태를 막는다.",
+      "new": false
+    },
+    {
+      "index": 18474,
+      "en": "Magnet Pull",
+      "ko": "자력",
+      "new": false
+    },
+    {
+      "index": 18730,
+      "en": "[CS:E]Magnet Pull[CR]:\nSteel foes within 8 tiles can't\nmove; their Def and Sp. Def -1.",
+      "ko": "[CS:E]자력[CR]:\n인접 8칸 강철 적의 이동을 봉쇄하고, 방어·특방 −1단계로 계산.",
+      "new": false
+    },
+    {
+      "index": 18476,
+      "en": "Synchronize",
+      "ko": "싱크로",
+      "new": false
+    },
+    {
+      "index": 18732,
+      "en": "[CS:E]Synchronize[CR]:\nPasses poison, burn, paralysis\netc. to an adjacent foe.",
+      "ko": "[CS:E]싱크로[CR]:\n독·화상·마비 등의 상태를 인접 상대에게 전달한다.",
+      "new": false
+    },
+    {
+      "index": 18477,
+      "en": "Overgrow",
+      "ko": "심록",
+      "new": false
+    },
+    {
+      "index": 18733,
+      "en": "[CS:E]Overgrow[CR]:\nAt HP <=1/4 max, Grass move\ndamage ×1.5.",
+      "ko": "[CS:E]심록[CR]:\nHP가 최대의 1/4 이하이면 풀 기술 피해 ×1.5.",
+      "new": false
+    },
+    {
+      "index": 18478,
+      "en": "Swift Swim",
+      "ko": "쓱쓱",
+      "new": false
+    },
+    {
+      "index": 18734,
+      "en": "[CS:E]Swift Swim[CR]:\nSpeed +2 stages in rain.",
+      "ko": "[CS:E]쓱쓱[CR]:\n비에서 스피드 +2단계.",
+      "new": false
+    },
+    {
+      "index": 18479,
+      "en": "Sand Stream",
+      "ko": "모래날림",
+      "new": false
+    },
+    {
+      "index": 18735,
+      "en": "[CS:E]Sand Stream[CR]:\nMakes the floor a sandstorm.",
+      "ko": "[CS:E]모래날림[CR]:\n플로어를 모래바람으로 만든다.",
+      "new": false
+    },
+    {
+      "index": 18480,
+      "en": "Sand Veil",
+      "ko": "모래숨기",
+      "new": false
+    },
+    {
+      "index": 18736,
+      "en": "[CS:E]Sand Veil[CR]:\nEvasion +2 stages in sandstorm;\nimmune to weather damage.",
+      "ko": "[CS:E]모래숨기[CR]:\n모래바람에서 회피 +2단계. 날씨 피해를 받지 않는다.",
+      "new": false
+    },
+    {
+      "index": 18481,
+      "en": "Keen Eye",
+      "ko": "날카로운눈",
+      "new": false
+    },
+    {
+      "index": 18737,
+      "en": "[CS:E]Keen Eye[CR]:\nAccuracy cannot be lowered.",
+      "ko": "[CS:E]날카로운눈[CR]:\n명중률이 떨어지지 않는다.",
+      "new": false
+    },
+    {
+      "index": 18482,
+      "en": "Inner Focus",
+      "ko": "정신력",
+      "new": false
+    },
+    {
+      "index": 18738,
+      "en": "[CS:E]Inner Focus[CR]:\nImmune to flinching and the\nIntimidator IQ skill.",
+      "ko": "[CS:E]정신력[CR]:\n풀죽음과 IQ 스킬 Intimidator의 방해를 막는다.",
+      "new": false
+    },
+    {
+      "index": 18483,
+      "en": "Static",
+      "ko": "정전기",
+      "new": false
+    },
+    {
+      "index": 18739,
+      "en": "[CS:E]Static[CR]:\nWhen hit by an adjacent physical\nattack, 12% to paralyze the\nattacker.",
+      "ko": "[CS:E]정전기[CR]:\n인접 물리 공격을 받으면 12% 확률로 공격자를 마비시킨다.",
+      "new": false
+    },
+    {
+      "index": 18484,
+      "en": "Shed Skin",
+      "ko": "탈피",
+      "new": false
+    },
+    {
+      "index": 18740,
+      "en": "[CS:E]Shed Skin[CR]:\nAt turn end, 30% chance to cure\ncurable bad status.",
+      "ko": "[CS:E]탈피[CR]:\n턴 종료 시 30% 확률로 회복 가능한 나쁜 상태를 해제한다.",
+      "new": false
+    },
+    {
+      "index": 18485,
+      "en": "Huge Power",
+      "ko": "천하장사",
+      "new": false
+    },
+    {
+      "index": 18741,
+      "en": "[CS:E]Huge Power[CR]:\nPhysical Attack ×1.2 (not\nspecial).",
+      "ko": "[CS:E]천하장사[CR]:\n물리 공격 계산값 ×1.2. (특수 공격은 제외)",
+      "new": false
+    },
+    {
+      "index": 18486,
+      "en": "Volt Absorb",
+      "ko": "축전",
+      "new": false
+    },
+    {
+      "index": 18742,
+      "en": "[CS:E]Volt Absorb[CR]:\nElectric damage is converted\ninto HP recovery (up to max HP).",
+      "ko": "[CS:E]축전[CR]:\n전기 기술 피해를 HP 회복으로 바꾼다. (최대 HP까지)",
+      "new": false
+    },
+    {
+      "index": 18487,
+      "en": "Water Absorb",
+      "ko": "저수",
+      "new": false
+    },
+    {
+      "index": 18743,
+      "en": "[CS:E]Water Absorb[CR]:\nWater damage is converted into\nHP recovery (up to max HP).",
+      "ko": "[CS:E]저수[CR]:\n물 기술 피해를 HP 회복으로 바꾼다. (최대 HP까지)",
+      "new": false
+    },
+    {
+      "index": 18488,
+      "en": "Forecast",
+      "ko": "기분파",
+      "new": false
+    },
+    {
+      "index": 18744,
+      "en": "[CS:E]Forecast[CR]:\nType changes with the weather.",
+      "ko": "[CS:E]기분파[CR]:\n날씨에 따라 타입이 변한다.",
+      "new": false
+    },
+    {
+      "index": 18489,
+      "en": "Serene Grace",
+      "ko": "하늘의은총",
+      "new": false
+    },
+    {
+      "index": 18745,
+      "en": "[CS:E]Serene Grace[CR]:\nDoubles the chance of a move's\nadditional effects.",
+      "ko": "[CS:E]하늘의은총[CR]:\n기술의 추가 효과 확률이 2배가 된다.",
+      "new": false
+    },
+    {
+      "index": 18490,
+      "en": "Poison Point",
+      "ko": "독가시",
+      "new": false
+    },
+    {
+      "index": 18746,
+      "en": "[CS:E]Poison Point[CR]:\nAdjacent hit: 12% chance to\npoison the attacker.",
+      "ko": "[CS:E]독가시[CR]:\n인접 공격을 받으면 12% 확률로 공격자를 독 상태로 만든다.",
+      "new": false
+    },
+    {
+      "index": 18491,
+      "en": "Trace",
+      "ko": "트레이스",
+      "new": false
+    },
+    {
+      "index": 18747,
+      "en": "[CS:E]Trace[CR]:\nReplaces this ability with the\nattacker's (random valid pick).",
+      "ko": "[CS:E]트레이스[CR]:\n공격해 온 상대의 특성(유효한 것 중 무작위)으로 대체한다.",
+      "new": false
+    },
+    {
+      "index": 18492,
+      "en": "Oblivious",
+      "ko": "둔감",
+      "new": false
+    },
+    {
+      "index": 18748,
+      "en": "[CS:E]Oblivious[CR]:\nCannot be infatuated.",
+      "ko": "[CS:E]둔감[CR]:\n헤롱헤롱 상태가 되지 않는다.",
+      "new": false
+    },
+    {
+      "index": 18493,
+      "en": "Truant",
+      "ko": "게으름",
+      "new": false
+    },
+    {
+      "index": 18749,
+      "en": "[CS:E]Truant[CR]:\nIdle after attacking or using an\norb; damage taken ×0.8 while\nidle.",
+      "ko": "[CS:E]게으름[CR]:\n공격·구슬 사용 후 행동 정지. 정지 중 받는 피해 ×0.8.",
+      "new": false
+    },
+    {
+      "index": 18494,
+      "en": "Run Away",
+      "ko": "도주",
+      "new": false
+    },
+    {
+      "index": 18750,
+      "en": "[CS:E]Run Away[CR]:\nAt <=1/4 max HP after a foe's\nattack, warps next to nearest\nally. Once per floor.",
+      "ko": "[CS:E]도주[CR]:\n상대 공격으로 HP 1/4 이하가 되면 가장 가까운 동료 옆으로 이동. 층당 1회.",
+      "new": false
+    },
+    {
+      "index": 18495,
+      "en": "Sticky Hold",
+      "ko": "점착",
+      "new": false
+    },
+    {
+      "index": 18751,
+      "en": "[CS:E]Sticky Hold[CR]:\nItems can't be stolen; adjacent\nhit: 12% to lower attacker's\nSpeed 1 stage.",
+      "ko": "[CS:E]점착[CR]:\n도구를 빼앗기지 않는다. 인접 피격 시 12% 확률로 공격자 스피드 −1단계.",
+      "new": false
+    },
+    {
+      "index": 18496,
+      "en": "Cloud Nine",
+      "ko": "날씨부정",
+      "new": false
+    },
+    {
+      "index": 18752,
+      "en": "[CS:E]Cloud Nine[CR]:\nProtects the whole team from\nweather effects.",
+      "ko": "[CS:E]날씨부정[CR]:\n팀 전체를 날씨의 영향에서 지킨다.",
+      "new": false
+    },
+    {
+      "index": 18497,
+      "en": "Illuminate",
+      "ko": "발광",
+      "new": false
+    },
+    {
+      "index": 18753,
+      "en": "[CS:E]Illuminate[CR]:\nWhen attacked, a wild Pokémon\nappears in the dungeon.",
+      "ko": "[CS:E]발광[CR]:\n공격을 받으면 던전에 야생 포켓몬이 나타난다.",
+      "new": false
+    },
+    {
+      "index": 18498,
+      "en": "Early Bird",
+      "ko": "일찍기상",
+      "new": false
+    },
+    {
+      "index": 18754,
+      "en": "[CS:E]Early Bird[CR]:\nSleep duration ÷2 (min 1); fully\nheals HP on waking.",
+      "ko": "[CS:E]일찍기상[CR]:\n수면 지속시간을 1/2로 줄이고, 기상 시 HP를 모두 회복한다.",
+      "new": false
+    },
+    {
+      "index": 18499,
+      "en": "Hustle",
+      "ko": "의욕",
+      "new": false
+    },
+    {
+      "index": 18755,
+      "en": "[CS:E]Hustle[CR]:\nPhysical Attack ×1.5, but foes\nget Evasion +2 stages against\nit.",
+      "ko": "[CS:E]의욕[CR]:\n물리 공격 ×1.5. 물리 기술 명중 시 상대 회피 +2단계 적용.",
+      "new": false
+    },
+    {
+      "index": 18500,
+      "en": "Drought",
+      "ko": "가뭄",
+      "new": false
+    },
+    {
+      "index": 18756,
+      "en": "[CS:E]Drought[CR]:\nMakes the floor sunny.",
+      "ko": "[CS:E]가뭄[CR]:\n층 입장 시 쾌청을 만든다.",
+      "new": false
+    },
+    {
+      "index": 18501,
+      "en": "Lightning Rod",
+      "ko": "피뢰침",
+      "new": false
+    },
+    {
+      "index": 18757,
+      "en": "[CS:E]Lightning Rod[CR]:\nDraws in Electric moves, blocks\ndamage, Sp. Atk +1 stage.",
+      "ko": "[CS:E]피뢰침[CR]:\n전기 기술을 끌어와 피해를 막고 특수공격 +1단계.",
+      "new": false
+    },
+    {
+      "index": 18502,
+      "en": "Compound Eyes",
+      "ko": "복안",
+      "new": false
+    },
+    {
+      "index": 18758,
+      "en": "[CS:E]Compound Eyes[CR]:\nAccuracy +1 stage in damage\ncalculation.",
+      "ko": "[CS:E]복안[CR]:\n데미지 계산 시 명중률 +1단계로 계산한다.",
+      "new": false
+    },
+    {
+      "index": 18503,
+      "en": "Marvel Scale",
+      "ko": "이상한비늘",
+      "new": false
+    },
+    {
+      "index": 18759,
+      "en": "[CS:E]Marvel Scale[CR]:\nPhysical Defense ×1.5 while\nstatused.",
+      "ko": "[CS:E]이상한비늘[CR]:\n나쁜 상태에서 물리 방어 ×1.5.",
+      "new": false
+    },
+    {
+      "index": 18504,
+      "en": "Wonder Guard",
+      "ko": "불가사의부적",
+      "new": false
+    },
+    {
+      "index": 18760,
+      "en": "[CS:E]Wonder Guard[CR]:\nBlocks damage from moves that\nare not super effective.",
+      "ko": "[CS:E]불가사의부적[CR]:\n효과가 굉장한 기술 외의 기술 피해를 막는다.",
+      "new": false
+    },
+    {
+      "index": 18505,
+      "en": "Insomnia",
+      "ko": "불면",
+      "new": false
+    },
+    {
+      "index": 18761,
+      "en": "[CS:E]Insomnia[CR]:\nCannot fall asleep.",
+      "ko": "[CS:E]불면[CR]:\n잠들지 않는다.",
+      "new": false
+    },
+    {
+      "index": 18506,
+      "en": "Levitate",
+      "ko": "부유",
+      "new": false
+    },
+    {
+      "index": 18762,
+      "en": "[CS:E]Levitate[CR]:\nImmune to Ground-type moves.",
+      "ko": "[CS:E]부유[CR]:\n땅타입 기술을 받지 않는다.",
+      "new": false
+    },
+    {
+      "index": 18507,
+      "en": "Plus",
+      "ko": "플러스",
+      "new": false
+    },
+    {
+      "index": 18763,
+      "en": "[CS:E]Plus[CR]:\nSp. Atk ×1.5 if an ally with\nMinus is on the floor.",
+      "ko": "[CS:E]플러스[CR]:\n같은 편 마이너스가 플로어에 있으면 특수공격 ×1.5.",
+      "new": false
+    },
+    {
+      "index": 18508,
+      "en": "Pressure",
+      "ko": "프레셔",
+      "new": false
+    },
+    {
+      "index": 18764,
+      "en": "[CS:E]Pressure[CR]:\nMoves targeting you cost double\nPP.",
+      "ko": "[CS:E]프레셔[CR]:\n자신을 대상으로 한 기술의 PP 소모가 2배가 된다.",
+      "new": false
+    },
+    {
+      "index": 18509,
+      "en": "Liquid Ooze",
+      "ko": "해감액",
+      "new": false
+    },
+    {
+      "index": 18765,
+      "en": "[CS:E]Liquid Ooze[CR]:\nDrain moves deal no heal; 50% of\nthe damage hits the attacker.",
+      "ko": "[CS:E]해감액[CR]:\n흡수 기술의 피해를 막고 피해량의 50%를 공격자에게 반사한다.",
+      "new": false
+    },
+    {
+      "index": 18510,
+      "en": "Color Change",
+      "ko": "변색",
+      "new": false
+    },
+    {
+      "index": 18766,
+      "en": "[CS:E]Color Change[CR]:\nBecomes the type of the move\nthat hit it.",
+      "ko": "[CS:E]변색[CR]:\n받은 기술과 같은 타입이 된다.",
+      "new": false
+    },
+    {
+      "index": 18511,
+      "en": "Soundproof",
+      "ko": "방음",
+      "new": false
+    },
+    {
+      "index": 18767,
+      "en": "[CS:E]Soundproof[CR]:\nImmune to the effects of sound-\nbased moves.",
+      "ko": "[CS:E]방음[CR]:\n소리 기술의 효과를 받지 않는다.",
+      "new": false
+    },
+    {
+      "index": 18512,
+      "en": "Effect Spore",
+      "ko": "포자",
+      "new": false
+    },
+    {
+      "index": 18768,
+      "en": "[CS:E]Effect Spore[CR]:\nAdjacent physical hit: 12% to\npoison, paralyze or sleep the\nattacker.",
+      "ko": "[CS:E]포자[CR]:\n인접 물리 피격 시 12% 확률로 공격자를 독·마비·수면 중 하나로 만든다.",
+      "new": false
+    },
+    {
+      "index": 18513,
+      "en": "Flame Body",
+      "ko": "불꽃몸",
+      "new": false
+    },
+    {
+      "index": 18769,
+      "en": "[CS:E]Flame Body[CR]:\nAdjacent hit: 12% chance to burn\nthe attacker.",
+      "ko": "[CS:E]불꽃몸[CR]:\n인접 공격을 받으면 12% 확률로 공격자를 화상 상태로 만든다.",
+      "new": false
+    },
+    {
+      "index": 18514,
+      "en": "Minus",
+      "ko": "마이너스",
+      "new": false
+    },
+    {
+      "index": 18770,
+      "en": "[CS:E]Minus[CR]:\nSp. Atk ×1.5 if an ally with\nPlus is on the floor.",
+      "ko": "[CS:E]마이너스[CR]:\n같은 편 플러스가 플로어에 있으면 특수공격 ×1.5.",
+      "new": false
+    },
+    {
+      "index": 18515,
+      "en": "Own Tempo",
+      "ko": "마이페이스",
+      "new": false
+    },
+    {
+      "index": 18771,
+      "en": "[CS:E]Own Tempo[CR]:\nCannot be confused.",
+      "ko": "[CS:E]마이페이스[CR]:\n혼란 상태가 되지 않는다.",
+      "new": false
+    },
+    {
+      "index": 18516,
+      "en": "Magma Armor",
+      "ko": "마그마의무장",
+      "new": false
+    },
+    {
+      "index": 18772,
+      "en": "[CS:E]Magma Armor[CR]:\nPrevents freezing and frostbite.",
+      "ko": "[CS:E]마그마의무장[CR]:\n얼음·동상 상태를 막는다.",
+      "new": false
+    },
+    {
+      "index": 18517,
+      "en": "Water Veil",
+      "ko": "수의베일",
+      "new": false
+    },
+    {
+      "index": 18773,
+      "en": "[CS:E]Water Veil[CR]:\nPrevents burns.",
+      "ko": "[CS:E]수의베일[CR]:\n화상 상태가 되지 않는다.",
+      "new": false
+    },
+    {
+      "index": 18518,
+      "en": "Swarm",
+      "ko": "벌레의알림",
+      "new": false
+    },
+    {
+      "index": 18774,
+      "en": "[CS:E]Swarm[CR]:\nAt HP <=1/4 max, Bug move damage\n×1.5.",
+      "ko": "[CS:E]벌레의알림[CR]:\nHP가 최대의 1/4 이하이면 벌레 기술 피해 ×1.5.",
+      "new": false
+    },
+    {
+      "index": 18519,
+      "en": "Cute Charm",
+      "ko": "헤롱헤롱바디",
+      "new": false
+    },
+    {
+      "index": 18775,
+      "en": "[CS:E]Cute Charm[CR]:\nAdjacent opposite-gender\nphysical hit: 12% to infatuate\nthe attacker.",
+      "ko": "[CS:E]헤롱헤롱바디[CR]:\n이성의 인접 물리 공격을 받으면 12% 확률로 헤롱헤롱 상태로 만든다.",
+      "new": false
+    },
+    {
+      "index": 18520,
+      "en": "Immunity",
+      "ko": "면역",
+      "new": false
+    },
+    {
+      "index": 18776,
+      "en": "[CS:E]Immunity[CR]:\nCannot be poisoned or badly\npoisoned.",
+      "ko": "[CS:E]면역[CR]:\n독·맹독 상태가 되지 않는다.",
+      "new": false
+    },
+    {
+      "index": 18521,
+      "en": "Blaze",
+      "ko": "맹화",
+      "new": false
+    },
+    {
+      "index": 18777,
+      "en": "[CS:E]Blaze[CR]:\nAt HP <=1/4 max, Fire move\ndamage ×1.5.",
+      "ko": "[CS:E]맹화[CR]:\nHP가 최대의 1/4 이하이면 불꽃 기술 피해 ×1.5.",
+      "new": false
+    },
+    {
+      "index": 18522,
+      "en": "Pickup",
+      "ko": "픽업",
+      "new": false
+    },
+    {
+      "index": 18778,
+      "en": "[CS:E]Pickup[CR]:\nOn floor entry, 50% to pick up 1\nberry/seed (no\nReviver/Golden/Joy Seed).",
+      "ko": "[CS:E]픽업[CR]:\n층 입장 시 50% 확률로 열매·씨앗 1개를 줍는다. (부활·황금·행복 씨앗 제외)",
+      "new": false
+    },
+    {
+      "index": 18523,
+      "en": "Flash Fire",
+      "ko": "타오르는불꽃",
+      "new": false
+    },
+    {
+      "index": 18779,
+      "en": "[CS:E]Flash Fire[CR]:\nBlocks Fire damage; each trigger\ngives Fire moves +1 stage (max\n+2).",
+      "ko": "[CS:E]타오르는불꽃[CR]:\n불꽃 피해를 막고, 발동마다 불꽃 기술 공격 +1단계(최대 +2).",
+      "new": false
+    },
+    {
+      "index": 18524,
+      "en": "Vital Spirit",
+      "ko": "의기양양",
+      "new": false
+    },
+    {
+      "index": 18780,
+      "en": "[CS:E]Vital Spirit[CR]:\nCannot fall asleep.",
+      "ko": "[CS:E]의기양양[CR]:\n잠들지 않는다.",
+      "new": false
+    },
+    {
+      "index": 18525,
+      "en": "Chlorophyll",
+      "ko": "엽록소",
+      "new": false
+    },
+    {
+      "index": 18781,
+      "en": "[CS:E]Chlorophyll[CR]:\nSpeed +2 stages in sunlight.",
+      "ko": "[CS:E]엽록소[CR]:\n햇살에서 스피드 +2단계.",
+      "new": false
+    },
+    {
+      "index": 18526,
+      "en": "Strong Jaw",
+      "ko": "옹골찬턱",
+      "new": false
+    },
+    {
+      "index": 18782,
+      "en": "[CS:E]Strong Jaw[CR]:\nListed biting moves deal ×1.2\ndamage.",
+      "ko": "[CS:E]옹골찬턱[CR]:\n목록의 물기 기술 피해 ×1.2.",
+      "new": false
+    },
+    {
+      "index": 18527,
+      "en": "Shield Dust",
+      "ko": "인분",
+      "new": false
+    },
+    {
+      "index": 18783,
+      "en": "[CS:E]Shield Dust[CR]:\nImmune to additional effects of\nmoves.",
+      "ko": "[CS:E]인분[CR]:\n기술의 추가 효과를 받지 않는다.",
+      "new": false
+    },
+    {
+      "index": 18528,
+      "en": "Ice Body",
+      "ko": "아이스바디",
+      "new": false
+    },
+    {
+      "index": 18784,
+      "en": "[CS:E]Ice Body[CR]:\nIn snow, natural HP regen\ndenominator ÷2.",
+      "ko": "[CS:E]아이스바디[CR]:\n설경에서 자연 HP 회복의 분모를 1/2로 줄인다.",
+      "new": false
+    },
+    {
+      "index": 18529,
+      "en": "Stall",
+      "ko": "시간벌기",
+      "new": false
+    },
+    {
+      "index": 18785,
+      "en": "[CS:E]Stall[CR]:\nDamage taken multiplier is ×0.8.",
+      "ko": "[CS:E]시간벌기[CR]:\n받는 피해 계수가 0.8이 된다.",
+      "new": false
+    },
+    {
+      "index": 18530,
+      "en": "Anger Point",
+      "ko": "분노의경혈",
+      "new": false
+    },
+    {
+      "index": 18786,
+      "en": "[CS:E]Anger Point[CR]:\nAfter taking a critical hit,\nAttack and Sp. Atk +3 stages.",
+      "ko": "[CS:E]분노의경혈[CR]:\n급소에 맞은 뒤 공격·특수공격 +3단계.",
+      "new": false
+    },
+    {
+      "index": 18531,
+      "en": "Tinted Lens",
+      "ko": "색안경",
+      "new": false
+    },
+    {
+      "index": 18787,
+      "en": "[CS:E]Tinted Lens[CR]:\nNot-very-effective moves get an\nextra ×1.2 damage.",
+      "ko": "[CS:E]색안경[CR]:\n효과가 별로인 기술의 피해에 ×1.2 보정.",
+      "new": false
+    },
+    {
+      "index": 18532,
+      "en": "Hydration",
+      "ko": "촉촉바디",
+      "new": false
+    },
+    {
+      "index": 18788,
+      "en": "[CS:E]Hydration[CR]:\nIn rain, cures curable bad\nstatus at turn end.",
+      "ko": "[CS:E]촉촉바디[CR]:\n비에서 턴 종료 때 회복 가능한 나쁜 상태를 해제한다.",
+      "new": false
+    },
+    {
+      "index": 18533,
+      "en": "Frisk",
+      "ko": "통찰",
+      "new": false
+    },
+    {
+      "index": 18789,
+      "en": "[CS:E]Frisk[CR]:\nDamage ×1.2 vs foes holding\nitems; attacks reveal held\nitems.",
+      "ko": "[CS:E]통찰[CR]:\n도구를 지닌 상대에게 피해 ×1.2. 공격으로 상대의 도구를 알 수 있다.",
+      "new": false
+    },
+    {
+      "index": 18534,
+      "en": "Mold Breaker",
+      "ko": "틀깨기",
+      "new": false
+    },
+    {
+      "index": 18790,
+      "en": "[CS:E]Mold Breaker[CR]:\nMoves ignore the target's\nability.",
+      "ko": "[CS:E]틀깨기[CR]:\n상대의 특성과 상관없이 기술을 쓸 수 있다.",
+      "new": false
+    },
+    {
+      "index": 18535,
+      "en": "Unburden",
+      "ko": "곡예",
+      "new": false
+    },
+    {
+      "index": 18791,
+      "en": "[CS:E]Unburden[CR]:\nSpeed +2 stages while holding no\nitem.",
+      "ko": "[CS:E]곡예[CR]:\n지닌 도구가 없으면 스피드 +2단계.",
+      "new": false
+    },
+    {
+      "index": 18536,
+      "en": "Dry Skin",
+      "ko": "건조피부",
+      "new": false
+    },
+    {
+      "index": 18792,
+      "en": "[CS:E]Dry Skin[CR]:\nRain: regen ÷2. Water damage\nheals you. Fire damage ×1.2 in\nsun.",
+      "ko": "[CS:E]건조피부[CR]:\n비에서 자연 회복 분모 1/2, 물 피해는 회복으로 전환, 햇살에서 불꽃 피해 ×1.2.",
+      "new": false
+    },
+    {
+      "index": 18537,
+      "en": "Anticipation",
+      "ko": "위험예지",
+      "new": false
+    },
+    {
+      "index": 18793,
+      "en": "[CS:E]Anticipation[CR]:\nIf a foe has a super-effective\nmove on you, damage multiplier\n×1.5.",
+      "ko": "[CS:E]위험예지[CR]:\n상대가 효과가 굉장한 기술을 가지면 피해 계수 ×1.5.",
+      "new": false
+    },
+    {
+      "index": 18538,
+      "en": "Scrappy",
+      "ko": "배짱",
+      "new": false
+    },
+    {
+      "index": 18794,
+      "en": "[CS:E]Scrappy[CR]:\nNormal and Fighting moves deal\nmore damage to Ghost types.",
+      "ko": "[CS:E]배짱[CR]:\n고스트타입에게 주는 노말·격투 기술의 피해가 올라간다.",
+      "new": false
+    },
+    {
+      "index": 18539,
+      "en": "Super Luck",
+      "ko": "대운",
+      "new": false
+    },
+    {
+      "index": 18795,
+      "en": "[CS:E]Super Luck[CR]:\nCritical hit threshold ×2.",
+      "ko": "[CS:E]대운[CR]:\n급소 판정 임계값이 2배가 된다.",
+      "new": false
+    },
+    {
+      "index": 18540,
+      "en": "Gluttony",
+      "ko": "먹보",
+      "new": false
+    },
+    {
+      "index": 18796,
+      "en": "[CS:E]Gluttony[CR]:\nBelly drains faster (+1); sets\nbelly to 120 on certain floor\nentries.",
+      "ko": "[CS:E]먹보[CR]:\n배고픔 소모 +1. 특정 입장 조건에서 배부름을 120으로 설정한다.",
+      "new": false
+    },
+    {
+      "index": 18541,
+      "en": "Solar Power",
+      "ko": "선파워",
+      "new": false
+    },
+    {
+      "index": 18797,
+      "en": "[CS:E]Solar Power[CR]:\nSp. Atk +2 stages in sun; lose\nabout 1/16 max HP each tick.",
+      "ko": "[CS:E]선파워[CR]:\n햇살에서 특수공격 +2단계. 매 처리 최대 HP의 약 1/16 피해.",
+      "new": false
+    },
+    {
+      "index": 18542,
+      "en": "Skill Link",
+      "ko": "스킬링크",
+      "new": false
+    },
+    {
+      "index": 18798,
+      "en": "[CS:E]Skill Link[CR]:\nMulti-hit moves always use max\nhits (5); accuracy not\nguaranteed.",
+      "ko": "[CS:E]스킬링크[CR]:\n다단히트 기술이 항상 최대 타수로 나간다. 명중은 보장하지 않는다.",
+      "new": false
+    },
+    {
+      "index": 18543,
+      "en": "Reckless",
+      "ko": "이판사판",
+      "new": false
+    },
+    {
+      "index": 18799,
+      "en": "[CS:E]Reckless[CR]:\nRecoil move power ×1.2; recoil\ndamage still applies.",
+      "ko": "[CS:E]이판사판[CR]:\n반동 기술의 위력 ×1.2. 반동 피해는 그대로 받는다.",
+      "new": false
+    },
+    {
+      "index": 18544,
+      "en": "Sniper",
+      "ko": "스나이퍼",
+      "new": false
+    },
+    {
+      "index": 18800,
+      "en": "[CS:E]Sniper[CR]:\nCritical hit damage ×2 (×1.2 vs\nCritical Dodger).",
+      "ko": "[CS:E]스나이퍼[CR]:\n급소 피해 배율 ×2. (Critical Dodger 상대는 ×1.2)",
+      "new": false
+    },
+    {
+      "index": 18545,
+      "en": "Slow Start",
+      "ko": "슬로스타트",
+      "new": false
+    },
+    {
+      "index": 18801,
+      "en": "[CS:E]Slow Start[CR]:\nSpeed -3 stages at the start of\na floor.",
+      "ko": "[CS:E]슬로스타트[CR]:\n플로어 시작 시 스피드 −3단계.",
+      "new": false
+    },
+    {
+      "index": 18546,
+      "en": "Heatproof",
+      "ko": "내열",
+      "new": false
+    },
+    {
+      "index": 18802,
+      "en": "[CS:E]Heatproof[CR]:\nFire and Ice move damage taken\n×0.5.",
+      "ko": "[CS:E]내열[CR]:\n받는 불꽃·얼음 기술 피해 ×0.5.",
+      "new": false
+    },
+    {
+      "index": 18547,
+      "en": "Download",
+      "ko": "다운로드",
+      "new": false
+    },
+    {
+      "index": 18803,
+      "en": "[CS:E]Download[CR]:\nFoe Def >= Sp. Def: Sp. Atk +1\nstage; otherwise Attack +1\nstage.",
+      "ko": "[CS:E]다운로드[CR]:\n상대 방어≥특방이면 특수공격 +1단계, 아니면 공격 +1단계.",
+      "new": false
+    },
+    {
+      "index": 18548,
+      "en": "Simple",
+      "ko": "단순",
+      "new": false
+    },
+    {
+      "index": 18804,
+      "en": "[CS:E]Simple[CR]:\nDoubles stat stage changes\n(stage range limited to 4-16).",
+      "ko": "[CS:E]단순[CR]:\n능력 변화의 단계량이 2배가 된다. (저장 단계 4~16)",
+      "new": false
+    },
+    {
+      "index": 18549,
+      "en": "Tangled Feet",
+      "ko": "갈지자걸음",
+      "new": false
+    },
+    {
+      "index": 18805,
+      "en": "[CS:E]Tangled Feet[CR]:\nEvasion +3 stages while confused\nor hallucinating.",
+      "ko": "[CS:E]갈지자걸음[CR]:\n혼란·환각 상태에서 회피 +3단계.",
+      "new": false
+    },
+    {
+      "index": 18550,
+      "en": "Adaptability",
+      "ko": "적응력",
+      "new": false
+    },
+    {
+      "index": 18806,
+      "en": "[CS:E]Adaptability[CR]:\nSame-type move bonus is ×1.7\ninstead of ×1.5.",
+      "ko": "[CS:E]적응력[CR]:\n자속 기술의 피해 배율이 ×1.5 대신 ×1.7이 된다.",
+      "new": false
+    },
+    {
+      "index": 18551,
+      "en": "Technician",
+      "ko": "테크니션",
+      "new": false
+    },
+    {
+      "index": 18807,
+      "en": "[CS:E]Technician[CR]:\nMoves with base power <=60 deal\n×1.5 damage.",
+      "ko": "[CS:E]테크니션[CR]:\n기본 위력 60 이하인 기술의 피해 ×1.5.",
+      "new": false
+    },
+    {
+      "index": 18552,
+      "en": "Iron Fist",
+      "ko": "철주먹",
+      "new": false
+    },
+    {
+      "index": 18808,
+      "en": "[CS:E]Iron Fist[CR]:\nPunching move power ×1.2.",
+      "ko": "[CS:E]철주먹[CR]:\n펀치 기술의 위력 ×1.2.",
+      "new": false
+    },
+    {
+      "index": 18553,
+      "en": "Motor Drive",
+      "ko": "전기엔진",
+      "new": false
+    },
+    {
+      "index": 18809,
+      "en": "[CS:E]Motor Drive[CR]:\nBlocks Electric damage; Speed +1\nstage.",
+      "ko": "[CS:E]전기엔진[CR]:\n전기 기술 피해를 막고 스피드 +1단계.",
+      "new": false
+    },
+    {
+      "index": 18554,
+      "en": "Unaware",
+      "ko": "천진",
+      "new": false
+    },
+    {
+      "index": 18810,
+      "en": "[CS:E]Unaware[CR]:\nTreats foes' stat stages as\nneutral (10) in calculations.",
+      "ko": "[CS:E]천진[CR]:\n상대의 모든 능력 단계를 중립(10)으로 취급해 계산한다.",
+      "new": false
+    },
+    {
+      "index": 18555,
+      "en": "Rivalry",
+      "ko": "투쟁심",
+      "new": false
+    },
+    {
+      "index": 18811,
+      "en": "[CS:E]Rivalry[CR]:\nAttack +1 stage vs same gender,\n-1 vs opposite; none if\ngenderless.",
+      "ko": "[CS:E]투쟁심[CR]:\n동성 상대에게 공격 +1단계, 이성에게 −1단계. 무성이면 적용 안 함.",
+      "new": false
+    },
+    {
+      "index": 18556,
+      "en": "Bad Dreams",
+      "ko": "나이트메어",
+      "new": false
+    },
+    {
+      "index": 18812,
+      "en": "[CS:E]Bad Dreams[CR]:\nAdjacent sleeping foes take\ndamage from the Def byte each\ntick (usually 0).",
+      "ko": "[CS:E]나이트메어[CR]:\n인접한 잠든 적이 방어 바이트 기준 피해를 입는다. (보통 0)",
+      "new": false
+    },
+    {
+      "index": 18557,
+      "en": "No Guard",
+      "ko": "노가드",
+      "new": false
+    },
+    {
+      "index": 18813,
+      "en": "[CS:E]No Guard[CR]:\nMoves used by and against you\nalways hit.",
+      "ko": "[CS:E]노가드[CR]:\n자신이 받는 기술과 사용하는 기술이 모두 반드시 명중한다.",
+      "new": false
+    },
+    {
+      "index": 18558,
+      "en": "Normalize",
+      "ko": "노말스킨",
+      "new": false
+    },
+    {
+      "index": 18814,
+      "en": "[CS:E]Normalize[CR]:\nMoves become Normal-type with\ndamage ×1.2.",
+      "ko": "[CS:E]노말스킨[CR]:\n기술을 노말타입으로 바꾸고 피해 ×1.2.",
+      "new": false
+    },
+    {
+      "index": 18559,
+      "en": "Sharpness",
+      "ko": "예리함",
+      "new": false
+    },
+    {
+      "index": 18815,
+      "en": "[CS:E]Sharpness[CR]:\nListed slicing moves deal ×1.2\ndamage.",
+      "ko": "[CS:E]예리함[CR]:\n목록의 베기 기술 피해 ×1.2.",
+      "new": false
+    },
+    {
+      "index": 18560,
+      "en": "Quick Feet",
+      "ko": "속보",
+      "new": false
+    },
+    {
+      "index": 18816,
+      "en": "[CS:E]Quick Feet[CR]:\nSpeed +1 stage when afflicted\nwith a bad status.",
+      "ko": "[CS:E]속보[CR]:\n해당 나쁜 상태가 되면 스피드 +1단계.",
+      "new": false
+    },
+    {
+      "index": 18561,
+      "en": "Filter",
+      "ko": "필터",
+      "new": false
+    },
+    {
+      "index": 18817,
+      "en": "[CS:E]Filter[CR]:\nSuper-effective move damage\ntaken ×0.8.",
+      "ko": "[CS:E]필터[CR]:\n효과가 굉장한 기술로 받는 피해 ×0.8.",
+      "new": false
+    },
+    {
+      "index": 18563,
+      "en": "Steadfast",
+      "ko": "불굴의마음",
+      "new": false
+    },
+    {
+      "index": 18819,
+      "en": "[CS:E]Steadfast[CR]:\nSpeed +1 stage when\nhallucinating or flinched.",
+      "ko": "[CS:E]불굴의마음[CR]:\n환각·풀죽음 상태가 되면 스피드 +1단계.",
+      "new": false
+    },
+    {
+      "index": 18564,
+      "en": "Flower Gift",
+      "ko": "플라워기프트",
+      "new": false
+    },
+    {
+      "index": 18820,
+      "en": "[CS:E]Flower Gift[CR]:\nIn sun, allies' Attack +1 stage\nand Sp. Def +1 stage.",
+      "ko": "[CS:E]플라워기프트[CR]:\n햇살에서 같은 편의 공격 +1단계, 특수방어 +1단계.",
+      "new": false
+    },
+    {
+      "index": 18565,
+      "en": "Poison Heal",
+      "ko": "포이즌힐",
+      "new": false
+    },
+    {
+      "index": 18821,
+      "en": "[CS:E]Poison Heal[CR]:\nPoison damage is converted into\nthe same amount of healing.",
+      "ko": "[CS:E]포이즌힐[CR]:\n독의 정기 피해를 같은 수치의 HP 회복으로 바꾼다.",
+      "new": false
+    },
+    {
+      "index": 18566,
+      "en": "Magic Guard",
+      "ko": "매직가드",
+      "new": false
+    },
+    {
+      "index": 18822,
+      "en": "[CS:E]Magic Guard[CR]:\nTakes no damage except from\nmoves and attacks.",
+      "ko": "[CS:E]매직가드[CR]:\n기술이나 공격 이외의 데미지를 입지 않는다.",
+      "new": false
+    },
+    {
+      "index": 18567,
+      "en": "Multitype",
+      "ko": "멀티타입",
+      "new": false
+    },
+    {
+      "index": 18823,
+      "en": "[CS:E]Multitype[CR]:\nArceus changes type by\nplate/move; those moves deal\n×1.2.",
+      "ko": "[CS:E]멀티타입[CR]:\n아르세우스가 기술에 따라 타입이 변하고, 해당 기술 피해 ×1.2.",
+      "new": false
+    },
+    {
+      "index": 18569,
+      "en": "Aftermath",
+      "ko": "유폭",
+      "new": false
+    },
+    {
+      "index": 18825,
+      "en": "[CS:E]Aftermath[CR]:\nWhen fainting, 50% chance to\ncause an explosion.",
+      "ko": "[CS:E]유폭[CR]:\n쓰러질 때 50% 확률로 폭발을 일으킨다.",
+      "new": false
+    },
+    {
+      "index": 18570,
+      "en": "Snow Cloak",
+      "ko": "눈숨기",
+      "new": false
+    },
+    {
+      "index": 18826,
+      "en": "[CS:E]Snow Cloak[CR]:\nEvasion +2 stages in snow or\nsnow; immune to snow damage.",
+      "ko": "[CS:E]눈숨기[CR]:\n설경·눈에서 회피 +2단계. 설경 피해를 받지 않는다.",
+      "new": false
+    },
+    {
+      "index": 18571,
+      "en": "Snow Warning",
+      "ko": "눈퍼뜨리기",
+      "new": false
+    },
+    {
+      "index": 18827,
+      "en": "[CS:E]Snow Warning[CR]:\nMakes the weather snow.",
+      "ko": "[CS:E]눈퍼뜨리기[CR]:\n날씨를 설경으로 만든다.",
+      "new": false
+    },
+    {
+      "index": 18572,
+      "en": "Forewarn",
+      "ko": "예지몽",
+      "new": false
+    },
+    {
+      "index": 18828,
+      "en": "[CS:E]Forewarn[CR]:\n12% chance that incoming moves\nmiss.",
+      "ko": "[CS:E]예지몽[CR]:\n회피 판정에서 12% 확률로 기술을 빗나가게 한다.",
+      "new": false
+    },
+    {
+      "index": 18573,
+      "en": "Storm Drain",
+      "ko": "마중물",
+      "new": false
+    },
+    {
+      "index": 18829,
+      "en": "[CS:E]Storm Drain[CR]:\nDraws in Water moves, blocks\ndamage, Sp. Atk +1 stage.",
+      "ko": "[CS:E]마중물[CR]:\n물 기술을 끌어와 피해를 막고 특수공격 +1단계.",
+      "new": false
+    },
+    {
+      "index": 18574,
+      "en": "Leaf Guard",
+      "ko": "리프가드",
+      "new": false
+    },
+    {
+      "index": 18830,
+      "en": "[CS:E]Leaf Guard[CR]:\nCannot get bad status in harsh\nsunlight.",
+      "ko": "[CS:E]리프가드[CR]:\n강한 햇살에서는 나쁜 상태가 되지 않는다.",
+      "new": false
+    },
+    {
+      "index": 18576,
+      "en": "Illusion",
+      "ko": "일루전",
+      "new": false
+    },
+    {
+      "index": 18832,
+      "en": "[CS:E]Illusion[CR]:\nDisguises as a foe; Atk/Sp. Atk\nstage 11 (+1); -1 each on\nreveal.",
+      "ko": "[CS:E]일루전[CR]:\n적으로 위장하며 공격·특공 +1단계. 위장이 풀리면 각각 −1단계.",
+      "new": false
+    },
+    {
+      "index": 18577,
+      "en": "Poison Touch",
+      "ko": "독수",
+      "new": false
+    },
+    {
+      "index": 18833,
+      "en": "[CS:E]Poison Touch[CR]:\nMelee physical hit: 30% chance\nto poison the target.",
+      "ko": "[CS:E]독수[CR]:\n근접 물리 기술이 명중하면 30% 확률로 대상을 독 상태로 만든다.",
+      "new": false
+    },
+    {
+      "index": 18580,
+      "en": "Contrary",
+      "ko": "심술꾸러기",
+      "new": false
+    },
+    {
+      "index": 18836,
+      "en": "[CS:E]Contrary[CR]:\nReverses the direction of stat\nstage changes.",
+      "ko": "[CS:E]심술꾸러기[CR]:\n능력 변화의 상승·하락 방향을 반전한다.",
+      "new": false
+    },
+    {
+      "index": 18581,
+      "en": "Overcoat",
+      "ko": "방진",
+      "new": false
+    },
+    {
+      "index": 18837,
+      "en": "[CS:E]Overcoat[CR]:\nImmune to weather damage and\npowder moves.",
+      "ko": "[CS:E]방진[CR]:\n날씨 피해와 지정된 가루 기술의 효과를 막는다.",
+      "new": false
+    },
+    {
+      "index": 18582,
+      "en": "Regenerator",
+      "ko": "재생력",
+      "new": false
+    },
+    {
+      "index": 18838,
+      "en": "[CS:E]Regenerator[CR]:\nFully heals HP on entering the\nnext floor.",
+      "ko": "[CS:E]재생력[CR]:\n다음 층 입장 시 HP를 모두 회복한다.",
+      "new": false
+    },
+    {
+      "index": 18583,
+      "en": "Sand Rush",
+      "ko": "모래헤치기",
+      "new": false
+    },
+    {
+      "index": 18839,
+      "en": "[CS:E]Sand Rush[CR]:\nSpeed +2 stages in sandstorm;\nimmune to weather damage.",
+      "ko": "[CS:E]모래헤치기[CR]:\n모래바람에서 스피드 +2단계. 모래바람 피해를 받지 않는다.",
+      "new": false
+    },
+    {
+      "index": 18584,
+      "en": "Analytic",
+      "ko": "애널라이즈",
+      "new": false
+    },
+    {
+      "index": 18840,
+      "en": "[CS:E]Analytic[CR]:\nRanged moves (range IDs 4, 5, 9)\ndeal ×1.2 damage.",
+      "ko": "[CS:E]애널라이즈[CR]:\n범위 ID 4·5·9인 원거리 기술의 피해 ×1.2.",
+      "new": false
+    },
+    {
+      "index": 18585,
+      "en": "Infiltrator",
+      "ko": "틈새포착",
+      "new": false
+    },
+    {
+      "index": 18841,
+      "en": "[CS:E]Infiltrator[CR]:\nIgnores Reflect, Light Screen,\nMist and Safeguard effects.",
+      "ko": "[CS:E]틈새포착[CR]:\n리플렉터·빛의장막·흰안개·신비의부적의 방어를 무시한다.",
+      "new": false
+    },
+    {
+      "index": 18586,
+      "en": "Magic Bounce",
+      "ko": "매직미러",
+      "new": false
+    },
+    {
+      "index": 18842,
+      "en": "[CS:E]Magic Bounce[CR]:\nReflects status moves aimed at\nyou back at the user.",
+      "ko": "[CS:E]매직미러[CR]:\n자신을 향한 변화 기술을 상대에게 반사한다.",
+      "new": false
+    },
+    {
+      "index": 18587,
+      "en": "Armor Tail",
+      "ko": "테일아머",
+      "new": false
+    },
+    {
+      "index": 18843,
+      "en": "[CS:E]Armor Tail[CR]:\nBlocks moves with a 2-tile or\nstraight-line range.",
+      "ko": "[CS:E]테일아머[CR]:\n범위가 2칸 또는 직선인 기술을 막는다.",
+      "new": false
+    },
+    {
+      "index": 18588,
+      "en": "Prankster",
+      "ko": "짓궂은마음",
+      "new": false
+    },
+    {
+      "index": 18844,
+      "en": "[CS:E]Prankster[CR]:\n12% chance status moves use no\nPP.",
+      "ko": "[CS:E]짓궂은마음[CR]:\n12% 확률로 변화 기술의 PP를 소모하지 않는다.",
+      "new": false
+    },
+    {
+      "index": 18589,
+      "en": "Sand Force",
+      "ko": "모래의힘",
+      "new": false
+    },
+    {
+      "index": 18845,
+      "en": "[CS:E]Sand Force[CR]:\nIn sandstorm, Ground/Rock/Steel\nmove damage ×1.2.",
+      "ko": "[CS:E]모래의힘[CR]:\n모래바람에서 땅·바위·강철 기술의 피해 ×1.2.",
+      "new": false
+    },
+    {
+      "index": 18590,
+      "en": "Fur Coat",
+      "ko": "퍼코트",
+      "new": false
+    },
+    {
+      "index": 18846,
+      "en": "[CS:E]Fur Coat[CR]:\nPhysical move damage taken ×1/2.",
+      "ko": "[CS:E]퍼코트[CR]:\n물리 기술로 받는 피해 ×1/2.",
+      "new": false
+    },
+    {
+      "index": 18592,
+      "en": "Bulletproof",
+      "ko": "방탄",
+      "new": false
+    },
+    {
+      "index": 18848,
+      "en": "[CS:E]Bulletproof[CR]:\nImmune to designated ball and\nbomb moves.",
+      "ko": "[CS:E]방탄[CR]:\n지정된 탄 기술·투사체 피해를 막는다.",
+      "new": false
+    },
+    {
+      "index": 18594,
+      "en": "Mega Launcher",
+      "ko": "메가런처",
+      "new": false
+    },
+    {
+      "index": 18850,
+      "en": "[CS:E]Mega Launcher[CR]:\nListed pulse and beam moves deal\n×1.2 damage.",
+      "ko": "[CS:E]메가런처[CR]:\n지정된 파동·빔 기술의 피해 ×1.2.",
+      "new": false
+    },
+    {
+      "index": 18595,
+      "en": "Tough Claws",
+      "ko": "단단한발톱",
+      "new": false
+    },
+    {
+      "index": 18851,
+      "en": "[CS:E]Tough Claws[CR]:\nFront-range (ID 0) moves deal\n×1.2 damage.",
+      "ko": "[CS:E]단단한발톱[CR]:\n정면 범위(ID 0) 기술의 피해 ×1.2.",
+      "new": false
+    },
+    {
+      "index": 18596,
+      "en": "Slush Rush",
+      "ko": "눈치우기",
+      "new": false
+    },
+    {
+      "index": 18852,
+      "en": "[CS:E]Slush Rush[CR]:\nSpeed +2 stages in snow.",
+      "ko": "[CS:E]눈치우기[CR]:\n설경에서 스피드 +2단계.",
+      "new": false
+    },
+    {
+      "index": 18598,
+      "en": "Queenly Majesty",
+      "ko": "여왕의위엄",
+      "new": false
+    },
+    {
+      "index": 18854,
+      "en": "[CS:E]Queenly Majesty[CR]:\nBlocks moves with a 2-tile or\nstraight-line range.",
+      "ko": "[CS:E]여왕의위엄[CR]:\n범위가 2칸 또는 직선인 기술을 막는다.",
+      "new": false
+    },
+    {
+      "index": 18599,
+      "en": "Punk Rock",
+      "ko": "펑크록",
+      "new": false
+    },
+    {
+      "index": 18855,
+      "en": "[CS:E]Punk Rock[CR]:\nOwn sound moves deal ×1.2; sound\ndamage taken ×0.5.",
+      "ko": "[CS:E]펑크록[CR]:\n자신의 소리 기술 피해 ×1.2, 받는 소리 기술 피해 ×0.5.",
+      "new": false
+    },
+    {
+      "index": 18600,
+      "en": "Cursed Body",
+      "ko": "저주받은바디",
+      "new": false
+    },
+    {
+      "index": 18856,
+      "en": "[CS:E]Cursed Body[CR]:\nAdjacent hit: 12% chance to seal\none of the attacker's moves.",
+      "ko": "[CS:E]저주받은바디[CR]:\n인접 공격을 받으면 12% 확률로 공격자의 기술 하나를 봉인한다.",
+      "new": false
+    },
+    {
+      "index": 18601,
+      "en": "Defiant",
+      "ko": "오기",
+      "new": false
+    },
+    {
+      "index": 18857,
+      "en": "[CS:E]Defiant[CR]:\nWhen foes lower your stats,\nAttack +2 stages.",
+      "ko": "[CS:E]오기[CR]:\n상대에게 능력이 내려가면 공격 +2단계.",
+      "new": false
+    },
+    {
+      "index": 18602,
+      "en": "Competitive",
+      "ko": "승기",
+      "new": false
+    },
+    {
+      "index": 18858,
+      "en": "[CS:E]Competitive[CR]:\nWhen foes lower your stats, Sp.\nAtk +2 stages.",
+      "ko": "[CS:E]승기[CR]:\n상대에게 능력이 내려가면 특수공격 +2단계.",
+      "new": false
+    },
+    {
+      "index": 18603,
+      "en": "Perish Body",
+      "ko": "멸망의바디",
+      "new": false
+    },
+    {
+      "index": 18859,
+      "en": "[CS:E]Perish Body[CR]:\nAdjacent hit: 10% chance to\ninflict Perish on the attacker\n(4 turns).",
+      "ko": "[CS:E]멸망의바디[CR]:\n인접 공격을 받으면 10% 확률로 공격자에게 아포칼립스 상태. (4턴)",
+      "new": false
+    },
+    {
+      "index": 18608,
+      "en": "Electromorphosis",
+      "ko": "전기로바꾸기",
+      "new": false
+    },
+    {
+      "index": 18864,
+      "en": "[CS:E]Electromorphosis[CR]:\nWhen hit, you get charged; next\nElectric move within 5 turns\n×1.5.",
+      "ko": "[CS:E]전기로바꾸기[CR]:\n공격 피격 시 충전. 5턴 안에 다음 전기 기술 피해 ×1.5.",
+      "new": false
+    },
+    {
+      "index": 18609,
+      "en": "Flower Veil",
+      "ko": "플라워베일",
+      "new": false
+    },
+    {
+      "index": 18865,
+      "en": "[CS:E]Flower Veil[CR]:\nProtects same-room Grass allies\nfrom status and stat drops.",
+      "ko": "[CS:E]플라워베일[CR]:\n같은 방 풀타입 동료를 나쁜 상태·능력 저하로부터 보호한다.",
+      "new": false
+    },
+    {
+      "index": 18610,
+      "en": "Pastel Veil",
+      "ko": "파스텔베일",
+      "new": false
+    },
+    {
+      "index": 18866,
+      "en": "[CS:E]Pastel Veil[CR]:\nProtects same-room Fairy allies\nfrom status and stat drops.",
+      "ko": "[CS:E]파스텔베일[CR]:\n같은 방 페어리타입 동료를 나쁜 상태·능력 저하로부터 보호한다.",
+      "new": false
+    },
+    {
+      "index": 18611,
+      "en": "Neutralizing Gas",
+      "ko": "화학변화가스",
+      "new": false
+    },
+    {
+      "index": 18867,
+      "en": "[CS:E]Neutralizing Gas[CR]:\nSeals abilities of Pokémon\nwithin 8 tiles (except other gas\nusers).",
+      "ko": "[CS:E]화학변화가스[CR]:\n인접 8칸 적·아군의 특성을 봉인한다. (다른 화학변화가스 제외)",
+      "new": false
+    },
+    {
+      "index": 18612,
+      "en": "Sap Sipper",
+      "ko": "초식",
+      "new": false
+    },
+    {
+      "index": 18868,
+      "en": "[CS:E]Sap Sipper[CR]:\nBlocks Grass damage; Attack +1\nstage.",
+      "ko": "[CS:E]초식[CR]:\n풀 기술 피해를 막고 공격 +1단계.",
+      "new": false
+    },
+    {
+      "index": 18613,
+      "en": "Sheer Force",
+      "ko": "우격다짐",
+      "new": false
+    },
+    {
+      "index": 18869,
+      "en": "[CS:E]Sheer Force[CR]:\nRemoves extra effects of own\nmoves; those moves deal ×1.2.",
+      "ko": "[CS:E]우격다짐[CR]:\n자신의 기술의 추가 효과를 없애고, 그 기술의 피해 ×1.2.",
+      "new": false
+    },
+    {
+      "index": 18614,
+      "en": "Unnerve",
+      "ko": "긴장감",
+      "new": false
+    },
+    {
+      "index": 18870,
+      "en": "[CS:E]Unnerve[CR]:\nFoes within 8 tiles can't eat\nseeds, berries or drinks.",
+      "ko": "[CS:E]긴장감[CR]:\n인접 8칸의 상대가 씨앗·열매·드링크를 먹지 못한다.",
+      "new": false
+    },
+    {
+      "index": 18615,
+      "en": "Friend Guard",
+      "ko": "프렌드가드",
+      "new": false
+    },
+    {
+      "index": 18871,
+      "en": "[CS:E]Friend Guard[CR]:\nAllies within 8 tiles take ×0.8\nmove damage.",
+      "ko": "[CS:E]프렌드가드[CR]:\n인접 8칸의 동료가 받는 기술 피해 ×0.8.",
+      "new": false
+    },
+    {
+      "index": 18616,
+      "en": "Protean",
+      "ko": "변환자재",
+      "new": false
+    },
+    {
+      "index": 18872,
+      "en": "[CS:E]Protean[CR]:\nChanges your type to the type of\nthe move you use.",
+      "ko": "[CS:E]변환자재[CR]:\n사용한 기술의 타입으로 자신의 타입을 바꾼다.",
+      "new": false
+    },
+    {
+      "index": 18617,
+      "en": "Imposter",
+      "ko": "괴짜",
+      "new": false
+    },
+    {
+      "index": 18873,
+      "en": "[CS:E]Imposter[CR]:\nTransforms into a floor Pokémon,\ncopying moves, stats and type.",
+      "ko": "[CS:E]괴짜[CR]:\n플로어 포켓몬 하나로 변신해 기술·능력치·타입을 복사한다.",
+      "new": false
+    },
+    {
+      "index": 18618,
+      "en": "Justified",
+      "ko": "정의의마음",
+      "new": false
+    },
+    {
+      "index": 18874,
+      "en": "[CS:E]Justified[CR]:\nWhen hit by Dark moves, Attack\n+3 stages (stacks up to 16).",
+      "ko": "[CS:E]정의의마음[CR]:\n악타입 공격을 받으면 공격 +3단계. (상한 16까지 중첩)",
+      "new": false
+    },
+    {
+      "index": 18619,
+      "en": "Pickpocket",
+      "ko": "나쁜손버릇",
+      "new": false
+    },
+    {
+      "index": 18875,
+      "en": "[CS:E]Pickpocket[CR]:\nAdjacent physical hit: steals\nattacker's item if you hold\nnone.",
+      "ko": "[CS:E]나쁜손버릇[CR]:\n인접 물리 피격 시, 도구가 없으면 상대의 도구를 훔친다.",
+      "new": false
+    },
+    {
+      "index": 18620,
+      "en": "Berserk",
+      "ko": "발끈",
+      "new": false
+    },
+    {
+      "index": 18876,
+      "en": "[CS:E]Berserk[CR]:\nWhen a foe's attack drops you to\n<=1/2 HP, Sp. Atk +1 (once per\nfloor).",
+      "ko": "[CS:E]발끈[CR]:\n상대 공격으로 HP가 절반 이하가 되면 특수공격 +1단계. 층당 1회.",
+      "new": false
+    },
+    {
+      "index": 18621,
+      "en": "Moxie",
+      "ko": "자기과신",
+      "new": false
+    },
+    {
+      "index": 18877,
+      "en": "[CS:E]Moxie[CR]:\nKnocking out a foe gives Attack\n+1 stage (per KO).",
+      "ko": "[CS:E]자기과신[CR]:\n공격 기술로 상대를 쓰러뜨리면 공격 +1단계. (처치마다)",
+      "new": false
+    },
+    {
+      "index": 18626,
+      "en": "Wonder Skin",
+      "ko": "미라클스킨",
+      "new": false
+    },
+    {
+      "index": 18882,
+      "en": "[CS:E]Wonder Skin[CR]:\n25% chance to negate foes'\nstatus moves aimed at you.",
+      "ko": "[CS:E]미라클스킨[CR]:\n자신을 향한 상대의 변화 기술을 25% 확률로 무효화한다.",
+      "new": false
+    },
+    {
+      "index": 18631,
+      "en": "Tangling Hair",
+      "ko": "컬리헤어",
+      "new": false
+    },
+    {
+      "index": 18887,
+      "en": "[CS:E]Tangling Hair[CR]:\nAdjacent physical hit:\nattacker's Speed -1 stage.",
+      "ko": "[CS:E]컬리헤어[CR]:\n인접 물리 피격 시 공격자의 스피드 −1단계. 행동당 1회.",
+      "new": false
+    },
+    {
+      "index": 18635,
+      "en": "Parental Bond",
+      "ko": "부자유친",
+      "new": false
+    },
+    {
+      "index": 18891,
+      "en": "[CS:E]Parental Bond[CR]:\nAttacks hit twice; second hit\ndeals ×1/4 damage; PP used once.",
+      "ko": "[CS:E]부자유친[CR]:\n공격이 2회 나간다. 2번째는 피해 ×1/4, PP는 1번만 소모.",
+      "new": false
+    },
+    {
+      "index": 18640,
+      "en": "Comatose",
+      "ko": "절대안깸",
+      "new": false
+    },
+    {
+      "index": 18896,
+      "en": "[CS:E]Comatose[CR]:\nImmune to bad status; always\ncounts as asleep but acts\nnormally.",
+      "ko": "[CS:E]절대안깸[CR]:\n나쁜 상태가 되지 않는다. 항상 수면으로 취급되지만 정상 행동한다.",
+      "new": false
+    },
+    {
+      "index": 18647,
+      "en": "Power of Alchemy",
+      "ko": "화학의힘",
+      "new": false
+    },
+    {
+      "index": 18903,
+      "en": "[CS:E]Power of Alchemy[CR]:\nCopies a fainted room ally's\nability until the next floor.",
+      "ko": "[CS:E]화학의힘[CR]:\n같은 방 동료가 쓰러지면 그 특성을 복사해 층 이동까지 유지한다.",
+      "new": false
+    },
+    {
+      "index": 18648,
+      "en": "Stakeout",
+      "ko": "잠복",
+      "new": false
+    },
+    {
+      "index": 18904,
+      "en": "[CS:E]Stakeout[CR]:\nAttacks deal ×1.2 vs foes that\nmoved last turn (first hit\nonly).",
+      "ko": "[CS:E]잠복[CR]:\n전 턴에 이동한 상대에게 공격 피해 ×1.2. (첫 명중 한정)",
+      "new": false
+    },
+    {
+      "index": 18649,
+      "en": "Stamina",
+      "ko": "지구력",
+      "new": false
+    },
+    {
+      "index": 18905,
+      "en": "[CS:E]Stamina[CR]:\nHit by an attack: Defense +1\nstage (once per attack).",
+      "ko": "[CS:E]지구력[CR]:\n공격으로 피해를 받으면 방어 +1단계. 행동당 1회.",
+      "new": false
+    },
+    {
+      "index": 18660,
+      "en": "Soul-Heart",
+      "ko": "소울하트",
+      "new": false
+    },
+    {
+      "index": 18916,
+      "en": "[CS:E]Soul-Heart[CR]:\nWhen another Pokémon faints in\nthe room, Sp. Atk +1 stage.",
+      "ko": "[CS:E]소울하트[CR]:\n같은 방에서 다른 포켓몬이 쓰러지면 특수공격 +1단계.",
+      "new": false
+    },
+    {
+      "index": 18661,
+      "en": "Steelworker",
+      "ko": "강철술사",
+      "new": false
+    },
+    {
+      "index": 18917,
+      "en": "[CS:E]Steelworker[CR]:\nOwn Steel move damage ×1.2.",
+      "ko": "[CS:E]강철술사[CR]:\n자신이 사용하는 강철 기술의 피해 ×1.2.",
+      "new": false
+    },
+    {
+      "index": 18664,
+      "en": "Gorilla Tactics",
+      "ko": "무아지경",
+      "new": false
+    },
+    {
+      "index": 18920,
+      "en": "[CS:E]Gorilla Tactics[CR]:\nAttack ×1.5; locked into the\nfirst successful attack move\neach floor.",
+      "ko": "[CS:E]무아지경[CR]:\n공격 ×1.5. 층에서 처음 성공한 공격 기술만 쓸 수 있다.",
+      "new": false
+    },
+    {
+      "index": 18667,
+      "en": "Wind Rider",
+      "ko": "바람타기",
+      "new": false
+    },
+    {
+      "index": 18923,
+      "en": "[CS:E]Wind Rider[CR]:\nBlocks wind moves; Attack +1\nstage (also when Tailwind first\napplies).",
+      "ko": "[CS:E]바람타기[CR]:\n바람 기술 피해를 막고 공격 +1단계. 순풍이 처음 부여될 때도 +1단계.",
+      "new": false
+    },
+    {
+      "index": 18668,
+      "en": "Power Spot",
+      "ko": "파워스폿",
+      "new": false
+    },
+    {
+      "index": 18924,
+      "en": "[CS:E]Power Spot[CR]:\nAllies within 8 tiles deal ×1.2\nattack damage (not self).",
+      "ko": "[CS:E]파워스폿[CR]:\n인접 8칸 동료의 공격 기술 피해 ×1.2. (자신 제외)",
+      "new": false
+    },
+    {
+      "index": 18669,
+      "en": "Cud Chew",
+      "ko": "되새김질",
+      "new": false
+    },
+    {
+      "index": 18925,
+      "en": "[CS:E]Cud Chew[CR]:\n20% chance a berry isn't\nconsumed when you eat it.",
+      "ko": "[CS:E]되새김질[CR]:\n20% 확률로 열매를 먹을 때 소모하지 않는다.",
+      "new": false
+    },
+    {
+      "index": 18673,
+      "en": "Moody",
+      "ko": "변덕쟁이",
+      "new": false
+    },
+    {
+      "index": 18929,
+      "en": "[CS:E]Moody[CR]:\nOn floor entry, one random stat\n+2 stages and another -1 stage.",
+      "ko": "[CS:E]변덕쟁이[CR]:\n층 입장 시 능력 하나 +2단계, 다른 능력 하나 −1단계.",
+      "new": false
+    },
+    {
+      "index": 18676,
+      "en": "Innards Out",
+      "ko": "내용물분출",
+      "new": false
+    },
+    {
+      "index": 18932,
+      "en": "[CS:E]Innards Out[CR]:\nWhen fainting, 50% chance to\ncause an explosion.",
+      "ko": "[CS:E]내용물분출[CR]:\n쓰러질 때 50% 확률로 폭발을 일으킨다.",
+      "new": false
+    },
+    {
+      "index": 18701,
+      "en": "Omniscience",
+      "ko": "전지전능",
+      "new": false
+    },
+    {
+      "index": 18957,
+      "en": "[CS:E]Omniscience[CR]: When attacking,\nchanges into a favorable typing\nand deals more damage. When\nattacked, changes into a resistant\ntyping and takes less damage.\nImmune to stat drops and\ncritical hits.",
+      "ko": "[CS:E]전지전능[CR]:\n공격·방어에 유리한 타입으로 변화하며 피해를 강화·경감한다. 능력 저하와 급소를 막는다.",
+      "new": false
+    },
+    {
+      "index": 18703,
+      "en": "Primordial Sea",
+      "ko": "시작의바다",
+      "new": false
+    },
+    {
+      "index": 18959,
+      "en": "[CS:E]Primordial Sea[CR]:\nOn floor entry, heavy rain\n(Water ×1.5, Fire blocked);\npersists.",
+      "ko": "[CS:E]시작의바다[CR]:\n층 입장 시 큰비. 물 기술 ×1.5, 불꽃 기술 무효. 덮어쓰기 불가.",
+      "new": false
+    },
+    {
+      "index": 18704,
+      "en": "Desolate Land",
+      "ko": "끝의대지",
+      "new": false
+    },
+    {
+      "index": 18960,
+      "en": "[CS:E]Desolate Land[CR]:\nOn floor entry, harsh sun (Fire\n×1.5, Water blocked); persists.",
+      "ko": "[CS:E]끝의대지[CR]:\n층 입장 시 강한 햇살. 불꽃 ×1.5, 물 기술 무효. 덮어쓰기 불가.",
+      "new": false
+    },
+    {
+      "index": 18705,
+      "en": "Delta Stream",
+      "ko": "델타스트림",
+      "new": false
+    },
+    {
+      "index": 18961,
+      "en": "[CS:E]Delta Stream[CR]:\nOn floor entry, makes strong\nwinds; can't be overwritten.",
+      "ko": "[CS:E]델타스트림[CR]:\n층 입장 시 강풍을 만든다. 일반 날씨로 덮어쓸 수 없다.",
+      "new": false
+    }
+  ]
+}

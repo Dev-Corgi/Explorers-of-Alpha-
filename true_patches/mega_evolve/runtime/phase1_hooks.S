@@ -156,3 +156,7 @@ entry ME_AbilitiesEqualHook
  ldr pc,=0x02334954
 #endif
 .ltorg
+
+#ifdef ME_PHASE3
+#include "phase3_hooks.S"
+#endif

@@ -5,12 +5,30 @@
 typedef struct { u32 entity,monster; u16 species; u8 seen[2],configured,pad[3]; u32 permanent[3],current[3]; } AbilityBank;
 typedef struct { u16 ability; u8 owner,event; u32 target; } Once;
 typedef struct { u32 token,actor; u16 move; u8 used,pad; Once once[64]; } Action;
+#ifdef ME_PHASE3
+typedef struct {AbilityBank bank[COUNT];Action action[4];u32 next;int level;} AbilityMemory;
+static AbilityMemory *ability_memory;
+#define banks (ability_memory->bank)
+#define actions (ability_memory->action)
+#define next_action (ability_memory->next)
+#define depth (ability_memory->level)
+#else
 static AbilityBank banks[COUNT];
 static Action actions[4];
 static u32 next_action;
 static int depth;
+#endif
 static void ensure(void);
-static void reset_abilities(void) { zero(banks,sizeof(banks));zero(actions,sizeof(actions));depth=0; }
+static void reset_abilities(void) {
+#ifdef ME_PHASE3
+    if(!ability_memory) {
+        ability_memory=FN(0x02001170,void*(*)(int,int))(sizeof(AbilityMemory),0);
+        if(ability_memory)zero(ability_memory,sizeof(*ability_memory));
+    }
+    if(!ability_memory)return;
+#endif
+    zero(banks,sizeof(banks));zero(actions,sizeof(actions));depth=0;
+}
 static int known(int a) { return a>=0 && (a<=254 || (a>=256 && a<462)); }
 static int canonical(int a) { return a>0 && a<255 ? ability_import[a] : a; }
 static int effect(int a) { return a>=256 && a<462?ability_effect[a]:a; }
@@ -22,13 +40,25 @@ static void publish(AbilityBank *b) {
     if(dungeon()) BYTE(dungeon(),0xe)=1;
 }
 static AbilityBank *bank(u8 *e) {
-    ensure(); int i=slot(e); u8 *m=monster(e); if(i<0 || !m) return 0;
+    ensure();
+#ifdef ME_PHASE3
+    if(!ability_memory)return 0;
+#endif
+    int i=slot(e); u8 *m=monster(e); if(i<0 || !m) return 0;
     AbilityBank *b=&banks[i];
     if(b->entity!=(u32)e || b->monster!=(u32)m || b->species!=U16(m,4)) {
         zero(b,sizeof(*b)); b->entity=(u32)e;b->monster=(u32)m;b->species=U16(m,4);
         for(int j=0;j<2;j++) {
             b->seen[j]=BYTE(m,0x60+j);b->current[j]=b->permanent[j]=(u32)canonical(b->seen[j]);
         }
+#ifdef ME_PHASE3
+        const BaseProfile *profile=ME_FindProfile(b->species);
+        if(profile) {
+            b->configured=1;
+            for(int j=0;j<2;j++) b->current[j]=b->permanent[j]=profile->ability[j];
+            publish(b);
+        }
+#endif
     } else {
         /* Native byte writes become temporary ordinary traits. They never change
          * the configured profile, form ID or original species. */
@@ -118,17 +148,28 @@ int ME_AbilitiesEqual(u8 *ma,u8 *mb) {
 /* Explicit action brackets, used by effect dispatchers in phases3/7. Nested
  * actions keep their own ledger. An exhausted ledger rejects new claims. */
 u32 ME_BeginAction(u8 *actor,int move) {
-    ensure();if(depth>=4 || !monster(actor) || move<0 || move>65535)return 0;
+    ensure();
+#ifdef ME_PHASE3
+    if(!ability_memory)return 0;
+#endif
+    if(depth>=4 || !monster(actor) || move<0 || move>65535)return 0;
     Action *a=&actions[depth++];zero(a,sizeof(*a));
     if(!++next_action)++next_action;
     a->token=next_action;a->actor=(u32)actor;a->move=(u16)move;return a->token;
 }
 int ME_EndAction(u32 token) {
-    ensure();if(!depth || actions[depth-1].token!=token)return 0;
+    ensure();
+#ifdef ME_PHASE3
+    if(!ability_memory)return 0;
+#endif
+    if(!depth || actions[depth-1].token!=token)return 0;
     zero(&actions[--depth],sizeof(Action));return 1;
 }
 int ME_ClaimEffect(u8 *owner,int identity,int event,u8 *target) {
     ensure();int index=slot(owner);
+#ifdef ME_PHASE3
+    if(!ability_memory)return 0;
+#endif
     if(!depth || index<0 || event<0 || event>255 || ME_AbilityGrade(owner,identity)<0)return 0;
     Action *a=&actions[depth-1];int id=canonical(identity);
     for(int i=0;i<a->used;i++) {

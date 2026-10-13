@@ -257,6 +257,10 @@ def plan_translation(rom: NintendoDSRom, src: KoreanSource) -> KoreanPlan:
             index=entry["index"]
             if index<len(text) and text[index]==entry["en"]:
                 user_text[str(index)]={"en":entry["en"],"ko":entry["ko"]}
+    mega_abilities=mega_text.with_name("phase3_strings.json")
+    if mega_abilities.is_file():
+        from .mega_evolve_phase3_data import installed_translations
+        user_text.update(installed_translations(text))
     _apply_user("text_e", text, text_dec, user_text, plan.user_stale)
     for path, entries in (src.user.get("scripts") or {}).items():
         if path in scripts:

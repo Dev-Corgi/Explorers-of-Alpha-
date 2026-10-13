@@ -1,0 +1,5702 @@
+{
+  "schema": 1,
+  "workbook": {
+    "path": "C:\\Users\\82106\\Downloads\\포켓몬_특성_설명_업데이트.xlsx",
+    "sha256": "96a3353c4dfe79e9a02bafd34fc025b5e61033436bdcf282e3e63c08ff139feb",
+    "sheet": "특성 설명",
+    "total_rows": 314,
+    "matched": 205,
+    "omni": "prior_user_definition"
+  },
+  "authority": "Workbook presentation only; registry normal/enhanced and user overrides govern gameplay.",
+  "abilities": [
+    {
+      "key": "Omniscience",
+      "id": 256,
+      "legacy_effect_id": 250,
+      "family": "native_behavior",
+      "normal": "[CS:E]Omniscience[CR]: When attacking,\nchanges into a favorable typing\nand deals more damage. When\nattacked, changes into a resistant\ntyping and takes less damage.\nImmune to stat drops and\ncritical hits.",
+      "enhanced": "기존 Omniscience 효과 유지. 심판(467)을 현재 보유자의 주 타입 Z-Move 위력·효과로 처리한다. Z 게이지 요구·소모·초기화 없음.",
+      "display": {
+        "name_en": "Omniscience",
+        "name_ko": "전지전능",
+        "normal_en": "[CS:E]Omniscience[CR]: When attacking,\nchanges into a favorable typing\nand deals more damage. When\nattacked, changes into a resistant\ntyping and takes less damage.\nImmune to stat drops and\ncritical hits.",
+        "normal_ko": "공격·방어에 유리한 타입으로 변화하며 피해를 강화·경감한다. 능력 저하와 급소를 막는다.",
+        "enhanced_en": "Base effect; Judgment uses the holder's current primary-type Z-Move power and effects without requiring, consuming or resetting the Z gauge.",
+        "enhanced_ko": "기존 Omniscience 효과 유지. 심판(467)을 현재 보유자의 주 타입 Z-Move 위력·효과로 처리한다. Z 게이지 요구·소모·초기화 없음.",
+        "workbook_row": null
+      }
+    },
+    {
+      "key": "가뭄",
+      "id": 257,
+      "legacy_effect_id": 49,
+      "family": "weather_source",
+      "normal": "층 입장 시 쾌청을 만든다.",
+      "enhanced": "층 입장 시 큰가뭄(강한 쾌청)을 만든다.",
+      "display": {
+        "name_en": "Drought",
+        "name_ko": "가뭄",
+        "normal_en": "Turns the weather into harsh sunlight.",
+        "normal_ko": "날씨를 강한 햇살로 만든다.",
+        "enhanced_en": "Makes the floor harsh sunlight.",
+        "enhanced_ko": "플로어를 강한 햇살로 만든다.",
+        "workbook_row": 71
+      }
+    },
+    {
+      "key": "가속",
+      "id": 258,
+      "legacy_effect_id": 11,
+      "family": "turn_tick",
+      "normal": "[기존] 자신의 턴 종료 처리 100회마다 이동속도 +1단계. 증가 카운터 127을 지정한다.",
+      "enhanced": "[강화] 자신의 턴 종료 처리 50회마다 이동속도 저장단계 +1 . 증가 카운터 127을 지정한다.",
+      "display": {
+        "name_en": "Speed Boost",
+        "name_ko": "가속",
+        "normal_en": "Every 100 turn-end ticks, Speed +1 stage.",
+        "normal_ko": "자신의 턴 종료 처리 100회마다 이동속도 +1단계.",
+        "enhanced_en": "Every 50 turn-end ticks, Speed +1 stage.",
+        "enhanced_ko": "자신의 턴 종료 처리 50회마다 이동속도 +1단계.",
+        "workbook_row": 4
+      }
+    },
+    {
+      "key": "갈지자걸음",
+      "id": 259,
+      "legacy_effect_id": 98,
+      "family": "status_or_stage",
+      "normal": "[기존] 혼란·환각 상태에서 회피 계산단계 +3.",
+      "enhanced": "[강화] 혼란·환각 상태에서 회피 계산단계 +4.",
+      "display": {
+        "name_en": "Tangled Feet",
+        "name_ko": "갈지자걸음",
+        "normal_en": "Evasion +3 stages while confused or hallucinating.",
+        "normal_ko": "혼란·환각 상태에서 회피 +3단계.",
+        "enhanced_en": "Evasion +4 stages while confused or hallucinating.",
+        "enhanced_ko": "혼란·환각 상태에서 회피 +4단계.",
+        "workbook_row": 78
+      }
+    },
+    {
+      "key": "감미로운꿀",
+      "id": 260,
+      "legacy_effect_id": 0,
+      "family": "floor_entry",
+      "normal": "[설계안] 층 입장 시 같은 층의 적들에게 회피 −1단계. 같은 층에서 워프·부활·특성 재부여로 다시 발동하지 않는다.",
+      "enhanced": "[강화] 층 입장 시 같은 층의 적들에게 회피 −2단계. 같은 층에서 워프·부활·특성 재부여로 다시 발동하지 않는다.",
+      "display": {
+        "name_en": "Supersweet Syrup",
+        "name_ko": "감미로운꿀",
+        "normal_en": "On floor entry, foes on the floor get Evasion −1 stage.",
+        "normal_ko": "층 입장 시 같은 층 적의 회피 −1단계. 층당 1회.",
+        "enhanced_en": "On floor entry, foes on the floor get Evasion −2 stages.",
+        "enhanced_ko": "층 입장 시 같은 층 적의 회피 −2단계. 층당 1회.",
+        "workbook_row": 301
+      }
+    },
+    {
+      "key": "강철술사",
+      "id": 261,
+      "legacy_effect_id": 210,
+      "family": "calculation",
+      "normal": "[설계안] 자신이 사용하는 강철 기술의 피해 ×1.2.",
+      "enhanced": "[강화] 자신이 사용하는 강철 기술의 피해 ×1.3.",
+      "display": {
+        "name_en": "Steelworker",
+        "name_ko": "강철술사",
+        "normal_en": "Own Steel move damage ×1.2.",
+        "normal_ko": "자신이 사용하는 강철 기술의 피해 ×1.2.",
+        "enhanced_en": "Own Steel move damage ×1.3.",
+        "enhanced_ko": "자신이 사용하는 강철 기술의 피해 ×1.3.",
+        "workbook_row": 201
+      }
+    },
+    {
+      "key": "개미지옥",
+      "id": 262,
+      "legacy_effect_id": 5,
+      "family": "action_or_world",
+      "normal": "[기존] 공격자에게 12% 확률로 이동 봉쇄. 비행타입·부유 등 대상 제외. 봉쇄 초기 카운터 3~5.",
+      "enhanced": "[강화] 공격자에게 20% 확률로 이동 봉쇄. 비행타입·부유 등 대상 제외. 봉쇄 초기 카운터 4~6.",
+      "display": {
+        "name_en": "Arena Trap",
+        "name_ko": "개미지옥",
+        "normal_en": "Attackers have a 12% chance to be immobilized (Flying/levitating exempt).",
+        "normal_ko": "공격자를 12% 확률로 이동 봉쇄한다. 비행·부유는 제외. (3~5턴)",
+        "enhanced_en": "Attackers have a 20% chance to be immobilized (4-6 turns; Flying exempt).",
+        "enhanced_ko": "공격자를 20% 확률로 이동 봉쇄한다. 비행·부유는 제외. (4~6턴)",
+        "workbook_row": 72
+      }
+    },
+    {
+      "key": "건조피부",
+      "id": 263,
+      "legacy_effect_id": 85,
+      "family": "turn_tick",
+      "normal": "[변경] 비에서 자연 회복 분모 ⌊분모/2⌋. 물 기술 피해를 HP 회복으로 전환. 햇살에서는 받는 불꽃 기술 피해 추가로 ×1.2.",
+      "enhanced": "[강화] 비에서 자연 회복 분모 ⌊분모/4⌋. 물 기술 피해를 HP 회복으로 전환.",
+      "display": {
+        "name_en": "Dry Skin",
+        "name_ko": "건조피부",
+        "normal_en": "Rain: regen ÷2. Water damage heals you. Fire damage ×1.2 in sun.",
+        "normal_ko": "비에서 자연 회복 분모 1/2, 물 피해는 회복으로 전환, 햇살에서 불꽃 피해 ×1.2.",
+        "enhanced_en": "Rain: regen denominator ÷4. Water damage heals you.",
+        "enhanced_ko": "비에서 자연 회복 분모 1/4. 물 기술 피해를 HP 회복으로 전환한다.",
+        "workbook_row": 88
+      }
+    },
+    {
+      "key": "게으름",
+      "id": 264,
+      "legacy_effect_id": 42,
+      "family": "calculation",
+      "normal": "[기존] 공격·구슬 사용 후 행동 정지. 정지 상태에서 받는 피해 계수 ×0.8.",
+      "enhanced": "[강화] 공격·구슬 사용 후 행동 정지. 정지 상태에서 받는 피해 계수 ×0.7.",
+      "display": {
+        "name_en": "Truant",
+        "name_ko": "게으름",
+        "normal_en": "Idle after attacking or using an orb; damage taken ×0.8 while idle.",
+        "normal_ko": "공격·구슬 사용 후 행동 정지. 정지 중 받는 피해 ×0.8.",
+        "enhanced_en": "Idle after attacking or using an orb; damage taken ×0.7 while idle.",
+        "enhanced_ko": "공격·구슬 사용 후 행동 정지. 정지 중 받는 피해 ×0.7.",
+        "workbook_row": 55
+      }
+    },
+    {
+      "key": "고대활성",
+      "id": 265,
+      "legacy_effect_id": 0,
+      "family": "faint",
+      "normal": "최고 능력 저장단계 +1. 공격·방어·특수공격·특수방어·스피드 중 가장 높은 능력의 저장단계. 동률은 공격→방어→특공→특방→스피드. 햇살 새 적용 시 한 번, 적 처치 시 한 공격 행동당 한 번. 부스트에너지 조건 없음.",
+      "enhanced": "최고 능력 저장단계 +2. 공격·방어·특수공격·특수방어·스피드 중 가장 높은 능력의 저장단계. 동률은 공격→방어→특공→특방→스피드. 햇살 새 적용 시 한 번, 적 처치 시 한 공격 행동당 한 번. 부스트에너지 조건 없음.",
+      "display": {
+        "name_en": "Protosynthesis",
+        "name_ko": "고대활성",
+        "normal_en": "In sun or after a KO with Booster Energy, highest stat +1 stage.",
+        "normal_ko": "햇살이거나 부스트에너지를 지닌 채 처치하면 가장 높은 능력 +1단계.",
+        "enhanced_en": "In sun or after a KO with Booster Energy, highest stat +2 stages.",
+        "enhanced_ko": "햇살이거나 부스트에너지를 지닌 채 처치하면 가장 높은 능력 +2단계.",
+        "workbook_row": 282
+      }
+    },
+    {
+      "key": "곡예",
+      "id": 266,
+      "legacy_effect_id": 84,
+      "family": "item",
+      "normal": "[변경] 지닌 도구가 없으면 스피드 계산단계에서 +2단계.",
+      "enhanced": "[강화] 지닌 도구가 없으면 스피드 계산단계에서 +3단계.",
+      "display": {
+        "name_en": "Unburden",
+        "name_ko": "곡예",
+        "normal_en": "Speed +2 stages while holding no item.",
+        "normal_ko": "지닌 도구가 없으면 스피드 +2단계.",
+        "enhanced_en": "Speed +3 stages while holding no item.",
+        "enhanced_ko": "지닌 도구가 없으면 스피드 +3단계.",
+        "workbook_row": 85
+      }
+    },
+    {
+      "key": "괴력집게",
+      "id": 267,
+      "legacy_effect_id": 9,
+      "family": "status_or_stage",
+      "normal": "[설계안] 상대의 기술·특성에 의한 공격 단계 저하를 막는다. 자신의 기술로 인한 저하는 적용한다.",
+      "enhanced": "[강화] 상대의 기술·특성에 의한 공격 단계 저하를 막는다. 자신의 기술로 인한 공격 단계 저하도 막는다.",
+      "display": {
+        "name_en": "Hyper Cutter",
+        "name_ko": "괴력집게",
+        "normal_en": "Blocks foe-caused Attack drops; self-inflicted drops apply.",
+        "normal_ko": "상대에 의한 공격 저하를 막는다. 자신의 기술로 인한 저하는 받는다.",
+        "enhanced_en": "Blocks Attack drops, including self-inflicted ones.",
+        "enhanced_ko": "자신의 기술로 인한 공격 저하까지 모두 막는다.",
+        "workbook_row": 53
+      }
+    },
+    {
+      "key": "괴짜",
+      "id": 268,
+      "legacy_effect_id": 166,
+      "family": "native_behavior",
+      "normal": "[기존] 플로어 포켓몬 하나로 변신해 해당 기술·능력치·타입을 복사한다. 고정 증가 배율이 있는 효과는 아니다.",
+      "enhanced": "[강화] 플로어 포켓몬 하나로 변신해 해당 기술·능력치·타입을 복사한다. 고정 증가 배율이 있는 효과는 아니다.\n추가 강화: 변신 중 복사한 공격·특수공격 계산값 ×1.2. 변신이 해제되면 이 보정도 해제하며 변신을 반복해도 중첩하지 않는다.",
+      "display": {
+        "name_en": "Imposter",
+        "name_ko": "괴짜",
+        "normal_en": "Transforms into a floor Pokémon, copying moves, stats and type.",
+        "normal_ko": "플로어 포켓몬 하나로 변신해 기술·능력치·타입을 복사한다.",
+        "enhanced_en": "Transforms into a floor Pokémon; Atk/Sp. Atk ×1.2 while transformed.",
+        "enhanced_ko": "플로어 포켓몬으로 변신하며, 변신 중 공격·특공 ×1.2.",
+        "workbook_row": 151
+      }
+    },
+    {
+      "key": "굳건한신념",
+      "id": 269,
+      "legacy_effect_id": 0,
+      "family": "action_or_world",
+      "normal": "[설계안] 자신이 사용한 기술의 대상을 피뢰침·마중물·날따름 계열로 바꾸지 못하게 한다. 대상 자신의 타입·특성에 의한 피해 면역은 정상 처리한다.",
+      "enhanced": "[강화] 자신이 사용한 기술의 대상을 피뢰침·마중물·날따름 계열로 바꾸지 못하게 한다. 대상 자신의 타입·특성에 의한 피해 면역은 정상 처리한다.\n추가 강화: 대상 변경을 무시하는 해당 공격 기술의 피해 ×1.2. 대상 자신의 타입·특성에 의한 피해 면역은 계속 적용한다.",
+      "display": {
+        "name_en": "Stalwart",
+        "name_ko": "굳건한신념",
+        "normal_en": "Foes can't redirect your moves with Lightning Rod-like effects.",
+        "normal_ko": "내 기술의 대상을 피뢰침·마중물 계열로 바꾸지 못하게 한다.",
+        "enhanced_en": "Same as base; those moves deal ×1.2 damage.",
+        "enhanced_ko": "동일하며, 대상 변경을 무시하는 해당 공격 기술 피해 ×1.2.",
+        "workbook_row": 243
+      }
+    },
+    {
+      "key": "그림자밟기",
+      "id": 270,
+      "legacy_effect_id": 10,
+      "family": "action_or_world",
+      "normal": "[기존·이름 대응: 그림자 밟힘 / Shadow Tag] 공격자에게 12% 확률로 이동 봉쇄. 초기 카운터 3~5.",
+      "enhanced": "[강화] 공격자에게 20% 확률로 이동 봉쇄. 초기 카운터 3~5.",
+      "display": {
+        "name_en": "Shadow Tag",
+        "name_ko": "그림자밟기",
+        "normal_en": "Attackers have a 12% chance to be immobilized (3-5 turns).",
+        "normal_ko": "공격자를 12% 확률로 이동 봉쇄한다. (3~5턴)",
+        "enhanced_en": "Attackers have a 20% chance to be immobilized (3-5 turns).",
+        "enhanced_ko": "공격자를 20% 확률로 이동 봉쇄한다. (3~5턴)",
+        "workbook_row": 24
+      }
+    },
+    {
+      "key": "근성",
+      "id": 271,
+      "legacy_effect_id": 17,
+      "family": "calculation",
+      "normal": "[변경] 나쁜 상태일 때 물리 공격 계산값 ×1.5.",
+      "enhanced": "[강화] 나쁜 상태일 때 물리 공격 계산값 ×1.6.",
+      "display": {
+        "name_en": "Guts",
+        "name_ko": "근성",
+        "normal_en": "Physical Attack ×1.5 while statused.",
+        "normal_ko": "나쁜 상태일 때 물리 공격 ×1.5.",
+        "enhanced_en": "Physical Attack ×1.6 while statused.",
+        "enhanced_ko": "나쁜 상태일 때 물리 공격 ×1.6.",
+        "workbook_row": 63
+      }
+    },
+    {
+      "key": "급류",
+      "id": 272,
+      "legacy_effect_id": 16,
+      "family": "calculation",
+      "normal": "[변경] HP ≤⌊최대 HP/4⌋이면 물 기술 피해 ×1.5.",
+      "enhanced": "[강화] HP ≤⌊최대 HP/3⌋이면 물 기술 피해 ×1.6.",
+      "display": {
+        "name_en": "Torrent",
+        "name_ko": "급류",
+        "normal_en": "At HP ≤1/4 max, Water move damage ×1.5.",
+        "normal_ko": "HP가 최대의 1/4 이하이면 물 기술 피해 ×1.5.",
+        "enhanced_en": "At HP ≤1/3 max, Water move damage ×1.6.",
+        "enhanced_ko": "HP가 최대의 1/3 이하이면 물 기술 피해 ×1.6.",
+        "workbook_row": 68
+      }
+    },
+    {
+      "key": "기분파",
+      "id": 273,
+      "legacy_effect_id": 37,
+      "family": "native_behavior",
+      "normal": "[기존] 날씨에 따라 타입이 변한다",
+      "enhanced": "[강화] 날씨에 따라 타입이 변한다\n추가 강화: 날씨에 의해 변경된 자신의 타입과 같은 기술의 피해 ×1.2. 날씨로 변신하지 않은 기본 타입에는 적용하지 않는다.",
+      "display": {
+        "name_en": "Forecast",
+        "name_ko": "기분파",
+        "normal_en": "Type changes with the weather.",
+        "normal_ko": "날씨에 따라 타입이 변한다.",
+        "enhanced_en": "Type changes with weather; moves of that changed type deal ×1.2.",
+        "enhanced_ko": "날씨에 따라 타입이 변하고, 변한 타입의 기술 피해 ×1.2.",
+        "workbook_row": 60
+      }
+    },
+    {
+      "key": "긴장감",
+      "id": 274,
+      "legacy_effect_id": 163,
+      "family": "item",
+      "normal": "[기존] 인접 8칸의 상대가 해당 씨앗·열매·드링크를 먹지 못하게 한다.",
+      "enhanced": "[강화] 같은 방의 상대가 해당 씨앗·열매·드링크를 먹으려 할때,\n먹지 못하게 하고, 위력 80의 물리 자해 피해를 입힌다",
+      "display": {
+        "name_en": "Unnerve",
+        "name_ko": "긴장감",
+        "normal_en": "Foes within 8 tiles can't eat seeds, berries or drinks.",
+        "normal_ko": "인접 8칸의 상대가 씨앗·열매·드링크를 먹지 못한다.",
+        "enhanced_en": "Same-room foes can't eat them and take 80-power physical self-damage.",
+        "enhanced_ko": "같은 방 상대가 먹지 못하며, 위력 80의 물리 자해 피해를 입는다.",
+        "workbook_row": 128
+      }
+    },
+    {
+      "key": "까칠한피부",
+      "id": 275,
+      "legacy_effect_id": 18,
+      "family": "received_event",
+      "normal": "[변경] 인접한 상대의 물리 기술로 피해를 받으면 공격자에게 ⌊공격자의 최대 HP/8⌋, 최소 1의 피해를 준다. 한 공격 행동에서 1회만 발동한다.\n",
+      "enhanced": "[강화] 인접한 상대의 물리 기술로 피해를 받으면 공격자에게 ⌊공격자의 최대 HP/6⌋, 최소 1의 피해를 준다. 한 공격 행동에서 1회만 발동한다.\n",
+      "display": {
+        "name_en": "Rough Skin",
+        "name_ko": "까칠한피부",
+        "normal_en": "Adjacent physical hit: attacker takes 1/8 max HP (min 1), once per attack.",
+        "normal_ko": "인접 물리 피격 시 공격자에게 최대 HP의 1/8(최소 1) 피해. 행동당 1회.",
+        "enhanced_en": "Adjacent physical hit: attacker takes 1/6 max HP (min 1), once per attack.",
+        "enhanced_ko": "인접 물리 피격 시 공격자에게 최대 HP의 1/6(최소 1) 피해. 행동당 1회.",
+        "workbook_row": 25
+      }
+    },
+    {
+      "key": "깨어진갑옷",
+      "id": 276,
+      "legacy_effect_id": 0,
+      "family": "received_event",
+      "normal": "[설계안] 물리 기술로 피해를 받으면 방어 −1단계, 스피드 +1단계. 한 공격 행동에서 1회만 발동한다.",
+      "enhanced": "[강화] 물리 기술로 피해를 받으면 방어 −1단계, 스피드 +2단계. 한 공격 행동에서 1회만 발동한다.",
+      "display": {
+        "name_en": "Weak Armor",
+        "name_ko": "깨어진갑옷",
+        "normal_en": "Physical hit: Defense −1 stage, Speed +1 stage (once per attack).",
+        "normal_ko": "물리 피격 시 방어 −1단계, 스피드 +1단계. 행동당 1회.",
+        "enhanced_en": "Physical hit: Defense −1 stage, Speed +2 stages (once per attack).",
+        "enhanced_ko": "물리 피격 시 방어 −1단계, 스피드 +2단계. 행동당 1회.",
+        "workbook_row": 134
+      }
+    },
+    {
+      "key": "끝의대지",
+      "id": 277,
+      "legacy_effect_id": 253,
+      "family": "weather_source",
+      "normal": "[설계안] 층 입장 시 강한 햇살을 만든다. 햇살의 불꽃 기술 ×1.5 보정과 물 기술 피해 무효를 적용한다. 일반 날씨 변경으로 덮어쓸 수 없고, 시작의바다·끝의대지·델타스트림 중 가장 최근 발동이 우선한다. 보유자가 층에서 사라지면 해제한다.",
+      "enhanced": "[강화] 층 입장 시 날씨를 강한 햇살로 만든다.\n일반 날씨 변경으로 덮어쓸 수 없고, 시작의바다·끝의대지·델타스트림 중 가장 최근 발동이 우선한다. 보유자가 층에서 사라지면 해제한다.",
+      "display": {
+        "name_en": "Desolate Land",
+        "name_ko": "끝의대지",
+        "normal_en": "On floor entry, harsh sun (Fire ×1.5, Water blocked); persists.",
+        "normal_ko": "층 입장 시 강한 햇살. 불꽃 ×1.5, 물 기술 무효. 덮어쓰기 불가.",
+        "enhanced_en": "On floor entry, makes the weather harsh sunlight; can't be overwritten.",
+        "enhanced_ko": "층 입장 시 날씨를 강한 햇살로 만든다. 일반 날씨로 덮어쓸 수 없다.",
+        "workbook_row": 191
+      }
+    },
+    {
+      "key": "나쁜손버릇",
+      "id": 278,
+      "legacy_effect_id": 168,
+      "family": "received_event",
+      "normal": "[설계안] 인접한 상대에게 물리 기술로 피해를 받으면, 자신에게 지닌 도구가 없을 때 상대의 지닌 도구를 100% 확률로 훔친다. 점착·도구 고정 효과가 있으면 실패한다.",
+      "enhanced": "[강화] 인접한 상대에게 물리 기술로 피해를 받으면, 자신에게 지닌 도구가 없을 때 상대의 지닌 도구를 100% 확률로 훔친다. 점착·도구 고정 효과가 있으면 실패한다.\n추가 강화:이렇게 도구를 훔치면 자신의 스피드 저장단계 +2. 이미 도구가 있어 훔치지 못한 경우에는 상승하지 않는다.",
+      "display": {
+        "name_en": "Pickpocket",
+        "name_ko": "나쁜손버릇",
+        "normal_en": "Adjacent physical hit: steals attacker's item if you hold none.",
+        "normal_ko": "인접 물리 피격 시, 도구가 없으면 상대의 도구를 훔친다.",
+        "enhanced_en": "Steals the item if you hold none; Speed +2 stages on a successful steal.",
+        "enhanced_ko": "도구가 없을 때 훔치고, 훔치면 스피드 +2단계.",
+        "workbook_row": 125
+      }
+    },
+    {
+      "key": "나이트메어",
+      "id": 279,
+      "legacy_effect_id": 105,
+      "family": "turn_tick",
+      "normal": "[변경] 인접 8칸의 잠든 적에게 매 처리마다 ⌊자신의 방어 캐시 바이트/8⌋ 피해. 현재 base_stats_speed에서 이 바이트는 방어 도핑 V이므로, 통상 V=0이면 계산 피해도 0이다.",
+      "enhanced": "[강화] 같은 방의 잠든 적에게 턴 종료마다 각 대상 최대 HP의 1/8(버림, 최소 1) 피해를 준다. 방어 도핑 캐시가 아니라 대상의 실제 최대 HP로 계산한다. 이 피해는 피해형 상태를 다시 발동시키지 않는다.",
+      "display": {
+        "name_en": "Bad Dreams",
+        "name_ko": "나이트메어",
+        "normal_en": "Adjacent sleeping foes take damage from the Def byte each tick (usually 0).",
+        "normal_ko": "인접한 잠든 적이 방어 바이트 기준 피해를 입는다. (보통 0)",
+        "enhanced_en": "Sleeping foes in the room lose 1/8 of their max HP each turn end (min 1).",
+        "enhanced_ko": "같은 방의 잠든 적이 턴 종료마다 최대 HP의 1/8(최소 1) 피해를 입는다.",
+        "workbook_row": 124
+      }
+    },
+    {
+      "key": "날씨부정",
+      "id": 280,
+      "legacy_effect_id": 45,
+      "family": "native_behavior",
+      "normal": "[기존] 팀 전체를 날씨의 영향에서 지킨다",
+      "enhanced": "[강화] 팀 전체를 날씨의 영향에서 지키며,\n날씨가 있을때 본인이 가하는 피해계수 *1.2, 본인이 받는 피해 계수 *0.8",
+      "display": {
+        "name_en": "Cloud Nine",
+        "name_ko": "날씨부정",
+        "normal_en": "Protects the whole team from weather effects.",
+        "normal_ko": "팀 전체를 날씨의 영향에서 지킨다.",
+        "enhanced_en": "Team ignores weather; in weather, own damage ×1.2, damage taken ×0.8.",
+        "enhanced_ko": "팀을 날씨에서 지키고, 날씨 중 주는 피해 ×1.2, 받는 피해 ×0.8.",
+        "workbook_row": 14
+      }
+    },
+    {
+      "key": "날카로운눈",
+      "id": 281,
+      "legacy_effect_id": 30,
+      "family": "native_behavior",
+      "normal": "[기존] 명중률이 떨어지지 않는다",
+      "enhanced": "[강화] 명중률이 떨어지지 않는다, 데미지 계산 단계에서 명중률 단계 +2로 계산한다",
+      "display": {
+        "name_en": "Keen Eye",
+        "name_ko": "날카로운눈",
+        "normal_en": "Accuracy cannot be lowered.",
+        "normal_ko": "명중률이 떨어지지 않는다.",
+        "enhanced_en": "Accuracy cannot be lowered; Accuracy +2 stages in damage calculation.",
+        "enhanced_ko": "명중률이 떨어지지 않고, 데미지 계산 시 명중률 +2단계.",
+        "workbook_row": 52
+      }
+    },
+    {
+      "key": "내열",
+      "id": 282,
+      "legacy_effect_id": 95,
+      "family": "calculation",
+      "normal": "[변경] 받는 불꽃 및 얼음 기술 피해 ×0.5.",
+      "enhanced": "[강화] 받는 불꽃및 얼 기술 피해에 면역",
+      "display": {
+        "name_en": "Heatproof",
+        "name_ko": "내열",
+        "normal_en": "Fire and Ice move damage taken ×0.5.",
+        "normal_ko": "받는 불꽃·얼음 기술 피해 ×0.5.",
+        "enhanced_en": "Immune to Fire and Ice move damage.",
+        "enhanced_ko": "불꽃·얼음 기술 피해에 면역.",
+        "workbook_row": 86
+      }
+    },
+    {
+      "key": "내용물분출",
+      "id": 283,
+      "legacy_effect_id": 225,
+      "family": "action_or_world",
+      "normal": "[설계안] 유폭과 동일, 쓰러질 때 해당 유폭 판정이 기본 50%. 폭발의 대상·피해는 별도 폭발 처리에 따른다.",
+      "enhanced": "[강화] 유폭과 동일, 쓰러질 때 해당 유폭 판정이 기본 100%. 폭발의 대상·피해는 별도 폭발 처리에 따른다.",
+      "display": {
+        "name_en": "Innards Out",
+        "name_ko": "내용물분출",
+        "normal_en": "When fainting, 50% chance to cause an explosion.",
+        "normal_ko": "쓰러질 때 50% 확률로 폭발을 일으킨다.",
+        "enhanced_en": "When fainting, 100% chance to cause an explosion.",
+        "enhanced_ko": "쓰러질 때 100% 확률로 폭발을 일으킨다.",
+        "workbook_row": 216
+      }
+    },
+    {
+      "key": "노가드",
+      "id": 284,
+      "legacy_effect_id": 106,
+      "family": "native_behavior",
+      "normal": "[변경] 본인이 받는 기술은 무조건 명중하고, 본인이 사용하는 기술도 무조건 명중한다.",
+      "enhanced": "[강화] 본인이 받는 기술은 무조건 명중하고, 본인이 사용하는 기술도 무조건 명중한다.\n추가 강화: 자신이 사용하는 기술의 피해 ×1.2. 자신 이 받는 기술의 피해도 x1.2",
+      "display": {
+        "name_en": "No Guard",
+        "name_ko": "노가드",
+        "normal_en": "Moves used by and against you always hit.",
+        "normal_ko": "자신이 받는 기술과 사용하는 기술이 모두 반드시 명중한다.",
+        "enhanced_en": "Moves always hit; own move damage ×1.2 and damage taken ×1.2.",
+        "enhanced_ko": "모든 기술이 반드시 명중하며, 주는 피해와 받는 피해가 ×1.2.",
+        "workbook_row": 100
+      }
+    },
+    {
+      "key": "노말스킨",
+      "id": 285,
+      "legacy_effect_id": 107,
+      "family": "calculation",
+      "normal": "[변경] 해당 노말타입 기술을 노말타입으로 변경하고. 피해 계수를 1.2배로 한다. 자속 보정은 변경된 타입으로 판정한다.",
+      "enhanced": "[강화] 해당 노말스킨 처리 대상 기술을 노말타입으로 변경하고 피해 ×1.3. 자속·상성은 변경된 타입으로 판정한다.",
+      "display": {
+        "name_en": "Normalize",
+        "name_ko": "노말스킨",
+        "normal_en": "Moves become Normal-type with damage ×1.2.",
+        "normal_ko": "기술을 노말타입으로 바꾸고 피해 ×1.2.",
+        "enhanced_en": "Moves become Normal-type with damage ×1.3.",
+        "enhanced_ko": "기술을 노말타입으로 바꾸고 피해 ×1.3.",
+        "workbook_row": 97
+      }
+    },
+    {
+      "key": "눈숨기",
+      "id": 286,
+      "legacy_effect_id": 119,
+      "family": "native_behavior",
+      "normal": "[기존] 설경·눈에서 회피 계산단계 +2. 설경 피해도 면제된다.",
+      "enhanced": "[강화] 설경·눈에서 회피 계산단계 +3. 설경 피해도 면제된다.",
+      "display": {
+        "name_en": "Snow Cloak",
+        "name_ko": "눈숨기",
+        "normal_en": "Evasion +2 stages in hail or snow; immune to hail damage.",
+        "normal_ko": "싸라기눈·눈에서 회피 +2단계. 싸라기눈 피해를 받지 않는다.",
+        "enhanced_en": "Evasion +3 stages in hail or snow; immune to hail damage.",
+        "enhanced_ko": "싸라기눈·눈에서 회피 +3단계. 싸라기눈 피해를 받지 않는다.",
+        "workbook_row": 82
+      }
+    },
+    {
+      "key": "눈치우기",
+      "id": 287,
+      "legacy_effect_id": 145,
+      "family": "native_behavior",
+      "normal": "[변경·이름 대응: 눈헤치기 / Slush Rush] 설경에서 스피드 계산시 단계 +2.",
+      "enhanced": "[강화] 설경에서 스피드 계산시 단계 +3.\n추가 강화: 설경의 정기 피해도 받지 않는다.",
+      "display": {
+        "name_en": "Slush Rush",
+        "name_ko": "눈치우기",
+        "normal_en": "Speed +2 stages in hail.",
+        "normal_ko": "싸라기눈에서 스피드 +2단계.",
+        "enhanced_en": "Speed +3 stages in hail; also immune to hail damage.",
+        "enhanced_ko": "싸라기눈에서 스피드 +3단계. 싸라기눈 피해도 받지 않는다.",
+        "workbook_row": 203
+      }
+    },
+    {
+      "key": "눈퍼뜨리기",
+      "id": 288,
+      "legacy_effect_id": 120,
+      "family": "weather_source",
+      "normal": "[기존] 설경 날씨로 만들어 버린다",
+      "enhanced": "[강화] 강한 설경 날씨로 만들어 버린다",
+      "display": {
+        "name_en": "Snow Warning",
+        "name_ko": "눈퍼뜨리기",
+        "normal_en": "Makes the weather hail.",
+        "normal_ko": "날씨를 싸라기눈으로 만든다.",
+        "enhanced_en": "Makes the weather strong hail.",
+        "enhanced_ko": "날씨를 강한 싸라기눈으로 만든다.",
+        "workbook_row": 118
+      }
+    },
+    {
+      "key": "다운로드",
+      "id": 289,
+      "legacy_effect_id": 96,
+      "family": "calculation",
+      "normal": "[기존] 상대 방어≥특방이면 특수공격 계산단계 +1, 그 외에는 공격 계산단계 +1. 현재 base_stats_speed 패치는 실제 재계산 능력치를 비교한다. 선택된 공격 종류의 피해 계산에 적용한다.",
+      "enhanced": "[강화] 상대 방어≥특방이면 특수공격 계산단계 +2, 그 외에는 공격 계산단계 +2. 현재 base_stats_speed 패치는 실제 재계산 능력치를 비교한다. 선택된 공격 종류의 피해 계산에 적용한다.",
+      "display": {
+        "name_en": "Download",
+        "name_ko": "다운로드",
+        "normal_en": "Foe Def ≥ Sp. Def: Sp. Atk +1 stage; otherwise Attack +1 stage.",
+        "normal_ko": "상대 방어≥특방이면 특수공격 +1단계, 아니면 공격 +1단계.",
+        "enhanced_en": "Foe Def ≥ Sp. Def: Sp. Atk +2 stages; otherwise Attack +2 stages.",
+        "enhanced_ko": "상대 방어≥특방이면 특수공격 +2단계, 아니면 공격 +2단계.",
+        "workbook_row": 89
+      }
+    },
+    {
+      "key": "단단한발톱",
+      "id": 290,
+      "legacy_effect_id": 144,
+      "family": "calculation",
+      "normal": "[변경] 플레이어 범위 ID 0(정면)인 기술의 피해 계수 *1.2.",
+      "enhanced": "[강화] 플레이어 범위 ID 0(정면)인 기술의 피해 계수 ×1.3.",
+      "display": {
+        "name_en": "Tough Claws",
+        "name_ko": "단단한발톱",
+        "normal_en": "Front-range (ID 0) moves deal ×1.2 damage.",
+        "normal_ko": "정면 범위(ID 0) 기술의 피해 ×1.2.",
+        "enhanced_en": "Front-range (ID 0) moves deal ×1.3 damage.",
+        "enhanced_ko": "정면 범위(ID 0) 기술의 피해 ×1.3.",
+        "workbook_row": 182
+      }
+    },
+    {
+      "key": "단순",
+      "id": 291,
+      "legacy_effect_id": 97,
+      "family": "status_or_stage",
+      "normal": "[변경] 공격·방어·특수공격·특수방어·스피드·명중·회피 등 해당 능력 변화의 단계량 ×2. 저장 단계는 현재 패치에서 중립 10 기준 4~16으로 제한된다.",
+      "enhanced": "[강화] 공격·방어·특수공격·특수방어·스피드·명중·회피 등 해당 능력 변화의 단계량 ×2. 능력 저하에는 적용하지 않는다.\n저장 단계는 현재 패치에서 중립 10 기준 4~16으로 제한된다.",
+      "display": {
+        "name_en": "Simple",
+        "name_ko": "단순",
+        "normal_en": "Doubles stat stage changes (stage range limited to 4-16).",
+        "normal_ko": "능력 변화의 단계량이 2배가 된다. (저장 단계 4~16)",
+        "enhanced_en": "Doubles stat boosts only (not drops); stage range limited to 4-16.",
+        "enhanced_ko": "능력 상승의 단계량만 2배가 된다. 저하에는 적용 안 함.",
+        "workbook_row": 87
+      }
+    },
+    {
+      "key": "대운",
+      "id": 292,
+      "legacy_effect_id": 88,
+      "family": "native_behavior",
+      "normal": "[기존] 급소 판정 임계값 ×2. 판정 난수 범위는 0~255이므로 고정 +10%p 효과가 아니다.",
+      "enhanced": "[강화] 급소 판정 임계값 ×3. 판정 난수 범위는 0~255이므로 고정 +10%p 효과가 아니다.\n추가 강화: 최종 급소 판정 임계값은 난수 범위를 넘어 확률이 100%보다 커지지 않도록 제한한다. 급소 면역은 유지한다.",
+      "display": {
+        "name_en": "Super Luck",
+        "name_ko": "대운",
+        "normal_en": "Critical hit threshold ×2.",
+        "normal_ko": "급소 판정 임계값이 2배가 된다.",
+        "enhanced_en": "Critical hit threshold ×3 (capped at 100% chance).",
+        "enhanced_ko": "급소 판정 임계값이 3배가 된다. (확률 최대 100%)",
+        "workbook_row": 106
+      }
+    },
+    {
+      "key": "델타스트림",
+      "id": 293,
+      "legacy_effect_id": 254,
+      "family": "weather_source",
+      "normal": "[설계안] 층 입장 시 강풍을 만든다. 일반 날씨 변경으로 덮어쓸 수 없고, 시작의바다·끝의대지·델타스트림 중 가장 최근 발동이 우선한다. 보유자가 층에서 사라지면 해제한다.",
+      "enhanced": "[강화] 층 입장 시 강풍으로 만든다.\n일반 날씨 변경으로 덮어쓸 수 없고, 시작의바다·끝의대지·델타스트림 중 가장 최근 발동이 우선한다. 보유자가 층에서 사라지면 해제한다.",
+      "display": {
+        "name_en": "Delta Stream",
+        "name_ko": "델타스트림",
+        "normal_en": "On floor entry, makes strong winds; can't be overwritten.",
+        "normal_ko": "층 입장 시 강풍을 만든다. 일반 날씨로 덮어쓸 수 없다.",
+        "enhanced_en": "On floor entry, turns the weather into strong winds.",
+        "enhanced_ko": "층 입장 시 날씨를 강풍으로 만든다. 일반 날씨로 덮어쓸 수 없다.",
+        "workbook_row": 192
+      }
+    },
+    {
+      "key": "도주",
+      "id": 294,
+      "legacy_effect_id": 43,
+      "family": "floor_entry",
+      "normal": "[변경] 상대 공격으로 HP가 [최대체력/4] 이하로 내려가면 같은 층의 가장 가까운 동료 옆 빈칸으로 즉시 이동한다. 해당 동료 옆 빈칸이 없으면 다음으로 가까운 동료를 탐색해서 그 옆 빈칸을 찾고, 그래도 빈칸이 없거나, 동료가 없을경우 그 층의 안전한 빈칸으로 이동한다. 층당 1회이며 귀환·부활은 발생하지 않는다.",
+      "enhanced": "[강화] 상대 공격으로 HP가 ⌊최대 HP/4⌋ 이하로 내려가면 같은 층의 가장 가까운 동료 옆 빈칸으로 즉시 이동한다. 해당 동료 옆 빈칸이 없으면 다음으로 가까운 동료를 탐색해서 그 옆 빈칸을 찾고, 그래도 빈칸이 없거나, 동료가 없을경우 그 층의 안전한 빈칸으로 이동한다. 층당 1회이며 귀환·부활은 발생하지 않는다.\n추가 강화: 이 효과로 이동한 직후 최대 HP의 1/4(버림, 최소 1)을 회복한다. 층당 1회 제한은 유지한다.",
+      "display": {
+        "name_en": "Run Away",
+        "name_ko": "도주",
+        "normal_en": "At ≤1/4 max HP after a foe's attack, warps next to nearest ally. Once per floor.",
+        "normal_ko": "상대 공격으로 HP 1/4 이하가 되면 가장 가까운 동료 옆으로 이동. 층당 1회.",
+        "enhanced_en": "Same as base, and heals 1/4 max HP after the warp. Once per floor.",
+        "enhanced_ko": "동일하게 이동하며, 이동 직후 최대 HP의 1/4을 회복한다. 층당 1회.",
+        "workbook_row": 51
+      }
+    },
+    {
+      "key": "독가시",
+      "id": 295,
+      "legacy_effect_id": 39,
+      "family": "received_event",
+      "normal": "[기존] 조건에 맞는 인접 공격을 받으면 12% 확률로 공격자를 독 상태로 만든다.",
+      "enhanced": "[강화] 조건에 맞는 인접 공격을 받으면 20% 확률로 공격자를 독 상태로 만든다.",
+      "display": {
+        "name_en": "Poison Point",
+        "name_ko": "독가시",
+        "normal_en": "Adjacent hit: 12% chance to poison the attacker.",
+        "normal_ko": "인접 공격을 받으면 12% 확률로 공격자를 독 상태로 만든다.",
+        "enhanced_en": "Adjacent hit: 20% chance to poison the attacker.",
+        "enhanced_ko": "인접 공격을 받으면 20% 확률로 공격자를 독 상태로 만든다.",
+        "workbook_row": 39
+      }
+    },
+    {
+      "key": "독수",
+      "id": 296,
+      "legacy_effect_id": 126,
+      "family": "action_or_world",
+      "normal": "[기존] 조건에 맞는 근거리 물리 기술을 맞히면 30% 확률로 대상에게 독을 건다.",
+      "enhanced": "[강화] 조건에 맞는 근거리 물리 기술을 맞히면 50% 확률로 대상에게 독을 건다.",
+      "display": {
+        "name_en": "Poison Touch",
+        "name_ko": "독수",
+        "normal_en": "Melee physical hit: 30% chance to poison the target.",
+        "normal_ko": "근접 물리 기술이 명중하면 30% 확률로 대상을 독 상태로 만든다.",
+        "enhanced_en": "Melee physical hit: 50% chance to poison the target.",
+        "enhanced_ko": "근접 물리 기술이 명중하면 50% 확률로 대상을 독 상태로 만든다.",
+        "workbook_row": 144
+      }
+    },
+    {
+      "key": "독폭주",
+      "id": 297,
+      "legacy_effect_id": 0,
+      "family": "calculation",
+      "normal": "[설계안] 독·맹독 상태에서 사용하는 물리 기술의 피해 ×1.5. 독의 정기 피해는 그대로 받는다.",
+      "enhanced": "[강화] 독·맹독 상태에서 사용하는 물리 기술의 피해 ×1.6. 독의 정기 피해는 그대로 받는다.",
+      "display": {
+        "name_en": "Toxic Boost",
+        "name_ko": "독폭주",
+        "normal_en": "While poisoned, physical move damage ×1.5.",
+        "normal_ko": "독·맹독 상태에서 물리 기술 피해 ×1.5.",
+        "enhanced_en": "While poisoned, physical move damage ×1.6.",
+        "enhanced_ko": "독·맹독 상태에서 물리 기술 피해 ×1.6.",
+        "workbook_row": 138
+      }
+    },
+    {
+      "key": "돌머리",
+      "id": 298,
+      "legacy_effect_id": 7,
+      "family": "native_behavior",
+      "normal": "[기존] 기술 반동 피해를 막는다. 반동 피해 0. 다른 종류의 간접 피해까지 막지는 않는다.",
+      "enhanced": "[강화] 기술 반동 피해를 막는다. 반동 피해 0. 다른 종류의 간접 피해까지 막지는 않는다.\n추가 강화: 자신이 사용하는 반동 기술의 피해 ×1.2. 자신 외의 아군에게 반동 면역을 부여하지는 않는다.",
+      "display": {
+        "name_en": "Rock Head",
+        "name_ko": "돌머리",
+        "normal_en": "No recoil damage (other indirect damage still applies).",
+        "normal_ko": "기술 반동 피해를 받지 않는다. 다른 간접 피해는 받는다.",
+        "enhanced_en": "No recoil damage; own recoil moves deal ×1.2 damage.",
+        "enhanced_ko": "반동 피해를 받지 않고, 자신의 반동 기술 피해 ×1.2.",
+        "workbook_row": 70
+      }
+    },
+    {
+      "key": "되새김질",
+      "id": 299,
+      "legacy_effect_id": 218,
+      "family": "item",
+      "normal": "[설계안] 20% 확률로 자신이 열매를 먹을때 열매를 소모하지 않는다.",
+      "enhanced": "[강화] 30% 확률로 자신이 열매를 먹을때 열매를 소모하지 않는다.",
+      "display": {
+        "name_en": "Cud Chew",
+        "name_ko": "되새김질",
+        "normal_en": "20% chance a berry isn't consumed when you eat it.",
+        "normal_ko": "20% 확률로 열매를 먹을 때 소모하지 않는다.",
+        "enhanced_en": "30% chance a berry isn't consumed when you eat it.",
+        "enhanced_ko": "30% 확률로 열매를 먹을 때 소모하지 않는다.",
+        "workbook_row": 292
+      }
+    },
+    {
+      "key": "두꺼운지방",
+      "id": 300,
+      "legacy_effect_id": 2,
+      "family": "calculation",
+      "normal": "[변경] 받는 불꽃·얼음 기술 피해 ×0.5.",
+      "enhanced": "[강화] 받는 불꽃·얼음 기술 피해에 면역",
+      "display": {
+        "name_en": "Thick Fat",
+        "name_ko": "두꺼운지방",
+        "normal_en": "Fire and Ice move damage taken ×0.5.",
+        "normal_ko": "받는 불꽃·얼음 기술 피해 ×0.5.",
+        "enhanced_en": "Immune to Fire and Ice move damage.",
+        "enhanced_ko": "불꽃·얼음 기술 피해에 면역.",
+        "workbook_row": 48
+      }
+    },
+    {
+      "key": "둔감",
+      "id": 301,
+      "legacy_effect_id": 41,
+      "family": "status_or_stage",
+      "normal": "[기존] 헤롱헤롱 상태가 되지 않는다",
+      "enhanced": "[강화]자신과 같은 방에 있는 아군 전체가 헤롱헤롱 상태가 되지 않는다",
+      "display": {
+        "name_en": "Oblivious",
+        "name_ko": "둔감",
+        "normal_en": "Cannot be infatuated.",
+        "normal_ko": "헤롱헤롱 상태가 되지 않는다.",
+        "enhanced_en": "Self and same-room allies cannot be infatuated.",
+        "enhanced_ko": "자신과 같은 방 아군 전체가 헤롱헤롱 상태가 되지 않는다.",
+        "workbook_row": 13
+      }
+    },
+    {
+      "key": "드래곤스킨",
+      "id": 302,
+      "legacy_effect_id": 0,
+      "family": "calculation",
+      "normal": "[설계안] 해당 노말타입 기술을 드래곤타입으로 변경하고. 피해 계수를 1.2배로 한다. 자속 보정은 변경된 타입으로 판정한다.",
+      "enhanced": "[강화] 해당 노말타입 기술을 드래곤타입으로 변경하고. 피해 계수를 1.3배로 한다. 자속 보정은 변경된 타입으로 판정한다.",
+      "display": {
+        "name_en": "Dragonize",
+        "name_ko": "드래곤스킨",
+        "normal_en": "Normal moves become Dragon-type with damage ×1.2.",
+        "normal_ko": "노말 기술을 드래곤타입으로 바꾸고 피해 ×1.2.",
+        "enhanced_en": "Normal moves become Dragon-type with damage ×1.3.",
+        "enhanced_ko": "노말 기술을 드래곤타입으로 바꾸고 피해 ×1.3.",
+        "workbook_row": 310
+      }
+    },
+    {
+      "key": "떠도는영혼",
+      "id": 303,
+      "legacy_effect_id": 0,
+      "family": "received_event",
+      "normal": "[설계안] 인접한 상대의 물리 기술로 피해를 받으면 자신과 공격자의 특성 하나를 맞바꾼다. 층 이동까지 유지하며 한 행동에서 1회만 발동한다. 형태 전용·특성 변경 면역 특성이 어느 쪽에 있으면 교환하지 않는다.",
+      "enhanced": "[강화] 인접한 상대의 물리 기술로 피해를 받으면 자신과 공격자의 특성 하나를 맞바꾼다. 층 이동까지 유지하며 한 행동에서 1회만 발동한다. 형태 전용·특성 변경 면역 특성이 어느 쪽에 있으면 교환하지 않는다.\n추가 강화: 특성 교환에 성공하면 상대의 공격·특수공격 저장단계 −1, 자신의 공격·특수공격 저장단계 +1. 교환에 실패하면 이 단계 변화도 발생하지 않는다.",
+      "display": {
+        "name_en": "Wandering Spirit",
+        "name_ko": "떠도는영혼",
+        "normal_en": "Adjacent physical hit: swaps abilities with the attacker until next floor.",
+        "normal_ko": "인접 물리 피격 시 공격자와 특성 하나를 맞바꾼다. (층 이동까지)",
+        "enhanced_en": "Same; on a swap, foe's Atk/Sp. Atk −1 stage and yours +1.",
+        "enhanced_ko": "동일하며, 교환 성공 시 상대 공격·특공 −1단계, 자신 +1단계.",
+        "workbook_row": 255
+      }
+    },
+    {
+      "key": "라이트메탈",
+      "id": 304,
+      "legacy_effect_id": 0,
+      "family": "item",
+      "normal": "[설계안] 무게를 참조하는 기술 판정에서 자신의 무게 ×1/2. 바닥 함정을 밟았을 때 50% 확률로 발동을 피한다. 직접 도구로 작동시킨 함정에는 적용하지 않는다.",
+      "enhanced": "[강화] 무게를 참조하는 기술 판정에서 자신의 무게 ×1/2. 바닥 함정을 밟았을 때 100% 확률로 발동을 피한다. 직접 도구로 작동시킨 함정에는 적용하지 않는다.\n추가 강화: 자신의 스피드 계산단계 +2. 무게가 절반이 되는 효과는 유지한다.",
+      "display": {
+        "name_en": "Light Metal",
+        "name_ko": "라이트메탈",
+        "normal_en": "Weight ×1/2; 50% chance to avoid floor traps you step on.",
+        "normal_ko": "무게 ×1/2. 바닥 함정을 밟으면 50% 확률로 발동을 피한다.",
+        "enhanced_en": "Weight ×1/2; always avoids traps; Speed +2 stages.",
+        "enhanced_ko": "무게 ×1/2. 함정을 100% 피하고, 스피드 +2단계.",
+        "workbook_row": 136
+      }
+    },
+    {
+      "key": "리프가드",
+      "id": 305,
+      "legacy_effect_id": 123,
+      "family": "status_or_stage",
+      "normal": "[기존] 강한 햇살 날씨라면 나쁜 상태가 되지 않는다",
+      "enhanced": "[강화] 강한 햇살에서 자신과 같은 방 아군 전체가 나쁜 상태를 새로 받지 않는다. 이미 걸린 나쁜 상태는 해제하지 않는다.",
+      "display": {
+        "name_en": "Leaf Guard",
+        "name_ko": "리프가드",
+        "normal_en": "Cannot get bad status in harsh sunlight.",
+        "normal_ko": "강한 햇살에서는 나쁜 상태가 되지 않는다.",
+        "enhanced_en": "In harsh sun, self and room allies can't get new bad status.",
+        "enhanced_ko": "강한 햇살에서 같은 방 아군 전체가 새로 나쁜 상태가 되지 않는다.",
+        "workbook_row": 103
+      }
+    },
+    {
+      "key": "마그마의무장",
+      "id": 306,
+      "legacy_effect_id": 65,
+      "family": "status_or_stage",
+      "normal": "[기존] 얼음·동상 상태를 막는다.",
+      "enhanced": "[강화] 자신과 같은 방 아군 전체가 얼음·동상 상태가 되지 않는다. 이미 걸린 상태는 해제하지 않는다.",
+      "display": {
+        "name_en": "Magma Armor",
+        "name_ko": "마그마의무장",
+        "normal_en": "Prevents freezing and frostbite.",
+        "normal_ko": "얼음·동상 상태를 막는다.",
+        "enhanced_en": "Self and same-room allies cannot freeze or get frostbite.",
+        "enhanced_ko": "자신과 같은 방 아군 전체가 얼음·동상 상태가 되지 않는다.",
+        "workbook_row": 41
+      }
+    },
+    {
+      "key": "마이너스",
+      "id": 307,
+      "legacy_effect_id": 63,
+      "family": "calculation",
+      "normal": "[기존] 같은 편의 플러스가 같은 플로어에 있으면 특수공격 계산값 ×1.5.",
+      "enhanced": "[강화] 같은 편의 플러스가 같은 플로어에 있으면 특수공격 계산값 ×1.6.",
+      "display": {
+        "name_en": "Minus",
+        "name_ko": "마이너스",
+        "normal_en": "Sp. Atk ×1.5 if an ally with Plus is on the floor.",
+        "normal_ko": "같은 편 플러스가 플로어에 있으면 특수공격 ×1.5.",
+        "enhanced_en": "Sp. Atk ×1.6 if an ally with Plus is on the floor.",
+        "enhanced_ko": "같은 편 플러스가 플로어에 있으면 특수공격 ×1.6.",
+        "workbook_row": 59
+      }
+    },
+    {
+      "key": "마이페이스",
+      "id": 308,
+      "legacy_effect_id": 64,
+      "family": "status_or_stage",
+      "normal": "[기존] 혼란 상태가 되지 않는다",
+      "enhanced": "[깅화]자신과 같은 방에 있는 아군 전체는 혼란 상태가 되지 않는다",
+      "display": {
+        "name_en": "Own Tempo",
+        "name_ko": "마이페이스",
+        "normal_en": "Cannot be confused.",
+        "normal_ko": "혼란 상태가 되지 않는다.",
+        "enhanced_en": "Self and same-room allies cannot be confused.",
+        "enhanced_ko": "자신과 같은 방 아군 전체가 혼란 상태가 되지 않는다.",
+        "workbook_row": 21
+      }
+    },
+    {
+      "key": "마중물",
+      "id": 309,
+      "legacy_effect_id": 122,
+      "family": "native_behavior",
+      "normal": "[기존] 물 기술을 끌어와 피해를 막고 특수공격 저장단계 +1.",
+      "enhanced": "[강화] 물 기술을 끌어와 피해를 막고 특수공격 저장단계 +2.",
+      "display": {
+        "name_en": "Storm Drain",
+        "name_ko": "마중물",
+        "normal_en": "Draws in Water moves, blocks damage, Sp. Atk +1 stage.",
+        "normal_ko": "물 기술을 끌어와 피해를 막고 특수공격 +1단계.",
+        "enhanced_en": "Draws in Water moves, blocks damage, Sp. Atk +2 stages.",
+        "enhanced_ko": "물 기술을 끌어와 피해를 막고 특수공격 +2단계.",
+        "workbook_row": 115
+      }
+    },
+    {
+      "key": "매직가드",
+      "id": 310,
+      "legacy_effect_id": 115,
+      "family": "native_behavior",
+      "normal": "[기존] 기술이나 공격 이외의 데미지를 입지 않는다",
+      "enhanced": "[강화] 자신과 같은 방 아군 전체가 기술·일반 공격 이외의 간접 피해를 받지 않는다. HP를 소모하는 자신의 기술 비용과 배고픔 자체는 면제하지 않는다.",
+      "display": {
+        "name_en": "Magic Guard",
+        "name_ko": "매직가드",
+        "normal_en": "Takes no damage except from moves and attacks.",
+        "normal_ko": "기술이나 공격 이외의 데미지를 입지 않는다.",
+        "enhanced_en": "Self and room allies take no indirect damage (HP costs, hunger still apply).",
+        "enhanced_ko": "같은 방 아군 전체가 간접 피해를 받지 않는다. HP 소모·배고픔은 제외.",
+        "workbook_row": 99
+      }
+    },
+    {
+      "key": "매직미러",
+      "id": 311,
+      "legacy_effect_id": 135,
+      "family": "native_behavior",
+      "normal": "[기존] 자신에게 향하는 해당 변화 기술을 상대에게 반사한다. 기술별 반사 가능 여부를 검사하므로 모든 기술에 통하는 효과는 아니다.",
+      "enhanced": "[강화] 자신에게 향하는 해당 변화 기술을 상대에게 반사한다. 기술별 반사 가능 여부를 검사하므로 모든 기술에 통하는 효과는 아니다. 추가로 해당 기술을 사용한 상대에게 상대의 [최대체력/8] 만큼의 피해를 준다",
+      "display": {
+        "name_en": "Magic Bounce",
+        "name_ko": "매직미러",
+        "normal_en": "Reflects status moves aimed at you back at the user.",
+        "normal_ko": "자신을 향한 변화 기술을 상대에게 반사한다.",
+        "enhanced_en": "Reflects status moves; the user also takes 1/8 of its max HP in damage.",
+        "enhanced_ko": "변화 기술을 반사하고, 사용한 상대에게 최대 HP의 1/8 피해를 준다.",
+        "workbook_row": 157
+      }
+    },
+    {
+      "key": "맹화",
+      "id": 312,
+      "legacy_effect_id": 70,
+      "family": "calculation",
+      "normal": "[변경] HP ≤⌊최대 HP/4⌋이면 불꽃 기술 피해 ×1.5.",
+      "enhanced": "[강화] HP ≤⌊최대 HP/3⌋이면 불꽃 기술 피해 ×1.6.",
+      "display": {
+        "name_en": "Blaze",
+        "name_ko": "맹화",
+        "normal_en": "At HP ≤1/4 max, Fire move damage ×1.5.",
+        "normal_ko": "HP가 최대의 1/4 이하이면 불꽃 기술 피해 ×1.5.",
+        "enhanced_en": "At HP ≤1/3 max, Fire move damage ×1.6.",
+        "enhanced_ko": "HP가 최대의 1/3 이하이면 불꽃 기술 피해 ×1.6.",
+        "workbook_row": 67
+      }
+    },
+    {
+      "key": "먹보",
+      "id": 313,
+      "legacy_effect_id": 89,
+      "family": "native_behavior",
+      "normal": "[기존] 배고픔 소모 계산 인덱스 +1. 추가로 특정 입장 초기화 조건에서 현재·최대 배부름을 120으로 설정한다. 모든 던전에서 항상 최대 120이라는 뜻은 아니다.",
+      "enhanced": "[강화] 배고픔 소모 계산 인덱스 +1. 추가로 특정 입장 초기화 조건에서 현재·최대 배부름을 120으로 설정한다. 모든 던전에서 항상 최대 120이라는 뜻은 아니다.\n추가 강화: 먹을 수 있는 도구로 회복하는 배부름 수치 ×1.5(버림). 기존 최대 배부름을 넘겨 회복하지 않으며, 기존의 초기화 조건과 배고픔 소모 계산은 유지한다.",
+      "display": {
+        "name_en": "Gluttony",
+        "name_ko": "먹보",
+        "normal_en": "Belly drains faster (+1); sets belly to 120 on certain floor entries.",
+        "normal_ko": "배고픔 소모 +1. 특정 입장 조건에서 배부름을 120으로 설정한다.",
+        "enhanced_en": "Same as base; food restores belly ×1.5 (rounded down), up to max.",
+        "enhanced_ko": "기본 효과에 더해, 음식의 배부름 회복량 ×1.5. (최대치까지)",
+        "workbook_row": 83
+      }
+    },
+    {
+      "key": "멀티스케일",
+      "id": 314,
+      "legacy_effect_id": 12,
+      "family": "calculation",
+      "normal": "[설계안] 현재 HP가 최대 HP와 같을 때 기술로 받는 피해 ×1/2. 다단히트는 각 타격 직전의 HP를 검사한다.",
+      "enhanced": "[강화] 현재 HP가 최대 HP와 같을 때 기술로 받는 피해 ×1/4. 다단히트는 각 타격 직전의 HP를 검사한다.",
+      "display": {
+        "name_en": "Multiscale",
+        "name_ko": "멀티스케일",
+        "normal_en": "At full HP, move damage taken ×1/2.",
+        "normal_ko": "HP가 가득할 때 기술로 받는 피해 ×1/2.",
+        "enhanced_en": "At full HP, move damage taken ×1/4.",
+        "enhanced_ko": "HP가 가득할 때 기술로 받는 피해 ×1/4.",
+        "workbook_row": 137
+      }
+    },
+    {
+      "key": "멀티타입",
+      "id": 315,
+      "legacy_effect_id": 116,
+      "family": "calculation",
+      "normal": "[변경] 아르세우스가 삼위일체의 별·사용 기술에 따라 타입을 변경한다. 해당 아르세우스 기술의 피해 계수 *1.2",
+      "enhanced": "[강화] 아르세우스가 삼위일체의 별·사용 기술에 따라 타입을 변경한다. 해당 아르세우스 기술의 피해 계수 ×1.3",
+      "display": {
+        "name_en": "Multitype",
+        "name_ko": "멀티타입",
+        "normal_en": "Arceus changes type by plate/move; those moves deal ×1.2.",
+        "normal_ko": "아르세우스가 기술에 따라 타입이 변하고, 해당 기술 피해 ×1.2.",
+        "enhanced_en": "Arceus changes type by plate/move; those moves deal ×1.3.",
+        "enhanced_ko": "아르세우스가 기술에 따라 타입이 변하고, 해당 기술 피해 ×1.3.",
+        "workbook_row": 122
+      }
+    },
+    {
+      "key": "메가런처",
+      "id": 316,
+      "legacy_effect_id": 143,
+      "family": "calculation",
+      "normal": "[변경] 지정된 파동·빔 기술의 피해 계수 *1.2",
+      "enhanced": "[강화] 지정된 파동·빔 기술의 피해 계수 ×1.3",
+      "display": {
+        "name_en": "Mega Launcher",
+        "name_ko": "메가런처",
+        "normal_en": "Listed pulse and beam moves deal ×1.2 damage.",
+        "normal_ko": "지정된 파동·빔 기술의 피해 ×1.2.",
+        "enhanced_en": "Listed pulse and beam moves deal ×1.3 damage.",
+        "enhanced_ko": "지정된 파동·빔 기술의 피해 ×1.3.",
+        "workbook_row": 179
+      }
+    },
+    {
+      "key": "메가솔라",
+      "id": 317,
+      "legacy_effect_id": 0,
+      "family": "calculation",
+      "normal": "[설계안] 자신의 기술 사용·명중·피해 계산에서 날씨를 햇살로 취급한다. 불꽃 기술 피해 ×1.2, 물 기술 피해 ×0.8, 솔라빔은 충전 생략, 회복 기술은 햇살 효과를 적용한다. 플로어 실제 날씨나 다른 포켓몬의 날씨 판정은 바꾸지 않는다.",
+      "enhanced": "[강화] 자신의 기술 사용·명중·피해 계산에서 날씨를 강한 햇살로 취급한다.",
+      "display": {
+        "name_en": "Mega Sol",
+        "name_ko": "메가솔라",
+        "normal_en": "Your moves treat weather as sun: Fire ×1.2, Water ×0.8.",
+        "normal_ko": "내 기술에서 날씨를 햇살로 취급한다. 불꽃 ×1.2, 물 ×0.8.",
+        "enhanced_en": "Your moves treat the weather as harsh sunlight.",
+        "enhanced_ko": "내 기술에서 날씨를 강한 햇살로 취급한다.",
+        "workbook_row": 311
+      }
+    },
+    {
+      "key": "면역",
+      "id": 318,
+      "legacy_effect_id": 69,
+      "family": "status_or_stage",
+      "normal": "[기존] 독 상태나 맹독 상태가 되지 않는다",
+      "enhanced": "[강화]자신과 같은 방에 있는 아군 전체는 독 상태나 맹독 상태가 되지 않는다",
+      "display": {
+        "name_en": "Immunity",
+        "name_ko": "면역",
+        "normal_en": "Cannot be poisoned or badly poisoned.",
+        "normal_ko": "독·맹독 상태가 되지 않는다.",
+        "enhanced_en": "Self and same-room allies cannot be poisoned or badly poisoned.",
+        "enhanced_ko": "자신과 같은 방 아군 전체가 독·맹독 상태가 되지 않는다.",
+        "workbook_row": 18
+      }
+    },
+    {
+      "key": "멸망의바디",
+      "id": 319,
+      "legacy_effect_id": 152,
+      "family": "received_event",
+      "normal": "[기존] 조건에 맞는 인접 공격을 받으면 10% 확률로 공격자에게 아포칼립스 상태를 건다. 부여 초기 카운터 4.",
+      "enhanced": "[강화] 조건에 맞는 인접 공격을 받으면 20% 확률로 공격자에게 아포칼립스 상태를 건다. 부여 초기 카운터 4.",
+      "display": {
+        "name_en": "Perish Body",
+        "name_ko": "멸망의바디",
+        "normal_en": "Adjacent hit: 10% chance to inflict Perish on the attacker (4 turns).",
+        "normal_ko": "인접 공격을 받으면 10% 확률로 공격자에게 아포칼립스 상태. (4턴)",
+        "enhanced_en": "Adjacent hit: 20% chance to inflict Perish on the attacker (4 turns).",
+        "enhanced_ko": "인접 공격을 받으면 20% 확률로 공격자에게 아포칼립스 상태. (4턴)",
+        "workbook_row": 254
+      }
+    },
+    {
+      "key": "모래날림",
+      "id": 320,
+      "legacy_effect_id": 28,
+      "family": "weather_source",
+      "normal": "[기존] 플로어를 모래바람으로 만든다.",
+      "enhanced": "[강화] 플로어를 강한 모래바람으로 만든다.",
+      "display": {
+        "name_en": "Sand Stream",
+        "name_ko": "모래날림",
+        "normal_en": "Makes the floor a sandstorm.",
+        "normal_ko": "플로어를 모래바람으로 만든다.",
+        "enhanced_en": "Makes the floor a strong sandstorm.",
+        "enhanced_ko": "플로어를 강한 모래바람으로 만든다.",
+        "workbook_row": 46
+      }
+    },
+    {
+      "key": "모래숨기",
+      "id": 321,
+      "legacy_effect_id": 29,
+      "family": "native_behavior",
+      "normal": "[기존] 모래바람에서 회피 계산단계 +2. 날씨 피해도 면제된다.",
+      "enhanced": "[강화] 모래바람에서 회피 계산단계 +3. 날씨 피해도 면제된다.",
+      "display": {
+        "name_en": "Sand Veil",
+        "name_ko": "모래숨기",
+        "normal_en": "Evasion +2 stages in sandstorm; immune to weather damage.",
+        "normal_ko": "모래바람에서 회피 +2단계. 날씨 피해를 받지 않는다.",
+        "enhanced_en": "Evasion +3 stages in sandstorm; immune to weather damage.",
+        "enhanced_ko": "모래바람에서 회피 +3단계. 날씨 피해를 받지 않는다.",
+        "workbook_row": 9
+      }
+    },
+    {
+      "key": "모래의힘",
+      "id": 322,
+      "legacy_effect_id": 138,
+      "family": "calculation",
+      "normal": "[변경] 모래바람에서 땅·바위·강철 기술의 피해 계수 ×1.2.",
+      "enhanced": "[강화] 모래바람에서 땅·바위·강철 기술의 피해 계수 ×1.3.",
+      "display": {
+        "name_en": "Sand Force",
+        "name_ko": "모래의힘",
+        "normal_en": "In sandstorm, Ground/Rock/Steel move damage ×1.2.",
+        "normal_ko": "모래바람에서 땅·바위·강철 기술의 피해 ×1.2.",
+        "enhanced_en": "In sandstorm, Ground/Rock/Steel move damage ×1.3.",
+        "enhanced_ko": "모래바람에서 땅·바위·강철 기술의 피해 ×1.3.",
+        "workbook_row": 160
+      }
+    },
+    {
+      "key": "모래헤치기",
+      "id": 323,
+      "legacy_effect_id": 132,
+      "family": "native_behavior",
+      "normal": "[변경] 모래바람에서 스피드 계산단계에서의 스피드 +2. 모래바람 피해도 막는다.",
+      "enhanced": "[강화] 모래바람에서 스피드 계산단계에서의 스피드 +3. 모래바람 피해도 막는다.",
+      "display": {
+        "name_en": "Sand Rush",
+        "name_ko": "모래헤치기",
+        "normal_en": "Speed +2 stages in sandstorm; immune to weather damage.",
+        "normal_ko": "모래바람에서 스피드 +2단계. 모래바람 피해를 받지 않는다.",
+        "enhanced_en": "Speed +3 stages in sandstorm; immune to weather damage.",
+        "enhanced_ko": "모래바람에서 스피드 +3단계. 모래바람 피해를 받지 않는다.",
+        "workbook_row": 147
+      }
+    },
+    {
+      "key": "무아지경",
+      "id": 324,
+      "legacy_effect_id": 213,
+      "family": "calculation",
+      "normal": "[설계안] 공격 계산값 ×1.5. 그 층에서 처음 성공시킨 공격 기술 외의 기술을 사용할 수 없게 된다. PP가 0이면 일반 공격·발버둥만 허용하며 층 이동 시 선택을 초기화한다.",
+      "enhanced": "[강화] 공격 계산값 ×1.6. 그 층에서 처음 성공시킨 공격 기술 외의 기술을 사용할 수 없게 된다. PP가 0이면 일반 공격·발버둥만 허용하며 층 이동 시 선택을 초기화한다.",
+      "display": {
+        "name_en": "Gorilla Tactics",
+        "name_ko": "무아지경",
+        "normal_en": "Attack ×1.5; locked into the first successful attack move each floor.",
+        "normal_ko": "공격 ×1.5. 층에서 처음 성공한 공격 기술만 쓸 수 있다.",
+        "enhanced_en": "Attack ×1.6; locked into the first successful attack move each floor.",
+        "enhanced_ko": "공격 ×1.6. 층에서 처음 성공한 공격 기술만 쓸 수 있다.",
+        "workbook_row": 256
+      }
+    },
+    {
+      "key": "미라클스킨",
+      "id": 325,
+      "legacy_effect_id": 175,
+      "family": "action_or_world",
+      "normal": "[설계안] 자신을 대상으로 하는 상대의 변화 기술을 25% 확률로 무효화한다. 날씨·필드·상대 자신에게 쓰는 변화 기술에는 적용하지 않는다.",
+      "enhanced": "[강화] 자신을 대상으로 하는 상대의 변화 기술을 50% 확률로 무효화한다. 날씨·필드·상대 자신에게 쓰는 변화 기술에는 적용하지 않는다.",
+      "display": {
+        "name_en": "Wonder Skin",
+        "name_ko": "미라클스킨",
+        "normal_en": "25% chance to negate foes' status moves aimed at you.",
+        "normal_ko": "자신을 향한 상대의 변화 기술을 25% 확률로 무효화한다.",
+        "enhanced_en": "50% chance to negate foes' status moves aimed at you.",
+        "enhanced_ko": "자신을 향한 상대의 변화 기술을 50% 확률로 무효화한다.",
+        "workbook_row": 148
+      }
+    },
+    {
+      "key": "바람타기",
+      "id": 326,
+      "legacy_effect_id": 216,
+      "family": "status_or_stage",
+      "normal": "[설계안] 바람 기술 피해를 막고 공격 +1단계. 순풍 상태가 처음 부여될 때도 공격 +1단계. 순풍을 유지하는 턴마다 재발동하지 않는다.",
+      "enhanced": "[강화] 바람 기술 피해를 막고 공격 +2단계. 순풍 상태가 처음 부여될 때도 공격 +2단계. 순풍을 유지하는 턴마다 재발동하지 않는다.",
+      "display": {
+        "name_en": "Wind Rider",
+        "name_ko": "바람타기",
+        "normal_en": "Blocks wind moves; Attack +1 stage (also when Tailwind first applies).",
+        "normal_ko": "바람 기술 피해를 막고 공격 +1단계. 순풍이 처음 부여될 때도 +1단계.",
+        "enhanced_en": "Blocks wind moves; Attack +2 stages (also when Tailwind first applies).",
+        "enhanced_ko": "바람 기술 피해를 막고 공격 +2단계. 순풍이 처음 부여될 때도 +2단계.",
+        "workbook_row": 275
+      }
+    },
+    {
+      "key": "발광",
+      "id": 327,
+      "legacy_effect_id": 46,
+      "family": "received_event",
+      "normal": "[기존] 공격을 받으면 던전에 야생 포켓몬이 나타난다",
+      "enhanced": "[강화] 공격을 받으면 던전에 야생 포켓몬이 나타난다\n추가 강화: 플로어내 야생 포켓몬은 공격·특수공격,방어,특수방어 저장단계 −1으로 스폰된다",
+      "display": {
+        "name_en": "Illuminate",
+        "name_ko": "발광",
+        "normal_en": "When attacked, a wild Pokémon appears in the dungeon.",
+        "normal_ko": "공격을 받으면 던전에 야생 포켓몬이 나타난다.",
+        "enhanced_en": "When attacked, wild Pokémon appear with Atk, Def, Sp. Atk, Sp. Def −1.",
+        "enhanced_ko": "공격을 받으면 야생 포켓몬이 나타나며, 공격·방어·특공·특방 −1단계.",
+        "workbook_row": 36
+      }
+    },
+    {
+      "key": "발끈",
+      "id": 328,
+      "legacy_effect_id": 169,
+      "family": "floor_entry",
+      "normal": "[설계안] 상대 공격으로 HP가 절반 초과에서 절반 이하로 내려가면 특수공격 +1단계. 층당 1회만 발동한다.",
+      "enhanced": "[강화] 상대 공격으로 HP가 절반 초과에서 절반 이하로 내려가면 특수공격 +2단계. 층당 1회만 발동한다.",
+      "display": {
+        "name_en": "Berserk",
+        "name_ko": "발끈",
+        "normal_en": "When a foe's attack drops you to ≤1/2 HP, Sp. Atk +1 (once per floor).",
+        "normal_ko": "상대 공격으로 HP가 절반 이하가 되면 특수공격 +1단계. 층당 1회.",
+        "enhanced_en": "When a foe's attack drops you to ≤1/2 HP, Sp. Atk +2 (once per floor).",
+        "enhanced_ko": "상대 공격으로 HP가 절반 이하가 되면 특수공격 +2단계. 층당 1회.",
+        "workbook_row": 202
+      }
+    },
+    {
+      "key": "방음",
+      "id": 329,
+      "legacy_effect_id": 60,
+      "family": "native_behavior",
+      "normal": "[기존] 소리를 사용한 기술의 효과를 받지 않는다",
+      "enhanced": "[강화] 자신과 같은 방 아군 전체가 소리 기술의 효과를 받지 않는다. 회복·보조용 소리 기술은 차단하지 않는다",
+      "display": {
+        "name_en": "Soundproof",
+        "name_ko": "방음",
+        "normal_en": "Immune to the effects of sound-based moves.",
+        "normal_ko": "소리 기술의 효과를 받지 않는다.",
+        "enhanced_en": "Self and same-room allies are immune to sound moves (not healing/support).",
+        "enhanced_ko": "같은 방 아군 전체가 소리 기술을 받지 않는다. 회복·보조는 제외.",
+        "workbook_row": 44
+      }
+    },
+    {
+      "key": "방진",
+      "id": 330,
+      "legacy_effect_id": 130,
+      "family": "native_behavior",
+      "normal": "[기존] 날씨 피해와 지정된 가루 기술의 효과를 막는다.",
+      "enhanced": "[강화] 자신과 같은 방 아군 전체에게 날씨 피해와 지정된 가루 기술 면역을 부여한다. 날씨 자체의 강화·약화까지 없애지는 않는다.",
+      "display": {
+        "name_en": "Overcoat",
+        "name_ko": "방진",
+        "normal_en": "Immune to weather damage and powder moves.",
+        "normal_ko": "날씨 피해와 지정된 가루 기술의 효과를 막는다.",
+        "enhanced_en": "Self and same-room allies are immune to weather damage and powder moves.",
+        "enhanced_ko": "같은 방 아군 전체가 날씨 피해와 가루 기술에 면역.",
+        "workbook_row": 143
+      }
+    },
+    {
+      "key": "방탄",
+      "id": 331,
+      "legacy_effect_id": 141,
+      "family": "calculation",
+      "normal": "[기존] 지정된 탄 기술·투사체 피해를 막는다. 해당 기술의 피해 계수 0.",
+      "enhanced": "[강화] 지정된 탄 기술·투사체 피해 면역을 부여한다. 해당 피해 계수 0이며 대상 목록은 기존과 같다.\n추가로 이렇게 피해를 막았을시 방어와 특수방어 저장단계 +1",
+      "display": {
+        "name_en": "Bulletproof",
+        "name_ko": "방탄",
+        "normal_en": "Immune to designated ball and bomb moves.",
+        "normal_ko": "지정된 탄 기술·투사체 피해를 막는다.",
+        "enhanced_en": "Immune to those moves; Def and Sp. Def +1 stage when blocked.",
+        "enhanced_ko": "지정된 탄 기술을 막고, 막으면 방어·특방 +1단계.",
+        "workbook_row": 172
+      }
+    },
+    {
+      "key": "배짱",
+      "id": 332,
+      "legacy_effect_id": 87,
+      "family": "native_behavior",
+      "normal": "[기존] 고스트타입 포켓몬에 대한 노말, 격투타입 기술의 데미지가 올라간다",
+      "enhanced": "[강화] 고스트타입 포켓몬에 대한 노말, 격투타입 기술의 데미지가 올라간다\n추가 강화: 고스트타입 상대에게 사용하는 노말·격투 기술의 피해 ×1.2. 기존 고스트 면역 우회는 유지한다.",
+      "display": {
+        "name_en": "Scrappy",
+        "name_ko": "배짱",
+        "normal_en": "Normal and Fighting moves deal more damage to Ghost types.",
+        "normal_ko": "고스트타입에게 주는 노말·격투 기술의 피해가 올라간다.",
+        "enhanced_en": "Normal/Fighting moves deal ×1.2 to Ghost types and still bypass immunity.",
+        "enhanced_ko": "고스트타입에게 노말·격투 기술 피해 ×1.2. 고스트 면역은 계속 무시한다.",
+        "workbook_row": 114
+      }
+    },
+    {
+      "key": "벌레의알림",
+      "id": 333,
+      "legacy_effect_id": 67,
+      "family": "calculation",
+      "normal": "[변경] HP ≤⌊최대 HP/4⌋이면 벌레 기술 피해 ×1.5.",
+      "enhanced": "[강화] HP ≤⌊최대 HP/3⌋이면 벌레 기술 피해 ×1.6.",
+      "display": {
+        "name_en": "Swarm",
+        "name_ko": "벌레의알림",
+        "normal_en": "At HP ≤1/4 max, Bug move damage ×1.5.",
+        "normal_ko": "HP가 최대의 1/4 이하이면 벌레 기술 피해 ×1.5.",
+        "enhanced_en": "At HP ≤1/3 max, Bug move damage ×1.6.",
+        "enhanced_ko": "HP가 최대의 1/3 이하이면 벌레 기술 피해 ×1.6.",
+        "workbook_row": 69
+      }
+    },
+    {
+      "key": "변덕쟁이",
+      "id": 334,
+      "legacy_effect_id": 222,
+      "family": "floor_entry",
+      "normal": "[설계안] 층 입장시 공격·방어·특수공격·특수방어·스피드·명중·회피 중 하나를 균등 선택해 +2단계, 나머지 중 하나를 균등 선택해 −1단계. 두 능력은 서로 다르다.",
+      "enhanced": "[강화] 층 입장시 공격·방어·특수공격·특수방어·스피드·명중·회피 중 하나를 균등 선택해 +2단계",
+      "display": {
+        "name_en": "Moody",
+        "name_ko": "변덕쟁이",
+        "normal_en": "On floor entry, one random stat +2 stages and another −1 stage.",
+        "normal_ko": "층 입장 시 능력 하나 +2단계, 다른 능력 하나 −1단계.",
+        "enhanced_en": "On floor entry, one random stat +2 stages.",
+        "enhanced_ko": "층 입장 시 무작위 능력 하나 +2단계.",
+        "workbook_row": 142
+      }
+    },
+    {
+      "key": "변색",
+      "id": 335,
+      "legacy_effect_id": 59,
+      "family": "native_behavior",
+      "normal": "[기존] 받은 기술과 같은 타입이 된다",
+      "enhanced": "[강화] 받은 기술과 같은 타입이 된다\n해당 타입으로 변한동안 본인이 사용하는 해당 기술의 피해계수에 *1.2 한다",
+      "display": {
+        "name_en": "Color Change",
+        "name_ko": "변색",
+        "normal_en": "Becomes the type of the move that hit it.",
+        "normal_ko": "받은 기술과 같은 타입이 된다.",
+        "enhanced_en": "Becomes the hit move's type; own moves of that type deal ×1.2.",
+        "enhanced_ko": "받은 기술의 타입이 되며, 그 타입의 자신의 기술 피해 ×1.2.",
+        "workbook_row": 17
+      }
+    },
+    {
+      "key": "변환자재",
+      "id": 336,
+      "legacy_effect_id": 165,
+      "family": "native_behavior",
+      "normal": "[기존] 사용한 해당 기술의 타입으로 자신의 타입을 바꾼다.",
+      "enhanced": "[강화] 사용한 해당 기술의 타입으로 자신의 타입을 바꾼다.\n추가 강화: 타입을 바꾼 직후 사용한 해당 기술의 피해 ×1.2. 변환자재에 의해 자신의 타입이 실제로 바뀐 기술에만 적용하며 반복 발동해도 중첩하지 않는다.",
+      "display": {
+        "name_en": "Protean",
+        "name_ko": "변환자재",
+        "normal_en": "Changes your type to the type of the move you use.",
+        "normal_ko": "사용한 기술의 타입으로 자신의 타입을 바꾼다.",
+        "enhanced_en": "Changes type to the move's; that move deals ×1.2 right after.",
+        "enhanced_ko": "기술의 타입으로 바꾸고, 바꾼 직후 그 기술의 피해 ×1.2.",
+        "workbook_row": 169
+      }
+    },
+    {
+      "key": "복안",
+      "id": 337,
+      "legacy_effect_id": 51,
+      "family": "native_behavior",
+      "normal": "[변경] 데미지 계산단계에서 명중률단계 +1로 계산한다",
+      "enhanced": "[강화] 데미지 계산단계에서 명중률 단계 +2로 계산한다",
+      "display": {
+        "name_en": "Compound Eyes",
+        "name_ko": "복안",
+        "normal_en": "Accuracy +1 stage in damage calculation.",
+        "normal_ko": "데미지 계산 시 명중률 +1단계로 계산한다.",
+        "enhanced_en": "Accuracy +2 stages in damage calculation.",
+        "enhanced_ko": "데미지 계산 시 명중률 +2단계로 계산한다.",
+        "workbook_row": 15
+      }
+    },
+    {
+      "key": "부유",
+      "id": 338,
+      "legacy_effect_id": 55,
+      "family": "native_behavior",
+      "normal": "[기존] 땅타입의 기술을 받지 않는다",
+      "enhanced": "[기존] 땅타입의 기술을 받지 않는다 바닥 함정을 밟았을 때 100% 확률로 발동을 피한다.",
+      "display": {
+        "name_en": "Levitate",
+        "name_ko": "부유",
+        "normal_en": "Immune to Ground-type moves.",
+        "normal_ko": "땅타입 기술을 받지 않는다.",
+        "enhanced_en": "Immune to Ground-type moves; always avoids floor traps.",
+        "enhanced_ko": "땅타입 기술을 받지 않고, 바닥 함정을 100% 피한다.",
+        "workbook_row": 27
+      }
+    },
+    {
+      "key": "부자유친",
+      "id": 339,
+      "legacy_effect_id": 184,
+      "family": "calculation",
+      "normal": "[설계안] 공격 기술의 행동 횟수 1→2. 첫 공격은 정상 피해, 두 번째 공격은 피해 ×1/4이며 PP는 첫 공격에서만 소모한다. 원래 다단히트인 기술·고정 피해·충전 기술에는 적용하지 않는다.",
+      "enhanced": "[강화] 공격 기술의 행동 횟수 1→2. 첫 공격은 정상 피해, 두 번째 공격은 피해 ×1/3이며 PP는 첫 공격에서만 소모한다. 원래 다단히트인 기술·고정 피해·충전 기술에는 적용하지 않는다.",
+      "display": {
+        "name_en": "Parental Bond",
+        "name_ko": "부자유친",
+        "normal_en": "Attacks hit twice; second hit deals ×1/4 damage; PP used once.",
+        "normal_ko": "공격이 2회 나간다. 2번째는 피해 ×1/4, PP는 1번만 소모.",
+        "enhanced_en": "Attacks hit twice; second hit deals ×1/3 damage; PP used once.",
+        "enhanced_ko": "공격이 2회 나간다. 2번째는 피해 ×1/3, PP는 1번만 소모.",
+        "workbook_row": 186
+      }
+    },
+    {
+      "key": "부풀린가슴",
+      "id": 340,
+      "legacy_effect_id": 0,
+      "family": "status_or_stage",
+      "normal": "[설계안] 상대의 기술·특성에 의한 방어 단계 저하를 막는다. 자신의 기술로 인한 저하는 적용한다.",
+      "enhanced": "[강화] 상대의 기술·특성에 의한 방어 단계 저하를 막는다. 자신의 기술로 인한 방어 단계 저하도 막는다.",
+      "display": {
+        "name_en": "Big Pecks",
+        "name_ko": "부풀린가슴",
+        "normal_en": "Blocks foe-caused Defense drops; self-inflicted drops apply.",
+        "normal_ko": "상대에 의한 방어 저하를 막는다. 자신의 기술로 인한 저하는 받는다.",
+        "enhanced_en": "Blocks Defense drops, including self-inflicted ones.",
+        "enhanced_ko": "자신의 기술로 인한 방어 저하까지 모두 막는다.",
+        "workbook_row": 146
+      }
+    },
+    {
+      "key": "분노의경혈",
+      "id": 341,
+      "legacy_effect_id": 79,
+      "family": "received_event",
+      "normal": "[변경] 급소에 맞은뒤 공격과 특수공격 저장단계 +3",
+      "enhanced": "[강화] 급소에 맞은뒤 공격과 특수공격 저장단계 +6",
+      "display": {
+        "name_en": "Anger Point",
+        "name_ko": "분노의경혈",
+        "normal_en": "After taking a critical hit, Attack and Sp. Atk +3 stages.",
+        "normal_ko": "급소에 맞은 뒤 공격·특수공격 +3단계.",
+        "enhanced_en": "After taking a critical hit, Attack and Sp. Atk +6 stages.",
+        "enhanced_ko": "급소에 맞은 뒤 공격·특수공격 +6단계.",
+        "workbook_row": 84
+      }
+    },
+    {
+      "key": "불가사의부적",
+      "id": 342,
+      "legacy_effect_id": 53,
+      "family": "calculation",
+      "normal": "[기존] 효과가 굉장한 기술 외의 기술 피해를 막는다. 무효화 대상 기술 피해 계수 0.",
+      "enhanced": "[강화] 효과가 굉장한 기술 외의 기술 피해를 막고,공격,방어,특방,특공,스피드 각각 저장단계 +1 무효화 대상 기술 피해 계수 0.",
+      "display": {
+        "name_en": "Wonder Guard",
+        "name_ko": "불가사의부적",
+        "normal_en": "Blocks damage from moves that are not super effective.",
+        "normal_ko": "효과가 굉장한 기술 외의 기술 피해를 막는다.",
+        "enhanced_en": "Blocks non-super-effective damage; Atk, Def, Sp. Atk, Sp. Def, Speed +1 stage.",
+        "enhanced_ko": "효과가 굉장하지 않은 피해를 막고, 모든 능력 +1단계.",
+        "workbook_row": 26
+      }
+    },
+    {
+      "key": "불굴의마음",
+      "id": 343,
+      "legacy_effect_id": 112,
+      "family": "received_event",
+      "normal": "[기존] 환각·풀죽음 상태가 부여되면 스피드 저장단계 +1단계.",
+      "enhanced": "[강화] 환각·풀죽음 상태가 부여되면 스피드 저장단계 +2단계.",
+      "display": {
+        "name_en": "Steadfast",
+        "name_ko": "불굴의마음",
+        "normal_en": "Speed +1 stage when hallucinating or flinched.",
+        "normal_ko": "환각·풀죽음 상태가 되면 이동속도 +1단계.",
+        "enhanced_en": "Speed +2 stages when hallucinating or flinched.",
+        "enhanced_ko": "환각·풀죽음 상태가 되면 이동속도 +2단계.",
+        "workbook_row": 81
+      }
+    },
+    {
+      "key": "불꽃몸",
+      "id": 344,
+      "legacy_effect_id": 62,
+      "family": "received_event",
+      "normal": "[기존] 조건에 맞는 인접 공격을 받으면 12% 확률로 공격자를 화상 상태로 만든다.",
+      "enhanced": "[강화] 조건에 맞는 인접 공격을 받으면 20% 확률로 공격자를 화상 상태로 만든다.",
+      "display": {
+        "name_en": "Flame Body",
+        "name_ko": "불꽃몸",
+        "normal_en": "Adjacent hit: 12% chance to burn the attacker.",
+        "normal_ko": "인접 공격을 받으면 12% 확률로 공격자를 화상 상태로 만든다.",
+        "enhanced_en": "Adjacent hit: 20% chance to burn the attacker.",
+        "enhanced_ko": "인접 공격을 받으면 20% 확률로 공격자를 화상 상태로 만든다.",
+        "workbook_row": 50
+      }
+    },
+    {
+      "key": "불꽃의갈기",
+      "id": 345,
+      "legacy_effect_id": 0,
+      "family": "calculation",
+      "normal": "[설계안] 자신이 사용하는 불꽃 기술의 피해 ×1.2.",
+      "enhanced": "[강화] 자신이 사용하는 불꽃 기술의 피해 ×1.3.",
+      "display": {
+        "name_en": "Fire Mane",
+        "name_ko": "불꽃의갈기",
+        "normal_en": "Own Fire move damage ×1.2.",
+        "normal_ko": "자신의 불꽃 기술 피해 ×1.2.",
+        "enhanced_en": "Own Fire move damage ×1.3.",
+        "enhanced_ko": "자신의 불꽃 기술 피해 ×1.3.",
+        "workbook_row": 314
+      }
+    },
+    {
+      "key": "불면",
+      "id": 346,
+      "legacy_effect_id": 54,
+      "family": "native_behavior",
+      "normal": "[기존·이름 대응: 잠들지 않음 / Insomnia] 잠들지 않는다",
+      "enhanced": "[강화]자신과 같은 방에 있는 아군 전체는 잠들지 않는다",
+      "display": {
+        "name_en": "Insomnia",
+        "name_ko": "불면",
+        "normal_en": "Cannot fall asleep.",
+        "normal_ko": "잠들지 않는다.",
+        "enhanced_en": "Self and same-room allies cannot fall asleep.",
+        "enhanced_ko": "자신과 같은 방 아군 전체가 잠들지 않는다.",
+        "workbook_row": 16
+      }
+    },
+    {
+      "key": "색안경",
+      "id": 347,
+      "legacy_effect_id": 80,
+      "family": "calculation",
+      "normal": "[변경] 효과가 별로인 기술의 피해에 ×1.2 추가 보정.",
+      "enhanced": "[강화] 효과가 별로인 기술의 피해에 ×1.3 추가 보정.",
+      "display": {
+        "name_en": "Tinted Lens",
+        "name_ko": "색안경",
+        "normal_en": "Not-very-effective moves get an extra ×1.2 damage.",
+        "normal_ko": "효과가 별로인 기술의 피해에 ×1.2 보정.",
+        "enhanced_en": "Not-very-effective moves get an extra ×1.3 damage.",
+        "enhanced_ko": "효과가 별로인 기술의 피해에 ×1.3 보정.",
+        "workbook_row": 111
+      }
+    },
+    {
+      "key": "선파워",
+      "id": 348,
+      "legacy_effect_id": 90,
+      "family": "calculation",
+      "normal": "[기존] 햇살에서 특수공격 계산단계 +2. 매 처리에 ⌊최대 HP/16⌋+1 피해(해당 경감 상태에서는 ⌊최대 HP/64⌋+1).",
+      "enhanced": "[강화] 햇살에서 특수공격 계산단계 +3. 매 처리에 ⌊최대 HP/16⌋+1 피해(해당 경감 상태에서는 ⌊최대 HP/64⌋+1).",
+      "display": {
+        "name_en": "Solar Power",
+        "name_ko": "선파워",
+        "normal_en": "Sp. Atk +2 stages in sun; lose about 1/16 max HP each tick.",
+        "normal_ko": "햇살에서 특수공격 +2단계. 매 처리 최대 HP의 약 1/16 피해.",
+        "enhanced_en": "Sp. Atk +3 stages in sun; lose about 1/16 max HP each tick.",
+        "enhanced_ko": "햇살에서 특수공격 +3단계. 매 처리 최대 HP의 약 1/16 피해.",
+        "workbook_row": 95
+      }
+    },
+    {
+      "key": "소울하트",
+      "id": 349,
+      "legacy_effect_id": 209,
+      "family": "faint",
+      "normal": "[설계안] 같은 방에서 다른 포켓몬이 쓰러지면 특수공격 +1단계. 한 행동에서 여러 마리가 쓰러져도 1회만 발동하며 부활 후 다시 쓰러진 경우도 센다.",
+      "enhanced": "[강화] 같은 방에서 다른 포켓몬이 쓰러지면 특수공격 +2단계. 한 행동에서 여러 마리가 쓰러져도 1회만 발동하며 부활 후 다시 쓰러진 경우도 센다.",
+      "display": {
+        "name_en": "Soul-Heart",
+        "name_ko": "소울하트",
+        "normal_en": "When another Pokémon faints in the room, Sp. Atk +1 stage.",
+        "normal_ko": "같은 방에서 다른 포켓몬이 쓰러지면 특수공격 +1단계.",
+        "enhanced_en": "When another Pokémon faints in the room, Sp. Atk +2 stages.",
+        "enhanced_ko": "같은 방에서 다른 포켓몬이 쓰러지면 특수공격 +2단계.",
+        "workbook_row": 221
+      }
+    },
+    {
+      "key": "속보",
+      "id": 350,
+      "legacy_effect_id": 109,
+      "family": "received_event",
+      "normal": "[변경] 해당 나쁜 상태가 부여되면 스피드 +1단계.",
+      "enhanced": "[강화] 해당 나쁜 상태가 부여되면 스피드 +2단계.",
+      "display": {
+        "name_en": "Quick Feet",
+        "name_ko": "속보",
+        "normal_en": "Speed +1 stage when afflicted with a bad status.",
+        "normal_ko": "해당 나쁜 상태가 되면 스피드 +1단계.",
+        "enhanced_en": "Speed +2 stages when afflicted with a bad status.",
+        "enhanced_ko": "해당 나쁜 상태가 되면 스피드 +2단계.",
+        "workbook_row": 96
+      }
+    },
+    {
+      "key": "수의베일",
+      "id": 351,
+      "legacy_effect_id": 66,
+      "family": "status_or_stage",
+      "normal": "[기존] 화상 상태가 되지 않는다",
+      "enhanced": "[강화] 자신과 같은 방 아군 전체가 화상 상태가 되지 않는다. 이미 걸린 화상은 해제하지 않는다.",
+      "display": {
+        "name_en": "Water Veil",
+        "name_ko": "수의베일",
+        "normal_en": "Prevents burns.",
+        "normal_ko": "화상 상태가 되지 않는다.",
+        "enhanced_en": "Self and same-room allies cannot be burned.",
+        "enhanced_ko": "자신과 같은 방 아군 전체가 화상 상태가 되지 않는다.",
+        "workbook_row": 42
+      }
+    },
+    {
+      "key": "수확",
+      "id": 352,
+      "legacy_effect_id": 0,
+      "family": "item",
+      "normal": "[설계안] 열매를 먹을때 12% 확률로 소모하지 않는다, 햇살에서는 25%.",
+      "enhanced": "[강화] 열매를 먹을때 20% 확률로 소모하지 않는다, 햇살에서는 40%.",
+      "display": {
+        "name_en": "Harvest",
+        "name_ko": "수확",
+        "normal_en": "12% chance a berry isn't consumed when eaten (25% in sun).",
+        "normal_ko": "열매를 먹을 때 12% 확률로 소모하지 않는다. (햇살에서 25%)",
+        "enhanced_en": "20% chance a berry isn't consumed when eaten (40% in sun).",
+        "enhanced_ko": "열매를 먹을 때 20% 확률로 소모하지 않는다. (햇살에서 40%)",
+        "workbook_row": 140
+      }
+    },
+    {
+      "key": "순수한힘",
+      "id": 353,
+      "legacy_effect_id": 34,
+      "family": "calculation",
+      "normal": "[설계안] 물리 기술의 공격 계산값 ×1.2. 특수 기술과 고정 피해 기술은 변하지 않는다.",
+      "enhanced": "[강화] 물리 기술의 공격 계산값 ×1.3. 특수 기술과 고정 피해 기술은 변하지 않는다.",
+      "display": {
+        "name_en": "Pure Power",
+        "name_ko": "순수한힘",
+        "normal_en": "Physical move Attack ×1.2 (not special or fixed damage).",
+        "normal_ko": "물리 기술의 공격 계산값 ×1.2. (특수·고정 피해는 제외)",
+        "enhanced_en": "Physical move Attack ×1.3 (not special or fixed damage).",
+        "enhanced_ko": "물리 기술의 공격 계산값 ×1.3. (특수·고정 피해는 제외)",
+        "workbook_row": 75
+      }
+    },
+    {
+      "key": "스나이퍼",
+      "id": 354,
+      "legacy_effect_id": 93,
+      "family": "calculation",
+      "normal": "[기존] 급소 피해 배율 ×2. 현재 IQ Critical Dodger가 활성인 상대에게는 패치가 ×1.2를 대신 적용한다.",
+      "enhanced": "[강화] 급소 피해 배율 ×2.5. 현재 IQ Critical Dodger가 활성인 상대에게는 패치가 ×1.3를 대신 적용한다.",
+      "display": {
+        "name_en": "Sniper",
+        "name_ko": "스나이퍼",
+        "normal_en": "Critical hit damage ×2 (×1.2 vs Critical Dodger).",
+        "normal_ko": "급소 피해 배율 ×2. (Critical Dodger 상대는 ×1.2)",
+        "enhanced_en": "Critical hit damage ×2.5 (×1.3 vs Critical Dodger).",
+        "enhanced_ko": "급소 피해 배율 ×2.5. (Critical Dodger 상대는 ×1.3)",
+        "workbook_row": 98
+      }
+    },
+    {
+      "key": "스위트베일",
+      "id": 355,
+      "legacy_effect_id": 0,
+      "family": "status_or_stage",
+      "normal": "[설계안] 자신과 같은 방에 있는 동료에게 수면·하품 상태가 새로 부여되는 것을 막는다. 이미 걸린 수면은 해제하지 않는다.",
+      "enhanced": "[강화] 자신과 같은 방에 있는 동료에게 수면·하품 상태가 새로 부여되는 것을 막는다. 또한, 같은 방 동료에게 수면·하품 부여를 시도한 상대에게 수면·하품 상태를 반사한다, 스위트 베일로 인한 반사에는 트리거 되지 않게 하여 무한루프를 막는다",
+      "display": {
+        "name_en": "Sweet Veil",
+        "name_ko": "스위트베일",
+        "normal_en": "Blocks sleep and yawn on room allies; existing sleep stays.",
+        "normal_ko": "같은 방 동료에게 수면·하품이 새로 걸리지 않는다.",
+        "enhanced_en": "Blocks sleep/yawn on room allies and reflects the attempts at foes.",
+        "enhanced_ko": "같은 방 동료를 지키고, 시도한 상대에게 수면·하품을 반사한다.",
+        "workbook_row": 176
+      }
+    },
+    {
+      "key": "스카이스킨",
+      "id": 356,
+      "legacy_effect_id": 0,
+      "family": "calculation",
+      "normal": "[설계안] 해당 노말타입 기술을 비행타입으로 변경하고. 피해 계수를 1.2배로 한다. 자속 보정은 변경된 타입으로 판정한다.",
+      "enhanced": "[강화] 해당 노말타입 기술을 비행타입으로 변경하고. 피해 계수를 1.3배로 한다. 자속 보정은 변경된 타입으로 판정한다.",
+      "display": {
+        "name_en": "Aerilate",
+        "name_ko": "스카이스킨",
+        "normal_en": "Normal moves become Flying-type with damage ×1.2.",
+        "normal_ko": "노말 기술을 비행타입으로 바꾸고 피해 ×1.2.",
+        "enhanced_en": "Normal moves become Flying-type with damage ×1.3.",
+        "enhanced_ko": "노말 기술을 비행타입으로 바꾸고 피해 ×1.3.",
+        "workbook_row": 185
+      }
+    },
+    {
+      "key": "스킬링크",
+      "id": 357,
+      "legacy_effect_id": 91,
+      "family": "native_behavior",
+      "normal": "[기존] 다단히트 기술을 최대 타수로 시도한다. 가변 2~5회 기술은 5회. 각 타격의 명중까지 보장하지 않는다.",
+      "enhanced": "[강화] 다단히트 기술을 최대 타수로 시도한다. 가변 2~5회 기술은 5회. 각 타격의 명중까지 보장하지 않는다.\n각 타격의 명중 판정에서 명중률을 *1.2해 계산한다.",
+      "display": {
+        "name_en": "Skill Link",
+        "name_ko": "스킬링크",
+        "normal_en": "Multi-hit moves always use max hits (5); accuracy not guaranteed.",
+        "normal_ko": "다단히트 기술이 항상 최대 타수로 나간다. 명중은 보장하지 않는다.",
+        "enhanced_en": "Multi-hit moves hit max times; each hit's accuracy ×1.2.",
+        "enhanced_ko": "다단히트 기술이 최대 타수로 나가고, 각 타격의 명중률 ×1.2.",
+        "workbook_row": 93
+      }
+    },
+    {
+      "key": "슬로스타트",
+      "id": 358,
+      "legacy_effect_id": 94,
+      "family": "floor_entry",
+      "normal": "[변경] 플로어 시작시 스피드 −3단계.",
+      "enhanced": "[강화] 플로어 시작시 스피드 −2단계.",
+      "display": {
+        "name_en": "Slow Start",
+        "name_ko": "슬로스타트",
+        "normal_en": "Speed −3 stages at the start of a floor.",
+        "normal_ko": "플로어 시작 시 스피드 −3단계.",
+        "enhanced_en": "Speed −2 stages at the start of a floor.",
+        "enhanced_ko": "플로어 시작 시 스피드 −2단계.",
+        "workbook_row": 113
+      }
+    },
+    {
+      "key": "습기",
+      "id": 359,
+      "legacy_effect_id": 21,
+      "family": "native_behavior",
+      "normal": "[기존] 습기 포켓몬이 있는 플로어에서 폭발이 일어나지 않게 된다",
+      "enhanced": "[강화] 습기 포켓몬이 있는 플로어에서 폭발이 일어나지 않게 된다, 본인이 가하는 물타입 기술의 피해계수 *1.2",
+      "display": {
+        "name_en": "Damp",
+        "name_ko": "습기",
+        "normal_en": "Prevents explosions on floors with Damp Pokémon.",
+        "normal_ko": "습기 포켓몬이 있는 플로어에서 폭발이 일어나지 않는다.",
+        "enhanced_en": "Prevents explosions on the floor; own Water move damage ×1.2.",
+        "enhanced_ko": "플로어에서 폭발이 일어나지 않는다. 자신의 물 기술 피해 ×1.2.",
+        "workbook_row": 7
+      }
+    },
+    {
+      "key": "승기",
+      "id": 360,
+      "legacy_effect_id": 151,
+      "family": "native_behavior",
+      "normal": "[기존] 상대에게 능력이 내려가면 특수공격 저장단계 +2. 현재 저장 상한은 16.",
+      "enhanced": "[강화] 상대에게 능력이 내려가면 특수공격 저장단계 +3. 현재 저장 상한은 16.",
+      "display": {
+        "name_en": "Competitive",
+        "name_ko": "승기",
+        "normal_en": "When foes lower your stats, Sp. Atk +2 stages.",
+        "normal_ko": "상대에게 능력이 내려가면 특수공격 +2단계.",
+        "enhanced_en": "When foes lower your stats, Sp. Atk +3 stages.",
+        "enhanced_ko": "상대에게 능력이 내려가면 특수공격 +3단계.",
+        "workbook_row": 173
+      }
+    },
+    {
+      "key": "시간벌기",
+      "id": 361,
+      "legacy_effect_id": 78,
+      "family": "calculation",
+      "normal": "[변경] 받는 피해 계수 m을 0.8로 변경.",
+      "enhanced": "[강화] 받는 피해 계수 m을 0.7로 변경.",
+      "display": {
+        "name_en": "Stall",
+        "name_ko": "시간벌기",
+        "normal_en": "Damage taken multiplier is ×0.8.",
+        "normal_ko": "받는 피해 계수가 0.8이 된다.",
+        "enhanced_en": "Damage taken multiplier is ×0.7.",
+        "enhanced_ko": "받는 피해 계수가 0.7이 된다.",
+        "workbook_row": 101
+      }
+    },
+    {
+      "key": "시작의바다",
+      "id": 362,
+      "legacy_effect_id": 252,
+      "family": "weather_source",
+      "normal": "[설계안] 층 입장 시 큰비를 만든다. 비의 물 기술 ×1.5 보정과 불꽃 기술 피해 무효를 적용한다. 일반 날씨 변경으로 덮어쓸 수 없고, 시작의바다·끝의대지·델타스트림 중 가장 최근 발동이 우선한다. 보유자가 층에서 사라지면 해제한다.",
+      "enhanced": "[강화] 층 입장 시 날씨를 강한 비로 만든다.\n일반 날씨 변경으로 덮어쓸 수 없고, 시작의바다·끝의대지·델타스트림 중 가장 최근 발동이 우선한다. 보유자가 층에서 사라지면 해제한다.",
+      "display": {
+        "name_en": "Primordial Sea",
+        "name_ko": "시작의바다",
+        "normal_en": "On floor entry, heavy rain (Water ×1.5, Fire blocked); persists.",
+        "normal_ko": "층 입장 시 큰비. 물 기술 ×1.5, 불꽃 기술 무효. 덮어쓰기 불가.",
+        "enhanced_en": "On floor entry, makes the weather heavy rain; can't be overwritten.",
+        "enhanced_ko": "층 입장 시 날씨를 강한 비로 만든다. 일반 날씨로 덮어쓸 수 없다.",
+        "workbook_row": 190
+      }
+    },
+    {
+      "key": "심록",
+      "id": 363,
+      "legacy_effect_id": 26,
+      "family": "calculation",
+      "normal": "[변경] HP ≤⌊최대 HP/4⌋이면 풀 기술 피해 ×1.5.",
+      "enhanced": "[강화] HP ≤⌊최대 HP/3⌋이면 풀 기술 피해 ×1.6.",
+      "display": {
+        "name_en": "Overgrow",
+        "name_ko": "심록",
+        "normal_en": "At HP ≤1/4 max, Grass move damage ×1.5.",
+        "normal_ko": "HP가 최대의 1/4 이하이면 풀 기술 피해 ×1.5.",
+        "enhanced_en": "At HP ≤1/3 max, Grass move damage ×1.6.",
+        "enhanced_ko": "HP가 최대의 1/3 이하이면 풀 기술 피해 ×1.6.",
+        "workbook_row": 66
+      }
+    },
+    {
+      "key": "심술꾸러기",
+      "id": 364,
+      "legacy_effect_id": 129,
+      "family": "status_or_stage",
+      "normal": "[기존] 해당 능력 변화의 상승·하락 방향을 반전한다. 현재 저장 단계 제한은 중립 10에서 ±6.",
+      "enhanced": "[강화] 해당 능력 변화의 상승·하락 방향을 반전한다. 현재 저장 단계 제한은 중립 10에서 ±6.\n추가 강화: 원래 자신에게 들어올 단계 저하를 상승으로 반전할 때는 상승 단계량 ×2. 원래 단계 상승이 하락으로 반전되는 경우에는 단계량을 그대로 적용한다.",
+      "display": {
+        "name_en": "Contrary",
+        "name_ko": "심술꾸러기",
+        "normal_en": "Reverses the direction of stat stage changes.",
+        "normal_ko": "능력 변화의 상승·하락 방향을 반전한다.",
+        "enhanced_en": "Reverses stat changes; inverted drops become boosts of ×2 size.",
+        "enhanced_ko": "능력 변화를 반전하고, 저하가 상승으로 바뀔 때 상승량이 ×2.",
+        "workbook_row": 127
+      }
+    },
+    {
+      "key": "싱크로",
+      "id": 365,
+      "legacy_effect_id": 25,
+      "family": "status_or_stage",
+      "normal": "[기존] 독·맹독·화상·마비 등 해당 상태를 인접 상대에게 전달한다. 상태별 전달 조건은 다르다.",
+      "enhanced": "[강화] 독·맹독·화상·마비 등 해당 상태를 인접 상대에게 전달한다. 상태별 전달 조건은 다르다.\n또한, 피해를 받을때 해당 피해의 1/4 만큼을 인접 상대에게 전달한다",
+      "display": {
+        "name_en": "Synchronize",
+        "name_ko": "싱크로",
+        "normal_en": "Passes poison, burn, paralysis etc. to an adjacent foe.",
+        "normal_ko": "독·화상·마비 등의 상태를 인접 상대에게 전달한다.",
+        "enhanced_en": "Passes status to adjacent foe; reflects 1/4 of damage taken to it.",
+        "enhanced_ko": "상태를 인접 상대에게 전달하고, 받는 피해의 1/4을 상대에게 전달한다.",
+        "workbook_row": 29
+      }
+    },
+    {
+      "key": "쓱쓱",
+      "id": 366,
+      "legacy_effect_id": 27,
+      "family": "native_behavior",
+      "normal": "[변경] 비에서 스피드 계산시 +2 단계. ",
+      "enhanced": "[강화] 비에서 스피드 계산시 +3단계.",
+      "display": {
+        "name_en": "Swift Swim",
+        "name_ko": "쓱쓱",
+        "normal_en": "Speed +2 stages in rain.",
+        "normal_ko": "비에서 스피드 +2단계.",
+        "enhanced_en": "Speed +3 stages in rain.",
+        "enhanced_ko": "비에서 스피드 +3단계.",
+        "workbook_row": 34
+      }
+    },
+    {
+      "key": "아로마베일",
+      "id": 367,
+      "legacy_effect_id": 0,
+      "family": "status_or_stage",
+      "normal": "[설계안] 자신과 같은 방에 있는 동료에게 헤롱헤롱·도발·앙코르·봉인 상태가 새로 부여되는 것을 막는다.",
+      "enhanced": "[강화] 자신과 같은 방에 있는 동료에게 헤롱헤롱·도발·앙코르·봉인 상태가 새로 부여되는 것을 막고,\n헤롱헤롱·도발·앙코르·봉인 상태 부여를 시도한 적에게 반사한다, 아로마 베일 반사에는 트리거 되지 않게 하여 무한루프를 막는다",
+      "display": {
+        "name_en": "Aroma Veil",
+        "name_ko": "아로마베일",
+        "normal_en": "Blocks infatuation, Taunt, Encore and Disable on room allies.",
+        "normal_ko": "같은 방 동료의 헤롱헤롱·도발·앙코르·봉인 상태를 막는다.",
+        "enhanced_en": "Blocks those on room allies and reflects the attempts back at foes.",
+        "enhanced_ko": "같은 방 동료를 지키고, 시도한 적에게 해당 상태를 반사한다.",
+        "workbook_row": 166
+      }
+    },
+    {
+      "key": "아이스바디",
+      "id": 368,
+      "legacy_effect_id": 77,
+      "family": "turn_tick",
+      "normal": "[변경] 설경에서 자연 HP 회복의 분모를 ⌊분모/2⌋로 바꾼다. 최종 분모 하한 25, 상한 400. 다른 회복 보너스와 중첩한다.",
+      "enhanced": "[강화] 설경에서 자연 HP 회복의 분모를 ⌊분모/4⌋로 바꾼다. 최종 분모 하한 25, 상한 400. 다른 회복 보너스와 중첩한다.",
+      "display": {
+        "name_en": "Ice Body",
+        "name_ko": "아이스바디",
+        "normal_en": "In hail, natural HP regen denominator ÷2.",
+        "normal_ko": "싸라기눈에서 자연 HP 회복의 분모를 1/2로 줄인다.",
+        "enhanced_en": "In hail, natural HP regen denominator ÷4.",
+        "enhanced_ko": "싸라기눈에서 자연 HP 회복의 분모를 1/4로 줄인다.",
+        "workbook_row": 116
+      }
+    },
+    {
+      "key": "악취",
+      "id": 369,
+      "legacy_effect_id": 1,
+      "family": "received_event",
+      "normal": "[기존] 인접 공격을 받으면 12% 확률로 공격자에게 악취 도주 상태(카운터 3). 자신이 조건에 맞는 근거리 물리 기술을 맞히면 12% 확률로 풀죽음도 부여한다.",
+      "enhanced": "[강화] 인접 공격을 받으면 20% 확률로 공격자에게 악취 도주 상태(카운터 3). 자신이 조건에 맞는 근거리 물리 기술을 맞히면 20% 확률로 풀죽음도 부여한다.",
+      "display": {
+        "name_en": "Stench",
+        "name_ko": "악취",
+        "normal_en": "12% chance to make adjacent attackers flee; own melee physical hits 12% flinch.",
+        "normal_ko": "인접 공격자를 12% 확률로 도주시킨다. 근접 물리 기술 명중 시 12% 확률로 풀죽음.",
+        "enhanced_en": "20% chance to make adjacent attackers flee; own melee physical hits 20% flinch.",
+        "enhanced_ko": "인접 공격자를 20% 확률로 도주시킨다. 근접 물리 기술 명중 시 20% 확률로 풀죽음.",
+        "workbook_row": 2
+      }
+    },
+    {
+      "key": "애널라이즈",
+      "id": 370,
+      "legacy_effect_id": 133,
+      "family": "calculation",
+      "normal": "[변경] 플레이어 범위 ID 4·5·9인 원거리 기술의 피해 계수 *1.2",
+      "enhanced": "[강화] 플레이어 범위 ID 4·5·9인 원거리 기술의 피해 계수 ×1.3",
+      "display": {
+        "name_en": "Analytic",
+        "name_ko": "애널라이즈",
+        "normal_en": "Ranged moves (range IDs 4, 5, 9) deal ×1.2 damage.",
+        "normal_ko": "범위 ID 4·5·9인 원거리 기술의 피해 ×1.2.",
+        "enhanced_en": "Ranged moves (range IDs 4, 5, 9) deal ×1.3 damage.",
+        "enhanced_ko": "범위 ID 4·5·9인 원거리 기술의 피해 ×1.3.",
+        "workbook_row": 149
+      }
+    },
+    {
+      "key": "여왕의위엄",
+      "id": 371,
+      "legacy_effect_id": 147,
+      "family": "native_behavior",
+      "normal": "[기존] 범위가 2칸 또는 직선상인 해당 기술을 막는다. 기술 범위 분류가 기준이다.",
+      "enhanced": "[강화] 범위가 2칸 또는 직선상인 해당 기술을 막고 본인의 방어,특수방어 저장단계를 1 올린다. 기술 범위 분류가 기준이다.",
+      "display": {
+        "name_en": "Queenly Majesty",
+        "name_ko": "여왕의위엄",
+        "normal_en": "Blocks moves with a 2-tile or straight-line range.",
+        "normal_ko": "범위가 2칸 또는 직선인 기술을 막는다.",
+        "enhanced_en": "Blocks those moves; Defense and Sp. Def +1 stage.",
+        "enhanced_ko": "해당 기술을 막고, 방어·특수방어 +1단계.",
+        "workbook_row": 215
+      }
+    },
+    {
+      "key": "열폭주",
+      "id": 372,
+      "legacy_effect_id": 0,
+      "family": "calculation",
+      "normal": "[설계안] 화상 상태에서 사용하는 특수 기술의 피해 ×1.5. 화상의 정기 피해는 그대로 받는다.",
+      "enhanced": "[강화] 화상 상태에서 사용하는 특수 기술의 피해 ×1.6. 화상의 정기 피해는 그대로 받는다.",
+      "display": {
+        "name_en": "Flare Boost",
+        "name_ko": "열폭주",
+        "normal_en": "While burned, special move damage ×1.5.",
+        "normal_ko": "화상 상태에서 특수 기술 피해 ×1.5.",
+        "enhanced_en": "While burned, special move damage ×1.6.",
+        "enhanced_ko": "화상 상태에서 특수 기술 피해 ×1.6.",
+        "workbook_row": 139
+      }
+    },
+    {
+      "key": "엽록소",
+      "id": 373,
+      "legacy_effect_id": 74,
+      "family": "native_behavior",
+      "normal": "[변경] 햇살에서 스피드 계산시 +2 단계.",
+      "enhanced": "[강화] 햇살에서 스피드 계산시 +3단계.",
+      "display": {
+        "name_en": "Chlorophyll",
+        "name_ko": "엽록소",
+        "normal_en": "Speed +2 stages in sunlight.",
+        "normal_ko": "햇살에서 스피드 +2단계.",
+        "enhanced_en": "Speed +3 stages in sunlight.",
+        "enhanced_ko": "햇살에서 스피드 +3단계.",
+        "workbook_row": 35
+      }
+    },
+    {
+      "key": "예리함",
+      "id": 374,
+      "legacy_effect_id": 108,
+      "family": "calculation",
+      "normal": "[변경] 롬에 열거된 베기 기술의 피해 계수 *1.2",
+      "enhanced": "[강화] 롬에 열거된 베기 기술의 피해 계수 ×1.3",
+      "display": {
+        "name_en": "Sharpness",
+        "name_ko": "예리함",
+        "normal_en": "Listed slicing moves deal ×1.2 damage.",
+        "normal_ko": "목록의 베기 기술 피해 ×1.2.",
+        "enhanced_en": "Listed slicing moves deal ×1.3 damage.",
+        "enhanced_ko": "목록의 베기 기술 피해 ×1.3.",
+        "workbook_row": 293
+      }
+    },
+    {
+      "key": "예지몽",
+      "id": 375,
+      "legacy_effect_id": 121,
+      "family": "native_behavior",
+      "normal": "[기존] 해당 회피 판정에서 12% 확률로 기술을 빗나가게 한다.",
+      "enhanced": "[강화] 해당 회피 판정에서 20% 확률로 기술을 빗나가게 한다.",
+      "display": {
+        "name_en": "Forewarn",
+        "name_ko": "예지몽",
+        "normal_en": "12% chance that incoming moves miss.",
+        "normal_ko": "회피 판정에서 12% 확률로 기술을 빗나가게 한다.",
+        "enhanced_en": "20% chance that incoming moves miss.",
+        "enhanced_ko": "회피 판정에서 20% 확률로 기술을 빗나가게 한다.",
+        "workbook_row": 109
+      }
+    },
+    {
+      "key": "오기",
+      "id": 376,
+      "legacy_effect_id": 150,
+      "family": "native_behavior",
+      "normal": "[기존] 상대에게 능력이 내려가면 공격 저장단계 +2. 현재 저장 상한은 16.",
+      "enhanced": "[강화] 상대에게 능력이 내려가면 공격 저장단계 +3. 현재 저장 상한은 16.",
+      "display": {
+        "name_en": "Defiant",
+        "name_ko": "오기",
+        "normal_en": "When foes lower your stats, Attack +2 stages.",
+        "normal_ko": "상대에게 능력이 내려가면 공격 +2단계.",
+        "enhanced_en": "When foes lower your stats, Attack +3 stages.",
+        "enhanced_ko": "상대에게 능력이 내려가면 공격 +3단계.",
+        "workbook_row": 129
+      }
+    },
+    {
+      "key": "옹골찬턱",
+      "id": 377,
+      "legacy_effect_id": 75,
+      "family": "calculation",
+      "normal": "[변경·이름 대응: 강한턱 / Strong Jaws] 롬에 열거된 물기 기술의 피해 계수 ×1.2.",
+      "enhanced": "[강화] 롬에 열거된 물기 기술의 피해 계수 ×1.3.",
+      "display": {
+        "name_en": "Strong Jaw",
+        "name_ko": "옹골찬턱",
+        "normal_en": "Listed biting moves deal ×1.2 damage.",
+        "normal_ko": "목록의 물기 기술 피해 ×1.2.",
+        "enhanced_en": "Listed biting moves deal ×1.3 damage.",
+        "enhanced_ko": "목록의 물기 기술 피해 ×1.3.",
+        "workbook_row": 174
+      }
+    },
+    {
+      "key": "옹골참",
+      "id": 378,
+      "legacy_effect_id": 13,
+      "family": "received_event",
+      "normal": "[기존] 최대 HP일 때 쓰러질 공격을 받아도 HP 1로 버틴다. 일격필살 기술을 막는다.",
+      "enhanced": "[깅화] 최대 HP일 때 쓰러질 공격을 받아도 HP 1로 버틴다. 일격필살 기술을 막는다.\n추가로, 최대 HP와 상광없이 쓰러질 공격을 받아도 10퍼센트 확률로 HP 1로 버틴다.",
+      "display": {
+        "name_en": "Sturdy",
+        "name_ko": "옹골참",
+        "normal_en": "Survives lethal hits at full HP with 1 HP; blocks one-hit KO moves.",
+        "normal_ko": "최대 HP에서 쓰러질 공격을 HP 1로 버틴다. 일격필살 기술을 막는다.",
+        "enhanced_en": "Same as base; also 10% chance to survive any lethal hit with 1 HP.",
+        "enhanced_ko": "기본 효과에 더해, 최대 HP가 아니어도 10% 확률로 HP 1로 버틴다.",
+        "workbook_row": 6
+      }
+    },
+    {
+      "key": "용의턱",
+      "id": 379,
+      "legacy_effect_id": 0,
+      "family": "calculation",
+      "normal": "[설계안] 자신이 사용하는 드래곤 기술의 피해 ×1.2.",
+      "enhanced": "[강화] 자신이 사용하는 드래곤 기술의 피해 ×1.3.",
+      "display": {
+        "name_en": "Dragon's Maw",
+        "name_ko": "용의턱",
+        "normal_en": "Own Dragon move damage ×1.2.",
+        "normal_ko": "자신의 드래곤 기술 피해 ×1.2.",
+        "enhanced_en": "Own Dragon move damage ×1.3.",
+        "enhanced_ko": "자신의 드래곤 기술 피해 ×1.3.",
+        "workbook_row": 264
+      }
+    },
+    {
+      "key": "우격다짐",
+      "id": 380,
+      "legacy_effect_id": 162,
+      "family": "calculation",
+      "normal": "[변경] 본인이 사용하는 해당 기술의 추가 효과를 제거하고. 본인이 사용하는 해당 기술의 피해계수 *1.2 효과가 없는 기술에는 강화하지 않는다. 기술 ID로 목록을 대조하도록 설계하여 기존 포인터 비교 오류로 피해 강화가 누락되지 않게 한다.",
+      "enhanced": "[강화] 본인이 사용하는 해당 기술의 추가 효과를 제거하고. 본인이 사용하는 해당 기술의 피해계수 *1.3 효과가 없는 기술에는 강화하지 않는다. 기술 ID로 목록을 대조하도록 설계하여 기존 포인터 비교 오류로 피해 강화가 누락되지 않게 한다.",
+      "display": {
+        "name_en": "Sheer Force",
+        "name_ko": "우격다짐",
+        "normal_en": "Removes extra effects of own moves; those moves deal ×1.2.",
+        "normal_ko": "자신의 기술의 추가 효과를 없애고, 그 기술의 피해 ×1.2.",
+        "enhanced_en": "Removes extra effects of own moves; those moves deal ×1.3.",
+        "enhanced_ko": "자신의 기술의 추가 효과를 없애고, 그 기술의 피해 ×1.3.",
+        "workbook_row": 126
+      }
+    },
+    {
+      "key": "위험예지",
+      "id": 381,
+      "legacy_effect_id": 86,
+      "family": "calculation",
+      "normal": "[변경] 상대가 자신에게 효과가 굉장한 해당 기술을 보유하면 피해 계수 ×1.5. 활성 보정 루틴에는 일반 공격으로만 제한하는 검사가 없다.",
+      "enhanced": "[강화] 상대가 자신에게 효과가 굉장한 해당 기술을 보유하면 피해 계수 ×1.6. 활성 보정 루틴에는 일반 공격으로만 제한하는 검사가 없다.",
+      "display": {
+        "name_en": "Anticipation",
+        "name_ko": "위험예지",
+        "normal_en": "If a foe has a super-effective move on you, damage multiplier ×1.5.",
+        "normal_ko": "상대가 효과가 굉장한 기술을 가지면 피해 계수 ×1.5.",
+        "enhanced_en": "If a foe has a super-effective move on you, damage multiplier ×1.6.",
+        "enhanced_ko": "상대가 효과가 굉장한 기술을 가지면 피해 계수 ×1.6.",
+        "workbook_row": 108
+      }
+    },
+    {
+      "key": "위협",
+      "id": 382,
+      "legacy_effect_id": 6,
+      "family": "calculation",
+      "normal": "[변경] 같은 방에 있는 상대의 물리 공격 계산값 ×0.8.",
+      "enhanced": "[강화] 같은 방에 있는  상대의 물리 공격 계산값 ×0.7.",
+      "display": {
+        "name_en": "Intimidate",
+        "name_ko": "위협",
+        "normal_en": "Same-room foes' physical Attack ×0.8.",
+        "normal_ko": "같은 방 상대의 물리 공격 계산값 ×0.8.",
+        "enhanced_en": "Same-room foes' physical Attack ×0.7.",
+        "enhanced_ko": "같은 방 상대의 물리 공격 계산값 ×0.7.",
+        "workbook_row": 23
+      }
+    },
+    {
+      "key": "유연",
+      "id": 383,
+      "legacy_effect_id": 22,
+      "family": "status_or_stage",
+      "normal": "[기존] 마비 상태를 막는다.",
+      "enhanced": "[강화]자신과 같은 방에 있는 아군 전체의 마비 상태를 막는다.",
+      "display": {
+        "name_en": "Limber",
+        "name_ko": "유연",
+        "normal_en": "Prevents paralysis.",
+        "normal_ko": "마비 상태를 막는다.",
+        "enhanced_en": "Prevents paralysis for self and all allies in the same room.",
+        "enhanced_ko": "자신과 같은 방 아군 전체의 마비 상태를 막는다.",
+        "workbook_row": 8
+      }
+    },
+    {
+      "key": "유폭",
+      "id": 384,
+      "legacy_effect_id": 118,
+      "family": "action_or_world",
+      "normal": "[기존] 쓰러질 때 해당 유폭 판정이 기본 50%. 폭발의 대상·피해는 별도 폭발 처리에 따른다.",
+      "enhanced": "[강화] 쓰러질 때 해당 유폭 판정이 기본 100%. 폭발의 대상·피해는 별도 폭발 처리에 따른다.",
+      "display": {
+        "name_en": "Aftermath",
+        "name_ko": "유폭",
+        "normal_en": "When fainting, 50% chance to cause an explosion.",
+        "normal_ko": "쓰러질 때 50% 확률로 폭발을 일으킨다.",
+        "enhanced_en": "When fainting, 100% chance to cause an explosion.",
+        "enhanced_ko": "쓰러질 때 100% 확률로 폭발을 일으킨다.",
+        "workbook_row": 107
+      }
+    },
+    {
+      "key": "의기양양",
+      "id": 385,
+      "legacy_effect_id": 73,
+      "family": "native_behavior",
+      "normal": "[기존] 잠들지 않는다",
+      "enhanced": "[강화] 자신과 같은 방 아군 전체가 수면·하품 상태가 되지 않는다. 이미 걸린 수면은 해제하지 않는다.",
+      "display": {
+        "name_en": "Vital Spirit",
+        "name_ko": "의기양양",
+        "normal_en": "Cannot fall asleep.",
+        "normal_ko": "잠들지 않는다.",
+        "enhanced_en": "Self and same-room allies cannot sleep or yawn; existing sleep stays.",
+        "enhanced_ko": "같은 방 아군 전체가 수면·하품 상태가 되지 않는다. 이미 걸린 수면은 유지.",
+        "workbook_row": 73
+      }
+    },
+    {
+      "key": "의욕",
+      "id": 386,
+      "legacy_effect_id": 48,
+      "family": "calculation",
+      "normal": "[기존] 물리 공격 계산값 ×1.5. 물리 기술 명중 판정에는 상대 회피 계산단계 +2를 적용해 명중을 낮춘다.",
+      "enhanced": "[강화] 물리 공격 계산값 ×1.6. 물리 기술 명중 판정에는 상대 회피 계산단계 +2를 적용해 명중을 낮춘다.",
+      "display": {
+        "name_en": "Hustle",
+        "name_ko": "의욕",
+        "normal_en": "Physical Attack ×1.5, but foes get Evasion +2 stages against it.",
+        "normal_ko": "물리 공격 ×1.5. 물리 기술 명중 시 상대 회피 +2단계 적용.",
+        "enhanced_en": "Physical Attack ×1.6, but foes get Evasion +2 stages against it.",
+        "enhanced_ko": "물리 공격 ×1.6. 물리 기술 명중 시 상대 회피 +2단계 적용.",
+        "workbook_row": 56
+      }
+    },
+    {
+      "key": "이상한비늘",
+      "id": 387,
+      "legacy_effect_id": 52,
+      "family": "calculation",
+      "normal": "[기존] 나쁜 상태에서 물리 방어 계산값 ×1.5.",
+      "enhanced": "[강화] 나쁜 상태에서 물리 방어 계산값 ×1.6.\n추가 강화: 동일한 나쁜 상태 조건에서 특수방어 계산값에도 ×1.2를 적용한다.",
+      "display": {
+        "name_en": "Marvel Scale",
+        "name_ko": "이상한비늘",
+        "normal_en": "Physical Defense ×1.5 while statused.",
+        "normal_ko": "나쁜 상태에서 물리 방어 ×1.5.",
+        "enhanced_en": "Physical Defense ×1.6 and Sp. Def ×1.2 while statused.",
+        "enhanced_ko": "나쁜 상태에서 물리 방어 ×1.6, 특수방어 ×1.2.",
+        "workbook_row": 64
+      }
+    },
+    {
+      "key": "이판사판",
+      "id": 388,
+      "legacy_effect_id": 92,
+      "family": "calculation",
+      "normal": "[변경] 반동 기술의 위력 계산값 ×1.2. 반동 피해에도 별도 처리 경로가 있어 반동 자체를 면제하지 않는다.",
+      "enhanced": "[강화] 반동 기술의 위력 계산값 ×1.3. 반동 피해에도 별도 처리 경로가 있어 반동 자체를 면제하지 않는다.",
+      "display": {
+        "name_en": "Reckless",
+        "name_ko": "이판사판",
+        "normal_en": "Recoil move power ×1.2; recoil damage still applies.",
+        "normal_ko": "반동 기술의 위력 ×1.2. 반동 피해는 그대로 받는다.",
+        "enhanced_en": "Recoil move power ×1.3; recoil damage still applies.",
+        "enhanced_ko": "반동 기술의 위력 ×1.3. 반동 피해는 그대로 받는다.",
+        "workbook_row": 121
+      }
+    },
+    {
+      "key": "인분",
+      "id": 389,
+      "legacy_effect_id": 76,
+      "family": "native_behavior",
+      "normal": "[기존] 기술의 추가 효과를 받지 않는다",
+      "enhanced": "[강화]자신과 같은 방에 있는 아군 전체는 기술의 추가 효과를 받지 않는다",
+      "display": {
+        "name_en": "Shield Dust",
+        "name_ko": "인분",
+        "normal_en": "Immune to additional effects of moves.",
+        "normal_ko": "기술의 추가 효과를 받지 않는다.",
+        "enhanced_en": "Self and same-room allies are immune to additional move effects.",
+        "enhanced_ko": "자신과 같은 방 아군 전체가 기술의 추가 효과를 받지 않는다.",
+        "workbook_row": 20
+      }
+    },
+    {
+      "key": "일렉트릭스킨",
+      "id": 390,
+      "legacy_effect_id": 0,
+      "family": "calculation",
+      "normal": "[설계안] 해당 노말타입 기술을 전기타입으로 변경하고. 피해 계수를 1.2배로 한다. 자속 보정은 변경된 타입으로 판정한다.",
+      "enhanced": "[강화] 해당 노말타입 기술을 전기타입으로 변경하고. 피해 계수를 1.3배로 한다. 자속 보정은 변경된 타입으로 판정한다.",
+      "display": {
+        "name_en": "Galvanize",
+        "name_ko": "일렉트릭스킨",
+        "normal_en": "Normal moves become Electric-type with damage ×1.2.",
+        "normal_ko": "노말 기술을 전기타입으로 바꾸고 피해 ×1.2.",
+        "enhanced_en": "Normal moves become Electric-type with damage ×1.3.",
+        "enhanced_ko": "노말 기술을 전기타입으로 바꾸고 피해 ×1.3.",
+        "workbook_row": 207
+      }
+    },
+    {
+      "key": "일루전",
+      "id": 391,
+      "legacy_effect_id": 125,
+      "family": "native_behavior",
+      "normal": "[기존] 적 포켓몬으로 위장하며 공격·특공 저장단계를 11(중립 10보다 +1)로 설정한다. 위장이 풀릴 때 두 단계를 각각 −1 한다.",
+      "enhanced": "[강화] 적 포켓몬으로 위장하며 공격·특공 저장단계를 12(중립 10보다 +2)로 설정한다. 위장이 풀릴 때 두 단계를 각각 −2 한다.",
+      "display": {
+        "name_en": "Illusion",
+        "name_ko": "일루전",
+        "normal_en": "Disguises as a foe; Atk/Sp. Atk stage 11 (+1); −1 each on reveal.",
+        "normal_ko": "적으로 위장하며 공격·특공 +1단계. 위장이 풀리면 각각 −1단계.",
+        "enhanced_en": "Disguises as a foe; Atk/Sp. Atk stage 12 (+2); −2 each on reveal.",
+        "enhanced_ko": "적으로 위장하며 공격·특공 +2단계. 위장이 풀리면 각각 −2단계.",
+        "workbook_row": 150
+      }
+    },
+    {
+      "key": "일찍기상",
+      "id": 392,
+      "legacy_effect_id": 47,
+      "family": "status_or_stage",
+      "normal": "[변경] 수면 지속시간을 ⌊시간/2⌋로 줄인다. 하한 1. 영구 수면용 값 127은 제외한다.\n추가로 기상시 체력을 풀로 회복한다",
+      "enhanced": "[강화] 수면 지속시간을 ⌊시간/3⌋로 줄인다. 하한 1. 영구 수면용 값 127은 제외한다.\n추가로 기상시 체력을 풀로 회복한다",
+      "display": {
+        "name_en": "Early Bird",
+        "name_ko": "일찍기상",
+        "normal_en": "Sleep duration ÷2 (min 1); fully heals HP on waking.",
+        "normal_ko": "수면 지속시간을 1/2로 줄이고, 기상 시 HP를 모두 회복한다.",
+        "enhanced_en": "Sleep duration ÷3 (min 1); fully heals HP on waking.",
+        "enhanced_ko": "수면 지속시간을 1/3로 줄이고, 기상 시 HP를 모두 회복한다.",
+        "workbook_row": 49
+      }
+    },
+    {
+      "key": "자기과신",
+      "id": 393,
+      "legacy_effect_id": 170,
+      "family": "faint",
+      "normal": "[설계안] 자신의 공격 기술로 상대를 쓰러뜨리면 공격 +1단계. 한 행동에서 여러 상대를 쓰러뜨리면 쓰러뜨릴때 마다 발동한다.",
+      "enhanced": "[강화] 자신의 공격 기술로 상대를 쓰러뜨리면 공격 +2단계. 한 행동에서 여러 상대를 쓰러뜨리면 쓰러뜨릴때 마다 발동한다.",
+      "display": {
+        "name_en": "Moxie",
+        "name_ko": "자기과신",
+        "normal_en": "Knocking out a foe gives Attack +1 stage (per KO).",
+        "normal_ko": "공격 기술로 상대를 쓰러뜨리면 공격 +1단계. (처치마다)",
+        "enhanced_en": "Knocking out a foe gives Attack +2 stages (per KO).",
+        "enhanced_ko": "공격 기술로 상대를 쓰러뜨리면 공격 +2단계. (처치마다)",
+        "workbook_row": 154
+      }
+    },
+    {
+      "key": "자력",
+      "id": 394,
+      "legacy_effect_id": 23,
+      "family": "action_or_world",
+      "normal": "[변경] 인접 8칸 내에 있는 강철타입 적은 이동이 봉쇄되며, 데미지 계산 단계에서 방어, 특방 -1로 계산",
+      "enhanced": "[강화] 인접 8칸 내에 있는 강철타입 적은 이동이 봉쇄되며, 데미지 계산 단계에서 방어, 특방 -2로 계산",
+      "display": {
+        "name_en": "Magnet Pull",
+        "name_ko": "자력",
+        "normal_en": "Steel foes within 8 tiles can't move; their Def and Sp. Def −1.",
+        "normal_ko": "인접 8칸 강철 적의 이동을 봉쇄하고, 방어·특방 −1단계로 계산.",
+        "enhanced_en": "Steel foes within 8 tiles can't move; their Def and Sp. Def −2.",
+        "enhanced_ko": "인접 8칸 강철 적의 이동을 봉쇄하고, 방어·특방 −2단계로 계산.",
+        "workbook_row": 43
+      }
+    },
+    {
+      "key": "자연회복",
+      "id": 395,
+      "legacy_effect_id": 20,
+      "family": "status_or_stage",
+      "normal": "[기존] 적용 대상 상태의 지속시간 계산값을 최대 5로 제한한다. 상태 부여 루틴이 +1을 더하는 경우 초기 카운터는 최대 6.",
+      "enhanced": "[강화] 적용 대상 상태의 지속시간 계산값을 최대 3로 제한한다. 상태 부여 루틴이 +1을 더하는 경우 초기 카운터는 최대 4.",
+      "display": {
+        "name_en": "Natural Cure",
+        "name_ko": "자연회복",
+        "normal_en": "Caps status duration at 5 turns.",
+        "normal_ko": "상태 이상의 지속시간을 최대 5턴으로 제한한다.",
+        "enhanced_en": "Caps status duration at 3 turns.",
+        "enhanced_ko": "상태 이상의 지속시간을 최대 3턴으로 제한한다.",
+        "workbook_row": 31
+      }
+    },
+    {
+      "key": "잔비",
+      "id": 396,
+      "legacy_effect_id": 4,
+      "family": "weather_source",
+      "normal": "[변경] 플로어를 비로 만든다.",
+      "enhanced": "[강화] 날씨를 강한 비로 만든다",
+      "display": {
+        "name_en": "Drizzle",
+        "name_ko": "잔비",
+        "normal_en": "Makes the floor rainy.",
+        "normal_ko": "플로어를 비 날씨로 만든다.",
+        "enhanced_en": "Makes the weather heavy rain.",
+        "enhanced_ko": "날씨를 강한 비로 만든다.",
+        "workbook_row": 3
+      }
+    },
+    {
+      "key": "잠복",
+      "id": 397,
+      "legacy_effect_id": 197,
+      "family": "calculation",
+      "normal": "[설계안] 전턴에 이동을 한 상대에게 그 상대의 다음 행동 전까지 사용하는 공격 기술의 피해 ×1.2. 이동후 첫 명중 공격에만 적용한다",
+      "enhanced": "[강화] 전턴에 이동을 한 상대에게 그 상대의 다음 행동 전까지 사용하는 공격 기술의 피해 ×1.3. 이동후 첫 명중 공격에만 적용한다",
+      "display": {
+        "name_en": "Stakeout",
+        "name_ko": "잠복",
+        "normal_en": "Attacks deal ×1.2 vs foes that moved last turn (first hit only).",
+        "normal_ko": "전 턴에 이동한 상대에게 공격 피해 ×1.2. (첫 명중 한정)",
+        "enhanced_en": "Attacks deal ×1.3 vs foes that moved last turn (first hit only).",
+        "enhanced_ko": "전 턴에 이동한 상대에게 공격 피해 ×1.3. (첫 명중 한정)",
+        "workbook_row": 199
+      }
+    },
+    {
+      "key": "재생력",
+      "id": 398,
+      "legacy_effect_id": 131,
+      "family": "floor_entry",
+      "normal": "[변경] 다음 층 입장 시 HP를 풀 회복한다",
+      "enhanced": "[강화] 다음 층 입장 시 자신과 아군 전체의 HP를 풀 회복한다",
+      "display": {
+        "name_en": "Regenerator",
+        "name_ko": "재생력",
+        "normal_en": "Fully heals HP on entering the next floor.",
+        "normal_ko": "다음 층 입장 시 HP를 모두 회복한다.",
+        "enhanced_en": "On entering the next floor, fully heals self and all allies.",
+        "enhanced_ko": "다음 층 입장 시 자신과 아군 전체의 HP를 모두 회복한다.",
+        "workbook_row": 145
+      }
+    },
+    {
+      "key": "저수",
+      "id": 399,
+      "legacy_effect_id": 36,
+      "family": "native_behavior",
+      "normal": "[기존] 물 기술로 입을 피해를 HP 회복으로 전환한다. 회복 입력값은 해당 공격의 피해 계산값이며 최대 HP에서 멈춘다.",
+      "enhanced": "[기존] 물 기술로 입을 피해를 HP 회복으로 전환한다. 회복 입력값은 해당 공격의 피해 계산값이며 최대 HP에서 멈춘다.\n추가로 해당 피해량의 50%를 공격자에게 반사한다",
+      "display": {
+        "name_en": "Water Absorb",
+        "name_ko": "저수",
+        "normal_en": "Water damage is converted into HP recovery (up to max HP).",
+        "normal_ko": "물 기술 피해를 HP 회복으로 바꾼다. (최대 HP까지)",
+        "enhanced_en": "Water damage heals you; 50% of that damage is reflected to the attacker.",
+        "enhanced_ko": "물 기술 피해를 HP로 회복하고, 피해량의 50%를 공격자에게 반사한다.",
+        "workbook_row": 12
+      }
+    },
+    {
+      "key": "저주받은바디",
+      "id": 400,
+      "legacy_effect_id": 149,
+      "family": "received_event",
+      "normal": "[변경] 조건에 맞는 인접 공격을 받으면 12% 확률로 공격자의 기술 하나를 봉인한다.",
+      "enhanced": "[강화] 조건에 맞는 인접 공격을 받으면 20% 확률로 공격자의 기술 하나를 봉인한다.",
+      "display": {
+        "name_en": "Cursed Body",
+        "name_ko": "저주받은바디",
+        "normal_en": "Adjacent hit: 12% chance to seal one of the attacker's moves.",
+        "normal_ko": "인접 공격을 받으면 12% 확률로 공격자의 기술 하나를 봉인한다.",
+        "enhanced_en": "Adjacent hit: 20% chance to seal one of the attacker's moves.",
+        "enhanced_ko": "인접 공격을 받으면 20% 확률로 공격자의 기술 하나를 봉인한다.",
+        "workbook_row": 131
+      }
+    },
+    {
+      "key": "적응력",
+      "id": 401,
+      "legacy_effect_id": 99,
+      "family": "calculation",
+      "normal": "[변경] 자속 기술의 피해 배율을 일반 ×1.5 대신 ×1.7로 적용한다.",
+      "enhanced": "[강화] 자속 기술의 피해 배율을 일반 ×1.5 대신 ×1.8로 적용한다.",
+      "display": {
+        "name_en": "Adaptability",
+        "name_ko": "적응력",
+        "normal_en": "Same-type move bonus is ×1.7 instead of ×1.5.",
+        "normal_ko": "자속 기술의 피해 배율이 ×1.5 대신 ×1.7이 된다.",
+        "enhanced_en": "Same-type move bonus is ×1.8 instead of ×1.5.",
+        "enhanced_ko": "자속 기술의 피해 배율이 ×1.5 대신 ×1.8이 된다.",
+        "workbook_row": 92
+      }
+    },
+    {
+      "key": "전기로바꾸기",
+      "id": 402,
+      "legacy_effect_id": 157,
+      "family": "calculation",
+      "normal": "[설계안] 공격 기술로 피해를 받으면 충전 상태가 된다. 5턴 안에 다음으로 성공시키는 전기 기술 피해 ×1.5 후 충전을 해제한다. 여러 번 피격해도 충전 배율은 중첩하지 않는다.",
+      "enhanced": "[강화] 공격 기술로 피해를 받으면 충전 상태가 된다. 8턴 안에 다음으로 성공시키는 전기 기술 피해 ×1.6 후 충전을 해제한다. 여러 번 피격해도 충전 배율은 중첩하지 않는다.",
+      "display": {
+        "name_en": "Electromorphosis",
+        "name_ko": "전기로바꾸기",
+        "normal_en": "When hit, you get charged; next Electric move within 5 turns ×1.5.",
+        "normal_ko": "공격 피격 시 충전. 5턴 안에 다음 전기 기술 피해 ×1.5.",
+        "enhanced_en": "When hit, you get charged; next Electric move within 8 turns ×1.6.",
+        "enhanced_ko": "공격 피격 시 충전. 8턴 안에 다음 전기 기술 피해 ×1.6.",
+        "workbook_row": 281
+      }
+    },
+    {
+      "key": "전기엔진",
+      "id": 403,
+      "legacy_effect_id": 102,
+      "family": "native_behavior",
+      "normal": "[변경] 전기 기술 피해를 막고 스피드 저장단계 +1.",
+      "enhanced": "[변경] 전기 기술 피해를 막고 스피드 저장단계 +2.",
+      "display": {
+        "name_en": "Motor Drive",
+        "name_ko": "전기엔진",
+        "normal_en": "Blocks Electric damage; Speed +1 stage.",
+        "normal_ko": "전기 기술 피해를 막고 스피드 +1단계.",
+        "enhanced_en": "Blocks Electric damage; Speed +2 stages.",
+        "enhanced_ko": "전기 기술 피해를 막고 스피드 +2단계.",
+        "workbook_row": 79
+      }
+    },
+    {
+      "key": "전투무장",
+      "id": 404,
+      "legacy_effect_id": 19,
+      "family": "native_behavior",
+      "normal": "[기존] 급소 공격을 막는다. 특성이 유효한 해당 판정에서 급소 확률 0%.",
+      "enhanced": "[강화] 급소 공격을 막는다. 특성이 유효한 해당 판정에서 급소 확률 0%.\n추가로 데미지 계산 단계에서 방어, 특방 단계 +1 로 계산한다",
+      "display": {
+        "name_en": "Battle Armor",
+        "name_ko": "전투무장",
+        "normal_en": "Blocks critical hits (crit chance 0%).",
+        "normal_ko": "급소 공격을 막는다. (급소 확률 0%)",
+        "enhanced_en": "Blocks critical hits; Def and Sp. Def +1 stage in damage calculation.",
+        "enhanced_ko": "급소 공격을 막고, 데미지 계산 시 방어·특방 +1단계로 계산한다.",
+        "workbook_row": 5
+      }
+    },
+    {
+      "key": "절대안깸",
+      "id": 405,
+      "legacy_effect_id": 189,
+      "family": "status_or_stage",
+      "normal": "[설계안] 독·맹독·화상·마비·수면·혼란·동상이 새로 부여되지 않는다. 잠든 상대를 검사하는 기술에는 항상 수면 상태로 취급하지만 행동은 정상적으로 한다. 휴식 기술로 실제 수면을 부여할 수 없다.",
+      "enhanced": "[강화] 독·맹독·화상·마비·수면·혼란·동상이 새로 부여되지 않는다. 잠든 상대를 검사하는 기술에는 항상 수면 상태로 취급하지만 행동은 정상적으로 한다. 휴식 기술로 실제 수면을 부여할 수 없다.\n추가 강화: 자신이 사용하는 수면 전용 기술의 피해 ×1.2. 자신을 수면으로 취급하는 기존 판정과 정상 행동은 유지한다.",
+      "display": {
+        "name_en": "Comatose",
+        "name_ko": "절대안깸",
+        "normal_en": "Immune to bad status; always counts as asleep but acts normally.",
+        "normal_ko": "나쁜 상태가 되지 않는다. 항상 수면으로 취급되지만 정상 행동한다.",
+        "enhanced_en": "Same as base; own sleep-only moves deal ×1.2 damage.",
+        "enhanced_ko": "동일하며, 자신의 수면 전용 기술 피해 ×1.2.",
+        "workbook_row": 214
+      }
+    },
+    {
+      "key": "점착",
+      "id": 406,
+      "legacy_effect_id": 44,
+      "family": "received_event",
+      "normal": "[기존] 가지고 있는 도구를 빼앗기지 않는다,\n추가로 조건에 맞는 인접 공격을 받으면 12% 확률로 공격자의 스피드를 1단계 떨어뜨린다.",
+      "enhanced": "[강화] 가지고 있는 도구를 빼앗기지 않는다,\n추가로 조건에 맞는 인접 공격을 받으면 20% 확률로 공격자의 스피드를 1단계 떨어뜨린다.",
+      "display": {
+        "name_en": "Sticky Hold",
+        "name_ko": "점착",
+        "normal_en": "Items can't be stolen; adjacent hit: 12% to lower attacker's Speed 1 stage.",
+        "normal_ko": "도구를 빼앗기지 않는다. 인접 피격 시 12% 확률로 공격자 스피드 −1단계.",
+        "enhanced_en": "Items can't be stolen; adjacent hit: 20% to lower attacker's Speed 1 stage.",
+        "enhanced_ko": "도구를 빼앗기지 않는다. 인접 피격 시 20% 확률로 공격자 스피드 −1단계.",
+        "workbook_row": 61
+      }
+    },
+    {
+      "key": "정신력",
+      "id": 407,
+      "legacy_effect_id": 31,
+      "family": "native_behavior",
+      "normal": "[기존] 풀죽음과 IQ 스킬 Intimidator의 방해를 막는다.",
+      "enhanced": "[강화] 자신과 같은 방 아군 전체가 풀죽음과 IQ 스킬 Intimidator의 행동 방해를 받지 않는다. 이미 걸린 풀죽음은 해제하지 않는다.",
+      "display": {
+        "name_en": "Inner Focus",
+        "name_ko": "정신력",
+        "normal_en": "Immune to flinching and the Intimidator IQ skill.",
+        "normal_ko": "풀죽음과 IQ 스킬 Intimidator의 방해를 막는다.",
+        "enhanced_en": "Self and same-room allies are immune to flinch; existing flinch stays.",
+        "enhanced_ko": "자신과 같은 방 아군 전체가 풀죽음을 막는다. 이미 걸린 상태는 유지.",
+        "workbook_row": 40
+      }
+    },
+    {
+      "key": "정의의마음",
+      "id": 408,
+      "legacy_effect_id": 167,
+      "family": "received_event",
+      "normal": "[변경] 악타입 공격을 받으면 공격 저장단계 +3. 현재 저장 상한 16까지 반복 중첩한다.",
+      "enhanced": "[강화] 악타입 공격을 받으면 공격 저장단계 +6. 현재 저장 상한 16까지 반복 중첩한다.",
+      "display": {
+        "name_en": "Justified",
+        "name_ko": "정의의마음",
+        "normal_en": "When hit by Dark moves, Attack +3 stages (stacks up to 16).",
+        "normal_ko": "악타입 공격을 받으면 공격 +3단계. (상한 16까지 중첩)",
+        "enhanced_en": "When hit by Dark moves, Attack +6 stages (stacks up to 16).",
+        "enhanced_ko": "악타입 공격을 받으면 공격 +6단계. (상한 16까지 중첩)",
+        "workbook_row": 155
+      }
+    },
+    {
+      "key": "정전기",
+      "id": 409,
+      "legacy_effect_id": 32,
+      "family": "received_event",
+      "normal": "[기존] 조건에 맞는 인접 물리 공격을 받으면 12% 확률로 공격자를 마비시킨다.",
+      "enhanced": "[강화] 조건에 맞는 인접 물리 공격을 받으면 20% 확률로 공격자를 마비시킨다.",
+      "display": {
+        "name_en": "Static",
+        "name_ko": "정전기",
+        "normal_en": "When hit by an adjacent physical attack, 12% to paralyze the attacker.",
+        "normal_ko": "인접 물리 공격을 받으면 12% 확률로 공격자를 마비시킨다.",
+        "enhanced_en": "When hit by an adjacent physical attack, 20% to paralyze the attacker.",
+        "enhanced_ko": "인접 물리 공격을 받으면 20% 확률로 공격자를 마비시킨다.",
+        "workbook_row": 10
+      }
+    },
+    {
+      "key": "젖은접시",
+      "id": 410,
+      "legacy_effect_id": 3,
+      "family": "turn_tick",
+      "normal": "[기존] 비에서 자연 HP 회복의 분모를 ⌊분모/2⌋로 바꾼다. 최종 분모 하한 25, 상한 400. 다른 회복 보너스와 중첩한다.",
+      "enhanced": "[강화] 비에서 자연 HP 회복의 분모를 ⌊분모/4⌋로 바꾼다. 최종 분모 하한 25, 상한 400. 다른 회복 보너스와 중첩한다.",
+      "display": {
+        "name_en": "Rain Dish",
+        "name_ko": "젖은접시",
+        "normal_en": "In rain, natural HP regen denominator ÷2.",
+        "normal_ko": "비에서 자연 HP 회복의 분모를 1/2로 줄인다.",
+        "enhanced_en": "In rain, natural HP regen denominator ÷4.",
+        "enhanced_ko": "비에서 자연 HP 회복의 분모를 1/4로 줄인다.",
+        "workbook_row": 45
+      }
+    },
+    {
+      "key": "조가비갑옷",
+      "id": 411,
+      "legacy_effect_id": 19,
+      "family": "native_behavior",
+      "normal": "[설계안] 상대 공격의 급소 판정을 무효화한다. 고정 피해는 줄이지 않는다.",
+      "enhanced": "[강화] 상대 공격의 급소 판정을 무효화한다. 고정 피해는 줄이지 않는다.\n추가로 데미지 계산 단계에서 방어, 특방 단계 +1 로 계산한다",
+      "display": {
+        "name_en": "Shell Armor",
+        "name_ko": "조가비갑옷",
+        "normal_en": "Negates critical hits; fixed damage is not reduced.",
+        "normal_ko": "급소 판정을 무효화한다. 고정 피해는 줄이지 않는다.",
+        "enhanced_en": "Negates critical hits; Def and Sp. Def +1 stage in damage calculation.",
+        "enhanced_ko": "급소를 무효화하고, 데미지 계산 시 방어·특방 +1단계.",
+        "workbook_row": 76
+      }
+    },
+    {
+      "key": "주눅",
+      "id": 412,
+      "legacy_effect_id": 0,
+      "family": "received_event",
+      "normal": "[설계안] 악·고스트·벌레 기술로 피해를 받으면 스피드 +3단계. 한 공격 행동에서 1회만 발동한다.",
+      "enhanced": "[강화] 악·고스트·벌레 기술로 피해를 받으면 스피드 +6단계. 한 공격 행동에서 1회만 발동한다.",
+      "display": {
+        "name_en": "Rattled",
+        "name_ko": "주눅",
+        "normal_en": "Hit by Dark/Ghost/Bug moves: Speed +3 stages, once per attack.",
+        "normal_ko": "악·고스트·벌레 기술로 피해를 받으면 스피드 +3단계. 행동당 1회.",
+        "enhanced_en": "Hit by Dark/Ghost/Bug moves: Speed +6 stages, once per attack.",
+        "enhanced_ko": "악·고스트·벌레 기술로 피해를 받으면 스피드 +6단계. 행동당 1회.",
+        "workbook_row": 156
+      }
+    },
+    {
+      "key": "지구력",
+      "id": 413,
+      "legacy_effect_id": 198,
+      "family": "received_event",
+      "normal": "[설계안] 공격 기술로 피해를 받으면 방어 +1단계. 한 공격 행동에서 1회만 발동한다.",
+      "enhanced": "[강화] 공격 기술로 피해를 받으면 방어 +2단계. 한 공격 행동에서 1회만 발동한다.",
+      "display": {
+        "name_en": "Stamina",
+        "name_ko": "지구력",
+        "normal_en": "Hit by an attack: Defense +1 stage (once per attack).",
+        "normal_ko": "공격으로 피해를 받으면 방어 +1단계. 행동당 1회.",
+        "enhanced_en": "Hit by an attack: Defense +2 stages (once per attack).",
+        "enhanced_ko": "공격으로 피해를 받으면 방어 +2단계. 행동당 1회.",
+        "workbook_row": 193
+      }
+    },
+    {
+      "key": "짓궂은마음",
+      "id": 414,
+      "legacy_effect_id": 137,
+      "family": "native_behavior",
+      "normal": "[기존] 12퍼센트 확률로 변화 기술의 PP를 소모하지 않는다.",
+      "enhanced": "[강화] 20퍼센트 확률로 변화 기술의 PP를 소모하지 않는다.",
+      "display": {
+        "name_en": "Prankster",
+        "name_ko": "짓궂은마음",
+        "normal_en": "12% chance status moves use no PP.",
+        "normal_ko": "12% 확률로 변화 기술의 PP를 소모하지 않는다.",
+        "enhanced_en": "20% chance status moves use no PP.",
+        "enhanced_ko": "20% 확률로 변화 기술의 PP를 소모하지 않는다.",
+        "workbook_row": 159
+      }
+    },
+    {
+      "key": "천진",
+      "id": 415,
+      "legacy_effect_id": 103,
+      "family": "native_behavior",
+      "normal": "[변경] 상대의 공격·방어·특수공격·특수방어·스피드·명중·회피 계산단계를 중립 10, 해당 능력 배율을 256/256로 취급한다.",
+      "enhanced": "[강화] 상대의 공격·방어·특수공격·특수방어·스피드·명중·회피 계산단계를 중립 10, 해당 능력 배율을 256/256로 취급한다.\n추가 강화: 자신의 공격·방어·특수공격·특수방어·스피드·명중·회피 저장단계가 중립 10보다 낮으면 자신의 계산에서만 10으로 취급한다. 높은 단계는 유지하며 상대 단계 무시도 유지한다.",
+      "display": {
+        "name_en": "Unaware",
+        "name_ko": "천진",
+        "normal_en": "Treats foes' stat stages as neutral (10) in calculations.",
+        "normal_ko": "상대의 모든 능력 단계를 중립(10)으로 취급해 계산한다.",
+        "enhanced_en": "Ignores foes' stages; own stages below neutral are treated as neutral.",
+        "enhanced_ko": "상대의 단계를 무시하고, 자신의 중립 미만 단계는 중립으로 취급한다.",
+        "workbook_row": 110
+      }
+    },
+    {
+      "key": "천하장사",
+      "id": 416,
+      "legacy_effect_id": 34,
+      "family": "calculation",
+      "normal": "[기존] 물리 공격 계산 시 공격 계산값 ×1.2. 특수 공격에는 적용하지 않는다.",
+      "enhanced": "[강화] 물리 공격 계산 시 공격 계산값 ×1.3. 특수 공격에는 적용하지 않는다.",
+      "display": {
+        "name_en": "Huge Power",
+        "name_ko": "천하장사",
+        "normal_en": "Physical Attack ×1.2 (not special).",
+        "normal_ko": "물리 공격 계산값 ×1.2. (특수 공격은 제외)",
+        "enhanced_en": "Physical Attack ×1.3 (not special).",
+        "enhanced_ko": "물리 공격 계산값 ×1.3. (특수 공격은 제외)",
+        "workbook_row": 38
+      }
+    },
+    {
+      "key": "철가시",
+      "id": 417,
+      "legacy_effect_id": 0,
+      "family": "received_event",
+      "normal": "[설계안] 인접한 상대의 물리 기술로 피해를 받으면 공격자에게 ⌊공격자의 최대 HP/8⌋, 최소 1의 피해를 준다. 한 공격 행동에서 1회만 발동한다.",
+      "enhanced": "[강화] 인접한 상대의 물리 기술로 피해를 받으면 공격자에게 ⌊공격자의 최대 HP/6⌋, 최소 1의 피해를 준다. 한 공격 행동에서 1회만 발동한다.",
+      "display": {
+        "name_en": "Iron Barbs",
+        "name_ko": "철가시",
+        "normal_en": "Adjacent physical hit: attacker takes 1/8 max HP (min 1).",
+        "normal_ko": "인접 물리 피격 시 공격자에게 최대 HP의 1/8(최소 1) 피해. 행동당 1회.",
+        "enhanced_en": "Adjacent physical hit: attacker takes 1/6 max HP (min 1).",
+        "enhanced_ko": "인접 물리 피격 시 공격자에게 최대 HP의 1/6(최소 1) 피해. 행동당 1회.",
+        "workbook_row": 161
+      }
+    },
+    {
+      "key": "철주먹",
+      "id": 418,
+      "legacy_effect_id": 101,
+      "family": "calculation",
+      "normal": "[변경] 펀치 기술의 위력 계산값 ×1.2.",
+      "enhanced": "[강화] 펀치 기술의 위력 계산값 ×1.3.",
+      "display": {
+        "name_en": "Iron Fist",
+        "name_ko": "철주먹",
+        "normal_en": "Punching move power ×1.2.",
+        "normal_ko": "펀치 기술의 위력 ×1.2.",
+        "enhanced_en": "Punching move power ×1.3.",
+        "enhanced_ko": "펀치 기술의 위력 ×1.3.",
+        "workbook_row": 90
+      }
+    },
+    {
+      "key": "초식",
+      "id": 419,
+      "legacy_effect_id": 161,
+      "family": "native_behavior",
+      "normal": "[기존] 풀 기술 피해를 막고 공격 저장단계 +1. 현재 저장 상한 16까지 반복 중첩한다.",
+      "enhanced": "[강화] 같은방 아군의 풀 기술 피해를 막고 공격 저장단계 +2. 현재 저장 상한 16까지 반복 중첩한다",
+      "display": {
+        "name_en": "Sap Sipper",
+        "name_ko": "초식",
+        "normal_en": "Blocks Grass damage; Attack +1 stage.",
+        "normal_ko": "풀 기술 피해를 막고 공격 +1단계.",
+        "enhanced_en": "Blocks Grass damage for self and room allies; Attack +2 stages.",
+        "enhanced_ko": "같은 방 아군의 풀 기술 피해를 막고 공격 +2단계.",
+        "workbook_row": 158
+      }
+    },
+    {
+      "key": "촉촉바디",
+      "id": 420,
+      "legacy_effect_id": 81,
+      "family": "turn_tick",
+      "normal": "[기존] 비에서 턴 종료 때 회복 가능한 나쁜 상태를 해제한다. 별도 확률 판정은 없다.",
+      "enhanced": "[강화] 비에서 턴 종료 때 회복 가능한 나쁜 상태를 해제한다. 별도 확률 판정은 없다.\n또한, 비에서 자연 회복 분모 ⌊분모/2⌋.",
+      "display": {
+        "name_en": "Hydration",
+        "name_ko": "촉촉바디",
+        "normal_en": "In rain, cures curable bad status at turn end.",
+        "normal_ko": "비에서 턴 종료 때 회복 가능한 나쁜 상태를 해제한다.",
+        "enhanced_en": "In rain, cures curable status at turn end; regen denominator ÷2.",
+        "enhanced_ko": "비에서 나쁜 상태를 해제하고, 자연 회복 분모 1/2.",
+        "workbook_row": 94
+      }
+    },
+    {
+      "key": "축전",
+      "id": 421,
+      "legacy_effect_id": 35,
+      "family": "native_behavior",
+      "normal": "[기존] 전기 기술로 입을 피해를 HP 회복으로 전환한다. 회복 입력값은 해당 공격의 피해 계산값이며 최대 HP에서 멈춘다.",
+      "enhanced": "[강화]전기 기술로 입을 피해를 HP 회복으로 전환한다. 회복 입력값은 해당 공격의 피해 계산값이며 최대 HP에서 멈춘다.\n추가로 해당 피해량의 50%를 공격자에게 반사한다",
+      "display": {
+        "name_en": "Volt Absorb",
+        "name_ko": "축전",
+        "normal_en": "Electric damage is converted into HP recovery (up to max HP).",
+        "normal_ko": "전기 기술 피해를 HP 회복으로 바꾼다. (최대 HP까지)",
+        "enhanced_en": "Electric damage heals you; 50% of that damage is reflected to the attacker.",
+        "enhanced_ko": "전기 기술 피해를 HP로 회복하고, 피해량의 50%를 공격자에게 반사한다.",
+        "workbook_row": 11
+      }
+    },
+    {
+      "key": "치유의마음",
+      "id": 422,
+      "legacy_effect_id": 0,
+      "family": "turn_tick",
+      "normal": "[설계안] 턴 종료마다 50% 확률로 인접 8칸에 있는 동료 중 나쁜 상태가 있는 1마리를 균등 선택해 독·맹독·화상·마비·수면·혼란·동상을 모두 해제한다.",
+      "enhanced": "[강화] 턴 종료마다 75% 확률로 같은 방에 있는 동료 중 나쁜 상태가 있는 1마리를 균등 선택해 독·맹독·화상·마비·수면·혼란·동상을 모두 해제한다.",
+      "display": {
+        "name_en": "Healer",
+        "name_ko": "치유의마음",
+        "normal_en": "Turn end: 50% to cure all statuses of one adjacent ally.",
+        "normal_ko": "턴 종료 시 50% 확률로 인접 동료 1마리의 나쁜 상태를 모두 해제한다.",
+        "enhanced_en": "Turn end: 75% to cure all statuses of one same-room ally.",
+        "enhanced_ko": "턴 종료 시 75% 확률로 같은 방 동료 1마리의 나쁜 상태를 모두 해제한다.",
+        "workbook_row": 132
+      }
+    },
+    {
+      "key": "컬리헤어",
+      "id": 423,
+      "legacy_effect_id": 180,
+      "family": "received_event",
+      "normal": "[설계안] 인접한 상대의 물리 기술로 피해를 받으면 공격자의 스피드 −1단계. 한 공격 행동에서 1회만 발동한다.",
+      "enhanced": "[강화] 인접한 상대의 물리 기술로 피해를 받으면 공격자의 스피드 −2단계. 한 공격 행동에서 1회만 발동한다.",
+      "display": {
+        "name_en": "Tangling Hair",
+        "name_ko": "컬리헤어",
+        "normal_en": "Adjacent physical hit: attacker's Speed −1 stage.",
+        "normal_ko": "인접 물리 피격 시 공격자의 스피드 −1단계. 행동당 1회.",
+        "enhanced_en": "Adjacent physical hit: attacker's Speed −2 stages.",
+        "enhanced_ko": "인접 물리 피격 시 공격자의 스피드 −2단계. 행동당 1회.",
+        "workbook_row": 222
+      }
+    },
+    {
+      "key": "클리어바디",
+      "id": 424,
+      "legacy_effect_id": 15,
+      "family": "status_or_stage",
+      "normal": "[변경] 상대의 기술·특성에 의한 공격·방어·특수공격·특수방어·스피드·명중·회피 단계 저하를 막는다. 자신이 사용한 기술의 반동 저하는 막지 않는다.",
+      "enhanced": "[강화] 상대의 기술·특성에 의한 공격·방어·특수공격·특수방어·스피드·명중·회피 단계 저하를 막는다. 자신이 사용한 기술의 반동 저하도 막는다.",
+      "display": {
+        "name_en": "Clear Body",
+        "name_ko": "클리어바디",
+        "normal_en": "Blocks foe-caused stat drops; self-inflicted drops still apply.",
+        "normal_ko": "상대에 의한 능력 저하를 막는다. 자신의 반동 저하는 받는다.",
+        "enhanced_en": "Blocks foe-caused stat drops; also blocks self-inflicted drops.",
+        "enhanced_ko": "상대에 의한 능력 저하와 자신의 기술로 인한 저하도 막는다.",
+        "workbook_row": 30
+      }
+    },
+    {
+      "key": "타오르는불꽃",
+      "id": 425,
+      "legacy_effect_id": 72,
+      "family": "calculation",
+      "normal": "[기존] 불꽃 기술 피해를 막는다. 불꽃 기술의 공격 계산단계에 더하는 전용 보정을 발동마다 +1, 최대 +2까지 쌓는다. 피해 자체를 고정 1.5배 하는 효과는 아니다.",
+      "enhanced": "[기존] 불꽃 기술 피해를 막는다. 불꽃 기술의 공격 계산단계에 더하는 전용 보정을 발동마다 +2, 최대 +2까지 쌓는다. 피해 자체를 고정 1.5배 하는 효과는 아니다. 추가로 해당 피해량의 50%를 공격자에게 반사한다",
+      "display": {
+        "name_en": "Flash Fire",
+        "name_ko": "타오르는불꽃",
+        "normal_en": "Blocks Fire damage; each trigger gives Fire moves +1 stage (max +2).",
+        "normal_ko": "불꽃 피해를 막고, 발동마다 불꽃 기술 공격 +1단계(최대 +2).",
+        "enhanced_en": "Blocks Fire damage; +2 stage per trigger (max +2); reflects 50% damage.",
+        "enhanced_ko": "불꽃 피해를 막고 발동마다 +2단계(최대 +2). 피해량의 50%를 반사한다.",
+        "workbook_row": 19
+      }
+    },
+    {
+      "key": "탈피",
+      "id": 426,
+      "legacy_effect_id": 33,
+      "family": "turn_tick",
+      "normal": "[기존] 턴 종료 시 30% 확률로 회복 가능한 나쁜 상태를 해제한다.",
+      "enhanced": "[강화] 턴 종료 시 50% 확률로 회복 가능한 나쁜 상태를 해제한다.",
+      "display": {
+        "name_en": "Shed Skin",
+        "name_ko": "탈피",
+        "normal_en": "At turn end, 30% chance to cure curable bad status.",
+        "normal_ko": "턴 종료 시 30% 확률로 회복 가능한 나쁜 상태를 해제한다.",
+        "enhanced_en": "At turn end, 50% chance to cure curable bad status.",
+        "enhanced_ko": "턴 종료 시 50% 확률로 회복 가능한 나쁜 상태를 해제한다.",
+        "workbook_row": 62
+      }
+    },
+    {
+      "key": "테일아머",
+      "id": 427,
+      "legacy_effect_id": 136,
+      "family": "native_behavior",
+      "normal": "[기존·이름 대응: 방어꼬리 / Armor Tail] 범위가 2칸 또는 직선상인 해당 기술을 막는다. 인접해 사용하더라도 기술 범위 분류가 기준이다.",
+      "enhanced": "[강화] 범위가 2칸 또는 직선상인 해당 기술을 막는다. 인접해 사용하더라도 기술 범위 분류가 기준이다.\n막은 후 본인의 방어, 특수방어 저장단계를 +1 한다",
+      "display": {
+        "name_en": "Armor Tail",
+        "name_ko": "테일아머",
+        "normal_en": "Blocks moves with a 2-tile or straight-line range.",
+        "normal_ko": "범위가 2칸 또는 직선인 기술을 막는다.",
+        "enhanced_en": "Blocks those moves; then Defense and Sp. Def +1 stage.",
+        "enhanced_ko": "해당 기술을 막고, 막은 뒤 방어·특수방어 +1단계.",
+        "workbook_row": 297
+      }
+    },
+    {
+      "key": "테크니션",
+      "id": 428,
+      "legacy_effect_id": 100,
+      "family": "calculation",
+      "normal": "[기존] 현재 풀스택에서는 기본 위력 ≤60인 해당 기술 피해 ×1.5. 기준 Alpha는 위력 기준 4, 배율 1.25였지만 damage_formula가 둘 다 바꾼다.",
+      "enhanced": "[강화] 현재 풀스택에서는 기본 위력 ≤80인 해당 기술 피해 ×1.6. 기준 Alpha는 위력 기준 4, 배율 1.25였지만 damage_formula가 둘 다 바꾼다.",
+      "display": {
+        "name_en": "Technician",
+        "name_ko": "테크니션",
+        "normal_en": "Moves with base power ≤60 deal ×1.5 damage.",
+        "normal_ko": "기본 위력 60 이하인 기술의 피해 ×1.5.",
+        "enhanced_en": "Moves with base power ≤80 deal ×1.6 damage.",
+        "enhanced_ko": "기본 위력 80 이하인 기술의 피해 ×1.6.",
+        "workbook_row": 102
+      }
+    },
+    {
+      "key": "텔레파시",
+      "id": 429,
+      "legacy_effect_id": 0,
+      "family": "native_behavior",
+      "normal": "[설계안] 같은 편이 사용한 공격 기술의 피해와 추가 효과를 받지 않는다. 동료의 회복·보조 기술은 정상적으로 받는다.",
+      "enhanced": "[강화] 같은 편이 사용한 공격 기술의 피해와 추가 효과를 받지 않는다. 동료의 회복·보조 기술은 정상적으로 받는다.\n또한 정면의 상대가 사용한 공격 기술의 회피 판정에서 12% 확률로 기술을 빗나가게 한다.",
+      "display": {
+        "name_en": "Telepathy",
+        "name_ko": "텔레파시",
+        "normal_en": "Immune to damage and effects of allies' attack moves.",
+        "normal_ko": "같은 편이 쓴 공격 기술의 피해와 추가 효과를 받지 않는다.",
+        "enhanced_en": "Same as base; 12% chance that attacks from the front miss.",
+        "enhanced_ko": "기본 효과에 더해, 정면 상대의 공격이 12% 확률로 빗나간다.",
+        "workbook_row": 141
+      }
+    },
+    {
+      "key": "통찰",
+      "id": 430,
+      "legacy_effect_id": 82,
+      "family": "calculation",
+      "normal": "[변경] 상대가 도구를 지니면 피해 계수 ×1.2. 일반 공격으로 상대가 지닌 도구를 알 수 있다.",
+      "enhanced": "[강화] 상대가 도구를 지니면 피해 계수 ×1.3. 일반 공격으로 상대가 지닌 도구를 알 수 있다.",
+      "display": {
+        "name_en": "Frisk",
+        "name_ko": "통찰",
+        "normal_en": "Damage ×1.2 vs foes holding items; attacks reveal held items.",
+        "normal_ko": "도구를 지닌 상대에게 피해 ×1.2. 공격으로 상대의 도구를 알 수 있다.",
+        "enhanced_en": "Damage ×1.3 vs foes holding items; attacks reveal held items.",
+        "enhanced_ko": "도구를 지닌 상대에게 피해 ×1.3. 공격으로 상대의 도구를 알 수 있다.",
+        "workbook_row": 120
+      }
+    },
+    {
+      "key": "투쟁심",
+      "id": 431,
+      "legacy_effect_id": 104,
+      "family": "calculation",
+      "normal": "[기존] 동성 상대에게 물리 공격 계산단계 +1, 이성에게 −1. 어느 한쪽이 무성이면 적용하지 않는다.",
+      "enhanced": "[강화] 동성 상대에게 물리 공격 계산단계 +2, 이성에게는 -1. 어느 한쪽이 무성이면 적용하지 않는다.",
+      "display": {
+        "name_en": "Rivalry",
+        "name_ko": "투쟁심",
+        "normal_en": "Attack +1 stage vs same gender, −1 vs opposite; none if genderless.",
+        "normal_ko": "동성 상대에게 공격 +1단계, 이성에게 −1단계. 무성이면 적용 안 함.",
+        "enhanced_en": "Attack +2 stages vs same gender, −1 vs opposite; none if genderless.",
+        "enhanced_ko": "동성 상대에게 공격 +2단계, 이성에게 −1단계. 무성이면 적용 안 함.",
+        "workbook_row": 80
+      }
+    },
+    {
+      "key": "트랜지스터",
+      "id": 432,
+      "legacy_effect_id": 0,
+      "family": "calculation",
+      "normal": "[설계안] 자신이 사용하는 전기 기술의 피해 ×1.2.",
+      "enhanced": "[강화] 자신이 사용하는 전기 기술의 피해 ×1.3.",
+      "display": {
+        "name_en": "Transistor",
+        "name_ko": "트랜지스터",
+        "normal_en": "Own Electric move damage ×1.2.",
+        "normal_ko": "자신의 전기 기술 피해 ×1.2.",
+        "enhanced_en": "Own Electric move damage ×1.3.",
+        "enhanced_ko": "자신의 전기 기술 피해 ×1.3.",
+        "workbook_row": 263
+      }
+    },
+    {
+      "key": "트레이스",
+      "id": 433,
+      "legacy_effect_id": 40,
+      "family": "status_or_stage",
+      "normal": "[변경] 이 특성을 공격해 온 상대의 특성으로 대체한다. 상대에게 유효한 특성중 하나를 균등선택. 현재 패치는 트레이스가 봉인된 상태에서는 복사를 막는다.",
+      "enhanced": "[강화] 이 특성을 공격해 온 상대의 특성으로 대체한다. 상대에게 유효한 특성중 하나를 균등선택. 선택된 상대의 특성이 강화 특성이 아니라면 그 특성의 강화특성으로 대체한다 현재 패치는 트레이스가 봉인된 상태에서는 복사를 막는다.",
+      "display": {
+        "name_en": "Trace",
+        "name_ko": "트레이스",
+        "normal_en": "Replaces this ability with the attacker's (random valid pick).",
+        "normal_ko": "공격해 온 상대의 특성(유효한 것 중 무작위)으로 대체한다.",
+        "enhanced_en": "Copies the attacker's ability; non-enhanced ones become their enhanced form.",
+        "enhanced_ko": "상대의 특성으로 대체하며, 강화 특성이 아니면 그 강화 특성으로 대체한다.",
+        "workbook_row": 37
+      }
+    },
+    {
+      "key": "틀깨기",
+      "id": 434,
+      "legacy_effect_id": 83,
+      "family": "native_behavior",
+      "normal": "[기존] 상대의 특성과 상관없이 기술을 쓸 수 있다",
+      "enhanced": "[강화] 상대의 특성과 상관없이 기술을 쓸 수 있다\n추가 강화: 틀깨기로 무시할 수 있는 방어 특성이 실제 활성인 상대에게 공격 기술 피해 ×1.5. 상대에게 그런 특성이 없으면 추가 피해 강화는 없다.",
+      "display": {
+        "name_en": "Mold Breaker",
+        "name_ko": "틀깨기",
+        "normal_en": "Moves ignore the target's ability.",
+        "normal_ko": "상대의 특성과 상관없이 기술을 쓸 수 있다.",
+        "enhanced_en": "Ignores abilities; ×1.5 damage vs targets with an ignorable defensive ability.",
+        "enhanced_ko": "특성을 무시하고, 무시 가능한 방어 특성이 있는 상대에게 피해 ×1.5.",
+        "workbook_row": 105
+      }
+    },
+    {
+      "key": "틈새포착",
+      "id": 435,
+      "legacy_effect_id": 134,
+      "family": "native_behavior",
+      "normal": "[기존] 리플렉터·빛의장막·흰안개·신비의부적의 해당 방어 처리를 무시한다.",
+      "enhanced": "[강화] 리플렉터·빛의장막·흰안개·신비의부적의 해당 방어 처리를 무시한다.\n추가 강화: 리플렉터·빛의장막·흰안개·신비의부적 중 하나라도 적용된 상대에게 공격 기술 피해 ×1.5. 여러 보호 효과가 있어도 이 추가 피해 강화는 1회만 적용한다.",
+      "display": {
+        "name_en": "Infiltrator",
+        "name_ko": "틈새포착",
+        "normal_en": "Ignores Reflect, Light Screen, Mist and Safeguard effects.",
+        "normal_ko": "리플렉터·빛의장막·흰안개·신비의부적의 방어를 무시한다.",
+        "enhanced_en": "Ignores those barriers; ×1.5 damage vs targets protected by them.",
+        "enhanced_ko": "해당 장막을 무시하고, 장막이 있던 상대에게 피해 ×1.5.",
+        "workbook_row": 152
+      }
+    },
+    {
+      "key": "파동의방호",
+      "id": 436,
+      "legacy_effect_id": 0,
+      "family": "calculation",
+      "normal": "[설계안] 인접한 상대의 물리 기술로 받는 피해 ×1/2. 원격으로 접촉 판정을 피하는 공격에는 적용하지 않는다. 기술 자체의 범위가 인접 공격인지 판정한다.",
+      "enhanced": "[강화] 인접한 상대의 물리 기술로 받는 피해 ×1/3. 원격으로 접촉 판정을 피하는 공격에는 적용하지 않는다. 기술 자체의 범위가 인접 공격인지 판정한다.",
+      "display": {
+        "name_en": "Aura Guard",
+        "name_ko": "파동의방호",
+        "normal_en": "Adjacent physical move damage taken ×1/2.",
+        "normal_ko": "인접한 상대의 물리 기술로 받는 피해 ×1/2.",
+        "enhanced_en": "Adjacent physical move damage taken ×1/3.",
+        "enhanced_ko": "인접한 상대의 물리 기술로 받는 피해 ×1/3.",
+        "workbook_row": 315
+      }
+    },
+    {
+      "key": "파스텔베일",
+      "id": 437,
+      "legacy_effect_id": 159,
+      "family": "status_or_stage",
+      "normal": "[기존] 자신과 같은 방에 있는 페어리타입 동료를 해당 나쁜 상태·능력 저하로부터 보호한다. 별도 확률 판정이 있는 효과가 아니다.",
+      "enhanced": "[강화] 자신과 같은 방에 있는 페어리타입 동료를 해당 나쁜 상태·능력 저하로부터 보호한다. 별도 확률 판정이 있는 효과가 아니다.\n추가 강화: 보호받는 자신과 같은 방 페어리타입 동료의 자연 HP 회복의 분모를 ⌊분모/2⌋로 바꾼다. 여러 플라워베일의 추가 피해 보정은 중첩하지 않는다.",
+      "display": {
+        "name_en": "Pastel Veil",
+        "name_ko": "파스텔베일",
+        "normal_en": "Protects same-room Fairy allies from status and stat drops.",
+        "normal_ko": "같은 방 페어리타입 동료를 나쁜 상태·능력 저하로부터 보호한다.",
+        "enhanced_en": "Same as base; protected Fairy allies' regen denominator ÷2.",
+        "enhanced_ko": "동일하며, 보호받는 페어리타입 동료의 자연 회복 분모 1/2.",
+        "workbook_row": 258
+      }
+    },
+    {
+      "key": "파워스폿",
+      "id": 438,
+      "legacy_effect_id": 217,
+      "family": "calculation",
+      "normal": "[설계안] 인접 8칸에 있는 동료의 공격 기술 피해 ×1.2. 자신에게는 적용하지 않으며 같은 파워스폿은 여러 마리여도 중첩하지 않는다.",
+      "enhanced": "[강화] 인접 8칸에 있는 동료의 공격 기술 피해 ×1.3. 자신에게는 적용하지 않으며 같은 파워스폿은 여러 마리여도 중첩하지 않는다.",
+      "display": {
+        "name_en": "Power Spot",
+        "name_ko": "파워스폿",
+        "normal_en": "Allies within 8 tiles deal ×1.2 attack damage (not self).",
+        "normal_ko": "인접 8칸 동료의 공격 기술 피해 ×1.2. (자신 제외)",
+        "enhanced_en": "Allies within 8 tiles deal ×1.3 attack damage (not self).",
+        "enhanced_ko": "인접 8칸 동료의 공격 기술 피해 ×1.3. (자신 제외)",
+        "workbook_row": 250
+      }
+    },
+    {
+      "key": "퍼코트",
+      "id": 439,
+      "legacy_effect_id": 139,
+      "family": "calculation",
+      "normal": "[설계안] 물리 기술로 받는 피해 ×1/2. 불가사의베일(Marvel Veil)과 같은 방식이다.",
+      "enhanced": "[강화] 물리 기술로 받는 피해 ×1/3. 불가사의베일(Marvel Veil)과 같은 방식이다.",
+      "display": {
+        "name_en": "Fur Coat",
+        "name_ko": "퍼코트",
+        "normal_en": "Physical move damage taken ×1/2.",
+        "normal_ko": "물리 기술로 받는 피해 ×1/2.",
+        "enhanced_en": "Physical move damage taken ×1/3.",
+        "enhanced_ko": "물리 기술로 받는 피해 ×1/3.",
+        "workbook_row": 170
+      }
+    },
+    {
+      "key": "펑크록",
+      "id": 440,
+      "legacy_effect_id": 148,
+      "family": "calculation",
+      "normal": "[설계안] 자신이 사용하는 소리 기술 피해 ×1.2, 받는 소리 기술 피해 ×0.5.",
+      "enhanced": "[강화] 자신이 사용하는 소리 기술 피해 ×1.3, 받는 소리 기술 피해 면역.",
+      "display": {
+        "name_en": "Punk Rock",
+        "name_ko": "펑크록",
+        "normal_en": "Own sound moves deal ×1.2; sound damage taken ×0.5.",
+        "normal_ko": "자신의 소리 기술 피해 ×1.2, 받는 소리 기술 피해 ×0.5.",
+        "enhanced_en": "Own sound moves deal ×1.3; immune to sound move damage.",
+        "enhanced_ko": "자신의 소리 기술 피해 ×1.3, 받는 소리 기술 피해 면역.",
+        "workbook_row": 245
+      }
+    },
+    {
+      "key": "페어리스킨",
+      "id": 441,
+      "legacy_effect_id": 0,
+      "family": "calculation",
+      "normal": "[설계안] 해당 노말타입 기술을 페어리타입으로 변경하고. 피해 계수를 1.2배로 한다. 자속 보정은 변경된 타입으로 판정한다.",
+      "enhanced": "[강화] 해당 노말타입 기술을 페어리타입으로 변경하고. 피해 계수를 1.3배로 한다. 자속 보정은 변경된 타입으로 판정한다.",
+      "display": {
+        "name_en": "Pixilate",
+        "name_ko": "페어리스킨",
+        "normal_en": "Normal moves become Fairy-type with damage ×1.2.",
+        "normal_ko": "노말 기술을 페어리타입으로 바꾸고 피해 ×1.2.",
+        "enhanced_en": "Normal moves become Fairy-type with damage ×1.3.",
+        "enhanced_ko": "노말 기술을 페어리타입으로 바꾸고 피해 ×1.3.",
+        "workbook_row": 183
+      }
+    },
+    {
+      "key": "포이즌힐",
+      "id": 442,
+      "legacy_effect_id": 114,
+      "family": "turn_tick",
+      "normal": "[기존] 독의 정기 피해를 같은 수치의 HP 회복으로 바꾼다. 일반 독은 해당 주기당 HP 2, 맹독은 누적 피해 표의 값으로 회복. 독 때문에 자연 회복이 막히는 것도 해제된다.",
+      "enhanced": "[강화] 독의 정기 피해를 같은 수치의 HP 회복으로 바꾼다. 일반 독은 해당 주기당 HP 2, 맹독은 누적 피해 표의 값으로 회복. 독 때문에 자연 회복이 막히는 것도 해제된다.\n추가 강화: 독·맹독의 정기 피해를 회복으로 전환할 때 회복량 ×2. 최대 HP를 넘겨 회복하지 않는다.",
+      "display": {
+        "name_en": "Poison Heal",
+        "name_ko": "포이즌힐",
+        "normal_en": "Poison damage is converted into the same amount of healing.",
+        "normal_ko": "독의 정기 피해를 같은 수치의 HP 회복으로 바꾼다.",
+        "enhanced_en": "Poison damage becomes healing at ×2 amount (up to max HP).",
+        "enhanced_ko": "독·맹독 피해를 2배의 HP 회복으로 바꾼다. (최대 HP까지)",
+        "workbook_row": 91
+      }
+    },
+    {
+      "key": "포자",
+      "id": 443,
+      "legacy_effect_id": 61,
+      "family": "received_event",
+      "normal": "[기존] 조건에 맞는 인접 물리 공격을 받으면 12% 확률로 발동. 독·마비·수면 중 하나를 균등 선택하므로 각각 4%의 판정 비중.",
+      "enhanced": "[강화] 조건에 맞는 인접 물리 공격을 받으면 20% 확률로 발동. 독·마비·수면 중 하나를 균등 선택",
+      "display": {
+        "name_en": "Effect Spore",
+        "name_ko": "포자",
+        "normal_en": "Adjacent physical hit: 12% to poison, paralyze or sleep the attacker.",
+        "normal_ko": "인접 물리 피격 시 12% 확률로 공격자를 독·마비·수면 중 하나로 만든다.",
+        "enhanced_en": "Adjacent physical hit: 20% to poison, paralyze or sleep the attacker.",
+        "enhanced_ko": "인접 물리 피격 시 20% 확률로 공격자를 독·마비·수면 중 하나로 만든다.",
+        "workbook_row": 28
+      }
+    },
+    {
+      "key": "프레셔",
+      "id": 444,
+      "legacy_effect_id": 57,
+      "family": "action_or_world",
+      "normal": "[기존] 자신을 대상으로 한 기술의 PP 소모를 2배로 늘린다.",
+      "enhanced": "[강화] 자신을 대상으로 한 기술의 PP 소모를 3배로 늘린다.\n추가 강화: 자신을 대상으로 기술을 사용한 상대에게도 20% 확률로 공격·특수공격 저장단계 −1. 한 상대당 한 공격 행동에서 1회 판정한다.",
+      "display": {
+        "name_en": "Pressure",
+        "name_ko": "프레셔",
+        "normal_en": "Moves targeting you cost double PP.",
+        "normal_ko": "자신을 대상으로 한 기술의 PP 소모가 2배가 된다.",
+        "enhanced_en": "Moves targeting you cost triple PP; 20% to lower that foe's Atk/Sp. Atk 1 stage.",
+        "enhanced_ko": "PP 소모 3배. 20% 확률로 그 상대의 공격·특공 −1단계.",
+        "workbook_row": 47
+      }
+    },
+    {
+      "key": "프렌드가드",
+      "id": 445,
+      "legacy_effect_id": 164,
+      "family": "calculation",
+      "normal": "[변경] 인접 8칸에 있는 동료는 받는 기술 피해 계수 ×0.8. 같은 편 보유자의 존재 여부 검사이므로 여러 보유자가 각각 곱해지지 않는다.",
+      "enhanced": "[강화] 인접 8칸에 있는 동료는 받는 기술 피해 계수 ×0.7. 같은 편 보유자의 존재 여부 검사이므로 여러 보유자가 각각 곱해지지 않는다.",
+      "display": {
+        "name_en": "Friend Guard",
+        "name_ko": "프렌드가드",
+        "normal_en": "Allies within 8 tiles take ×0.8 move damage.",
+        "normal_ko": "인접 8칸의 동료가 받는 기술 피해 ×0.8.",
+        "enhanced_en": "Allies within 8 tiles take ×0.7 move damage.",
+        "enhanced_ko": "인접 8칸의 동료가 받는 기술 피해 ×0.7.",
+        "workbook_row": 133
+      }
+    },
+    {
+      "key": "프리즈스킨",
+      "id": 446,
+      "legacy_effect_id": 0,
+      "family": "calculation",
+      "normal": "[설계안] 해당 노말타입 기술을 얼음타입으로 변경하고. 피해 계수를 1.2배로 한다. 자속 보정은 변경된 타입으로 판정한다.",
+      "enhanced": "[강화] 해당 노말타입 기술을 얼음타입으로 변경하고. 피해 계수를 1.3배로 한다. 자속 보정은 변경된 타입으로 판정한다.",
+      "display": {
+        "name_en": "Refrigerate",
+        "name_ko": "프리즈스킨",
+        "normal_en": "Normal moves become Ice-type with damage ×1.2.",
+        "normal_ko": "노말 기술을 얼음타입으로 바꾸고 피해 ×1.2.",
+        "enhanced_en": "Normal moves become Ice-type with damage ×1.3.",
+        "enhanced_ko": "노말 기술을 얼음타입으로 바꾸고 피해 ×1.3.",
+        "workbook_row": 175
+      }
+    },
+    {
+      "key": "플라워기프트",
+      "id": 447,
+      "legacy_effect_id": 113,
+      "family": "calculation",
+      "normal": "[기존] 햇살에서 같은 편의 공격 계산단계 +1, 특수방어 계산단계 +1. 영문 설명문의 “Special Attack”과 실제 방어측 코드가 다르다.",
+      "enhanced": "[강화] 햇살에서 같은 편의 공격 계산단계 +2, 특수방어 계산단계 +2. 영문 설명문의 “Special Attack”과 실제 방어측 코드가 다르다.",
+      "display": {
+        "name_en": "Flower Gift",
+        "name_ko": "플라워기프트",
+        "normal_en": "In sun, allies' Attack +1 stage and Sp. Def +1 stage.",
+        "normal_ko": "햇살에서 같은 편의 공격 +1단계, 특수방어 +1단계.",
+        "enhanced_en": "In sun, allies' Attack +2 stages and Sp. Def +2 stages.",
+        "enhanced_ko": "햇살에서 같은 편의 공격 +2단계, 특수방어 +2단계.",
+        "workbook_row": 123
+      }
+    },
+    {
+      "key": "플라워베일",
+      "id": 448,
+      "legacy_effect_id": 158,
+      "family": "status_or_stage",
+      "normal": "[기존] 자신과 같은 방에 있는 풀타입 동료를 해당 나쁜 상태·능력 저하로부터 보호한다. 별도 확률 판정이 있는 효과가 아니다.",
+      "enhanced": "[강화] 자신과 같은 방에 있는 풀타입 동료를 해당 나쁜 상태·능력 저하로부터 보호한다. 별도 확률 판정이 있는 효과가 아니다.\n추가 강화: 보호받는 자신과 같은 방 풀타입 동료의 자연 HP 회복의 분모를 ⌊분모/2⌋로 바꾼다. 여러 플라워베일의 추가 피해 보정은 중첩하지 않는다.",
+      "display": {
+        "name_en": "Flower Veil",
+        "name_ko": "플라워베일",
+        "normal_en": "Protects same-room Grass allies from status and stat drops.",
+        "normal_ko": "같은 방 풀타입 동료를 나쁜 상태·능력 저하로부터 보호한다.",
+        "enhanced_en": "Same as base; protected Grass allies' regen denominator ÷2.",
+        "enhanced_ko": "동일하며, 보호받는 풀타입 동료의 자연 회복 분모 1/2.",
+        "workbook_row": 167
+      }
+    },
+    {
+      "key": "플러스",
+      "id": 449,
+      "legacy_effect_id": 56,
+      "family": "calculation",
+      "normal": "[기존] 같은 편의 마이너스가 같은 플로어에 있으면 특수공격 계산값 ×1.5.",
+      "enhanced": "[강화] 같은 편의 마이너스가 같은 플로어에 있으면 특수공격 계산값 ×1.6.",
+      "display": {
+        "name_en": "Plus",
+        "name_ko": "플러스",
+        "normal_en": "Sp. Atk ×1.5 if an ally with Minus is on the floor.",
+        "normal_ko": "같은 편 마이너스가 플로어에 있으면 특수공격 ×1.5.",
+        "enhanced_en": "Sp. Atk ×1.6 if an ally with Minus is on the floor.",
+        "enhanced_ko": "같은 편 마이너스가 플로어에 있으면 특수공격 ×1.6.",
+        "workbook_row": 58
+      }
+    },
+    {
+      "key": "피뢰침",
+      "id": 450,
+      "legacy_effect_id": 50,
+      "family": "native_behavior",
+      "normal": "[기존] 전기 기술을 끌어와 피해를 막고 특수공격 저장단계 +1.",
+      "enhanced": "[강화] 전기 기술을 끌어와 피해를 막고 특수공격 저장단계 +2",
+      "display": {
+        "name_en": "Lightning Rod",
+        "name_ko": "피뢰침",
+        "normal_en": "Draws in Electric moves, blocks damage, Sp. Atk +1 stage.",
+        "normal_ko": "전기 기술을 끌어와 피해를 막고 특수공격 +1단계.",
+        "enhanced_en": "Draws in Electric moves, blocks damage, Sp. Atk +2 stages.",
+        "enhanced_ko": "전기 기술을 끌어와 피해를 막고 특수공격 +2단계.",
+        "workbook_row": 32
+      }
+    },
+    {
+      "key": "픽업",
+      "id": 451,
+      "legacy_effect_id": 71,
+      "family": "floor_entry",
+      "normal": "[기존] 층 입장 시 트래져백에 빈 공간이 있을때 50 퍼센트 확률로 열매, 씨앗, 베리류 중 부활의 씨앗, 황금 씨앗, 행복의 씨앗 을 제외한 아이템 1개를 트래져백에 넣는다",
+      "enhanced": "[강화] 층 입장 시 트래져백에 빈 공간이 있을때 100 퍼센트 확률로 열매, 씨앗, 베리류 중 부활의 씨앗, 황금 씨앗, 행복의 씨앗 을 제외한 아이템 1개를 트래져백에 넣는다",
+      "display": {
+        "name_en": "Pickup",
+        "name_ko": "픽업",
+        "normal_en": "On floor entry, 50% to pick up 1 berry/seed (no Reviver/Golden/Joy Seed).",
+        "normal_ko": "층 입장 시 50% 확률로 열매·씨앗 1개를 줍는다. (부활·황금·행복 씨앗 제외)",
+        "enhanced_en": "On floor entry, 100% to pick up 1 berry/seed (no Reviver/Golden/Joy Seed).",
+        "enhanced_ko": "층 입장 시 100% 확률로 열매·씨앗 1개를 줍는다. (부활·황금·행복 씨앗 제외)",
+        "workbook_row": 54
+      }
+    },
+    {
+      "key": "필터",
+      "id": 452,
+      "legacy_effect_id": 110,
+      "family": "calculation",
+      "normal": "[설계안] 효과가 굉장한 기술로 받는 피해 ×0.8. 단단한방어와 같은 경감 방식이다.",
+      "enhanced": "[강화] 효과가 굉장한 기술로 받는 피해 ×0.5. 단단한방어와 같은 경감 방식이다.",
+      "display": {
+        "name_en": "Filter",
+        "name_ko": "필터",
+        "normal_en": "Super-effective move damage taken ×0.8.",
+        "normal_ko": "효과가 굉장한 기술로 받는 피해 ×0.8.",
+        "enhanced_en": "Super-effective move damage taken ×0.5.",
+        "enhanced_ko": "효과가 굉장한 기술로 받는 피해 ×0.5.",
+        "workbook_row": 112
+      }
+    },
+    {
+      "key": "하늘의은총",
+      "id": 453,
+      "legacy_effect_id": 38,
+      "family": "native_behavior",
+      "normal": "[기존] 해당 기술의 추가 효과 확률 계산값 ×2. 기술별 조건과 우격다짐의 효과 제거 판정은 별도로 적용된다.",
+      "enhanced": "[강화] 해당 기술의 추가 효과 확률 계산값 ×3. 기술별 조건과 우격다짐의 효과 제거 판정은 별도로 적용된다.\n추가 강화: 최종 추가 효과 확률은 100%를 넘지 않는다.",
+      "display": {
+        "name_en": "Serene Grace",
+        "name_ko": "하늘의은총",
+        "normal_en": "Doubles the chance of a move's additional effects.",
+        "normal_ko": "기술의 추가 효과 확률이 2배가 된다.",
+        "enhanced_en": "Triples additional-effect chance (capped at 100%).",
+        "enhanced_ko": "기술의 추가 효과 확률이 3배가 된다. (최대 100%)",
+        "workbook_row": 33
+      }
+    },
+    {
+      "key": "하드록",
+      "id": 454,
+      "legacy_effect_id": 110,
+      "family": "calculation",
+      "normal": "[설계안] 효과가 굉장한 기술로 받는 피해 ×0.8. 단단한방어와 같은 경감 방식이다.",
+      "enhanced": "[강화] 효과가 굉장한 기술로 받는 피해 ×0.5. 단단한방어와 같은 경감 방식이다.",
+      "display": {
+        "name_en": "Solid Rock",
+        "name_ko": "하드록",
+        "normal_en": "Super-effective move damage taken ×0.8.",
+        "normal_ko": "효과가 굉장한 기술로 받는 피해 ×0.8.",
+        "enhanced_en": "Super-effective move damage taken ×0.5.",
+        "enhanced_ko": "효과가 굉장한 기술로 받는 피해 ×0.5.",
+        "workbook_row": 117
+      }
+    },
+    {
+      "key": "하얀연기",
+      "id": 455,
+      "legacy_effect_id": 15,
+      "family": "status_or_stage",
+      "normal": "[변경] 상대의 기술·특성에 의한 공격·방어·특수공격·특수방어·스피드·명중·회피 단계 저하를 막는다. 자신의 기술로 인한 저하는 적용한다.",
+      "enhanced": "[강화] 상대의 기술·특성에 의한 공격·방어·특수공격·특수방어·스피드·명중·회피 단계 저하를 막는다. 자신의 기술로 인한 단계 저하도 막는다.",
+      "display": {
+        "name_en": "White Smoke",
+        "name_ko": "하얀연기",
+        "normal_en": "Blocks foe-caused stat drops; self-inflicted drops apply.",
+        "normal_ko": "상대에 의한 능력 저하를 막는다. 자신의 기술로 인한 저하는 받는다.",
+        "enhanced_en": "Blocks stat drops, including self-inflicted ones.",
+        "enhanced_ko": "자신의 기술로 인한 단계 저하까지 모두 막는다.",
+        "workbook_row": 74
+      }
+    },
+    {
+      "key": "해감액",
+      "id": 456,
+      "legacy_effect_id": 58,
+      "family": "native_behavior",
+      "normal": "[변경] 본인이 흡수 기술을 받을때 피해를 막고 피해량의 50% 를 공격자에게 반사한다.",
+      "enhanced": "[강화] 본인이 흡수 기술을 받을때 피해를 막고 피해량의 100% 를 공격자에게 반사한다.",
+      "display": {
+        "name_en": "Liquid Ooze",
+        "name_ko": "해감액",
+        "normal_en": "Drain moves deal no heal; 50% of the damage hits the attacker.",
+        "normal_ko": "흡수 기술의 피해를 막고 피해량의 50%를 공격자에게 반사한다.",
+        "enhanced_en": "Drain moves deal no heal; 100% of the damage hits the attacker.",
+        "enhanced_ko": "흡수 기술의 피해를 막고 피해량의 100%를 공격자에게 반사한다.",
+        "workbook_row": 65
+      }
+    },
+    {
+      "key": "헤롱헤롱바디",
+      "id": 457,
+      "legacy_effect_id": 68,
+      "family": "received_event",
+      "normal": "[기존] 조건에 맞는 이성의 인접 물리 공격을 받으면 12% 확률로 헤롱헤롱 상태를 건다.",
+      "enhanced": "[강화] 조건에 맞는 이성의 인접 물리 공격을 받으면 20% 확률로 헤롱헤롱 상태를 건다.",
+      "display": {
+        "name_en": "Cute Charm",
+        "name_ko": "헤롱헤롱바디",
+        "normal_en": "Adjacent opposite-gender physical hit: 12% to infatuate the attacker.",
+        "normal_ko": "이성의 인접 물리 공격을 받으면 12% 확률로 헤롱헤롱 상태로 만든다.",
+        "enhanced_en": "Adjacent opposite-gender physical hit: 20% to infatuate the attacker.",
+        "enhanced_ko": "이성의 인접 물리 공격을 받으면 20% 확률로 헤롱헤롱 상태로 만든다.",
+        "workbook_row": 57
+      }
+    },
+    {
+      "key": "헤비메탈",
+      "id": 458,
+      "legacy_effect_id": 0,
+      "family": "action_or_world",
+      "normal": "[설계안] 무게를 참조하는 기술 판정에서 자신의 무게 ×2. 밀치기·날려버리기에 의한 강제 이동을 막는다.",
+      "enhanced": "[강화] 무게를 참조하는 기술 판정에서 자신의 무게 ×2. 밀치기·날려버리기에 의한 강제 이동을 막는다.\n추가 강화: 물리 기술로 받는 피해 ×0.8. 무게 판정과 강제 이동 방어는 유지한다.",
+      "display": {
+        "name_en": "Heavy Metal",
+        "name_ko": "헤비메탈",
+        "normal_en": "Weight ×2 for weight-based moves; blocks forced movement.",
+        "normal_ko": "무게 참조 기술에서 자신의 무게 ×2. 강제 이동을 막는다.",
+        "enhanced_en": "Same as base; physical move damage taken ×0.8.",
+        "enhanced_ko": "기본 효과에 더해, 물리 기술로 받는 피해 ×0.8.",
+        "workbook_row": 135
+      }
+    },
+    {
+      "key": "화학변화가스",
+      "id": 459,
+      "legacy_effect_id": 160,
+      "family": "item",
+      "normal": "[기존] 현재 bug_fixes 기준, 살아 있는 보유자의 인접 8칸에 있는 적·아군 특성을 봉인한다. 자신과 다른 화학변화가스는 봉인하지 않는다. 보유자가 위액·특성억제 도구로 봉인되면 가스도 작동하지 않는다.",
+      "enhanced": "[강화] 현재 bug_fixes 기준, 살아 있는 보유자의 같은 방에 있는 적·아군 특성을 봉인한다. 자신과 다른 화학변화가스는 봉인하지 않는다. 보유자가 위액·특성억제 도구로 봉인되면 가스도 작동하지 않는다..",
+      "display": {
+        "name_en": "Neutralizing Gas",
+        "name_ko": "화학변화가스",
+        "normal_en": "Seals abilities of Pokémon within 8 tiles (except other gas users).",
+        "normal_ko": "인접 8칸 적·아군의 특성을 봉인한다. (다른 화학변화가스 제외)",
+        "enhanced_en": "Seals abilities of Pokémon in the same room (except other gas users).",
+        "enhanced_ko": "같은 방 적·아군의 특성을 봉인한다. (다른 화학변화가스 제외)",
+        "workbook_row": 257
+      }
+    },
+    {
+      "key": "화학의힘",
+      "id": 460,
+      "legacy_effect_id": 196,
+      "family": "faint",
+      "normal": "[설계안] 같은방에 있는 동료가 쓰러지면 그 동료의 특성 하나를 복사해 층 이동까지 유지한다. 동시에 여러 동료가 쓰러지면 가까운 동료를 우선하며 같은 거리에서는 팀 슬롯 순서로 선택한다. 형태 전용·복사 면역 특성은 제외한다.",
+      "enhanced": "[강화] 같은방에 있는 동료가 쓰러지면 그 동료의 특성 하나를 복사해 층 이동까지 유지한다. 동시에 여러 동료가 쓰러지면 가까운 동료를 우선하며 같은 거리에서는 팀 슬롯 순서로 선택한다. 형태 전용·복사 면역 특성은 제외한다.\n추가 강화: 특성을 성공적으로 이어받으면 자신의 공격·특수공격 계산값 ×1.2. 복사한 특성의 지속 동안만 적용하며 여러 특성을 이어받아도 이 보정은 중첩하지 않는다.",
+      "display": {
+        "name_en": "Power of Alchemy",
+        "name_ko": "화학의힘",
+        "normal_en": "Copies a fainted room ally's ability until the next floor.",
+        "normal_ko": "같은 방 동료가 쓰러지면 그 특성을 복사해 층 이동까지 유지한다.",
+        "enhanced_en": "Same; while copying, own Attack and Sp. Atk ×1.2.",
+        "enhanced_ko": "동일하며, 복사한 동안 공격·특수공격 ×1.2.",
+        "workbook_row": 224
+      }
+    },
+    {
+      "key": "흡반",
+      "id": 461,
+      "legacy_effect_id": 14,
+      "family": "action_or_world",
+      "normal": "[기존] 날려버리기·위치 교환 등 강제 이동을 막는다.",
+      "enhanced": "[강화]날려버리기·위치 교환 등 강제 이동을 막는다. 추가로 받는 데미지 계산시, 본인이 바로 이전턴에 이동을 하지 않았다면\n받는 피해계수 *0.8",
+      "display": {
+        "name_en": "Suction Cups",
+        "name_ko": "흡반",
+        "normal_en": "Blocks forced movement such as blow-away and position swaps.",
+        "normal_ko": "날려버리기·위치 교환 등 강제 이동을 막는다.",
+        "enhanced_en": "Blocks forced movement; if you didn't move last turn, damage taken ×0.8.",
+        "enhanced_ko": "강제 이동을 막고, 직전 턴에 이동하지 않았다면 받는 피해 ×0.8.",
+        "workbook_row": 22
+      }
+    }
+  ],
+  "base_profiles": {
+    "3": [
+      363,
+      373
+    ],
+    "6": [
+      312,
+      348
+    ],
+    "9": [
+      272,
+      410
+    ],
+    "12": [
+      337,
+      347
+    ],
+    "15": [
+      333,
+      354
+    ],
+    "18": [
+      290,
+      340
+    ],
+    "20": [
+      294,
+      271
+    ],
+    "203": [
+      313,
+      386
+    ],
+    "22": [
+      281,
+      354
+    ],
+    "24": [
+      382,
+      426
+    ],
+    "26": [
+      409,
+      450
+    ],
+    "201": [
+      366,
+      409
+    ],
+    "28": [
+      321,
+      323
+    ],
+    "205": [
+      286,
+      287
+    ],
+    "31": [
+      295,
+      431
+    ],
+    "34": [
+      295,
+      431
+    ],
+    "36": [
+      457,
+      310
+    ],
+    "38": [
+      425,
+      257
+    ],
+    "545": [
+      286,
+      288
+    ],
+    "40": [
+      457,
+      360
+    ],
+    "575": [
+      457,
+      360
+    ],
+    "45": [
+      373,
+      443
+    ],
+    "47": [
+      443,
+      263
+    ],
+    "49": [
+      389,
+      347
+    ],
+    "51": [
+      321,
+      262
+    ],
+    "209": [
+      321,
+      423
+    ],
+    "53": [
+      383,
+      428
+    ],
+    "207": [
+      439,
+      428
+    ],
+    "55": [
+      359,
+      280
+    ],
+    "59": [
+      382,
+      425
+    ],
+    "211": [
+      382,
+      425
+    ],
+    "62": [
+      399,
+      359
+    ],
+    "65": [
+      407,
+      310
+    ],
+    "68": [
+      271,
+      284
+    ],
+    "71": [
+      373,
+      313
+    ],
+    "73": [
+      424,
+      456
+    ],
+    "76": [
+      298,
+      378
+    ],
+    "542": [
+      394,
+      378
+    ],
+    "78": [
+      294,
+      425
+    ],
+    "213": [
+      294,
+      437
+    ],
+    "80": [
+      301,
+      308
+    ],
+    "83": [
+      281,
+      407
+    ],
+    "85": [
+      294,
+      392
+    ],
+    "87": [
+      300,
+      420
+    ],
+    "89": [
+      369,
+      406
+    ],
+    "547": [
+      296,
+      313
+    ],
+    "91": [
+      411,
+      357
+    ],
+    "94": [
+      400,
+      397
+    ],
+    "97": [
+      346,
+      375
+    ],
+    "99": [
+      267,
+      411
+    ],
+    "101": [
+      329,
+      409
+    ],
+    "215": [
+      329,
+      409
+    ],
+    "103": [
+      373,
+      352
+    ],
+    "105": [
+      298,
+      450
+    ],
+    "550": [
+      400,
+      450
+    ],
+    "106": [
+      383,
+      388
+    ],
+    "107": [
+      281,
+      418
+    ],
+    "110": [
+      338,
+      459
+    ],
+    "115": [
+      392,
+      332
+    ],
+    "119": [
+      366,
+      351
+    ],
+    "121": [
+      327,
+      395
+    ],
+    "122": [
+      329,
+      452
+    ],
+    "124": [
+      301,
+      375
+    ],
+    "127": [
+      267,
+      434
+    ],
+    "128": [
+      382,
+      341
+    ],
+    "130": [
+      382,
+      393
+    ],
+    "131": [
+      399,
+      411
+    ],
+    "132": [
+      383,
+      268
+    ],
+    "134": [
+      399,
+      420
+    ],
+    "135": [
+      421,
+      350
+    ],
+    "136": [
+      425,
+      271
+    ],
+    "139": [
+      366,
+      411
+    ],
+    "141": [
+      366,
+      404
+    ],
+    "142": [
+      298,
+      444
+    ],
+    "143": [
+      318,
+      300
+    ],
+    "144": [
+      444,
+      286
+    ],
+    "145": [
+      444,
+      409
+    ],
+    "146": [
+      444,
+      344
+    ],
+    "149": [
+      407,
+      314
+    ],
+    "150": [
+      444,
+      274
+    ],
+    "151": [
+      365,
+      429
+    ],
+    "154": [
+      363,
+      305
+    ],
+    "157": [
+      312,
+      425
+    ],
+    "160": [
+      272,
+      380
+    ],
+    "162": [
+      294,
+      281
+    ],
+    "164": [
+      346,
+      281
+    ],
+    "166": [
+      333,
+      392
+    ],
+    "168": [
+      333,
+      346
+    ],
+    "169": [
+      407,
+      435
+    ],
+    "171": [
+      421,
+      327
+    ],
+    "178": [
+      365,
+      392
+    ],
+    "181": [
+      409,
+      449
+    ],
+    "182": [
+      373,
+      422
+    ],
+    "184": [
+      300,
+      416
+    ],
+    "185": [
+      378,
+      298
+    ],
+    "186": [
+      399,
+      359
+    ],
+    "189": [
+      373,
+      305
+    ],
+    "192": [
+      373,
+      348
+    ],
+    "195": [
+      359,
+      399
+    ],
+    "196": [
+      365,
+      311
+    ],
+    "197": [
+      365,
+      407
+    ],
+    "199": [
+      301,
+      308
+    ],
+    "229": [
+      270,
+      429
+    ],
+    "232": [
+      378,
+      330
+    ],
+    "233": [
+      453,
+      294
+    ],
+    "235": [
+      298,
+      378
+    ],
+    "237": [
+      382,
+      350
+    ],
+    "238": [
+      295,
+      366
+    ],
+    "239": [
+      333,
+      428
+    ],
+    "240": [
+      378,
+      313
+    ],
+    "241": [
+      271,
+      393
+    ],
+    "246": [
+      306,
+      344
+    ],
+    "249": [
+      386,
+      395
+    ],
+    "251": [
+      461,
+      354
+    ],
+    "252": [
+      385,
+      386
+    ],
+    "253": [
+      366,
+      399
+    ],
+    "254": [
+      281,
+      378
+    ],
+    "256": [
+      425,
+      274
+    ],
+    "257": [
+      366,
+      354
+    ],
+    "259": [
+      378,
+      321
+    ],
+    "261": [
+      382,
+      430
+    ],
+    "262": [
+      308,
+      428
+    ],
+    "264": [
+      382,
+      428
+    ],
+    "268": [
+      300,
+      332
+    ],
+    "269": [
+      395,
+      453
+    ],
+    "270": [
+      444,
+      407
+    ],
+    "271": [
+      444,
+      407
+    ],
+    "272": [
+      444,
+      407
+    ],
+    "275": [
+      320,
+      274
+    ],
+    "276": [
+      444,
+      314
+    ],
+    "277": [
+      444,
+      398
+    ],
+    "278": [
+      395,
+      422
+    ],
+    "279": [
+      395,
+      422
+    ],
+    "282": [
+      363,
+      266
+    ],
+    "285": [
+      312,
+      258
+    ],
+    "288": [
+      272,
+      359
+    ],
+    "290": [
+      382,
+      350
+    ],
+    "292": [
+      451,
+      313
+    ],
+    "295": [
+      333,
+      431
+    ],
+    "297": [
+      389,
+      337
+    ],
+    "300": [
+      366,
+      410
+    ],
+    "303": [
+      373,
+      326
+    ],
+    "305": [
+      271,
+      332
+    ],
+    "307": [
+      281,
+      396
+    ],
+    "310": [
+      433,
+      429
+    ],
+    "312": [
+      382,
+      274
+    ],
+    "314": [
+      443,
+      442
+    ],
+    "317": [
+      264,
+      361
+    ],
+    "319": [
+      258,
+      435
+    ],
+    "320": [
+      342,
+      310
+    ],
+    "323": [
+      329,
+      332
+    ],
+    "325": [
+      300,
+      271
+    ],
+    "329": [
+      457,
+      285
+    ],
+    "330": [
+      281,
+      414
+    ],
+    "573": [
+      281,
+      414
+    ],
+    "331": [
+      267,
+      380
+    ],
+    "334": [
+      298,
+      458
+    ],
+    "336": [
+      353,
+      429
+    ],
+    "338": [
+      409,
+      450
+    ],
+    "563": [
+      409,
+      450
+    ],
+    "339": [
+      449,
+      450
+    ],
+    "340": [
+      307,
+      421
+    ],
+    "341": [
+      327,
+      333
+    ],
+    "342": [
+      301,
+      347
+    ],
+    "345": [
+      456,
+      406
+    ],
+    "347": [
+      275,
+      258
+    ],
+    "349": [
+      351,
+      301
+    ],
+    "351": [
+      306,
+      341
+    ],
+    "352": [
+      455,
+      257
+    ],
+    "354": [
+      300,
+      308
+    ],
+    "355": [
+      308,
+      301
+    ],
+    "358": [
+      338,
+      321
+    ],
+    "360": [
+      321,
+      399
+    ],
+    "362": [
+      395,
+      280
+    ],
+    "363": [
+      290,
+      297
+    ],
+    "364": [
+      426,
+      435
+    ],
+    "365": [
+      338,
+      310
+    ],
+    "366": [
+      338,
+      310
+    ],
+    "368": [
+      301,
+      381
+    ],
+    "370": [
+      267,
+      411
+    ],
+    "372": [
+      338,
+      310
+    ],
+    "374": [
+      461,
+      309
+    ],
+    "376": [
+      404,
+      366
+    ],
+    "378": [
+      387,
+      360
+    ],
+    "379": [
+      273,
+      453
+    ],
+    "564": [
+      273,
+      453
+    ],
+    "565": [
+      273,
+      453
+    ],
+    "566": [
+      273,
+      453
+    ],
+    "383": [
+      335,
+      336
+    ],
+    "384": [
+      335,
+      336
+    ],
+    "386": [
+      346,
+      400
+    ],
+    "389": [
+      373,
+      348
+    ],
+    "390": [
+      338,
+      326
+    ],
+    "391": [
+      444,
+      408
+    ],
+    "394": [
+      368,
+      334
+    ],
+    "397": [
+      300,
+      368
+    ],
+    "399": [
+      366,
+      351
+    ],
+    "400": [
+      366,
+      420
+    ],
+    "401": [
+      366,
+      298
+    ],
+    "402": [
+      366,
+      420
+    ],
+    "405": [
+      382,
+      393
+    ],
+    "408": [
+      424,
+      304
+    ],
+    "409": [
+      424,
+      378
+    ],
+    "410": [
+      424,
+      368
+    ],
+    "411": [
+      424,
+      304
+    ],
+    "412": [
+      338,
+      424
+    ],
+    "413": [
+      338,
+      424
+    ],
+    "414": [
+      396,
+      420
+    ],
+    "558": [
+      396,
+      420
+    ],
+    "555": [
+      362,
+      420
+    ],
+    "415": [
+      257,
+      348
+    ],
+    "559": [
+      257,
+      348
+    ],
+    "556": [
+      277,
+      348
+    ],
+    "416": [
+      293,
+      381
+    ],
+    "557": [
+      293,
+      381
+    ],
+    "560": [
+      293,
+      381
+    ],
+    "417": [
+      453,
+      405
+    ],
+    "418": [
+      444,
+      325
+    ],
+    "419": [
+      444,
+      325
+    ],
+    "420": [
+      444,
+      325
+    ],
+    "421": [
+      444,
+      325
+    ],
+    "424": [
+      363,
+      411
+    ],
+    "427": [
+      312,
+      418
+    ],
+    "430": [
+      272,
+      360
+    ],
+    "433": [
+      382,
+      388
+    ],
+    "435": [
+      291,
+      415
+    ],
+    "437": [
+      333,
+      428
+    ],
+    "440": [
+      431,
+      382
+    ],
+    "442": [
+      395,
+      295
+    ],
+    "444": [
+      434,
+      380
+    ],
+    "446": [
+      378,
+      329
+    ],
+    "450": [
+      381,
+      330
+    ],
+    "451": [
+      381,
+      330
+    ],
+    "452": [
+      381,
+      330
+    ],
+    "453": [
+      333,
+      347
+    ],
+    "455": [
+      444,
+      274
+    ],
+    "456": [
+      294,
+      451
+    ],
+    "458": [
+      366,
+      351
+    ],
+    "460": [
+      447,
+      373
+    ],
+    "461": [
+      447,
+      373
+    ],
+    "464": [
+      406,
+      309
+    ],
+    "466": [
+      428,
+      451
+    ],
+    "468": [
+      384,
+      266
+    ],
+    "470": [
+      457,
+      383
+    ],
+    "471": [
+      338,
+      414
+    ],
+    "472": [
+      346,
+      292
+    ],
+    "474": [
+      300,
+      308
+    ],
+    "477": [
+      369,
+      384
+    ],
+    "479": [
+      338,
+      282
+    ],
+    "483": [
+      281,
+      259
+    ],
+    "484": [
+      444,
+      435
+    ],
+    "487": [
+      321,
+      275
+    ],
+    "490": [
+      407,
+      408
+    ],
+    "492": [
+      320,
+      322
+    ],
+    "494": [
+      404,
+      354
+    ],
+    "496": [
+      381,
+      263
+    ],
+    "497": [
+      338,
+      377
+    ],
+    "499": [
+      366,
+      309
+    ],
+    "502": [
+      288,
+      329
+    ],
+    "503": [
+      444,
+      278
+    ],
+    "504": [
+      394,
+      378
+    ],
+    "505": [
+      308,
+      301
+    ],
+    "506": [
+      450,
+      454
+    ],
+    "507": [
+      373,
+      305
+    ],
+    "508": [
+      403,
+      385
+    ],
+    "509": [
+      344,
+      385
+    ],
+    "510": [
+      386,
+      453
+    ],
+    "511": [
+      258,
+      347
+    ],
+    "512": [
+      305,
+      373
+    ],
+    "513": [
+      286,
+      368
+    ],
+    "514": [
+      267,
+      321
+    ],
+    "515": [
+      301,
+      286
+    ],
+    "516": [
+      401,
+      289
+    ],
+    "517": [
+      408,
+      374
+    ],
+    "518": [
+      378,
+      394
+    ],
+    "228": [
+      444,
+      430
+    ],
+    "519": [
+      444,
+      430
+    ],
+    "572": [
+      444,
+      430
+    ],
+    "520": [
+      286,
+      400
+    ],
+    "521": [
+      338,
+      403
+    ],
+    "522": [
+      338,
+      429
+    ],
+    "523": [
+      338,
+      429
+    ],
+    "524": [
+      338,
+      429
+    ],
+    "525": [
+      444,
+      429
+    ],
+    "561": [
+      444,
+      429
+    ],
+    "552": [
+      444,
+      429
+    ],
+    "526": [
+      444,
+      429
+    ],
+    "567": [
+      444,
+      429
+    ],
+    "551": [
+      444,
+      429
+    ],
+    "527": [
+      425,
+      344
+    ],
+    "528": [
+      358,
+      416
+    ],
+    "529": [
+      444,
+      429
+    ],
+    "536": [
+      338,
+      349
+    ],
+    "530": [
+      338,
+      422
+    ],
+    "531": [
+      420,
+      399
+    ],
+    "532": [
+      420,
+      429
+    ],
+    "533": [
+      279,
+      346
+    ],
+    "549": [
+      279,
+      346
+    ],
+    "574": [
+      279,
+      346
+    ],
+    "534": [
+      395,
+      422
+    ],
+    "535": [
+      453,
+      338
+    ],
+    "537": [
+      315,
+      453
+    ],
+    "223": [
+      391,
+      274
+    ],
+    "465": [
+      391,
+      319
+    ],
+    "598": [
+      457,
+      428
+    ],
+    "548": [
+      289,
+      370
+    ],
+    "227": [
+      457,
+      441
+    ],
+    "380": [
+      424,
+      441
+    ],
+    "569": [
+      424,
+      441
+    ],
+    "570": [
+      424,
+      441
+    ],
+    "381": [
+      428,
+      270
+    ],
+    "217": [
+      276,
+      319
+    ],
+    "382": [
+      444,
+      314
+    ],
+    "538": [
+      432,
+      424
+    ],
+    "539": [
+      379,
+      424
+    ],
+    "226": [
+      271,
+      331
+    ],
+    "221": [
+      444,
+      266
+    ],
+    "219": [
+      295,
+      366
+    ],
+    "224": [
+      385,
+      407
+    ],
+    "225": [
+      299,
+      427
+    ],
+    "603": [
+      363,
+      373
+    ],
+    "606": [
+      312,
+      348
+    ],
+    "609": [
+      272,
+      410
+    ],
+    "612": [
+      337,
+      347
+    ],
+    "615": [
+      333,
+      354
+    ],
+    "618": [
+      290,
+      340
+    ],
+    "620": [
+      294,
+      271
+    ],
+    "622": [
+      281,
+      354
+    ],
+    "624": [
+      382,
+      426
+    ],
+    "626": [
+      409,
+      450
+    ],
+    "628": [
+      321,
+      323
+    ],
+    "631": [
+      295,
+      431
+    ],
+    "636": [
+      457,
+      310
+    ],
+    "638": [
+      425,
+      257
+    ],
+    "640": [
+      457,
+      360
+    ],
+    "645": [
+      373,
+      443
+    ],
+    "647": [
+      443,
+      263
+    ],
+    "649": [
+      389,
+      347
+    ],
+    "651": [
+      321,
+      262
+    ],
+    "653": [
+      383,
+      428
+    ],
+    "655": [
+      359,
+      280
+    ],
+    "662": [
+      399,
+      359
+    ],
+    "665": [
+      407,
+      310
+    ],
+    "668": [
+      271,
+      284
+    ],
+    "671": [
+      373,
+      313
+    ],
+    "673": [
+      424,
+      456
+    ],
+    "676": [
+      298,
+      378
+    ],
+    "678": [
+      294,
+      425
+    ],
+    "680": [
+      301,
+      308
+    ],
+    "683": [
+      281,
+      407
+    ],
+    "685": [
+      294,
+      392
+    ],
+    "687": [
+      300,
+      420
+    ],
+    "689": [
+      369,
+      406
+    ],
+    "691": [
+      411,
+      357
+    ],
+    "694": [
+      400,
+      397
+    ],
+    "697": [
+      346,
+      375
+    ],
+    "699": [
+      267,
+      411
+    ],
+    "703": [
+      373,
+      352
+    ],
+    "705": [
+      298,
+      450
+    ],
+    "710": [
+      338,
+      459
+    ],
+    "715": [
+      392,
+      332
+    ],
+    "719": [
+      366,
+      351
+    ],
+    "722": [
+      329,
+      452
+    ],
+    "724": [
+      301,
+      375
+    ],
+    "727": [
+      267,
+      434
+    ],
+    "731": [
+      399,
+      411
+    ],
+    "734": [
+      399,
+      420
+    ],
+    "735": [
+      421,
+      350
+    ],
+    "736": [
+      425,
+      271
+    ],
+    "739": [
+      366,
+      411
+    ],
+    "741": [
+      366,
+      404
+    ],
+    "742": [
+      298,
+      444
+    ],
+    "743": [
+      318,
+      300
+    ],
+    "749": [
+      407,
+      314
+    ],
+    "754": [
+      363,
+      305
+    ],
+    "757": [
+      312,
+      425
+    ],
+    "760": [
+      272,
+      380
+    ],
+    "762": [
+      294,
+      281
+    ],
+    "764": [
+      346,
+      281
+    ],
+    "766": [
+      333,
+      392
+    ],
+    "768": [
+      333,
+      346
+    ],
+    "769": [
+      407,
+      435
+    ],
+    "771": [
+      421,
+      327
+    ],
+    "778": [
+      365,
+      392
+    ],
+    "781": [
+      409,
+      449
+    ],
+    "782": [
+      373,
+      422
+    ],
+    "784": [
+      300,
+      416
+    ],
+    "785": [
+      378,
+      298
+    ],
+    "786": [
+      399,
+      359
+    ],
+    "789": [
+      373,
+      305
+    ],
+    "792": [
+      373,
+      348
+    ],
+    "795": [
+      359,
+      399
+    ],
+    "796": [
+      365,
+      311
+    ],
+    "797": [
+      365,
+      407
+    ],
+    "799": [
+      301,
+      308
+    ],
+    "801": [
+      366,
+      409
+    ],
+    "803": [
+      313,
+      386
+    ],
+    "805": [
+      286,
+      287
+    ],
+    "807": [
+      439,
+      428
+    ],
+    "809": [
+      321,
+      423
+    ],
+    "813": [
+      294,
+      437
+    ],
+    "817": [
+      276,
+      319
+    ],
+    "819": [
+      295,
+      366
+    ],
+    "821": [
+      444,
+      266
+    ],
+    "823": [
+      391,
+      274
+    ],
+    "824": [
+      385,
+      407
+    ],
+    "825": [
+      299,
+      427
+    ],
+    "826": [
+      271,
+      331
+    ],
+    "827": [
+      457,
+      441
+    ],
+    "829": [
+      270,
+      429
+    ],
+    "832": [
+      378,
+      330
+    ],
+    "833": [
+      453,
+      294
+    ],
+    "835": [
+      298,
+      378
+    ],
+    "837": [
+      382,
+      350
+    ],
+    "838": [
+      295,
+      366
+    ],
+    "839": [
+      333,
+      428
+    ],
+    "840": [
+      378,
+      313
+    ],
+    "841": [
+      271,
+      393
+    ],
+    "846": [
+      306,
+      344
+    ],
+    "849": [
+      386,
+      395
+    ],
+    "851": [
+      461,
+      354
+    ],
+    "852": [
+      385,
+      386
+    ],
+    "853": [
+      366,
+      399
+    ],
+    "854": [
+      281,
+      378
+    ],
+    "856": [
+      425,
+      274
+    ],
+    "857": [
+      366,
+      354
+    ],
+    "859": [
+      378,
+      321
+    ],
+    "861": [
+      382,
+      430
+    ],
+    "862": [
+      308,
+      428
+    ],
+    "868": [
+      300,
+      332
+    ],
+    "869": [
+      395,
+      453
+    ],
+    "875": [
+      320,
+      274
+    ],
+    "879": [
+      395,
+      422
+    ],
+    "882": [
+      363,
+      266
+    ],
+    "885": [
+      312,
+      258
+    ],
+    "888": [
+      272,
+      359
+    ],
+    "890": [
+      382,
+      350
+    ],
+    "892": [
+      451,
+      313
+    ],
+    "895": [
+      333,
+      431
+    ],
+    "897": [
+      389,
+      337
+    ],
+    "900": [
+      366,
+      410
+    ],
+    "903": [
+      373,
+      326
+    ],
+    "905": [
+      271,
+      332
+    ],
+    "907": [
+      281,
+      396
+    ],
+    "910": [
+      433,
+      429
+    ],
+    "912": [
+      382,
+      274
+    ],
+    "914": [
+      443,
+      442
+    ],
+    "917": [
+      264,
+      361
+    ],
+    "919": [
+      258,
+      435
+    ],
+    "923": [
+      329,
+      332
+    ],
+    "925": [
+      300,
+      271
+    ],
+    "929": [
+      457,
+      285
+    ],
+    "930": [
+      281,
+      414
+    ],
+    "931": [
+      267,
+      380
+    ],
+    "934": [
+      298,
+      458
+    ],
+    "936": [
+      353,
+      429
+    ],
+    "938": [
+      409,
+      450
+    ],
+    "939": [
+      449,
+      450
+    ],
+    "940": [
+      307,
+      421
+    ],
+    "942": [
+      301,
+      347
+    ],
+    "945": [
+      456,
+      406
+    ],
+    "947": [
+      275,
+      258
+    ],
+    "949": [
+      351,
+      301
+    ],
+    "951": [
+      306,
+      341
+    ],
+    "952": [
+      455,
+      257
+    ],
+    "954": [
+      300,
+      308
+    ],
+    "955": [
+      308,
+      301
+    ],
+    "958": [
+      338,
+      321
+    ],
+    "960": [
+      321,
+      399
+    ],
+    "962": [
+      395,
+      280
+    ],
+    "963": [
+      290,
+      297
+    ],
+    "964": [
+      426,
+      435
+    ],
+    "968": [
+      301,
+      381
+    ],
+    "970": [
+      267,
+      411
+    ],
+    "974": [
+      461,
+      309
+    ],
+    "976": [
+      404,
+      366
+    ],
+    "978": [
+      387,
+      360
+    ],
+    "983": [
+      335,
+      336
+    ],
+    "984": [
+      335,
+      336
+    ],
+    "986": [
+      346,
+      400
+    ],
+    "989": [
+      373,
+      348
+    ],
+    "990": [
+      338,
+      326
+    ],
+    "991": [
+      444,
+      408
+    ],
+    "997": [
+      300,
+      368
+    ],
+    "1000": [
+      366,
+      420
+    ],
+    "1001": [
+      366,
+      298
+    ],
+    "1002": [
+      366,
+      420
+    ],
+    "1005": [
+      382,
+      393
+    ],
+    "1012": [
+      338,
+      424
+    ],
+    "1024": [
+      363,
+      411
+    ],
+    "1027": [
+      312,
+      418
+    ],
+    "1030": [
+      272,
+      360
+    ],
+    "1033": [
+      382,
+      388
+    ],
+    "1035": [
+      291,
+      415
+    ],
+    "1037": [
+      333,
+      428
+    ],
+    "1040": [
+      431,
+      382
+    ],
+    "1042": [
+      395,
+      295
+    ],
+    "1044": [
+      434,
+      380
+    ],
+    "1046": [
+      378,
+      329
+    ],
+    "1050": [
+      381,
+      330
+    ],
+    "1051": [
+      381,
+      330
+    ],
+    "1052": [
+      381,
+      330
+    ],
+    "1055": [
+      444,
+      274
+    ],
+    "1056": [
+      294,
+      451
+    ],
+    "1058": [
+      366,
+      351
+    ],
+    "1060": [
+      447,
+      373
+    ],
+    "1061": [
+      447,
+      373
+    ],
+    "1064": [
+      406,
+      309
+    ],
+    "1065": [
+      391,
+      319
+    ],
+    "1066": [
+      428,
+      451
+    ],
+    "1068": [
+      384,
+      266
+    ],
+    "1070": [
+      457,
+      383
+    ],
+    "1071": [
+      338,
+      414
+    ],
+    "1072": [
+      346,
+      292
+    ],
+    "1074": [
+      300,
+      308
+    ],
+    "1077": [
+      369,
+      384
+    ],
+    "1083": [
+      281,
+      259
+    ],
+    "1084": [
+      444,
+      435
+    ],
+    "1087": [
+      321,
+      275
+    ],
+    "1090": [
+      407,
+      408
+    ],
+    "1092": [
+      320,
+      322
+    ],
+    "1094": [
+      404,
+      354
+    ],
+    "1096": [
+      381,
+      263
+    ],
+    "1097": [
+      338,
+      377
+    ],
+    "1099": [
+      366,
+      309
+    ],
+    "1102": [
+      288,
+      329
+    ],
+    "1103": [
+      444,
+      278
+    ],
+    "1105": [
+      308,
+      301
+    ],
+    "1106": [
+      450,
+      454
+    ],
+    "1107": [
+      373,
+      305
+    ],
+    "1108": [
+      403,
+      385
+    ],
+    "1109": [
+      344,
+      385
+    ],
+    "1110": [
+      386,
+      453
+    ],
+    "1111": [
+      258,
+      347
+    ],
+    "1112": [
+      305,
+      373
+    ],
+    "1113": [
+      286,
+      368
+    ],
+    "1114": [
+      267,
+      321
+    ],
+    "1115": [
+      301,
+      286
+    ],
+    "1118": [
+      378,
+      394
+    ],
+    "1119": [
+      444,
+      430
+    ],
+    "1120": [
+      286,
+      400
+    ],
+    "1130": [
+      338,
+      422
+    ],
+    "1142": [
+      394,
+      378
+    ],
+    "1145": [
+      286,
+      288
+    ],
+    "1147": [
+      296,
+      313
+    ],
+    "1150": [
+      400,
+      450
+    ]
+  }
+}
