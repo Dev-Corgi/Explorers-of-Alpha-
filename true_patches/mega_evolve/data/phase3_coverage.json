@@ -17,7 +17,17 @@
     "python -B -X utf8 -m true_patches.mega_evolve.verify_phase3_tailwind",
     "python -B -X utf8 -m true_patches.mega_evolve.verify_phase3_native_status",
     "python -B -X utf8 -m true_patches.mega_evolve.verify_phase3_native_immunity",
-    "python -B -X utf8 -m true_patches.mega_evolve.verify_phase3_numeric_stats"
+    "python -B -X utf8 -m true_patches.mega_evolve.verify_phase3_numeric_stats",
+    "python -B -X utf8 -m true_patches.mega_evolve.verify_phase3_damage_rules",
+    "python -B -X utf8 -m true_patches.mega_evolve.verify_phase3_hit_rules",
+    "python -B -X utf8 -m true_patches.mega_evolve.verify_phase3_defense_guard",
+    "python -B -X utf8 -m true_patches.mega_evolve.verify_phase3_mega_sol",
+    "python -B -X utf8 -m true_patches.mega_evolve.verify_phase3_appearance",
+    "python -B -X utf8 -m true_patches.mega_evolve.verify_phase3_native_coefficients",
+    "python -B -X utf8 -m true_patches.mega_evolve.verify_phase3_filter",
+    "python -B -X utf8 -m true_patches.mega_evolve.verify_phase3_power_stats",
+    "python -B -X utf8 -m true_patches.mega_evolve.verify_phase3_guts_dry_skin",
+    "python -B -X utf8 -m true_patches.mega_evolve.verify_phase3_no_guard"
   ],
   "work_classification": {
     "basis": "definition tags and existing effect identity; candidate classification is not implementation proof",
@@ -94,9 +104,11 @@
       "id": 261,
       "legacy_effect_id": 210,
       "family": "calculation",
-      "normal_status": "pending_audit",
+      "normal_status": "partial",
       "work_class_candidate": "modify_or_connect",
-      "verified_paths": [],
+      "verified_paths": [
+        "ordinary_type_damage_six_fifths_slots_suppression"
+      ],
       "enhanced_status": "phase7"
     },
     {
@@ -114,9 +126,11 @@
       "id": 263,
       "legacy_effect_id": 85,
       "family": "turn_tick",
-      "normal_status": "pending_audit",
+      "normal_status": "partial",
       "work_class_candidate": "modify_or_connect",
-      "verified_paths": [],
+      "verified_paths": [
+        "sunny_fire_six_fifths_old_fire_and_sun_chip_removed_water_rain_queries_retained"
+      ],
       "enhanced_status": "phase7"
     },
     {
@@ -151,9 +165,11 @@
       "id": 266,
       "legacy_effect_id": 84,
       "family": "item",
-      "normal_status": "pending_audit",
+      "normal_status": "partial",
       "work_class_candidate": "modify_or_connect",
-      "verified_paths": [],
+      "verified_paths": [
+        "numeric_no_item_speed_bonus_stored_rank_unchanged_old_damage_penalty_removed"
+      ],
       "enhanced_status": "phase7"
     },
     {
@@ -171,9 +187,11 @@
       "id": 268,
       "legacy_effect_id": 166,
       "family": "native_behavior",
-      "normal_status": "pending_audit",
+      "normal_status": "partial",
       "work_class_candidate": "reuse_candidate",
-      "verified_paths": [],
+      "verified_paths": [
+        "native_spawn_three_slots_suppression_stats_moves_types_permanent_profile_restore"
+      ],
       "enhanced_status": "phase7"
     },
     {
@@ -206,9 +224,11 @@
       "id": 271,
       "legacy_effect_id": 17,
       "family": "calculation",
-      "normal_status": "pending_audit",
+      "normal_status": "partial",
       "work_class_candidate": "modify_or_connect",
-      "verified_paths": [],
+      "verified_paths": [
+        "native_physical_negative_status_gate_exact_numerator_denominator_three_halves"
+      ],
       "enhanced_status": "phase7"
     },
     {
@@ -246,9 +266,11 @@
       "id": 275,
       "legacy_effect_id": 18,
       "family": "received_event",
-      "normal_status": "pending_audit",
+      "normal_status": "partial",
       "work_class_candidate": "modify_or_connect",
-      "verified_paths": [],
+      "verified_paths": [
+        "physical_adjacent_damage_action_once_native_fixed_damage_abi"
+      ],
       "enhanced_status": "phase7"
     },
     {
@@ -256,9 +278,11 @@
       "id": 276,
       "legacy_effect_id": 0,
       "family": "received_event",
-      "normal_status": "pending_audit",
+      "normal_status": "partial",
       "work_class_candidate": "new_handler",
-      "verified_paths": [],
+      "verified_paths": [
+        "physical_successful_hit_defense_minus_one_speed_plus_one_action_once"
+      ],
       "enhanced_status": "phase7"
     },
     {
@@ -338,9 +362,11 @@
       "id": 284,
       "legacy_effect_id": 106,
       "family": "native_behavior",
-      "normal_status": "pending_audit",
+      "normal_status": "partial",
       "work_class_candidate": "modify_or_connect",
-      "verified_paths": [],
+      "verified_paths": [
+        "native_attacker_defender_hit_check_both_accuracy_passes_mold_breaker_original_passthrough"
+      ],
       "enhanced_status": "phase7"
     },
     {
@@ -348,9 +374,11 @@
       "id": 285,
       "legacy_effect_id": 107,
       "family": "calculation",
-      "normal_status": "pending_audit",
+      "normal_status": "partial",
       "work_class_candidate": "modify_or_connect",
-      "verified_paths": [],
+      "verified_paths": [
+        "resolved_all_type_conversion_regular_projectile_excluded_action_scoped_damage"
+      ],
       "enhanced_status": "phase7"
     },
     {
@@ -401,9 +429,11 @@
       "id": 290,
       "legacy_effect_id": 144,
       "family": "calculation",
-      "normal_status": "pending_audit",
+      "normal_status": "partial",
       "work_class_candidate": "modify_or_connect",
-      "verified_paths": [],
+      "verified_paths": [
+        "live_native_player_range_zero_classifier_six_fifths"
+      ],
       "enhanced_status": "phase7"
     },
     {
@@ -480,9 +510,11 @@
       "id": 297,
       "legacy_effect_id": 0,
       "family": "calculation",
-      "normal_status": "pending_audit",
+      "normal_status": "partial",
       "work_class_candidate": "new_handler",
-      "verified_paths": [],
+      "verified_paths": [
+        "poison_bad_poison_physical_damage_three_halves_special_excluded"
+      ],
       "enhanced_status": "phase7"
     },
     {
@@ -535,9 +567,11 @@
       "id": 302,
       "legacy_effect_id": 0,
       "family": "calculation",
-      "normal_status": "pending_audit",
+      "normal_status": "partial",
       "work_class_candidate": "new_handler",
-      "verified_paths": [],
+      "verified_paths": [
+        "resolved_normal_type_conversion_action_scoped_damage"
+      ],
       "enhanced_status": "phase7"
     },
     {
@@ -674,9 +708,11 @@
       "id": 314,
       "legacy_effect_id": 12,
       "family": "calculation",
-      "normal_status": "pending_audit",
+      "normal_status": "partial",
       "work_class_candidate": "modify_or_connect",
-      "verified_paths": [],
+      "verified_paths": [
+        "live_native_full_hp_with_boost_damage_half_mold_breaker"
+      ],
       "enhanced_status": "phase7"
     },
     {
@@ -694,9 +730,11 @@
       "id": 316,
       "legacy_effect_id": 143,
       "family": "calculation",
-      "normal_status": "pending_audit",
+      "normal_status": "partial",
       "work_class_candidate": "modify_or_connect",
-      "verified_paths": [],
+      "verified_paths": [
+        "live_native_pulse_move_classifier_six_fifths"
+      ],
       "enhanced_status": "phase7"
     },
     {
@@ -704,9 +742,11 @@
       "id": 317,
       "legacy_effect_id": 0,
       "family": "calculation",
-      "normal_status": "pending_audit",
+      "normal_status": "partial",
       "work_class_candidate": "new_handler",
-      "verified_paths": [],
+      "verified_paths": [
+        "native_move_weather_return_sites_actor_only_solar_beam_morning_sun_world_preserved"
+      ],
       "enhanced_status": "phase7"
     },
     {
@@ -756,9 +796,11 @@
       "id": 322,
       "legacy_effect_id": 138,
       "family": "calculation",
-      "normal_status": "pending_audit",
+      "normal_status": "partial",
       "work_class_candidate": "modify_or_connect",
-      "verified_paths": [],
+      "verified_paths": [
+        "live_native_sand_ground_rock_steel_coefficient_six_fifths"
+      ],
       "enhanced_status": "phase7"
     },
     {
@@ -796,9 +838,11 @@
       "id": 325,
       "legacy_effect_id": 175,
       "family": "action_or_world",
-      "normal_status": "pending_audit",
+      "normal_status": "partial",
       "work_class_candidate": "modify_or_connect",
-      "verified_paths": [],
+      "verified_paths": [
+        "resolved_foe_status_handler_25_percent_weather_self_ally_excluded"
+      ],
       "enhanced_status": "phase7"
     },
     {
@@ -834,9 +878,11 @@
       "id": 328,
       "legacy_effect_id": 169,
       "family": "floor_entry",
-      "normal_status": "pending_audit",
+      "normal_status": "partial",
       "work_class_candidate": "modify_or_connect",
-      "verified_paths": [],
+      "verified_paths": [
+        "enemy_half_hp_crossing_floor_once_fatal_friendly_excluded"
+      ],
       "enhanced_status": "phase7"
     },
     {
@@ -962,9 +1008,11 @@
       "id": 340,
       "legacy_effect_id": 0,
       "family": "status_or_stage",
-      "normal_status": "pending_audit",
+      "normal_status": "partial",
       "work_class_candidate": "new_handler",
-      "verified_paths": [],
+      "verified_paths": [
+        "native_physical_defense_drop_entry_self_special_contrary_passthrough"
+      ],
       "enhanced_status": "phase7"
     },
     {
@@ -1014,9 +1062,11 @@
       "id": 345,
       "legacy_effect_id": 0,
       "family": "calculation",
-      "normal_status": "pending_audit",
+      "normal_status": "partial",
       "work_class_candidate": "new_handler",
-      "verified_paths": [],
+      "verified_paths": [
+        "ordinary_type_damage_six_fifths_slots_suppression"
+      ],
       "enhanced_status": "phase7"
     },
     {
@@ -1107,9 +1157,11 @@
       "id": 353,
       "legacy_effect_id": 34,
       "family": "calculation",
-      "normal_status": "pending_audit",
+      "normal_status": "partial",
       "work_class_candidate": "modify_or_connect",
-      "verified_paths": [],
+      "verified_paths": [
+        "physical_stat_six_fifths_special_defense_excluded_old_core_boost_removed"
+      ],
       "enhanced_status": "phase7"
     },
     {
@@ -1140,9 +1192,11 @@
       "id": 356,
       "legacy_effect_id": 0,
       "family": "calculation",
-      "normal_status": "pending_audit",
+      "normal_status": "partial",
       "work_class_candidate": "new_handler",
-      "verified_paths": [],
+      "verified_paths": [
+        "resolved_normal_type_conversion_action_scoped_damage"
+      ],
       "enhanced_status": "phase7"
     },
     {
@@ -1195,9 +1249,11 @@
       "id": 361,
       "legacy_effect_id": 78,
       "family": "calculation",
-      "normal_status": "pending_audit",
+      "normal_status": "partial",
       "work_class_candidate": "modify_or_connect",
-      "verified_paths": [],
+      "verified_paths": [
+        "live_native_coefficient_four_fifths"
+      ],
       "enhanced_status": "phase7"
     },
     {
@@ -1292,9 +1348,11 @@
       "id": 370,
       "legacy_effect_id": 133,
       "family": "calculation",
-      "normal_status": "pending_audit",
+      "normal_status": "partial",
       "work_class_candidate": "modify_or_connect",
-      "verified_paths": [],
+      "verified_paths": [
+        "live_native_player_range_four_five_nine_classifier_six_fifths"
+      ],
       "enhanced_status": "phase7"
     },
     {
@@ -1312,9 +1370,11 @@
       "id": 372,
       "legacy_effect_id": 0,
       "family": "calculation",
-      "normal_status": "pending_audit",
+      "normal_status": "partial",
       "work_class_candidate": "new_handler",
-      "verified_paths": [],
+      "verified_paths": [
+        "burn_special_damage_three_halves_physical_excluded"
+      ],
       "enhanced_status": "phase7"
     },
     {
@@ -1335,9 +1395,11 @@
       "id": 374,
       "legacy_effect_id": 108,
       "family": "calculation",
-      "normal_status": "pending_audit",
+      "normal_status": "partial",
       "work_class_candidate": "modify_or_connect",
-      "verified_paths": [],
+      "verified_paths": [
+        "live_native_cutting_move_classifier_six_fifths"
+      ],
       "enhanced_status": "phase7"
     },
     {
@@ -1367,9 +1429,11 @@
       "id": 377,
       "legacy_effect_id": 75,
       "family": "calculation",
-      "normal_status": "pending_audit",
+      "normal_status": "partial",
       "work_class_candidate": "modify_or_connect",
-      "verified_paths": [],
+      "verified_paths": [
+        "live_native_biting_move_classifier_six_fifths"
+      ],
       "enhanced_status": "phase7"
     },
     {
@@ -1387,9 +1451,11 @@
       "id": 379,
       "legacy_effect_id": 0,
       "family": "calculation",
-      "normal_status": "pending_audit",
+      "normal_status": "partial",
       "work_class_candidate": "new_handler",
-      "verified_paths": [],
+      "verified_paths": [
+        "ordinary_type_damage_six_fifths_slots_suppression"
+      ],
       "enhanced_status": "phase7"
     },
     {
@@ -1407,9 +1473,11 @@
       "id": 381,
       "legacy_effect_id": 86,
       "family": "calculation",
-      "normal_status": "pending_audit",
+      "normal_status": "partial",
       "work_class_candidate": "modify_or_connect",
-      "verified_paths": [],
+      "verified_paths": [
+        "live_native_threat_predicate_abi_three_halves_coefficient"
+      ],
       "enhanced_status": "phase7"
     },
     {
@@ -1515,9 +1583,11 @@
       "id": 391,
       "legacy_effect_id": 125,
       "family": "native_behavior",
-      "normal_status": "pending_audit",
+      "normal_status": "partial",
       "work_class_candidate": "reuse_candidate",
-      "verified_paths": [],
+      "verified_paths": [
+        "native_spawn_three_slots_suppression_original_apparent_species_separation"
+      ],
       "enhanced_status": "phase7"
     },
     {
@@ -1674,8 +1744,8 @@
       "work_class_candidate": "modify_or_connect",
       "verified_paths": [
         "seven_native_status_immunities",
-        "dream_eater_virtual_sleep",
-        "player_enemy_rest_guard",
+        "dream_eater_snore_bad_dreams_status_checks_virtual_sleep",
+        "player_enemy_rest_nightmare_real_sleep_guard",
         "global_action_sleep_unchanged"
       ],
       "enhanced_status": "phase7"
@@ -1685,9 +1755,11 @@
       "id": 406,
       "legacy_effect_id": 44,
       "family": "received_event",
-      "normal_status": "pending_audit",
+      "normal_status": "partial",
       "work_class_candidate": "modify_or_connect",
-      "verified_paths": [],
+      "verified_paths": [
+        "native_contact_12_percent_numeric_speed_drop"
+      ],
       "enhanced_status": "phase7"
     },
     {
@@ -1747,9 +1819,11 @@
       "id": 412,
       "legacy_effect_id": 0,
       "family": "received_event",
-      "normal_status": "pending_audit",
+      "normal_status": "partial",
       "work_class_candidate": "new_handler",
-      "verified_paths": [],
+      "verified_paths": [
+        "dark_ghost_bug_hit_numeric_speed_plus_three_action_once"
+      ],
       "enhanced_status": "phase7"
     },
     {
@@ -1757,9 +1831,11 @@
       "id": 413,
       "legacy_effect_id": 198,
       "family": "received_event",
-      "normal_status": "pending_audit",
+      "normal_status": "partial",
       "work_class_candidate": "modify_or_connect",
-      "verified_paths": [],
+      "verified_paths": [
+        "damaging_hit_defense_plus_one_action_once_status_excluded"
+      ],
       "enhanced_status": "phase7"
     },
     {
@@ -1787,9 +1863,11 @@
       "id": 416,
       "legacy_effect_id": 34,
       "family": "calculation",
-      "normal_status": "pending_audit",
+      "normal_status": "partial",
       "work_class_candidate": "reuse_candidate",
-      "verified_paths": [],
+      "verified_paths": [
+        "physical_stat_six_fifths_composition_unaware_mold_breaker"
+      ],
       "enhanced_status": "phase7"
     },
     {
@@ -1932,9 +2010,11 @@
       "id": 429,
       "legacy_effect_id": 0,
       "family": "native_behavior",
-      "normal_status": "pending_audit",
+      "normal_status": "partial",
       "work_class_candidate": "new_handler",
-      "verified_paths": [],
+      "verified_paths": [
+        "resolved_friendly_attack_full_handler_skip_support_preserved_mold_breaker"
+      ],
       "enhanced_status": "phase7"
     },
     {
@@ -1942,9 +2022,11 @@
       "id": 430,
       "legacy_effect_id": 82,
       "family": "calculation",
-      "normal_status": "pending_audit",
+      "normal_status": "partial",
       "work_class_candidate": "modify_or_connect",
-      "verified_paths": [],
+      "verified_paths": [
+        "live_native_coefficient_owner_six_fifths_held_item_slots_suppression"
+      ],
       "enhanced_status": "phase7"
     },
     {
@@ -1962,9 +2044,11 @@
       "id": 432,
       "legacy_effect_id": 0,
       "family": "calculation",
-      "normal_status": "pending_audit",
+      "normal_status": "partial",
       "work_class_candidate": "new_handler",
-      "verified_paths": [],
+      "verified_paths": [
+        "ordinary_type_damage_six_fifths_slots_suppression"
+      ],
       "enhanced_status": "phase7"
     },
     {
@@ -2002,9 +2086,11 @@
       "id": 436,
       "legacy_effect_id": 0,
       "family": "calculation",
-      "normal_status": "pending_audit",
+      "normal_status": "partial",
       "work_class_candidate": "new_handler",
-      "verified_paths": [],
+      "verified_paths": [
+        "physical_native_player_range_zero_and_adjacent_damage_half_minimum_one"
+      ],
       "enhanced_status": "phase7"
     },
     {
@@ -2022,9 +2108,11 @@
       "id": 438,
       "legacy_effect_id": 217,
       "family": "calculation",
-      "normal_status": "pending_audit",
+      "normal_status": "partial",
       "work_class_candidate": "modify_or_connect",
-      "verified_paths": [],
+      "verified_paths": [
+        "adjacent_living_ally_six_fifths_nonstacking_self_excluded"
+      ],
       "enhanced_status": "phase7"
     },
     {
@@ -2052,9 +2140,11 @@
       "id": 441,
       "legacy_effect_id": 0,
       "family": "calculation",
-      "normal_status": "pending_audit",
+      "normal_status": "partial",
       "work_class_candidate": "new_handler",
-      "verified_paths": [],
+      "verified_paths": [
+        "resolved_normal_type_conversion_action_scoped_damage"
+      ],
       "enhanced_status": "phase7"
     },
     {
@@ -2092,9 +2182,11 @@
       "id": 445,
       "legacy_effect_id": 164,
       "family": "calculation",
-      "normal_status": "pending_audit",
+      "normal_status": "partial",
       "work_class_candidate": "modify_or_connect",
-      "verified_paths": [],
+      "verified_paths": [
+        "live_native_adjacent_ally_scan_coefficient_four_fifths"
+      ],
       "enhanced_status": "phase7"
     },
     {
@@ -2171,9 +2263,11 @@
       "id": 452,
       "legacy_effect_id": 110,
       "family": "calculation",
-      "normal_status": "pending_audit",
+      "normal_status": "partial",
       "work_class_candidate": "modify_or_connect",
-      "verified_paths": [],
+      "verified_paths": [
+        "native_super_effective_shared_multiplier_four_fifths_omni_preserved"
+      ],
       "enhanced_status": "phase7"
     },
     {
@@ -2191,9 +2285,11 @@
       "id": 454,
       "legacy_effect_id": 110,
       "family": "calculation",
-      "normal_status": "pending_audit",
+      "normal_status": "partial",
       "work_class_candidate": "modify_or_connect",
-      "verified_paths": [],
+      "verified_paths": [
+        "native_super_effective_shared_multiplier_four_fifths_three_slots_mold_breaker"
+      ],
       "enhanced_status": "phase7"
     },
     {

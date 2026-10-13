@@ -13,7 +13,19 @@ entry ME_OriginalApparentWeather
  ldr pc,=0x02334d0c
 
 entry ME_ApparentWeatherHook
+#ifdef ME_PHASE3
+ mov r1,lr
+ b ME_NativeApparentWeather
+#else
  b ME_ApparentWeather
+#endif
+
+#ifdef ME_PHASE2
+entry ME_AbilityActiveHook
+ push {r3,lr}
+ bl ME_AbilityActive
+ pop {r3,pc}
+#endif
 
 entry ME_HitAttackerSpeedHook
  push {r4,lr}

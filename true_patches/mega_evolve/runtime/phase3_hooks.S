@@ -1,7 +1,9 @@
 /* Native callbacks, preserving stack arguments and pre-existing patch owners. */
 entry ME_NativeAbilityHook
+ push {r3,lr}
  mov r2,lr
- b ME_LegacyAbilityActive
+ bl ME_LegacyAbilityActive
+ pop {r3,pc}
 
 entry ME_TypeHook
  push {r4-r6,lr}
@@ -286,13 +288,85 @@ entry ME_TargetGuardHook
  mov r0,r9
  mov r1,r4
  mov r2,r8
- bl ME_WindBlocked
+ bl ME_TargetBlocked
  cmp r0,#0
  pop {r0-r3,r12,lr}
  ldrne pc,=0x02332818
  mov r0,r4
  ldr pc,=0x0232eab0
 .ltorg
+
+entry ME_DefenseDropHook
+ push {r0-r3,r12,lr}
+ bl ME_DefenseDropBlocked
+ cmp r0,#0
+ pop {r0-r3,r12,lr}
+ ldreq pc,=PRIOR_DEFENSE_DROP
+ mov r0,#0
+ bx lr
+.ltorg
+
+entry ME_NoGuardHitHook
+ push {r0-r3,r12,lr}
+ bl ME_NoGuardHit
+ cmp r0,#0
+ pop {r0-r3,r12,lr}
+ movne r0,#1
+ bxne lr
+ ldr pc,=PRIOR_HIT_CHECK
+.ltorg
+
+entry ME_SpawnTraitReadHook
+ push {r1-r3,r12,lr}
+ mov r0,r5
+ mov r1,#1
+ bl ME_ReadAppearanceTrait
+ pop {r1-r3,r12,pc}
+entry ME_AppearanceTraitReadHook
+ push {r1-r3,r12,lr}
+ mov r0,r5
+ mov r1,#0
+ bl ME_ReadAppearanceTrait
+ pop {r1-r3,r12,pc}
+.ltorg
+
+entry ME_FriskCoefficientHook
+ push {r0-r2,lr}
+ mov r0,r3
+ bl ME_FriskCoefficient
+ mov r3,r0
+ pop {r0-r2,pc}
+.ltorg
+
+entry ME_R7CoefficientHook
+ push {r0-r2,lr}
+ mov r0,r7
+ bl ME_FriskCoefficient
+ mov r7,r0
+ pop {r0-r2,pc}
+.ltorg
+
+entry ME_FriendGuardCoefficientHook
+ push {r0-r2,lr}
+ mov r0,r7
+ bl ME_FriendGuardCoefficient
+ mov r7,r0
+ pop {r0-r2,pc}
+.ltorg
+
+entry ME_FilterMultiplierHook
+ push {r0,r1,r3,lr}
+ mov r0,r10
+ mov r1,r9
+ bl ME_FilterMultiplier
+ mov r2,r0
+ pop {r0,r1,r3,pc}
+.ltorg
+
+entry ME_GutsRatioHook
+ add r4,r4,r4,lsl #1
+ lsl r11,r11,#1
+ bx lr
 
 entry ME_RedirectHook
  push {r0-r3,r12,lr}

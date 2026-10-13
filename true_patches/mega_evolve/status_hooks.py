@@ -3,7 +3,8 @@
 All entries take actor/target in r0/r1. A tail continuation keeps additional
 register/stack arguments untouched, including Burn's check-only stack flag.
 Statuses 0..6: sleep/poison/bad poison/burn/paralysis/confusion/frostbite;
-7: yawn; 8..11: infatuation/taunt/encore/sealed move; 12: Rest/napping.
+7: yawn; 8..11: infatuation/taunt/encore/sealed move; 12: Rest/napping;
+13: Nightmare's real sleep-state write.
 """
 ENTRIES=(
     ('Sleep',0x023118d8,0xe92d40f8),
@@ -19,6 +20,7 @@ ENTRIES=(
     ('Encore',0x02316720,0xe92d40f8),
     ('Seal',0x02314abc,0xe92d43f0),
     ('Napping',0x02311d60,0xea000000),
+    ('Nightmare',0x02311c4c,0xea000000),
 )
 
 

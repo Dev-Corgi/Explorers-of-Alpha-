@@ -17,6 +17,7 @@ int ME_SpeedBonus(u8*);
 void ME_FlushFaintCopies(u32);
 void ME_CancelFaintCopies(u8*);
 int ME_ChangeStat(u8*,u8*,int,int);
+int ME_MegaSolActive(u8*);
 #endif
 #define BYTE(p,o) (*((u8 *)(p)+(o)))
 enum { COUNT=20, SOURCES=60, SNAPSHOT=1024, MAGIC=0x3147454d,
@@ -225,6 +226,9 @@ u32 *ME_WeatherPower(u8 *e) {
     /* Round 6/5 upward at the last fractional bit: floor(integer*6/5)
      * must not lose one point when that integer is divisible by five. */
     static const u32 ordinary[2]={0x33333334,0x13333},strong[2]={0,0x18000};
+#ifdef ME_PHASE3
+    if(ME_MegaSolActive(e))return (u32 *)ordinary;
+#endif
     return (u32 *)(ME_WeatherStrength(e)?strong:ordinary);
 }
 extern int ME_OriginalWeatherMessage(int);

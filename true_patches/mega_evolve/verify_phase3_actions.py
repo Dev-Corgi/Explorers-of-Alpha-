@@ -72,7 +72,7 @@ def main():
     w.suppressed.clear()
     # Non-target wild species also restore their native permanent bytes on
     # floor transition, rather than adopting the temporarily swapped bytes.
-    w.reset();w.u.mem_write(MONSTERS[0]+4,struct.pack('<H',1))
+    w.reset();w.u.mem_write(MONSTERS[0]+2,struct.pack('<2H',1,1))
     w.profile(0,(ids['부유'],0));w.profile(1,(ids['떠도는영혼'],0))
     w.position(0,10,10);w.position(1,11,10)
     token=w.call('ME_BeginAction',actor,20)

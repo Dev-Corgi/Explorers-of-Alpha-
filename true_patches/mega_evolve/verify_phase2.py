@@ -48,7 +48,9 @@ def main():
     # helper callers. Grade remains separate from the legacy effect ID.
     w.profile(0,(cb,0),(simple,1),(lev,1))
     assert w.active(0,55)==1 and w.grade(0,55)==1 and w.grade(0,lev)==1
-    for address in (0x02301d10,0x02301d78):assert w.call('',ENTITIES[0],55,start=address)==1
+    for address in (0x02301d10,0x02301d78):
+        assert w.call('',ENTITIES[0],55,start=address,registers={UC_ARM_REG_R3:0x12345678})==1
+        assert w.u.reg_read(UC_ARM_REG_R3)==0x12345678
     assert w.active(0,0)==0 and w.active(0,255)==0 and w.active(0,65535)==0
     w.profile(0,(55,1));assert w.ability(0,0)==lev|65536
     w.profile(0,(cb,0),(simple,1),(lev,1))

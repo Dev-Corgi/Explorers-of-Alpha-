@@ -228,7 +228,7 @@ def apply_phase1(rom,module_dir,manifest,state,metadata):
     for site,target in [(0x023BF96C,"ME_WeatherMessageHook"),(0x023BF950,"ME_WeatherFailureHook")]:
         patch(36,site,branch(site,symbols[target]),target,target)
     if manifest["phase"]>=2:
-        for site,target in [(0x02301d10,"ME_AbilityActive"),(0x022f9538,"ME_TraceHook"),
+        for site,target in [(0x02301d10,"ME_AbilityActiveHook"),(0x022f9538,"ME_TraceHook"),
                             (0x02328714,"ME_SkillSwapHook"),(0x0232a1c8,"ME_RolePlayHook"),
                             (0x0233493c,"ME_AbilitiesEqualHook"),(0x022f9220,"ME_RestoreAbilitiesHook")]:
             if manifest["phase"]>=3 and site==0x02301d10:target="ME_NativeAbilityHook"

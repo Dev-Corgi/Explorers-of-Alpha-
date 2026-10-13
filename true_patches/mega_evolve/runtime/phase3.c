@@ -278,6 +278,7 @@ int ME_HighestStat(u8 *e) {
 }
 int ME_SpeedBonus(u8 *e) {
     int w=ME_ApparentWeather(e),bonus=0;u8 *m=monster(e);
+    if(ME_MegaSolActive(e))w=1;
     if(w==1&&has(e,74))bonus+=2;
     if(w==4&&has(e,27))bonus+=2;
     if(w==2&&has(e,132))bonus+=2;
@@ -288,7 +289,7 @@ int ME_SpeedBonus(u8 *e) {
 int ME_ConvertType(u8 *e,int type,u8 *move) {
     Extra *x=ext(e);
     if(x)x->conversion_valid=0;
-    if(type!=1||!move)return type;
+    if(!move)return type;
     /* The current ability slots give a deterministic priority. Conversion only
      * examines the resolved type, after Weather Ball/Hidden Power handling. */
     static const u16 ids[]={A_DRAGONIZE,A_REFRIGERATE,A_AERILATE,A_PIXILATE,A_GALVANIZE};
@@ -296,8 +297,8 @@ int ME_ConvertType(u8 *e,int type,u8 *move) {
     int converted=type,applied=0;
     for(int j=0;j<3&&!applied;j++) {
         int id=ME_GetAbility(e,j,1)&65535;
-        if(effect(id)==107)applied=1;
-        for(int i=0;i<5&&!applied;i++)if(id==ids[i])converted=types[i],applied=1;
+        if(effect(id)==107&&!FN(0x02014cec,int(*)(int))(U16(move,4)))converted=1,applied=1;
+        for(int i=0;i<5&&!applied&&type==1;i++)if(id==ids[i])converted=types[i],applied=1;
     }
     if(x&&applied&&ability_memory&&depth) {
         x->conversion_action=actions[depth-1].token;x->conversion_move=U16(move,4);
@@ -323,8 +324,10 @@ void ME_AdjustDamage(u8 *a,u8 *b,u8 *damage,int type,int move) {
        (BYTE(monster(a),0xbf)==2||BYTE(monster(a),0xbf)==3))value=multiply(value,3,2);
     if(category==1&&has(a,A_FLARE_BOOST)&&monster(a)&&BYTE(monster(a),0xbf)==1)value=multiply(value,3,2);
     if(type==6&&defhas(a,b,95))value=multiply(value,1,2);
-    if(category==0&&adjacent(a,b)&&defhas(a,b,A_AURA_GUARD))value=multiply(value,1,2);
-    if(friends(a,b)&&defhas(a,b,A_TELEPATHY))value=0;
+    if(type==2&&ME_ApparentWeather(b)==1&&defhas(a,b,85))value=multiply(value,6,5);
+    if(category==0&&move>=0&&move<(int)sizeof(player_move_ranges)&&player_move_ranges[move]==0&&adjacent(a,b)&&defhas(a,b,A_AURA_GUARD))value=multiply(value,1,2);
+    int immune=friends(a,b)&&defhas(a,b,A_TELEPATHY);
+    if(immune)value=0;
     for(int i=0;i<COUNT;i++) {
         u8 *e=entity(i);
         if(e!=a&&alive(e)&&friends(e,a)&&adjacent(e,a)&&has(e,A_POWER_SPOT)) {value=multiply(value,6,5);break;}
@@ -333,7 +336,7 @@ void ME_AdjustDamage(u8 *a,u8 *b,u8 *damage,int type,int move) {
      * at that owner's call site instead of stacking another x0.5 here. */
     if(type==5&&x&&has(a,157)&&(x->charged||
        (ability_memory&&depth&&x->charge_action==actions[depth-1].token)))value=multiply(value,3,2);
-    U32(damage,0)=(u32)value;
+    U32(damage,0)=(u32)(immune?0:clamp(value,1,32767));
 }
 void ME_NewSunlight(void) {
     if(!++sunlight_serial)++sunlight_serial;
@@ -416,16 +419,18 @@ void ME_FaintEvent(u8 *fainted,int move,u8 *actor) {
 }
 void ME_HitEvent(u8 *a,u8 *b,int previous_hp,int type,int move) {
     if(move<0||move>559||previous_hp<=hp(b)||!monster(a)||!monster(b))return;
-    if(stakeout_ready(a,b)&&FN(0x020151c8,int(*)(int))(move)!=2)ext(a)->stake_used[slot(b)]=ext(b)->moved_epoch;
+    int category=FN(0x020151c8,int(*)(int))(move);
+    if(category==2)return;
+    if(stakeout_ready(a,b))ext(a)->stake_used[slot(b)]=ext(b)->moved_epoch;
     Extra *attacker=ext(a);
     if(attacker&&!attacker->locked_move&&move!=355&&move!=352&&
-       FN(0x020151c8,int(*)(int))(move)!=2&&has(a,A_GORILLA_TACTICS))
+       has(a,A_GORILLA_TACTICS))
         attacker->locked_move=(u16)(move+1);
     if(type==5&&attacker&&attacker->charged&&has(a,157)) {
         attacker->charged=0;
         attacker->charge_action=ability_memory&&depth?actions[depth-1].token:0;
     }
-    int physical=FN(0x020151c8,int(*)(int))(move)==0;
+    int physical=category==0;
     int close=physical&&adjacent(a,b);
     if(close) {
         static const u16 thorns[]={A_ROUGH_SKIN,A_IRON_BARBS};
@@ -439,19 +444,20 @@ void ME_HitEvent(u8 *a,u8 *b,int previous_hp,int type,int move) {
                 (b,a,clamp(divide(maxhp(a),8),1,32767),0,damage,0,3,563,0,0,0);
         }
         if(has(b,180)&&ME_ClaimEffect(b,180,4,0))ME_ChangeStat(b,a,4,-1);
+        if(has(b,44)&&FN(0x022eab20,int(*)(int))(12))ME_ChangeStat(b,a,4,-1);
     }
     if(physical&&has(b,A_WEAK_ARMOR)&&ME_ClaimEffect(b,A_WEAK_ARMOR,4,0)) {ME_ChangeStat(b,b,1,-1);ME_ChangeStat(b,b,4,1);}
     if(has(b,198)&&ME_ClaimEffect(b,198,4,0))ME_ChangeStat(b,b,1,1);
     if((type==12||type==14||type==16)&&has(b,A_RATTLED)&&ME_ClaimEffect(b,A_RATTLED,4,0))ME_ChangeStat(b,b,4,3);
     if(has(b,157)) {Extra *x=ext(b);if(x)x->charged=5;}
     Extra *x=ext(b);
-    if(x&&!(x->once&2)&&previous_hp*2>maxhp(b)&&hp(b)*2<=maxhp(b)&&has(b,169)) {x->once|=2;ME_ChangeStat(b,b,2,1);}
+    if(x&&alive(b)&&!friends(a,b)&&!(x->once&2)&&previous_hp*2>maxhp(b)&&hp(b)*2<=maxhp(b)&&has(b,169)) {x->once|=2;ME_ChangeStat(b,b,2,1);}
     if(close)ME_WanderingSwap(a,b);
     ME_RunAway(a,b,previous_hp);
 }
 int ME_StatusBlocked(u8 *actor,u8 *target,int status) {
     if(!monster(target))return 0;
-    if(status==12)status=0;
+    if(status==12||status==13)status=0;
     if(status>=0&&status<=6&&defhas(actor,target,A_COMATOSE))return 1;
     if(status==0||status==7) {
         for(int i=0;i<COUNT;i++) {u8 *e=entity(i);if(alive(e)&&friends(e,target)&&(e==target||room(e,target))&&has(e,A_SWEET_VEIL))return 1;}
@@ -490,6 +496,52 @@ int ME_WindBlocked(u8 *actor,u8 *target,u8 *move) {
     if(ME_ClaimEffect(target,A_WIND_RIDER,8,actor))ME_ChangeStat(target,target,0,1);
     return 1;
 }
+int ME_TargetBlocked(u8 *actor,u8 *target,u8 *move) {
+    if(!move||!alive(target))return 0;
+    int id=U16(move,4),category=FN(0x020151c8,int(*)(int))(id);
+    /* Skip the complete harmful move, including its additional effects.
+     * Friendly recovery/support (category2) keeps the original handler. */
+    if(category!=2&&friends(actor,target)&&defhas(actor,target,A_TELEPATHY))return 1;
+    if(category==2&&actor!=target&&!friends(actor,target)&&defhas(actor,target,175)) {
+        int global=0;
+        for(unsigned i=0;i<sizeof(global_status_moves)/sizeof(global_status_moves[0]);i++)
+            if(id==global_status_moves[i])global=1;
+        if(!global&&FN(0x022eab20,int(*)(int))(25))return 1;
+    }
+    return ME_WindBlocked(actor,target,move);
+}
+int ME_DefenseDropBlocked(u8 *actor,u8 *target,int special,int amount) {
+    return amount>0&&!special&&actor!=target&&!defhas(actor,target,129)&&defhas(actor,target,A_BIG_PECKS);
+}
+int ME_NoGuardHit(u8 *actor,u8 *target) {
+    return alive(actor)&&alive(target)&&(has(actor,106)||defhas(actor,target,106));
+}
+int ME_ReadAppearanceTrait(u8 *m,int active_only) {
+    u8 *e=0;for(int i=0;i<COUNT;i++)if(monster(entity(i))==m){e=entity(i);break;}
+    if(!e)return 0;
+    int illusion=0,imposter=0;
+    for(int j=0;j<3;j++) {
+        int id=effect(ME_GetAbility(e,j,active_only)&65535);
+        if(id==125)illusion=1;
+        if(id==166)imposter=1;
+    }
+    return illusion?125:imposter?166:0;
+}
+int ME_MegaSolActive(u8 *e) {
+    if(!has(e,A_MEGA_SOL))return 0;
+    if(calculation_context)return calculations[calculation_context-1].actor==e;
+    return ability_memory&&depth&&actions[depth-1].actor==(u32)e;
+}
+int ME_NativeApparentWeather(u8 *e,u32 caller) {
+    int value=ME_ApparentWeather(e);
+    /* Original world weather remains authoritative for ambient healing,
+     * Speed, weather sources and defensive queries. These native return sites
+     * belong to type/damage/accuracy/move handlers, never world maintenance. */
+    int action_weather=(caller>=0x02324d70&&caller<=0x0232dfe0)||
+        caller==0x0230b5d4||caller==0x0230bb1c||
+        caller==0x0230bf64||caller==0x0230bfc0||caller==0x0230bfdc||caller==0x0230c024;
+    return action_weather&&ME_MegaSolActive(e)?1:value;
+}
 
 int ME_AbilityStat(u8 *m,int value,int defense,int index) {
     value=ME_WeatherDefense(m,value,defense);
@@ -497,7 +549,12 @@ int ME_AbilityStat(u8 *m,int value,int defense,int index) {
                                   calculations[calculation_context-1].target,103))return value;
     if(calculation_context&&!defense&&!index)for(int i=0;i<COUNT;i++) {
         u8 *e=entity(i);
-        if(monster(e)==m&&has(e,A_GORILLA_TACTICS))return multiply(value,3,2);
+        if(monster(e)==m) {
+            if(has(e,A_GORILLA_TACTICS))value=multiply(value,3,2);
+            if(has(e,A_PURE_POWER))value=multiply(value,6,5);
+            if(has(e,A_HUGE_POWER))value=multiply(value,6,5);
+            return value;
+        }
     }
     return value;
 }
@@ -535,11 +592,31 @@ void ME_LeaveCalculation(int previous) {
 }
 int ME_LegacyAbilityActive(u8 *e,int id,u32 caller) {
     ensure();if(!ability_memory)return 0;
+    if(id==148&&calculation_context) {
+        Calculation *c=&calculations[calculation_context-1];
+        if(e==c->target&&c->actor!=e&&ME_AbilityActive(c->actor,83))return 0;
+    }
+    /* Hurl/Strength/Fling use their own Suction Cups boundary, rather than
+     * TryBlowAway. Extend that precise immunity query to Heavy Metal; keep
+     * Pounce, Warp and voluntary place-switch rules unchanged. */
+    if(id==14&&caller==0x0231ee60)return ME_AbilityActive(e,14)||ME_AbilityActive(e,A_HEAVY_METAL);
     if(id==43&&(caller==0x022fa9d8||caller==0x02301604||caller==0x023016fc))return 0;
+    if(id==34&&(caller==0x0230c6c4||caller==0x0230c6d8))return 0;
+    if(id==85&&(caller==0x0230b50c||caller==0x02310310))return 0;
+    if((id==27||id==74||id==84||id==132||id==145||id==94)&&
+       ((caller>=0x023af81c&&caller<0x023afa74)||(caller>=0x023d9490&&caller<0x023d95b0)))return 0;
     if(movement_context&&(id==27||id==74||id==84||id==132||id==145||id==94))return 0;
     if((calculation_context||depth)&&(id==18||id==180||id==198||id==169||id==157||id==170||id==209))return 0;
     if(id==107&&(depth||calculation_context||caller==0x023022b4))return 0;
     return ME_AbilityActive(e,id);
+}
+int ME_FriskCoefficient(int value) {return multiply(value,6,5);}
+int ME_FriendGuardCoefficient(int value) {return multiply(value,4,5);}
+u32 *ME_FilterMultiplier(u8 *actor,u8 *target) {
+    static u32 factor[2]={0xcccccccd,0xcccc};
+    /* This native site is shared by Omniscience and Filter. Keep the existing
+     * Omniscience-only x0.75 constant rather than changing its supplied effect. */
+    return defhas(actor,target,110)?factor:(u32 *)0x02352864;
 }
 int ME_QuickFeet(u8 *a,u8 *b) {if(!has(b,109))return 0;ME_ChangeStat(a,b,4,1);return 1;}
 void ME_MotorDrive(u8 *e) {ME_ChangeStat(e,e,4,1);}

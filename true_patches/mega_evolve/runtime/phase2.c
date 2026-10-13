@@ -3,6 +3,15 @@
  */
 #include "abilities_generated.h"
 typedef struct { u32 entity,monster; u16 species; u8 seen[2],configured,pad[3]; u32 permanent[3],current[3]; } AbilityBank;
+static u16 bank_species(u8 *m) {
+#ifdef ME_PHASE3
+    /* +2 is the original MD identity used by SetMonsterTypeAndAbility.
+     * Native Illusion/Transform change +4, the apparent species. */
+    return U16(m,2);
+#else
+    return U16(m,4);
+#endif
+}
 typedef struct { u16 ability; u8 owner,event; u32 target; } Once;
 typedef struct { u32 token,actor; u16 move; u8 used,pad; Once once[64];
 #ifdef ME_PHASE3
@@ -36,7 +45,7 @@ static void reset_abilities(void) {
      * their next floor from the swapped bytes and keep the borrowed trait. */
     if(state.magic==MAGIC&&state.dungeon==(u32)dungeon())for(int i=0;i<COUNT;i++) {
         AbilityBank *b=&banks[i];u8 *e=entity(i),*m=monster(e);
-        if(m&&b->entity==(u32)e&&b->monster==(u32)m&&b->species==U16(m,4))
+        if(m&&b->entity==(u32)e&&b->monster==(u32)m&&b->species==bank_species(m))
             for(int j=0;j<2;j++)BYTE(m,0x60+j)=project(b->permanent[j]);
     }
 #endif
@@ -59,8 +68,8 @@ static AbilityBank *bank(u8 *e) {
 #endif
     int i=slot(e); u8 *m=monster(e); if(i<0 || !m) return 0;
     AbilityBank *b=&banks[i];
-    if(b->entity!=(u32)e || b->monster!=(u32)m || b->species!=U16(m,4)) {
-        zero(b,sizeof(*b)); b->entity=(u32)e;b->monster=(u32)m;b->species=U16(m,4);
+    if(b->entity!=(u32)e || b->monster!=(u32)m || b->species!=bank_species(m)) {
+        zero(b,sizeof(*b)); b->entity=(u32)e;b->monster=(u32)m;b->species=bank_species(m);
         for(int j=0;j<2;j++) {
             b->seen[j]=BYTE(m,0x60+j);b->current[j]=b->permanent[j]=(u32)canonical(b->seen[j]);
         }

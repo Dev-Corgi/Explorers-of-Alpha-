@@ -9,6 +9,7 @@ from patch_engine.mega_evolve_runtime import apply_phase1,verify_phase1
 from patch_engine.manifest import load_module_manifest
 from ndspy.rom import NintendoDSRom
 from unicorn.arm_const import *
+from unicorn import UC_HOOK_CODE
 
 class World(PreviousWorld):
     def reset(self):super().reset();self.weight_calls=[];self.continued=[]
@@ -53,6 +54,23 @@ def main():
             # Lookup outside weight move still has the original species value.
             assert w.call('',species,start=0x020528fc)==multiplier
     reset();w.profile(1,(ids['헤비메탈'],0));assert w.call('ME_WeightForMove',ENTITIES[0],ENTITIES[1],40000)==65535
+    # Hurl has a separate native immunity boundary from TryBlowAway.
+    for mode in ('none','slot1','slot2','slot3','suppressed','acid','mold'):
+        reset();profile=[(0,0)]*3
+        if mode!='none':profile[int(mode[-1])-1 if mode.startswith('slot') else 2]=(ids['헤비메탈'],0)
+        w.profile(1,*profile)
+        if mode=='suppressed':w.suppressed.add(ENTITIES[1])
+        if mode=='acid':w.u.mem_write(MONSTERS[1]+0xd8,b'\x04')
+        if mode=='mold':w.profile(0,(ids['틀깨기'],0))
+        reached=[]
+        def boundary(u,address,size,_):
+            if address in (0x0231ee68,0x0231ee8c):reached.append(address);u.emu_stop()
+        handle=w.u.hook_add(UC_HOOK_CODE,boundary)
+        try:
+            w.u.reg_write(UC_ARM_REG_SP,STACK);w.u.reg_write(UC_ARM_REG_R0,ENTITIES[0]);w.u.reg_write(UC_ARM_REG_R1,ENTITIES[1])
+            w.u.emu_start(0x0231edfc,0x023ff000,count=200000)
+            assert reached==[0x0231ee68 if mode.startswith('slot') else 0x0231ee8c],(mode,reached)
+        finally:w.u.hook_del(handle)
     # Every audited damaging wind ID blocks; non-damaging wind keeps native effect.
     reset();w.profile(1,(ids['바람타기'],0))
     for row in move_data()['wind_moves']:

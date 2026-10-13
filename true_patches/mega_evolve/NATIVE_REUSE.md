@@ -98,3 +98,52 @@ actor=target, physical/special index, amount2 및 stack 인자를 기록한다.
 기존 효과가 이 API로 들어오는 경로에 한정한다. 기존 기술의 별도
 명중/회피 native 함수, 공격/방어 감소 함수, phase1/2 ME_ChangeSpeed API까지
 한꺼번에 바꾼 것으로 표시하지 않는다. 강화 차이와 신규 native 연결은 후속 범위다.
+
+## 실제 호출 경로와 추가 ABI 교정
+
+- DealDamage0x02332b28은 실제로0x023af5e4를 호출한다. 그 안에서 r7에
+  피해 계수를 보관하고0x023af81c..0x023b0430의 특성 처리를 실행한다.
+  0x023d9480의 비슷한 본문은 현재 ROM에서 직접/리터럴 호출 참조가 없는 사본이다.
+  사본만 수정/실행해 효과 완료로 선언하지 않는다. 이 경로 확인을 다시 조사하지 않는다.
+- 활성 경로에서 통찰5/4→6/5, 옹골찬턱3/2→6/5,
+  예리함·애널라이즈·메가런처·단단한발톱4/3→6/5,
+  모래의힘3/2→6/5, 프렌드가드3/4→4/5를 해당 연산만 가드하고 교체한다.
+  위험예지의 실제 경로는 이미3/2이므로 그대로 유지한다.
+- 기존 AbilityIsActive0x02301d10은 r3를 보존한다. C 조회로 바꾼 뒤에는
+  이 암묵적 ABI를 잃을 수 있어 phase2/3 native entry를 저장/복원 래퍼로 바꿨다.
+  직접 C API의 AAPCS와 native 호출 계약을 분리한다.
+- 필터/하드록의 native matchup3 경감은 원래Omniscience와 같은0.75 상수를 쓴다.
+  0x0230b070의 factor 포인터만 교체해 필터/하드록은0.8,
+  Omniscience만 있는 경우는 기존0.75를 유지한다. 공유 상수를 전역으로 바꾸지 않는다.
+- 순수한힘/천하장사의 기존 core34 부스트 두 조회를 교체하고,
+  실제 물리 공격 base-stat 경계에서 각각6/5를 적용한다. 특수·방어·고정 피해 제외,
+  천진/틀깨기·서로 다른 두 특성의 조합을 검사한다.
+- 근성은 physical category 및 기존 negative-status 판정을 보존한다.
+  old numerator×2를 numerator×3 / denominator×2로 바꿔1.5를 정확히 유지한다.
+- 건조피부는 기존 fire 부스트와 햇살 정기 피해의 두 조회만 제거했다.
+  실제 햇살에서 fire 피해1.2를 적용하고 water 피해→회복 및 rain 회복 조회는 유지한다.
+- 노가드는 MoveHitCheck의 actor/target 유효 특성을 검사해 두 accuracy pass 모두
+  성공으로 처리한다. 적용되지 않으면 이전 entry와 인자/stack을 그대로 호출한다.
+  별도 피해 계산·타입/기술 면역 entry를 바꾸지 않는다.
+
+## 외형과 원래 종의 분리
+
+SetMonsterTypeAndAbility0x022f91dc/0x022f9200은 monster+2로 MD를 조회한다.
+반면 기존 일루전/괴짜의 spawn 본문은 monster+4를 외형 종으로 바꾼다.
+따라서 phase3 bank 및 층 복원은 +2를 기준으로 하며 +4 변화로 새 프로필을
+생성하지 않는다. 초기 문서의 +4 해석을 교정했다. phase2 저장 형식은 유지한다.
+기존 네 appearance byte-reader의 가드된 명령 두 개만 세 슬롯 조회로 바꿨다.
+spawn은 활성 특성을 검사하고 해제 판정은 이미 적용된 외형을 정리할 수 있도록
+보유 여부를 검사한다. 기존 fixed-room/candidate 처리와 변신 본문은 유지한다.
+
+## 추가 검증 경계
+
+damage_rules는 ROM-derived player range와 유형/상태 배율, 전 대상 처리 건너뛰기,
+아군 support/날씨 예외를 검사한다. hit_rules는 실제 HP 하락·행동/층 ledger를 검사한다.
+defense_guard는 기존 방어 감소 entry의 파라미터를 그대로 넘기는지 검사한다.
+mega_sol은 해당 native return site와 현재 공격자만 가상 쾌청을 반환하며
+실제 Solar Beam/Morning Sun 본문을 실행한다. ambient/world/source/상대 조회는 유지한다.
+원래 move table의 불변 상수를 읽기 위해 해당 fixture에 overlay10을 추가 로드한다.
+sleep은 Snore/Bad Dreams/기술 status-check의 수면 조회만 교체하고 global action sleep은
+보존한다. Nightmare가 실제 BD3 수면 상태를 쓰는 entry는 기존 sleep 면역으로 보호한다.
+미검증 부분 및 native terminal service 모델링은 각 script docstring/출력에 명시한다.

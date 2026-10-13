@@ -14,15 +14,19 @@ def build(rom):
     wind={normalize(v['name']) for v in source.values() if v.get('flags',{}).get('wind')}
     strings=parse_str_file(rom.getFileByName('MESSAGE/text_e.str'))
     moves=WazaPHandler.deserialize(rom.getFileByName('BALANCE/waza_p.bin')).moves
-    rows=[]
+    rows=[];target_rules=[];global_status=[]
     for i,move in enumerate(moves):
         name=decode_english(strings[8173+i])
+        target_rules.append({'id':i,'category':int(move.category),'range':int(move.settings_range.range)})
+        if normalize(name) in {'sunnyday','raindance','sandstorm','hail','snowscape','electricterrain','grassyterrain','mistyterrain','psychicterrain'}:
+            global_status.append(i)
         if normalize(name) in wind:
             rows.append({'id':i,'name':name,'category':int(move.category),
                          'chained_hits':move.number_chained_hits,'power':move.base_power})
     return {'schema':1,'classifier':'local_showdown_flags_wind',
             'source_sha256':hashlib.sha256(SHOWDOWN.read_bytes()).hexdigest(),
-            'wind_moves':rows,'scope':'Wind Rider damage immunity only; status wind moves keep native effects.'}
+            'wind_moves':rows,'target_rules':target_rules,'global_status_moves':global_status,
+            'scope':'Wind immunity, move-native player range and weather/terrain exclusions for targeted guards.'}
 
 def load():
     data=json.loads((MODULE/'data/phase3_moves.json').read_text(encoding='utf-8'))
@@ -35,7 +39,10 @@ def validate_rom(rom):
 
 def header():
     ids=[r['id'] for r in load()['wind_moves'] if r['category']!=2]
-    return 'static const unsigned short wind_damage_moves[]={'+','.join(map(str,ids))+'};\n'
+    data=load()
+    return ('static const unsigned short wind_damage_moves[]={'+','.join(map(str,ids))+'};\n'
+            'static const unsigned char player_move_ranges[]={'+','.join(str(r['range']) for r in data['target_rules'])+'};\n'
+            'static const unsigned short global_status_moves[]={'+','.join(map(str,data['global_status_moves']))+'};\n')
 
 if __name__=='__main__':
     from ndspy.rom import NintendoDSRom

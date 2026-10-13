@@ -24,7 +24,8 @@ def native_defines(ov29):
     values={}
     for name,site in [('USE_MOVE',0x0232145c),('MOVE_TYPE',0x0230227c),
                       ('APPLY_DAMAGE',0x02308fe0),('DUNGEON_FREE',0x022deab0),
-                      ('FAINT',0x022f7f34),('CALC_DAMAGE',0x0230bbac)]:
+                      ('FAINT',0x022f7f34),('CALC_DAMAGE',0x0230bbac),('DEFENSE_DROP',0x02313814),
+                      ('HIT_CHECK',0x02323c48)]:
         instruction=word(ov29,site,OV29)
         if instruction>>24!=0xea:raise RuntimeError(f'mega_evolve phase3 prior {name} missing')
         values['PRIOR_'+name]=branch_target(site,instruction)
@@ -72,9 +73,55 @@ def install_hooks(ov29,ov36,symbols,patch):
     patch(29,old_pickup['start'],branch(old_pickup['start'],old_pickup['end']),'ReplaceLegacyPickup')
     patch(29,0x022f53c0,branch(0x022f53c0,symbols['ME_BerryConsumeHook'],True),'ME_BerryConsumeHook','ME_BerryConsumeHook')
     patch(29,0x0232bcf0,branch(0x0232bcf0,symbols['ME_SleepTarget'],True),'ME_SleepTarget','ME_SleepTarget')
+    for site in (0x0231b2b4,0x023265c0,0x02325cd8,0x023344d4,0x023344fc):
+        if word(ov29,site,OV29)!=branch(site,0x023007a8,True):
+            raise RuntimeError(f'mega_evolve sleeping consumer changed at {site:#x}')
+        patch(29,site,branch(site,symbols['ME_SleepTarget'],True),'MoveSleepPredicate','ME_SleepTarget')
     patch(29,0x023355a8,branch(0x023355a8,symbols['ME_WeatherAppliedHook'],True),'ME_WeatherAppliedHook','ME_WeatherAppliedHook')
     patch(29,0x023277d4,branch(0x023277d4,symbols['ME_WeightMultiplierHook'],True),'ME_WeightMultiplierHook','ME_WeightMultiplierHook')
     patch(29,0x0232eaac,branch(0x0232eaac,symbols['ME_TargetGuardHook']),'ME_TargetGuardHook','ME_TargetGuardHook')
+    patch(29,0x02313814,branch(0x02313814,symbols['ME_DefenseDropHook']),'ME_DefenseDropHook','ME_DefenseDropHook')
+    patch(29,0x02323c48,branch(0x02323c48,symbols['ME_NoGuardHitHook']),'ME_NoGuardHitHook','ME_NoGuardHitHook')
+    # Known existing appearance consumers; only replace their ability reads.
+    # No cave/storage is allocated in the protected original ov36 prefix.
+    for site,hook in ((0x023bf470,'ME_SpawnTraitReadHook'),(0x023d5c10,'ME_SpawnTraitReadHook'),
+                      (0x023bf9cc,'ME_AppearanceTraitReadHook'),(0x023d5dc0,'ME_AppearanceTraitReadHook')):
+        if bytes(ov36[site-OV36:site-OV36+8])!=struct.pack('<2I',0xe5d50060,0xe5d51061):
+            raise RuntimeError(f'mega_evolve appearance trait read changed at {site:#x}')
+        patch(36,site,branch(site,symbols[hook],True),hook,hook)
+        patch(36,site+4,0xe3a01000,'AppearanceSecondByteReadRemoved')
+    # Follow the live caller, not the disconnected older copy at 0x023d9480.
+    if word(ov29,0x02332b28,OV29)!=branch(0x02332b28,0x023af5e4,True):
+        raise RuntimeError('mega_evolve active coefficient owner changed')
+    frisk=0x023afbd8
+    if bytes(ov36[frisk-OV36:frisk-OV36+12])!=struct.pack('<3I',0x11a02107,0x10827007,0x11a07127):
+        raise RuntimeError('mega_evolve active Frisk coefficient changed')
+    patch(36,frisk,(branch(frisk,symbols['ME_R7CoefficientHook'],True)&0x0fffffff)|0x10000000,'FriskSixFifths','ME_R7CoefficientHook')
+    for offset in (4,8):patch(36,frisk+offset,0xe1a00000,'FriskOldScaleRemoved')
+    for name,site in (('Sharpness',0x023afcf0),('Analytic',0x023b00f8),('MegaLauncher',0x023b0324),('ToughClaws',0x023b03a8)):
+        expected=struct.pack('<4I',0xe1a00107,0xe3a01003,branch(site+8,0x0208fea4,True),0xe1a07000)
+        if bytes(ov36[site-OV36:site-OV36+16])!=expected:
+            raise RuntimeError(f'mega_evolve active {name} coefficient changed')
+        patch(36,site,branch(site,symbols['ME_R7CoefficientHook'],True),name+'SixFifths','ME_R7CoefficientHook')
+        for offset in (4,8,12):patch(36,site+offset,0xe1a00000,name+'OldScaleRemoved')
+    for name,site in (('StrongJaws',0x023afba4),('SandForce',0x023b0094)):
+        if bytes(ov36[site-OV36:site-OV36+8])!=struct.pack('<2I',0xe0877087,0xe1a070a7):
+            raise RuntimeError(f'mega_evolve active {name} coefficient changed')
+        patch(36,site,branch(site,symbols['ME_R7CoefficientHook'],True),name+'SixFifths','ME_R7CoefficientHook')
+        patch(36,site+4,0xe1a00000,name+'OldScaleRemoved')
+    site=0x023afa38
+    if bytes(ov36[site-OV36:site-OV36+8])!=struct.pack('<2I',0x00877087,0x01a07127):
+        raise RuntimeError('mega_evolve active Friend Guard coefficient changed')
+    patch(36,site,branch(site,symbols['ME_FriendGuardCoefficientHook'],True)&0x0fffffff,'FriendGuardFourFifths','ME_FriendGuardCoefficientHook')
+    patch(36,site+4,0xe1a00000,'FriendGuardOldScaleRemoved')
+    site=0x0230b070
+    if word(ov29,site,OV29)!=0xe59f272c:
+        raise RuntimeError('mega_evolve shared Filter multiplier site changed')
+    patch(29,site,branch(site,symbols['ME_FilterMultiplierHook'],True),'FilterFourFifths','ME_FilterMultiplierHook')
+    site=0x0230c694
+    if word(ov29,site,OV29)!=0x11a04084:
+        raise RuntimeError('mega_evolve Guts numerator site changed')
+    patch(29,site,(branch(site,symbols['ME_GutsRatioHook'],True)&0x0fffffff)|0x10000000,'GutsThreeHalves','ME_GutsRatioHook')
     patch(29,0x02327928,branch(0x02327928,symbols['ME_BoostSpeedMoveHook']),'ME_BoostSpeedMoveHook','ME_BoostSpeedMoveHook')
     patch(29,0x02314810,branch(0x02314810,symbols['ME_IncreaseMovementHook']),'ME_IncreaseMovementHook','ME_IncreaseMovementHook')
     entry=0x0230d03c;owner=word(ov29,entry,OV29)
