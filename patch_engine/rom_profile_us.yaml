@@ -10,6 +10,7 @@ overlay19_load: 0x0238A140
 arm9_load: 0x02000000
 
 symbols:
+  BugFixStoryStatCapSite: 0x023AA0D8
   BugFixSpawnTransformSite: 0x023BF4A8
   BugFixSpawnCandidatesSite: 0x023BF4C4
   BetterSeedThrownSite: 0x0231D004

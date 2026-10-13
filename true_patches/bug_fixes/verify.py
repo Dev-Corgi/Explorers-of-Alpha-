@@ -124,6 +124,9 @@ def main() -> None:
             from verify_spawn_transform import check_spawn_transform
 
             check_spawn_transform(original, fixed)
+            from verify_stat_caps import check_stat_caps
+
+            check_stat_caps(original, fixed)
             # Only the declared hook words and newly allocated cave may change.
             source_rom = original if source == SOURCE else NintendoDSRom.fromFile(str(source))
             profile = load_rom_profile(ROOT / "patch_engine", "us_vanilla")
@@ -176,6 +179,15 @@ def main() -> None:
             verify_floor_limits(fixed, settings)
             check_floor_limits(fixed)
             print(f"Export data apply/verify: {source.name}")
+            # Exercise the new cap bypass in memory against the existing full
+            # stack; do not reapply its already installed ability hooks.
+            cap_overlay = loadOverlayTable(fixed.arm9OverlayTable, lambda _i, f: fixed.files[f])[36]
+            cap_code = bytearray(cap_overlay.data)
+            cap_offset = 0x023AA0D8 - cap_overlay.ramAddress
+            assert struct.unpack_from('<I', cap_code, cap_offset)[0] in (0xE3A07000, 0xEA000040)
+            struct.pack_into('<I', cap_code, cap_offset, 0xEA000040)
+            fixed.files[cap_overlay.fileID] = bytes(cap_code)
+            check_stat_caps(untouched, fixed)
             output.unlink()
         # Reserving the first slot must relocate every helper without changing
         # the protected bytes or breaking any ability path.
@@ -195,6 +207,7 @@ def main() -> None:
         check_abilities(relocated)
         check_floor_limits(relocated)
         check_spawn_transform(original, relocated)
+        check_stat_caps(original, relocated)
         print("Dynamic cave relocation and reservation passed")
         # An unknown original instruction must fail instead of silently patching it.
         damaged = NintendoDSRom.fromFile(str(SOURCE))

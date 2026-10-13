@@ -4,6 +4,8 @@ BugFixSpawnTransformSite equ 0x023BF4A8
 BugFixSpawnCandidatesSite equ 0x023BF4C4
 
 ; Existing Alpha code sites / functions, not locations for new code caves.
+BugFixStoryStatCapSite equ 0x023AA0D8
+BugFixStoryStatCapContinue equ 0x023AA1E0
 BugFixHailRegenBonusSite equ 0x023111F0
 BugFixMirrorAttackSite equ 0x023BB0B0
 BugFixMirrorDefenseSite equ 0x023BB10C

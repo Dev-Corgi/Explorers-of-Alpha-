@@ -6,6 +6,8 @@
 .close
 
 .open "overlay_0036.bin", ov_36
+.org BugFixStoryStatCapSite
+	b BugFixStoryStatCapContinue
 .org BugFixSpawnTransformSite
 	b BugFix_SpawnTransform
 .org BugFixSpawnCandidatesSite

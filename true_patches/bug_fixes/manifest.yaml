@@ -1,5 +1,5 @@
 id: bug_fixes
-version: 4
+version: 5
 region: US
 description: >
   Remove Alpha's passive Hail recovery bonus for monsters without Ice Body.
@@ -10,11 +10,18 @@ description: >
   difficulty uses the Hardcore floor count, including mission destinations.
   Restore enemy Imposter/Illusion spawn processing on normal floors and
   safely skip empty disguise candidate lists.
+  Skip Alpha's story-dependent ally stat/HP cap block; retain difficulty
+  mechanics and the separate Drink doping allocation limits.
 
 kind: asm
 rom_profile: us_vanilla
 
 hooks:
+  - name: RemoveStoryStatCaps
+    symbol: BugFixStoryStatCapSite
+    binary: ov36
+    vanilla_word: 0xE3A07000
+    patched_word: 0xEA000040
   - name: SpawnTransformFloorGate
     symbol: BugFixSpawnTransformSite
     binary: ov36
