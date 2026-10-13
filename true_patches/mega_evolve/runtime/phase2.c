@@ -19,6 +19,7 @@ static u32 next_action;
 static int depth;
 #endif
 static void ensure(void);
+static u8 project(u32);
 static void reset_abilities(void) {
 #ifdef ME_PHASE3
     if(!ability_memory) {
@@ -26,6 +27,14 @@ static void reset_abilities(void) {
         if(ability_memory)zero(ability_memory,sizeof(*ability_memory));
     }
     if(!ability_memory)return;
+    /* A same-dungeon floor transition restores temporary native projections
+     * before discarding banks. Otherwise non-target wild species would seed
+     * their next floor from the swapped bytes and keep the borrowed trait. */
+    if(state.magic==MAGIC&&state.dungeon==(u32)dungeon())for(int i=0;i<COUNT;i++) {
+        AbilityBank *b=&banks[i];u8 *e=entity(i),*m=monster(e);
+        if(m&&b->entity==(u32)e&&b->monster==(u32)m&&b->species==U16(m,4))
+            for(int j=0;j<2;j++)BYTE(m,0x60+j)=project(b->permanent[j]);
+    }
 #endif
     zero(banks,sizeof(banks));zero(actions,sizeof(actions));depth=0;
 }

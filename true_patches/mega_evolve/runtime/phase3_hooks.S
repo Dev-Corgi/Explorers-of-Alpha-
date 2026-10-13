@@ -143,4 +143,29 @@ entry ME_HitBoundaryHook
  pop {r0-r3,r12,pc}
 
 .ltorg
+
+entry ME_RedirectHook
+ push {r0-r3,r12,lr}
+ mov r0,r9
+ bl ME_RedirectBlocked
+ cmp r0,#0
+ pop {r0-r3,r12,lr}
+ ldrne pc,=0x0232eaac
+ mov r0,r6
+ ldr pc,=0x0232e9c4
+.ltorg
 #include "phase3_status_generated.S"
+
+entry ME_CanUseMoveHook
+ push {r0-r3,r12,lr}
+ bl ME_MoveAllowed
+ cmp r0,#0
+ popeq {r0-r3,r12,lr}
+ moveq r0,#0
+ bxeq lr
+ cmp r0,#2
+ pop {r0-r3,r12,lr}
+ moveq r2,#0 /* Exhausted lock: Struggle bypasses PP check, retains seal/disable checks. */
+ push {r3-r5,lr}
+ ldr pc,=0x02324b28
+.ltorg

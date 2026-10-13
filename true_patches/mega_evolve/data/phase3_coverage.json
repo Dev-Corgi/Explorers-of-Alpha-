@@ -3,6 +3,9 @@
   "phase": 3,
   "activation": "not_enabled",
   "test": "python -B -X utf8 -m true_patches.mega_evolve.verify_phase3",
+  "additional_tests": [
+    "python -B -X utf8 -m true_patches.mega_evolve.verify_phase3_actions"
+  ],
   "boundary": "Verified paths are not whole-ability certification. Native ID matches are not proof of correct normal effects.",
   "shared_phase7_research": [
     "status_hooks.py",
@@ -133,8 +136,13 @@
       "id": 269,
       "legacy_effect_id": 0,
       "family": "action_or_world",
-      "normal_status": "pending_audit",
-      "verified_paths": [],
+      "normal_status": "partial",
+      "verified_paths": [
+        "native_redirect_block_bypass",
+        "original_target_retained",
+        "target_immunity_retained",
+        "suppression"
+      ],
       "enhanced_status": "phase7"
     },
     {
@@ -442,8 +450,16 @@
       "id": 303,
       "legacy_effect_id": 0,
       "family": "received_event",
-      "normal_status": "pending_audit",
-      "verified_paths": [],
+      "normal_status": "partial",
+      "verified_paths": [
+        "one_slot_grade_transfer",
+        "highest_grade_unique_candidates",
+        "protected_profiles",
+        "once_per_action",
+        "contact_only_dispatch",
+        "permanent_restore",
+        "non_target_native_floor_restore"
+      ],
       "enhanced_status": "phase7"
     },
     {
@@ -634,8 +650,15 @@
       "id": 324,
       "legacy_effect_id": 213,
       "family": "calculation",
-      "normal_status": "pending_audit",
-      "verified_paths": [],
+      "normal_status": "partial",
+      "verified_paths": [
+        "physical_attack_stat_multiplier",
+        "unaware_and_nested_calculations",
+        "first_successful_hit_move_lock",
+        "native_move_permission",
+        "exhausted_pp_regular_attack_struggle",
+        "suppression_and_floor_reset"
+      ],
       "enhanced_status": "phase7"
     },
     {

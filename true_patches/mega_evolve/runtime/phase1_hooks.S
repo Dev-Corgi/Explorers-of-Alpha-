@@ -47,11 +47,19 @@ entry ME_FromMonsterHook
  push {r4,r5,r6,lr}
  mov r4,r0
  mov r5,r2
+#ifdef ME_PHASE3
+ mov r6,r1
+#endif
  bl ME_FromMonsterPrior
  mov r1,r0
  mov r0,r4
  mov r2,r5
+#ifdef ME_PHASE3
+ mov r3,r6
+ bl ME_AbilityStat
+#else
  bl ME_WeatherDefense
+#endif
  pop {r4,r5,r6,pc}
 
 entry ME_WeatherSelectHook

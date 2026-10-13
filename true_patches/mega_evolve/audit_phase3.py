@@ -21,6 +21,11 @@ VERIFIED={
     '철가시':['once_per_action','fatal_hit','native_fixed_damage_wrapper_abi'],
     '컬리헤어':['once_per_action','numeric_speed_drop'],
     '전기로바꾸기':['calculation_does_not_consume','consume_on_successful_hit','same_action_multitarget_bonus'],
+    '무아지경':['physical_attack_stat_multiplier','unaware_and_nested_calculations','first_successful_hit_move_lock',
+                'native_move_permission','exhausted_pp_regular_attack_struggle','suppression_and_floor_reset'],
+    '떠도는영혼':['one_slot_grade_transfer','highest_grade_unique_candidates','protected_profiles','once_per_action',
+                  'contact_only_dispatch','permanent_restore','non_target_native_floor_restore'],
+    '굳건한신념':['native_redirect_block_bypass','original_target_retained','target_immunity_retained','suppression'],
 }
 
 
@@ -28,6 +33,7 @@ def build():
     data=load()
     return {'schema':1,'phase':3,'activation':'not_enabled',
             'test':'python -B -X utf8 -m true_patches.mega_evolve.verify_phase3',
+            'additional_tests':['python -B -X utf8 -m true_patches.mega_evolve.verify_phase3_actions'],
             'boundary':'Verified paths are not whole-ability certification. Native ID matches are not proof of correct normal effects.',
             'shared_phase7_research':['status_hooks.py','phase3.json','phase3_status_generated.S generated at link time','runtime/phase3_hooks.S'],
             'abilities':[{'key':row['key'],'id':row['id'],'legacy_effect_id':row['legacy_effect_id'],
