@@ -78,4 +78,3 @@ def main():
     print('PASS grouped native rejection/state-write paths: 7 ordinary abilities / 8 status paths, slots1/2/3, no-trait controls, item/Gastro Acid suppression and Mold Breaker. Post-status visuals/responses excluded; no ROM/save output.')
 
 if __name__=='__main__':main()
-
