@@ -134,7 +134,7 @@ def install_hooks(ov29,ov36,symbols,patch):
             0x02314e54:branch(0x02314e54,0x02314810,True),
             0x0231b094:branch(0x0231b094,0x0231493c,True),
             0x0231b394:branch(0x0231b394,0x0231493c,True),0x02324b24:0xe92d4038,
-            0x0232e9c0:0xe1a00006}
+            0x0232e9c0:0xe1a00006,0x022ee1d8:0xe1a00009,0x0231fde0:0xe92d4ff8}
     for site,expected in guards.items():
         if word(ov29,site,OV29)!=expected:
             raise RuntimeError(f'mega_evolve phase3 instruction guard failed at {site:#x}')
@@ -160,7 +160,7 @@ def install_hooks(ov29,ov36,symbols,patch):
            (0x022ffdf4,'ME_MovementHook'),(0x022f7f34,'ME_FaintHook'),
            (0x02311088,'ME_TurnHook'),(0x022fd9d4,'ME_InitHook'),
            (0x022deab0,'ME_FreeHook'),(0x02309a28,'ME_HitBoundaryHook'),(0x02324b24,'ME_CanUseMoveHook'),
-           (0x0232e9c0,'ME_RedirectHook')]
+           (0x0232e9c0,'ME_RedirectHook'),(0x022ee1d8,'ME_FloorTrapHook'),(0x0231fde0,'ME_BlowAwayHook')]
     for site,name in hooks:
         patch(29,site,branch(site,symbols[name],site==0x02309a28),name,name)
     for site,name in ((0x02314e54,'ME_QuickFeet'),(0x0231b094,'ME_MotorDrive'),(0x0231b394,'ME_Steadfast')):

@@ -90,6 +90,24 @@
 
 1. public load_registry의 phase3 허용과 manifest 전환은 전체 일반 효과 감사 후 한다.
    현재 내부 연결 테스트 통과는 페이즈 3 전체 완료와 다르다.
+
+### 세 번째 진행분 — 페이즈 4로 넘어가지 않음
+
+- 사용자 요청에 따라 페이즈 4는 읽기 조사만 한 뒤 중단했다. 형태/저장 데이터 변경은 없다.
+- 라이트메탈은 TryTriggerTrap의 기존 회피/IQ 검사 이후 +0x022ee1d8 경계에 연결한다.
+  성공하면 기존 종료 경로 +0x022ee2f4로 이어지며 함정을 제거하지 않는다.
+  실패하면 기존 위치 인자를 복구해 +0x022ee1dc로 이어진다.
+  r2에서 들어온 native 강제 발동 flag(r11)가 있으면 특성 난수 판정도 하지 않는다.
+  직접 ApplyTrapEffect를 호출하는 도구 경로는 수정하지 않는다.
+- 헤비메탈은 TryBlowAway의 native entry +0x0231fde0에 연결한다.
+  DefenderAbilityIsActive를 사용해 특성 억제와 틀깨기를 따르며,
+  차단하지 않으면 원래 push{r3-r11,lr} 및 actor/target/direction 인자를 보존한다.
+- verify_phase3_world.py는 실제 ARM 경계 래퍼와 모형화한 native continuation으로
+  50% 인자·성공/실패·강제 발동 제외·직접 함정 함수 보존·억제·틀깨기·ABI를 검사한다.
+  이 검증은 모든 함정/도구·강제 이동의 완성이나 무게 계산의 완료를 인증하지 않는다.
+- GetWeightMultiplier(ARM9 +0x020528fc)는 MD 무게 값을 고정소수 피해 계수로 반환하며,
+  Low Kick/Grass Knot 공통 DoMoveDamageWeightDependent는 +0x023277b8이다.
+  실제 무게 값과 기술 계수의 의미를 확인한 뒤 연결해야 하므로 무게 구현은 미완으로 둔다.
 2. 피해 타입은 damage_data+0xc, 분류는 +0xd다.
    하네스는 BSS section 범위만 초기화한다. Native 계산 전체 및 실제 게임
    사건 조합 검증은 개별 효과 감사와 함께 추가한다.

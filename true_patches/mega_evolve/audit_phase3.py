@@ -26,6 +26,8 @@ VERIFIED={
     '떠도는영혼':['one_slot_grade_transfer','highest_grade_unique_candidates','protected_profiles','once_per_action',
                   'contact_only_dispatch','permanent_restore','non_target_native_floor_restore'],
     '굳건한신념':['native_redirect_block_bypass','original_target_retained','target_immunity_retained','suppression'],
+    '라이트메탈':['floor_trap_boundary_50_percent','forced_activation_exclusion','direct_trap_entry_preserved','suppression'],
+    '헤비메탈':['native_blow_away_guard','suppression_and_mold_breaker','native_continuation_abi'],
 }
 
 
@@ -33,7 +35,8 @@ def build():
     data=load()
     return {'schema':1,'phase':3,'activation':'not_enabled',
             'test':'python -B -X utf8 -m true_patches.mega_evolve.verify_phase3',
-            'additional_tests':['python -B -X utf8 -m true_patches.mega_evolve.verify_phase3_actions'],
+            'additional_tests':['python -B -X utf8 -m true_patches.mega_evolve.verify_phase3_actions',
+                                'python -B -X utf8 -m true_patches.mega_evolve.verify_phase3_world'],
             'boundary':'Verified paths are not whole-ability certification. Native ID matches are not proof of correct normal effects.',
             'shared_phase7_research':['status_hooks.py','phase3.json','phase3_status_generated.S generated at link time','runtime/phase3_hooks.S'],
             'abilities':[{'key':row['key'],'id':row['id'],'legacy_effect_id':row['legacy_effect_id'],

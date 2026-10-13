@@ -144,6 +144,33 @@ entry ME_HitBoundaryHook
 
 .ltorg
 
+entry ME_FloorTrapHook
+ push {r0-r3,r12,lr}
+ cmp r11,#0 /* Native force-effect argument: direct activation skips avoidance. */
+ bne 1f
+ mov r0,r5
+ bl ME_TrapAvoid
+ cmp r0,#0
+ pop {r0-r3,r12,lr}
+ ldrne pc,=0x022ee2f4
+ mov r0,r9
+ ldr pc,=0x022ee1dc
+1:
+ pop {r0-r3,r12,lr}
+ mov r0,r9
+ ldr pc,=0x022ee1dc
+
+entry ME_BlowAwayHook
+ push {r0-r3,r12,lr}
+ bl ME_ForcedMoveBlocked
+ cmp r0,#0
+ pop {r0-r3,r12,lr}
+ movne r0,#0
+ bxne lr
+ push {r3-r11,lr}
+ ldr pc,=0x0231fde4
+.ltorg
+
 entry ME_RedirectHook
  push {r0-r3,r12,lr}
  mov r0,r9

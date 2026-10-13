@@ -284,6 +284,7 @@ int ME_MoveAllowed(u8 *e,u8 *move) {
     return id==locked;
 }
 int ME_RedirectBlocked(u8 *actor) {return has(actor,A_STALWART);}
+int ME_ForcedMoveBlocked(u8 *actor,u8 *target) {return defhas(actor,target,A_HEAVY_METAL);}
 void ME_FreeAbilities(void) {
     if(ability_memory)FN(0x02001188,void(*)(void*))(ability_memory);
     ability_memory=0;

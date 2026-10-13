@@ -4,7 +4,8 @@
   "activation": "not_enabled",
   "test": "python -B -X utf8 -m true_patches.mega_evolve.verify_phase3",
   "additional_tests": [
-    "python -B -X utf8 -m true_patches.mega_evolve.verify_phase3_actions"
+    "python -B -X utf8 -m true_patches.mega_evolve.verify_phase3_actions",
+    "python -B -X utf8 -m true_patches.mega_evolve.verify_phase3_world"
   ],
   "boundary": "Verified paths are not whole-ability certification. Native ID matches are not proof of correct normal effects.",
   "shared_phase7_research": [
@@ -467,8 +468,13 @@
       "id": 304,
       "legacy_effect_id": 0,
       "family": "item",
-      "normal_status": "pending_audit",
-      "verified_paths": [],
+      "normal_status": "partial",
+      "verified_paths": [
+        "floor_trap_boundary_50_percent",
+        "forced_activation_exclusion",
+        "direct_trap_entry_preserved",
+        "suppression"
+      ],
       "enhanced_status": "phase7"
     },
     {
@@ -1899,8 +1905,12 @@
       "id": 458,
       "legacy_effect_id": 0,
       "family": "action_or_world",
-      "normal_status": "pending_audit",
-      "verified_paths": [],
+      "normal_status": "partial",
+      "verified_paths": [
+        "native_blow_away_guard",
+        "suppression_and_mold_breaker",
+        "native_continuation_abi"
+      ],
       "enhanced_status": "phase7"
     },
     {
