@@ -1,5 +1,25 @@
 /* Shared normal-effect services. Grade-specific deltas are recorded in phase3.json;
  * enhanced individual effects are enabled by phase7, not by presentation text. */
+#include "phase3_items_generated.h"
+
+int ME_KeepBerry(u8 *consumer,u8 *item) {
+    if(!alive(consumer)||!item||!(BYTE(item,0)&1))return 0;
+    int berry=0;
+    for(unsigned i=0;i<sizeof(berry_items)/sizeof(berry_items[0]);i++)if(U16(item,4)==berry_items[i])berry=1;
+    if(!berry)return 0;
+    if(has(consumer,A_CUD_CHEW)&&FN(0x022eab20,int(*)(int))(20))return 1;
+    return has(consumer,A_HARVEST)&&FN(0x022eab20,int(*)(int))(ME_ApparentWeather(consumer)==1?25:12);
+}
+int ME_PickupItem(u8 *e) {
+    u8 *m=monster(e);
+    if(!alive(e)||BYTE(m,6)||!has(e,A_PICKUP)||FN(0x0200edc0,int(*)(void))())return 0;
+    if(!FN(0x022eab20,int(*)(int))(50))return 0;
+    int index=FN(0x022eaa98,int(*)(int))(sizeof(pickup_items)/sizeof(pickup_items[0]));
+    if(index<0||index>=(int)(sizeof(pickup_items)/sizeof(pickup_items[0])))return 0;
+    u8 item[6];zero(item,sizeof(item));
+    FN(0x023443b4,void(*)(u8*,int,int,int))(item,pickup_items[index],1,0);
+    return FN(0x0200f874,int(*)(u8*))(item);
+}
 
 const BaseProfile *ME_FindProfile(int species) {
     int lo=0,hi=(int)(sizeof(base_profiles)/sizeof(base_profiles[0]));
@@ -177,6 +197,7 @@ void ME_NewSunlight(void) {
 }
 void ME_FloorEntry(u8 *e) {
     Extra *x=ext(e);if(!alive(e)||!x||(x->once&1))return;x->once|=1;
+    ME_PickupItem(e);
     static const u16 ids[]={A_DRIZZLE,A_DROUGHT,A_SAND_STREAM,A_SNOW_WARNING,A_PRIMORDIAL_SEA,A_DESOLATE_LAND,A_DELTA_STREAM};
     static const u8 weather[]={4,1,2,5,4,1,0};
     for(int i=0;i<7;i++)if(has(e,ids[i]))ME_SetWeatherSource(e,weather[i],i>=4,ids[i]);
@@ -247,6 +268,7 @@ void ME_HitEvent(u8 *a,u8 *b,int previous_hp,int type,int move) {
 }
 int ME_StatusBlocked(u8 *actor,u8 *target,int status) {
     if(!monster(target))return 0;
+    if(status==12)status=0;
     if(status>=0&&status<=6&&defhas(actor,target,A_COMATOSE))return 1;
     if(status==0||status==7) {
         for(int i=0;i<COUNT;i++) {u8 *e=entity(i);if(alive(e)&&friends(e,target)&&(e==target||room(e,target))&&has(e,A_SWEET_VEIL))return 1;}
@@ -255,6 +277,10 @@ int ME_StatusBlocked(u8 *actor,u8 *target,int status) {
         for(int i=0;i<COUNT;i++) {u8 *e=entity(i);if(alive(e)&&friends(e,target)&&(e==target||room(e,target))&&has(e,A_AROMA_VEIL))return 1;}
     }
     return 0;
+}
+int ME_SleepTarget(u8 *e) {
+    if(!monster(e))return 0;
+    return has(e,A_COMATOSE)||FN(0x023007a8,int(*)(u8*))(e);
 }
 int ME_TrapAvoid(u8 *e) {return has(e,A_LIGHT_METAL)&&FN(0x022eab20,int(*)(int))(50);}
 int ME_Weight(u8 *e,int weight) {

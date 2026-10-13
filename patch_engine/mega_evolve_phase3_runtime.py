@@ -134,10 +134,19 @@ def install_hooks(ov29,ov36,symbols,patch):
             0x02314e54:branch(0x02314e54,0x02314810,True),
             0x0231b094:branch(0x0231b094,0x0231493c,True),
             0x0231b394:branch(0x0231b394,0x0231493c,True),0x02324b24:0xe92d4038,
-            0x0232e9c0:0xe1a00006,0x022ee1d8:0xe1a00009,0x0231fde0:0xe92d4ff8}
+            0x0232e9c0:0xe1a00006,0x022ee1d8:0xe1a00009,0x0231fde0:0xe92d4ff8,
+            0x022f53c0:branch(0x022f53c0,0x022eb60c,True),
+            0x0232bcf0:branch(0x0232bcf0,0x023007a8,True)}
     for site,expected in guards.items():
         if word(ov29,site,OV29)!=expected:
             raise RuntimeError(f'mega_evolve phase3 instruction guard failed at {site:#x}')
+    from true_patches.mega_evolve.phase3_items import load as item_data
+    old_pickup=item_data()['legacy_pickup_block']
+    if hashlib.sha256(ov29[old_pickup['start']-OV29:old_pickup['end']-OV29]).hexdigest()!=old_pickup['sha256']:
+        raise RuntimeError('mega_evolve legacy Pickup block changed')
+    patch(29,old_pickup['start'],branch(old_pickup['start'],old_pickup['end']),'ReplaceLegacyPickup')
+    patch(29,0x022f53c0,branch(0x022f53c0,symbols['ME_BerryConsumeHook'],True),'ME_BerryConsumeHook','ME_BerryConsumeHook')
+    patch(29,0x0232bcf0,branch(0x0232bcf0,symbols['ME_SleepTarget'],True),'ME_SleepTarget','ME_SleepTarget')
     entry=0x0230d03c;owner=word(ov29,entry,OV29)
     if owner>>24!=0xea:raise RuntimeError('mega_evolve balance damage tail missing')
     start=branch_target(entry,owner)

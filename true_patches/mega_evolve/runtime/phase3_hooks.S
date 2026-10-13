@@ -144,6 +144,17 @@ entry ME_HitBoundaryHook
 
 .ltorg
 
+entry ME_BerryConsumeHook
+ push {r0-r3,r12,lr}
+ mov r0,r8
+ add r1,sp,#32 /* UseSingleUseItem's copied item at original sp+8. */
+ bl ME_KeepBerry
+ cmp r0,#0
+ pop {r0-r3,r12,lr}
+ bxne lr
+ ldr pc,=0x022eb60c
+.ltorg
+
 entry ME_FloorTrapHook
  push {r0-r3,r12,lr}
  cmp r11,#0 /* Native force-effect argument: direct activation skips avoidance. */

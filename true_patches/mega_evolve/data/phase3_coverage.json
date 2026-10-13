@@ -5,7 +5,9 @@
   "test": "python -B -X utf8 -m true_patches.mega_evolve.verify_phase3",
   "additional_tests": [
     "python -B -X utf8 -m true_patches.mega_evolve.verify_phase3_actions",
-    "python -B -X utf8 -m true_patches.mega_evolve.verify_phase3_world"
+    "python -B -X utf8 -m true_patches.mega_evolve.verify_phase3_world",
+    "python -B -X utf8 -m true_patches.mega_evolve.verify_phase3_items",
+    "python -B -X utf8 -m true_patches.mega_evolve.verify_phase3_sleep"
   ],
   "boundary": "Verified paths are not whole-ability certification. Native ID matches are not proof of correct normal effects.",
   "shared_phase7_research": [
@@ -415,8 +417,13 @@
       "id": 299,
       "legacy_effect_id": 218,
       "family": "item",
-      "normal_status": "pending_audit",
-      "verified_paths": [],
+      "normal_status": "partial",
+      "verified_paths": [
+        "eight_actual_berry_identities",
+        "20_percent_retention",
+        "single_use_consumption_boundary",
+        "stacking_and_duplicates"
+      ],
       "enhanced_status": "phase7"
     },
     {
@@ -919,8 +926,13 @@
       "id": 352,
       "legacy_effect_id": 0,
       "family": "item",
-      "normal_status": "pending_audit",
-      "verified_paths": [],
+      "normal_status": "partial",
+      "verified_paths": [
+        "eight_actual_berry_identities",
+        "ordinary_sun_12_25_percent",
+        "single_use_consumption_boundary",
+        "stacking_and_suppression"
+      ],
       "enhanced_status": "phase7"
     },
     {
@@ -948,7 +960,8 @@
       "family": "status_or_stage",
       "normal_status": "partial",
       "verified_paths": [
-        "native_sleep_yawn_room_aura"
+        "native_sleep_yawn_room_aura",
+        "rest_napping_guard"
       ],
       "enhanced_status": "phase7"
     },
@@ -1418,7 +1431,10 @@
       "family": "status_or_stage",
       "normal_status": "partial",
       "verified_paths": [
-        "seven_native_status_immunities"
+        "seven_native_status_immunities",
+        "dream_eater_virtual_sleep",
+        "player_enemy_rest_guard",
+        "global_action_sleep_unchanged"
       ],
       "enhanced_status": "phase7"
     },
@@ -1842,8 +1858,14 @@
       "id": 451,
       "legacy_effect_id": 71,
       "family": "floor_entry",
-      "normal_status": "pending_audit",
-      "verified_paths": [],
+      "normal_status": "partial",
+      "verified_paths": [
+        "audited_31_seed_berry_pool",
+        "reviver_joy_golden_exclusions",
+        "bag_capacity_team_and_50_percent",
+        "once_per_floor",
+        "replace_raw_byte_legacy_block"
+      ],
       "enhanced_status": "phase7"
     },
     {

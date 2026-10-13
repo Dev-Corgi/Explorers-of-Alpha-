@@ -78,6 +78,8 @@ def build_runtime(module_dir,work,cave,entity_speed,from_monster,phase=1,skill_s
     if phase>=3:
         from true_patches.mega_evolve.phase3 import load,header
         (work/"phase3_generated.h").write_text(header(load()),encoding="ascii")
+        from true_patches.mega_evolve.phase3_items import load as items,header as item_header
+        (work/"phase3_items_generated.h").write_text(item_header(items()),encoding="ascii")
         defines.update(ME_PHASE3=1)
     defines.update(additional_defines or {})
     if phase>=3:
@@ -177,6 +179,8 @@ def apply_phase1(rom,module_dir,manifest,state,metadata):
     runtime_size=0x4000 if manifest["phase"]>=2 else SIZE
     scatter_info={}
     if manifest["phase"]>=3:
+        from true_patches.mega_evolve.phase3_items import validate_rom as validate_items
+        validate_items(rom)
         from .mega_evolve_phase3_runtime import scatter_link
         caves,ov36,symbols,scatter_info=scatter_link(module_dir,ov29,ov36,state,entity_speed,from_monster)
     else:

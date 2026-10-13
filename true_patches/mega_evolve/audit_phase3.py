@@ -15,8 +15,8 @@ VERIFIED={
     '전기엔진':['native_event_numeric_speed'],
     '일렉트릭스킨':['resolved_type_conversion','action_scoped_multiplier','slot_priority'],
     '프리즈스킨':['resolved_type_conversion','slot_priority'],
-    '절대안깸':['seven_native_status_immunities'],
-    '스위트베일':['native_sleep_yawn_room_aura'],
+    '절대안깸':['seven_native_status_immunities','dream_eater_virtual_sleep','player_enemy_rest_guard','global_action_sleep_unchanged'],
+    '스위트베일':['native_sleep_yawn_room_aura','rest_napping_guard'],
     '아로마베일':['native_infatuation_taunt_encore_seal_room_aura'],
     '철가시':['once_per_action','fatal_hit','native_fixed_damage_wrapper_abi'],
     '컬리헤어':['once_per_action','numeric_speed_drop'],
@@ -28,6 +28,10 @@ VERIFIED={
     '굳건한신념':['native_redirect_block_bypass','original_target_retained','target_immunity_retained','suppression'],
     '라이트메탈':['floor_trap_boundary_50_percent','forced_activation_exclusion','direct_trap_entry_preserved','suppression'],
     '헤비메탈':['native_blow_away_guard','suppression_and_mold_breaker','native_continuation_abi'],
+    '수확':['eight_actual_berry_identities','ordinary_sun_12_25_percent','single_use_consumption_boundary','stacking_and_suppression'],
+    '되새김질':['eight_actual_berry_identities','20_percent_retention','single_use_consumption_boundary','stacking_and_duplicates'],
+    '픽업':['audited_31_seed_berry_pool','reviver_joy_golden_exclusions','bag_capacity_team_and_50_percent',
+            'once_per_floor','replace_raw_byte_legacy_block'],
 }
 
 
@@ -36,7 +40,9 @@ def build():
     return {'schema':1,'phase':3,'activation':'not_enabled',
             'test':'python -B -X utf8 -m true_patches.mega_evolve.verify_phase3',
             'additional_tests':['python -B -X utf8 -m true_patches.mega_evolve.verify_phase3_actions',
-                                'python -B -X utf8 -m true_patches.mega_evolve.verify_phase3_world'],
+                                'python -B -X utf8 -m true_patches.mega_evolve.verify_phase3_world',
+                                'python -B -X utf8 -m true_patches.mega_evolve.verify_phase3_items',
+                                'python -B -X utf8 -m true_patches.mega_evolve.verify_phase3_sleep'],
             'boundary':'Verified paths are not whole-ability certification. Native ID matches are not proof of correct normal effects.',
             'shared_phase7_research':['status_hooks.py','phase3.json','phase3_status_generated.S generated at link time','runtime/phase3_hooks.S'],
             'abilities':[{'key':row['key'],'id':row['id'],'legacy_effect_id':row['legacy_effect_id'],

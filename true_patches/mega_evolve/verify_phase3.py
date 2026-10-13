@@ -194,15 +194,15 @@ def main():
     # Actual native status entries: block new ordinary immunity families, then
     # tail-call each original implementation with all register/stack arguments.
     w.reset();w.profile(0,(0,0));w.profile(1,(ids['절대안깸'],0))
-    for name,site,_ in ENTRIES[:7]:
+    for name,site,_ in (*ENTRIES[:7],ENTRIES[12]):
         count=len(w.prior_calls)
         assert w.call('',ENTITIES[0],ENTITIES[1],3,4,start=site)==0
         assert len(w.prior_calls)==count and w.u.reg_read(UC_ARM_REG_SP)==STACK
     w.profile(1,(0,0));w.profile(2,(ids['스위트베일'],0))
     w.u.mem_write(ENTITIES[1]+0x25,b'\x01');w.u.mem_write(ENTITIES[2]+0x25,b'\x01')
-    for name,site,_ in (ENTRIES[0],ENTRIES[7]):assert w.call('',ENTITIES[0],ENTITIES[1],3,4,start=site)==0
+    for name,site,_ in (ENTRIES[0],ENTRIES[7],ENTRIES[12]):assert w.call('',ENTITIES[0],ENTITIES[1],3,4,start=site)==0
     w.profile(2,(ids['아로마베일'],0))
-    for name,site,_ in ENTRIES[8:]:assert w.call('',ENTITIES[0],ENTITIES[1],3,4,start=site)==0
+    for name,site,_ in ENTRIES[8:12]:assert w.call('',ENTITIES[0],ENTITIES[1],3,4,start=site)==0
     w.u.mem_write(ENTITIES[2]+0x25,b'\x02')
     for status,(name,site,_) in enumerate(ENTRIES):
         w.u.mem_write(STACK,struct.pack('<5I',91,92,93,94,95))
@@ -265,7 +265,7 @@ def main():
     print('PASS internal phase3: 546 profiles, assigned bilingual text, protected species/slots,')
     print('  scatter cave/BSS guards, real ARM numeric speed and conversion/action wrappers,')
     print('  resolved-type skin bonus, hit ledger and fixed-damage ABI, allocation failure/free.')
-    print('  12 native status-entry wrappers: Comatose/Sweet Veil/Aroma Veil and native continuation ABI.')
+    print('  13 native status-entry wrappers: Comatose/Sweet Veil/Aroma Veil, Rest, native continuation ABI.')
     print('Remaining ordinary effects are not certified. Public phase remains 2; no ROM/save output.')
 
 
