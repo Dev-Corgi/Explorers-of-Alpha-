@@ -14,8 +14,17 @@
     "python -B -X utf8 -m true_patches.mega_evolve.verify_loader",
     "python -B -X utf8 -m true_patches.mega_evolve.verify_phase3_events",
     "python -B -X utf8 -m true_patches.mega_evolve.verify_phase3_weight_wind",
-    "python -B -X utf8 -m true_patches.mega_evolve.verify_phase3_tailwind"
+    "python -B -X utf8 -m true_patches.mega_evolve.verify_phase3_tailwind",
+    "python -B -X utf8 -m true_patches.mega_evolve.verify_phase3_native_status"
   ],
+  "work_classification": {
+    "basis": "definition tags and existing effect identity; candidate classification is not implementation proof",
+    "counts": {
+      "reuse_candidate": 92,
+      "modify_or_connect": 87,
+      "new_handler": 27
+    }
+  },
   "boundary": "Verified paths are not whole-ability certification. Native ID matches are not proof of correct normal effects.",
   "shared_phase7_research": [
     "status_hooks.py",
@@ -30,6 +39,7 @@
       "legacy_effect_id": 250,
       "family": "native_behavior",
       "normal_status": "pending_audit",
+      "work_class_candidate": "reuse_candidate",
       "verified_paths": [],
       "enhanced_status": "phase7"
     },
@@ -39,6 +49,7 @@
       "legacy_effect_id": 49,
       "family": "weather_source",
       "normal_status": "pending_audit",
+      "work_class_candidate": "modify_or_connect",
       "verified_paths": [],
       "enhanced_status": "phase7"
     },
@@ -48,6 +59,7 @@
       "legacy_effect_id": 11,
       "family": "turn_tick",
       "normal_status": "pending_audit",
+      "work_class_candidate": "reuse_candidate",
       "verified_paths": [],
       "enhanced_status": "phase7"
     },
@@ -57,6 +69,7 @@
       "legacy_effect_id": 98,
       "family": "status_or_stage",
       "normal_status": "pending_audit",
+      "work_class_candidate": "reuse_candidate",
       "verified_paths": [],
       "enhanced_status": "phase7"
     },
@@ -66,6 +79,7 @@
       "legacy_effect_id": 0,
       "family": "floor_entry",
       "normal_status": "partial",
+      "work_class_candidate": "new_handler",
       "verified_paths": [
         "floor_wide_foes_only_evasion_drop",
         "floor_once_and_regrant",
@@ -79,6 +93,7 @@
       "legacy_effect_id": 210,
       "family": "calculation",
       "normal_status": "pending_audit",
+      "work_class_candidate": "modify_or_connect",
       "verified_paths": [],
       "enhanced_status": "phase7"
     },
@@ -88,6 +103,7 @@
       "legacy_effect_id": 5,
       "family": "action_or_world",
       "normal_status": "pending_audit",
+      "work_class_candidate": "reuse_candidate",
       "verified_paths": [],
       "enhanced_status": "phase7"
     },
@@ -97,6 +113,7 @@
       "legacy_effect_id": 85,
       "family": "turn_tick",
       "normal_status": "pending_audit",
+      "work_class_candidate": "modify_or_connect",
       "verified_paths": [],
       "enhanced_status": "phase7"
     },
@@ -106,6 +123,7 @@
       "legacy_effect_id": 42,
       "family": "calculation",
       "normal_status": "pending_audit",
+      "work_class_candidate": "reuse_candidate",
       "verified_paths": [],
       "enhanced_status": "phase7"
     },
@@ -115,6 +133,7 @@
       "legacy_effect_id": 0,
       "family": "faint",
       "normal_status": "partial",
+      "work_class_candidate": "new_handler",
       "verified_paths": [
         "accepted_native_sunlight_boundary",
         "quiet_weather_update_no_repeat",
@@ -131,6 +150,7 @@
       "legacy_effect_id": 84,
       "family": "item",
       "normal_status": "pending_audit",
+      "work_class_candidate": "modify_or_connect",
       "verified_paths": [],
       "enhanced_status": "phase7"
     },
@@ -140,6 +160,7 @@
       "legacy_effect_id": 9,
       "family": "status_or_stage",
       "normal_status": "pending_audit",
+      "work_class_candidate": "modify_or_connect",
       "verified_paths": [],
       "enhanced_status": "phase7"
     },
@@ -149,6 +170,7 @@
       "legacy_effect_id": 166,
       "family": "native_behavior",
       "normal_status": "pending_audit",
+      "work_class_candidate": "reuse_candidate",
       "verified_paths": [],
       "enhanced_status": "phase7"
     },
@@ -158,6 +180,7 @@
       "legacy_effect_id": 0,
       "family": "action_or_world",
       "normal_status": "partial",
+      "work_class_candidate": "new_handler",
       "verified_paths": [
         "native_redirect_block_bypass",
         "original_target_retained",
@@ -172,6 +195,7 @@
       "legacy_effect_id": 10,
       "family": "action_or_world",
       "normal_status": "pending_audit",
+      "work_class_candidate": "reuse_candidate",
       "verified_paths": [],
       "enhanced_status": "phase7"
     },
@@ -181,6 +205,7 @@
       "legacy_effect_id": 17,
       "family": "calculation",
       "normal_status": "pending_audit",
+      "work_class_candidate": "modify_or_connect",
       "verified_paths": [],
       "enhanced_status": "phase7"
     },
@@ -190,6 +215,7 @@
       "legacy_effect_id": 16,
       "family": "calculation",
       "normal_status": "pending_audit",
+      "work_class_candidate": "modify_or_connect",
       "verified_paths": [],
       "enhanced_status": "phase7"
     },
@@ -199,6 +225,7 @@
       "legacy_effect_id": 37,
       "family": "native_behavior",
       "normal_status": "pending_audit",
+      "work_class_candidate": "reuse_candidate",
       "verified_paths": [],
       "enhanced_status": "phase7"
     },
@@ -208,6 +235,7 @@
       "legacy_effect_id": 163,
       "family": "item",
       "normal_status": "pending_audit",
+      "work_class_candidate": "reuse_candidate",
       "verified_paths": [],
       "enhanced_status": "phase7"
     },
@@ -217,6 +245,7 @@
       "legacy_effect_id": 18,
       "family": "received_event",
       "normal_status": "pending_audit",
+      "work_class_candidate": "modify_or_connect",
       "verified_paths": [],
       "enhanced_status": "phase7"
     },
@@ -226,6 +255,7 @@
       "legacy_effect_id": 0,
       "family": "received_event",
       "normal_status": "pending_audit",
+      "work_class_candidate": "new_handler",
       "verified_paths": [],
       "enhanced_status": "phase7"
     },
@@ -235,6 +265,7 @@
       "legacy_effect_id": 253,
       "family": "weather_source",
       "normal_status": "pending_audit",
+      "work_class_candidate": "modify_or_connect",
       "verified_paths": [],
       "enhanced_status": "phase7"
     },
@@ -244,6 +275,7 @@
       "legacy_effect_id": 168,
       "family": "received_event",
       "normal_status": "pending_audit",
+      "work_class_candidate": "modify_or_connect",
       "verified_paths": [],
       "enhanced_status": "phase7"
     },
@@ -253,6 +285,7 @@
       "legacy_effect_id": 105,
       "family": "turn_tick",
       "normal_status": "pending_audit",
+      "work_class_candidate": "modify_or_connect",
       "verified_paths": [],
       "enhanced_status": "phase7"
     },
@@ -262,6 +295,7 @@
       "legacy_effect_id": 45,
       "family": "native_behavior",
       "normal_status": "pending_audit",
+      "work_class_candidate": "reuse_candidate",
       "verified_paths": [],
       "enhanced_status": "phase7"
     },
@@ -271,6 +305,7 @@
       "legacy_effect_id": 30,
       "family": "native_behavior",
       "normal_status": "pending_audit",
+      "work_class_candidate": "reuse_candidate",
       "verified_paths": [],
       "enhanced_status": "phase7"
     },
@@ -280,6 +315,7 @@
       "legacy_effect_id": 95,
       "family": "calculation",
       "normal_status": "pending_audit",
+      "work_class_candidate": "modify_or_connect",
       "verified_paths": [],
       "enhanced_status": "phase7"
     },
@@ -289,6 +325,7 @@
       "legacy_effect_id": 225,
       "family": "action_or_world",
       "normal_status": "pending_audit",
+      "work_class_candidate": "modify_or_connect",
       "verified_paths": [],
       "enhanced_status": "phase7"
     },
@@ -298,6 +335,7 @@
       "legacy_effect_id": 106,
       "family": "native_behavior",
       "normal_status": "pending_audit",
+      "work_class_candidate": "modify_or_connect",
       "verified_paths": [],
       "enhanced_status": "phase7"
     },
@@ -307,6 +345,7 @@
       "legacy_effect_id": 107,
       "family": "calculation",
       "normal_status": "pending_audit",
+      "work_class_candidate": "modify_or_connect",
       "verified_paths": [],
       "enhanced_status": "phase7"
     },
@@ -316,6 +355,7 @@
       "legacy_effect_id": 119,
       "family": "native_behavior",
       "normal_status": "pending_audit",
+      "work_class_candidate": "reuse_candidate",
       "verified_paths": [],
       "enhanced_status": "phase7"
     },
@@ -325,6 +365,7 @@
       "legacy_effect_id": 145,
       "family": "native_behavior",
       "normal_status": "partial",
+      "work_class_candidate": "modify_or_connect",
       "verified_paths": [
         "numeric_weather_speed",
         "movement_query_context"
@@ -337,6 +378,7 @@
       "legacy_effect_id": 120,
       "family": "weather_source",
       "normal_status": "pending_audit",
+      "work_class_candidate": "reuse_candidate",
       "verified_paths": [],
       "enhanced_status": "phase7"
     },
@@ -346,6 +388,7 @@
       "legacy_effect_id": 96,
       "family": "calculation",
       "normal_status": "pending_audit",
+      "work_class_candidate": "reuse_candidate",
       "verified_paths": [],
       "enhanced_status": "phase7"
     },
@@ -355,6 +398,7 @@
       "legacy_effect_id": 144,
       "family": "calculation",
       "normal_status": "pending_audit",
+      "work_class_candidate": "modify_or_connect",
       "verified_paths": [],
       "enhanced_status": "phase7"
     },
@@ -364,6 +408,7 @@
       "legacy_effect_id": 97,
       "family": "status_or_stage",
       "normal_status": "pending_audit",
+      "work_class_candidate": "modify_or_connect",
       "verified_paths": [],
       "enhanced_status": "phase7"
     },
@@ -373,6 +418,7 @@
       "legacy_effect_id": 88,
       "family": "native_behavior",
       "normal_status": "pending_audit",
+      "work_class_candidate": "reuse_candidate",
       "verified_paths": [],
       "enhanced_status": "phase7"
     },
@@ -382,6 +428,7 @@
       "legacy_effect_id": 254,
       "family": "weather_source",
       "normal_status": "pending_audit",
+      "work_class_candidate": "modify_or_connect",
       "verified_paths": [],
       "enhanced_status": "phase7"
     },
@@ -391,6 +438,7 @@
       "legacy_effect_id": 43,
       "family": "floor_entry",
       "normal_status": "partial",
+      "work_class_candidate": "modify_or_connect",
       "verified_paths": [
         "quarter_hp_enemy_hit",
         "closest_ally_safe_floor_destination",
@@ -405,6 +453,7 @@
       "legacy_effect_id": 39,
       "family": "received_event",
       "normal_status": "pending_audit",
+      "work_class_candidate": "reuse_candidate",
       "verified_paths": [],
       "enhanced_status": "phase7"
     },
@@ -414,6 +463,7 @@
       "legacy_effect_id": 126,
       "family": "action_or_world",
       "normal_status": "pending_audit",
+      "work_class_candidate": "reuse_candidate",
       "verified_paths": [],
       "enhanced_status": "phase7"
     },
@@ -423,6 +473,7 @@
       "legacy_effect_id": 0,
       "family": "calculation",
       "normal_status": "pending_audit",
+      "work_class_candidate": "new_handler",
       "verified_paths": [],
       "enhanced_status": "phase7"
     },
@@ -432,6 +483,7 @@
       "legacy_effect_id": 7,
       "family": "native_behavior",
       "normal_status": "pending_audit",
+      "work_class_candidate": "reuse_candidate",
       "verified_paths": [],
       "enhanced_status": "phase7"
     },
@@ -441,6 +493,7 @@
       "legacy_effect_id": 218,
       "family": "item",
       "normal_status": "partial",
+      "work_class_candidate": "modify_or_connect",
       "verified_paths": [
         "eight_actual_berry_identities",
         "20_percent_retention",
@@ -455,6 +508,7 @@
       "legacy_effect_id": 2,
       "family": "calculation",
       "normal_status": "pending_audit",
+      "work_class_candidate": "modify_or_connect",
       "verified_paths": [],
       "enhanced_status": "phase7"
     },
@@ -464,6 +518,7 @@
       "legacy_effect_id": 41,
       "family": "status_or_stage",
       "normal_status": "pending_audit",
+      "work_class_candidate": "reuse_candidate",
       "verified_paths": [],
       "enhanced_status": "phase7"
     },
@@ -473,6 +528,7 @@
       "legacy_effect_id": 0,
       "family": "calculation",
       "normal_status": "pending_audit",
+      "work_class_candidate": "new_handler",
       "verified_paths": [],
       "enhanced_status": "phase7"
     },
@@ -482,6 +538,7 @@
       "legacy_effect_id": 0,
       "family": "received_event",
       "normal_status": "partial",
+      "work_class_candidate": "new_handler",
       "verified_paths": [
         "one_slot_grade_transfer",
         "highest_grade_unique_candidates",
@@ -499,6 +556,7 @@
       "legacy_effect_id": 0,
       "family": "item",
       "normal_status": "partial",
+      "work_class_candidate": "new_handler",
       "verified_paths": [
         "floor_trap_boundary_50_percent",
         "forced_activation_exclusion",
@@ -515,6 +573,7 @@
       "legacy_effect_id": 123,
       "family": "status_or_stage",
       "normal_status": "pending_audit",
+      "work_class_candidate": "reuse_candidate",
       "verified_paths": [],
       "enhanced_status": "phase7"
     },
@@ -523,8 +582,11 @@
       "id": 306,
       "legacy_effect_id": 65,
       "family": "status_or_stage",
-      "normal_status": "pending_audit",
-      "verified_paths": [],
+      "normal_status": "partial",
+      "work_class_candidate": "reuse_candidate",
+      "verified_paths": [
+        "native_frozen_entry_three_slots_suppression_mold_breaker"
+      ],
       "enhanced_status": "phase7"
     },
     {
@@ -533,6 +595,7 @@
       "legacy_effect_id": 63,
       "family": "calculation",
       "normal_status": "pending_audit",
+      "work_class_candidate": "reuse_candidate",
       "verified_paths": [],
       "enhanced_status": "phase7"
     },
@@ -541,8 +604,11 @@
       "id": 308,
       "legacy_effect_id": 64,
       "family": "status_or_stage",
-      "normal_status": "pending_audit",
-      "verified_paths": [],
+      "normal_status": "partial",
+      "work_class_candidate": "reuse_candidate",
+      "verified_paths": [
+        "native_confusion_body_three_slots_suppression_mold_breaker"
+      ],
       "enhanced_status": "phase7"
     },
     {
@@ -551,6 +617,7 @@
       "legacy_effect_id": 122,
       "family": "native_behavior",
       "normal_status": "pending_audit",
+      "work_class_candidate": "reuse_candidate",
       "verified_paths": [],
       "enhanced_status": "phase7"
     },
@@ -560,6 +627,7 @@
       "legacy_effect_id": 115,
       "family": "native_behavior",
       "normal_status": "pending_audit",
+      "work_class_candidate": "reuse_candidate",
       "verified_paths": [],
       "enhanced_status": "phase7"
     },
@@ -569,6 +637,7 @@
       "legacy_effect_id": 135,
       "family": "native_behavior",
       "normal_status": "pending_audit",
+      "work_class_candidate": "reuse_candidate",
       "verified_paths": [],
       "enhanced_status": "phase7"
     },
@@ -578,6 +647,7 @@
       "legacy_effect_id": 70,
       "family": "calculation",
       "normal_status": "pending_audit",
+      "work_class_candidate": "modify_or_connect",
       "verified_paths": [],
       "enhanced_status": "phase7"
     },
@@ -587,6 +657,7 @@
       "legacy_effect_id": 89,
       "family": "native_behavior",
       "normal_status": "pending_audit",
+      "work_class_candidate": "reuse_candidate",
       "verified_paths": [],
       "enhanced_status": "phase7"
     },
@@ -596,6 +667,7 @@
       "legacy_effect_id": 12,
       "family": "calculation",
       "normal_status": "pending_audit",
+      "work_class_candidate": "modify_or_connect",
       "verified_paths": [],
       "enhanced_status": "phase7"
     },
@@ -605,6 +677,7 @@
       "legacy_effect_id": 116,
       "family": "calculation",
       "normal_status": "pending_audit",
+      "work_class_candidate": "modify_or_connect",
       "verified_paths": [],
       "enhanced_status": "phase7"
     },
@@ -614,6 +687,7 @@
       "legacy_effect_id": 143,
       "family": "calculation",
       "normal_status": "pending_audit",
+      "work_class_candidate": "modify_or_connect",
       "verified_paths": [],
       "enhanced_status": "phase7"
     },
@@ -623,6 +697,7 @@
       "legacy_effect_id": 0,
       "family": "calculation",
       "normal_status": "pending_audit",
+      "work_class_candidate": "new_handler",
       "verified_paths": [],
       "enhanced_status": "phase7"
     },
@@ -631,8 +706,11 @@
       "id": 318,
       "legacy_effect_id": 69,
       "family": "status_or_stage",
-      "normal_status": "pending_audit",
-      "verified_paths": [],
+      "normal_status": "partial",
+      "work_class_candidate": "reuse_candidate",
+      "verified_paths": [
+        "native_poison_and_bad_poison_bodies_three_slots_suppression_mold_breaker"
+      ],
       "enhanced_status": "phase7"
     },
     {
@@ -641,6 +719,7 @@
       "legacy_effect_id": 152,
       "family": "received_event",
       "normal_status": "pending_audit",
+      "work_class_candidate": "reuse_candidate",
       "verified_paths": [],
       "enhanced_status": "phase7"
     },
@@ -650,6 +729,7 @@
       "legacy_effect_id": 28,
       "family": "weather_source",
       "normal_status": "pending_audit",
+      "work_class_candidate": "reuse_candidate",
       "verified_paths": [],
       "enhanced_status": "phase7"
     },
@@ -659,6 +739,7 @@
       "legacy_effect_id": 29,
       "family": "native_behavior",
       "normal_status": "pending_audit",
+      "work_class_candidate": "reuse_candidate",
       "verified_paths": [],
       "enhanced_status": "phase7"
     },
@@ -668,6 +749,7 @@
       "legacy_effect_id": 138,
       "family": "calculation",
       "normal_status": "pending_audit",
+      "work_class_candidate": "modify_or_connect",
       "verified_paths": [],
       "enhanced_status": "phase7"
     },
@@ -677,6 +759,7 @@
       "legacy_effect_id": 132,
       "family": "native_behavior",
       "normal_status": "partial",
+      "work_class_candidate": "modify_or_connect",
       "verified_paths": [
         "numeric_weather_speed",
         "movement_query_context"
@@ -689,6 +772,7 @@
       "legacy_effect_id": 213,
       "family": "calculation",
       "normal_status": "partial",
+      "work_class_candidate": "modify_or_connect",
       "verified_paths": [
         "physical_attack_stat_multiplier",
         "unaware_and_nested_calculations",
@@ -705,6 +789,7 @@
       "legacy_effect_id": 175,
       "family": "action_or_world",
       "normal_status": "pending_audit",
+      "work_class_candidate": "modify_or_connect",
       "verified_paths": [],
       "enhanced_status": "phase7"
     },
@@ -714,6 +799,7 @@
       "legacy_effect_id": 216,
       "family": "status_or_stage",
       "normal_status": "partial",
+      "work_class_candidate": "modify_or_connect",
       "verified_paths": [
         "audited_damaging_wind_ids",
         "post_redirection_resolved_target_guard",
@@ -731,6 +817,7 @@
       "legacy_effect_id": 46,
       "family": "received_event",
       "normal_status": "pending_audit",
+      "work_class_candidate": "reuse_candidate",
       "verified_paths": [],
       "enhanced_status": "phase7"
     },
@@ -740,6 +827,7 @@
       "legacy_effect_id": 169,
       "family": "floor_entry",
       "normal_status": "pending_audit",
+      "work_class_candidate": "modify_or_connect",
       "verified_paths": [],
       "enhanced_status": "phase7"
     },
@@ -749,6 +837,7 @@
       "legacy_effect_id": 60,
       "family": "native_behavior",
       "normal_status": "pending_audit",
+      "work_class_candidate": "reuse_candidate",
       "verified_paths": [],
       "enhanced_status": "phase7"
     },
@@ -758,6 +847,7 @@
       "legacy_effect_id": 130,
       "family": "native_behavior",
       "normal_status": "pending_audit",
+      "work_class_candidate": "reuse_candidate",
       "verified_paths": [],
       "enhanced_status": "phase7"
     },
@@ -767,6 +857,7 @@
       "legacy_effect_id": 141,
       "family": "calculation",
       "normal_status": "pending_audit",
+      "work_class_candidate": "reuse_candidate",
       "verified_paths": [],
       "enhanced_status": "phase7"
     },
@@ -776,6 +867,7 @@
       "legacy_effect_id": 87,
       "family": "native_behavior",
       "normal_status": "pending_audit",
+      "work_class_candidate": "reuse_candidate",
       "verified_paths": [],
       "enhanced_status": "phase7"
     },
@@ -785,6 +877,7 @@
       "legacy_effect_id": 67,
       "family": "calculation",
       "normal_status": "pending_audit",
+      "work_class_candidate": "modify_or_connect",
       "verified_paths": [],
       "enhanced_status": "phase7"
     },
@@ -794,6 +887,7 @@
       "legacy_effect_id": 222,
       "family": "floor_entry",
       "normal_status": "partial",
+      "work_class_candidate": "modify_or_connect",
       "verified_paths": [
         "uniform_distinct_stats",
         "numeric_speed_and_accuracy",
@@ -807,6 +901,7 @@
       "legacy_effect_id": 59,
       "family": "native_behavior",
       "normal_status": "pending_audit",
+      "work_class_candidate": "reuse_candidate",
       "verified_paths": [],
       "enhanced_status": "phase7"
     },
@@ -816,6 +911,7 @@
       "legacy_effect_id": 165,
       "family": "native_behavior",
       "normal_status": "pending_audit",
+      "work_class_candidate": "reuse_candidate",
       "verified_paths": [],
       "enhanced_status": "phase7"
     },
@@ -825,6 +921,7 @@
       "legacy_effect_id": 51,
       "family": "native_behavior",
       "normal_status": "pending_audit",
+      "work_class_candidate": "modify_or_connect",
       "verified_paths": [],
       "enhanced_status": "phase7"
     },
@@ -834,6 +931,7 @@
       "legacy_effect_id": 55,
       "family": "native_behavior",
       "normal_status": "pending_audit",
+      "work_class_candidate": "reuse_candidate",
       "verified_paths": [],
       "enhanced_status": "phase7"
     },
@@ -843,6 +941,7 @@
       "legacy_effect_id": 184,
       "family": "calculation",
       "normal_status": "pending_audit",
+      "work_class_candidate": "modify_or_connect",
       "verified_paths": [],
       "enhanced_status": "phase7"
     },
@@ -852,6 +951,7 @@
       "legacy_effect_id": 0,
       "family": "status_or_stage",
       "normal_status": "pending_audit",
+      "work_class_candidate": "new_handler",
       "verified_paths": [],
       "enhanced_status": "phase7"
     },
@@ -861,6 +961,7 @@
       "legacy_effect_id": 79,
       "family": "received_event",
       "normal_status": "pending_audit",
+      "work_class_candidate": "modify_or_connect",
       "verified_paths": [],
       "enhanced_status": "phase7"
     },
@@ -870,6 +971,7 @@
       "legacy_effect_id": 53,
       "family": "calculation",
       "normal_status": "pending_audit",
+      "work_class_candidate": "reuse_candidate",
       "verified_paths": [],
       "enhanced_status": "phase7"
     },
@@ -879,6 +981,7 @@
       "legacy_effect_id": 112,
       "family": "received_event",
       "normal_status": "partial",
+      "work_class_candidate": "modify_or_connect",
       "verified_paths": [
         "native_event_numeric_speed"
       ],
@@ -890,6 +993,7 @@
       "legacy_effect_id": 62,
       "family": "received_event",
       "normal_status": "pending_audit",
+      "work_class_candidate": "reuse_candidate",
       "verified_paths": [],
       "enhanced_status": "phase7"
     },
@@ -899,6 +1003,7 @@
       "legacy_effect_id": 0,
       "family": "calculation",
       "normal_status": "pending_audit",
+      "work_class_candidate": "new_handler",
       "verified_paths": [],
       "enhanced_status": "phase7"
     },
@@ -907,8 +1012,11 @@
       "id": 346,
       "legacy_effect_id": 54,
       "family": "native_behavior",
-      "normal_status": "pending_audit",
-      "verified_paths": [],
+      "normal_status": "partial",
+      "work_class_candidate": "reuse_candidate",
+      "verified_paths": [
+        "native_sleep_body_three_slots_suppression_mold_breaker"
+      ],
       "enhanced_status": "phase7"
     },
     {
@@ -917,6 +1025,7 @@
       "legacy_effect_id": 80,
       "family": "calculation",
       "normal_status": "pending_audit",
+      "work_class_candidate": "modify_or_connect",
       "verified_paths": [],
       "enhanced_status": "phase7"
     },
@@ -926,6 +1035,7 @@
       "legacy_effect_id": 90,
       "family": "calculation",
       "normal_status": "pending_audit",
+      "work_class_candidate": "reuse_candidate",
       "verified_paths": [],
       "enhanced_status": "phase7"
     },
@@ -935,6 +1045,7 @@
       "legacy_effect_id": 209,
       "family": "faint",
       "normal_status": "partial",
+      "work_class_candidate": "modify_or_connect",
       "verified_paths": [
         "same_room_faint_once_per_action"
       ],
@@ -946,6 +1057,7 @@
       "legacy_effect_id": 109,
       "family": "received_event",
       "normal_status": "partial",
+      "work_class_candidate": "modify_or_connect",
       "verified_paths": [
         "native_event_numeric_speed"
       ],
@@ -956,8 +1068,11 @@
       "id": 351,
       "legacy_effect_id": 66,
       "family": "status_or_stage",
-      "normal_status": "pending_audit",
-      "verified_paths": [],
+      "normal_status": "partial",
+      "work_class_candidate": "reuse_candidate",
+      "verified_paths": [
+        "native_burn_body_three_slots_suppression_mold_breaker"
+      ],
       "enhanced_status": "phase7"
     },
     {
@@ -966,6 +1081,7 @@
       "legacy_effect_id": 0,
       "family": "item",
       "normal_status": "partial",
+      "work_class_candidate": "new_handler",
       "verified_paths": [
         "eight_actual_berry_identities",
         "ordinary_sun_12_25_percent",
@@ -980,6 +1096,7 @@
       "legacy_effect_id": 34,
       "family": "calculation",
       "normal_status": "pending_audit",
+      "work_class_candidate": "modify_or_connect",
       "verified_paths": [],
       "enhanced_status": "phase7"
     },
@@ -989,6 +1106,7 @@
       "legacy_effect_id": 93,
       "family": "calculation",
       "normal_status": "pending_audit",
+      "work_class_candidate": "reuse_candidate",
       "verified_paths": [],
       "enhanced_status": "phase7"
     },
@@ -998,6 +1116,7 @@
       "legacy_effect_id": 0,
       "family": "status_or_stage",
       "normal_status": "partial",
+      "work_class_candidate": "new_handler",
       "verified_paths": [
         "native_sleep_yawn_room_aura",
         "rest_napping_guard"
@@ -1010,6 +1129,7 @@
       "legacy_effect_id": 0,
       "family": "calculation",
       "normal_status": "pending_audit",
+      "work_class_candidate": "new_handler",
       "verified_paths": [],
       "enhanced_status": "phase7"
     },
@@ -1019,6 +1139,7 @@
       "legacy_effect_id": 91,
       "family": "native_behavior",
       "normal_status": "pending_audit",
+      "work_class_candidate": "reuse_candidate",
       "verified_paths": [],
       "enhanced_status": "phase7"
     },
@@ -1028,6 +1149,7 @@
       "legacy_effect_id": 94,
       "family": "floor_entry",
       "normal_status": "partial",
+      "work_class_candidate": "modify_or_connect",
       "verified_paths": [
         "numeric_speed_minus_three",
         "floor_once"
@@ -1040,6 +1162,7 @@
       "legacy_effect_id": 21,
       "family": "native_behavior",
       "normal_status": "pending_audit",
+      "work_class_candidate": "reuse_candidate",
       "verified_paths": [],
       "enhanced_status": "phase7"
     },
@@ -1049,6 +1172,7 @@
       "legacy_effect_id": 151,
       "family": "native_behavior",
       "normal_status": "pending_audit",
+      "work_class_candidate": "reuse_candidate",
       "verified_paths": [],
       "enhanced_status": "phase7"
     },
@@ -1058,6 +1182,7 @@
       "legacy_effect_id": 78,
       "family": "calculation",
       "normal_status": "pending_audit",
+      "work_class_candidate": "modify_or_connect",
       "verified_paths": [],
       "enhanced_status": "phase7"
     },
@@ -1067,6 +1192,7 @@
       "legacy_effect_id": 252,
       "family": "weather_source",
       "normal_status": "pending_audit",
+      "work_class_candidate": "modify_or_connect",
       "verified_paths": [],
       "enhanced_status": "phase7"
     },
@@ -1076,6 +1202,7 @@
       "legacy_effect_id": 26,
       "family": "calculation",
       "normal_status": "pending_audit",
+      "work_class_candidate": "modify_or_connect",
       "verified_paths": [],
       "enhanced_status": "phase7"
     },
@@ -1085,6 +1212,7 @@
       "legacy_effect_id": 129,
       "family": "status_or_stage",
       "normal_status": "pending_audit",
+      "work_class_candidate": "reuse_candidate",
       "verified_paths": [],
       "enhanced_status": "phase7"
     },
@@ -1094,6 +1222,7 @@
       "legacy_effect_id": 25,
       "family": "status_or_stage",
       "normal_status": "pending_audit",
+      "work_class_candidate": "reuse_candidate",
       "verified_paths": [],
       "enhanced_status": "phase7"
     },
@@ -1103,6 +1232,7 @@
       "legacy_effect_id": 27,
       "family": "native_behavior",
       "normal_status": "partial",
+      "work_class_candidate": "modify_or_connect",
       "verified_paths": [
         "numeric_weather_speed",
         "movement_query_context"
@@ -1115,6 +1245,7 @@
       "legacy_effect_id": 0,
       "family": "status_or_stage",
       "normal_status": "partial",
+      "work_class_candidate": "new_handler",
       "verified_paths": [
         "native_infatuation_taunt_encore_seal_room_aura"
       ],
@@ -1126,6 +1257,7 @@
       "legacy_effect_id": 77,
       "family": "turn_tick",
       "normal_status": "pending_audit",
+      "work_class_candidate": "modify_or_connect",
       "verified_paths": [],
       "enhanced_status": "phase7"
     },
@@ -1135,6 +1267,7 @@
       "legacy_effect_id": 1,
       "family": "received_event",
       "normal_status": "pending_audit",
+      "work_class_candidate": "reuse_candidate",
       "verified_paths": [],
       "enhanced_status": "phase7"
     },
@@ -1144,6 +1277,7 @@
       "legacy_effect_id": 133,
       "family": "calculation",
       "normal_status": "pending_audit",
+      "work_class_candidate": "modify_or_connect",
       "verified_paths": [],
       "enhanced_status": "phase7"
     },
@@ -1153,6 +1287,7 @@
       "legacy_effect_id": 147,
       "family": "native_behavior",
       "normal_status": "pending_audit",
+      "work_class_candidate": "reuse_candidate",
       "verified_paths": [],
       "enhanced_status": "phase7"
     },
@@ -1162,6 +1297,7 @@
       "legacy_effect_id": 0,
       "family": "calculation",
       "normal_status": "pending_audit",
+      "work_class_candidate": "new_handler",
       "verified_paths": [],
       "enhanced_status": "phase7"
     },
@@ -1171,6 +1307,7 @@
       "legacy_effect_id": 74,
       "family": "native_behavior",
       "normal_status": "partial",
+      "work_class_candidate": "modify_or_connect",
       "verified_paths": [
         "numeric_weather_speed",
         "movement_query_context"
@@ -1183,6 +1320,7 @@
       "legacy_effect_id": 108,
       "family": "calculation",
       "normal_status": "pending_audit",
+      "work_class_candidate": "modify_or_connect",
       "verified_paths": [],
       "enhanced_status": "phase7"
     },
@@ -1192,6 +1330,7 @@
       "legacy_effect_id": 121,
       "family": "native_behavior",
       "normal_status": "pending_audit",
+      "work_class_candidate": "reuse_candidate",
       "verified_paths": [],
       "enhanced_status": "phase7"
     },
@@ -1201,6 +1340,7 @@
       "legacy_effect_id": 150,
       "family": "native_behavior",
       "normal_status": "pending_audit",
+      "work_class_candidate": "reuse_candidate",
       "verified_paths": [],
       "enhanced_status": "phase7"
     },
@@ -1210,6 +1350,7 @@
       "legacy_effect_id": 75,
       "family": "calculation",
       "normal_status": "pending_audit",
+      "work_class_candidate": "modify_or_connect",
       "verified_paths": [],
       "enhanced_status": "phase7"
     },
@@ -1219,6 +1360,7 @@
       "legacy_effect_id": 13,
       "family": "received_event",
       "normal_status": "pending_audit",
+      "work_class_candidate": "reuse_candidate",
       "verified_paths": [],
       "enhanced_status": "phase7"
     },
@@ -1228,6 +1370,7 @@
       "legacy_effect_id": 0,
       "family": "calculation",
       "normal_status": "pending_audit",
+      "work_class_candidate": "new_handler",
       "verified_paths": [],
       "enhanced_status": "phase7"
     },
@@ -1237,6 +1380,7 @@
       "legacy_effect_id": 162,
       "family": "calculation",
       "normal_status": "pending_audit",
+      "work_class_candidate": "modify_or_connect",
       "verified_paths": [],
       "enhanced_status": "phase7"
     },
@@ -1246,6 +1390,7 @@
       "legacy_effect_id": 86,
       "family": "calculation",
       "normal_status": "pending_audit",
+      "work_class_candidate": "modify_or_connect",
       "verified_paths": [],
       "enhanced_status": "phase7"
     },
@@ -1255,6 +1400,7 @@
       "legacy_effect_id": 6,
       "family": "calculation",
       "normal_status": "pending_audit",
+      "work_class_candidate": "modify_or_connect",
       "verified_paths": [],
       "enhanced_status": "phase7"
     },
@@ -1263,8 +1409,11 @@
       "id": 383,
       "legacy_effect_id": 22,
       "family": "status_or_stage",
-      "normal_status": "pending_audit",
-      "verified_paths": [],
+      "normal_status": "partial",
+      "work_class_candidate": "reuse_candidate",
+      "verified_paths": [
+        "native_paralysis_body_three_slots_suppression_mold_breaker"
+      ],
       "enhanced_status": "phase7"
     },
     {
@@ -1273,6 +1422,7 @@
       "legacy_effect_id": 118,
       "family": "action_or_world",
       "normal_status": "pending_audit",
+      "work_class_candidate": "reuse_candidate",
       "verified_paths": [],
       "enhanced_status": "phase7"
     },
@@ -1281,8 +1431,11 @@
       "id": 385,
       "legacy_effect_id": 73,
       "family": "native_behavior",
-      "normal_status": "pending_audit",
-      "verified_paths": [],
+      "normal_status": "partial",
+      "work_class_candidate": "reuse_candidate",
+      "verified_paths": [
+        "native_sleep_body_three_slots_suppression_mold_breaker"
+      ],
       "enhanced_status": "phase7"
     },
     {
@@ -1291,6 +1444,7 @@
       "legacy_effect_id": 48,
       "family": "calculation",
       "normal_status": "pending_audit",
+      "work_class_candidate": "reuse_candidate",
       "verified_paths": [],
       "enhanced_status": "phase7"
     },
@@ -1300,6 +1454,7 @@
       "legacy_effect_id": 52,
       "family": "calculation",
       "normal_status": "pending_audit",
+      "work_class_candidate": "reuse_candidate",
       "verified_paths": [],
       "enhanced_status": "phase7"
     },
@@ -1309,6 +1464,7 @@
       "legacy_effect_id": 92,
       "family": "calculation",
       "normal_status": "pending_audit",
+      "work_class_candidate": "modify_or_connect",
       "verified_paths": [],
       "enhanced_status": "phase7"
     },
@@ -1318,6 +1474,7 @@
       "legacy_effect_id": 76,
       "family": "native_behavior",
       "normal_status": "pending_audit",
+      "work_class_candidate": "reuse_candidate",
       "verified_paths": [],
       "enhanced_status": "phase7"
     },
@@ -1327,6 +1484,7 @@
       "legacy_effect_id": 0,
       "family": "calculation",
       "normal_status": "partial",
+      "work_class_candidate": "new_handler",
       "verified_paths": [
         "resolved_type_conversion",
         "action_scoped_multiplier",
@@ -1340,6 +1498,7 @@
       "legacy_effect_id": 125,
       "family": "native_behavior",
       "normal_status": "pending_audit",
+      "work_class_candidate": "reuse_candidate",
       "verified_paths": [],
       "enhanced_status": "phase7"
     },
@@ -1349,6 +1508,7 @@
       "legacy_effect_id": 47,
       "family": "status_or_stage",
       "normal_status": "pending_audit",
+      "work_class_candidate": "modify_or_connect",
       "verified_paths": [],
       "enhanced_status": "phase7"
     },
@@ -1358,6 +1518,7 @@
       "legacy_effect_id": 170,
       "family": "faint",
       "normal_status": "partial",
+      "work_class_candidate": "modify_or_connect",
       "verified_paths": [
         "own_opponent_ko_each_target"
       ],
@@ -1369,6 +1530,7 @@
       "legacy_effect_id": 23,
       "family": "action_or_world",
       "normal_status": "pending_audit",
+      "work_class_candidate": "modify_or_connect",
       "verified_paths": [],
       "enhanced_status": "phase7"
     },
@@ -1378,6 +1540,7 @@
       "legacy_effect_id": 20,
       "family": "status_or_stage",
       "normal_status": "pending_audit",
+      "work_class_candidate": "reuse_candidate",
       "verified_paths": [],
       "enhanced_status": "phase7"
     },
@@ -1387,6 +1550,7 @@
       "legacy_effect_id": 4,
       "family": "weather_source",
       "normal_status": "pending_audit",
+      "work_class_candidate": "modify_or_connect",
       "verified_paths": [],
       "enhanced_status": "phase7"
     },
@@ -1396,6 +1560,7 @@
       "legacy_effect_id": 197,
       "family": "calculation",
       "normal_status": "partial",
+      "work_class_candidate": "modify_or_connect",
       "verified_paths": [
         "successful_walk_epoch",
         "next_action_expiry",
@@ -1410,6 +1575,7 @@
       "legacy_effect_id": 131,
       "family": "floor_entry",
       "normal_status": "pending_audit",
+      "work_class_candidate": "modify_or_connect",
       "verified_paths": [],
       "enhanced_status": "phase7"
     },
@@ -1419,6 +1585,7 @@
       "legacy_effect_id": 36,
       "family": "native_behavior",
       "normal_status": "pending_audit",
+      "work_class_candidate": "reuse_candidate",
       "verified_paths": [],
       "enhanced_status": "phase7"
     },
@@ -1428,6 +1595,7 @@
       "legacy_effect_id": 149,
       "family": "received_event",
       "normal_status": "pending_audit",
+      "work_class_candidate": "modify_or_connect",
       "verified_paths": [],
       "enhanced_status": "phase7"
     },
@@ -1437,6 +1605,7 @@
       "legacy_effect_id": 99,
       "family": "calculation",
       "normal_status": "pending_audit",
+      "work_class_candidate": "modify_or_connect",
       "verified_paths": [],
       "enhanced_status": "phase7"
     },
@@ -1446,6 +1615,7 @@
       "legacy_effect_id": 157,
       "family": "calculation",
       "normal_status": "partial",
+      "work_class_candidate": "modify_or_connect",
       "verified_paths": [
         "calculation_does_not_consume",
         "consume_on_successful_hit",
@@ -1459,6 +1629,7 @@
       "legacy_effect_id": 102,
       "family": "native_behavior",
       "normal_status": "partial",
+      "work_class_candidate": "modify_or_connect",
       "verified_paths": [
         "native_event_numeric_speed"
       ],
@@ -1470,6 +1641,7 @@
       "legacy_effect_id": 19,
       "family": "native_behavior",
       "normal_status": "pending_audit",
+      "work_class_candidate": "reuse_candidate",
       "verified_paths": [],
       "enhanced_status": "phase7"
     },
@@ -1479,6 +1651,7 @@
       "legacy_effect_id": 189,
       "family": "status_or_stage",
       "normal_status": "partial",
+      "work_class_candidate": "modify_or_connect",
       "verified_paths": [
         "seven_native_status_immunities",
         "dream_eater_virtual_sleep",
@@ -1493,6 +1666,7 @@
       "legacy_effect_id": 44,
       "family": "received_event",
       "normal_status": "pending_audit",
+      "work_class_candidate": "modify_or_connect",
       "verified_paths": [],
       "enhanced_status": "phase7"
     },
@@ -1502,6 +1676,7 @@
       "legacy_effect_id": 31,
       "family": "native_behavior",
       "normal_status": "pending_audit",
+      "work_class_candidate": "reuse_candidate",
       "verified_paths": [],
       "enhanced_status": "phase7"
     },
@@ -1511,6 +1686,7 @@
       "legacy_effect_id": 167,
       "family": "received_event",
       "normal_status": "pending_audit",
+      "work_class_candidate": "modify_or_connect",
       "verified_paths": [],
       "enhanced_status": "phase7"
     },
@@ -1520,6 +1696,7 @@
       "legacy_effect_id": 32,
       "family": "received_event",
       "normal_status": "pending_audit",
+      "work_class_candidate": "reuse_candidate",
       "verified_paths": [],
       "enhanced_status": "phase7"
     },
@@ -1529,6 +1706,7 @@
       "legacy_effect_id": 3,
       "family": "turn_tick",
       "normal_status": "pending_audit",
+      "work_class_candidate": "reuse_candidate",
       "verified_paths": [],
       "enhanced_status": "phase7"
     },
@@ -1538,6 +1716,7 @@
       "legacy_effect_id": 19,
       "family": "native_behavior",
       "normal_status": "pending_audit",
+      "work_class_candidate": "modify_or_connect",
       "verified_paths": [],
       "enhanced_status": "phase7"
     },
@@ -1547,6 +1726,7 @@
       "legacy_effect_id": 0,
       "family": "received_event",
       "normal_status": "pending_audit",
+      "work_class_candidate": "new_handler",
       "verified_paths": [],
       "enhanced_status": "phase7"
     },
@@ -1556,6 +1736,7 @@
       "legacy_effect_id": 198,
       "family": "received_event",
       "normal_status": "pending_audit",
+      "work_class_candidate": "modify_or_connect",
       "verified_paths": [],
       "enhanced_status": "phase7"
     },
@@ -1565,6 +1746,7 @@
       "legacy_effect_id": 137,
       "family": "native_behavior",
       "normal_status": "pending_audit",
+      "work_class_candidate": "reuse_candidate",
       "verified_paths": [],
       "enhanced_status": "phase7"
     },
@@ -1574,6 +1756,7 @@
       "legacy_effect_id": 103,
       "family": "native_behavior",
       "normal_status": "pending_audit",
+      "work_class_candidate": "modify_or_connect",
       "verified_paths": [],
       "enhanced_status": "phase7"
     },
@@ -1583,6 +1766,7 @@
       "legacy_effect_id": 34,
       "family": "calculation",
       "normal_status": "pending_audit",
+      "work_class_candidate": "reuse_candidate",
       "verified_paths": [],
       "enhanced_status": "phase7"
     },
@@ -1592,6 +1776,7 @@
       "legacy_effect_id": 0,
       "family": "received_event",
       "normal_status": "partial",
+      "work_class_candidate": "new_handler",
       "verified_paths": [
         "once_per_action",
         "fatal_hit",
@@ -1605,6 +1790,7 @@
       "legacy_effect_id": 101,
       "family": "calculation",
       "normal_status": "pending_audit",
+      "work_class_candidate": "modify_or_connect",
       "verified_paths": [],
       "enhanced_status": "phase7"
     },
@@ -1614,6 +1800,7 @@
       "legacy_effect_id": 161,
       "family": "native_behavior",
       "normal_status": "pending_audit",
+      "work_class_candidate": "reuse_candidate",
       "verified_paths": [],
       "enhanced_status": "phase7"
     },
@@ -1623,6 +1810,7 @@
       "legacy_effect_id": 81,
       "family": "turn_tick",
       "normal_status": "pending_audit",
+      "work_class_candidate": "reuse_candidate",
       "verified_paths": [],
       "enhanced_status": "phase7"
     },
@@ -1632,6 +1820,7 @@
       "legacy_effect_id": 35,
       "family": "native_behavior",
       "normal_status": "pending_audit",
+      "work_class_candidate": "reuse_candidate",
       "verified_paths": [],
       "enhanced_status": "phase7"
     },
@@ -1641,6 +1830,7 @@
       "legacy_effect_id": 0,
       "family": "turn_tick",
       "normal_status": "partial",
+      "work_class_candidate": "new_handler",
       "verified_paths": [
         "50_percent_eligible_adjacent_ally",
         "one_uniform_target",
@@ -1656,6 +1846,7 @@
       "legacy_effect_id": 180,
       "family": "received_event",
       "normal_status": "partial",
+      "work_class_candidate": "modify_or_connect",
       "verified_paths": [
         "once_per_action",
         "numeric_speed_drop"
@@ -1668,6 +1859,7 @@
       "legacy_effect_id": 15,
       "family": "status_or_stage",
       "normal_status": "pending_audit",
+      "work_class_candidate": "modify_or_connect",
       "verified_paths": [],
       "enhanced_status": "phase7"
     },
@@ -1677,6 +1869,7 @@
       "legacy_effect_id": 72,
       "family": "calculation",
       "normal_status": "pending_audit",
+      "work_class_candidate": "reuse_candidate",
       "verified_paths": [],
       "enhanced_status": "phase7"
     },
@@ -1686,6 +1879,7 @@
       "legacy_effect_id": 33,
       "family": "turn_tick",
       "normal_status": "pending_audit",
+      "work_class_candidate": "reuse_candidate",
       "verified_paths": [],
       "enhanced_status": "phase7"
     },
@@ -1695,6 +1889,7 @@
       "legacy_effect_id": 136,
       "family": "native_behavior",
       "normal_status": "pending_audit",
+      "work_class_candidate": "reuse_candidate",
       "verified_paths": [],
       "enhanced_status": "phase7"
     },
@@ -1704,6 +1899,7 @@
       "legacy_effect_id": 100,
       "family": "calculation",
       "normal_status": "pending_audit",
+      "work_class_candidate": "reuse_candidate",
       "verified_paths": [],
       "enhanced_status": "phase7"
     },
@@ -1713,6 +1909,7 @@
       "legacy_effect_id": 0,
       "family": "native_behavior",
       "normal_status": "pending_audit",
+      "work_class_candidate": "new_handler",
       "verified_paths": [],
       "enhanced_status": "phase7"
     },
@@ -1722,6 +1919,7 @@
       "legacy_effect_id": 82,
       "family": "calculation",
       "normal_status": "pending_audit",
+      "work_class_candidate": "modify_or_connect",
       "verified_paths": [],
       "enhanced_status": "phase7"
     },
@@ -1731,6 +1929,7 @@
       "legacy_effect_id": 104,
       "family": "calculation",
       "normal_status": "pending_audit",
+      "work_class_candidate": "reuse_candidate",
       "verified_paths": [],
       "enhanced_status": "phase7"
     },
@@ -1740,6 +1939,7 @@
       "legacy_effect_id": 0,
       "family": "calculation",
       "normal_status": "pending_audit",
+      "work_class_candidate": "new_handler",
       "verified_paths": [],
       "enhanced_status": "phase7"
     },
@@ -1749,6 +1949,7 @@
       "legacy_effect_id": 40,
       "family": "status_or_stage",
       "normal_status": "pending_audit",
+      "work_class_candidate": "modify_or_connect",
       "verified_paths": [],
       "enhanced_status": "phase7"
     },
@@ -1758,6 +1959,7 @@
       "legacy_effect_id": 83,
       "family": "native_behavior",
       "normal_status": "pending_audit",
+      "work_class_candidate": "reuse_candidate",
       "verified_paths": [],
       "enhanced_status": "phase7"
     },
@@ -1767,6 +1969,7 @@
       "legacy_effect_id": 134,
       "family": "native_behavior",
       "normal_status": "pending_audit",
+      "work_class_candidate": "reuse_candidate",
       "verified_paths": [],
       "enhanced_status": "phase7"
     },
@@ -1776,6 +1979,7 @@
       "legacy_effect_id": 0,
       "family": "calculation",
       "normal_status": "pending_audit",
+      "work_class_candidate": "new_handler",
       "verified_paths": [],
       "enhanced_status": "phase7"
     },
@@ -1785,6 +1989,7 @@
       "legacy_effect_id": 159,
       "family": "status_or_stage",
       "normal_status": "pending_audit",
+      "work_class_candidate": "reuse_candidate",
       "verified_paths": [],
       "enhanced_status": "phase7"
     },
@@ -1794,6 +1999,7 @@
       "legacy_effect_id": 217,
       "family": "calculation",
       "normal_status": "pending_audit",
+      "work_class_candidate": "modify_or_connect",
       "verified_paths": [],
       "enhanced_status": "phase7"
     },
@@ -1803,6 +2009,7 @@
       "legacy_effect_id": 139,
       "family": "calculation",
       "normal_status": "pending_audit",
+      "work_class_candidate": "modify_or_connect",
       "verified_paths": [],
       "enhanced_status": "phase7"
     },
@@ -1812,6 +2019,7 @@
       "legacy_effect_id": 148,
       "family": "calculation",
       "normal_status": "pending_audit",
+      "work_class_candidate": "modify_or_connect",
       "verified_paths": [],
       "enhanced_status": "phase7"
     },
@@ -1821,6 +2029,7 @@
       "legacy_effect_id": 0,
       "family": "calculation",
       "normal_status": "pending_audit",
+      "work_class_candidate": "new_handler",
       "verified_paths": [],
       "enhanced_status": "phase7"
     },
@@ -1830,6 +2039,7 @@
       "legacy_effect_id": 114,
       "family": "turn_tick",
       "normal_status": "pending_audit",
+      "work_class_candidate": "reuse_candidate",
       "verified_paths": [],
       "enhanced_status": "phase7"
     },
@@ -1839,6 +2049,7 @@
       "legacy_effect_id": 61,
       "family": "received_event",
       "normal_status": "pending_audit",
+      "work_class_candidate": "reuse_candidate",
       "verified_paths": [],
       "enhanced_status": "phase7"
     },
@@ -1848,6 +2059,7 @@
       "legacy_effect_id": 57,
       "family": "action_or_world",
       "normal_status": "pending_audit",
+      "work_class_candidate": "reuse_candidate",
       "verified_paths": [],
       "enhanced_status": "phase7"
     },
@@ -1857,6 +2069,7 @@
       "legacy_effect_id": 164,
       "family": "calculation",
       "normal_status": "pending_audit",
+      "work_class_candidate": "modify_or_connect",
       "verified_paths": [],
       "enhanced_status": "phase7"
     },
@@ -1866,6 +2079,7 @@
       "legacy_effect_id": 0,
       "family": "calculation",
       "normal_status": "partial",
+      "work_class_candidate": "new_handler",
       "verified_paths": [
         "resolved_type_conversion",
         "slot_priority"
@@ -1878,6 +2092,7 @@
       "legacy_effect_id": 113,
       "family": "calculation",
       "normal_status": "pending_audit",
+      "work_class_candidate": "reuse_candidate",
       "verified_paths": [],
       "enhanced_status": "phase7"
     },
@@ -1887,6 +2102,7 @@
       "legacy_effect_id": 158,
       "family": "status_or_stage",
       "normal_status": "pending_audit",
+      "work_class_candidate": "reuse_candidate",
       "verified_paths": [],
       "enhanced_status": "phase7"
     },
@@ -1896,6 +2112,7 @@
       "legacy_effect_id": 56,
       "family": "calculation",
       "normal_status": "pending_audit",
+      "work_class_candidate": "reuse_candidate",
       "verified_paths": [],
       "enhanced_status": "phase7"
     },
@@ -1905,6 +2122,7 @@
       "legacy_effect_id": 50,
       "family": "native_behavior",
       "normal_status": "pending_audit",
+      "work_class_candidate": "reuse_candidate",
       "verified_paths": [],
       "enhanced_status": "phase7"
     },
@@ -1914,6 +2132,7 @@
       "legacy_effect_id": 71,
       "family": "floor_entry",
       "normal_status": "partial",
+      "work_class_candidate": "modify_or_connect",
       "verified_paths": [
         "audited_31_seed_berry_pool",
         "reviver_joy_golden_exclusions",
@@ -1929,6 +2148,7 @@
       "legacy_effect_id": 110,
       "family": "calculation",
       "normal_status": "pending_audit",
+      "work_class_candidate": "modify_or_connect",
       "verified_paths": [],
       "enhanced_status": "phase7"
     },
@@ -1938,6 +2158,7 @@
       "legacy_effect_id": 38,
       "family": "native_behavior",
       "normal_status": "pending_audit",
+      "work_class_candidate": "reuse_candidate",
       "verified_paths": [],
       "enhanced_status": "phase7"
     },
@@ -1947,6 +2168,7 @@
       "legacy_effect_id": 110,
       "family": "calculation",
       "normal_status": "pending_audit",
+      "work_class_candidate": "modify_or_connect",
       "verified_paths": [],
       "enhanced_status": "phase7"
     },
@@ -1956,6 +2178,7 @@
       "legacy_effect_id": 15,
       "family": "status_or_stage",
       "normal_status": "pending_audit",
+      "work_class_candidate": "modify_or_connect",
       "verified_paths": [],
       "enhanced_status": "phase7"
     },
@@ -1965,6 +2188,7 @@
       "legacy_effect_id": 58,
       "family": "native_behavior",
       "normal_status": "pending_audit",
+      "work_class_candidate": "modify_or_connect",
       "verified_paths": [],
       "enhanced_status": "phase7"
     },
@@ -1974,6 +2198,7 @@
       "legacy_effect_id": 68,
       "family": "received_event",
       "normal_status": "pending_audit",
+      "work_class_candidate": "reuse_candidate",
       "verified_paths": [],
       "enhanced_status": "phase7"
     },
@@ -1983,6 +2208,7 @@
       "legacy_effect_id": 0,
       "family": "action_or_world",
       "normal_status": "partial",
+      "work_class_candidate": "new_handler",
       "verified_paths": [
         "native_blow_away_guard",
         "suppression_and_mold_breaker",
@@ -1998,6 +2224,7 @@
       "legacy_effect_id": 160,
       "family": "item",
       "normal_status": "pending_audit",
+      "work_class_candidate": "reuse_candidate",
       "verified_paths": [],
       "enhanced_status": "phase7"
     },
@@ -2007,6 +2234,7 @@
       "legacy_effect_id": 196,
       "family": "faint",
       "normal_status": "partial",
+      "work_class_candidate": "modify_or_connect",
       "verified_paths": [
         "action_end_nearest_same_room_ally_copy",
         "grade_dedup_protected_candidates",
@@ -2020,6 +2248,7 @@
       "legacy_effect_id": 14,
       "family": "action_or_world",
       "normal_status": "pending_audit",
+      "work_class_candidate": "reuse_candidate",
       "verified_paths": [],
       "enhanced_status": "phase7"
     }

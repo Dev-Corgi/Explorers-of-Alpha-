@@ -6,6 +6,13 @@ from .phase3 import load
 MODULE=Path(__file__).resolve().parent
 
 VERIFIED={
+    '면역':['native_poison_and_bad_poison_bodies_three_slots_suppression_mold_breaker'],
+    '수의베일':['native_burn_body_three_slots_suppression_mold_breaker'],
+    '유연':['native_paralysis_body_three_slots_suppression_mold_breaker'],
+    '마이페이스':['native_confusion_body_three_slots_suppression_mold_breaker'],
+    '마그마의무장':['native_frozen_entry_three_slots_suppression_mold_breaker'],
+    '불면':['native_sleep_body_three_slots_suppression_mold_breaker'],
+    '의기양양':['native_sleep_body_three_slots_suppression_mold_breaker'],
     '쓱쓱':['numeric_weather_speed','movement_query_context'],
     '엽록소':['numeric_weather_speed','movement_query_context'],
     '모래헤치기':['numeric_weather_speed','movement_query_context'],
@@ -57,6 +64,7 @@ VERIFIED={
 
 def build():
     data=load()
+    from .phase3_worklist import classify,build as worklist
     return {'schema':1,'phase':3,'activation':'not_enabled',
             'test':'python -B -X utf8 -m true_patches.mega_evolve.verify_phase3',
             'additional_tests':['python -B -X utf8 -m true_patches.mega_evolve.verify_phase3_actions',
@@ -69,11 +77,15 @@ def build():
                                 'python -B -X utf8 -m true_patches.mega_evolve.verify_loader',
                                 'python -B -X utf8 -m true_patches.mega_evolve.verify_phase3_events',
                                 'python -B -X utf8 -m true_patches.mega_evolve.verify_phase3_weight_wind',
-                                'python -B -X utf8 -m true_patches.mega_evolve.verify_phase3_tailwind'],
+                                'python -B -X utf8 -m true_patches.mega_evolve.verify_phase3_tailwind',
+                                'python -B -X utf8 -m true_patches.mega_evolve.verify_phase3_native_status'],
+            'work_classification':{'basis':'definition tags and existing effect identity; candidate classification is not implementation proof',
+                                   'counts':{k:len(v) for k,v in worklist().items()}},
             'boundary':'Verified paths are not whole-ability certification. Native ID matches are not proof of correct normal effects.',
             'shared_phase7_research':['status_hooks.py','phase3.json','phase3_status_generated.S generated at link time','runtime/phase3_hooks.S'],
             'abilities':[{'key':row['key'],'id':row['id'],'legacy_effect_id':row['legacy_effect_id'],
                           'family':row['family'],'normal_status':'partial' if row['key'] in VERIFIED else 'pending_audit',
+                          'work_class_candidate':classify(row),
                           'verified_paths':VERIFIED.get(row['key'],[]),'enhanced_status':'phase7'}
                          for row in data['abilities']]}
 
