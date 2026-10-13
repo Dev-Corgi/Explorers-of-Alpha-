@@ -33,6 +33,7 @@ from .korean_codec import (
     translation_issues,
 )
 from .cave_reservations import FileRange
+from .manifest import load_module_manifest
 from .overlay_caves import allocate_overlay_cave, get_rom_binary, write_rom_binary
 from .state import AppliedModule, BuildState, CaveAllocation, HookRecord
 
@@ -508,7 +509,7 @@ def apply_korean_module(
     assemble = apply_korean_assemble_module(
         module_id=module_id,
         module_dir=module_dir.parent / "korean_assemble",
-        manifest={"cave": {"estimated_bytes": 6144, "alignment": 4}, "asm": {"entry": "asm/main.asm"}},
+        manifest=load_module_manifest(module_dir.parent / "korean_assemble"),
         profile=profile,
         rom=rom,
         armips=armips,

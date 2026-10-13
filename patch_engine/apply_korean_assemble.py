@@ -220,6 +220,14 @@ def apply_korean_assemble_module(
     _write_pairs_md(module_dir / "pairs.md", symbols, syllables)
 
     cave_cfg = dict(manifest.get("cave") or {})
+    # Assemble.asm's instructions/literal pool fit within 1 KiB. Reserve the
+    # generated tables separately instead of a fixed 6 KiB, which can exhaust
+    # the full-stack hole even when the actual name-input payload still fits.
+    # The assembler's .area remains the final bound check for code and tables.
+    payload_bytes = int(cave_cfg.get("code_bytes", 1024))
+    for table in tables.values():
+        payload_bytes = ((payload_bytes + 3) & ~3) + len(table)
+    cave_cfg["estimated_bytes"] = (payload_bytes + 3) & ~3
     ov36 = get_rom_binary(rom, "ov36")
     slot, ov36 = allocate_overlay_cave(
         binary="ov36",

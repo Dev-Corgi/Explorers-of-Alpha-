@@ -1,5 +1,5 @@
 id: korean_assemble
-version: 1
+version: 2
 region: US
 description: >
   Name-keyboard symbol pairs become Hangul syllables that already have
@@ -12,6 +12,7 @@ rom_profile: us_vanilla
 cave:
   binary: ov36
   estimated_bytes: 6144
+  code_bytes: 1024
   alignment: 4
 
 asm:
