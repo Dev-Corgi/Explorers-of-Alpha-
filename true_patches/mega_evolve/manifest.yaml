@@ -1,0 +1,16 @@
+id: mega_evolve
+version: 1
+kind: mega_evolve
+rom_profile: us_vanilla
+phase: 0
+description: >-
+  Mega and shiny-mega evolution, implemented in staged phases. Phase 0
+  validates the normalized species/ability registry without gameplay edits.
+requires:
+  - z_move_v2
+  - base_stats_speed
+  - spinda_ev_speed
+  - balance_change
+  - bug_fixes
+  - luminous_evolution
+conflicts: []

@@ -45,6 +45,7 @@ FULL_STACK_MODULES = [
     "belly_union",
     "bug_fixes",
     "luminous_evolution",
+    "mega_evolve",
 ]
 
 

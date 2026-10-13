@@ -26,8 +26,13 @@ recommended_order:
 - belly_union
 - bug_fixes
 - luminous_evolution
+- mega_evolve
 - korean
 modules:
+  mega_evolve:
+    path: mega_evolve
+    description: Mega/shiny-mega evolution; phase 0 validates the registry without gameplay edits.
+    kind: mega_evolve
   luminous_evolution:
     path: luminous_evolution
     description: Spring evolution without Ascend Stones, regression, form changes and bilingual story continuity.

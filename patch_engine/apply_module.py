@@ -132,6 +132,18 @@ def apply_module(
 
 
 
+    # Phase 0 validates only: copy the input byte-for-byte, never reserialize it.
+    if manifest.get("kind") == "mega_evolve":
+        from .apply_mega_evolve import apply_mega_evolve_module
+
+        record = apply_mega_evolve_module(module_id, module_dir, manifest, rom_in)
+        if rom_out.resolve() != rom_in.resolve():
+            rom_out.write_bytes(rom_in.read_bytes())
+        state.upsert_module(record)
+        if state_path:
+            save_state(state_path, state)
+        return state
+
     rom = NintendoDSRom(rom_in.read_bytes())
 
     config = get_ppmdu_config_for_rom(rom)
@@ -406,6 +418,13 @@ def verify_module_applied(
 ) -> None:
     manifest = load_module_manifest(module_dir)
     kind = manifest.get("kind", "asm")
+
+    if kind == "mega_evolve":
+        from .apply_mega_evolve import verify_mega_evolve_module
+
+        record = state.get_module(manifest["id"]) if state else None
+        verify_mega_evolve_module(rom_path, module_dir, manifest, record)
+        return
 
     if kind == "luminous_evolution":
         from .apply_luminous_evolution import verify_luminous_evolution_module
