@@ -23,7 +23,27 @@ from unicorn.arm_const import *
 
 
 class World(PreviousWorld):
+    def __init__(self,rom,record):
+        # Effect tests use a relocated heap image. Dedicated loader tests execute
+        # the real bootstrap, file boundary and cold/warm/reload dispatch paths.
+        info=record.data[0];body_base=0x02140000
+        record=copy.deepcopy(record)
+        record.data[0]['symbols']={k:body_base+v for k,v in info['runtime_symbol_offsets'].items()}
+        record.data[0]['bss_ranges']=[{'address':body_base+s['offset'],'size':s['size']} for s in info['runtime_bss']]
+        self.body_base=body_base
+        self.payload=rom.getFileByName(info['runtime_file'])
+        self.loader_info=info
+        super().__init__(rom,record)
+
     def reset(self):
+        info=self.loader_info
+        blob=bytearray(self.payload[info['runtime_image_offset']:])
+        for offset in info['runtime_relocations']:
+            value=struct.unpack_from('<I',blob,offset)[0]
+            struct.pack_into('<I',blob,offset,value-0x01000000+self.body_base)
+        self.u.mem_write(self.body_base,bytes(blob))
+        # Patched native callers still go through actual persistent dispatchers.
+        self.u.mem_write(info['bootstrap_symbols']['base'],struct.pack('<I',self.body_base))
         self.heap=0x02290000;self.allocations=[];self.freed=[];self.fail_alloc=False
         self.stats=[];self.thorns=[];self.category=0;self.resolved_type=1
         self.prior_calls=[];self.probability=1
@@ -142,9 +162,8 @@ def main():
     plan=plan_translation(rom,load_source(korean,load_module_manifest(korean)))
     for row in strings['entries']:assert plan.text_dec[row['index']].ko==row['ko']
     assert not any(row['where']=='text_e' and row['index'] in targets for row in plan.rejected)
-    assert len(record.caves)>=2
-    for section in record.data[0]['bss_ranges']:
-        assert any(c.load_address<=section['address'] and section['address']+section['size']<=c.load_address+c.size for c in record.caves)
+    assert len(record.caves)==1 and record.caves[0].size==0x2000
+    assert record.data[0]['runtime_size']>record.caves[0].size
     w=World(rom,record)
     # Every baseline assignment is actually obtained by the linked ARM bank.
     for species,pair in data['base_profiles'].items():
@@ -263,7 +282,7 @@ def main():
     assert w.call('ME_EnterMovement')==0 and w.call('ME_EnterCalculation')==0
     assert hashlib.sha256(SOURCE.read_bytes()).hexdigest()==before
     print('PASS internal phase3: 546 profiles, assigned bilingual text, protected species/slots,')
-    print('  scatter cave/BSS guards, real ARM numeric speed and conversion/action wrappers,')
+    print('  heap image/bootstrap/BSS guards, real ARM numeric speed and conversion/action wrappers,')
     print('  resolved-type skin bonus, hit ledger and fixed-damage ABI, allocation failure/free.')
     print('  13 native status-entry wrappers: Comatose/Sweet Veil/Aroma Veil, Rest, native continuation ABI.')
     print('Remaining ordinary effects are not certified. Public phase remains 2; no ROM/save output.')

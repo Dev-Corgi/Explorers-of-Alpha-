@@ -62,7 +62,7 @@ def locate_base_stats(ov36):
     return entity_speed,from_monster,calls
 
 
-def build_runtime(module_dir,work,cave,entity_speed,from_monster,phase=1,skill_swap_message=0,additional_defines=None):
+def build_runtime(module_dir,work,cave,entity_speed,from_monster,phase=1,skill_swap_message=0,additional_defines=None,emit_relocations=False):
     compiler=shutil.which("arm-none-eabi-gcc")
     if not compiler:
         raise RuntimeError("mega_evolve needs arm-none-eabi-gcc")
@@ -95,6 +95,7 @@ def build_runtime(module_dir,work,cave,entity_speed,from_monster,phase=1,skill_s
              "-fno-unwind-tables","-fno-asynchronous-unwind-tables","-nostdlib","-Wall","-Wextra","-Werror",
              "-I",str(work),str(module_dir/"runtime/phase1.c"),str(module_dir/"runtime/phase1_hooks.S"),
              "-Wl,-T,"+str(linker),"-o",str(elf)]
+    if emit_relocations:command.insert(-2,'-Wl,--emit-relocs')
     result=subprocess.run(command,capture_output=True,text=True)
     if result.returncode:
         raise RuntimeError(result.stdout+result.stderr)
@@ -131,6 +132,13 @@ def allocate_runtime(data,state,size=SIZE):
 
 
 def apply_phase1(rom,module_dir,manifest,state,metadata):
+    if manifest['phase']>=3:
+        # Bootstrap depends on the observed native ROM-file API, not only the
+        # vanilla symbol's address. Fail before mutating the in-memory ROM.
+        if word(rom.arm9,0x02008c3c,0x02000000)!=0xe92d4008 or word(rom.arm9,0x02008c5c,0x02000000)!=branch(0x02008c5c,0x02008d60,True):
+            raise RuntimeError('mega_evolve native file loader guard changed')
+        if rom.filenames.subfolder('MEGA') is not None:
+            raise RuntimeError('mega_evolve runtime namespace already occupied')
     tables=loadOverlayTable(rom.arm9OverlayTable,lambda i,f:rom.files[f])
     ov29=bytearray(tables[29].data)
     ov36=bytearray(tables[36].data)
@@ -181,8 +189,8 @@ def apply_phase1(rom,module_dir,manifest,state,metadata):
     if manifest["phase"]>=3:
         from true_patches.mega_evolve.phase3_items import validate_rom as validate_items
         validate_items(rom)
-        from .mega_evolve_phase3_runtime import scatter_link
-        caves,ov36,symbols,scatter_info=scatter_link(module_dir,ov29,ov36,state,entity_speed,from_monster)
+        from .mega_evolve_loader import link_runtime
+        caves,ov36,symbols,scatter_info,runtime_payload=link_runtime(module_dir,ov29,ov36,state,entity_speed,from_monster)
     else:
         slot,ov36=allocate_runtime(ov36,state,runtime_size)
         with tempfile.TemporaryDirectory(prefix="mega_evolve_phase1_") as temporary:
@@ -241,6 +249,9 @@ def apply_phase1(rom,module_dir,manifest,state,metadata):
         files,profile_edits=prepare_data(rom,strings)
         prepared_files.update(files)
     for path,content in prepared_files.items():rom.setFileByName(path,content)
+    if manifest['phase']>=3:
+        from .mega_evolve_loader import install_file
+        install_file(rom,runtime_payload)
     rom.files[tables[29].fileID]=bytes(ov29)
     write_ov36_to_rom(rom,None,bytes(ov36))
     return AppliedModule("mega_evolve",manifest.get("version",1),
@@ -263,6 +274,9 @@ def verify_phase1(rom,module_dir,manifest,record,metadata):
     if not isinstance(rom,NintendoDSRom):
         rom=NintendoDSRom(Path(rom).read_bytes())
     tables=rom.loadArm9Overlays()
+    if manifest['phase']>=3:
+        if hashlib.sha256(rom.getFileByName(record.data[0]['runtime_file'])).hexdigest()!=record.data[0]['runtime_sha256']:
+            raise AssertionError('mega_evolve execution payload hash mismatch')
     if manifest['phase']>=3 and hashlib.sha256(rom.getFileByName('BALANCE/monster.md')).hexdigest()!=record.data[0].get('phase3_md_sha256'):
         raise AssertionError('mega_evolve phase3 MD hash mismatch')
     hashes=record.data[0].get('cave_hashes') or [record.data[0].get('cave_sha256')]

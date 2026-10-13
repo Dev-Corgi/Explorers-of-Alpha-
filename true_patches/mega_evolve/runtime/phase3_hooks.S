@@ -130,7 +130,8 @@ entry ME_FreeHook
 
 entry ME_HitBoundaryHook
  push {r0-r3,r12,lr}
- bl 0x022e81f8
+ ldr r12,=0x022e81f8
+ blx r12
  sub sp,sp,#8
  ldr r12,[sp,#0xb0]
  str r12,[sp]
@@ -142,6 +143,27 @@ entry ME_HitBoundaryHook
  add sp,sp,#8
  pop {r0-r3,r12,pc}
 
+.ltorg
+
+entry ME_ExecuteActionHook
+ push {r4-r8,lr}
+ mov r4,r0
+ ldr r5,[r4,#4]
+ ldr r6,[r4,#0xb4]
+ ldrh r6,[r6,#0x4a]
+ bl ME_ActorStarts
+ mov r0,r4
+ bl ME_ExecuteActionPrior
+ mov r7,r0
+ mov r0,r4
+ mov r1,r5
+ mov r2,r6
+ bl ME_ActorFinishes
+ mov r0,r7
+ pop {r4-r8,pc}
+entry ME_ExecuteActionPrior
+ push {r3-r9,lr}
+ ldr pc,=0x022fe4c0
 .ltorg
 
 entry ME_BerryConsumeHook

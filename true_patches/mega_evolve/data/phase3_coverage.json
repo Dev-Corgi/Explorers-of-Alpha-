@@ -7,7 +7,11 @@
     "python -B -X utf8 -m true_patches.mega_evolve.verify_phase3_actions",
     "python -B -X utf8 -m true_patches.mega_evolve.verify_phase3_world",
     "python -B -X utf8 -m true_patches.mega_evolve.verify_phase3_items",
-    "python -B -X utf8 -m true_patches.mega_evolve.verify_phase3_sleep"
+    "python -B -X utf8 -m true_patches.mega_evolve.verify_phase3_sleep",
+    "python -B -X utf8 -m true_patches.mega_evolve.verify_phase3_faint",
+    "python -B -X utf8 -m true_patches.mega_evolve.verify_phase3_movement",
+    "python -B -X utf8 -m true_patches.mega_evolve.verify_phase3_escape",
+    "python -B -X utf8 -m true_patches.mega_evolve.verify_loader"
   ],
   "boundary": "Verified paths are not whole-ability certification. Native ID matches are not proof of correct normal effects.",
   "shared_phase7_research": [
@@ -372,8 +376,13 @@
       "id": 294,
       "legacy_effect_id": 43,
       "family": "floor_entry",
-      "normal_status": "pending_audit",
-      "verified_paths": [],
+      "normal_status": "partial",
+      "verified_paths": [
+        "quarter_hp_enemy_hit",
+        "closest_ally_safe_floor_destination",
+        "floor_once",
+        "failed_destination_suppression_and_legacy_ai_queries"
+      ],
       "enhanced_status": "phase7"
     },
     {
@@ -1351,8 +1360,13 @@
       "id": 397,
       "legacy_effect_id": 197,
       "family": "calculation",
-      "normal_status": "pending_audit",
-      "verified_paths": [],
+      "normal_status": "partial",
+      "verified_paths": [
+        "successful_walk_epoch",
+        "next_action_expiry",
+        "first_successful_holder_hit",
+        "miss_calculation_suppression_and_reuse"
+      ],
       "enhanced_status": "phase7"
     },
     {
@@ -1949,8 +1963,12 @@
       "id": 460,
       "legacy_effect_id": 196,
       "family": "faint",
-      "normal_status": "pending_audit",
-      "verified_paths": [],
+      "normal_status": "partial",
+      "verified_paths": [
+        "action_end_nearest_same_room_ally_copy",
+        "grade_dedup_protected_candidates",
+        "nested_actions_reset_death_and_temporary_restore"
+      ],
       "enhanced_status": "phase7"
     },
     {

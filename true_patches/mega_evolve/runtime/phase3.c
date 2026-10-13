@@ -43,9 +43,10 @@ static int hp(u8 *e) {u8 *m=monster(e);return m?(s16)U16(m,0x10):0;}
 static int multiply(int value,int n,int d) {return clamp(divide(value*n,d),0,32767);}
 /* Floor-local state. The persistent profile is owned by the bank, never here. */
 typedef struct {u32 entity,monster,floor,once; u16 locked_move;u8 charged,pad;u32 sun_serial;
-    u32 conversion_action,charge_action;u16 conversion_move;u8 conversion_type,conversion_valid;} Extra;
+    u32 conversion_action,charge_action,moved_epoch,stake_used[COUNT];
+    u16 conversion_move;u8 conversion_type,conversion_valid,moved_ready;} Extra;
 static Extra *extra;
-static u32 sunlight_serial;
+static u32 sunlight_serial,movement_serial;
 static int movement_context,calculation_context;
 typedef struct {u8 *actor,*target;} Calculation;
 static Calculation calculations[16];
@@ -63,16 +64,114 @@ static Extra *ext(u8 *e) {
     }
     return x;
 }
+void ME_ActorStarts(u8 *e) {Extra *x=ext(e);if(x)x->moved_ready=0;}
+void ME_ActorFinishes(u8 *e,u32 old_position,int action) {
+    Extra *x=ext(e);
+    if(!alive(e)||!x||action!=2||U32(e,4)==old_position)return;
+    if(!++movement_serial) {
+        movement_serial=1;
+        for(int i=0;i<COUNT;i++)zero(extra[i].stake_used,sizeof(extra[i].stake_used));
+    }
+    x->moved_epoch=movement_serial;x->moved_ready=1;
+}
+static int stakeout_ready(u8 *a,u8 *b) {
+    if(friends(a,b)||!has(a,A_STAKEOUT))return 0;
+    Extra *owner=ext(a),*target=ext(b);int index=slot(b);
+    return owner&&target&&index>=0&&target->moved_ready&&owner->stake_used[index]!=target->moved_epoch;
+}
+static int safe_escape_tile(int x,int y) {
+    if(x<=0||y<=0||x>=55||y>=31)return 0;
+    u8 *tile=FN(0x02336164,u8*(*)(int,int))(x,y);
+    /* Floor terrain only; no stairs, monsters, items or hidden traps. */
+    return tile&&(U16(tile,0)&7)==1&&!U32(tile,0xc)&&!U32(tile,0x10);
+}
+int ME_RunAway(u8 *actor,u8 *holder,int previous_hp) {
+    Extra *x=ext(holder);
+    if(!alive(holder)||!monster(actor)||friends(actor,holder)||!x||(x->once&4)||
+       hp(holder)>=previous_hp||hp(holder)>divide(maxhp(holder),4)||!has(holder,A_RUN_AWAY))return 0;
+    int visited[COUNT];zero(visited,sizeof(visited));int target_x=-1,target_y=-1;
+    for(int attempt=0;attempt<COUNT&&target_x<0;attempt++) {
+        int selected=-1,best=65536;
+        for(int i=0;i<COUNT;i++) {
+            u8 *ally=entity(i);
+            if(visited[i]||ally==holder||!alive(ally)||!friends(ally,holder))continue;
+            int dx=(s16)U16(ally,4)-(s16)U16(holder,4),dy=(s16)U16(ally,6)-(s16)U16(holder,6);
+            if(dx<0)dx=-dx;
+            if(dy<0)dy=-dy;
+            int distance=dx>dy?dx:dy;
+            if(distance<best)best=distance,selected=i;
+        }
+        if(selected<0)break;
+        visited[selected]=1;u8 *ally=entity(selected);
+        for(int dy=-1;dy<=1&&target_x<0;dy++)for(int dx=-1;dx<=1;dx++) {
+            if(!dx&&!dy)continue;
+            int px=(s16)U16(ally,4)+dx,py=(s16)U16(ally,6)+dy;
+            if(safe_escape_tile(px,py)) {target_x=px;target_y=py;break;}
+        }
+    }
+    if(target_x<0)for(int py=1;py<31&&target_x<0;py++)for(int px=1;px<55;px++)
+        if(safe_escape_tile(px,py)) {target_x=px;target_y=py;break;}
+    if(target_x<0)return 0;
+    FN(0x022f85f0,void(*)(u8*,int,int,int))(holder,target_x,target_y,1);
+    if((s16)U16(holder,4)!=target_x||(s16)U16(holder,6)!=target_y)return 0;
+    x->once|=4;return 1;
+}
 /* Shape-specific and ability-change immune identities. Inspect the actual
  * slots even when suppression is active; suppression cannot make a protected
  * permanent identity transferable. Unassigned legacy Illusion251 is retained. */
-static int protected_profile(AbilityBank *b) {
+static int protected_identity(int id) {
     static const u8 protected[]={37,116,125,166,179,183,189,190,206,207,208,229,230,241,243,247,250,251};
-    for(int i=0;i<3;i++) {
-        int id=b->current[i]&65535,legacy=effect(id);
-        for(unsigned j=0;j<sizeof(protected);j++)if(legacy==protected[j])return 1;
-    }
+    int legacy=effect(id);
+    for(unsigned j=0;j<sizeof(protected);j++)if(legacy==protected[j])return 1;
     return 0;
+}
+static int protected_profile(AbilityBank *b) {
+    for(int i=0;i<3;i++)if(protected_identity(b->current[i]&65535))return 1;
+    return 0;
+}
+static void queue_faint_copy(u8 *holder,u8 *source) {
+    int owner=slot(holder),origin=slot(source);
+    if(!ability_memory||!depth||owner<0||origin<0||!room(holder,source)||
+       !friends(holder,source)||!has(holder,A_POWER_OF_ALCHEMY))return;
+    AbilityBank *a=bank(holder),*b=bank(source);if(!a||!b)return;
+    int own=-1;for(int i=0;i<3;i++)if((a->current[i]&65535)==A_POWER_OF_ALCHEMY&&own<0)own=i;
+    if(own<0)return;
+    Action *action=&actions[depth-1];
+    int dx=(s16)U16(holder,4)-(s16)U16(source,4),dy=(s16)U16(holder,6)-(s16)U16(source,6);
+    if(dx<0)dx=-dx;
+    if(dy<0)dy=-dy;
+    int distance=dx>dy?dx:dy;
+    if(action->copies[owner].ability&&(distance>action->copies[owner].distance||
+       (distance==action->copies[owner].distance&&origin>=action->copies[owner].source_slot)))return;
+    u32 candidates[3];int n=0;
+    for(int i=0;i<3;i++) {
+        u32 v=b->current[i];int id=v&65535,duplicate=0;
+        if(!id||protected_identity(id)||effect(id)==196||!permitted(source,id))continue;
+        for(int j=0;j<n;j++)if((candidates[j]&65535)==(u32)id) {duplicate=1;if(v>candidates[j])candidates[j]=v;}
+        if(!duplicate)candidates[n++]=v;
+    }
+    if(!n)return;
+    int chosen=n==1?0:FN(0x022eaa98,int(*)(int))(n);if(chosen<0||chosen>=n)return;
+    action->copies[owner].ability=candidates[chosen];action->copies[owner].distance=(u16)distance;
+    action->copies[owner].source_slot=(u8)origin;action->copies[owner].own_slot=(u8)own;
+    action->copies[owner].entity=(u32)holder;action->copies[owner].monster=(u32)monster(holder);
+}
+void ME_CancelFaintCopies(u8 *m) {
+    if(!ability_memory)return;
+    for(int j=0;j<depth;j++)for(int i=0;i<COUNT;i++)
+        if(actions[j].copies[i].monster==(u32)m)actions[j].copies[i].ability=0;
+}
+void ME_FlushFaintCopies(u32 token) {
+    if(!ability_memory||!depth||actions[depth-1].token!=token)return;
+    Action *action=&actions[depth-1];
+    for(int i=0;i<COUNT;i++)if(action->copies[i].ability) {
+        u8 *e=entity(i);AbilityBank *b=bank(e);int own=action->copies[i].own_slot;
+        if(alive(e)&&b&&action->copies[i].entity==(u32)e&&action->copies[i].monster==(u32)monster(e)&&
+           own<3&&(b->current[own]&65535)==A_POWER_OF_ALCHEMY&&ME_ClaimEffect(e,A_POWER_OF_ALCHEMY,6,0)) {
+            b->current[own]=action->copies[i].ability;publish(b);
+        }
+        action->copies[i].ability=0;
+    }
 }
 int ME_WanderingSwap(u8 *actor,u8 *holder) {
     if(actor==holder||!alive(actor)||!monster(holder)||!adjacent(actor,holder)||
@@ -163,6 +262,7 @@ void ME_AdjustDamage(u8 *a,u8 *b,u8 *damage,int type,int move) {
     int value=(int)U32(damage,0);if(value<=0)return;
     int category=FN(0x020151c8,int(*)(int))(move);
     if(category==2)return;
+    if(stakeout_ready(a,b))value=multiply(value,6,5);
     static const u16 boosters[]={A_STEELWORKER,A_DRAGONS_MAW,A_TRANSISTOR,A_FIRE_MANE};
     static const u8 types[]={17,15,5,2};
     for(int i=0;i<4;i++)if(type==types[i]&&has(a,boosters[i]))value=multiply(value,6,5);
@@ -225,6 +325,7 @@ void ME_TurnTick(u8 *e) {
 void ME_FaintEvent(u8 *fainted,int move,u8 *actor) {
     for(int i=0;i<COUNT;i++) {
         u8 *e=entity(i);if(e==fainted||!alive(e))continue;
+        queue_faint_copy(e,fainted);
         if(room(e,fainted)&&has(e,209)&&ME_ClaimEffect(e,209,2,0))ME_ChangeStat(e,e,2,1);
         if(e==actor && actor!=fainted && !friends(e,fainted) && move>=0 && move<=559 &&
            FN(0x020151c8,int(*)(int))(move)!=2 && ability_memory && depth && actions[depth-1].actor==(u32)actor) {
@@ -235,6 +336,7 @@ void ME_FaintEvent(u8 *fainted,int move,u8 *actor) {
 }
 void ME_HitEvent(u8 *a,u8 *b,int previous_hp,int type,int move) {
     if(move<0||move>559||previous_hp<=hp(b)||!monster(a)||!monster(b))return;
+    if(stakeout_ready(a,b)&&FN(0x020151c8,int(*)(int))(move)!=2)ext(a)->stake_used[slot(b)]=ext(b)->moved_epoch;
     Extra *attacker=ext(a);
     if(attacker&&!attacker->locked_move&&move!=355&&move!=352&&
        FN(0x020151c8,int(*)(int))(move)!=2&&has(a,A_GORILLA_TACTICS))
@@ -265,6 +367,7 @@ void ME_HitEvent(u8 *a,u8 *b,int previous_hp,int type,int move) {
     Extra *x=ext(b);
     if(x&&!(x->once&2)&&previous_hp*2>maxhp(b)&&hp(b)*2<=maxhp(b)&&has(b,169)) {x->once|=2;ME_ChangeStat(b,b,2,1);}
     if(close)ME_WanderingSwap(a,b);
+    ME_RunAway(a,b,previous_hp);
 }
 int ME_StatusBlocked(u8 *actor,u8 *target,int status) {
     if(!monster(target))return 0;
@@ -315,7 +418,7 @@ void ME_FreeAbilities(void) {
     if(ability_memory)FN(0x02001188,void(*)(void*))(ability_memory);
     ability_memory=0;
     if(extra)FN(0x02001188,void(*)(void*))(extra);
-    extra=0;sunlight_serial=0;state.magic=0;movement_context=0;calculation_context=0;
+    extra=0;sunlight_serial=0;movement_serial=0;state.magic=0;movement_context=0;calculation_context=0;
     zero(calculations,sizeof(calculations));
 }
 
@@ -333,6 +436,7 @@ void ME_LeaveCalculation(int previous) {
 }
 int ME_LegacyAbilityActive(u8 *e,int id,u32 caller) {
     ensure();if(!ability_memory)return 0;
+    if(id==43&&(caller==0x022fa9d8||caller==0x02301604||caller==0x023016fc))return 0;
     if(movement_context&&(id==27||id==74||id==84||id==132||id==145||id==94))return 0;
     if((calculation_context||depth)&&(id==18||id==180||id==198||id==169||id==157||id==170||id==209))return 0;
     if(id==107&&(depth||calculation_context||caller==0x023022b4))return 0;

@@ -17,6 +17,13 @@
 
 ## 자료와 재현
 
+페이즈 3 내부 구현은 별도 비압축 실행 파일을 heap RAM으로 로드한다.
+기존 ov36 빈 공간에는 8KiB 호출 bootstrap만 두며 특성 ID 배정표는 16비트를 유지한다.
+최초/반복 호출, 재배치, CPU 캐시 처리, 던전 종료 후 해제·재로딩은
+`python -B -X utf8 -m true_patches.mega_evolve.verify_loader`로 ARM 검증한다.
+파일 IO와 메모리 할당은 이 검증에서 모델링되며 실제 최대 부하 RAM 검증은 남아 있다.
+공개 적용 단계는 계속 phase 2다. 구현 상세와 미완료 범위는 PHASE3_WORK.md에 기록한다.
+
 `data/registry.json`은 사용자 CSV 두 개와 종족값 XLSX, 기준 Alpha 롬,
 로컬 공식 폼 데이터에서 생성한다. 원본 자료·SpriteCollab·기존 출력 에셋은
 읽기만 한다. 원본 파일 SHA-256과 행 위치를 기록한다. 외부 원본은 Git에 복사하지 않는다.

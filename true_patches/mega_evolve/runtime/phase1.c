@@ -14,6 +14,8 @@ typedef signed short s16;
 const BaseProfile *ME_FindProfile(int);
 int ME_AbilityActive(u8*,int);
 int ME_SpeedBonus(u8*);
+void ME_FlushFaintCopies(u32);
+void ME_CancelFaintCopies(u8*);
 #endif
 #define BYTE(p,o) (*((u8 *)(p)+(o)))
 enum { COUNT=20, SOURCES=60, SNAPSHOT=1024, MAGIC=0x3147454d,
@@ -92,6 +94,9 @@ int ME_ChangeSpeed(u8 *actor,u8 *target,int delta,int flags) {
 }
 void ME_ResetMonster(u8 *m) {
     ensure();
+#ifdef ME_PHASE3
+    ME_CancelFaintCopies(m);
+#endif
 #ifdef ME_PHASE2
 #ifdef ME_PHASE3
     if(ability_memory)

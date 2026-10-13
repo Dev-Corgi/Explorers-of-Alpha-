@@ -4,7 +4,11 @@
 #include "abilities_generated.h"
 typedef struct { u32 entity,monster; u16 species; u8 seen[2],configured,pad[3]; u32 permanent[3],current[3]; } AbilityBank;
 typedef struct { u16 ability; u8 owner,event; u32 target; } Once;
-typedef struct { u32 token,actor; u16 move; u8 used,pad; Once once[64]; } Action;
+typedef struct { u32 token,actor; u16 move; u8 used,pad; Once once[64];
+#ifdef ME_PHASE3
+    struct {u32 ability,entity,monster;u16 distance;u8 source_slot,own_slot;} copies[COUNT];
+#endif
+} Action;
 #ifdef ME_PHASE3
 typedef struct {AbilityBank bank[COUNT];Action action[4];u32 next;int level;} AbilityMemory;
 static AbilityMemory *ability_memory;
@@ -172,6 +176,9 @@ int ME_EndAction(u32 token) {
     if(!ability_memory)return 0;
 #endif
     if(!depth || actions[depth-1].token!=token)return 0;
+#ifdef ME_PHASE3
+    ME_FlushFaintCopies(token);
+#endif
     zero(&actions[--depth],sizeof(Action));return 1;
 }
 int ME_ClaimEffect(u8 *owner,int identity,int event,u8 *target) {

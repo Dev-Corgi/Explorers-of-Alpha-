@@ -32,6 +32,12 @@ VERIFIED={
     '되새김질':['eight_actual_berry_identities','20_percent_retention','single_use_consumption_boundary','stacking_and_duplicates'],
     '픽업':['audited_31_seed_berry_pool','reviver_joy_golden_exclusions','bag_capacity_team_and_50_percent',
             'once_per_floor','replace_raw_byte_legacy_block'],
+    '화학의힘':['action_end_nearest_same_room_ally_copy','grade_dedup_protected_candidates',
+                'nested_actions_reset_death_and_temporary_restore'],
+    '잠복':['successful_walk_epoch','next_action_expiry','first_successful_holder_hit',
+             'miss_calculation_suppression_and_reuse'],
+    '도주':['quarter_hp_enemy_hit','closest_ally_safe_floor_destination','floor_once',
+             'failed_destination_suppression_and_legacy_ai_queries'],
 }
 
 
@@ -42,7 +48,11 @@ def build():
             'additional_tests':['python -B -X utf8 -m true_patches.mega_evolve.verify_phase3_actions',
                                 'python -B -X utf8 -m true_patches.mega_evolve.verify_phase3_world',
                                 'python -B -X utf8 -m true_patches.mega_evolve.verify_phase3_items',
-                                'python -B -X utf8 -m true_patches.mega_evolve.verify_phase3_sleep'],
+                                'python -B -X utf8 -m true_patches.mega_evolve.verify_phase3_sleep',
+                                'python -B -X utf8 -m true_patches.mega_evolve.verify_phase3_faint',
+                                'python -B -X utf8 -m true_patches.mega_evolve.verify_phase3_movement',
+                                'python -B -X utf8 -m true_patches.mega_evolve.verify_phase3_escape',
+                                'python -B -X utf8 -m true_patches.mega_evolve.verify_loader'],
             'boundary':'Verified paths are not whole-ability certification. Native ID matches are not proof of correct normal effects.',
             'shared_phase7_research':['status_hooks.py','phase3.json','phase3_status_generated.S generated at link time','runtime/phase3_hooks.S'],
             'abilities':[{'key':row['key'],'id':row['id'],'legacy_effect_id':row['legacy_effect_id'],
