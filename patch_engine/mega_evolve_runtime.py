@@ -80,6 +80,8 @@ def build_runtime(module_dir,work,cave,entity_speed,from_monster,phase=1,skill_s
         (work/"phase3_generated.h").write_text(header(load()),encoding="ascii")
         from true_patches.mega_evolve.phase3_items import load as items,header as item_header
         (work/"phase3_items_generated.h").write_text(item_header(items()),encoding="ascii")
+        from true_patches.mega_evolve.phase3_moves import header as move_header
+        (work/'phase3_moves_generated.h').write_text(move_header(),encoding='ascii')
         defines.update(ME_PHASE3=1)
     defines.update(additional_defines or {})
     if phase>=3:
@@ -137,6 +139,8 @@ def apply_phase1(rom,module_dir,manifest,state,metadata):
         # vanilla symbol's address. Fail before mutating the in-memory ROM.
         if word(rom.arm9,0x02008c3c,0x02000000)!=0xe92d4008 or word(rom.arm9,0x02008c5c,0x02000000)!=branch(0x02008c5c,0x02008d60,True):
             raise RuntimeError('mega_evolve native file loader guard changed')
+        if word(rom.arm9,0x020528fc,0x02000000)!=0xe59f2010 or word(rom.arm9,0x0205290c,0x02000000)!=0xe1d002b8:
+            raise RuntimeError('mega_evolve native weight lookup guard changed')
         if rom.filenames.subfolder('MEGA') is not None:
             raise RuntimeError('mega_evolve runtime namespace already occupied')
     tables=loadOverlayTable(rom.arm9OverlayTable,lambda i,f:rom.files[f])
@@ -189,6 +193,8 @@ def apply_phase1(rom,module_dir,manifest,state,metadata):
     if manifest["phase"]>=3:
         from true_patches.mega_evolve.phase3_items import validate_rom as validate_items
         validate_items(rom)
+        from true_patches.mega_evolve.phase3_moves import validate_rom as validate_moves
+        validate_moves(rom)
         from .mega_evolve_loader import link_runtime
         caves,ov36,symbols,scatter_info,runtime_payload=link_runtime(module_dir,ov29,ov36,state,entity_speed,from_monster)
     else:

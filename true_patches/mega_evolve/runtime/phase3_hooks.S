@@ -15,6 +15,16 @@ entry ME_TypeHook
  bl ME_ConvertType
  pop {r4-r6,pc}
 
+/* TryActivateWeather invokes its native visual/form callback only after an
+ * accepted change or forced fresh application, never a quiet weather query. */
+entry ME_WeatherAppliedHook
+ push {r0-r3,r12,lr}
+ ldr r12,=0x02334e70
+ blx r12
+ bl ME_NewSunlight
+ pop {r0-r3,r12,pc}
+.ltorg
+
 entry ME_ActionHook
  push {r4-r8,lr}
  sub sp,sp,#8
@@ -202,6 +212,86 @@ entry ME_BlowAwayHook
  bxne lr
  push {r3-r11,lr}
  ldr pc,=0x0231fde4
+.ltorg
+
+entry ME_WeightMultiplierHook
+ push {r1-r4,r12,lr}
+ ldr r12,=0x020528fc
+ blx r12
+ mov r2,r0
+ mov r0,r7
+ mov r1,r6
+ bl ME_WeightForMove
+ pop {r1-r4,r12,pc}
+.ltorg
+
+entry ME_BoostSpeedMoveHook
+ push {r4-r6,lr}
+ mov r4,r0
+ mov r5,r1
+ push {r0-r3}
+ mov r0,r2
+ bl ME_EnterSpeedMove
+ mov r6,r0
+ pop {r0-r3}
+ mov r0,r4
+ mov r1,r5
+ bl ME_BoostSpeedMovePrior
+ mov r4,r0
+ mov r0,r6
+ bl ME_LeaveSpeedMove
+ mov r0,r4
+ pop {r4-r6,pc}
+entry ME_BoostSpeedMovePrior
+ push {r3,lr}
+ ldr pc,=0x0232792c
+.ltorg
+
+entry ME_IncreaseMovementHook
+ push {r4-r8,lr}
+ sub sp,sp,#8
+ mov r4,r1
+ mov r6,#0
+ mov r7,#0
+ cmp r4,#0
+ beq 1f
+ ldr r5,[r4]
+ cmp r5,#1
+ bne 1f
+ ldr r5,[r4,#0xb4]
+ cmp r5,#0
+ beq 1f
+ ldr r6,[r5,#0x114]
+ ldrb r7,[r5,#0x118]
+1:
+ ldr r12,[sp,#32] /* fifth native argument */
+ str r12,[sp]
+ bl ME_IncreaseMovementPrior
+ mov r8,r0
+ mov r0,r4
+ mov r1,r6
+ mov r2,r7
+ bl ME_SpeedMoveApplied
+ mov r0,r8
+ add sp,sp,#8
+ pop {r4-r8,pc}
+entry ME_IncreaseMovementPrior
+ push {r3-r9,lr}
+ ldr pc,=0x02314814 /* replay original entry and retain the existing COT jump */
+.ltorg
+
+/* Actual target r4 and move r8, after redirection/Stalwart has resolved. */
+entry ME_TargetGuardHook
+ push {r0-r3,r12,lr}
+ mov r0,r9
+ mov r1,r4
+ mov r2,r8
+ bl ME_WindBlocked
+ cmp r0,#0
+ pop {r0-r3,r12,lr}
+ ldrne pc,=0x02332818
+ mov r0,r4
+ ldr pc,=0x0232eab0
 .ltorg
 
 entry ME_RedirectHook

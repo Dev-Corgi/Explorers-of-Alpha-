@@ -20,7 +20,7 @@
 - runtime/phase3.c: 공통 프로필 조회/계산/층/턴/피격/처치/상태 서비스 초안.
   phase1.c/phase2.c에서 ME_PHASE3 조건부로 연결한다.
   일반형 초기 프로필은 원래 종(m+4)로 조회하고 기존 두 바이트는 호환 ID만 투영한다.
-  특성 은행은 phase3에서 별도 heap 소유 메모리로 바꿔 코드 동굴을 절약한다.
+  특성 은행은 phase3에서 별도 heap 소유 메모리로 분리한다.
   DungeonFree의 기존 Spinda 해제를 먼저 실행하고 두 소유 heap을 해제한다.
   할당 실패 시 행동·특성 조회·ResetMonster가 null을 역참조하지 않는다.
 - runtime/phase3_hooks.S: 실제 사건 연결용 ARM 래퍼 초안.
@@ -151,10 +151,10 @@
    스피드 날씨/곡예의 옛 이동·행동 반복 효과도 숫자 스피드로 완전히 이관한다.
 5. 현 common service는 일부 초안이다. 모든 206개 일반 효과의 실제 경로와
    수치를 감사하고 각 효과의 normal 구현/검증 상태를 명시적으로 기록한다.
-   특히 도주, 부자유친, 잠복, 바람타기,
-   화학의힘, 픽업/열매 유지, 무게/함정/강제 이동, 잠듦 판정 등의 연결이 남아 있다.
-   고대활성의 새 햇살 적용 경계, 일반형 상태/계산 수치의 기존 코드 감사,
-   절대안깸의 가상 수면 및 휴식 직접 쓰기, 개별 부가효과 면역도 남아 있다.
+   뒤의 진행분에서 도주/잠복/화학의힘/픽업/일부 열매 소비/무게/바람타기/고대활성 등을 연결했다.
+   현재 주요 미완 범위는 부자유친, 나머지 강제 이동, 열매 투척/다른 소비 경로,
+   다른 가상 수면 소비자, 일반형 상태/계산 수치와 raw byte 기존 소비자 감사,
+   개별 부가효과 면역 및 미감사 특성들이다.
    이 목록은 완전한 미완 목록이 아니며 native 대응만으로 구현 완료로 인증하지 않는다.
 6. 강화 설명/설계도 함께 조사하되 개별 강화 효과 활성화는 페이즈 7이다.
 7. source reconciliation, phase1/2/3 ARM, 문자열/한국어 exact match,
@@ -186,6 +186,58 @@
 - verify_phase3_items.py/verify_phase3_sleep.py는 위 경로와 native ABI,
   후보 제외·가방 공간·팀원·층당1회·억제·중복·기존 코드 가드를 실제 ARM으로 검사한다.
   모든 아이템 효과/수면 소비자 또는 전체 페이즈3의 완료를 인증하지 않는다.
+
+## 여섯 번째 진행분 — 새 실행 영역에서 일반 효과 연결
+
+- 고대활성은 TryActivateWeather의 승인된 변경/강제 새 적용 경계 +0x023355a8에 연결했다.
+  기존 +0x02334e70 시각·폼 변경 처리를 먼저 실행한 뒤 새 햇살 이벤트를 처리한다.
+  조용한 날씨 조회/유지 갱신은 저장단계를 변경하지 않는다.
+  이미 햇살인 층에 들어오는 보유자는 최초 층 입장에서 한 번 적용한다.
+  같은 입장에서 가뭄도 발동하면 `sun_seen`으로 중복을 막는다.
+  억제/날씨 억제, 다시 적용된 햇살, 최고 능력 5종과 동률 순서를 ARM으로 검증했다.
+  적 처치에서는 고대활성/소울하트가 행동당 한 번, 자기과신이 처치마다 발동하는 경로도 검사했다.
+- 감미로운꿀의 층 전체 적 회피 저하와 복원/재부여 시 반복 방지·다음 층 재적용,
+  슬로스타트 숫자 스피드 −3, 변덕쟁이의 서로 다른 두 능력 선택을 ARM으로 검사했다.
+  기존 raw byte 소비자까지 모두 감사했다는 의미는 아니다.
+- 치유의마음은 인접 8칸의 살아 있는 같은 편 중 지정한 상태가 있는 동료 1마리를 선택한다.
+  후보가 없으면 RNG를 쓰지 않고, 후보가 있으면 50% 후 균등 선택한다.
+  광범위한 EndNegativeStatusCondition 대신 실제 EndSleep/Burn/Cringe/FrozenClass를 호출한다.
+  sleep BD=1/3/5, burn BF=1..5(동상5 포함), confusion D0=2, 기존 freeze C4=1만 해제한다.
+  sleepless/yawn/taunt/encore/ingrain/binding 등 다른 조건은 유지한다.
+  EndSleepClassStatus는 문서의 2인자보다 실제 ABI가 5인자라 모두 명시하며
+  nightmare 종료 피해 및 napping 보너스 회복 flag를 0으로 둔다.
+  native 상태 해제 함수의 본문을 실행해 상태 byte 변경과 별도 HP 회복 없음도 검사했다.
+  현재 native turn wrapper가 보유자의 턴 후 호출하며 전체 던전 회전 순서 감사는 남아 있다.
+- 라이트/헤비메탈은 DoMoveDamageWeightDependent +0x023277d4의 species 조회를 감싼다.
+  원래 GetWeightMultiplier(ARM9 +0x020528fc)가 MD+0x28을 읽은 뒤 특성 보정을 적용한다.
+  이 값은 PMD의 8비트 소수 피해 계수이며 kg나 본가 체중 구간으로 재해석하지 않는다.
+  두 기술 Low Kick92 / Grass Knot458에만 적용하며 원본 MD나 일반 종 조회는 바꾸지 않는다.
+  라이트 ×1/2, 헤비 ×2, 둘을 동시에 보유하면 원래 값 유지로 홀수 반올림 손실을 막는다.
+  DefenderAbilityIsActive로 억제/틀깨기를 처리하고 uint16 범위를 지킨다.
+  실제 MD 조회 및 원래 기술 핸들러 전체를 실행해 DealDamage 인자와 native stack item ID를 검사했다.
+  헤비메탈의 다른 강제 이동 소비자는 여전히 감사 대상이다.
+- 바람타기 피해 면역은 ExecuteMoveEffect의 redirect 이후 +0x0232eaac 경계에 연결한다.
+  실제 actor r9 / resolved target r4 / move r8을 쓰고 면역이면 다음 대상 경로 +0x02332818로 간다.
+  해당 공격 행동당 한 번 공격 +1단계, 반복 바람 피해는 계속 막는다. 틀깨기/억제를 따른다.
+  phase3_moves.py/data/phase3_moves.json에 기존 로컬 Showdown wind flag와 ROM 이름/분류를 대조했다.
+  공격 바람 9종: Air Cutter36, Gust57, Icy Wind97, Twister162, Heat Wave230,
+  Blizzard270, Aeroblast353, Hurricane426, Petal Blizzard554.
+  Sandstorm141/Whirlwind268/Tailwind444는 변화 기술이라 이 피해 면역으로 막지 않는다.
+  적용 전 기술 표를 재검증하고, 명칭·분류 변경 시 중단한다. 같은 분류 자료를 페이즈7에 재사용한다.
+  순풍 최초 부여는 DoMoveBoostSpeed1(+0x02327928)의 이동 ID444 문맥으로 추적한다.
+  IncreaseSpeed(+0x02314810)에서 native +0x02314814 COT 진입점을 보존하고
+  실제 변경 전·후의 speed-up counter5개(+0x114..0x118)를 비교한다.
+  순풍으로 만든 slot만 소유 표시하며 유지 중 refresh에는 공격 보너스를 반복하지 않는다.
+  만료/제거/다른 속도 효과의 slot 재사용은 소유 표시를 지우고 새 순풍만 다시 발동한다.
+  순풍 없이 기존 Agility가 활성인 경우에도 첫 순풍 보너스는 정상 적용한다.
+  실제 이동속도 규칙·지속시간·처리 순서는 변경하지 않는다.
+  verify_phase3_tailwind.py는 native speed-move와 IncreaseSpeedStage 호출·래퍼를 실행하고
+  마지막 IncreaseSpeed의 상태 검사/타이머 쓰기만 모델링한다. 5번째 stack 인자,
+  원래 반환값, 중첩 source 문맥, refresh/만료/재사용/억제/실패/층 리셋을 검사한다.
+- verify_phase3_events.py / verify_phase3_weight_wind.py를 추가했다.
+  native 날씨 선택과 상태 해제/무게 조회·기술 핸들러는 실제 ARM 본문을 실행하고,
+  UI/RNG/능력 저장 함수/DealDamage 등 외부 서비스를 모델링한다.
+  전체 전투 및 전체 206개 일반 특성 완료/활성화를 인증하지 않는다.
 
 ## 확인된 ROM 정보
 

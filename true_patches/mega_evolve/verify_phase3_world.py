@@ -69,6 +69,6 @@ def main():
     assert hashlib.sha256(SOURCE.read_bytes()).hexdigest()==before
     print('PASS phase3 world ARM: floor-trap 50% avoidance, forced/direct activation exclusion,')
     print('  direct trap entry unchanged; Heavy Metal blow-away, suppression/Mold Breaker, native ABI.')
-    print('Weight consumers and other world effects remain under audit. No ROM/save output.')
+    print('Other forced-movement/world consumers remain under audit. No ROM/save output.')
 
 if __name__=='__main__':main()

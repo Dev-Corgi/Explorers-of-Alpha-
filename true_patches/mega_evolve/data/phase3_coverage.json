@@ -11,7 +11,10 @@
     "python -B -X utf8 -m true_patches.mega_evolve.verify_phase3_faint",
     "python -B -X utf8 -m true_patches.mega_evolve.verify_phase3_movement",
     "python -B -X utf8 -m true_patches.mega_evolve.verify_phase3_escape",
-    "python -B -X utf8 -m true_patches.mega_evolve.verify_loader"
+    "python -B -X utf8 -m true_patches.mega_evolve.verify_loader",
+    "python -B -X utf8 -m true_patches.mega_evolve.verify_phase3_events",
+    "python -B -X utf8 -m true_patches.mega_evolve.verify_phase3_weight_wind",
+    "python -B -X utf8 -m true_patches.mega_evolve.verify_phase3_tailwind"
   ],
   "boundary": "Verified paths are not whole-ability certification. Native ID matches are not proof of correct normal effects.",
   "shared_phase7_research": [
@@ -62,8 +65,12 @@
       "id": 260,
       "legacy_effect_id": 0,
       "family": "floor_entry",
-      "normal_status": "pending_audit",
-      "verified_paths": [],
+      "normal_status": "partial",
+      "verified_paths": [
+        "floor_wide_foes_only_evasion_drop",
+        "floor_once_and_regrant",
+        "next_floor_reapply"
+      ],
       "enhanced_status": "phase7"
     },
     {
@@ -107,8 +114,15 @@
       "id": 265,
       "legacy_effect_id": 0,
       "family": "faint",
-      "normal_status": "pending_audit",
-      "verified_paths": [],
+      "normal_status": "partial",
+      "verified_paths": [
+        "accepted_native_sunlight_boundary",
+        "quiet_weather_update_no_repeat",
+        "weather_ability_suppression",
+        "sunny_entry_once",
+        "highest_stat_and_tie_priority",
+        "own_ko_once_per_action"
+      ],
       "enhanced_status": "phase7"
     },
     {
@@ -489,7 +503,9 @@
         "floor_trap_boundary_50_percent",
         "forced_activation_exclusion",
         "direct_trap_entry_preserved",
-        "suppression"
+        "suppression",
+        "native_weight_move_lookup",
+        "composed_weight_modifiers_and_mold_breaker"
       ],
       "enhanced_status": "phase7"
     },
@@ -697,8 +713,16 @@
       "id": 326,
       "legacy_effect_id": 216,
       "family": "status_or_stage",
-      "normal_status": "pending_audit",
-      "verified_paths": [],
+      "normal_status": "partial",
+      "verified_paths": [
+        "audited_damaging_wind_ids",
+        "post_redirection_resolved_target_guard",
+        "once_per_action_attack_raise",
+        "suppression_and_mold_breaker",
+        "tailwind_first_application",
+        "speed_counter_ownership_refresh_expiry_reuse",
+        "native_speed_increase_argument_stack_return_abi"
+      ],
       "enhanced_status": "phase7"
     },
     {
@@ -769,8 +793,12 @@
       "id": 334,
       "legacy_effect_id": 222,
       "family": "floor_entry",
-      "normal_status": "pending_audit",
-      "verified_paths": [],
+      "normal_status": "partial",
+      "verified_paths": [
+        "uniform_distinct_stats",
+        "numeric_speed_and_accuracy",
+        "floor_once"
+      ],
       "enhanced_status": "phase7"
     },
     {
@@ -906,8 +934,10 @@
       "id": 349,
       "legacy_effect_id": 209,
       "family": "faint",
-      "normal_status": "pending_audit",
-      "verified_paths": [],
+      "normal_status": "partial",
+      "verified_paths": [
+        "same_room_faint_once_per_action"
+      ],
       "enhanced_status": "phase7"
     },
     {
@@ -997,8 +1027,11 @@
       "id": 358,
       "legacy_effect_id": 94,
       "family": "floor_entry",
-      "normal_status": "pending_audit",
-      "verified_paths": [],
+      "normal_status": "partial",
+      "verified_paths": [
+        "numeric_speed_minus_three",
+        "floor_once"
+      ],
       "enhanced_status": "phase7"
     },
     {
@@ -1324,8 +1357,10 @@
       "id": 393,
       "legacy_effect_id": 170,
       "family": "faint",
-      "normal_status": "pending_audit",
-      "verified_paths": [],
+      "normal_status": "partial",
+      "verified_paths": [
+        "own_opponent_ko_each_target"
+      ],
       "enhanced_status": "phase7"
     },
     {
@@ -1605,8 +1640,14 @@
       "id": 422,
       "legacy_effect_id": 0,
       "family": "turn_tick",
-      "normal_status": "pending_audit",
-      "verified_paths": [],
+      "normal_status": "partial",
+      "verified_paths": [
+        "50_percent_eligible_adjacent_ally",
+        "one_uniform_target",
+        "seven_status_class_cures_native_arm",
+        "other_statuses_preserved",
+        "sleep_five_argument_abi_no_napping_heal"
+      ],
       "enhanced_status": "phase7"
     },
     {
@@ -1945,7 +1986,9 @@
       "verified_paths": [
         "native_blow_away_guard",
         "suppression_and_mold_breaker",
-        "native_continuation_abi"
+        "native_continuation_abi",
+        "native_weight_move_lookup",
+        "composed_weight_modifiers_and_mold_breaker"
       ],
       "enhanced_status": "phase7"
     },

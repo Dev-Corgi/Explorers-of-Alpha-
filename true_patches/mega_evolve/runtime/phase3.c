@@ -1,6 +1,7 @@
 /* Shared normal-effect services. Grade-specific deltas are recorded in phase3.json;
  * enhanced individual effects are enabled by phase7, not by presentation text. */
 #include "phase3_items_generated.h"
+#include "phase3_moves_generated.h"
 
 int ME_KeepBerry(u8 *consumer,u8 *item) {
     if(!alive(consumer)||!item||!(BYTE(item,0)&1))return 0;
@@ -44,10 +45,12 @@ static int multiply(int value,int n,int d) {return clamp(divide(value*n,d),0,327
 /* Floor-local state. The persistent profile is owned by the bank, never here. */
 typedef struct {u32 entity,monster,floor,once; u16 locked_move;u8 charged,pad;u32 sun_serial;
     u32 conversion_action,charge_action,moved_epoch,stake_used[COUNT];
-    u16 conversion_move;u8 conversion_type,conversion_valid,moved_ready;} Extra;
+    u16 conversion_move;u8 conversion_type,conversion_valid,moved_ready,sun_seen;
+    u8 tailwind_mask,tailwind_remaining[5];} Extra;
 static Extra *extra;
 static u32 sunlight_serial,movement_serial;
 static int movement_context,calculation_context;
+static int speed_move_context;
 typedef struct {u8 *actor,*target;} Calculation;
 static Calculation calculations[16];
 static Extra *ext(u8 *e) {
@@ -63,6 +66,45 @@ static Extra *ext(u8 *e) {
         zero(x,sizeof(*x));x->entity=(u32)e;x->monster=(u32)m;x->floor=state.floor;
     }
     return x;
+}
+static void prune_tailwind(Extra *x,u8 *m) {
+    for(int i=0;i<5;i++)if(x->tailwind_mask&(1<<i)) {
+        int counter=BYTE(m,0x114+i);
+        if(!counter||counter>x->tailwind_remaining[i])x->tailwind_mask&=~(1<<i);
+        else x->tailwind_remaining[i]=(u8)counter;
+    }
+}
+int ME_EnterSpeedMove(u8 *move) {
+    int previous=speed_move_context;
+    speed_move_context=move&&U16(move,4)==444;
+    return previous;
+}
+void ME_LeaveSpeedMove(int previous) {speed_move_context=previous;}
+void ME_SpeedMoveApplied(u8 *target,u32 previous_four,u32 previous_last) {
+    if(!alive(target))return;
+    Extra *x=ext(target);u8 *m=monster(target);if(!x)return;
+    /* Expired or externally overwritten slots cannot own a Tailwind anymore.
+     * Compare BEFORE the native writer to identify slot reuse by other speed
+     * sources even if their random duration happens to match the old value. */
+    for(int i=0;i<5;i++) {
+        int before=i==4?(int)previous_last:(int)((previous_four>>(i*8))&255);
+        if((x->tailwind_mask&(1<<i))&&(!before||before>x->tailwind_remaining[i]))
+            x->tailwind_mask&=~(1<<i);
+    }
+    int active=x->tailwind_mask!=0;
+    for(int i=0;i<5;i++) {
+        int before=i==4?(int)previous_last:(int)((previous_four>>(i*8))&255);
+        int after=BYTE(m,0x114+i);
+        if(after!=before) {
+            x->tailwind_mask&=~(1<<i);
+            if(speed_move_context&&after) {
+                x->tailwind_mask|=1<<i;x->tailwind_remaining[i]=(u8)after;
+            }
+        }
+    }
+    prune_tailwind(x,m);
+    if(speed_move_context&&!active&&x->tailwind_mask&&has(target,A_WIND_RIDER))
+        ME_ChangeStat(target,target,0,1);
 }
 void ME_ActorStarts(u8 *e) {Extra *x=ext(e);if(x)x->moved_ready=0;}
 void ME_ActorFinishes(u8 *e,u32 old_position,int action) {
@@ -291,7 +333,7 @@ void ME_NewSunlight(void) {
     for(int i=0;i<COUNT;i++) {
         u8 *e=entity(i);Extra *x=ext(e);
         if(alive(e)&&x&&has(e,A_PROTOSYNTHESIS)&&ME_ApparentWeather(e)==1&&x->sun_serial!=sunlight_serial) {
-            x->sun_serial=sunlight_serial;ME_ChangeStat(e,e,ME_HighestStat(e),1);
+            x->sun_serial=sunlight_serial;x->sun_seen=1;ME_ChangeStat(e,e,ME_HighestStat(e),1);
         }
     }
 }
@@ -301,6 +343,11 @@ void ME_FloorEntry(u8 *e) {
     static const u16 ids[]={A_DRIZZLE,A_DROUGHT,A_SAND_STREAM,A_SNOW_WARNING,A_PRIMORDIAL_SEA,A_DESOLATE_LAND,A_DELTA_STREAM};
     static const u8 weather[]={4,1,2,5,4,1,0};
     for(int i=0;i<7;i++)if(has(e,ids[i]))ME_SetWeatherSource(e,weather[i],i>=4,ids[i]);
+    /* Natural sunshine can already be active when the entity enters. A weather
+     * source callback during this same entry must not award a second boost. */
+    if(!x->sun_seen&&has(e,A_PROTOSYNTHESIS)&&ME_ApparentWeather(e)==1) {
+        x->sun_serial=sunlight_serial;x->sun_seen=1;ME_ChangeStat(e,e,ME_HighestStat(e),1);
+    }
     if(has(e,94))ME_ChangeStat(e,e,4,-3);
     if(has(e,131))U16(monster(e),0x10)=(u16)maxhp(e);
     if(has(e,A_SUPERSWEET_SYRUP)) for(int i=0;i<COUNT;i++) {
@@ -308,19 +355,45 @@ void ME_FloorEntry(u8 *e) {
     }
     if(has(e,222)) {
         int first=FN(0x022eaa98,int(*)(int))(7),second=FN(0x022eaa98,int(*)(int))(6);
+        if(first<0||first>=7||second<0||second>=6)return;
         if(second>=first)second++;
         ME_ChangeStat(e,e,first,2);ME_ChangeStat(e,e,second,-1);
     }
 }
+static int healer_status(u8 *e) {
+    u8 *m=monster(e);if(!m)return 0;
+    int sleep=BYTE(m,0xbd),burn=BYTE(m,0xbf);
+    return sleep==1||sleep==3||sleep==5||(burn>=1&&burn<=5)||
+        BYTE(m,0xd0)==2||BYTE(m,0xc4)==1;
+}
+int ME_HealAlly(u8 *e) {
+    if(!alive(e)||!has(e,A_HEALER))return 0;
+    u8 *candidates[COUNT];int n=0;
+    for(int i=0;i<COUNT;i++) {
+        u8 *b=entity(i);
+        if(b!=e&&alive(b)&&friends(e,b)&&adjacent(e,b)&&healer_status(b))candidates[n++]=b;
+    }
+    if(!n||!FN(0x022eab20,int(*)(int))(50))return 0;
+    int selected=FN(0x022eaa98,int(*)(int))(n);if(selected<0||selected>=n)return 0;
+    u8 *target=candidates[selected],*m=monster(target);
+    int sleep=BYTE(m,0xbd),burn=BYTE(m,0xbf);
+    /* Class-specific native cures preserve taunt, encore, sleepless, rooting,
+     * binding and other conditions outside the user's seven-status list.
+     * Sleep's actual ABI has five arguments: disable nightmare damage and
+     * napping's optional healing rather than passing uninitialized flags. */
+    if(sleep==1||sleep==3||sleep==5)
+        FN(0x02305fdc,void(*)(u8*,u8*,int,int,int))(e,target,0,0,0);
+    if(burn>=1&&burn<=5)FN(0x023061a8,void(*)(u8*,u8*))(e,target);
+    if(BYTE(m,0xd0)==2)FN(0x023063d4,void(*)(u8*,u8*))(e,target);
+    if(BYTE(m,0xc4)==1)FN(0x02306258,void(*)(u8*,u8*,int))(e,target,1);
+    return 1;
+}
 void ME_TurnTick(u8 *e) {
     if(!alive(e))return;
     ME_FloorEntry(e);Extra *x=ext(e);
+    if(x)prune_tailwind(x,monster(e));
     if(x&&x->charged)x->charged--;
-    if(has(e,A_HEALER)&&FN(0x022eab20,int(*)(int))(50)) {
-        u8 *candidates[COUNT];int n=0;
-        for(int i=0;i<COUNT;i++) {u8 *b=entity(i);if(b!=e&&alive(b)&&friends(e,b)&&adjacent(e,b)&&FN(0x02300634,int(*)(u8*))(b))candidates[n++]=b;}
-        if(n)FN(0x02305c28,void(*)(u8*,u8*))(e,candidates[FN(0x022eaa98,int(*)(int))(n)]);
-    }
+    ME_HealAlly(e);
 }
 void ME_FaintEvent(u8 *fainted,int move,u8 *actor) {
     for(int i=0;i<COUNT;i++) {
@@ -387,9 +460,28 @@ int ME_SleepTarget(u8 *e) {
 }
 int ME_TrapAvoid(u8 *e) {return has(e,A_LIGHT_METAL)&&FN(0x022eab20,int(*)(int))(50);}
 int ME_Weight(u8 *e,int weight) {
-    if(has(e,A_LIGHT_METAL))weight=divide(weight,2);
-    if(has(e,A_HEAVY_METAL))weight*=2;
+    int light=has(e,A_LIGHT_METAL),heavy=has(e,A_HEAVY_METAL);
+    if(light&&!heavy)weight=divide(weight,2);
+    if(heavy&&!light)weight*=2;
     return weight;
+}
+/* PMD's MD +0x28 stores the weight-dependent damage multiplier (8 fractional
+ * bits), not main-series kilograms. Modify that native reference value at the
+ * weight move's lookup boundary; leave MD and non-move species lookups alone. */
+int ME_WeightForMove(u8 *actor,u8 *target,int multiplier) {
+    int light=defhas(actor,target,A_LIGHT_METAL),heavy=defhas(actor,target,A_HEAVY_METAL);
+    if(light&&!heavy)multiplier=divide(multiplier,2);
+    if(heavy&&!light)multiplier*=2;
+    return clamp(multiplier,0,65535);
+}
+int ME_WindBlocked(u8 *actor,u8 *target,u8 *move) {
+    if(!move||!alive(target)||!defhas(actor,target,A_WIND_RIDER))return 0;
+    int wind=0,id=U16(move,4);
+    for(unsigned i=0;i<sizeof(wind_damage_moves)/sizeof(wind_damage_moves[0]);i++)
+        if(id==wind_damage_moves[i])wind=1;
+    if(!wind)return 0;
+    if(ME_ClaimEffect(target,A_WIND_RIDER,8,actor))ME_ChangeStat(target,target,0,1);
+    return 1;
 }
 
 int ME_AbilityStat(u8 *m,int value,int defense,int index) {
@@ -418,7 +510,7 @@ void ME_FreeAbilities(void) {
     if(ability_memory)FN(0x02001188,void(*)(void*))(ability_memory);
     ability_memory=0;
     if(extra)FN(0x02001188,void(*)(void*))(extra);
-    extra=0;sunlight_serial=0;movement_serial=0;state.magic=0;movement_context=0;calculation_context=0;
+    extra=0;sunlight_serial=0;movement_serial=0;state.magic=0;movement_context=0;calculation_context=0;speed_move_context=0;
     zero(calculations,sizeof(calculations));
 }
 

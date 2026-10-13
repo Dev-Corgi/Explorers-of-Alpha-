@@ -16,6 +16,7 @@ int ME_AbilityActive(u8*,int);
 int ME_SpeedBonus(u8*);
 void ME_FlushFaintCopies(u32);
 void ME_CancelFaintCopies(u8*);
+int ME_ChangeStat(u8*,u8*,int,int);
 #endif
 #define BYTE(p,o) (*((u8 *)(p)+(o)))
 enum { COUNT=20, SOURCES=60, SNAPSHOT=1024, MAGIC=0x3147454d,

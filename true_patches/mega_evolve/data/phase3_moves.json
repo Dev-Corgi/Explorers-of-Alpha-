@@ -1,0 +1,92 @@
+{
+  "schema": 1,
+  "classifier": "local_showdown_flags_wind",
+  "source_sha256": "26909a321a7e4528d14a7dffd24173aa03a6845776cf41c39cc3d76f8e14616b",
+  "wind_moves": [
+    {
+      "id": 36,
+      "name": "Air Cutter",
+      "category": 1,
+      "chained_hits": 1,
+      "power": 60
+    },
+    {
+      "id": 57,
+      "name": "Gust",
+      "category": 1,
+      "chained_hits": 1,
+      "power": 40
+    },
+    {
+      "id": 97,
+      "name": "Icy Wind",
+      "category": 1,
+      "chained_hits": 1,
+      "power": 55
+    },
+    {
+      "id": 141,
+      "name": "Sandstorm",
+      "category": 2,
+      "chained_hits": 1,
+      "power": 0
+    },
+    {
+      "id": 162,
+      "name": "Twister",
+      "category": 1,
+      "chained_hits": 1,
+      "power": 40
+    },
+    {
+      "id": 230,
+      "name": "Heat Wave",
+      "category": 1,
+      "chained_hits": 1,
+      "power": 95
+    },
+    {
+      "id": 268,
+      "name": "Whirlwind",
+      "category": 2,
+      "chained_hits": 1,
+      "power": 0
+    },
+    {
+      "id": 270,
+      "name": "Blizzard",
+      "category": 1,
+      "chained_hits": 1,
+      "power": 110
+    },
+    {
+      "id": 353,
+      "name": "Aeroblast",
+      "category": 1,
+      "chained_hits": 1,
+      "power": 100
+    },
+    {
+      "id": 426,
+      "name": "Hurricane",
+      "category": 1,
+      "chained_hits": 1,
+      "power": 110
+    },
+    {
+      "id": 444,
+      "name": "Tailwind",
+      "category": 2,
+      "chained_hits": 1,
+      "power": 0
+    },
+    {
+      "id": 554,
+      "name": "Petal Blizzard",
+      "category": 0,
+      "chained_hits": 1,
+      "power": 90
+    }
+  ],
+  "scope": "Wind Rider damage immunity only; status wind moves keep native effects."
+}
