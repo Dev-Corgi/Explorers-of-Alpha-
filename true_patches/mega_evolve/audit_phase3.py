@@ -6,6 +6,13 @@ from .phase3 import load
 MODULE=Path(__file__).resolve().parent
 
 VERIFIED={
+    '클리어바디':['numeric_speed_accuracy_evasion_opponent_drop_guard_self_allowed_mold_breaker'],
+    '하얀연기':['numeric_speed_accuracy_evasion_shared_drop_guard_three_slots'],
+    '단순':['numeric_speed_accuracy_evasion_delta_times_two_caps_mold_breaker'],
+    '심술꾸러기':['numeric_speed_accuracy_evasion_direction_reversal_composition_mold_breaker'],
+    '날카로운눈':['numeric_accuracy_opponent_drop_guard_mold_breaker'],
+    '오기':['numeric_enemy_actual_drop_only_attack_plus_two_self_ally_caps_excluded'],
+    '승기':['numeric_enemy_actual_drop_only_special_attack_plus_two_shared_reaction'],
     '부유':['native_ground_immunity_branch_three_slots_suppression_mold_breaker_gravity'],
     '방음':['native_move_effect_rejection_fifteen_sound_ids_three_slots_suppression_mold_breaker'],
     '전투무장':['native_critical_rejection_three_slots_suppression_mold_breaker'],
@@ -84,7 +91,8 @@ def build():
                                 'python -B -X utf8 -m true_patches.mega_evolve.verify_phase3_weight_wind',
                                 'python -B -X utf8 -m true_patches.mega_evolve.verify_phase3_tailwind',
                                 'python -B -X utf8 -m true_patches.mega_evolve.verify_phase3_native_status',
-                                'python -B -X utf8 -m true_patches.mega_evolve.verify_phase3_native_immunity'],
+                                'python -B -X utf8 -m true_patches.mega_evolve.verify_phase3_native_immunity',
+                                'python -B -X utf8 -m true_patches.mega_evolve.verify_phase3_numeric_stats'],
             'work_classification':{'basis':'definition tags and existing effect identity; candidate classification is not implementation proof',
                                    'counts':{k:len(v) for k,v in worklist().items()}},
             'boundary':'Verified paths are not whole-ability certification. Native ID matches are not proof of correct normal effects.',

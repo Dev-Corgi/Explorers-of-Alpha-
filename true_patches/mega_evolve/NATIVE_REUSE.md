@@ -77,3 +77,24 @@ Burn의 추가 stack check-only flag도0으로 둔다. Sleep은 r2가 지속시�
 특성 없음·슬롯1/2/3·도구 억제·위액, 방어 특성의 틀깨기를 비교한다.
 급소 결과 뒤의 피해 배율, 앞선 Lucky Chant 등 다른 급소 보호,
 전체 기술 실행/UI/피격 반응, 부유의 바닥 이동/함정은 이 범위에 포함하지 않는다.
+
+## 세 번째 묶음: 새 이벤트의 숫자 단계 변화
+
+ME_ChangeStat(actor,target,stat,delta)의 stat4/5/6(숫자 스피드/명중/회피)을
+공통 처리로 묶었다. 이전 스피드 경로와 명중/회피 경로는 plain ability 조회를
+사용해 틀깨기를 누락했고, 실제 하락 후 오기/승기 반응도 없었다.
+이제 DefenderAbilityIsActive0x022f96cc(actor,target,id,1)로 대상의
+심술꾸러기129→하락 방지15/명중 전용30→단순97을 순서대로 처리한다.
+그 뒤 4..16으로 제한하고 실제 저장 값이 변한 경우만 성공으로 반환한다.
+
+숫자 단계가 실제로 내려가고 살아 있는 적이 원인일 때만 holder의
+오기150/승기151을 조회하여 ME_ChangeStat(holder,holder,Atk/SpAtk,+2)를 호출한다.
+이는 별도 자기 효과이므로 원인 공격자의 틀깨기가 반응 자체를 억제하지 않는다.
+UI/특수공격 처리 등은 기존 IncreaseAttackStage0x0231399c에 위임한다.
+verify_phase3_numeric_stats.py는 이 native writer 경계를 모델링하며,
+actor=target, physical/special index, amount2 및 stack 인자를 기록한다.
+최종 물리/특수 저장 값과 기존 native 반응 UI까지 인증하는 테스트는 아니다.
+
+기존 효과가 이 API로 들어오는 경로에 한정한다. 기존 기술의 별도
+명중/회피 native 함수, 공격/방어 감소 함수, phase1/2 ME_ChangeSpeed API까지
+한꺼번에 바꾼 것으로 표시하지 않는다. 강화 차이와 신규 native 연결은 후속 범위다.

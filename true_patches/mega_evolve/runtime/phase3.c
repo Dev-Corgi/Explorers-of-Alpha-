@@ -239,26 +239,33 @@ int ME_WanderingSwap(u8 *actor,u8 *holder) {
 }
 /* stat order: Atk,Def,SpAtk,SpDef,numeric Speed,Accuracy,Evasion.
  * Stored changes use the existing event services for their UI and native
- * Contrary/Simple/drop/Defiant checks; numeric Speed has its own service. */
+ * Contrary/Simple/drop/Defiant checks; numeric stats share the rules below. */
 int ME_ChangeStat(u8 *actor,u8 *target,int stat,int delta) {
     if(!alive(target)||stat<0||stat>6||!delta)return 0;
-    if(stat==4) {
-        if(has(target,129))delta=-delta;
-        return ME_ChangeSpeed(actor,target,delta,0);
-    }
     if(stat<4) {
         int defensive=stat==1||stat==3,index=stat>=2;
         u32 address=delta>0?(defensive?0x02313b08:0x0231399c):(defensive?0x02313814:0x023135fc);
         FN(address,void(*)(u8*,u8*,int,int,int,int))(actor,target,index,delta>0?delta:-delta,actor!=target,0);
         return 1;
     }
-    /* Hit-chance native API only raises one step. Apply the requested delta
-     * here, preserving numeric storage caps and common trait rules. */
-    if(has(target,129))delta=-delta;
-    if(delta<0 && actor!=target && (has(target,15)||(stat==5&&has(target,30))))return 0;
-    if(has(target,97))delta*=2;
-    u8 *m=monster(target);int off=stat==5?0x2c:0x2e,old=U16(m,off);
-    U16(m,off)=(u16)clamp(old+delta,4,16);return old!=U16(m,off);
+    /* Shared ordinary rules for numeric Speed/Accuracy/Evasion. Defender
+     * predicates include Mold Breaker, unlike a plain active-ability query.
+     * React only to a stored decrease, never to blocked or capped requests. */
+    if(defhas(actor,target,129))delta=-delta;
+    if(delta<0 && actor!=target && (defhas(actor,target,15)||(stat==5&&defhas(actor,target,30))))return 0;
+    if(defhas(actor,target,97))delta*=2;
+    u8 *m=monster(target);int off=stat==5?0x2c:0x2e;
+    int old=stat==4?ME_GetStoredSpeed(target):U16(m,off);
+    int value=clamp(old+delta,4,16);
+    if(old==value)return 0;
+    if(stat==4)ME_SetStoredSpeed(target,value);else U16(m,off)=(u16)value;
+    if(value<old && alive(actor) && !friends(actor,target)) {
+        /* Reactive boosts belong to the holder; the triggering attack's
+         * Mold Breaker must not suppress these separate self effects. */
+        if(has(target,150))ME_ChangeStat(target,target,0,2);
+        if(has(target,151))ME_ChangeStat(target,target,2,2);
+    }
+    return 1;
 }
 int ME_HighestStat(u8 *e) {
     u8 *m=monster(e);if(!m)return 0;

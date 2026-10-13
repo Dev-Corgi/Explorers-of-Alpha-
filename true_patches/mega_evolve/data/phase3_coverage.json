@@ -16,7 +16,8 @@
     "python -B -X utf8 -m true_patches.mega_evolve.verify_phase3_weight_wind",
     "python -B -X utf8 -m true_patches.mega_evolve.verify_phase3_tailwind",
     "python -B -X utf8 -m true_patches.mega_evolve.verify_phase3_native_status",
-    "python -B -X utf8 -m true_patches.mega_evolve.verify_phase3_native_immunity"
+    "python -B -X utf8 -m true_patches.mega_evolve.verify_phase3_native_immunity",
+    "python -B -X utf8 -m true_patches.mega_evolve.verify_phase3_numeric_stats"
   ],
   "work_classification": {
     "basis": "definition tags and existing effect identity; candidate classification is not implementation proof",
@@ -305,9 +306,11 @@
       "id": 281,
       "legacy_effect_id": 30,
       "family": "native_behavior",
-      "normal_status": "pending_audit",
+      "normal_status": "partial",
       "work_class_candidate": "reuse_candidate",
-      "verified_paths": [],
+      "verified_paths": [
+        "numeric_accuracy_opponent_drop_guard_mold_breaker"
+      ],
       "enhanced_status": "phase7"
     },
     {
@@ -408,9 +411,11 @@
       "id": 291,
       "legacy_effect_id": 97,
       "family": "status_or_stage",
-      "normal_status": "pending_audit",
+      "normal_status": "partial",
       "work_class_candidate": "modify_or_connect",
-      "verified_paths": [],
+      "verified_paths": [
+        "numeric_speed_accuracy_evasion_delta_times_two_caps_mold_breaker"
+      ],
       "enhanced_status": "phase7"
     },
     {
@@ -1178,9 +1183,11 @@
       "id": 360,
       "legacy_effect_id": 151,
       "family": "native_behavior",
-      "normal_status": "pending_audit",
+      "normal_status": "partial",
       "work_class_candidate": "reuse_candidate",
-      "verified_paths": [],
+      "verified_paths": [
+        "numeric_enemy_actual_drop_only_special_attack_plus_two_shared_reaction"
+      ],
       "enhanced_status": "phase7"
     },
     {
@@ -1218,9 +1225,11 @@
       "id": 364,
       "legacy_effect_id": 129,
       "family": "status_or_stage",
-      "normal_status": "pending_audit",
+      "normal_status": "partial",
       "work_class_candidate": "reuse_candidate",
-      "verified_paths": [],
+      "verified_paths": [
+        "numeric_speed_accuracy_evasion_direction_reversal_composition_mold_breaker"
+      ],
       "enhanced_status": "phase7"
     },
     {
@@ -1346,9 +1355,11 @@
       "id": 376,
       "legacy_effect_id": 150,
       "family": "native_behavior",
-      "normal_status": "pending_audit",
+      "normal_status": "partial",
       "work_class_candidate": "reuse_candidate",
-      "verified_paths": [],
+      "verified_paths": [
+        "numeric_enemy_actual_drop_only_attack_plus_two_self_ally_caps_excluded"
+      ],
       "enhanced_status": "phase7"
     },
     {
@@ -1869,9 +1880,11 @@
       "id": 424,
       "legacy_effect_id": 15,
       "family": "status_or_stage",
-      "normal_status": "pending_audit",
+      "normal_status": "partial",
       "work_class_candidate": "modify_or_connect",
-      "verified_paths": [],
+      "verified_paths": [
+        "numeric_speed_accuracy_evasion_opponent_drop_guard_self_allowed_mold_breaker"
+      ],
       "enhanced_status": "phase7"
     },
     {
@@ -2188,9 +2201,11 @@
       "id": 455,
       "legacy_effect_id": 15,
       "family": "status_or_stage",
-      "normal_status": "pending_audit",
+      "normal_status": "partial",
       "work_class_candidate": "modify_or_connect",
-      "verified_paths": [],
+      "verified_paths": [
+        "numeric_speed_accuracy_evasion_shared_drop_guard_three_slots"
+      ],
       "enhanced_status": "phase7"
     },
     {
