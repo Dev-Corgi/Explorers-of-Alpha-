@@ -102,3 +102,57 @@ entry ME_ResetSpeedHook
  cmp r4,#0
  ldr pc,=0x023196dc
 .ltorg
+
+#ifdef ME_PHASE2
+entry ME_TraceHook
+ push {r0-r3,r12,lr}
+ mov r0,r9
+ mov r1,r8
+ bl ME_Trace
+ cmp r0,#0
+ pop {r0-r3,r12,lr}
+ ldreq pc,=0x022f95fc
+ mov r0,#0
+ ldr r1,=DUNGEON_PTR
+ ldr pc,=0x022f95bc
+
+entry ME_SkillSwapHook
+ push {r0-r3,r12,lr}
+ mov r0,r7
+ mov r1,r6
+ bl ME_SwapAbilities
+ pop {r0-r3,r12,lr}
+ ldr r1,=DUNGEON_PTR
+ ldr r2,=SKILL_SWAP_MESSAGE
+ mov r12,#1
+ mov r0,r7
+ ldr pc,=0x02328744
+
+entry ME_RolePlayHook
+ push {r0-r3,r12,lr}
+ mov r0,r6
+ mov r1,r5
+ bl ME_CopyAbilities
+ pop {r0-r3,r12,lr}
+ ldr r0,=DUNGEON_PTR
+ mov r1,#1
+ ldr pc,=0x0232a1e0
+
+entry ME_RestoreAbilitiesHook
+ push {r0-r3,r12,lr}
+ mov r0,r4
+ bl ME_RestoreMonsterAbilities
+ pop {r0-r3,r12,lr}
+ ldr r0,=DUNGEON_PTR
+ ldr pc,=0x022f9224
+
+entry ME_AbilitiesEqualHook
+ push {r0-r3,r12,lr}
+ mov r0,r4
+ mov r1,r5
+ bl ME_AbilitiesEqual
+ cmp r0,#1
+ pop {r0-r3,r12,lr}
+ ldr pc,=0x02334954
+#endif
+.ltorg

@@ -1,4 +1,4 @@
-"""Allocate/link mega_evolve phase-1 runtime and guard every patched instruction."""
+"""Allocate/link mega_evolve runtime phases and guard replaced instructions."""
 from __future__ import annotations
 
 import hashlib
@@ -62,7 +62,7 @@ def locate_base_stats(ov36):
     return entity_speed,from_monster,calls
 
 
-def build_runtime(module_dir,work,cave,entity_speed,from_monster):
+def build_runtime(module_dir,work,cave,entity_speed,from_monster,phase=1,skill_swap_message=0):
     compiler=shutil.which("arm-none-eabi-gcc")
     if not compiler:
         raise RuntimeError("mega_evolve needs arm-none-eabi-gcc")
@@ -71,6 +71,10 @@ def build_runtime(module_dir,work,cave,entity_speed,from_monster):
     defines={"DUNGEON_PTR":0x02353538,"ABILITY_ACTIVE":0x02301D78,
              "SIGNED_DIVIDE":0x0208FEA4,"LEGACY_STRONG_WEATHER":0x022AB46A,
              "ENTITY_SPEED":entity_speed,"FROM_MONSTER_RESUME":from_monster+4}
+    if phase>=2:
+        from true_patches.mega_evolve.phase2 import load,header
+        (work/"abilities_generated.h").write_text(header(load()),encoding="ascii")
+        defines.update(ME_PHASE2=1,SKILL_SWAP_MESSAGE=skill_swap_message)
     (work/"generated.h").write_text("".join(f"#define {k} 0x{v:X}\n" for k,v in defines.items()),encoding="ascii")
     linker=work/"phase1.ld"
     linker.write_text(f"SECTIONS {{ . = 0x{cave:X}; .text : {{ *(.text*) *(.rodata*) }} "
@@ -91,14 +95,14 @@ def build_runtime(module_dir,work,cave,entity_speed,from_monster):
         address,kind,name=line.split()
         if name.startswith("ME_") or name in ("state","MERuntimeEnd"):
             symbols[name]=int(address,16)
-    if symbols["MERuntimeEnd"]>cave+SIZE:
+    if symbols["MERuntimeEnd"]>cave+(0x4000 if phase>=2 else SIZE):
         raise RuntimeError("mega_evolve phase1 exceeds allocated runtime/BSS size")
     return output.read_bytes(),symbols
 
 
-def allocate_runtime(data,state):
+def allocate_runtime(data,state,size=SIZE):
     reserved=reserved_file_ranges(state,"ov36")
-    runs=find_zero_run(bytes(data),SIZE,16,forbidden=ov36_forbidden_ranges())
+    runs=find_zero_run(bytes(data),size,16,forbidden=ov36_forbidden_ranges())
     refs=scan_overlay_xrefs(bytes(data),OV36)
     failures=[]
     for start,length in runs:
@@ -107,9 +111,9 @@ def allocate_runtime(data,state):
         candidates.update((x.target_file_offset_for(OV36)+16)&~15 for x in refs
                           if start<=x.target_file_offset_for(OV36)<start+length)
         for candidate in sorted(candidates):
-            if candidate+SIZE>start+length: continue
+            if candidate+size>start+length: continue
             try:
-                return allocate_ov36_cave(data,OV36,SIZE,alignment=16,
+                return allocate_ov36_cave(data,OV36,size,alignment=16,
                     preferred_file_offset=candidate,reserved_file_offsets=reserved)
             except RuntimeError as error:
                 failures.append(str(error))
@@ -142,10 +146,31 @@ def apply_phase1(rom,module_dir,manifest,state,metadata):
     gale_target=branch_target(0x022FFEFC,gale_word)
     if ov36[gale_target-OV36:gale_target-OV36+12]!=struct.pack("<III",0xE92D400F,0xE1A00008,0xE3A0108E):
         raise RuntimeError("unexpected movement-speed hook owner")
-    slot,ov36=allocate_runtime(ov36,state)
+    if manifest["phase"]>=2:
+        block_guards=json.loads((module_dir/"data/phase2_hooks.json").read_text(encoding="utf-8"))
+        for block in block_guards["blocks"]:
+            observed=hashlib.sha256(ov29[block["start"]-OV29:block["end"]-OV29]).hexdigest()
+            if observed!=block["sha256"]:
+                raise RuntimeError(f"mega_evolve {block['owner']} skipped-block guard failed")
+        guards2=[(0x02301d10,0xEA000000),(0x022f9538,0xEA000000),
+                 (0x02328714,0xE5D58060),(0x0232a1c8,0xE5D72060),
+                 (0x0233493c,0xE5D41060),(0x022f9220,0xE59F0010)]
+        for site,expected in guards2:
+            actual=word(ov29,site,OV29)
+            if (actual&0xff000000 if expected==0xEA000000 else actual)!=expected:
+                raise RuntimeError(f"mega_evolve ability hook guard failed at {site:#x}")
+        # Preserve the installed balance item predicate and bug_fixes Trace owner.
+        target=branch_target(0x02301d10,word(ov29,0x02301d10,OV29))
+        if bytes(ov36[target-OV36:target-OV36+8])!=struct.pack("<II",0xE92D401F,0xE1A04000):
+            raise RuntimeError("unexpected native ability predicate owner")
+        trace_target=branch_target(0x022f9538,word(ov29,0x022f9538,OV29))
+        if bytes(ov36[trace_target-OV36:trace_target-OV36+12])!=struct.pack("<III",0xE92D500F,0xE1A00008,0xE3A01028):
+            raise RuntimeError("unexpected native Trace predicate owner")
+    runtime_size=0x4000 if manifest["phase"]>=2 else SIZE
+    slot,ov36=allocate_runtime(ov36,state,runtime_size)
     with tempfile.TemporaryDirectory(prefix="mega_evolve_phase1_") as temporary:
-        blob,symbols=build_runtime(module_dir,Path(temporary),slot.load_address,entity_speed,from_monster)
-    ov36[slot.file_offset:slot.file_offset+SIZE]=bytes(SIZE)
+        blob,symbols=build_runtime(module_dir,Path(temporary),slot.load_address,entity_speed,from_monster,manifest["phase"],word(ov29,0x02328790,OV29))
+    ov36[slot.file_offset:slot.file_offset+runtime_size]=bytes(runtime_size)
     ov36[slot.file_offset:slot.file_offset+len(blob)]=blob
     edits=[]
     hooks=[]
@@ -170,6 +195,11 @@ def apply_phase1(rom,module_dir,manifest,state,metadata):
     patch(29,0x022FFEFC,0xE3540000,"GaleWingsIsNumericSpeed")
     for site,target in [(0x023BF96C,"ME_WeatherMessageHook"),(0x023BF950,"ME_WeatherFailureHook")]:
         patch(36,site,branch(site,symbols[target]),target,target)
+    if manifest["phase"]>=2:
+        for site,target in [(0x02301d10,"ME_AbilityActive"),(0x022f9538,"ME_TraceHook"),
+                            (0x02328714,"ME_SkillSwapHook"),(0x0232a1c8,"ME_RolePlayHook"),
+                            (0x0233493c,"ME_AbilitiesEqualHook"),(0x022f9220,"ME_RestoreAbilitiesHook")]:
+            patch(29,site,branch(site,symbols[target]),target,target)
     strings=parse_str_file(rom.getFileByName("MESSAGE/text_e.str"))
     text_data=json.loads((module_dir/"data/phase1_strings.json").read_text(encoding="utf-8"))
     for entry in text_data["entries"]:
@@ -186,17 +216,17 @@ def apply_phase1(rom,module_dir,manifest,state,metadata):
     rom.files[tables[29].fileID]=bytes(ov29)
     write_ov36_to_rom(rom,None,bytes(ov36))
     return AppliedModule("mega_evolve",manifest.get("version",1),
-        [CaveAllocation("ov36",slot.file_offset,SIZE,slot.load_address)],hooks,
-        [{"mega_evolve":metadata,"phase":1,"symbols":symbols,"edits":edits,
-          "cave_sha256":hashlib.sha256(ov36[slot.file_offset:slot.file_offset+SIZE]).hexdigest(),
+        [CaveAllocation("ov36",slot.file_offset,runtime_size,slot.load_address)],hooks,
+        [{"mega_evolve":metadata,"phase":manifest["phase"],"symbols":symbols,"edits":edits,
+          "cave_sha256":hashlib.sha256(ov36[slot.file_offset:slot.file_offset+runtime_size]).hexdigest(),
           "base_stats_helpers":{"entity_speed":entity_speed,"from_monster":from_monster},
-          "save_component_schema":1,"automatic_save_codec_integration_phase":4}])
+          "save_component_schema":2 if manifest["phase"]>=2 else 1,"automatic_save_codec_integration_phase":4}])
 
 
 def verify_phase1(rom,module_dir,manifest,record,metadata):
     if record is None or len(record.caves)!=1 or record.data[0].get("mega_evolve")!=metadata:
         raise AssertionError("mega_evolve phase1 linker record missing/stale")
-    if record.id!="mega_evolve" or record.version!=manifest["version"] or record.data[0].get("phase")!=1:
+    if record.id!="mega_evolve" or record.version!=manifest["version"] or record.data[0].get("phase")!=manifest["phase"]:
         raise AssertionError("mega_evolve phase1 record version/phase mismatch")
     if not isinstance(rom,NintendoDSRom):
         rom=NintendoDSRom(Path(rom).read_bytes())

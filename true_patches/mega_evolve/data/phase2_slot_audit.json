@@ -1,0 +1,467 @@
+{
+  "source": "existing prerequisite English full stack; no latest module installed",
+  "source_sha256": "0bcb4684dfd5f197b7df24d4f8ff60c1da6685c5e77833830e4775a185f6f747",
+  "candidates": [
+    {
+      "overlay": 29,
+      "site": "0x22f8a50",
+      "instruction": "ldrb r0, [r2, #0x60]",
+      "classification": "byte_slot_candidate_requires_owner_review"
+    },
+    {
+      "overlay": 29,
+      "site": "0x22f9214",
+      "instruction": "strb r0, [r1, #0x60]",
+      "classification": "byte_slot_candidate_requires_owner_review"
+    },
+    {
+      "overlay": 29,
+      "site": "0x22f9544",
+      "instruction": "ldrb r0, [r6, #0x61]",
+      "classification": "byte_slot_candidate_requires_owner_review"
+    },
+    {
+      "overlay": 29,
+      "site": "0x22f955c",
+      "instruction": "ldrb r1, [r5, #0x60]",
+      "classification": "byte_slot_candidate_requires_owner_review"
+    },
+    {
+      "overlay": 29,
+      "site": "0x22f9560",
+      "instruction": "ldrb r2, [r5, #0x61]",
+      "classification": "byte_slot_candidate_requires_owner_review"
+    },
+    {
+      "overlay": 29,
+      "site": "0x22f95b8",
+      "instruction": "strb r3, [r2, #0x60]",
+      "classification": "byte_slot_candidate_requires_owner_review"
+    },
+    {
+      "overlay": 29,
+      "site": "0x22fd69c",
+      "instruction": "ldrb r0, [r8, #0x60]",
+      "classification": "byte_slot_candidate_requires_owner_review"
+    },
+    {
+      "overlay": 29,
+      "site": "0x22fd6a4",
+      "instruction": "ldrbne r0, [r8, #0x61]",
+      "classification": "byte_slot_candidate_requires_owner_review"
+    },
+    {
+      "overlay": 29,
+      "site": "0x22fdeb8",
+      "instruction": "strb r0, [r7, #0x60]",
+      "classification": "byte_slot_candidate_requires_owner_review"
+    },
+    {
+      "overlay": 29,
+      "site": "0x2301d3c",
+      "instruction": "ldrb r0, [r1, #0x60]",
+      "classification": "byte_slot_candidate_requires_owner_review"
+    },
+    {
+      "overlay": 29,
+      "site": "0x2301d58",
+      "instruction": "ldrb r0, [r1, #0x61]",
+      "classification": "byte_slot_candidate_requires_owner_review"
+    },
+    {
+      "overlay": 29,
+      "site": "0x2328714",
+      "instruction": "ldrb r8, [r5, #0x60]",
+      "classification": "byte_slot_candidate_requires_owner_review"
+    },
+    {
+      "overlay": 29,
+      "site": "0x2328718",
+      "instruction": "ldrb lr, [r5, #0x61]",
+      "classification": "byte_slot_candidate_requires_owner_review"
+    },
+    {
+      "overlay": 29,
+      "site": "0x232871c",
+      "instruction": "ldrb r0, [r4, #0x60]",
+      "classification": "byte_slot_candidate_requires_owner_review"
+    },
+    {
+      "overlay": 29,
+      "site": "0x2328728",
+      "instruction": "strb r0, [r5, #0x60]",
+      "classification": "byte_slot_candidate_requires_owner_review"
+    },
+    {
+      "overlay": 29,
+      "site": "0x232872c",
+      "instruction": "ldrb r3, [r4, #0x61]",
+      "classification": "byte_slot_candidate_requires_owner_review"
+    },
+    {
+      "overlay": 29,
+      "site": "0x2328738",
+      "instruction": "strb r3, [r5, #0x61]",
+      "classification": "byte_slot_candidate_requires_owner_review"
+    },
+    {
+      "overlay": 29,
+      "site": "0x232873c",
+      "instruction": "strb r8, [r4, #0x60]",
+      "classification": "byte_slot_candidate_requires_owner_review"
+    },
+    {
+      "overlay": 29,
+      "site": "0x2328740",
+      "instruction": "strb lr, [r4, #0x61]",
+      "classification": "byte_slot_candidate_requires_owner_review"
+    },
+    {
+      "overlay": 29,
+      "site": "0x232a1c8",
+      "instruction": "ldrb r2, [r7, #0x60]",
+      "classification": "byte_slot_candidate_requires_owner_review"
+    },
+    {
+      "overlay": 29,
+      "site": "0x232a1d4",
+      "instruction": "strb r2, [r4, #0x60]",
+      "classification": "byte_slot_candidate_requires_owner_review"
+    },
+    {
+      "overlay": 29,
+      "site": "0x232a1d8",
+      "instruction": "ldrb r2, [r7, #0x61]",
+      "classification": "byte_slot_candidate_requires_owner_review"
+    },
+    {
+      "overlay": 29,
+      "site": "0x232a1dc",
+      "instruction": "strb r2, [r4, #0x61]",
+      "classification": "byte_slot_candidate_requires_owner_review"
+    },
+    {
+      "overlay": 29,
+      "site": "0x233493c",
+      "instruction": "ldrb r1, [r4, #0x60]",
+      "classification": "byte_slot_candidate_requires_owner_review"
+    },
+    {
+      "overlay": 29,
+      "site": "0x2334940",
+      "instruction": "ldrb r0, [r5, #0x60]",
+      "classification": "byte_slot_candidate_requires_owner_review"
+    },
+    {
+      "overlay": 29,
+      "site": "0x2334948",
+      "instruction": "ldrbeq r1, [r4, #0x61]",
+      "classification": "byte_slot_candidate_requires_owner_review"
+    },
+    {
+      "overlay": 29,
+      "site": "0x233494c",
+      "instruction": "ldrbeq r0, [r5, #0x61]",
+      "classification": "byte_slot_candidate_requires_owner_review"
+    },
+    {
+      "overlay": 36,
+      "site": "0x23abc2c",
+      "instruction": "strbeq r1, [r7, #0x61]",
+      "classification": "byte_slot_candidate_requires_owner_review"
+    },
+    {
+      "overlay": 36,
+      "site": "0x23abc54",
+      "instruction": "strbeq r1, [r7, #0x61]",
+      "classification": "byte_slot_candidate_requires_owner_review"
+    },
+    {
+      "overlay": 36,
+      "site": "0x23abc78",
+      "instruction": "strb r1, [r7, #0x60]",
+      "classification": "byte_slot_candidate_requires_owner_review"
+    },
+    {
+      "overlay": 36,
+      "site": "0x23ac8fc",
+      "instruction": "strb r1, [r7, #0x61]",
+      "classification": "byte_slot_candidate_requires_owner_review"
+    },
+    {
+      "overlay": 36,
+      "site": "0x23bf470",
+      "instruction": "ldrb r0, [r5, #0x60]",
+      "classification": "byte_slot_candidate_requires_owner_review"
+    },
+    {
+      "overlay": 36,
+      "site": "0x23bf474",
+      "instruction": "ldrb r1, [r5, #0x61]",
+      "classification": "byte_slot_candidate_requires_owner_review"
+    },
+    {
+      "overlay": 36,
+      "site": "0x23bf574",
+      "instruction": "strb r0, [r5, #0x60]",
+      "classification": "byte_slot_candidate_requires_owner_review"
+    },
+    {
+      "overlay": 36,
+      "site": "0x23bf584",
+      "instruction": "strb r0, [r5, #0x61]",
+      "classification": "byte_slot_candidate_requires_owner_review"
+    },
+    {
+      "overlay": 36,
+      "site": "0x23bf84c",
+      "instruction": "strbeq r0, [r5, #0x61]",
+      "classification": "byte_slot_candidate_requires_owner_review"
+    },
+    {
+      "overlay": 36,
+      "site": "0x23bf88c",
+      "instruction": "strbeq r0, [r5, #0x61]",
+      "classification": "byte_slot_candidate_requires_owner_review"
+    },
+    {
+      "overlay": 36,
+      "site": "0x23bf8b0",
+      "instruction": "strbeq r0, [r5, #0x61]",
+      "classification": "byte_slot_candidate_requires_owner_review"
+    },
+    {
+      "overlay": 36,
+      "site": "0x23bf8bc",
+      "instruction": "strbeq r0, [r5, #0x60]",
+      "classification": "byte_slot_candidate_requires_owner_review"
+    },
+    {
+      "overlay": 36,
+      "site": "0x23bf8c8",
+      "instruction": "strbeq r0, [r5, #0x60]",
+      "classification": "byte_slot_candidate_requires_owner_review"
+    },
+    {
+      "overlay": 36,
+      "site": "0x23bf90c",
+      "instruction": "strbeq r0, [r5, #0x60]",
+      "classification": "byte_slot_candidate_requires_owner_review"
+    },
+    {
+      "overlay": 36,
+      "site": "0x23bf924",
+      "instruction": "strbeq r0, [r5, #0x60]",
+      "classification": "byte_slot_candidate_requires_owner_review"
+    },
+    {
+      "overlay": 36,
+      "site": "0x23bf9cc",
+      "instruction": "ldrb r0, [r5, #0x60]",
+      "classification": "byte_slot_candidate_requires_owner_review"
+    },
+    {
+      "overlay": 36,
+      "site": "0x23bf9d0",
+      "instruction": "ldrb r1, [r5, #0x61]",
+      "classification": "byte_slot_candidate_requires_owner_review"
+    },
+    {
+      "overlay": 36,
+      "site": "0x23bfacc",
+      "instruction": "strb r0, [r5, #0x60]",
+      "classification": "byte_slot_candidate_requires_owner_review"
+    },
+    {
+      "overlay": 36,
+      "site": "0x23bfadc",
+      "instruction": "strb r0, [r5, #0x61]",
+      "classification": "byte_slot_candidate_requires_owner_review"
+    },
+    {
+      "overlay": 36,
+      "site": "0x23c0228",
+      "instruction": "strbeq r0, [r5, #0x61]",
+      "classification": "byte_slot_candidate_requires_owner_review"
+    },
+    {
+      "overlay": 36,
+      "site": "0x23c0268",
+      "instruction": "strbeq r0, [r5, #0x61]",
+      "classification": "byte_slot_candidate_requires_owner_review"
+    },
+    {
+      "overlay": 36,
+      "site": "0x23c028c",
+      "instruction": "strbeq r0, [r5, #0x61]",
+      "classification": "byte_slot_candidate_requires_owner_review"
+    },
+    {
+      "overlay": 36,
+      "site": "0x23c0298",
+      "instruction": "strbeq r0, [r5, #0x60]",
+      "classification": "byte_slot_candidate_requires_owner_review"
+    },
+    {
+      "overlay": 36,
+      "site": "0x23c02a4",
+      "instruction": "strbeq r0, [r5, #0x60]",
+      "classification": "byte_slot_candidate_requires_owner_review"
+    },
+    {
+      "overlay": 36,
+      "site": "0x23c02e8",
+      "instruction": "strbeq r0, [r5, #0x60]",
+      "classification": "byte_slot_candidate_requires_owner_review"
+    },
+    {
+      "overlay": 36,
+      "site": "0x23c0300",
+      "instruction": "strbeq r0, [r5, #0x60]",
+      "classification": "byte_slot_candidate_requires_owner_review"
+    },
+    {
+      "overlay": 36,
+      "site": "0x23c030c",
+      "instruction": "strbeq r0, [r5, #0x60]",
+      "classification": "byte_slot_candidate_requires_owner_review"
+    },
+    {
+      "overlay": 36,
+      "site": "0x23c0714",
+      "instruction": "strb r0, [sb, #0x61]",
+      "classification": "byte_slot_candidate_requires_owner_review"
+    },
+    {
+      "overlay": 36,
+      "site": "0x23c0724",
+      "instruction": "strb r0, [sb, #0x61]",
+      "classification": "byte_slot_candidate_requires_owner_review"
+    },
+    {
+      "overlay": 36,
+      "site": "0x23c096c",
+      "instruction": "strbeq r0, [sb, #0x60]",
+      "classification": "byte_slot_candidate_requires_owner_review"
+    },
+    {
+      "overlay": 36,
+      "site": "0x23c0988",
+      "instruction": "strbeq r0, [sb, #0x60]",
+      "classification": "byte_slot_candidate_requires_owner_review"
+    },
+    {
+      "overlay": 36,
+      "site": "0x23c09d4",
+      "instruction": "strbeq r0, [sb, #0x61]",
+      "classification": "byte_slot_candidate_requires_owner_review"
+    },
+    {
+      "overlay": 36,
+      "site": "0x23c0a28",
+      "instruction": "strbeq r0, [sb, #0x61]",
+      "classification": "byte_slot_candidate_requires_owner_review"
+    },
+    {
+      "overlay": 36,
+      "site": "0x23c0a80",
+      "instruction": "strbeq r0, [sb, #0x61]",
+      "classification": "byte_slot_candidate_requires_owner_review"
+    },
+    {
+      "overlay": 36,
+      "site": "0x23c0a98",
+      "instruction": "strbeq r0, [sb, #0x60]",
+      "classification": "byte_slot_candidate_requires_owner_review"
+    },
+    {
+      "overlay": 36,
+      "site": "0x23c0aa4",
+      "instruction": "strbeq r0, [sb, #0x60]",
+      "classification": "byte_slot_candidate_requires_owner_review"
+    },
+    {
+      "overlay": 36,
+      "site": "0x23c0abc",
+      "instruction": "strbeq r0, [sb, #0x60]",
+      "classification": "byte_slot_candidate_requires_owner_review"
+    },
+    {
+      "overlay": 36,
+      "site": "0x23c0d28",
+      "instruction": "strb r0, [r5, #0x60]",
+      "classification": "byte_slot_candidate_requires_owner_review"
+    },
+    {
+      "overlay": 36,
+      "site": "0x23c0d38",
+      "instruction": "strb r0, [r5, #0x61]",
+      "classification": "byte_slot_candidate_requires_owner_review"
+    },
+    {
+      "overlay": 36,
+      "site": "0x23ce068",
+      "instruction": "ldrb r0, [r6, #0x60]",
+      "classification": "byte_slot_candidate_requires_owner_review"
+    },
+    {
+      "overlay": 36,
+      "site": "0x23d5c10",
+      "instruction": "ldrb r0, [r5, #0x60]",
+      "classification": "byte_slot_candidate_requires_owner_review"
+    },
+    {
+      "overlay": 36,
+      "site": "0x23d5c14",
+      "instruction": "ldrb r1, [r5, #0x61]",
+      "classification": "byte_slot_candidate_requires_owner_review"
+    },
+    {
+      "overlay": 36,
+      "site": "0x23d5cec",
+      "instruction": "strb r0, [r5, #0x60]",
+      "classification": "byte_slot_candidate_requires_owner_review"
+    },
+    {
+      "overlay": 36,
+      "site": "0x23d5cfc",
+      "instruction": "strb r0, [r5, #0x61]",
+      "classification": "byte_slot_candidate_requires_owner_review"
+    },
+    {
+      "overlay": 36,
+      "site": "0x23d5dc0",
+      "instruction": "ldrb r0, [r5, #0x60]",
+      "classification": "byte_slot_candidate_requires_owner_review"
+    },
+    {
+      "overlay": 36,
+      "site": "0x23d5dc4",
+      "instruction": "ldrb r1, [r5, #0x61]",
+      "classification": "byte_slot_candidate_requires_owner_review"
+    },
+    {
+      "overlay": 36,
+      "site": "0x23d5ea8",
+      "instruction": "strb r0, [r5, #0x60]",
+      "classification": "byte_slot_candidate_requires_owner_review"
+    },
+    {
+      "overlay": 36,
+      "site": "0x23d5eb8",
+      "instruction": "strb r0, [r5, #0x61]",
+      "classification": "byte_slot_candidate_requires_owner_review"
+    }
+  ],
+  "phase2_replaced_paths": [
+    "AbilityIsActive + veneer/defender/other-monster callers",
+    "Trace selection/write",
+    "Skill Swap three-slot exchange",
+    "Role Play three-slot copy",
+    "ability status equality",
+    "SetMonsterTypeAndAbility restore"
+  ],
+  "phase3_effect_owners": "transform/imposter/illusion and other per-effect direct readers/writers",
+  "phase8_display_owners": "two-slot summary/UI views; use ME_GetAbility API",
+  "note": "Linear disassembly includes code/data candidates, not certified ability references."
+}

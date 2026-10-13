@@ -1,0 +1,1423 @@
+{
+  "schema": 1,
+  "grade": {
+    "normal": 0,
+    "enhanced": 1
+  },
+  "entries": [
+    {
+      "key": "Omniscience",
+      "id": 256,
+      "legacy_effect_id": 250,
+      "effect_status": "phase3_normal_phase7_enhanced"
+    },
+    {
+      "key": "가뭄",
+      "id": 257,
+      "legacy_effect_id": 49,
+      "effect_status": "phase3_normal_phase7_enhanced"
+    },
+    {
+      "key": "가속",
+      "id": 258,
+      "legacy_effect_id": 11,
+      "effect_status": "phase3_normal_phase7_enhanced"
+    },
+    {
+      "key": "갈지자걸음",
+      "id": 259,
+      "legacy_effect_id": 98,
+      "effect_status": "phase3_normal_phase7_enhanced"
+    },
+    {
+      "key": "감미로운꿀",
+      "id": 260,
+      "legacy_effect_id": 0,
+      "effect_status": "phase3_normal_phase7_enhanced"
+    },
+    {
+      "key": "강철술사",
+      "id": 261,
+      "legacy_effect_id": 210,
+      "effect_status": "phase3_normal_phase7_enhanced"
+    },
+    {
+      "key": "개미지옥",
+      "id": 262,
+      "legacy_effect_id": 5,
+      "effect_status": "phase3_normal_phase7_enhanced"
+    },
+    {
+      "key": "건조피부",
+      "id": 263,
+      "legacy_effect_id": 85,
+      "effect_status": "phase3_normal_phase7_enhanced"
+    },
+    {
+      "key": "게으름",
+      "id": 264,
+      "legacy_effect_id": 42,
+      "effect_status": "phase3_normal_phase7_enhanced"
+    },
+    {
+      "key": "고대활성",
+      "id": 265,
+      "legacy_effect_id": 0,
+      "effect_status": "phase3_normal_phase7_enhanced"
+    },
+    {
+      "key": "곡예",
+      "id": 266,
+      "legacy_effect_id": 84,
+      "effect_status": "phase3_normal_phase7_enhanced"
+    },
+    {
+      "key": "괴력집게",
+      "id": 267,
+      "legacy_effect_id": 9,
+      "effect_status": "phase3_normal_phase7_enhanced"
+    },
+    {
+      "key": "괴짜",
+      "id": 268,
+      "legacy_effect_id": 166,
+      "effect_status": "phase3_normal_phase7_enhanced"
+    },
+    {
+      "key": "굳건한신념",
+      "id": 269,
+      "legacy_effect_id": 0,
+      "effect_status": "phase3_normal_phase7_enhanced"
+    },
+    {
+      "key": "그림자밟기",
+      "id": 270,
+      "legacy_effect_id": 10,
+      "effect_status": "phase3_normal_phase7_enhanced"
+    },
+    {
+      "key": "근성",
+      "id": 271,
+      "legacy_effect_id": 17,
+      "effect_status": "phase3_normal_phase7_enhanced"
+    },
+    {
+      "key": "급류",
+      "id": 272,
+      "legacy_effect_id": 16,
+      "effect_status": "phase3_normal_phase7_enhanced"
+    },
+    {
+      "key": "기분파",
+      "id": 273,
+      "legacy_effect_id": 37,
+      "effect_status": "phase3_normal_phase7_enhanced"
+    },
+    {
+      "key": "긴장감",
+      "id": 274,
+      "legacy_effect_id": 163,
+      "effect_status": "phase3_normal_phase7_enhanced"
+    },
+    {
+      "key": "까칠한피부",
+      "id": 275,
+      "legacy_effect_id": 18,
+      "effect_status": "phase3_normal_phase7_enhanced"
+    },
+    {
+      "key": "깨어진갑옷",
+      "id": 276,
+      "legacy_effect_id": 0,
+      "effect_status": "phase3_normal_phase7_enhanced"
+    },
+    {
+      "key": "끝의대지",
+      "id": 277,
+      "legacy_effect_id": 253,
+      "effect_status": "phase3_normal_phase7_enhanced"
+    },
+    {
+      "key": "나쁜손버릇",
+      "id": 278,
+      "legacy_effect_id": 168,
+      "effect_status": "phase3_normal_phase7_enhanced"
+    },
+    {
+      "key": "나이트메어",
+      "id": 279,
+      "legacy_effect_id": 105,
+      "effect_status": "phase3_normal_phase7_enhanced"
+    },
+    {
+      "key": "날씨부정",
+      "id": 280,
+      "legacy_effect_id": 45,
+      "effect_status": "phase3_normal_phase7_enhanced"
+    },
+    {
+      "key": "날카로운눈",
+      "id": 281,
+      "legacy_effect_id": 30,
+      "effect_status": "phase3_normal_phase7_enhanced"
+    },
+    {
+      "key": "내열",
+      "id": 282,
+      "legacy_effect_id": 95,
+      "effect_status": "phase3_normal_phase7_enhanced"
+    },
+    {
+      "key": "내용물분출",
+      "id": 283,
+      "legacy_effect_id": 225,
+      "effect_status": "phase3_normal_phase7_enhanced"
+    },
+    {
+      "key": "노가드",
+      "id": 284,
+      "legacy_effect_id": 106,
+      "effect_status": "phase3_normal_phase7_enhanced"
+    },
+    {
+      "key": "노말스킨",
+      "id": 285,
+      "legacy_effect_id": 107,
+      "effect_status": "phase3_normal_phase7_enhanced"
+    },
+    {
+      "key": "눈숨기",
+      "id": 286,
+      "legacy_effect_id": 119,
+      "effect_status": "phase3_normal_phase7_enhanced"
+    },
+    {
+      "key": "눈치우기",
+      "id": 287,
+      "legacy_effect_id": 145,
+      "effect_status": "phase3_normal_phase7_enhanced"
+    },
+    {
+      "key": "눈퍼뜨리기",
+      "id": 288,
+      "legacy_effect_id": 120,
+      "effect_status": "phase3_normal_phase7_enhanced"
+    },
+    {
+      "key": "다운로드",
+      "id": 289,
+      "legacy_effect_id": 96,
+      "effect_status": "phase3_normal_phase7_enhanced"
+    },
+    {
+      "key": "단단한발톱",
+      "id": 290,
+      "legacy_effect_id": 144,
+      "effect_status": "phase3_normal_phase7_enhanced"
+    },
+    {
+      "key": "단순",
+      "id": 291,
+      "legacy_effect_id": 97,
+      "effect_status": "phase3_normal_phase7_enhanced"
+    },
+    {
+      "key": "대운",
+      "id": 292,
+      "legacy_effect_id": 88,
+      "effect_status": "phase3_normal_phase7_enhanced"
+    },
+    {
+      "key": "델타스트림",
+      "id": 293,
+      "legacy_effect_id": 254,
+      "effect_status": "phase3_normal_phase7_enhanced"
+    },
+    {
+      "key": "도주",
+      "id": 294,
+      "legacy_effect_id": 43,
+      "effect_status": "phase3_normal_phase7_enhanced"
+    },
+    {
+      "key": "독가시",
+      "id": 295,
+      "legacy_effect_id": 39,
+      "effect_status": "phase3_normal_phase7_enhanced"
+    },
+    {
+      "key": "독수",
+      "id": 296,
+      "legacy_effect_id": 126,
+      "effect_status": "phase3_normal_phase7_enhanced"
+    },
+    {
+      "key": "독폭주",
+      "id": 297,
+      "legacy_effect_id": 0,
+      "effect_status": "phase3_normal_phase7_enhanced"
+    },
+    {
+      "key": "돌머리",
+      "id": 298,
+      "legacy_effect_id": 7,
+      "effect_status": "phase3_normal_phase7_enhanced"
+    },
+    {
+      "key": "되새김질",
+      "id": 299,
+      "legacy_effect_id": 218,
+      "effect_status": "phase3_normal_phase7_enhanced"
+    },
+    {
+      "key": "두꺼운지방",
+      "id": 300,
+      "legacy_effect_id": 2,
+      "effect_status": "phase3_normal_phase7_enhanced"
+    },
+    {
+      "key": "둔감",
+      "id": 301,
+      "legacy_effect_id": 41,
+      "effect_status": "phase3_normal_phase7_enhanced"
+    },
+    {
+      "key": "드래곤스킨",
+      "id": 302,
+      "legacy_effect_id": 0,
+      "effect_status": "phase3_normal_phase7_enhanced"
+    },
+    {
+      "key": "떠도는영혼",
+      "id": 303,
+      "legacy_effect_id": 0,
+      "effect_status": "phase3_normal_phase7_enhanced"
+    },
+    {
+      "key": "라이트메탈",
+      "id": 304,
+      "legacy_effect_id": 0,
+      "effect_status": "phase3_normal_phase7_enhanced"
+    },
+    {
+      "key": "리프가드",
+      "id": 305,
+      "legacy_effect_id": 123,
+      "effect_status": "phase3_normal_phase7_enhanced"
+    },
+    {
+      "key": "마그마의무장",
+      "id": 306,
+      "legacy_effect_id": 65,
+      "effect_status": "phase3_normal_phase7_enhanced"
+    },
+    {
+      "key": "마이너스",
+      "id": 307,
+      "legacy_effect_id": 63,
+      "effect_status": "phase3_normal_phase7_enhanced"
+    },
+    {
+      "key": "마이페이스",
+      "id": 308,
+      "legacy_effect_id": 64,
+      "effect_status": "phase3_normal_phase7_enhanced"
+    },
+    {
+      "key": "마중물",
+      "id": 309,
+      "legacy_effect_id": 122,
+      "effect_status": "phase3_normal_phase7_enhanced"
+    },
+    {
+      "key": "매직가드",
+      "id": 310,
+      "legacy_effect_id": 115,
+      "effect_status": "phase3_normal_phase7_enhanced"
+    },
+    {
+      "key": "매직미러",
+      "id": 311,
+      "legacy_effect_id": 135,
+      "effect_status": "phase3_normal_phase7_enhanced"
+    },
+    {
+      "key": "맹화",
+      "id": 312,
+      "legacy_effect_id": 70,
+      "effect_status": "phase3_normal_phase7_enhanced"
+    },
+    {
+      "key": "먹보",
+      "id": 313,
+      "legacy_effect_id": 89,
+      "effect_status": "phase3_normal_phase7_enhanced"
+    },
+    {
+      "key": "멀티스케일",
+      "id": 314,
+      "legacy_effect_id": 12,
+      "effect_status": "phase3_normal_phase7_enhanced"
+    },
+    {
+      "key": "멀티타입",
+      "id": 315,
+      "legacy_effect_id": 116,
+      "effect_status": "phase3_normal_phase7_enhanced"
+    },
+    {
+      "key": "메가런처",
+      "id": 316,
+      "legacy_effect_id": 143,
+      "effect_status": "phase3_normal_phase7_enhanced"
+    },
+    {
+      "key": "메가솔라",
+      "id": 317,
+      "legacy_effect_id": 0,
+      "effect_status": "phase3_normal_phase7_enhanced"
+    },
+    {
+      "key": "면역",
+      "id": 318,
+      "legacy_effect_id": 69,
+      "effect_status": "phase3_normal_phase7_enhanced"
+    },
+    {
+      "key": "멸망의바디",
+      "id": 319,
+      "legacy_effect_id": 152,
+      "effect_status": "phase3_normal_phase7_enhanced"
+    },
+    {
+      "key": "모래날림",
+      "id": 320,
+      "legacy_effect_id": 28,
+      "effect_status": "phase3_normal_phase7_enhanced"
+    },
+    {
+      "key": "모래숨기",
+      "id": 321,
+      "legacy_effect_id": 29,
+      "effect_status": "phase3_normal_phase7_enhanced"
+    },
+    {
+      "key": "모래의힘",
+      "id": 322,
+      "legacy_effect_id": 138,
+      "effect_status": "phase3_normal_phase7_enhanced"
+    },
+    {
+      "key": "모래헤치기",
+      "id": 323,
+      "legacy_effect_id": 132,
+      "effect_status": "phase3_normal_phase7_enhanced"
+    },
+    {
+      "key": "무아지경",
+      "id": 324,
+      "legacy_effect_id": 213,
+      "effect_status": "phase3_normal_phase7_enhanced"
+    },
+    {
+      "key": "미라클스킨",
+      "id": 325,
+      "legacy_effect_id": 175,
+      "effect_status": "phase3_normal_phase7_enhanced"
+    },
+    {
+      "key": "바람타기",
+      "id": 326,
+      "legacy_effect_id": 216,
+      "effect_status": "phase3_normal_phase7_enhanced"
+    },
+    {
+      "key": "발광",
+      "id": 327,
+      "legacy_effect_id": 46,
+      "effect_status": "phase3_normal_phase7_enhanced"
+    },
+    {
+      "key": "발끈",
+      "id": 328,
+      "legacy_effect_id": 169,
+      "effect_status": "phase3_normal_phase7_enhanced"
+    },
+    {
+      "key": "방음",
+      "id": 329,
+      "legacy_effect_id": 60,
+      "effect_status": "phase3_normal_phase7_enhanced"
+    },
+    {
+      "key": "방진",
+      "id": 330,
+      "legacy_effect_id": 130,
+      "effect_status": "phase3_normal_phase7_enhanced"
+    },
+    {
+      "key": "방탄",
+      "id": 331,
+      "legacy_effect_id": 141,
+      "effect_status": "phase3_normal_phase7_enhanced"
+    },
+    {
+      "key": "배짱",
+      "id": 332,
+      "legacy_effect_id": 87,
+      "effect_status": "phase3_normal_phase7_enhanced"
+    },
+    {
+      "key": "벌레의알림",
+      "id": 333,
+      "legacy_effect_id": 67,
+      "effect_status": "phase3_normal_phase7_enhanced"
+    },
+    {
+      "key": "변덕쟁이",
+      "id": 334,
+      "legacy_effect_id": 222,
+      "effect_status": "phase3_normal_phase7_enhanced"
+    },
+    {
+      "key": "변색",
+      "id": 335,
+      "legacy_effect_id": 59,
+      "effect_status": "phase3_normal_phase7_enhanced"
+    },
+    {
+      "key": "변환자재",
+      "id": 336,
+      "legacy_effect_id": 165,
+      "effect_status": "phase3_normal_phase7_enhanced"
+    },
+    {
+      "key": "복안",
+      "id": 337,
+      "legacy_effect_id": 51,
+      "effect_status": "phase3_normal_phase7_enhanced"
+    },
+    {
+      "key": "부유",
+      "id": 338,
+      "legacy_effect_id": 55,
+      "effect_status": "phase3_normal_phase7_enhanced"
+    },
+    {
+      "key": "부자유친",
+      "id": 339,
+      "legacy_effect_id": 184,
+      "effect_status": "phase3_normal_phase7_enhanced"
+    },
+    {
+      "key": "부풀린가슴",
+      "id": 340,
+      "legacy_effect_id": 0,
+      "effect_status": "phase3_normal_phase7_enhanced"
+    },
+    {
+      "key": "분노의경혈",
+      "id": 341,
+      "legacy_effect_id": 79,
+      "effect_status": "phase3_normal_phase7_enhanced"
+    },
+    {
+      "key": "불가사의부적",
+      "id": 342,
+      "legacy_effect_id": 53,
+      "effect_status": "phase3_normal_phase7_enhanced"
+    },
+    {
+      "key": "불굴의마음",
+      "id": 343,
+      "legacy_effect_id": 112,
+      "effect_status": "phase3_normal_phase7_enhanced"
+    },
+    {
+      "key": "불꽃몸",
+      "id": 344,
+      "legacy_effect_id": 62,
+      "effect_status": "phase3_normal_phase7_enhanced"
+    },
+    {
+      "key": "불꽃의갈기",
+      "id": 345,
+      "legacy_effect_id": 0,
+      "effect_status": "phase3_normal_phase7_enhanced"
+    },
+    {
+      "key": "불면",
+      "id": 346,
+      "legacy_effect_id": 54,
+      "effect_status": "phase3_normal_phase7_enhanced"
+    },
+    {
+      "key": "색안경",
+      "id": 347,
+      "legacy_effect_id": 80,
+      "effect_status": "phase3_normal_phase7_enhanced"
+    },
+    {
+      "key": "선파워",
+      "id": 348,
+      "legacy_effect_id": 90,
+      "effect_status": "phase3_normal_phase7_enhanced"
+    },
+    {
+      "key": "소울하트",
+      "id": 349,
+      "legacy_effect_id": 209,
+      "effect_status": "phase3_normal_phase7_enhanced"
+    },
+    {
+      "key": "속보",
+      "id": 350,
+      "legacy_effect_id": 109,
+      "effect_status": "phase3_normal_phase7_enhanced"
+    },
+    {
+      "key": "수의베일",
+      "id": 351,
+      "legacy_effect_id": 66,
+      "effect_status": "phase3_normal_phase7_enhanced"
+    },
+    {
+      "key": "수확",
+      "id": 352,
+      "legacy_effect_id": 0,
+      "effect_status": "phase3_normal_phase7_enhanced"
+    },
+    {
+      "key": "순수한힘",
+      "id": 353,
+      "legacy_effect_id": 34,
+      "effect_status": "phase3_normal_phase7_enhanced"
+    },
+    {
+      "key": "스나이퍼",
+      "id": 354,
+      "legacy_effect_id": 93,
+      "effect_status": "phase3_normal_phase7_enhanced"
+    },
+    {
+      "key": "스위트베일",
+      "id": 355,
+      "legacy_effect_id": 0,
+      "effect_status": "phase3_normal_phase7_enhanced"
+    },
+    {
+      "key": "스카이스킨",
+      "id": 356,
+      "legacy_effect_id": 0,
+      "effect_status": "phase3_normal_phase7_enhanced"
+    },
+    {
+      "key": "스킬링크",
+      "id": 357,
+      "legacy_effect_id": 91,
+      "effect_status": "phase3_normal_phase7_enhanced"
+    },
+    {
+      "key": "슬로스타트",
+      "id": 358,
+      "legacy_effect_id": 94,
+      "effect_status": "phase3_normal_phase7_enhanced"
+    },
+    {
+      "key": "습기",
+      "id": 359,
+      "legacy_effect_id": 21,
+      "effect_status": "phase3_normal_phase7_enhanced"
+    },
+    {
+      "key": "승기",
+      "id": 360,
+      "legacy_effect_id": 151,
+      "effect_status": "phase3_normal_phase7_enhanced"
+    },
+    {
+      "key": "시간벌기",
+      "id": 361,
+      "legacy_effect_id": 78,
+      "effect_status": "phase3_normal_phase7_enhanced"
+    },
+    {
+      "key": "시작의바다",
+      "id": 362,
+      "legacy_effect_id": 252,
+      "effect_status": "phase3_normal_phase7_enhanced"
+    },
+    {
+      "key": "심록",
+      "id": 363,
+      "legacy_effect_id": 26,
+      "effect_status": "phase3_normal_phase7_enhanced"
+    },
+    {
+      "key": "심술꾸러기",
+      "id": 364,
+      "legacy_effect_id": 129,
+      "effect_status": "phase3_normal_phase7_enhanced"
+    },
+    {
+      "key": "싱크로",
+      "id": 365,
+      "legacy_effect_id": 25,
+      "effect_status": "phase3_normal_phase7_enhanced"
+    },
+    {
+      "key": "쓱쓱",
+      "id": 366,
+      "legacy_effect_id": 27,
+      "effect_status": "phase3_normal_phase7_enhanced"
+    },
+    {
+      "key": "아로마베일",
+      "id": 367,
+      "legacy_effect_id": 0,
+      "effect_status": "phase3_normal_phase7_enhanced"
+    },
+    {
+      "key": "아이스바디",
+      "id": 368,
+      "legacy_effect_id": 77,
+      "effect_status": "phase3_normal_phase7_enhanced"
+    },
+    {
+      "key": "악취",
+      "id": 369,
+      "legacy_effect_id": 1,
+      "effect_status": "phase3_normal_phase7_enhanced"
+    },
+    {
+      "key": "애널라이즈",
+      "id": 370,
+      "legacy_effect_id": 133,
+      "effect_status": "phase3_normal_phase7_enhanced"
+    },
+    {
+      "key": "여왕의위엄",
+      "id": 371,
+      "legacy_effect_id": 147,
+      "effect_status": "phase3_normal_phase7_enhanced"
+    },
+    {
+      "key": "열폭주",
+      "id": 372,
+      "legacy_effect_id": 0,
+      "effect_status": "phase3_normal_phase7_enhanced"
+    },
+    {
+      "key": "엽록소",
+      "id": 373,
+      "legacy_effect_id": 74,
+      "effect_status": "phase3_normal_phase7_enhanced"
+    },
+    {
+      "key": "예리함",
+      "id": 374,
+      "legacy_effect_id": 108,
+      "effect_status": "phase3_normal_phase7_enhanced"
+    },
+    {
+      "key": "예지몽",
+      "id": 375,
+      "legacy_effect_id": 121,
+      "effect_status": "phase3_normal_phase7_enhanced"
+    },
+    {
+      "key": "오기",
+      "id": 376,
+      "legacy_effect_id": 150,
+      "effect_status": "phase3_normal_phase7_enhanced"
+    },
+    {
+      "key": "옹골찬턱",
+      "id": 377,
+      "legacy_effect_id": 75,
+      "effect_status": "phase3_normal_phase7_enhanced"
+    },
+    {
+      "key": "옹골참",
+      "id": 378,
+      "legacy_effect_id": 13,
+      "effect_status": "phase3_normal_phase7_enhanced"
+    },
+    {
+      "key": "용의턱",
+      "id": 379,
+      "legacy_effect_id": 0,
+      "effect_status": "phase3_normal_phase7_enhanced"
+    },
+    {
+      "key": "우격다짐",
+      "id": 380,
+      "legacy_effect_id": 162,
+      "effect_status": "phase3_normal_phase7_enhanced"
+    },
+    {
+      "key": "위험예지",
+      "id": 381,
+      "legacy_effect_id": 86,
+      "effect_status": "phase3_normal_phase7_enhanced"
+    },
+    {
+      "key": "위협",
+      "id": 382,
+      "legacy_effect_id": 6,
+      "effect_status": "phase3_normal_phase7_enhanced"
+    },
+    {
+      "key": "유연",
+      "id": 383,
+      "legacy_effect_id": 22,
+      "effect_status": "phase3_normal_phase7_enhanced"
+    },
+    {
+      "key": "유폭",
+      "id": 384,
+      "legacy_effect_id": 118,
+      "effect_status": "phase3_normal_phase7_enhanced"
+    },
+    {
+      "key": "의기양양",
+      "id": 385,
+      "legacy_effect_id": 73,
+      "effect_status": "phase3_normal_phase7_enhanced"
+    },
+    {
+      "key": "의욕",
+      "id": 386,
+      "legacy_effect_id": 48,
+      "effect_status": "phase3_normal_phase7_enhanced"
+    },
+    {
+      "key": "이상한비늘",
+      "id": 387,
+      "legacy_effect_id": 52,
+      "effect_status": "phase3_normal_phase7_enhanced"
+    },
+    {
+      "key": "이판사판",
+      "id": 388,
+      "legacy_effect_id": 92,
+      "effect_status": "phase3_normal_phase7_enhanced"
+    },
+    {
+      "key": "인분",
+      "id": 389,
+      "legacy_effect_id": 76,
+      "effect_status": "phase3_normal_phase7_enhanced"
+    },
+    {
+      "key": "일렉트릭스킨",
+      "id": 390,
+      "legacy_effect_id": 0,
+      "effect_status": "phase3_normal_phase7_enhanced"
+    },
+    {
+      "key": "일루전",
+      "id": 391,
+      "legacy_effect_id": 125,
+      "effect_status": "phase3_normal_phase7_enhanced"
+    },
+    {
+      "key": "일찍기상",
+      "id": 392,
+      "legacy_effect_id": 47,
+      "effect_status": "phase3_normal_phase7_enhanced"
+    },
+    {
+      "key": "자기과신",
+      "id": 393,
+      "legacy_effect_id": 170,
+      "effect_status": "phase3_normal_phase7_enhanced"
+    },
+    {
+      "key": "자력",
+      "id": 394,
+      "legacy_effect_id": 23,
+      "effect_status": "phase3_normal_phase7_enhanced"
+    },
+    {
+      "key": "자연회복",
+      "id": 395,
+      "legacy_effect_id": 20,
+      "effect_status": "phase3_normal_phase7_enhanced"
+    },
+    {
+      "key": "잔비",
+      "id": 396,
+      "legacy_effect_id": 4,
+      "effect_status": "phase3_normal_phase7_enhanced"
+    },
+    {
+      "key": "잠복",
+      "id": 397,
+      "legacy_effect_id": 197,
+      "effect_status": "phase3_normal_phase7_enhanced"
+    },
+    {
+      "key": "재생력",
+      "id": 398,
+      "legacy_effect_id": 131,
+      "effect_status": "phase3_normal_phase7_enhanced"
+    },
+    {
+      "key": "저수",
+      "id": 399,
+      "legacy_effect_id": 36,
+      "effect_status": "phase3_normal_phase7_enhanced"
+    },
+    {
+      "key": "저주받은바디",
+      "id": 400,
+      "legacy_effect_id": 149,
+      "effect_status": "phase3_normal_phase7_enhanced"
+    },
+    {
+      "key": "적응력",
+      "id": 401,
+      "legacy_effect_id": 99,
+      "effect_status": "phase3_normal_phase7_enhanced"
+    },
+    {
+      "key": "전기로바꾸기",
+      "id": 402,
+      "legacy_effect_id": 157,
+      "effect_status": "phase3_normal_phase7_enhanced"
+    },
+    {
+      "key": "전기엔진",
+      "id": 403,
+      "legacy_effect_id": 102,
+      "effect_status": "phase3_normal_phase7_enhanced"
+    },
+    {
+      "key": "전투무장",
+      "id": 404,
+      "legacy_effect_id": 19,
+      "effect_status": "phase3_normal_phase7_enhanced"
+    },
+    {
+      "key": "절대안깸",
+      "id": 405,
+      "legacy_effect_id": 189,
+      "effect_status": "phase3_normal_phase7_enhanced"
+    },
+    {
+      "key": "점착",
+      "id": 406,
+      "legacy_effect_id": 44,
+      "effect_status": "phase3_normal_phase7_enhanced"
+    },
+    {
+      "key": "정신력",
+      "id": 407,
+      "legacy_effect_id": 31,
+      "effect_status": "phase3_normal_phase7_enhanced"
+    },
+    {
+      "key": "정의의마음",
+      "id": 408,
+      "legacy_effect_id": 167,
+      "effect_status": "phase3_normal_phase7_enhanced"
+    },
+    {
+      "key": "정전기",
+      "id": 409,
+      "legacy_effect_id": 32,
+      "effect_status": "phase3_normal_phase7_enhanced"
+    },
+    {
+      "key": "젖은접시",
+      "id": 410,
+      "legacy_effect_id": 3,
+      "effect_status": "phase3_normal_phase7_enhanced"
+    },
+    {
+      "key": "조가비갑옷",
+      "id": 411,
+      "legacy_effect_id": 19,
+      "effect_status": "phase3_normal_phase7_enhanced"
+    },
+    {
+      "key": "주눅",
+      "id": 412,
+      "legacy_effect_id": 0,
+      "effect_status": "phase3_normal_phase7_enhanced"
+    },
+    {
+      "key": "지구력",
+      "id": 413,
+      "legacy_effect_id": 198,
+      "effect_status": "phase3_normal_phase7_enhanced"
+    },
+    {
+      "key": "짓궂은마음",
+      "id": 414,
+      "legacy_effect_id": 137,
+      "effect_status": "phase3_normal_phase7_enhanced"
+    },
+    {
+      "key": "천진",
+      "id": 415,
+      "legacy_effect_id": 103,
+      "effect_status": "phase3_normal_phase7_enhanced"
+    },
+    {
+      "key": "천하장사",
+      "id": 416,
+      "legacy_effect_id": 34,
+      "effect_status": "phase3_normal_phase7_enhanced"
+    },
+    {
+      "key": "철가시",
+      "id": 417,
+      "legacy_effect_id": 0,
+      "effect_status": "phase3_normal_phase7_enhanced"
+    },
+    {
+      "key": "철주먹",
+      "id": 418,
+      "legacy_effect_id": 101,
+      "effect_status": "phase3_normal_phase7_enhanced"
+    },
+    {
+      "key": "초식",
+      "id": 419,
+      "legacy_effect_id": 161,
+      "effect_status": "phase3_normal_phase7_enhanced"
+    },
+    {
+      "key": "촉촉바디",
+      "id": 420,
+      "legacy_effect_id": 81,
+      "effect_status": "phase3_normal_phase7_enhanced"
+    },
+    {
+      "key": "축전",
+      "id": 421,
+      "legacy_effect_id": 35,
+      "effect_status": "phase3_normal_phase7_enhanced"
+    },
+    {
+      "key": "치유의마음",
+      "id": 422,
+      "legacy_effect_id": 0,
+      "effect_status": "phase3_normal_phase7_enhanced"
+    },
+    {
+      "key": "컬리헤어",
+      "id": 423,
+      "legacy_effect_id": 180,
+      "effect_status": "phase3_normal_phase7_enhanced"
+    },
+    {
+      "key": "클리어바디",
+      "id": 424,
+      "legacy_effect_id": 15,
+      "effect_status": "phase3_normal_phase7_enhanced"
+    },
+    {
+      "key": "타오르는불꽃",
+      "id": 425,
+      "legacy_effect_id": 72,
+      "effect_status": "phase3_normal_phase7_enhanced"
+    },
+    {
+      "key": "탈피",
+      "id": 426,
+      "legacy_effect_id": 33,
+      "effect_status": "phase3_normal_phase7_enhanced"
+    },
+    {
+      "key": "테일아머",
+      "id": 427,
+      "legacy_effect_id": 136,
+      "effect_status": "phase3_normal_phase7_enhanced"
+    },
+    {
+      "key": "테크니션",
+      "id": 428,
+      "legacy_effect_id": 100,
+      "effect_status": "phase3_normal_phase7_enhanced"
+    },
+    {
+      "key": "텔레파시",
+      "id": 429,
+      "legacy_effect_id": 0,
+      "effect_status": "phase3_normal_phase7_enhanced"
+    },
+    {
+      "key": "통찰",
+      "id": 430,
+      "legacy_effect_id": 82,
+      "effect_status": "phase3_normal_phase7_enhanced"
+    },
+    {
+      "key": "투쟁심",
+      "id": 431,
+      "legacy_effect_id": 104,
+      "effect_status": "phase3_normal_phase7_enhanced"
+    },
+    {
+      "key": "트랜지스터",
+      "id": 432,
+      "legacy_effect_id": 0,
+      "effect_status": "phase3_normal_phase7_enhanced"
+    },
+    {
+      "key": "트레이스",
+      "id": 433,
+      "legacy_effect_id": 40,
+      "effect_status": "phase3_normal_phase7_enhanced"
+    },
+    {
+      "key": "틀깨기",
+      "id": 434,
+      "legacy_effect_id": 83,
+      "effect_status": "phase3_normal_phase7_enhanced"
+    },
+    {
+      "key": "틈새포착",
+      "id": 435,
+      "legacy_effect_id": 134,
+      "effect_status": "phase3_normal_phase7_enhanced"
+    },
+    {
+      "key": "파동의방호",
+      "id": 436,
+      "legacy_effect_id": 0,
+      "effect_status": "phase3_normal_phase7_enhanced"
+    },
+    {
+      "key": "파스텔베일",
+      "id": 437,
+      "legacy_effect_id": 159,
+      "effect_status": "phase3_normal_phase7_enhanced"
+    },
+    {
+      "key": "파워스폿",
+      "id": 438,
+      "legacy_effect_id": 217,
+      "effect_status": "phase3_normal_phase7_enhanced"
+    },
+    {
+      "key": "퍼코트",
+      "id": 439,
+      "legacy_effect_id": 139,
+      "effect_status": "phase3_normal_phase7_enhanced"
+    },
+    {
+      "key": "펑크록",
+      "id": 440,
+      "legacy_effect_id": 148,
+      "effect_status": "phase3_normal_phase7_enhanced"
+    },
+    {
+      "key": "페어리스킨",
+      "id": 441,
+      "legacy_effect_id": 0,
+      "effect_status": "phase3_normal_phase7_enhanced"
+    },
+    {
+      "key": "포이즌힐",
+      "id": 442,
+      "legacy_effect_id": 114,
+      "effect_status": "phase3_normal_phase7_enhanced"
+    },
+    {
+      "key": "포자",
+      "id": 443,
+      "legacy_effect_id": 61,
+      "effect_status": "phase3_normal_phase7_enhanced"
+    },
+    {
+      "key": "프레셔",
+      "id": 444,
+      "legacy_effect_id": 57,
+      "effect_status": "phase3_normal_phase7_enhanced"
+    },
+    {
+      "key": "프렌드가드",
+      "id": 445,
+      "legacy_effect_id": 164,
+      "effect_status": "phase3_normal_phase7_enhanced"
+    },
+    {
+      "key": "프리즈스킨",
+      "id": 446,
+      "legacy_effect_id": 0,
+      "effect_status": "phase3_normal_phase7_enhanced"
+    },
+    {
+      "key": "플라워기프트",
+      "id": 447,
+      "legacy_effect_id": 113,
+      "effect_status": "phase3_normal_phase7_enhanced"
+    },
+    {
+      "key": "플라워베일",
+      "id": 448,
+      "legacy_effect_id": 158,
+      "effect_status": "phase3_normal_phase7_enhanced"
+    },
+    {
+      "key": "플러스",
+      "id": 449,
+      "legacy_effect_id": 56,
+      "effect_status": "phase3_normal_phase7_enhanced"
+    },
+    {
+      "key": "피뢰침",
+      "id": 450,
+      "legacy_effect_id": 50,
+      "effect_status": "phase3_normal_phase7_enhanced"
+    },
+    {
+      "key": "픽업",
+      "id": 451,
+      "legacy_effect_id": 71,
+      "effect_status": "phase3_normal_phase7_enhanced"
+    },
+    {
+      "key": "필터",
+      "id": 452,
+      "legacy_effect_id": 110,
+      "effect_status": "phase3_normal_phase7_enhanced"
+    },
+    {
+      "key": "하늘의은총",
+      "id": 453,
+      "legacy_effect_id": 38,
+      "effect_status": "phase3_normal_phase7_enhanced"
+    },
+    {
+      "key": "하드록",
+      "id": 454,
+      "legacy_effect_id": 110,
+      "effect_status": "phase3_normal_phase7_enhanced"
+    },
+    {
+      "key": "하얀연기",
+      "id": 455,
+      "legacy_effect_id": 15,
+      "effect_status": "phase3_normal_phase7_enhanced"
+    },
+    {
+      "key": "해감액",
+      "id": 456,
+      "legacy_effect_id": 58,
+      "effect_status": "phase3_normal_phase7_enhanced"
+    },
+    {
+      "key": "헤롱헤롱바디",
+      "id": 457,
+      "legacy_effect_id": 68,
+      "effect_status": "phase3_normal_phase7_enhanced"
+    },
+    {
+      "key": "헤비메탈",
+      "id": 458,
+      "legacy_effect_id": 0,
+      "effect_status": "phase3_normal_phase7_enhanced"
+    },
+    {
+      "key": "화학변화가스",
+      "id": 459,
+      "legacy_effect_id": 160,
+      "effect_status": "phase3_normal_phase7_enhanced"
+    },
+    {
+      "key": "화학의힘",
+      "id": 460,
+      "legacy_effect_id": 196,
+      "effect_status": "phase3_normal_phase7_enhanced"
+    },
+    {
+      "key": "흡반",
+      "id": 461,
+      "legacy_effect_id": 14,
+      "effect_status": "phase3_normal_phase7_enhanced"
+    }
+  ],
+  "legacy_import": {
+    "1": 369,
+    "2": 300,
+    "3": 410,
+    "4": 396,
+    "5": 262,
+    "6": 382,
+    "7": 298,
+    "9": 267,
+    "10": 270,
+    "11": 258,
+    "12": 314,
+    "13": 378,
+    "14": 461,
+    "15": 424,
+    "16": 272,
+    "17": 271,
+    "18": 275,
+    "19": 404,
+    "20": 395,
+    "21": 359,
+    "22": 383,
+    "23": 394,
+    "25": 365,
+    "26": 363,
+    "27": 366,
+    "28": 320,
+    "29": 321,
+    "30": 281,
+    "31": 407,
+    "32": 409,
+    "33": 426,
+    "34": 416,
+    "35": 421,
+    "36": 399,
+    "37": 273,
+    "38": 453,
+    "39": 295,
+    "40": 433,
+    "41": 301,
+    "42": 264,
+    "43": 294,
+    "44": 406,
+    "45": 280,
+    "46": 327,
+    "47": 392,
+    "48": 386,
+    "49": 257,
+    "50": 450,
+    "51": 337,
+    "52": 387,
+    "53": 342,
+    "54": 346,
+    "55": 338,
+    "56": 449,
+    "57": 444,
+    "58": 456,
+    "59": 335,
+    "60": 329,
+    "61": 443,
+    "62": 344,
+    "63": 307,
+    "64": 308,
+    "65": 306,
+    "66": 351,
+    "67": 333,
+    "68": 457,
+    "69": 318,
+    "70": 312,
+    "71": 451,
+    "72": 425,
+    "73": 385,
+    "74": 373,
+    "75": 377,
+    "76": 389,
+    "77": 368,
+    "78": 361,
+    "79": 341,
+    "80": 347,
+    "81": 420,
+    "82": 430,
+    "83": 434,
+    "84": 266,
+    "85": 263,
+    "86": 381,
+    "87": 332,
+    "88": 292,
+    "89": 313,
+    "90": 348,
+    "91": 357,
+    "92": 388,
+    "93": 354,
+    "94": 358,
+    "95": 282,
+    "96": 289,
+    "97": 291,
+    "98": 259,
+    "99": 401,
+    "100": 428,
+    "101": 418,
+    "102": 403,
+    "103": 415,
+    "104": 431,
+    "105": 279,
+    "106": 284,
+    "107": 285,
+    "108": 374,
+    "109": 350,
+    "110": 452,
+    "112": 343,
+    "113": 447,
+    "114": 442,
+    "115": 310,
+    "116": 315,
+    "118": 384,
+    "119": 286,
+    "120": 288,
+    "121": 375,
+    "122": 309,
+    "123": 305,
+    "125": 391,
+    "126": 296,
+    "129": 364,
+    "130": 330,
+    "131": 398,
+    "132": 323,
+    "133": 370,
+    "134": 435,
+    "135": 311,
+    "136": 427,
+    "137": 414,
+    "138": 322,
+    "139": 439,
+    "141": 331,
+    "143": 316,
+    "144": 290,
+    "145": 287,
+    "147": 371,
+    "148": 440,
+    "149": 400,
+    "150": 376,
+    "151": 360,
+    "152": 319,
+    "157": 402,
+    "158": 448,
+    "159": 437,
+    "160": 459,
+    "161": 419,
+    "162": 380,
+    "163": 274,
+    "164": 445,
+    "165": 336,
+    "166": 268,
+    "167": 408,
+    "168": 278,
+    "169": 328,
+    "170": 393,
+    "175": 325,
+    "180": 423,
+    "184": 339,
+    "189": 405,
+    "196": 460,
+    "197": 397,
+    "198": 413,
+    "209": 349,
+    "210": 261,
+    "213": 324,
+    "216": 326,
+    "217": 438,
+    "218": 299,
+    "222": 334,
+    "225": 283,
+    "250": 256,
+    "252": 362,
+    "253": 277,
+    "254": 293
+  },
+  "legacy_unassigned": "preserve_1_to_254_no_candidate_filter"
+}

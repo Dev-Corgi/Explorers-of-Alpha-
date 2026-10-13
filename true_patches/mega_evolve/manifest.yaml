@@ -1,11 +1,12 @@
 id: mega_evolve
-version: 2
+version: 3
 kind: mega_evolve
 rom_profile: us_vanilla
-phase: 1
+phase: 2
 description: >-
-  Mega and shiny-mega evolution, implemented in staged phases. Phase 1
-  adds numeric Speed ranks and ordinary/strong weather calculation services.
+  Mega and shiny-mega evolution, implemented in staged phases. Phase 2
+  adds three simultaneous ability identities, independent grades and temporary
+  copy/swap state on the phase-1 Speed and weather services.
 requires:
   - z_move_v2
   - base_stats_speed

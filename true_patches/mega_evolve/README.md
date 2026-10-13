@@ -1,12 +1,13 @@
-# mega_evolve — 페이즈 1
+# mega_evolve — 페이즈 2
 
 메가진화·이로치 메가진화의 모든 새 기능은 이 모듈에서 구현한다.
 기존 `base_stats_speed`, `spinda_ev_speed`, `balance_change`, `bug_fixes`,
 `luminous_evolution`, `z_move_v2`는 입력 기능이며 해당 모듈 자체를 수정하지 않는다.
 관련 호출·할당은 `patch_engine`에서 연결한다.
 
-현재 `manifest.yaml`의 `phase: 1`은 스피드 랭크와 일반/강화 날씨 런타임을
-연결한다. 구현·검증 범위는 [PHASE1.md](PHASE1.md)에 기록한다.
+현재 `manifest.yaml`의 `phase: 2`는 세 특성 동시 조회, 독립적인 강화 등급,
+억제·임시 복사·교환 엔진을 페이즈 1의 스피드/날씨와 연결한다.
+현재 범위는 [PHASE2.md](PHASE2.md), 이전 기반은 [PHASE1.md](PHASE1.md)에 기록한다.
 페이즈 0의 정규화 자료와 원본 개체 대응은 그대로 유지한다.
 메가진화 형태나 특성 배정을 적용한 단계는 아니다.
 `FULL_STACK_MODULES`에서 `luminous_evolution` 뒤에 등록했고 한글은 이후에 적용한다.
@@ -22,6 +23,7 @@
 .venv\Scripts\python.exe -B -X utf8 true_patches\mega_evolve\phase0.py --refresh
 .venv\Scripts\python.exe -B -X utf8 true_patches\mega_evolve\verify.py
 .venv\Scripts\python.exe -B -X utf8 true_patches\mega_evolve\verify_phase1.py
+.venv\Scripts\python.exe -B -X utf8 true_patches\mega_evolve\verify_phase2.py
 ```
 
 `--refresh`는 이 모듈의 JSON만 갱신한다. 옵션 없이 실행하면 재생성 결과와

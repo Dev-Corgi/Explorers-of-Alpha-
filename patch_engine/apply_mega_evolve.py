@@ -10,11 +10,16 @@ from true_patches.mega_evolve.phase0 import validate
 
 
 def load_registry(module_dir, manifest):
-    if manifest.get("phase") not in (0,1):
+    if manifest.get("phase") not in (0,1,2):
         raise RuntimeError("requested mega_evolve runtime phase is not implemented")
     path = module_dir / "data/registry.json"
     registry = json.loads(path.read_text(encoding="utf-8"))
     metadata = validate(registry)
+    if manifest.get("phase")==2:
+        from true_patches.mega_evolve.phase2 import load
+        load()
+        metadata["phase2_hooks_sha256"]=hashlib.sha256((module_dir/"data/phase2_hooks.json").read_bytes()).hexdigest()
+        metadata["phase2_abilities_sha256"]=hashlib.sha256((module_dir/"data/phase2_abilities.json").read_bytes()).hexdigest()
     metadata["registry_file_sha256"] = hashlib.sha256(path.read_bytes()).hexdigest()
     return registry, metadata
 
@@ -36,7 +41,7 @@ def validate_rom(rom_path, registry):
 def apply_mega_evolve_module(module_id, module_dir, manifest, rom_path, state=None):
     registry, metadata = load_registry(module_dir, manifest)
     validate_rom(rom_path, registry)
-    if manifest.get("phase")==1:
+    if manifest.get("phase",0)>=1:
         from .mega_evolve_runtime import apply_phase1
         return apply_phase1(rom_path,module_dir,manifest,state,metadata)
     return AppliedModule(id=module_id, version=manifest.get("version", 1),
@@ -45,7 +50,7 @@ def apply_mega_evolve_module(module_id, module_dir, manifest, rom_path, state=No
 
 def verify_mega_evolve_module(rom_path, module_dir, manifest, record):
     registry, metadata = load_registry(module_dir, manifest)
-    if manifest.get("phase")==1:
+    if manifest.get("phase",0)>=1:
         from .mega_evolve_runtime import verify_phase1
         verify_phase1(rom_path,module_dir,manifest,record,metadata)
         validate_rom(rom_path,registry)

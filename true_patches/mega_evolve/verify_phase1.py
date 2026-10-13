@@ -119,7 +119,7 @@ class World:
 
 
 def main():
-    manifest=load_module_manifest(MODULE)
+    manifest=dict(load_module_manifest(MODULE),phase=1)
     before=hashlib.sha256(SOURCE.read_bytes()).hexdigest()
     rom=NintendoDSRom(SOURCE.read_bytes())
     fixture_data=bytes(rom.loadArm9Overlays()[36].data)

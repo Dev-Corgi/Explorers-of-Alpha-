@@ -31,7 +31,7 @@ recommended_order:
 modules:
   mega_evolve:
     path: mega_evolve
-    description: Mega/shiny-mega evolution; phase 1 adds numeric Speed ranks and ordinary/strong weather services.
+    description: Mega/shiny-mega evolution; phase 2 adds three ability slots, grades and temporary copy/swap state.
     kind: mega_evolve
   luminous_evolution:
     path: luminous_evolution

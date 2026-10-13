@@ -10,9 +10,19 @@ typedef signed short s16;
 #define U16(p,o) (*(u16 *)((u8 *)(p)+(o)))
 #define U32(p,o) (*(u32 *)((u8 *)(p)+(o)))
 #define BYTE(p,o) (*((u8 *)(p)+(o)))
-enum { COUNT=20, SOURCES=60, SNAPSHOT=1024, MAGIC=0x3147454d, SCHEMA=1 };
+enum { COUNT=20, SOURCES=60, SNAPSHOT=1024, MAGIC=0x3147454d,
+#ifdef ME_PHASE2
+ SCHEMA=2
+#else
+ SCHEMA=1
+#endif
+ };
 typedef struct { u32 entity, monster; u8 rank, pad[3]; } Rank;
-typedef struct { u32 entity, monster, order; u16 ability; u8 weather, strong; } Source;
+typedef struct { u32 entity, monster, order; u16 ability; u8 weather, strong;
+#ifdef ME_PHASE2
+ u8 grade,pad[3];
+#endif
+ } Source;
 typedef struct { u32 magic, dungeon, floor, order; Rank ranks[COUNT]; Source sources[SOURCES]; } State;
 static State state;
 int ME_ForcedWeather(void);
@@ -25,6 +35,9 @@ static int alive(u8 *e) { u8 *m=monster(e); return m && (s16)U16(m,0x10)>0; }
 static int has(u8 *e,int ability) { return FN(ABILITY_ACTIVE,int (*)(u8*,int))(e,ability); }
 static u8 *entity(int i) { u8 *d=dungeon(); return d?(u8 *)U32(d,0x12b78+i*4):0; }
 static int slot(u8 *e) { for(int i=0;i<COUNT;i++) if(e && entity(i)==e) return i; return -1; }
+#ifdef ME_PHASE2
+#include "phase2.c"
+#endif
 static void ensure(void) {
     u8 *d=dungeon();
     u32 floor=d?U16(d,0x748):0;
@@ -33,6 +46,9 @@ static void ensure(void) {
             int owned=0; for(int i=0;i<SOURCES;i++) if(state.sources[i].entity) owned=1;
             if(owned) *(u8*)LEGACY_STRONG_WEATHER=0;
         }
+ #ifdef ME_PHASE2
+        reset_abilities();
+#endif
         zero(&state,sizeof(state)); state.magic=MAGIC; state.dungeon=(u32)d; state.floor=floor;
         for(int i=0;i<COUNT;i++) state.ranks[i].rank=10;
     }
@@ -54,12 +70,20 @@ int ME_SetStoredSpeed(u8 *e,int value) {
 /* flags: 1 block opponent drops, 2 block self drops, 4 Simple, 8 enhanced Simple. */
 int ME_ChangeSpeed(u8 *actor,u8 *target,int delta,int flags) {
     if(!alive(target)) return 0;
+#ifdef ME_PHASE2
+    if(ME_AbilityGrade(target,15)==1) flags|=3;
+    if(ME_AbilityGrade(target,97)==1) flags|=8;
+#endif
     if(delta<0 && ((actor!=target && ((flags&1)||has(target,15))) || (actor==target && (flags&2)))) return 0;
     if((flags&8) ? delta>0 : ((flags&4)||has(target,97))) delta*=2;
     return ME_SetStoredSpeed(target,ME_GetStoredSpeed(target)+delta);
 }
 void ME_ResetMonster(u8 *m) {
-    ensure(); for(int i=0;i<COUNT;i++) if(state.ranks[i].monster==(u32)m) {
+    ensure();
+#ifdef ME_PHASE2
+    for(int i=0;i<COUNT;i++) if(banks[i].monster==(u32)m) zero(&banks[i],sizeof(AbilityBank));
+#endif
+    for(int i=0;i<COUNT;i++) if(state.ranks[i].monster==(u32)m) {
         state.ranks[i].rank=10; state.ranks[i].entity=0; state.ranks[i].monster=0;
     }
     for(int i=0;i<SOURCES;i++) if(state.sources[i].monster==(u32)m) zero(&state.sources[i],sizeof(Source));
@@ -82,7 +106,11 @@ int ME_ApparentWeather(u8 *e) { return family(ME_OriginalApparentWeather(e)); }
 static int valid_source(Source *s) {
     u8 *e=(u8 *)s->entity;
     return s->strong && slot(e)>=0 && alive(e) && (u32)monster(e)==s->monster &&
-        (!s->ability || has(e,s->ability));
+        (!s->ability || has(e,s->ability))
+#ifdef ME_PHASE2
+        && (!s->grade || ME_AbilityGrade(e,s->ability)==s->grade-1)
+#endif
+        ;
 }
 static Source *source(u8 *e,int ability) {
     Source *empty=0;
@@ -96,7 +124,11 @@ static Source *source(u8 *e,int ability) {
 /* Weather-setting ability services register sources; no grade/assignments here. */
 int ME_SetWeatherSource(u8 *e,int weather,int strong,int ability) {
     ensure(); int i=slot(e); if(i<0 || !alive(e)) return 0;
-    if(ability<0 || ability>254) return 0; /* phase 2 replaces this legacy-ID bridge */
+    #ifdef ME_PHASE2
+    if(!known(ability) || (ability && ME_AbilityGrade(e,ability)<0)) return 0;
+#else
+    if(ability<0 || ability>254) return 0;
+#endif
     weather=family(weather);
     if(weather!=0 && weather!=1 && weather!=2 && weather!=4 && weather!=5) return 0;
     if(!strong && ME_ForcedWeather()>=0) return 0;
@@ -104,6 +136,9 @@ int ME_SetWeatherSource(u8 *e,int weather,int strong,int ability) {
     s->entity=(u32)e; s->monster=(u32)monster(e);
     s->ability=(u16)ability; s->weather=(u8)weather; s->strong=(u8)!!strong;
     s->order=++state.order;
+#ifdef ME_PHASE2
+    s->grade=ability?(u8)(ME_AbilityGrade(e,ability)+1):0;
+#endif
     u8 *d=dungeon(); if(d) {
         U16(d,0xcd3a+weather*2)=(u16)(strong?1:3000); BYTE(d,0xe)=1;
         FN(0x023354c4,int (*)(int,int))(0,1);
@@ -120,8 +155,15 @@ static void native_sources(void) {
         for(int a=252;a<=254;a++) {
             if(!has(e,a)) continue;
             Source *s=source(e,a); if(!s) continue;
-            if(s->entity==(u32)e && s->monster==(u32)monster(e) && s->ability==a) continue;
+            if(s->entity==(u32)e && s->monster==(u32)monster(e) && s->ability==a
+#ifdef ME_PHASE2
+                && s->grade==ME_AbilityGrade(e,a)+1
+#endif
+                ) continue;
             s->entity=(u32)e; s->monster=(u32)monster(e); s->ability=(u16)a;
+     #ifdef ME_PHASE2
+            s->grade=(u8)(ME_AbilityGrade(e,a)+1);
+#endif
             s->weather=(u8)(a==252?4:a==253?1:0); s->strong=1; s->order=++state.order;
         }
     }
@@ -191,19 +233,35 @@ int ME_ExportState(u8 *out,int size) {
         Source *s=&state.sources[i]; int owner=slot((u8*)s->entity);
         if(owner<0 || !alive((u8*)s->entity) || (u32)monster((u8*)s->entity)!=s->monster) continue;
         u8 *p=out+96+i*12; BYTE(p,0)=(u8)owner; BYTE(p,1)=1; U16(p,2)=s->ability;
-        BYTE(p,4)=s->weather; BYTE(p,5)=s->strong; U32(p,8)=s->order;
+        BYTE(p,4)=s->weather; BYTE(p,5)=s->strong;
+#ifdef ME_PHASE2
+        BYTE(p,6)=s->grade;
+#endif
+        U32(p,8)=s->order;
     }
     U32(out,12)=checksum(out);
     return SNAPSHOT;
 }
 int ME_ImportState(u8 *in,int size) {
-    if(size!=SNAPSHOT || U32(in,0)!=MAGIC || U16(in,4)!=SCHEMA || U16(in,6)!=SNAPSHOT || U32(in,12)!=checksum(in)) return 0;
+    if(size!=SNAPSHOT || U32(in,0)!=MAGIC || (U16(in,4)!=SCHEMA
+#ifdef ME_PHASE2
+       && U16(in,4)!=1
+#endif
+       ) || U16(in,6)!=SNAPSHOT || U32(in,12)!=checksum(in)) return 0;
     ensure(); if(U32(in,8)!=state.floor) return 0;
     /* Validate the whole payload before mutating any live state. */
     for(int i=0;i<COUNT;i++) if(BYTE(in,16+i*4+3) && (BYTE(in,16+i*4+2)<4 || BYTE(in,16+i*4+2)>16)) return 0;
     for(int i=0;i<SOURCES;i++) {
         u8 *p=in+96+i*12; int w=BYTE(p,4);
-        if(BYTE(p,1) && (BYTE(p,0)>=COUNT || U16(p,2)>254 || BYTE(p,5)>1 || (w!=0&&w!=1&&w!=2&&w!=4&&w!=5))) return 0;
+        if(BYTE(p,1) && (BYTE(p,0)>=COUNT || (U16(p,2)>254
+#ifdef ME_PHASE2
+            && !known(U16(p,2))
+#endif
+             )
+#ifdef ME_PHASE2
+            || BYTE(p,6)>2
+#endif
+            || BYTE(p,5)>1 || (w!=0&&w!=1&&w!=2&&w!=4&&w!=5))) return 0;
     }
     zero(state.sources,sizeof(state.sources)); state.order=0;
     for(int i=0;i<COUNT;i++) {
@@ -216,6 +274,9 @@ int ME_ImportState(u8 *in,int size) {
         int owner=BYTE(p,0); u8 *e=entity(owner),*m=monster(e);
         if(!m || U16(in,16+owner*4)!=U16(m,2)) continue;
         Source *s=&state.sources[i]; s->entity=(u32)e; s->monster=(u32)m;
+ #ifdef ME_PHASE2
+        s->grade=BYTE(p,6);
+#endif
         s->ability=U16(p,2); s->weather=BYTE(p,4); s->strong=BYTE(p,5); s->order=U32(p,8);
         if(s->order>state.order) state.order=s->order;
     }
