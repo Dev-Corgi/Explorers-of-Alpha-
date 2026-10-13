@@ -1,4 +1,25 @@
-# z_move_v2: HandleFaint argument preservation (v25)
+# z_move_v2: Selected member's Z-Move slot (v26)
+
+The ov31 move submenu keeps the selected entity in r6 but the current leader's
+status in r7. Saving r7 as ZMoveSelectedStatus made a partner Z-Move replace the
+leader's fourth move while recording the partner as the pending restore owner.
+Cleanup then copied the leader's backup into the partner and left move 559 in
+the leader's moveset. Resolve the status from the selected entity at +0xB4 so
+move typing, backup, temporary shell, action and restore use the same member.
+
+```powershell
+.venv\Scripts\python.exe -B true_patches\z_move_v2\verify_partner_slot.py
+```
+
+This test reads the canonical Alpha input ROM and assembles the actual selection,
+setup and restore routines into a temporary fixture. It verifies the native
+menu's leader-status register setup and runs native InitMove, GetTeamMemberIndex
+and SetActionUseMovePlayer with Unicorn. UI append, type lookup, base PP lookup
+and target validation use fixtures. It covers all four members, all four selected
+move slots, validation success/failure, and cleanup's entity gate (48 cases),
+and reproduces the old leader-slot corruption. No ROM is written.
+
+## HandleFaint argument preservation (v25)
 
 The gauge wrapper runs GetTeamMemberIndex before replaying HandleFaint's
 prologue. That native lookup overwrites r1-r3. The old wrapper preserved only

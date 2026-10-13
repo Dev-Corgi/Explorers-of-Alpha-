@@ -414,7 +414,8 @@ ZMove_ReturnZMoveString:
 	ldr r0, =STRING_ID_Z_MOVE_MENU
 	pop {r3, r4, r5, r6, r7, pc}
 
-; ov31 move submenu @ 0x023859C0: r6 = entity, r7 = status
+; ov31 move submenu @ 0x023859C0: r6 = selected entity, r7 = leader status.
+; Resolve the selected entity's status; partner menus still carry the leader in r7.
 ; Only inject Z when the gauge is full, and only patch the string if Add actually
 ; appended ACTION_Z_MOVE (Add can no-op on full/duplicate — never write count-1 blind).
 ZMove_TryAppendZMoveOption:
@@ -425,7 +426,8 @@ ZMove_TryAppendZMoveOption:
 	ldr r0, =ZMoveSelectedEntity
 	str r6, [r0]
 	ldr r0, =ZMoveSelectedStatus
-	str r7, [r0]
+	ldr r1, [r6, #0xB4]
+	str r1, [r0]
 	ldr r0, =MoveMenuSelectedSlotPtr
 	ldr r0, [r0]
 	and r0, r0, #3

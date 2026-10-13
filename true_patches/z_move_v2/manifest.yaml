@@ -1,10 +1,12 @@
 id: z_move_v2
-version: 25
+version: 26
 region: US
 description: >
   Z-Move v2 — move submenu, Z-Move (559) temp slot-3 shell, Z gauge (WRAM + HUD),
   Z-Power messages. Normal-type power 360; other types power 180 + per-type secondary effects (ov36 cave).
   Type follows the selected move. Mutually exclusive with z_move.
+  v26: Resolve the selected entity's status for temporary move-slot backup/action;
+  partner Z-Moves must not replace the leader's fourth move.
   Custom strings: yaml 19100–19120 (avoid tm_read 19073–19076, orb 19082–19084).
   Apply after room_charge_v3/v4, orb_charges_v2, berry_boost, tm_read.
   v9: PriorIsRoomChargeMove/GetRoomChargeState never jump to Alpha zero padding.
