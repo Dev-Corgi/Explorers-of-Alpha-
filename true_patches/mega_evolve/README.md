@@ -4,6 +4,8 @@
 기존 `base_stats_speed`, `spinda_ev_speed`, `balance_change`, `bug_fixes`,
 `luminous_evolution`, `z_move_v2`는 입력 기능이며 해당 모듈 자체를 수정하지 않는다.
 관련 호출·할당은 `patch_engine`에서 연결한다.
+카트리지 용량 정책은 [ROM_CAPACITY.md](ROM_CAPACITY.md)에 기록한다.
+필요할 때 128MiB에서 256MiB로 확장하며 RAM/ID 저장 폭과 별도로 처리한다.
 
 현재 `manifest.yaml`의 `phase: 2`는 세 특성 동시 조회, 독립적인 강화 등급,
 억제·임시 복사·교환 엔진을 페이즈 1의 스피드/날씨와 연결한다.

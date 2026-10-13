@@ -28,6 +28,14 @@ from .state import AppliedModule, BuildState, load_state, save_state
 
 
 
+def _serialize_rom(rom, state: BuildState | None, *, mega_pending: bool = False) -> bytes:
+    # Applies to mega_evolve itself and every later pass, including Korean.
+    if mega_pending or (state is not None and state.get_module("mega_evolve") is not None):
+        from true_patches.mega_evolve.rom_capacity import save_with_capacity
+        return save_with_capacity(rom)
+    return rom.save()
+
+
 def _true_patches_root() -> Path:
 
     return Path(__file__).resolve().parent.parent / "true_patches"
@@ -143,7 +151,7 @@ def apply_module(
         else:
             rom = NintendoDSRom(rom_in.read_bytes())
             record = apply_mega_evolve_module(module_id,module_dir,manifest,rom,state)
-            rom_out.write_bytes(rom.save())
+            rom_out.write_bytes(_serialize_rom(rom, state, mega_pending=True))
         state.upsert_module(record)
         if state_path:
             save_state(state_path, state)
@@ -164,7 +172,7 @@ def apply_module(
             module_id, module_dir, manifest, rom, armips_exe, state,
         )
         state.upsert_module(record)
-        rom_out.write_bytes(rom.save())
+        rom_out.write_bytes(_serialize_rom(rom, state))
         if state_path:
             save_state(state_path, state)
         return state
@@ -184,7 +192,7 @@ def apply_module(
             rom_in=rom_in,
         )
         state.upsert_module(record)
-        rom_out.write_bytes(rom.save())
+        rom_out.write_bytes(_serialize_rom(rom, state))
         if state_path:
             save_state(state_path, state)
         return state
@@ -207,7 +215,7 @@ def apply_module(
             prior_hook_sites=prior,
         )
         state.upsert_module(record)
-        rom_out.write_bytes(rom.save())
+        rom_out.write_bytes(_serialize_rom(rom, state))
         if state_path:
             save_state(state_path, state)
         return state
@@ -230,7 +238,7 @@ def apply_module(
             force_reapply=force_reapply,
         )
         state.upsert_module(record)
-        rom_out.write_bytes(rom.save())
+        rom_out.write_bytes(_serialize_rom(rom, state))
         if state_path:
             save_state(state_path, state)
         return state
@@ -256,7 +264,7 @@ def apply_module(
             force_reapply=force_reapply,
         )
         state.upsert_module(record)
-        rom_out.write_bytes(rom.save())
+        rom_out.write_bytes(_serialize_rom(rom, state))
         if state_path:
             save_state(state_path, state)
         return state
@@ -303,7 +311,7 @@ def apply_module(
             rom_in=rom_in,
         )
         state.upsert_module(record)
-        rom_out.write_bytes(rom.save())
+        rom_out.write_bytes(_serialize_rom(rom, state))
         if state_path:
             save_state(state_path, state)
         return state
@@ -327,7 +335,7 @@ def apply_module(
             prior_hook_sites=prior,
         )
         state.upsert_module(record)
-        rom_out.write_bytes(rom.save())
+        rom_out.write_bytes(_serialize_rom(rom, state))
         if state_path:
             save_state(state_path, state)
         return state
@@ -350,7 +358,7 @@ def apply_module(
             state=state,
         )
         state.upsert_module(record)
-        rom_out.write_bytes(rom.save())
+        rom_out.write_bytes(_serialize_rom(rom, state))
         if state_path:
             save_state(state_path, state)
         return state
@@ -366,7 +374,7 @@ def apply_module(
             config=config,
         )
         state.upsert_module(record)
-        rom_out.write_bytes(rom.save())
+        rom_out.write_bytes(_serialize_rom(rom, state))
         if state_path:
             save_state(state_path, state)
         return state
@@ -410,7 +418,7 @@ def apply_module(
 
         record.data.append(apply_floor_limits(rom, manifest["dungeon_floor_limits"]))
     state.upsert_module(record)
-    rom_out.write_bytes(rom.save())
+    rom_out.write_bytes(_serialize_rom(rom, state))
     if state_path:
         save_state(state_path, state)
     return state
