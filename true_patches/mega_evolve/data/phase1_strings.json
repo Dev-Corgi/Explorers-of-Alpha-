@@ -1,0 +1,12 @@
+{
+  "entries": [
+    {"index":2629,"before":"The weather has become [CS:E]Sunny[CR]!\nFire-type moves are boosted, and Water-type\nmoves are weakened.","en":"The weather has become [CS:E]Sunny[CR]!\nFire-type move power is multiplied by 1.2.\nWater-type moves are weakened.","ko":"날씨가 [CS:E]쾌청[CR]해졌다!\n불꽃 기술의 위력이 1.2배가 되고\n물 기술은 약해진다."},
+    {"index":2630,"before":"The weather has become a [CS:E]Sandstorm[CR]!\nAll Pokémon except for Ground-, Rock-, and\nSteel-type Pokémon will receive damage.","en":"A [CS:E]Sandstorm[CR] is blowing!\nGround, Rock and Steel types gain 1.2 times\nDefense and Sp. Def. Other types take damage.","ko":"[CS:E]모래바람[CR]이 불기 시작했다!\n땅·바위·강철 타입의 방어·특방이 1.2배가 된다.\n그 밖의 타입은 날씨 피해를 받는다."},
+    {"index":2632,"before":"The weather has become [CS:E]Rainy[CR]!\nThe power of Water-type moves is boosted,\nand Fire-type moves are weakened.","en":"The weather has become [CS:E]Rainy[CR]!\nWater-type move power is multiplied by 1.2.\nFire-type moves are weakened.","ko":"[CS:E]비[CR]가 내리기 시작했다!\n물 기술의 위력이 1.2배가 되고\n불꽃 기술은 약해진다."},
+    {"index":2633,"before":"The weather has become [CS:E]Hail[CR]!\nAll Pokémon except Ice-type Pokémon will\nreceive damage.","en":"[CS:E]Snow[CR] is falling!\nIce types gain 1.2 times Defense and Sp. Def.\nSnow does not cause periodic damage.","ko":"[CS:E]설경[CR]이 펼쳐졌다!\n얼음 타입의 방어·특방이 1.2배가 된다.\n설경은 주기적인 피해를 주지 않는다."},
+    {"index":2635,"before":"The weather has become [CS:E]Snow[CR]!\nThe Movement Speed of Ice-type Pokémon is\nboosted by 1 level.","en":"[CS:E]Snow[CR] is falling!\nIce types gain 1.2 times Defense and Sp. Def.\nSnow does not cause periodic damage.","ko":"[CS:E]설경[CR]이 펼쳐졌다!\n얼음 타입의 방어·특방이 1.2배가 된다.\n설경은 주기적인 피해를 주지 않는다."},
+    {"index":19750,"en":"A [CS:E]Strong Sandstorm[CR] is blowing!\nGround, Rock and Steel types gain 1.5 times\nDefense and Sp. Def.","ko":"[CS:E]강한 모래바람[CR]이 불기 시작했다!\n땅·바위·강철 타입의\n방어·특방이 1.5배가 된다."},
+    {"index":19751,"en":"[CS:E]Strong Snow[CR] is falling!\nIce types gain 1.5 times Defense and Sp. Def.\nSnow does not cause periodic damage.","ko":"[CS:E]강한 설경[CR]이 펼쳐졌다!\n얼음 타입의 방어·특방이 1.5배가 된다.\n설경은 주기적인 피해를 주지 않는다."},
+    {"index":19752,"en":"The strong weather prevented\na change to ordinary weather!","ko":"강한 날씨 때문에\n일반 날씨로 바꿀 수 없었다!"}
+  ]
+}

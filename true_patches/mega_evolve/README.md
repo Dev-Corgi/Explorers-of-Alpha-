@@ -1,13 +1,14 @@
-# mega_evolve — 페이즈 0
+# mega_evolve — 페이즈 1
 
 메가진화·이로치 메가진화의 모든 새 기능은 이 모듈에서 구현한다.
 기존 `base_stats_speed`, `spinda_ev_speed`, `balance_change`, `bug_fixes`,
 `luminous_evolution`, `z_move_v2`는 입력 기능이며 해당 모듈 자체를 수정하지 않는다.
 관련 호출·할당은 `patch_engine`에서 연결한다.
 
-현재 `manifest.yaml`의 `phase: 0`은 정규화 자료와 원본 개체 대응을 검증하는
-단계다. 엔진 적용 시 입력 롬을 바이트 그대로 유지하며 코드·문자열·MD를
-변경하지 않는다. 메가진화가 플레이 가능해졌다는 의미가 아니다.
+현재 `manifest.yaml`의 `phase: 1`은 스피드 랭크와 일반/강화 날씨 런타임을
+연결한다. 구현·검증 범위는 [PHASE1.md](PHASE1.md)에 기록한다.
+페이즈 0의 정규화 자료와 원본 개체 대응은 그대로 유지한다.
+메가진화 형태나 특성 배정을 적용한 단계는 아니다.
 `FULL_STACK_MODULES`에서 `luminous_evolution` 뒤에 등록했고 한글은 이후에 적용한다.
 검증하지 않은 다음 단계 번호는 엔진에서 거부한다.
 
@@ -20,11 +21,13 @@
 ```powershell
 .venv\Scripts\python.exe -B -X utf8 true_patches\mega_evolve\phase0.py --refresh
 .venv\Scripts\python.exe -B -X utf8 true_patches\mega_evolve\verify.py
+.venv\Scripts\python.exe -B -X utf8 true_patches\mega_evolve\verify_phase1.py
 ```
 
 `--refresh`는 이 모듈의 JSON만 갱신한다. 옵션 없이 실행하면 재생성 결과와
 저장된 JSON을 비교한다. 검증은 롬 빌드·NDS 출력·state 파일 출력을 하지 않는다.
-실제 엔진 호출도 입력과 출력 경로를 같게 지정하고 읽기 전후 해시를 비교한다.
+페이즈 0 검증은 무변경 자료 검증 경로를 호출한다. 페이즈 1 검증은 기존
+영문 풀스택을 메모리에 읽어 적용·ARM 실행하고 입력 파일 해시를 비교한다.
 
 ## 페이즈 0 결과
 

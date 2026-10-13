@@ -1,11 +1,11 @@
 id: mega_evolve
-version: 1
+version: 2
 kind: mega_evolve
 rom_profile: us_vanilla
-phase: 0
+phase: 1
 description: >-
-  Mega and shiny-mega evolution, implemented in staged phases. Phase 0
-  validates the normalized species/ability registry without gameplay edits.
+  Mega and shiny-mega evolution, implemented in staged phases. Phase 1
+  adds numeric Speed ranks and ordinary/strong weather calculation services.
 requires:
   - z_move_v2
   - base_stats_speed

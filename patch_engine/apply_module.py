@@ -136,9 +136,14 @@ def apply_module(
     if manifest.get("kind") == "mega_evolve":
         from .apply_mega_evolve import apply_mega_evolve_module
 
-        record = apply_mega_evolve_module(module_id, module_dir, manifest, rom_in)
-        if rom_out.resolve() != rom_in.resolve():
-            rom_out.write_bytes(rom_in.read_bytes())
+        if manifest.get("phase")==0:
+            record = apply_mega_evolve_module(module_id, module_dir, manifest, rom_in)
+            if rom_out.resolve() != rom_in.resolve():
+                rom_out.write_bytes(rom_in.read_bytes())
+        else:
+            rom = NintendoDSRom(rom_in.read_bytes())
+            record = apply_mega_evolve_module(module_id,module_dir,manifest,rom,state)
+            rom_out.write_bytes(rom.save())
         state.upsert_module(record)
         if state_path:
             save_state(state_path, state)

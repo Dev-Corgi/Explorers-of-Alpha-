@@ -248,7 +248,16 @@ def plan_translation(rom: NintendoDSRom, src: KoreanSource) -> KoreanPlan:
     text_dec, exp_ids = match_text_e(text, src.text_en, src.text_ko)
     script_dec = match_scripts(scripts, src.scripts)
     plan = KoreanPlan(text, text_dec, scripts, script_dec, exp_ids)
-    _apply_user("text_e", text, text_dec, src.user.get("text_e") or {}, plan.user_stale)
+    user_text=dict(src.user.get("text_e") or {})
+    # mega_evolve owns its bilingual weather text. Only exact installed English
+    # matches participate; older stacks retain their original translations.
+    mega_text=Path(__file__).resolve().parents[1]/"true_patches/mega_evolve/data/phase1_strings.json"
+    if mega_text.is_file():
+        for entry in json.loads(mega_text.read_text(encoding="utf-8"))["entries"]:
+            index=entry["index"]
+            if index<len(text) and text[index]==entry["en"]:
+                user_text[str(index)]={"en":entry["en"],"ko":entry["ko"]}
+    _apply_user("text_e", text, text_dec, user_text, plan.user_stale)
     for path, entries in (src.user.get("scripts") or {}).items():
         if path in scripts:
             _apply_user(path, scripts[path], script_dec[path], entries, plan.user_stale)

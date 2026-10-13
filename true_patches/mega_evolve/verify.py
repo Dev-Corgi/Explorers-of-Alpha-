@@ -13,8 +13,7 @@ MODULE = Path(__file__).resolve().parent
 REPO = MODULE.parents[1]
 sys.path.insert(0, str(REPO))
 
-from patch_engine.apply_module import apply_module, verify_module_applied
-from patch_engine.apply_mega_evolve import load_registry, validate_rom, verify_mega_evolve_module
+from patch_engine.apply_mega_evolve import load_registry, validate_rom, verify_mega_evolve_module, apply_mega_evolve_module
 from patch_engine.manifest import load_module_manifest, load_yaml
 from patch_engine.build_full_stack import FULL_STACK_MODULES
 from true_patches.mega_evolve.phase0 import BASE_ROM, MODULE, build, digest, ids, normalize_ability, validate
@@ -33,7 +32,7 @@ def main():
     saved = json.loads(registry_path.read_text(encoding="utf-8"))
     manifest = load_module_manifest(MODULE)
     catalog = load_yaml(REPO / "patch_engine/catalog.yaml")
-    assert manifest["phase"] == 0 and manifest["kind"] == "mega_evolve"
+    assert manifest["phase"] in (0,1) and manifest["kind"] == "mega_evolve"
     assert FULL_STACK_MODULES.count("mega_evolve") == 1
     assert all(FULL_STACK_MODULES.index(dep) < FULL_STACK_MODULES.index("mega_evolve")
                for dep in manifest["requires"])
@@ -88,17 +87,17 @@ def main():
             row["mega_stats"] = row["shiny_mega_stats"] = [1]*6
         if mutation == "scope": broken["abilities"].append({"key": "unassigned"})
         rejected(validate, broken)
-    # Same input/output path exercises the actual dispatcher without any write.
+    # The phase-0 handler stays available beside the new phase-1 runtime.
     before = digest(BASE_ROM)
-    state = apply_module("mega_evolve", BASE_ROM, BASE_ROM)
-    verify_module_applied(BASE_ROM, MODULE, state)
+    phase0_manifest=dict(manifest,phase=0)
+    record=apply_mega_evolve_module("mega_evolve",MODULE,phase0_manifest,BASE_ROM)
+    verify_mega_evolve_module(BASE_ROM,MODULE,phase0_manifest,record)
     assert digest(BASE_ROM) == before
-    record = state.get_module("mega_evolve")
-    rejected(verify_mega_evolve_module, BASE_ROM, MODULE, load_module_manifest(MODULE), None)
+    rejected(verify_mega_evolve_module, BASE_ROM, MODULE, phase0_manifest, None)
     stale = copy.deepcopy(record)
     stale.data[0]["mega_evolve"]["registry_file_sha256"] = "stale"
-    rejected(verify_mega_evolve_module, BASE_ROM, MODULE, load_module_manifest(MODULE), stale)
-    rejected(load_registry, MODULE, {"phase": 1})
+    rejected(verify_mega_evolve_module, BASE_ROM, MODULE, phase0_manifest, stale)
+    rejected(load_registry, MODULE, {"phase": 2})
     for filename in ("Explorers of Alpha+.nds", "Explorers of Alpha+_kor.nds"):
         existing = REPO / "PatchTesting/Export Rom" / filename
         if existing.exists():
