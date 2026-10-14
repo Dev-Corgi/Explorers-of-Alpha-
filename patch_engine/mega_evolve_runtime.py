@@ -267,6 +267,10 @@ def apply_phase1(rom,module_dir,manifest,state,metadata):
         files,profile_edits=prepare_data(rom,strings)
         prepared_files.update(files)
     for path,content in prepared_files.items():rom.setFileByName(path,content)
+    if manifest['phase']>=4:
+        from .mega_evolve_phase4_data import prepare_files
+        prepared_files.update(prepare_files(rom))
+        for path,content in prepared_files.items():rom.setFileByName(path,content)
     if manifest['phase']>=3:
         from .mega_evolve_loader import install_file
         install_file(rom,runtime_payload)
@@ -288,6 +292,27 @@ def apply_phase1(rom,module_dir,manifest,state,metadata):
         record.caves.append(info['cave']);record.hooks.extend(info['hooks'])
         record.data[0]['species_save_codec']={k:v for k,v in info.items() if k not in ('cave','hooks')}
         record.data[0]['species_save_codec']['cave']=info['cave'].to_dict()
+    if manifest['phase']>=4:
+        arm9=bytearray(rom.arm9)
+        quick_edits=[]
+        for site,target,prior in ((0x02049264,'ME_QuickWrite',0x02048E74),
+                                  (0x02049644,'ME_QuickRead',0x02048ED0)):
+            before=word(arm9,site,0x02000000)
+            if before!=branch(site,prior,True):raise RuntimeError('phase4 quicksave codec call changed')
+            value=branch(site,symbols[target],True)
+            struct.pack_into('<I',arm9,site-0x02000000,value)
+            quick_edits.append(dict(site=site,after=value))
+            record.hooks.append(HookRecord(target,site,'bl',target,'quicksave_sidecar'))
+        rom.arm9=bytes(arm9)
+        record.data[0]['quick_edits']=quick_edits
+        from .mega_evolve_phase4_runtime import install
+        from .state import BuildState
+        combined=BuildState('us_vanilla',OV29,list(state.applied) if state else [])
+        combined.applied.append(record)
+        info=install(rom,module_dir,combined)
+        record.caves.append(info['cave']);record.hooks.extend(info['hooks'])
+        record.data[0]['form_consumers']={k:v for k,v in info.items() if k not in ('cave','hooks')}
+        record.data[0]['form_consumers']['cave']=info['cave'].to_dict()
     return record
 
 
@@ -322,4 +347,13 @@ def verify_phase1(rom,module_dir,manifest,record,metadata):
         info=dict(record.data[0]['species_save_codec'])
         c=info['cave'];info['cave']=CaveAllocation(c['overlay'],c['file_offset'],c['size'],c['load_address'])
         if info['cave'] not in record.caves:raise AssertionError('missing resident species codec reservation')
+        verify(rom,info)
+    if manifest['phase']>=4:
+        for edit in record.data[0]['quick_edits']:
+            if word(rom.arm9,edit['site'],0x02000000)!=edit['after']:
+                raise AssertionError('phase4 quicksave hook changed')
+        from .mega_evolve_phase4_runtime import verify
+        info=dict(record.data[0]['form_consumers']);c=info['cave']
+        info['cave']=CaveAllocation(c['overlay'],c['file_offset'],c['size'],c['load_address'])
+        if info['cave'] not in record.caves:raise AssertionError('missing form consumer reservation')
         verify(rom,info)

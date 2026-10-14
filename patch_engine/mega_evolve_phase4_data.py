@@ -41,3 +41,7 @@ def prepare(rom):
     if result[8:8+data['first_species']*68]!=raw[8:8+data['first_species']*68]:
         raise AssertionError('phase4 changed existing MD entries')
     return result+binary(data)
+
+
+def prepare_files(rom):
+    return {'BALANCE/monster.md':prepare(rom)}

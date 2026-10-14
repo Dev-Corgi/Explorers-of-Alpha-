@@ -7,31 +7,31 @@
     {
       "test": "verify",
       "exit_code": 0,
-      "seconds": 6.2,
+      "seconds": 5.7,
       "output": "PASS: source reconciliation, aliases, branching, official overrides, stat/save limits,\n      assigned ability scope, weather, Omniscience II spec, rejection cases and engine gate.\nNo ROM, save, build-state or source assets were written."
     },
     {
       "test": "verify_loader",
       "exit_code": 0,
-      "seconds": 58.9,
+      "seconds": 58.0,
       "output": "PASS execution loader ARM: uncompressed heap image, internal relocation, cold/warm register+flags+stack ABI, cache instructions, free/reload, checksum rejection; FAT IDs/overlay sizes unchanged. No ROM/save output."
     },
     {
       "test": "verify_phase1",
       "exit_code": 0,
-      "seconds": 12.7,
+      "seconds": 12.3,
       "output": "PASS ARM: Speed caps/multipliers/Simple/Clear Body/Unaware/Gale Wings, hit consumers,\n          native weather selection, family mapping, defense/power, suppression/source order,\n          component codec corruption/floor checks and instruction/cave guards.\nNo ROM/save/state files were written; automatic save-codec wiring belongs to phase 4."
     },
     {
       "test": "verify_phase2",
       "exit_code": 0,
-      "seconds": 55.9,
+      "seconds": 52.8,
       "output": "PASS phase2 ARM: 206 identities / both grades, three slots, native queries,\n  Gas/Gastro Acid/items, native Skill Swap/Role Play/Trace/restore, nested once ledger,\n  invalid profiles, entity reuse and cave/instruction/hash guards. No ROM/save outputs."
     },
     {
       "test": "verify_phase3",
       "exit_code": 0,
-      "seconds": 69.2,
+      "seconds": 64.8,
       "output": "PASS internal phase3: 546 profiles, assigned bilingual text, protected species/slots,\n  heap image/bootstrap/BSS guards, real ARM numeric speed and conversion/action wrappers,\n  resolved-type skin bonus, hit ledger and fixed-damage ABI, allocation failure/free.\n  14 native status-entry wrappers: Comatose/Sweet Veil/Aroma Veil, Rest/Nightmare, native continuation ABI.\nPublic phase3 ordinary implementation enabled; family tests/native inheritance are separate from full battle/hardware validation. No ROM/save output."
     },
     {

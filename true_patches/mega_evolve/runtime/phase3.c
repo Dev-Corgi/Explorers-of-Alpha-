@@ -397,6 +397,9 @@ void ME_NewSunlight(void) {
     }
 }
 void ME_FloorEntry(u8 *e) {
+#ifdef ME_PHASE4
+    ME_QuickActor(e);
+#endif
     Extra *x=ext(e);if(!alive(e)||!x||(x->once&1))return;x->once|=1;
     ME_PickupItem(e);
     static const u16 ids[]={A_DRIZZLE,A_DROUGHT,A_SAND_STREAM,A_SNOW_WARNING,A_PRIMORDIAL_SEA,A_DESOLATE_LAND,A_DELTA_STREAM};

@@ -8,15 +8,12 @@ import subprocess
 import tempfile
 from pathlib import Path
 
-from .cave_allocator import allocate_cave
-from .cave_reservations import FileRange, reserved_file_ranges
 from .hook_registry import branch_target
 from .mega_evolve_runtime import branch, word
-from .manifest import load_module_manifest
 from .state import CaveAllocation, HookRecord
 
 BASE = 0x02000000
-SIZE = 0x400
+SIZE = 0x280
 
 
 def install(rom, module_dir, state=None):
@@ -40,16 +37,9 @@ def install(rom, module_dir, state=None):
         if word(quick.data,site,quick.ramAddress)!=expected:
             raise RuntimeError('save12 native quicksave byte codec changed')
         quick_guards.append(dict(site=site,word=expected))
-    # Zero-filled caches are live writable data. Carry forward the existing
-    # prerequisite's proven exclusions, in addition to direct-xref checks.
-    prerequisite=load_module_manifest(module_dir.parent/'spinda_ev_speed')
-    forbidden=[FileRange(0xB3380,len(arm9))]
-    for name,config in prerequisite.items():
-        if name.startswith('arm9_') and isinstance(config,dict):
-            forbidden.extend(FileRange(r['start'],r['end']) for r in config.get('forbidden',[]))
-    slot = allocate_cave(bytes(arm9), BASE, SIZE, alignment=16,
-                         reserved_file_offsets=reserved_file_ranges(state, 'arm9'),
-                         forbidden_file_offsets=forbidden)
+    # Share only audited trampoline padding, never zero-filled live caches.
+    from .mega_evolve_resident_slot import allocate
+    slot=allocate(arm9,state,SIZE)
     cave = slot.load_address
     compiler = shutil.which('arm-none-eabi-gcc')
     if not compiler:

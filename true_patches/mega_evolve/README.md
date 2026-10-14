@@ -1,4 +1,4 @@
-# mega_evolve — 페이즈 3
+# mega_evolve — 페이즈 4
 
 메가진화·이로치 메가진화의 모든 새 기능은 이 모듈에서 구현한다.
 기존 `base_stats_speed`, `spinda_ev_speed`, `balance_change`, `bug_fixes`,
@@ -7,12 +7,16 @@
 카트리지 용량 정책은 [ROM_CAPACITY.md](ROM_CAPACITY.md)에 기록한다.
 필요할 때 128MiB에서 256MiB로 확장하며 RAM/ID 저장 폭과 별도로 처리한다.
 
-현재 `manifest.yaml`의 `phase: 3`, version 5는 기존 최종형 546개 MD 행의
-특성 1·2 배정과 실제 배정된 206개 특성의 일반 효과를 연결한다.
-필요한 이름·설명 1174개 영어/한국어 문자열도 함께 적용한다.
+현재 `manifest.yaml`의 `phase: 4`, version 7은 기존 최종형 546개 MD 행의
+특성 1·2와 배정된 206개 일반 특성 효과에 더해, 신규 메가·이로치 메가
+1114개 MD 행(총2269)을 공개 적용 경로에 연결한다. uint16 종족값,
+성별·분기·부모 대응, 영구 특성3개와 강화 등급, 12비트 일반 저장 및
+던전 중간 저장의 상태 복원을 포함한다. 포켓몬 이름은 기존 원본 이름을 쓴다.
+특성 이름·설명 1174개 영어/한국어 문자열은 페이즈3 적용을 유지한다.
 기반 범위는 [PHASE2.md](PHASE2.md), [PHASE1.md](PHASE1.md)에 기록한다.
 페이즈 0의 정규화 자료와 원본 개체 대응은 그대로 유지한다.
-새 메가·이로치 형태와 강화 개별 효과는 다음 페이즈에서 적용한다.
+현재 형태의 이미지는 기존 리소스를 안전하게 재사용한다. 새 스프라이트는
+페이즈5, 샘 진화는 페이즈6, 개별 강화 효과는 페이즈7에서 적용한다.
 `FULL_STACK_MODULES`에서 `luminous_evolution` 뒤에 등록했고 한글은 이후에 적용한다.
 검증하지 않은 다음 단계 번호는 엔진에서 거부한다.
 
@@ -36,6 +40,10 @@ NATIVE_REUSE.md, data/phase3_coverage.json에 구분해 기록한다.
 .venv\Scripts\python.exe -B -X utf8 true_patches\mega_evolve\verify_phase1.py
 .venv\Scripts\python.exe -B -X utf8 true_patches\mega_evolve\verify_phase2.py
 .venv\Scripts\python.exe -B -X utf8 -m true_patches.mega_evolve.verify_phase3_suite
+.venv\Scripts\python.exe -B -X utf8 -m true_patches.mega_evolve.verify_phase4_forms
+.venv\Scripts\python.exe -B -X utf8 -m true_patches.mega_evolve.verify_phase4_public
+.venv\Scripts\python.exe -B -X utf8 -m true_patches.mega_evolve.verify_save12
+.venv\Scripts\python.exe -B -X utf8 -m true_patches.mega_evolve.verify_phase4_quick
 ```
 
 `--refresh`는 이 모듈의 JSON만 갱신한다. 옵션 없이 실행하면 재생성 결과와
@@ -57,7 +65,7 @@ NATIVE_REUSE.md, data/phase3_coverage.json에 구분해 기록한다.
   해당 공식 폼으로 지정한다. 세 오리진의 종족값은 요청한
   HP/Atk/Def/SpA/SpD/Spe = 100/130/130/160/130/130으로 우선 적용한다.
 - 일반·이로치 메가는 같은 타입·종족값을 공유한다.
-- 원본 ID와 분기로 논리 키를 구성한다. 물리 ID는 페이즈 3에서 배정한다.
+- 원본 ID와 분기로 논리 키를 구성한다. 물리 형태 ID는 페이즈4에서 배정했다.
   기존 공식 형태, 성별 대응, 기존 저장 개체, 스토리 개체는 각각 구분한다.
 
 ## 확정 규칙
@@ -127,7 +135,7 @@ Multitype(116), 스토리용 MD 1137은 Omniscience(250)다.
 3. **일반 저장의 종 ID는 11비트**다. 기준 ARM9의 0x02059358(쓰기),
    0x02059480(읽기)에서 record+4를 11비트로 직렬화하는 실제 명령을 확인했다.
    단순 신규 2단계+성별 복제의 상한 계산은 총 2269엔트리로 2048개 범위를 넘는다.
-   이 수는 기존 형태 재사용을 하기 전의 용량 경고다.
+   페이즈4에서 이 수대로 별도 형태 ID를 배정하고12비트 저장에 연결했다.
 4. 확장 방향은 명시적 MD/폼/성별 대응표와 버전 있는 저장 코덱이다.
    영구 단계는 해당 형태 ID로 식별하고, 원래 형태와 분기는 대응표로 복원한다.
    기존 2개의 진화 이력 바이트와 도핑 V를 새 플래그 저장소로 쓰지 않는다.
@@ -140,7 +148,8 @@ Multitype(116), 스토리용 MD 1137은 Omniscience(250)다.
    구간 끝의 미사용 공간 0x7F58에 ME12/version1/width12/count559 표시를 넣는다.
    표시 없는 기존 저장은 11비트로 읽는다. EVS1 헤더·도핑 꼬리·슬롯 크기는 유지한다.
    중간 저장의 원래/외형 ID는 기존부터 각 16비트이므로 변경하지 않는다.
-   자세한 실행 증거와 남은 형태 작업은 [PHASE4_WORK.md](PHASE4_WORK.md)를 참조한다.
+   중간 저장의 별도 상태는 기존 main 뒤 미사용 flash 영역에 체크섬과
+   main 내용의 해시로 연결한다. 자세한 실행 증거는 [PHASE4_WORK.md](PHASE4_WORK.md)를 참조한다.
 6. 새 메가 형태는 최종진화 보정 ×1.0이며 기존 진화 그래프에 붙여
    기본형의 진화계열 배율을 바꾸지 않는다. 보스/스토리의 기존 능력 처리도 분리한다.
 7. 기라티나의 일반 폼변경에서 오리진을 제거하여 레벨 80 진화 조건 우회를 막는다.

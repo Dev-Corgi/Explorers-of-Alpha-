@@ -148,6 +148,10 @@ entry ME_FaintHook
 entry ME_TurnHook
  push {r4-r6,lr}
  mov r4,r0
+#ifdef ME_PHASE4
+ bl ME_QuickReady
+ mov r0,r4
+#endif
  bl ME_TurnPrior
  mov r5,r0
  mov r0,r4

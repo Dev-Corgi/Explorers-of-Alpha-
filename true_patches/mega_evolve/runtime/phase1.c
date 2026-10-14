@@ -23,6 +23,8 @@ int ME_MegaSolActive(u8*);
 #ifdef ME_PHASE4
 #include "phase4_generated.h"
 const MEForm *ME_FindForm(int);
+static void ME_QuickActor(u8*);
+void ME_QuickReady(void);
 #endif
 enum { COUNT=20, SOURCES=60, SNAPSHOT=1024, MAGIC=0x3147454d,
 #ifdef ME_PHASE2
@@ -320,4 +322,7 @@ int ME_ImportState(u8 *in,int size) {
 
 #ifdef ME_PHASE3
 #include "phase3.c"
+#ifdef ME_PHASE4
+#include "phase4_quick.c"
+#endif
 #endif
