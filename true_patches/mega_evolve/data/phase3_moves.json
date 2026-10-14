@@ -2883,6 +2883,11 @@
       "id": 558,
       "category": 1,
       "range": 9
+    },
+    {
+      "id": 559,
+      "category": 1,
+      "range": 3
     }
   ],
   "global_status_moves": [

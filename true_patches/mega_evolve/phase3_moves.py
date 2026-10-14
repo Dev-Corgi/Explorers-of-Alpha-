@@ -4,6 +4,7 @@ import hashlib,json,re,struct
 from pathlib import Path
 from patch_engine.korean_codec import parse_str_file,decode_english
 from skytemple_files.data.waza_p.handler import WazaPHandler
+from skytemple_files.container.sir0.handler import Sir0Handler
 MODULE=Path(__file__).resolve().parent
 REPO=MODULE.parents[1]
 SHOWDOWN=REPO/'true_patches/base_stats_speed/data/showdown_moves.json'
@@ -13,7 +14,16 @@ def build(rom):
     normalize=lambda s:re.sub('[^a-z0-9]','',s.lower())
     wind={normalize(v['name']) for v in source.values() if v.get('flags',{}).get('wind')}
     strings=parse_str_file(rom.getFileByName('MESSAGE/text_e.str'))
-    moves=WazaPHandler.deserialize(rom.getFileByName('BALANCE/waza_p.bin')).moves
+    # MOVE_COUNT is a mutable library global (559 by default, 560 after the
+    # accuracy module). Read the actual table boundaries instead of inheriting
+    # the caller's import/apply order.
+    container=Sir0Handler.deserialize(rom.getFileByName('BALANCE/waza_p.bin'))
+    move_start,learn_start=struct.unpack_from('<II',container.content,container.data_pointer)
+    count,padding=divmod(learn_start-move_start,26)
+    if count<1 or padding>=16 or learn_start>len(container.content):
+        raise ValueError('mega_evolve move table boundaries invalid')
+    model=WazaPHandler.get_move_model()
+    moves=[model(container.content[move_start+i*26:move_start+(i+1)*26]) for i in range(count)]
     overlays=rom.loadArm9Overlays();ov36=overlays[36]
     sheer_pointer=struct.unpack_from('<I',ov36.data,0x023c14ec-ov36.ramAddress)[0]
     sheer_owner=next(v for k,v in overlays.items() if k in (10,29,36) and v.ramAddress<=sheer_pointer<v.ramAddress+len(v.data))
@@ -54,7 +64,10 @@ def load():
     return data
 
 def validate_rom(rom):
-    if build(rom)!=load():raise RuntimeError('mega_evolve audited wind move catalogue changed')
+    observed,expected=build(rom),load()
+    if observed!=expected:
+        changed=sorted(key for key in expected.keys()|observed.keys() if expected.get(key)!=observed.get(key))
+        raise RuntimeError('mega_evolve audited move catalogue changed: '+json.dumps(changed,ensure_ascii=False))
 
 def header():
     ids=[r['id'] for r in load()['wind_moves'] if r['category']!=2]
