@@ -1,0 +1,21 @@
+{
+  "schema": 1,
+  "connected_forms": 1082,
+  "held_forms": 32,
+  "packages": 569,
+  "additional_bytes": 246277104,
+  "serialized_rom_bytes": 377728384,
+  "card_capacity_mib": 512,
+  "runtime_bytes": 47776,
+  "resident_bytes": 1264,
+  "scope": "Public apply/verify and all-pack memory serialization; no NDS/save outputs. Hardware/RAM integration deferred to phase8.",
+  "checks": {
+    "conversion_packages": "569/569 passed",
+    "selection_replay": "passed with pinned pixel hashes",
+    "native_resource_runtime": "passed; decoder/SIR0 real, I/O/allocator/slot services modeled",
+    "public_apply_and_serialization": "passed",
+    "capacity_boundaries": "128/256/512MiB passed",
+    "legacy_phase4_dispatch_and_quicksave": "passed",
+    "phase3_regressions": "39/39 passed; changed core checks rerun, family results retained"
+  }
+}

@@ -201,3 +201,6 @@ entry ME_AbilitiesEqualHook
 #ifdef ME_PHASE3
 #include "phase3_hooks.S"
 #endif
+#ifdef ME_PHASE5
+#include "phase5_hooks.S"
+#endif

@@ -22,9 +22,10 @@ def main():
         (1, 0, 10), (128 * MIB - 1, 10, 10), (128 * MIB, 10, 10),
         (128 * MIB + 1, 10, 11), (256 * MIB, 10, 11),
         (125 * MIB, 11, 11),
+        (256 * MIB + 1, 11, 12), (512 * MIB, 11, 12), (128 * MIB, 12, 12),
     ):
         assert choose_capacity(size, previous) == expected
-    for size, previous in ((0, 10), (256 * MIB + 1, 10), (1, 12)):
+    for size, previous in ((0, 10), (512 * MIB + 1, 10), (1, 13)):
         try:
             choose_capacity(size, previous)
         except ValueError:
@@ -65,7 +66,7 @@ def main():
     empty = BuildState(rom_profile="us_vanilla", overlay29_load=0x022DC240)
     assert _serialize_rom(UnrelatedRom(), empty) == b"unrelated-save"
     assert hashlib.sha256(source.read_bytes()).digest() == before
-    print("PASS: 128/256 MiB boundaries, growth, no shrink, header CRC/used size,")
+    print("PASS: 128/256/512 MiB boundaries, growth, no shrink, header CRC/used size,")
     print("      FAT/FNT/file/overlay round-trip and unaffected unrelated modules.")
     print("No ROM or save files were written.")
 

@@ -1,15 +1,15 @@
 id: mega_evolve
-version: 7
+version: 8
 kind: mega_evolve
 rom_profile: us_vanilla
-phase: 4
+phase: 5
 species_save_bits: 12
 description: >-
-  Phase 4 adds explicit permanent mega/shiny-mega MD identities, uint16 stats,
-  graded three-ability profiles and versioned 12-bit saves with old-save support.
-  Names, learnsets and portraits reuse their origins; existing image/cache
-  resources are aliased safely. New artwork, spring evolution and enhanced
-  individual effects remain phases 5, 6 and 7.
+  Phase 5 connects 569 converted sprite packages to 1082 permanent form IDs,
+  with 32 image holds requested by the user. Chunked sprite decoding, wide
+  file-size metadata, separate cache slots and owned resource buffers avoid
+  legacy limits. Existing names, portraits, saves and ordinary effects remain.
+  Spring evolution and individual enhanced effects remain phases 6 and 7.
 requires:
   - z_move_v2
   - base_stats_speed

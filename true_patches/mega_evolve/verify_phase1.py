@@ -57,7 +57,10 @@ class World:
         self.base_speed=100
         self.base_stat=101
         self.divisions=[]
-        self.u.hook_add(UC_HOOK_CODE,self.service)
+        if getattr(self,'service_addresses',None):
+            for address in self.service_addresses:
+                self.u.hook_add(UC_HOOK_CODE,self.service,begin=address,end=address)
+        else:self.u.hook_add(UC_HOOK_CODE,self.service)
         self.reset()
 
     def reset(self):

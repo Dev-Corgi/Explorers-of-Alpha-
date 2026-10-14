@@ -24,13 +24,21 @@ int ME_ResidentAsset(int species) {
     if(!f)return species;
     u8 *md=*(u8 **)0x020B09B4;
     u16 sprite=*(u16 *)(md+species*68+16);
+#ifdef PHASE5
+    for(int i=FIRST;i<TOTAL;i++)if(*(u16 *)(md+i*68+16)==sprite)return i;
+    return species;
+#else
     if(*(u16 *)(md+f->origin*68+16)==sprite)return f->origin;
     u16 dex=*(u16 *)(md+species*68+4);
     for(int i=1;i<FIRST;i++)if(*(u16 *)(md+i*68+16)==sprite && *(u16 *)(md+i*68+4)==dex)return i;
     return f->origin;
+#endif
 }
 void ME_SwapAsset(int source,int target) {
     int a=ME_ResidentAsset(source),b=ME_ResidentAsset(target);
     if(source!=target && a==b)return;
     ((void (*)(int,int))SWAP_TRAMPOLINE)(a,b);
 }
+#ifdef PHASE5
+#include "phase5_decode.c"
+#endif

@@ -9,14 +9,14 @@ import struct
 from ndspy import _common
 
 MIN_CAPACITY = 10  # 128 KiB << 10 = 128 MiB
-MAX_CAPACITY = 11  # 256 MiB
+MAX_CAPACITY = 12  # 512 MiB: phase5 full animation packages can exceed256 MiB.
 
 
 def choose_capacity(size: int, previous: int) -> int:
     if size <= 0 or not 0 <= previous <= MAX_CAPACITY:
-        raise ValueError("mega_evolve expects a positive ROM size and at most a 256 MiB card")
+        raise ValueError("mega_evolve expects a positive ROM size and at most a 512 MiB card")
     if size > (131072 << MAX_CAPACITY):
-        raise ValueError("mega_evolve ROM exceeds the selected 256 MiB card capacity")
+        raise ValueError("mega_evolve ROM exceeds the selected 512 MiB card capacity")
     required = max(0, (size - 1).bit_length() - 17)
     return max(MIN_CAPACITY, previous, required)
 

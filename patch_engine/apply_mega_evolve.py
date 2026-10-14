@@ -10,7 +10,7 @@ from true_patches.mega_evolve.phase0 import validate
 
 
 def load_registry(module_dir, manifest):
-    if manifest.get("phase") not in (0,1,2,3,4):
+    if manifest.get("phase") not in (0,1,2,3,4,5):
         raise RuntimeError("requested mega_evolve runtime phase is not implemented")
     path = module_dir / "data/registry.json"
     registry = json.loads(path.read_text(encoding="utf-8"))
@@ -19,9 +19,9 @@ def load_registry(module_dir, manifest):
     if bits not in (11,12):raise RuntimeError('unsupported mega_evolve species save width')
     if manifest.get('phase',0)>=3 and bits==12:
         metadata['species_save_bits']=12
-        for path in (module_dir/'runtime/save12.c',Path(__file__).with_name('mega_evolve_save12.py'),
+        for codec_path in (module_dir/'runtime/save12.c',Path(__file__).with_name('mega_evolve_save12.py'),
                      Path(__file__).with_name('mega_evolve_resident_slot.py')):
-            metadata[path.name+'_sha256']=hashlib.sha256(path.read_bytes()).hexdigest()
+            metadata[codec_path.name+'_sha256']=hashlib.sha256(codec_path.read_bytes()).hexdigest()
     if manifest.get("phase",0)>=2:
         from true_patches.mega_evolve.phase2 import load
         load()
@@ -47,11 +47,20 @@ def load_registry(module_dir, manifest):
         for relative in ('data/phase4_forms.json','runtime/phase4.c','runtime/phase4_resident.c',
                          'runtime/phase4_resident.S','runtime/phase4_quick.c'):
             metadata[relative+'_sha256']=hashlib.sha256((module_dir/relative).read_bytes()).hexdigest()
+    if manifest.get('phase',0)>=5:
+        inventory=json.loads((module_dir/'data/phase5_assets.json').read_text(encoding='utf-8'))
+        conversion=json.loads((module_dir/'data/phase5_conversion.json').read_text(encoding='utf-8'))
+        if conversion['converted']!=conversion['total'] or conversion['total']!=len(inventory['assets']):
+            raise RuntimeError('mega_evolve phase5 sprite conversion is incomplete')
+        metadata['phase5_connected_forms']=len(inventory['mapping']);metadata['phase5_held_forms']=len(inventory['missing'])
+        for relative in ('data/phase5_assets.json','data/phase5_conversion.json','phase5.py','phase5_convert.py',
+                         'runtime/phase5.c','runtime/phase5_hooks.S','runtime/phase5_decode.c'):
+            metadata[relative+'_sha256']=hashlib.sha256((module_dir/relative).read_bytes()).hexdigest()
     metadata["registry_file_sha256"] = hashlib.sha256(path.read_bytes()).hexdigest()
     return registry, metadata
 
 
-def validate_rom(rom_path, registry, expanded=False):
+def validate_rom(rom_path, registry, expanded=False, sprites=False):
     from ndspy.rom import NintendoDSRom
     from skytemple_files.data.md.handler import MdHandler
     rom = rom_path if isinstance(rom_path,NintendoDSRom) else NintendoDSRom(Path(rom_path).read_bytes())
@@ -60,8 +69,14 @@ def validate_rom(rom_path, registry, expanded=False):
     if expanded:
         from true_patches.mega_evolve.phase4 import load as forms,binary
         data=forms();expected=data['total_species']
-        if rom.getFileByName('BALANCE/monster.md')[8+expected*68:]!=binary(data):
+        tail=rom.getFileByName('BALANCE/monster.md')[8+expected*68:];base=binary(data)
+        if (tail[:len(base)] if sprites else tail)!=base:
             raise ValueError('mega_evolve phase4 form trailer changed')
+        if sprites:
+            import struct
+            meta=tail[len(base):]
+            if len(meta)!=16+len(data['rows'])*8 or struct.unpack_from('<4I',meta)!=(0x3550454D,1,data['first_species'],len(data['rows'])):
+                raise ValueError('mega_evolve phase5 sprite metadata changed')
     if len(md.entries) != expected:
         raise ValueError("mega_evolve phase0: unexpected MD count")
     for target in registry["targets"]:
@@ -86,7 +101,7 @@ def verify_mega_evolve_module(rom_path, module_dir, manifest, record):
     if manifest.get("phase",0)>=1:
         from .mega_evolve_runtime import verify_phase1
         verify_phase1(rom_path,module_dir,manifest,record,metadata)
-        validate_rom(rom_path,registry,expanded=manifest['phase']>=4)
+        validate_rom(rom_path,registry,expanded=manifest['phase']>=4,sprites=manifest['phase']>=5)
         return
     if record is None or record.caves or record.hooks or record.data != [{"mega_evolve": metadata}]:
         raise AssertionError("mega_evolve phase0: missing/stale registry validation record")

@@ -60,6 +60,9 @@ static int has(u8 *e,int ability) {
 }
 static u8 *entity(int i) { u8 *d=dungeon(); return d?(u8 *)U32(d,0x12b78+i*4):0; }
 static int slot(u8 *e) { for(int i=0;i<COUNT;i++) if(e && entity(i)==e) return i; return -1; }
+#ifdef ME_PHASE5
+#include "phase5.c"
+#endif
 #ifdef ME_PHASE2
 #include "phase2.c"
 #endif

@@ -88,6 +88,7 @@ def build_runtime(module_dir,work,cave,entity_speed,from_monster,phase=1,skill_s
         data=forms()
         (work/'phase4_generated.h').write_text(form_header(data),encoding='ascii')
         defines['ME_PHASE4']=1
+    if phase>=5:defines.update(ME_PHASE5=1,ME_FORM_FIRST_ASM=data['first_species'])
     defines.update(additional_defines or {})
     if phase>=3:
         from true_patches.mega_evolve.status_hooks import assembly
@@ -271,6 +272,12 @@ def apply_phase1(rom,module_dir,manifest,state,metadata):
         from .mega_evolve_phase4_data import prepare_files
         prepared_files.update(prepare_files(rom))
         for path,content in prepared_files.items():rom.setFileByName(path,content)
+    sprite_details=None
+    if manifest['phase']>=5:
+        from .mega_evolve_phase5_data import prepare as prepare_sprites
+        sprite_files,sprite_details=prepare_sprites(rom,module_dir)
+        prepared_files.update(sprite_files)
+        for path,content in sprite_files.items():rom.setFileByName(path,content)
     if manifest['phase']>=3:
         from .mega_evolve_loader import install_file
         install_file(rom,runtime_payload)
@@ -309,10 +316,17 @@ def apply_phase1(rom,module_dir,manifest,state,metadata):
         from .state import BuildState
         combined=BuildState('us_vanilla',OV29,list(state.applied) if state else [])
         combined.applied.append(record)
-        info=install(rom,module_dir,combined)
+        info=install(rom,module_dir,combined,phase=manifest['phase'],runtime_symbols=symbols)
         record.caves.append(info['cave']);record.hooks.extend(info['hooks'])
         record.data[0]['form_consumers']={k:v for k,v in info.items() if k not in ('cave','hooks')}
         record.data[0]['form_consumers']['cave']=info['cave'].to_dict()
+        if manifest['phase']>=5:
+            from .mega_evolve_phase5_runtime import install as install_cache
+            record.data[0]['sprite_cache_edits']=install_cache(rom,symbols,info['symbols'],record,2269)
+            record.data[0]['sprites']=sprite_details
+            revised={e['site']:e['after'] for e in record.data[0]['sprite_cache_edits']}
+            for e in record.data[0]['form_consumers']['edits']:
+                if e['binary']==29 and e['site'] in revised:e['after']=revised[e['site']]
     return record
 
 
@@ -357,3 +371,7 @@ def verify_phase1(rom,module_dir,manifest,record,metadata):
         info['cave']=CaveAllocation(c['overlay'],c['file_offset'],c['size'],c['load_address'])
         if info['cave'] not in record.caves:raise AssertionError('missing form consumer reservation')
         verify(rom,info)
+    if manifest['phase']>=5:
+        from .mega_evolve_phase5_runtime import verify as verify_cache
+        from .mega_evolve_phase5_data import verify as verify_sprites
+        verify_cache(rom,record.data[0]['sprite_cache_edits']);verify_sprites(rom,record.data[0]['sprites'])

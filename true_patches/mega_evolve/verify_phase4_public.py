@@ -14,7 +14,7 @@ from patch_engine.korean_codec import parse_str_file
 
 def main():
     before=hashlib.sha256(SOURCE.read_bytes()).hexdigest()
-    rom=NintendoDSRom(SOURCE.read_bytes());manifest=load_module_manifest(MODULE)
+    rom=NintendoDSRom(SOURCE.read_bytes());manifest=dict(load_module_manifest(MODULE),phase=4)
     assert manifest['phase']==4 and manifest['species_save_bits']==12
     prerequisite=load_module_manifest(MODULE.parent/'spinda_ev_speed')
     caves=[]

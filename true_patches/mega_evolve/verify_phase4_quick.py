@@ -26,7 +26,7 @@ class QuickWorld(FormWorld):
 
 def main():
     before=hashlib.sha256(SOURCE.read_bytes()).hexdigest()
-    rom=NintendoDSRom(SOURCE.read_bytes());manifest=load_module_manifest(MODULE)
+    rom=NintendoDSRom(SOURCE.read_bytes());manifest=dict(load_module_manifest(MODULE),phase=4)
     record=apply_phase1(rom,MODULE,manifest,None,{'quick_test':True})
     verify_phase1(rom,MODULE,manifest,record,{'quick_test':True})
     w=QuickWorld(rom,record);raw=rom.getFileByName('BALANCE/monster.md')

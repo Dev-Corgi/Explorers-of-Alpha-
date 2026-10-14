@@ -1,0 +1,26 @@
+entry ME_SpriteCacheReadHook
+ push {r0,r2,r3,lr}
+ mov r0,r6
+ bl ME_SpriteCacheGet
+ mov r1,r0
+ pop {r0,r2,r3,pc}
+entry ME_SpriteCacheStoreHook
+ ldr r2,=ME_FORM_FIRST_ASM
+ cmp r0,r2
+ bge ME_SpriteCacheSet
+ push {r3-r7,lr}
+ ldr pc,=0x022f7410
+entry ME_SpriteCacheDeleteHook
+ ldr r2,=ME_FORM_FIRST_ASM
+ cmp r0,r2
+ bge ME_SpriteCacheDelete
+ push {r3-r5,lr}
+ ldr pc,=0x022f776c
+entry ME_SpriteCacheSwapHook
+ ldr r2,=ME_FORM_FIRST_ASM
+ cmp r0,r2
+ cmplt r1,r2
+ bge ME_SpriteCacheSwap
+ push {r3-r6,lr}
+ sub sp,sp,#4
+ ldr pc,=0x022f75dc

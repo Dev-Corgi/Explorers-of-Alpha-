@@ -1,13 +1,13 @@
-# mega_evolve — 페이즈 4
+# mega_evolve — 페이즈 5
 
 메가진화·이로치 메가진화의 모든 새 기능은 이 모듈에서 구현한다.
 기존 `base_stats_speed`, `spinda_ev_speed`, `balance_change`, `bug_fixes`,
 `luminous_evolution`, `z_move_v2`는 입력 기능이며 해당 모듈 자체를 수정하지 않는다.
 관련 호출·할당은 `patch_engine`에서 연결한다.
 카트리지 용량 정책은 [ROM_CAPACITY.md](ROM_CAPACITY.md)에 기록한다.
-필요할 때 128MiB에서 256MiB로 확장하며 RAM/ID 저장 폭과 별도로 처리한다.
+실제 크기에 따라128/256/512MiB를 선택하며 RAM/ID 저장 폭과 별도로 처리한다.
 
-현재 `manifest.yaml`의 `phase: 4`, version 7은 기존 최종형 546개 MD 행의
+현재 `manifest.yaml`의 `phase: 5`, version 8은 기존 최종형 546개 MD 행의
 특성 1·2와 배정된 206개 일반 특성 효과에 더해, 신규 메가·이로치 메가
 1114개 MD 행(총2269)을 공개 적용 경로에 연결한다. uint16 종족값,
 성별·분기·부모 대응, 영구 특성3개와 강화 등급, 12비트 일반 저장 및
@@ -15,8 +15,10 @@
 특성 이름·설명 1174개 영어/한국어 문자열은 페이즈3 적용을 유지한다.
 기반 범위는 [PHASE2.md](PHASE2.md), [PHASE1.md](PHASE1.md)에 기록한다.
 페이즈 0의 정규화 자료와 원본 개체 대응은 그대로 유지한다.
-현재 형태의 이미지는 기존 리소스를 안전하게 재사용한다. 새 스프라이트는
-페이즈5, 샘 진화는 페이즈6, 개별 강화 효과는 페이즈7에서 적용한다.
+569개 스프라이트 패키지를1082개 형태에 연결했다. 사용자 요청에 따라
+누락·불완전 이미지32개 형태는 보류한다. [보류 목록](PHASE5_MISSING.md)과
+[페이즈5 구현/검증 범위](PHASE5_WORK.md)를 참조한다. 새 캐시와 크기 조회,
+블록 디코딩·버퍼 재할당을 연결했다. 샘 진화는 페이즈6, 개별 강화 효과는 페이즈7이다.
 `FULL_STACK_MODULES`에서 `luminous_evolution` 뒤에 등록했고 한글은 이후에 적용한다.
 검증하지 않은 다음 단계 번호는 엔진에서 거부한다.
 
@@ -44,6 +46,8 @@ NATIVE_REUSE.md, data/phase3_coverage.json에 구분해 기록한다.
 .venv\Scripts\python.exe -B -X utf8 -m true_patches.mega_evolve.verify_phase4_public
 .venv\Scripts\python.exe -B -X utf8 -m true_patches.mega_evolve.verify_save12
 .venv\Scripts\python.exe -B -X utf8 -m true_patches.mega_evolve.verify_phase4_quick
+.venv\Scripts\python.exe -B -X utf8 -m true_patches.mega_evolve.verify_phase5_runtime
+.venv\Scripts\python.exe -B -X utf8 -m true_patches.mega_evolve.verify_phase5_public
 ```
 
 `--refresh`는 이 모듈의 JSON만 갱신한다. 옵션 없이 실행하면 재생성 결과와
@@ -164,12 +168,13 @@ Multitype(116), 스토리용 MD 1137은 Omniscience(250)다.
 JSON의 sprite 항목은 로컬 tracker와 실제 XML 존재 여부로 만든 후보 목록이다.
 일반 공식 폼과 Normal/Shiny 아우라 후보를 구분하고 지역폼은 기본 아우라로
 잘못 대응하지 않는다. 이미지나 압축을 푼 ROM 데이터를 Git에 넣지 않는다.
-픽셀, XML 동작 누락, 프레임, 팔레트, WAN 변환은 페이즈 5에서 검증한다.
+페이즈5에서 XML/시트/팔레트/WAN 변환과 가용 패키지의 연결을 검증했다.
+대표 WAN 렌더도 확인했다. 실제 게임 화면과 최대 동시 RAM 부하는 페이즈8이다.
 
 현재 normalized 아우라 도구는 Primal을 제외한다. 공식 원시 형태의 shiny
 아우라는 원본 폴더까지 포함해 별도 확인해야 한다. 공식 폼 스프라이트가
 없으면 일반 아우라를 사용할 수 있지만 공식 폼의 shiny 아우라가 없다고
-임의의 다른 폼으로 대체하지 않는다. 누락은 페이즈 5 해결 항목으로 기록한다.
+임의의 다른 폼으로 대체하지 않는다. 사용자 결정에 따라 누락 이미지는 보류 목록으로 남겼다.
 
 ## 다음 단계와 검증 경계
 
