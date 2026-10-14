@@ -4,6 +4,12 @@ entry ME_SpriteCacheReadHook
  bl ME_SpriteCacheGet
  mov r1,r0
  pop {r0,r2,r3,pc}
+entry ME_SpriteActorCacheReadHook
+ push {r0,r2,r3,lr}
+ ldrsh r0,[r9,#4]
+ bl ME_SpriteCacheGet
+ mov r1,r0
+ pop {r0,r2,r3,pc}
 entry ME_SpriteCacheStoreHook
  ldr r2,=ME_FORM_FIRST_ASM
  cmp r0,r2

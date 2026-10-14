@@ -8,6 +8,7 @@ def install(rom,symbols,resident,record,total):
     replacements=[(0x022F7388,branch(0x022F7388,resident['ME_SpriteCacheIndex']),'ME_SpriteCacheGet',False),
                   (0x022F740C,0xE92D40F8,'ME_SpriteCacheStoreHook',False),
                   (0x022F74F0,0xE19210F1,'ME_SpriteCacheReadHook',True),
+                  (0x022FBB6C,0xE19110FA,'ME_SpriteActorCacheReadHook',True),
                   (0x022F7768,0xE92D4038,'ME_SpriteCacheDeleteHook',False),
                   (0x022F75D4,branch(0x022F75D4,resident['ME_SwapAsset']),'ME_SpriteCacheSwapHook',False)]
     for site,prior,name,link in replacements:
