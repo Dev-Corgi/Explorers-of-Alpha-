@@ -48,5 +48,10 @@ def installed_translations(text):
     entries=load_strings()['entries']
     if not all(row['index']<len(text) and text[row['index']]==row['en']
                for row in entries if row['new']):return {}
-    return {str(row['index']):{'en':row['en'],'ko':row['ko']}
+    result={str(row['index']):{'en':row['en'],'ko':row['ko']}
             for row in entries if row['index']<len(text) and text[row['index']]==row['en']}
+    from true_patches.mega_evolve.new_species import load
+    for row in load():
+        if row['name_index']<len(text) and text[row['name_index']]==row['en']:
+            result[str(row['name_index'])]={'en':row['en'],'ko':row['ko']}
+    return result

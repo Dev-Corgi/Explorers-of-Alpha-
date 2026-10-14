@@ -147,6 +147,13 @@
           "rom_id": 203
         },
         {
+          "name": "double-edge",
+          "pokeapi_id": 38,
+          "method": 4,
+          "level": 0,
+          "rom_id": 140
+        },
+        {
           "name": "flamethrower",
           "pokeapi_id": 53,
           "method": 4,
@@ -210,6 +217,13 @@
           "rom_id": 8
         },
         {
+          "name": "toxic",
+          "pokeapi_id": 92,
+          "method": 4,
+          "level": 0,
+          "rom_id": 197
+        },
+        {
           "name": "agility",
           "pokeapi_id": 97,
           "method": 4,
@@ -257,6 +271,20 @@
           "method": 4,
           "level": 0,
           "rom_id": 214
+        },
+        {
+          "name": "curse",
+          "pokeapi_id": 174,
+          "method": 4,
+          "level": 0,
+          "rom_id": 237
+        },
+        {
+          "name": "spite",
+          "pokeapi_id": 180,
+          "method": 4,
+          "level": 0,
+          "rom_id": 35
         },
         {
           "name": "protect",
@@ -308,6 +336,13 @@
           "rom_id": 227
         },
         {
+          "name": "pain-split",
+          "pokeapi_id": 220,
+          "method": 4,
+          "level": 0,
+          "rom_id": 21
+        },
+        {
           "name": "baton-pass",
           "pokeapi_id": 226,
           "method": 4,
@@ -329,11 +364,25 @@
           "rom_id": 223
         },
         {
+          "name": "psych-up",
+          "pokeapi_id": 244,
+          "method": 4,
+          "level": 0,
+          "rom_id": 115
+        },
+        {
           "name": "shadow-ball",
           "pokeapi_id": 247,
           "method": 4,
           "level": 0,
           "rom_id": 127
+        },
+        {
+          "name": "uproar",
+          "pokeapi_id": 253,
+          "method": 4,
+          "level": 0,
+          "rom_id": 112
         },
         {
           "name": "facade",
@@ -348,6 +397,13 @@
           "method": 4,
           "level": 0,
           "rom_id": 185
+        },
+        {
+          "name": "endeavor",
+          "pokeapi_id": 283,
+          "method": 4,
+          "level": 0,
+          "rom_id": 66
         },
         {
           "name": "hyper-voice",
@@ -383,6 +439,13 @@
           "method": 4,
           "level": 0,
           "rom_id": 319
+        },
+        {
+          "name": "gyro-ball",
+          "pokeapi_id": 360,
+          "method": 4,
+          "level": 0,
+          "rom_id": 475
         },
         {
           "name": "tailwind",
@@ -476,39 +539,11 @@
           "rom_id": 551
         },
         {
-          "name": "pounce",
-          "pokeapi_id": 884,
+          "name": "breaking-swipe",
+          "pokeapi_id": 784,
           "method": 4,
           "level": 0,
-          "rom_id": 376
-        },
-        {
-          "name": "toxic",
-          "pokeapi_id": 92,
-          "method": 4,
-          "level": 0,
-          "rom_id": 197
-        },
-        {
-          "name": "spite",
-          "pokeapi_id": 180,
-          "method": 4,
-          "level": 0,
-          "rom_id": 35
-        },
-        {
-          "name": "gyro-ball",
-          "pokeapi_id": 360,
-          "method": 4,
-          "level": 0,
-          "rom_id": 475
-        },
-        {
-          "name": "uproar",
-          "pokeapi_id": 253,
-          "method": 4,
-          "level": 0,
-          "rom_id": 112
+          "rom_id": 419
         },
         {
           "name": "dual-wingbeat",
@@ -518,46 +553,11 @@
           "rom_id": 429
         },
         {
-          "name": "pain-split",
-          "pokeapi_id": 220,
+          "name": "pounce",
+          "pokeapi_id": 884,
           "method": 4,
           "level": 0,
-          "rom_id": 21
-        },
-        {
-          "name": "psych-up",
-          "pokeapi_id": 244,
-          "method": 4,
-          "level": 0,
-          "rom_id": 115
-        },
-        {
-          "name": "double-edge",
-          "pokeapi_id": 38,
-          "method": 4,
-          "level": 0,
-          "rom_id": 140
-        },
-        {
-          "name": "endeavor",
-          "pokeapi_id": 283,
-          "method": 4,
-          "level": 0,
-          "rom_id": 66
-        },
-        {
-          "name": "breaking-swipe",
-          "pokeapi_id": 784,
-          "method": 4,
-          "level": 0,
-          "rom_id": 419
-        },
-        {
-          "name": "curse",
-          "pokeapi_id": 174,
-          "method": 4,
-          "level": 0,
-          "rom_id": 237
+          "rom_id": 376
         }
       ]
     },
@@ -576,369 +576,439 @@
         1,
         14
       ],
-      "version_group": "champions",
+      "version_group": "scarlet-violet",
       "moves": [
         {
-          "name": "body-slam",
-          "pokeapi_id": 34,
-          "method": 12,
-          "level": 0,
-          "rom_id": 235
+          "name": "tackle",
+          "pokeapi_id": 33,
+          "method": 1,
+          "level": 1,
+          "rom_id": 154
         },
         {
-          "name": "thrash",
-          "pokeapi_id": 37,
-          "method": 12,
-          "level": 0,
-          "rom_id": 9
+          "name": "leer",
+          "pokeapi_id": 43,
+          "method": 1,
+          "level": 3,
+          "rom_id": 224
+        },
+        {
+          "name": "astonish",
+          "pokeapi_id": 310,
+          "method": 1,
+          "level": 7,
+          "rom_id": 46
+        },
+        {
+          "name": "hypnosis",
+          "pokeapi_id": 95,
+          "method": 1,
+          "level": 10,
+          "rom_id": 111
+        },
+        {
+          "name": "stomp",
+          "pokeapi_id": 23,
+          "method": 1,
+          "level": 13,
+          "rom_id": 271
+        },
+        {
+          "name": "sand-attack",
+          "pokeapi_id": 28,
+          "method": 1,
+          "level": 16,
+          "rom_id": 142
+        },
+        {
+          "name": "take-down",
+          "pokeapi_id": 36,
+          "method": 1,
+          "level": 21,
+          "rom_id": 203
+        },
+        {
+          "name": "confuse-ray",
+          "pokeapi_id": 109,
+          "method": 1,
+          "level": 23,
+          "rom_id": 13
+        },
+        {
+          "name": "calm-mind",
+          "pokeapi_id": 347,
+          "method": 1,
+          "level": 27,
+          "rom_id": 319
+        },
+        {
+          "name": "role-play",
+          "pokeapi_id": 272,
+          "method": 1,
+          "level": 32,
+          "rom_id": 220
+        },
+        {
+          "name": "zen-headbutt",
+          "pokeapi_id": 428,
+          "method": 1,
+          "level": 37,
+          "rom_id": 473
+        },
+        {
+          "name": "imprison",
+          "pokeapi_id": 286,
+          "method": 1,
+          "level": 49,
+          "rom_id": 266
         },
         {
           "name": "double-edge",
           "pokeapi_id": 38,
-          "method": 12,
+          "method": 1,
+          "level": 55,
+          "rom_id": 140
+        },
+        {
+          "name": "megahorn",
+          "pokeapi_id": 224,
+          "method": 1,
+          "level": 62,
+          "rom_id": 323
+        },
+        {
+          "name": "body-slam",
+          "pokeapi_id": 34,
+          "method": 4,
+          "level": 0,
+          "rom_id": 235
+        },
+        {
+          "name": "take-down",
+          "pokeapi_id": 36,
+          "method": 4,
+          "level": 0,
+          "rom_id": 203
+        },
+        {
+          "name": "double-edge",
+          "pokeapi_id": 38,
+          "method": 4,
           "level": 0,
           "rom_id": 140
         },
         {
-          "name": "bite",
-          "pokeapi_id": 44,
-          "method": 12,
-          "level": 0,
-          "rom_id": 63
-        },
-        {
           "name": "roar",
           "pokeapi_id": 46,
-          "method": 12,
+          "method": 4,
           "level": 0,
           "rom_id": 284
         },
         {
-          "name": "disable",
-          "pokeapi_id": 50,
-          "method": 12,
+          "name": "psybeam",
+          "pokeapi_id": 60,
+          "method": 4,
           "level": 0,
-          "rom_id": 59
+          "rom_id": 107
         },
         {
           "name": "hyper-beam",
           "pokeapi_id": 63,
-          "method": 12,
+          "method": 4,
           "level": 0,
           "rom_id": 242
         },
         {
           "name": "solar-beam",
           "pokeapi_id": 76,
-          "method": 12,
+          "method": 4,
           "level": 0,
           "rom_id": 151
         },
         {
           "name": "thunderbolt",
           "pokeapi_id": 85,
-          "method": 12,
+          "method": 4,
           "level": 0,
           "rom_id": 129
         },
         {
           "name": "thunder-wave",
           "pokeapi_id": 86,
-          "method": 12,
+          "method": 4,
           "level": 0,
           "rom_id": 192
         },
         {
           "name": "thunder",
           "pokeapi_id": 87,
-          "method": 12,
+          "method": 4,
           "level": 0,
           "rom_id": 64
         },
         {
           "name": "earthquake",
           "pokeapi_id": 89,
-          "method": 12,
+          "method": 4,
           "level": 0,
           "rom_id": 118
         },
         {
           "name": "dig",
           "pokeapi_id": 91,
-          "method": 12,
+          "method": 4,
           "level": 0,
           "rom_id": 8
         },
         {
           "name": "psychic",
           "pokeapi_id": 94,
-          "method": 12,
+          "method": 4,
           "level": 0,
           "rom_id": 109
         },
         {
-          "name": "hypnosis",
-          "pokeapi_id": 95,
-          "method": 12,
-          "level": 0,
-          "rom_id": 111
-        },
-        {
           "name": "agility",
           "pokeapi_id": 97,
-          "method": 12,
+          "method": 4,
           "level": 0,
           "rom_id": 95
         },
         {
           "name": "confuse-ray",
           "pokeapi_id": 109,
-          "method": 12,
+          "method": 4,
           "level": 0,
           "rom_id": 13
         },
         {
           "name": "light-screen",
           "pokeapi_id": 113,
-          "method": 12,
+          "method": 4,
           "level": 0,
           "rom_id": 259
         },
         {
           "name": "reflect",
           "pokeapi_id": 115,
-          "method": 12,
+          "method": 4,
           "level": 0,
           "rom_id": 338
         },
         {
+          "name": "swift",
+          "pokeapi_id": 129,
+          "method": 4,
+          "level": 0,
+          "rom_id": 145
+        },
+        {
           "name": "rest",
           "pokeapi_id": 156,
-          "method": 12,
+          "method": 4,
           "level": 0,
           "rom_id": 232
         },
         {
           "name": "substitute",
           "pokeapi_id": 164,
-          "method": 12,
+          "method": 4,
           "level": 0,
           "rom_id": 304
         },
         {
           "name": "thief",
           "pokeapi_id": 168,
-          "method": 12,
+          "method": 4,
           "level": 0,
           "rom_id": 214
         },
         {
           "name": "curse",
           "pokeapi_id": 174,
-          "method": 12,
+          "method": 4,
           "level": 0,
           "rom_id": 237
         },
         {
           "name": "spite",
           "pokeapi_id": 180,
-          "method": 12,
+          "method": 4,
           "level": 0,
           "rom_id": 35
         },
         {
           "name": "protect",
           "pokeapi_id": 182,
-          "method": 12,
+          "method": 4,
           "level": 0,
           "rom_id": 301
         },
         {
           "name": "scary-face",
           "pokeapi_id": 184,
-          "method": 12,
+          "method": 4,
           "level": 0,
           "rom_id": 106
         },
         {
           "name": "endure",
           "pokeapi_id": 203,
-          "method": 12,
+          "method": 4,
           "level": 0,
           "rom_id": 104
         },
         {
           "name": "sleep-talk",
           "pokeapi_id": 214,
-          "method": 12,
+          "method": 4,
           "level": 0,
           "rom_id": 227
         },
         {
-          "name": "megahorn",
-          "pokeapi_id": 224,
-          "method": 12,
-          "level": 0,
-          "rom_id": 323
-        },
-        {
           "name": "rain-dance",
           "pokeapi_id": 240,
-          "method": 12,
+          "method": 4,
           "level": 0,
           "rom_id": 12
         },
         {
           "name": "sunny-day",
           "pokeapi_id": 241,
-          "method": 12,
+          "method": 4,
           "level": 0,
           "rom_id": 223
         },
         {
           "name": "psych-up",
           "pokeapi_id": 244,
-          "method": 12,
+          "method": 4,
           "level": 0,
           "rom_id": 115
         },
         {
           "name": "shadow-ball",
           "pokeapi_id": 247,
-          "method": 12,
+          "method": 4,
           "level": 0,
           "rom_id": 127
         },
         {
           "name": "future-sight",
           "pokeapi_id": 248,
-          "method": 12,
+          "method": 4,
           "level": 0,
           "rom_id": 317
         },
         {
           "name": "uproar",
           "pokeapi_id": 253,
-          "method": 12,
+          "method": 4,
           "level": 0,
           "rom_id": 112
         },
         {
           "name": "facade",
           "pokeapi_id": 263,
-          "method": 12,
+          "method": 4,
           "level": 0,
           "rom_id": 67
         },
         {
           "name": "helping-hand",
           "pokeapi_id": 270,
-          "method": 12,
+          "method": 4,
           "level": 0,
           "rom_id": 185
         },
         {
           "name": "trick",
           "pokeapi_id": 271,
-          "method": 12,
+          "method": 4,
           "level": 0,
           "rom_id": 209
         },
         {
-          "name": "role-play",
-          "pokeapi_id": 272,
-          "method": 12,
-          "level": 0,
-          "rom_id": 220
-        },
-        {
           "name": "skill-swap",
           "pokeapi_id": 285,
-          "method": 12,
+          "method": 4,
           "level": 0,
           "rom_id": 137
         },
         {
           "name": "imprison",
           "pokeapi_id": 286,
-          "method": 12,
+          "method": 4,
           "level": 0,
           "rom_id": 266
         },
         {
-          "name": "extrasensory",
-          "pokeapi_id": 326,
-          "method": 12,
-          "level": 0,
-          "rom_id": 133
-        },
-        {
           "name": "calm-mind",
           "pokeapi_id": 347,
-          "method": 12,
+          "method": 4,
           "level": 0,
           "rom_id": 319
         },
         {
           "name": "gravity",
           "pokeapi_id": 356,
-          "method": 12,
+          "method": 4,
           "level": 0,
           "rom_id": 478
         },
         {
           "name": "energy-ball",
           "pokeapi_id": 412,
-          "method": 12,
+          "method": 4,
           "level": 0,
           "rom_id": 443
         },
         {
           "name": "earth-power",
           "pokeapi_id": 414,
-          "method": 12,
+          "method": 4,
           "level": 0,
           "rom_id": 484
         },
         {
           "name": "giga-impact",
           "pokeapi_id": 416,
-          "method": 12,
+          "method": 4,
           "level": 0,
           "rom_id": 455
         },
         {
           "name": "zen-headbutt",
           "pokeapi_id": 428,
-          "method": 12,
+          "method": 4,
           "level": 0,
           "rom_id": 473
         },
         {
           "name": "trick-room",
           "pokeapi_id": 433,
-          "method": 12,
+          "method": 4,
           "level": 0,
           "rom_id": 499
         },
         {
           "name": "charge-beam",
           "pokeapi_id": 451,
-          "method": 12,
+          "method": 4,
           "level": 0,
           "rom_id": 489
         },
         {
           "name": "bulldoze",
           "pokeapi_id": 523,
-          "method": 12,
+          "method": 4,
           "level": 0,
           "rom_id": 420
         },
         {
           "name": "high-horsepower",
           "pokeapi_id": 667,
-          "method": 12,
+          "method": 4,
           "level": 0,
           "rom_id": 428
         }

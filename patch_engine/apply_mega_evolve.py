@@ -43,9 +43,10 @@ def load_registry(module_dir, manifest):
         forms=form_data()
         if bits!=12:raise RuntimeError('phase4 requires 12-bit species saves')
         metadata['phase4_species_count']=forms['total_species']
-        metadata['phase4_name_policy']='reuse_origin'
+        metadata['phase4_name_policy']='reuse_origin_except_new_ordinary_evolutions'
         for relative in ('data/phase4_forms.json','runtime/phase4.c','runtime/phase4_resident.c',
-                         'runtime/phase4_resident.S','runtime/phase4_quick.c'):
+                         'runtime/phase4_resident.S','runtime/phase4_quick.c','new_species.py',
+                         'data/phase5_new_species_source.json'):
             metadata[relative+'_sha256']=hashlib.sha256((module_dir/relative).read_bytes()).hexdigest()
     if manifest.get('phase',0)>=5:
         inventory=json.loads((module_dir/'data/phase5_assets.json').read_text(encoding='utf-8'))
@@ -53,8 +54,13 @@ def load_registry(module_dir, manifest):
         if conversion['converted']!=conversion['total'] or conversion['total']!=len(inventory['assets']):
             raise RuntimeError('mega_evolve phase5 sprite conversion is incomplete')
         metadata['phase5_connected_forms']=len(inventory['mapping']);metadata['phase5_held_forms']=len(inventory['missing'])
+        from true_patches.mega_evolve.phase5_routes import build as routes
+        if json.loads((module_dir/'data/phase5_evolution_routes.json').read_text(encoding='utf-8'))!=routes():
+            raise RuntimeError('mega_evolve Spring route contract is stale')
         for relative in ('data/phase5_assets.json','data/phase5_conversion.json','phase5.py','phase5_convert.py',
-                         'runtime/phase5.c','runtime/phase5_hooks.S','runtime/phase5_decode.c'):
+                         'runtime/phase5.c','runtime/phase5_hooks.S','runtime/phase5_decode.c',
+                         'phase5_repair.py','data/phase5_repairs.json','phase5_routes.py',
+                         'data/phase5_evolution_routes.json'):
             metadata[relative+'_sha256']=hashlib.sha256((module_dir/relative).read_bytes()).hexdigest()
     metadata["registry_file_sha256"] = hashlib.sha256(path.read_bytes()).hexdigest()
     return registry, metadata

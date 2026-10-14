@@ -27,7 +27,11 @@ def install(rom,module_dir,state,phase=4,runtime_symbols=None):
         (work/'phase4_resident_generated.h').write_text(
             f"#define FIRST {forms['first_species']}\n#define TOTAL {forms['total_species']}\n"
             f'#define SWAP_TRAMPOLINE 0x{cave:X}\n'+
+            ''.join(f'#define {key} 0x{runtime_symbols[name]:X}\n' for key,name in (
+                ('NAME_SPECIES','ME_NewNameSpecies'),('LEARN_SPECIES','ME_LearnSpecies'),
+                ('PORTRAIT_SPECIES','ME_PortraitSpecies'),('NEW_EVOLUTION','ME_NewEvolutionCandidates')))+
             (f"#define PHASE5 1\n#define SPRITE_FIRST 819\n#define LOAD_NEW_SPRITE 0x{runtime_symbols['ME_LoadNewSprite']:X}\n"
+             f"#define CHUNK_DECODE 0x{runtime_symbols['ME_ChunkDecode']:X}\n"
              f"#define REPLACE_NEW_SPRITE 0x{runtime_symbols['ME_ReplaceNewSprite']:X}\n" if phase>=5 else ''),encoding='ascii')
         linker=work/'form.ld'
         linker.write_text(f'SECTIONS {{ . = 0x{cave+16:X}; .text : {{ *(.text*) *(.rodata*) }} '
@@ -55,12 +59,13 @@ def install(rom,module_dir,state,phase=4,runtime_symbols=None):
         data,base=(arm9,BASE) if binary==0 else (overlays[binary].data,overlays[binary].ramAddress)
         if word(data,site,base)!=expected:raise RuntimeError(f'phase4 consumer guard {binary}:{site:#x}')
         is_entry=site in (0x0205476C,0x022F7388,0x022F75D4,
-                          0x020204EC,0x0201F5C0,0x0205281C,0x0201D484,0x0201D684,0x0201D590)
+                          0x020204EC,0x0201F5C0,0x0205281C,0x0201D484,0x0201D684,0x0201D590,0x02059B18)
         value=branch(site,symbols[symbol],not is_entry)
         struct.pack_into('<I',data,site-base,value)
         edits.append(dict(binary=binary,site=site,after=value,before=expected))
         hooks.append(HookRecord(symbol,site,'b' if is_entry else 'bl',symbol,'explicit_origin'))
-    for site in NAME_SITES:patch(0,site,branch(site,0x0208FEA4,True),'ME_OriginDivide')
+    for site in NAME_SITES:patch(0,site,branch(site,0x0208FEA4,True),'ME_NameDivide')
+    patch(0,0x02059B18,0xE92D4FF8,'ME_NormalEvolutionHook')
     for binary,sites in ORIGIN_SITES.items():
         for site in sites:patch(binary,site,branch(site,0x0208FEA4,True),'ME_OriginDivide')
     for site in LEARN_SITES:patch(0,site,0xE1A04000,'ME_LearnOrigin')

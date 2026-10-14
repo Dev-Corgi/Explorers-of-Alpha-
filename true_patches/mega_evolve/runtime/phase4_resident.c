@@ -13,7 +13,11 @@ static const Form *find(int species) {
     return f->species==species?f:0;
 }
 int ME_ResidentOrigin(int species) {
-    const Form *f=find(species);return f?f->origin:species;
+    const Form *f=find(species);
+    if(!f)return species;
+    if(!f->stage)return f->parent;
+    const Form *root=find(f->origin);
+    return root && !root->stage?root->parent:f->origin;
 }
 int ME_ResidentValid(int species) {
     if(species<FIRST)return -1;
@@ -28,10 +32,11 @@ int ME_ResidentAsset(int species) {
     for(int i=FIRST;i<TOTAL;i++)if(*(u16 *)(md+i*68+16)==sprite)return i;
     return species;
 #else
-    if(*(u16 *)(md+f->origin*68+16)==sprite)return f->origin;
+    int origin=ME_ResidentOrigin(species);
+    if(*(u16 *)(md+origin*68+16)==sprite)return origin;
     u16 dex=*(u16 *)(md+species*68+4);
     for(int i=1;i<FIRST;i++)if(*(u16 *)(md+i*68+16)==sprite && *(u16 *)(md+i*68+4)==dex)return i;
-    return f->origin;
+    return origin;
 #endif
 }
 void ME_SwapAsset(int source,int target) {
@@ -40,5 +45,6 @@ void ME_SwapAsset(int source,int target) {
     ((void (*)(int,int))SWAP_TRAMPOLINE)(a,b);
 }
 #ifdef PHASE5
+#define RESIDENT_METADATA_ONLY 1
 #include "phase5_decode.c"
 #endif

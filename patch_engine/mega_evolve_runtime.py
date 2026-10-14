@@ -87,6 +87,8 @@ def build_runtime(module_dir,work,cave,entity_speed,from_monster,phase=1,skill_s
         from true_patches.mega_evolve.phase4 import load as forms,header as form_header
         data=forms()
         (work/'phase4_generated.h').write_text(form_header(data),encoding='ascii')
+        from true_patches.mega_evolve.new_species import header as new_header
+        (work/'new_species_generated.h').write_text(new_header(),encoding='ascii')
         defines['ME_PHASE4']=1
     if phase>=5:defines.update(ME_PHASE5=1,ME_FORM_FIRST_ASM=data['first_species'])
     defines.update(additional_defines or {})
@@ -293,6 +295,9 @@ def apply_phase1(rom,module_dir,manifest,state,metadata):
           **({"phase3_md_sha256":hashlib.sha256(prepared_files["BALANCE/monster.md"]).hexdigest()} if manifest["phase"]>=3 else {}),
           "base_stats_helpers":{"entity_speed":entity_speed,"from_monster":from_monster},
           "save_component_schema":2 if manifest["phase"]>=2 else 1,"automatic_save_codec_integration_phase":4}])
+    if manifest['phase']>=4:
+        record.data[0]['new_species_resources_sha256']={path:hashlib.sha256(prepared_files[path]).hexdigest()
+            for path in ('BALANCE/waza_p.bin','FONT/kaomado.kao')}
     if manifest['phase']>=3 and manifest.get('species_save_bits',11)==12:
         from .mega_evolve_save12 import install
         info=install(rom,module_dir,state)
@@ -322,7 +327,8 @@ def apply_phase1(rom,module_dir,manifest,state,metadata):
         record.data[0]['form_consumers']['cave']=info['cave'].to_dict()
         if manifest['phase']>=5:
             from .mega_evolve_phase5_runtime import install as install_cache
-            record.data[0]['sprite_cache_edits']=install_cache(rom,symbols,info['symbols'],record,2269)
+            from true_patches.mega_evolve.phase4 import load as forms
+            record.data[0]['sprite_cache_edits']=install_cache(rom,symbols,info['symbols'],record,forms()['total_species'])
             record.data[0]['sprites']=sprite_details
             revised={e['site']:e['after'] for e in record.data[0]['sprite_cache_edits']}
             for e in record.data[0]['form_consumers']['edits']:
@@ -363,6 +369,9 @@ def verify_phase1(rom,module_dir,manifest,record,metadata):
         if info['cave'] not in record.caves:raise AssertionError('missing resident species codec reservation')
         verify(rom,info)
     if manifest['phase']>=4:
+        for path,digest in record.data[0]['new_species_resources_sha256'].items():
+            if hashlib.sha256(rom.getFileByName(path)).hexdigest()!=digest:
+                raise AssertionError('new species resource drift: '+path)
         for edit in record.data[0]['quick_edits']:
             if word(rom.arm9,edit['site'],0x02000000)!=edit['after']:
                 raise AssertionError('phase4 quicksave hook changed')

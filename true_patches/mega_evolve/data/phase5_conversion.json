@@ -1,8 +1,8 @@
 {
   "schema": 1,
-  "converted": 569,
-  "total": 569,
-  "total_bytes": 419021020,
+  "converted": 586,
+  "total": 586,
+  "total_bytes": 432969396,
   "assets": [
     {
       "pipeline": 3,
@@ -2555,6 +2555,32 @@
     {
       "pipeline": 3,
       "asset": 98,
+      "path": "true_patches/mega_evolve/.cache/phase5_fix/99f64758a1e2c36891a5931da8150ad2737144e87b18d7b5331e040949a1145c/aura",
+      "source_sha256": "2d04880f610e91dd38a586fa39b3fb9c0f5ebd9a4ff0cefea32ad134886840ea",
+      "status": "converted",
+      "outputs": {
+        "monster.wan": "c68c7f04fe9f1b093b3839f564955db1700ea79a3b59f1365b6702a80a896f43",
+        "ground.wan": "5f4f9e888fac682aeb28edfe54c6d4b2114c13de31a53674b92ff8594c41c6f9",
+        "attack.wan": "30f1031132f62f5dc34921ee0e12b1fd3e5da7cb956d00739ca9ff0f80044cc1"
+      },
+      "sizes": {
+        "monster": 36292,
+        "ground": 444800,
+        "attack": 159892
+      },
+      "raw_sizes": {
+        "monster": 94704,
+        "ground": 444800,
+        "attack": 414208
+      },
+      "tile_slots": 7,
+      "file_pages": 185,
+      "palette_policy": "SkyTemple import16; transparent index0",
+      "cache": ".cache/phase5/2d04880f610e91dd38a586fa39b3fb9c0f5ebd9a4ff0cefea32ad134886840ea"
+    },
+    {
+      "pipeline": 3,
+      "asset": 99,
       "path": "output/sprite-normalized/0099/Base_Aura/Shiny",
       "source_sha256": "64e10e0199e780f9b643594ed461a6a0ecabe2314e393ec0ed5a7eeb711c04eb",
       "status": "converted",
@@ -2580,7 +2606,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 99,
+      "asset": 100,
       "path": "output/sprite-normalized/0101/Base_Aura/Normal",
       "source_sha256": "12cc84a52541b34b365558dba0be1af85c1d7b958291009315ac143e6bdd7edb",
       "status": "converted",
@@ -2606,7 +2632,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 100,
+      "asset": 101,
       "path": "output/sprite-normalized/0101/Base_Aura/Shiny",
       "source_sha256": "7409062932a2945d4f50d806370aeca7f6b406b9a022dbbf8c8fdbf44487378c",
       "status": "converted",
@@ -2632,7 +2658,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 101,
+      "asset": 102,
       "path": "output/sprite-normalized/0101/0001-Hisui_Aura/Normal",
       "source_sha256": "06667b0e6d5f41ca8c2663ac902da648cd76ceef902015603513f8563d8d1e82",
       "status": "converted",
@@ -2658,7 +2684,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 102,
+      "asset": 103,
       "path": "output/sprite-normalized/0101/0001-Hisui_Aura/Shiny",
       "source_sha256": "a77672144f69a58632f42cdfff377e90f1221cacfa260abb5618ec1644a1c262",
       "status": "converted",
@@ -2684,7 +2710,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 103,
+      "asset": 104,
       "path": "output/sprite-normalized/0103/Base_Aura/Normal",
       "source_sha256": "715473feee4d6be4f2bea5b194f935565c397199923e89e7ea7a0c9b5fa2c966",
       "status": "converted",
@@ -2710,7 +2736,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 104,
+      "asset": 105,
       "path": "output/sprite-normalized/0103/Base_Aura/Shiny",
       "source_sha256": "fbc87df8024815600ab2d4d33af93fe84a5cc00aed61090945ead77fde5361a9",
       "status": "converted",
@@ -2736,7 +2762,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 105,
+      "asset": 106,
       "path": "output/sprite-normalized/0105/Base_Aura/Normal",
       "source_sha256": "e32f848355d9bb5edd66c7cad06975104ab2572d8a14c6d650df964537bf5eeb",
       "status": "converted",
@@ -2762,7 +2788,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 106,
+      "asset": 107,
       "path": "output/sprite-normalized/0105/Base_Aura/Shiny",
       "source_sha256": "1b7aaa1dfa8e43b484d068cc8a285bab43b4eca73c906dab9e19472f1bcbe03f",
       "status": "converted",
@@ -2788,7 +2814,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 107,
+      "asset": 108,
       "path": "output/sprite-normalized/0105/0001-Alola_Aura/Normal",
       "source_sha256": "dc268c41f2b39ffb0bc7fa4722206847854b446ee6fb04703353d631b6cf79e6",
       "status": "converted",
@@ -2814,7 +2840,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 108,
+      "asset": 109,
       "path": "output/sprite-normalized/0105/0001-Alola_Aura/Shiny",
       "source_sha256": "10a6586c732a3d2ed35916b20e23f61edf1854a0d32e1b9c2f8e000548076413",
       "status": "converted",
@@ -2840,7 +2866,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 109,
+      "asset": 110,
       "path": "output/sprite-normalized/0106/Base_Aura/Normal",
       "source_sha256": "15a76268966b732e007a6a46b04014dee03e2a0d5b6fd9f69f714ffd606a3d2e",
       "status": "converted",
@@ -2866,7 +2892,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 110,
+      "asset": 111,
       "path": "output/sprite-normalized/0106/Base_Aura/Shiny",
       "source_sha256": "01da2e21ae54f95ea48be820232dd45557626611aac20ac02a070a5a5fe75766",
       "status": "converted",
@@ -2892,7 +2918,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 111,
+      "asset": 112,
       "path": "output/sprite-normalized/0107/Base_Aura/Normal",
       "source_sha256": "0dfc24c548adbde1c9a54b68620c339e07ebdd61978793a623719de24d232398",
       "status": "converted",
@@ -2918,7 +2944,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 112,
+      "asset": 113,
       "path": "output/sprite-normalized/0107/Base_Aura/Shiny",
       "source_sha256": "82136826b96441be6175f4382741ab48c5f1cea699442f61d64969480d5e3cb0",
       "status": "converted",
@@ -2944,7 +2970,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 113,
+      "asset": 114,
       "path": "output/sprite-normalized/0110/Base_Aura/Normal",
       "source_sha256": "3a78a1fd4c86ead0888ec7df8abc90254c883b260aa0e22630acae9df028df88",
       "status": "converted",
@@ -2970,7 +2996,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 114,
+      "asset": 115,
       "path": "output/sprite-normalized/0110/Base_Aura/Shiny",
       "source_sha256": "cbf69d2c4df8cb5d2cc54b807ff40e4998566a6436ada6fd8fd972acd5ce5ee2",
       "status": "converted",
@@ -2996,7 +3022,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 115,
+      "asset": 116,
       "path": "SpriteCollab-master/SpriteCollab-master/sprite/0115/0001",
       "source_sha256": "4b0617188319bda9a4cf74df51363bb7385e095ffeff9cb925095ea634778596",
       "status": "converted",
@@ -3022,7 +3048,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 116,
+      "asset": 117,
       "path": "output/sprite-normalized/0115/0001-Mega_Aura/Shiny",
       "source_sha256": "e6440090d4619d752083d81bf74cbbad808cdbe8b87c721f1aeb9f73a95b2c6d",
       "status": "converted",
@@ -3048,7 +3074,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 117,
+      "asset": 118,
       "path": "output/sprite-normalized/0119/Base_Aura/Normal",
       "source_sha256": "f5b622107897548e3e62ea87e96fe44608d8dffb98dee71500b5b21273c91665",
       "status": "converted",
@@ -3074,7 +3100,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 118,
+      "asset": 119,
       "path": "output/sprite-normalized/0119/Base_Aura/Shiny",
       "source_sha256": "bc243ba8739ac84f0bd91516fde86841c6e43c469a443859eb88dfb26f278d4e",
       "status": "converted",
@@ -3100,7 +3126,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 119,
+      "asset": 120,
       "path": "output/sprite-normalized/0121/Base_Aura/Normal",
       "source_sha256": "10a92e7efcd054325d000a01923e76f74b17e5eb0d6ed52d17001882d1e90640",
       "status": "converted",
@@ -3126,7 +3152,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 120,
+      "asset": 121,
       "path": "output/sprite-normalized/0121/Base_Aura/Shiny",
       "source_sha256": "7fc1d0c200e5e25e21a888ba3743d5ba7bc6585bb713af790ad74249c73a0850",
       "status": "converted",
@@ -3152,7 +3178,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 121,
+      "asset": 122,
       "path": "output/sprite-normalized/0122/Base_Aura/Normal",
       "source_sha256": "2a2398c8614eb430f9522fb7e6ad4c44aac999f61dd1d7d4b2ac7470e0040731",
       "status": "converted",
@@ -3178,7 +3204,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 122,
+      "asset": 123,
       "path": "output/sprite-normalized/0122/Base_Aura/Shiny",
       "source_sha256": "e37917546f8bbbf653f3755e18c56b146f3a55aab05934b7abc8b65df783ed87",
       "status": "converted",
@@ -3204,7 +3230,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 123,
+      "asset": 124,
       "path": "output/sprite-normalized/0124/Base_Aura/Normal",
       "source_sha256": "e856655d3f05597afb44edd75434769b62df203142149009e23301469d57594d",
       "status": "converted",
@@ -3230,7 +3256,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 124,
+      "asset": 125,
       "path": "output/sprite-normalized/0124/Base_Aura/Shiny",
       "source_sha256": "aca94de92cb5dac15492b39362d628d50793b242183ed0be05344dc283e7129e",
       "status": "converted",
@@ -3256,7 +3282,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 125,
+      "asset": 126,
       "path": "output/sprite-normalized/0127/Base_Aura/Normal",
       "source_sha256": "27190c9995d675cf60c8defaa561129bb57d3afcde691347a2cfeb94c559cf3b",
       "status": "converted",
@@ -3282,7 +3308,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 126,
+      "asset": 127,
       "path": "output/sprite-normalized/0127/Base_Aura/Shiny",
       "source_sha256": "26d0e3f7dcd46ca444b3c31953584b1cb14cab4fd7a3906c1dbbbab0039ae2ee",
       "status": "converted",
@@ -3308,7 +3334,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 127,
+      "asset": 128,
       "path": "output/sprite-normalized/0128/Base_Aura/Normal",
       "source_sha256": "49d110f460f99a4c2eb1dceaadfe054ff8dee230c0deda6ad3636123959cf34a",
       "status": "converted",
@@ -3334,7 +3360,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 128,
+      "asset": 129,
       "path": "output/sprite-normalized/0128/Base_Aura/Shiny",
       "source_sha256": "e116e13064845a131e86037d44f84aba9e3ad989eabb95ce61e4501fbbfc7e98",
       "status": "converted",
@@ -3360,7 +3386,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 129,
+      "asset": 130,
       "path": "output/sprite-normalized/0130/Base_Aura/Normal",
       "source_sha256": "9f25f866fff2e4526c661eeec557652591cfb4a56b95eee5ca9a6bdaf3edae90",
       "status": "converted",
@@ -3386,7 +3412,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 130,
+      "asset": 131,
       "path": "output/sprite-normalized/0130/Base_Aura/Shiny",
       "source_sha256": "1e09e870c5641ad5983561c6f69b4f5bfdddf9463fe1460a252d6b8c752f2b58",
       "status": "converted",
@@ -3412,7 +3438,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 131,
+      "asset": 132,
       "path": "output/sprite-normalized/0131/Base_Aura/Normal",
       "source_sha256": "0860b87eb568097e596dcbab11ff11a499295054c63ce12a9543c03530000e84",
       "status": "converted",
@@ -3438,7 +3464,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 132,
+      "asset": 133,
       "path": "output/sprite-normalized/0131/Base_Aura/Shiny",
       "source_sha256": "095af9e5dcc16c4ccf3271c31af7bd48a59e34a37a4145cd418b71a96fff0568",
       "status": "converted",
@@ -3464,7 +3490,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 133,
+      "asset": 134,
       "path": "output/sprite-normalized/0132/Base_Aura/Normal",
       "source_sha256": "e2e2cedaac4767742b410bf0a78c207e1591e1d74e0100d040bfefd4a4e66ae8",
       "status": "converted",
@@ -3490,7 +3516,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 134,
+      "asset": 135,
       "path": "output/sprite-normalized/0132/Base_Aura/Shiny",
       "source_sha256": "54ceddd75ebf5c55e7c93d6c89873df37dcefa0c5ec9a5baac41d8cc4cc16966",
       "status": "converted",
@@ -3516,7 +3542,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 135,
+      "asset": 136,
       "path": "output/sprite-normalized/0134/Base_Aura/Normal",
       "source_sha256": "45473cdb4dd7bb36b2c8882e614e62ba30941b322c9da942b8379a0fc081c2ef",
       "status": "converted",
@@ -3542,7 +3568,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 136,
+      "asset": 137,
       "path": "output/sprite-normalized/0134/Base_Aura/Shiny",
       "source_sha256": "de38af9ae45590675e0003cd0fd6ad0971659f4692550f4d1a0a77c9098b571b",
       "status": "converted",
@@ -3568,7 +3594,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 137,
+      "asset": 138,
       "path": "output/sprite-normalized/0135/Base_Aura/Normal",
       "source_sha256": "a1d0c5c823a367054f04cbf079f2788e84d662b657e88070ece8f5de20b1553a",
       "status": "converted",
@@ -3594,7 +3620,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 138,
+      "asset": 139,
       "path": "output/sprite-normalized/0135/Base_Aura/Shiny",
       "source_sha256": "76d84b45fd073e7a42e0f5ed9a7bd4df5ac4ff0fe9f96fc91e2993592aa94fae",
       "status": "converted",
@@ -3620,7 +3646,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 139,
+      "asset": 140,
       "path": "output/sprite-normalized/0136/Base_Aura/Normal",
       "source_sha256": "f0b31b4617a4708acd4ebe84ac7031de75e8ba2342aa0e45ce56edd370097290",
       "status": "converted",
@@ -3646,7 +3672,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 140,
+      "asset": 141,
       "path": "output/sprite-normalized/0136/Base_Aura/Shiny",
       "source_sha256": "8d28fba83a1cb06fe1a54114fdf3d02ce7f852535d117a0a574a9f1b20ed8836",
       "status": "converted",
@@ -3672,7 +3698,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 141,
+      "asset": 142,
       "path": "output/sprite-normalized/0139/Base_Aura/Normal",
       "source_sha256": "7dd7194064ed4c718211aa3ceea41d23f246f0f77f590752738057477455c68d",
       "status": "converted",
@@ -3698,7 +3724,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 142,
+      "asset": 143,
       "path": "output/sprite-normalized/0139/Base_Aura/Shiny",
       "source_sha256": "19d7511fc0fe8f6a69748949ff6d862500bee56061ed40235ba19295cde2cf6c",
       "status": "converted",
@@ -3724,7 +3750,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 143,
+      "asset": 144,
       "path": "output/sprite-normalized/0141/Base_Aura/Normal",
       "source_sha256": "f2ebc86fe8198f84cd88f1286b15ee435847836a19d0fcdfaf2e94ac480ee0e4",
       "status": "converted",
@@ -3750,7 +3776,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 144,
+      "asset": 145,
       "path": "output/sprite-normalized/0141/Base_Aura/Shiny",
       "source_sha256": "464ca1556f6714d62ff02b7d8b62719ce471cf93ce7ffd62e2fab9de5327f9b6",
       "status": "converted",
@@ -3776,7 +3802,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 145,
+      "asset": 146,
       "path": "SpriteCollab-master/SpriteCollab-master/sprite/0142/0001",
       "source_sha256": "5af62861875b4dafbd25f2c14af89babc2985d4376fed0251f6e0f9ad646f0a9",
       "status": "converted",
@@ -3802,7 +3828,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 146,
+      "asset": 147,
       "path": "output/sprite-normalized/0142/0001-Mega_Aura/Shiny",
       "source_sha256": "698e1286e33ebd3c1758ddfdbdce4d2f7c266ecb2c3ce679ae9178ab6748bf3e",
       "status": "converted",
@@ -3828,7 +3854,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 147,
+      "asset": 148,
       "path": "output/sprite-normalized/0143/Base_Aura/Normal",
       "source_sha256": "9a30525d0c7e4e26a6f4ae8b80479f7dffb29e6ba8708b4c0975c1cd1168fc1d",
       "status": "converted",
@@ -3854,7 +3880,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 148,
+      "asset": 149,
       "path": "output/sprite-normalized/0143/Base_Aura/Shiny",
       "source_sha256": "fa409e310388c3a8eedfe8f24e01ba958316d120bf7625f0212eb34a0e962579",
       "status": "converted",
@@ -3880,7 +3906,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 149,
+      "asset": 150,
       "path": "output/sprite-normalized/0144/Base_Aura/Normal",
       "source_sha256": "4adbed3ec3c87c17d71e7a51813e5204033a3eb893880ca16afbc66060063664",
       "status": "converted",
@@ -3906,7 +3932,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 150,
+      "asset": 151,
       "path": "output/sprite-normalized/0144/Base_Aura/Shiny",
       "source_sha256": "1767b8bfd6681200cec1ab9b811635f354b949e3b54b35987ad115cbda263693",
       "status": "converted",
@@ -3932,7 +3958,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 151,
+      "asset": 152,
       "path": "output/sprite-normalized/0145/Base_Aura/Normal",
       "source_sha256": "48582911ff6dcb59d328bfc6d2751d04718bd8870a8e4f9c668462ddc11ca874",
       "status": "converted",
@@ -3958,7 +3984,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 152,
+      "asset": 153,
       "path": "output/sprite-normalized/0145/Base_Aura/Shiny",
       "source_sha256": "39535817c0328b972ff80ed2ea06bd6effa0378dd73e054cabab22532020fd3e",
       "status": "converted",
@@ -3984,7 +4010,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 153,
+      "asset": 154,
       "path": "output/sprite-normalized/0146/Base_Aura/Normal",
       "source_sha256": "41c3458f0a4693945f9022ce94dd0cf9c12d33bcd95483565031dd211bc77e19",
       "status": "converted",
@@ -4010,7 +4036,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 154,
+      "asset": 155,
       "path": "output/sprite-normalized/0146/Base_Aura/Shiny",
       "source_sha256": "f07aa0810357b5a5fd9ca4ee9f630089b48aa2aa41090ceb556ab8d5a83ec4a8",
       "status": "converted",
@@ -4036,7 +4062,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 155,
+      "asset": 156,
       "path": "output/sprite-normalized/0149/Base_Aura/Normal",
       "source_sha256": "08e01539af9a005f252eb623e52b02d69beada15c3d4500afa1c243677668722",
       "status": "converted",
@@ -4062,7 +4088,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 156,
+      "asset": 157,
       "path": "output/sprite-normalized/0149/Base_Aura/Shiny",
       "source_sha256": "3ab6d72903e5942f432b7bb41bb71c3a8a450f24fde3480edee9b956edd513ab",
       "status": "converted",
@@ -4088,7 +4114,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 157,
+      "asset": 158,
       "path": "output/sprite-normalized/0150/Base_Aura/Normal",
       "source_sha256": "88261a7e1cebd2734ce717d3899086b5186c9f547a9d64a651b07f28ca5c99fe",
       "status": "converted",
@@ -4114,7 +4140,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 158,
+      "asset": 159,
       "path": "output/sprite-normalized/0150/Base_Aura/Shiny",
       "source_sha256": "6ade1dd89af1dcfadca6c5c2011e9a1e874814702d21036d5767c896c52c5ebe",
       "status": "converted",
@@ -4140,7 +4166,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 159,
+      "asset": 160,
       "path": "SpriteCollab-master/SpriteCollab-master/sprite/0150/0002",
       "source_sha256": "79ca2023cab9eb6b213c748a8739993a4e3ae2560184a0e885605fee4cdd294a",
       "status": "converted",
@@ -4166,7 +4192,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 160,
+      "asset": 161,
       "path": "output/sprite-normalized/0150/0002-Mega_Y_Aura/Shiny",
       "source_sha256": "35372610bed216a7720dd111ea78a97afee9cd8c8777371033886430ee7e7a59",
       "status": "converted",
@@ -4192,7 +4218,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 161,
+      "asset": 162,
       "path": "output/sprite-normalized/0151/Base_Aura/Normal",
       "source_sha256": "ccc9cedb445cf67031fa0003f5fe0c3ade9b3ea1bbdf554d5559633e0410f129",
       "status": "converted",
@@ -4218,7 +4244,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 162,
+      "asset": 163,
       "path": "output/sprite-normalized/0151/Base_Aura/Shiny",
       "source_sha256": "37c027f3b482cb4cd530142a761cfd58ef3dd94e493dd586fb2d0d4bc8257240",
       "status": "converted",
@@ -4244,7 +4270,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 163,
+      "asset": 164,
       "path": "output/sprite-normalized/0154/Base_Aura/Normal",
       "source_sha256": "44be001d5ac23dce8520de491ae6e2290d6e5bd75775781ce991cf13cba0123a",
       "status": "converted",
@@ -4270,7 +4296,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 164,
+      "asset": 165,
       "path": "output/sprite-normalized/0154/Base_Aura/Shiny",
       "source_sha256": "29803d8b49b5190eb397ff5dba8cd22df701156b7f89a2b152acfa81206e99d6",
       "status": "converted",
@@ -4296,7 +4322,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 165,
+      "asset": 166,
       "path": "output/sprite-normalized/0157/Base_Aura/Normal",
       "source_sha256": "7f676e884e97d41cb35b82c4f3c073bcb0320eee707c6d007c2738719bb7937b",
       "status": "converted",
@@ -4322,7 +4348,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 166,
+      "asset": 167,
       "path": "output/sprite-normalized/0157/Base_Aura/Shiny",
       "source_sha256": "561603fe2a58a4f9d8e9111b761a56c6095a3cdbfa5cee05b2b38fbe14706125",
       "status": "converted",
@@ -4348,7 +4374,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 167,
+      "asset": 168,
       "path": "output/sprite-normalized/0160/Base_Aura/Normal",
       "source_sha256": "2e22ac9d685449948bcd60ccc673b996990a20439583defb2cc0257254011444",
       "status": "converted",
@@ -4374,7 +4400,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 168,
+      "asset": 169,
       "path": "output/sprite-normalized/0160/Base_Aura/Shiny",
       "source_sha256": "ea83fb202e7071ff9272aa4d2632d9f0f8f04853659c39fba9fc740a248d2abe",
       "status": "converted",
@@ -4400,7 +4426,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 169,
+      "asset": 170,
       "path": "output/sprite-normalized/0162/Base_Aura/Normal",
       "source_sha256": "c01fa4c6a39332a9697d7bb531d85507054cadd52a910a1311a1587a6d50bad9",
       "status": "converted",
@@ -4426,7 +4452,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 170,
+      "asset": 171,
       "path": "output/sprite-normalized/0162/Base_Aura/Shiny",
       "source_sha256": "6c1cb55e7743264f89289e39bc9ddf384204d3fd3343d3f8fa3a3ce7b71b583f",
       "status": "converted",
@@ -4452,7 +4478,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 171,
+      "asset": 172,
       "path": "output/sprite-normalized/0164/Base_Aura/Normal",
       "source_sha256": "6794d4fe237c276cbcabc09219d097598101e7a8e6da4b3498cb022f93a6a13b",
       "status": "converted",
@@ -4478,7 +4504,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 172,
+      "asset": 173,
       "path": "output/sprite-normalized/0164/Base_Aura/Shiny",
       "source_sha256": "6062e7467292fd8080cede966256c1eabf21f831b730b2d6447266df874ec5b2",
       "status": "converted",
@@ -4504,7 +4530,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 173,
+      "asset": 174,
       "path": "output/sprite-normalized/0166/Base_Aura/Normal",
       "source_sha256": "cbd011df5de50cd488693e47bcc8505aa04479015de80ddd4e2051241c815505",
       "status": "converted",
@@ -4530,7 +4556,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 174,
+      "asset": 175,
       "path": "output/sprite-normalized/0166/Base_Aura/Shiny",
       "source_sha256": "66f75a5bd203c850cdfa19b4e67cf45bed898912a750aa995fae91cce2734955",
       "status": "converted",
@@ -4556,7 +4582,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 175,
+      "asset": 176,
       "path": "output/sprite-normalized/0168/Base_Aura/Normal",
       "source_sha256": "d3d363ba1b76855064901d39b7b3730e3cadd3dfa1d15bafc30eb1ebc0631a3d",
       "status": "converted",
@@ -4582,7 +4608,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 176,
+      "asset": 177,
       "path": "output/sprite-normalized/0168/Base_Aura/Shiny",
       "source_sha256": "e714148933ce3ea60be4f0dd0145604b4d8be987447c08e33fe571f0373dbad8",
       "status": "converted",
@@ -4608,7 +4634,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 177,
+      "asset": 178,
       "path": "output/sprite-normalized/0169/Base_Aura/Normal",
       "source_sha256": "03407037c30d3e29b822355abadcb4123c15285ada073254e83c5eb471a84ca0",
       "status": "converted",
@@ -4634,7 +4660,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 178,
+      "asset": 179,
       "path": "output/sprite-normalized/0169/Base_Aura/Shiny",
       "source_sha256": "14a79af9f06e21ca626793ac06ee236cc90c16f079b253dd961b08f482940783",
       "status": "converted",
@@ -4660,7 +4686,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 179,
+      "asset": 180,
       "path": "output/sprite-normalized/0171/Base_Aura/Normal",
       "source_sha256": "401572f20fde6572a049ca6c5df6d11555139edab9c40c33d5a46a29c4557184",
       "status": "converted",
@@ -4686,7 +4712,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 180,
+      "asset": 181,
       "path": "output/sprite-normalized/0171/Base_Aura/Shiny",
       "source_sha256": "9e3352a75febeb3b5eaf25128efa0abb6f1ddefab9fe8bd25f69fdac03c0f016",
       "status": "converted",
@@ -4712,7 +4738,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 181,
+      "asset": 182,
       "path": "output/sprite-normalized/0178/Base_Aura/Normal",
       "source_sha256": "3c8e626590ad224c7bd71d8d790faf79823b650d03b1260c55843a98558c8961",
       "status": "converted",
@@ -4738,7 +4764,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 182,
+      "asset": 183,
       "path": "output/sprite-normalized/0178/Base_Aura/Shiny",
       "source_sha256": "0859d04b49f5439a621f5d82eaaed1d862e36aaebf7631609d39312ef4d39718",
       "status": "converted",
@@ -4764,7 +4790,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 183,
+      "asset": 184,
       "path": "output/sprite-normalized/0181/Base_Aura/Normal",
       "source_sha256": "f2b0b54d922890544220ad1bbadc3ba0111b985851a803456dbfe8a5078dd63e",
       "status": "converted",
@@ -4790,7 +4816,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 184,
+      "asset": 185,
       "path": "output/sprite-normalized/0181/Base_Aura/Shiny",
       "source_sha256": "8342599dc09a839f0dcb810a9cdfebf3cb53e16798c2afdd70c14ba7008ccb44",
       "status": "converted",
@@ -4816,7 +4842,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 185,
+      "asset": 186,
       "path": "output/sprite-normalized/0182/Base_Aura/Normal",
       "source_sha256": "7641814808118b1bba4b75dc1f815802cdef9501f12f3ffc3f30894c3b6151e4",
       "status": "converted",
@@ -4842,7 +4868,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 186,
+      "asset": 187,
       "path": "output/sprite-normalized/0182/Base_Aura/Shiny",
       "source_sha256": "61e2aca513ea9e49d17da004aa8d6d6243f8eabe4164074c00dc5829da5b3651",
       "status": "converted",
@@ -4868,7 +4894,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 187,
+      "asset": 188,
       "path": "output/sprite-normalized/0184/Base_Aura/Normal",
       "source_sha256": "b6c2beb90b68ad5e4180d39d4fd2bd84fc3fc3f127bee90fc3860853db0d55c5",
       "status": "converted",
@@ -4894,7 +4920,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 188,
+      "asset": 189,
       "path": "output/sprite-normalized/0184/Base_Aura/Shiny",
       "source_sha256": "eeac1bac6b0f6c030fddf37503bb9719a72cbd04a7f7bd5b792fb06eac93c7e0",
       "status": "converted",
@@ -4920,7 +4946,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 189,
+      "asset": 190,
       "path": "output/sprite-normalized/0185/Base_Aura/Normal",
       "source_sha256": "ee11bcae1d23fd160ca27c2835ccb427d361755d4d04c07677a31e2eeffd286f",
       "status": "converted",
@@ -4946,7 +4972,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 190,
+      "asset": 191,
       "path": "output/sprite-normalized/0185/Base_Aura/Shiny",
       "source_sha256": "b85cc9b41ecef8282657269abd6dc3d923379d87ed8cb9019e709dc6f7327dbc",
       "status": "converted",
@@ -4972,7 +4998,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 191,
+      "asset": 192,
       "path": "output/sprite-normalized/0186/Base_Aura/Normal",
       "source_sha256": "8cd3f404be7c5aae27b353d48dc1b45d98dc8a46d005c212f55bbe71b36544e3",
       "status": "converted",
@@ -4998,7 +5024,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 192,
+      "asset": 193,
       "path": "output/sprite-normalized/0186/Base_Aura/Shiny",
       "source_sha256": "f3165060376cd968e300fa41c9406476691b0c3cf12ca207648bbb168d786f97",
       "status": "converted",
@@ -5024,7 +5050,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 193,
+      "asset": 194,
       "path": "output/sprite-normalized/0189/Base_Aura/Normal",
       "source_sha256": "da76e1453ab83f1c89374312df3cfb9a9fb0d725a2705fce8f3709923e71119f",
       "status": "converted",
@@ -5050,7 +5076,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 194,
+      "asset": 195,
       "path": "output/sprite-normalized/0189/Base_Aura/Shiny",
       "source_sha256": "e8225b91793e3782d2e98604cfb9f76ec64b6769fbd0de30e25eede6989e76c6",
       "status": "converted",
@@ -5076,7 +5102,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 195,
+      "asset": 196,
       "path": "output/sprite-normalized/0192/Base_Aura/Normal",
       "source_sha256": "ec91668ed8e3a8e283453e5d95ae44bf5eee519005b7570f1cca045479952576",
       "status": "converted",
@@ -5102,7 +5128,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 196,
+      "asset": 197,
       "path": "output/sprite-normalized/0192/Base_Aura/Shiny",
       "source_sha256": "bcdff9638083f95a40bd354b47dc651afacbc019ada3930dbc67c051e45d2a16",
       "status": "converted",
@@ -5128,7 +5154,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 197,
+      "asset": 198,
       "path": "output/sprite-normalized/0195/Base_Aura/Normal",
       "source_sha256": "3f3981441316c1897f275ebfb54d0ed69c511f4b0e38a74ffe6ffaed763a1cb6",
       "status": "converted",
@@ -5154,7 +5180,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 198,
+      "asset": 199,
       "path": "output/sprite-normalized/0195/Base_Aura/Shiny",
       "source_sha256": "03d58e5c6e90e57cb2f7d16aa6fc0a3e8e9a2535b130c7f6cdf4c306504f7c67",
       "status": "converted",
@@ -5180,7 +5206,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 199,
+      "asset": 200,
       "path": "output/sprite-normalized/0196/Base_Aura/Normal",
       "source_sha256": "e0cae7692d6f22b99fb6560ba9d48b7fcc7c3805d7c120447aa948e2e09bbf03",
       "status": "converted",
@@ -5206,7 +5232,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 200,
+      "asset": 201,
       "path": "output/sprite-normalized/0196/Base_Aura/Shiny",
       "source_sha256": "a5c5240114ef2e5f7edd7475ad9100409e28843e662298fe4568a85fef7a9723",
       "status": "converted",
@@ -5232,7 +5258,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 201,
+      "asset": 202,
       "path": "output/sprite-normalized/0197/Base_Aura/Normal",
       "source_sha256": "5c6ef1fbfcc39acec39efa76dbdf978a8271387114f610a7721db3d35452afa7",
       "status": "converted",
@@ -5258,7 +5284,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 202,
+      "asset": 203,
       "path": "output/sprite-normalized/0197/Base_Aura/Shiny",
       "source_sha256": "4d9431a342294bbff841c810eb18ccc7222cc4db502a356d3a7ce2b1387c212f",
       "status": "converted",
@@ -5284,7 +5310,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 203,
+      "asset": 204,
       "path": "output/sprite-normalized/0199/Base_Aura/Normal",
       "source_sha256": "e5cae66fac931e2eb937f090b04553bf1fb5cf9dec435a219f32bcba5fe376fe",
       "status": "converted",
@@ -5310,7 +5336,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 204,
+      "asset": 205,
       "path": "output/sprite-normalized/0199/Base_Aura/Shiny",
       "source_sha256": "c1b7bce17508032fab8b4ed6a760a4cc930917922ce4ed980235dfc77f0435fc",
       "status": "converted",
@@ -5336,7 +5362,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 205,
+      "asset": 206,
       "path": "output/sprite-normalized/0202/Base_Aura/Normal",
       "source_sha256": "fbda72be95defb244b906f6572b66a53afe4fbd7884227787a8896611271e02e",
       "status": "converted",
@@ -5362,7 +5388,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 206,
+      "asset": 207,
       "path": "output/sprite-normalized/0202/Base_Aura/Shiny",
       "source_sha256": "c9f4719106757764cced95512753e8460511216513afd10f9f6c6dbe2b5d46c9",
       "status": "converted",
@@ -5388,7 +5414,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 207,
+      "asset": 208,
       "path": "output/sprite-normalized/0205/Base_Aura/Normal",
       "source_sha256": "5f54fc4e236f7ec3b652a959a96f9c50d23217a9349b0cacbb40f190293f8420",
       "status": "converted",
@@ -5414,7 +5440,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 208,
+      "asset": 209,
       "path": "output/sprite-normalized/0205/Base_Aura/Shiny",
       "source_sha256": "601c211659575b2ad51aff7c9f81fdb0a335684adb841345a0de787421eee81d",
       "status": "converted",
@@ -5440,7 +5466,59 @@
     },
     {
       "pipeline": 3,
-      "asset": 209,
+      "asset": 210,
+      "path": "true_patches/mega_evolve/.cache/phase5_fix/57d2f114b8a35fff3345b9aa62f0bf5ebcb5196ba35de07c413763867e901191/aura",
+      "source_sha256": "e76d77e990f72cde0a118717f6c795b4bf1cd8cd2ebca64dfadd14b2afcd90a6",
+      "status": "converted",
+      "outputs": {
+        "monster.wan": "d43a2b89b5989c9c4fd07c8dfc61dd1075ac267e3966b185328b51757e43d1a8",
+        "ground.wan": "d4fdeb720feec79c625dfb4bfffecabb90f3b631cf51c62ea3630300713285a4",
+        "attack.wan": "9d9e7a9d4f5ebfea59df68a94acc75fee3ba29c5c4395cafcda253eec3eed75f"
+      },
+      "sizes": {
+        "monster": 44020,
+        "ground": 418384,
+        "attack": 142832
+      },
+      "raw_sizes": {
+        "monster": 113488,
+        "ground": 418384,
+        "attack": 374192
+      },
+      "tile_slots": 7,
+      "file_pages": 222,
+      "palette_policy": "SkyTemple import16; transparent index0",
+      "cache": ".cache/phase5/e76d77e990f72cde0a118717f6c795b4bf1cd8cd2ebca64dfadd14b2afcd90a6"
+    },
+    {
+      "pipeline": 3,
+      "asset": 211,
+      "path": "true_patches/mega_evolve/.cache/phase5_fix/0a2005e9a2f7e31c255c1afb05497389be90f31b7bf4b9dc70cd074f2dc537cc/aura",
+      "source_sha256": "df3213e03b19fb5eb245980531200734fc55ce7ec9407cd8f5427351d2ba5271",
+      "status": "converted",
+      "outputs": {
+        "monster.wan": "5ab7fc4aef9d356baecd98dcd331d6a896fe3dda8254ce50a54804fa5ab635ab",
+        "ground.wan": "a67da3bbad01b19ba0f8fd504a6b14cdcb4ffafa2db6b4d324138f76a86537ef",
+        "attack.wan": "606ec40ae60298c58dc631596a446f1d1a10395d81b8c45a65435f6c984ade2f"
+      },
+      "sizes": {
+        "monster": 43064,
+        "ground": 418384,
+        "attack": 139672
+      },
+      "raw_sizes": {
+        "monster": 113488,
+        "ground": 418384,
+        "attack": 374192
+      },
+      "tile_slots": 7,
+      "file_pages": 222,
+      "palette_policy": "SkyTemple import16; transparent index0",
+      "cache": ".cache/phase5/df3213e03b19fb5eb245980531200734fc55ce7ec9407cd8f5427351d2ba5271"
+    },
+    {
+      "pipeline": 3,
+      "asset": 212,
       "path": "SpriteCollab-master/SpriteCollab-master/sprite/0208/0001",
       "source_sha256": "8340c39c60bc710c865f788895904daa1edc55f00935b769d93c869a049b46e7",
       "status": "converted",
@@ -5466,7 +5544,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 210,
+      "asset": 213,
       "path": "output/sprite-normalized/0208/0001-Mega_Aura/Shiny",
       "source_sha256": "a47092638552bf597b8b7bf4931a1dd6f0d778352372965a551e66820d846652",
       "status": "converted",
@@ -5492,7 +5570,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 211,
+      "asset": 214,
       "path": "output/sprite-normalized/0210/Base_Aura/Normal",
       "source_sha256": "b9630aa3236684ba3d3053b79b295e02182a6ff5f5280d10fcc4255f43dcf2df",
       "status": "converted",
@@ -5518,7 +5596,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 212,
+      "asset": 215,
       "path": "output/sprite-normalized/0210/Base_Aura/Shiny",
       "source_sha256": "4c5fc507bbcdcb6ea71faefa11b27aead38178a4cbcb858de241b652f4c66016",
       "status": "converted",
@@ -5544,7 +5622,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 213,
+      "asset": 216,
       "path": "output/sprite-normalized/0211/Base_Aura/Normal",
       "source_sha256": "3810ad2ca3d5cac8d0486284f561663bb15091d1232cdc0b2c750d5aff2fe8bd",
       "status": "converted",
@@ -5570,7 +5648,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 214,
+      "asset": 217,
       "path": "output/sprite-normalized/0211/Base_Aura/Shiny",
       "source_sha256": "256d9f8e8b8b25b984cd588e9776e7070d1a6a177a34541a286adaec90342eed",
       "status": "converted",
@@ -5596,7 +5674,33 @@
     },
     {
       "pipeline": 3,
-      "asset": 215,
+      "asset": 218,
+      "path": "true_patches/mega_evolve/.cache/phase5_fix/f7c6d75512f66a4b04022f1c5274e6952ff891094c88803703ae973e993036e1/aura",
+      "source_sha256": "873c6910a4adeef6975342d5b040b25a9dd6d88bab7f1179ac1ae28f9eb36557",
+      "status": "converted",
+      "outputs": {
+        "monster.wan": "e1d4774cc7ed1aeeb1be61e7167edc2b0ba9ba277714c7f4b8d55ae658e794a9",
+        "ground.wan": "728d62e54c6d351bc822c9350fa417114ac66ea2290d23de4d09676359b5a169",
+        "attack.wan": "3f9ef31fc4dd4ee9e019e71e4f366a2e5f33f36a2b3ec4d6f44176fa643d9714"
+      },
+      "sizes": {
+        "monster": 52516,
+        "ground": 515120,
+        "attack": 187696
+      },
+      "raw_sizes": {
+        "monster": 132480,
+        "ground": 515120,
+        "attack": 456912
+      },
+      "tile_slots": 6,
+      "file_pages": 259,
+      "palette_policy": "SkyTemple import16; transparent index0",
+      "cache": ".cache/phase5/873c6910a4adeef6975342d5b040b25a9dd6d88bab7f1179ac1ae28f9eb36557"
+    },
+    {
+      "pipeline": 3,
+      "asset": 219,
       "path": "output/sprite-normalized/0212/Base_Aura/Shiny",
       "source_sha256": "54e919dcdb9d8bbb751523651b8e7b1fd6d2d9e4a5dc0f45895f66b7014ac713",
       "status": "converted",
@@ -5622,7 +5726,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 216,
+      "asset": 220,
       "path": "output/sprite-normalized/0213/Base_Aura/Normal",
       "source_sha256": "1c053c2fa61b92ccdddc69eb53078a629c24d0029fbd31e0843a931687038f8c",
       "status": "converted",
@@ -5648,7 +5752,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 217,
+      "asset": 221,
       "path": "output/sprite-normalized/0213/Base_Aura/Shiny",
       "source_sha256": "327859be237fde70e6dc5619a583f52b7b720ef9c471291ed8fe7219bdb15d96",
       "status": "converted",
@@ -5674,7 +5778,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 218,
+      "asset": 222,
       "path": "output/sprite-normalized/0214/Base_Aura/Normal",
       "source_sha256": "62aea11f4cbebe631977fa1586cb3763659316895921f86335ea16fbf8e46224",
       "status": "converted",
@@ -5700,7 +5804,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 219,
+      "asset": 223,
       "path": "output/sprite-normalized/0214/Base_Aura/Shiny",
       "source_sha256": "c950d44376f58dd4abe6acc26b4e2d9e6f6c5240266ed5a8e2b9eab6e7a0dd8f",
       "status": "converted",
@@ -5726,7 +5830,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 220,
+      "asset": 224,
       "path": "output/sprite-normalized/0219/Base_Aura/Normal",
       "source_sha256": "1162969ff591835b6d53dfffb76afbfbbb830d758da294c782a59c6b08a3728a",
       "status": "converted",
@@ -5752,7 +5856,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 221,
+      "asset": 225,
       "path": "output/sprite-normalized/0219/Base_Aura/Shiny",
       "source_sha256": "9a037a043ac23da5f9609502c3c74932bc1503c10dee0e69a98fecc714317916",
       "status": "converted",
@@ -5778,7 +5882,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 222,
+      "asset": 226,
       "path": "output/sprite-normalized/0222/Base_Aura/Normal",
       "source_sha256": "5bd3da4520985e81feffec23bb0d3e48042f48cb21d4727b442a681f705de870",
       "status": "converted",
@@ -5804,7 +5908,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 223,
+      "asset": 227,
       "path": "output/sprite-normalized/0222/Base_Aura/Shiny",
       "source_sha256": "fcb4171e262d7635a9435240c930a2bcc8ce5e70b9907d2655ee324b2a4b0328",
       "status": "converted",
@@ -5830,7 +5934,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 224,
+      "asset": 228,
       "path": "output/sprite-normalized/0224/Base_Aura/Normal",
       "source_sha256": "35c89af03496bc604e5ab31745fc8a1b5f4d1b477f9cfd26a78759dee35a1608",
       "status": "converted",
@@ -5856,7 +5960,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 225,
+      "asset": 229,
       "path": "output/sprite-normalized/0224/Base_Aura/Shiny",
       "source_sha256": "e34daa7b37e809a06f422b6f0a74e336bf356ea6a9f7e78d6eac383527699476",
       "status": "converted",
@@ -5882,7 +5986,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 226,
+      "asset": 230,
       "path": "output/sprite-normalized/0225/Base_Aura/Normal",
       "source_sha256": "d3507019c3592c872bb667aa817f21c0f0b4d1dfb69175c0231b1e07b7bb79fd",
       "status": "converted",
@@ -5908,7 +6012,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 227,
+      "asset": 231,
       "path": "output/sprite-normalized/0225/Base_Aura/Shiny",
       "source_sha256": "85898d0b4bee1ff0b8613e8ee1ac9275e2ca104544630d6da853f8ebec2d34d0",
       "status": "converted",
@@ -5934,7 +6038,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 228,
+      "asset": 232,
       "path": "output/sprite-normalized/0226/Base_Aura/Normal",
       "source_sha256": "2bc7d118aba71de3986ab3f0a4b64ccaef23a2df8e9d770beb5a19da34f18a2e",
       "status": "converted",
@@ -5960,7 +6064,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 229,
+      "asset": 233,
       "path": "output/sprite-normalized/0226/Base_Aura/Shiny",
       "source_sha256": "8f05b7b043c8a70bfdf0b9c98f376356ae38cecab56b05fb7b3c806d4fd779a3",
       "status": "converted",
@@ -5986,7 +6090,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 230,
+      "asset": 234,
       "path": "SpriteCollab-master/SpriteCollab-master/sprite/0227/0001",
       "source_sha256": "daaae9e680e4d7ce66f63bc06d24ddc57c5b3daa6fab76dd717e57c69aff720d",
       "status": "converted",
@@ -6012,7 +6116,33 @@
     },
     {
       "pipeline": 3,
-      "asset": 231,
+      "asset": 235,
+      "path": "true_patches/mega_evolve/.cache/phase5_fix/9299c387c7659c6736507cdc725e8ec102de46e763f508bbc48c9288f1ad0c8b/aura",
+      "source_sha256": "eb1702bbe45aba11fae4d9205957bcbd910fdeefbb68d623f3e89a2af50aaf25",
+      "status": "converted",
+      "outputs": {
+        "monster.wan": "ef1a964d3a3afda74efa9ec1918562a2be4976595a5da872f3155003c06c64c8",
+        "ground.wan": "63933d2e3656c25b0b306364fe54889090a073c395654e169ac7d9f14ee08473",
+        "attack.wan": "35612fc5c1fe96cce5eb17b825fadafbd33016390e47aca1d40fe7a649817188"
+      },
+      "sizes": {
+        "monster": 88552,
+        "ground": 669232,
+        "attack": 217868
+      },
+      "raw_sizes": {
+        "monster": 225328,
+        "ground": 669232,
+        "attack": 544640
+      },
+      "tile_slots": 10,
+      "file_pages": 441,
+      "palette_policy": "SkyTemple import16; transparent index0",
+      "cache": ".cache/phase5/eb1702bbe45aba11fae4d9205957bcbd910fdeefbb68d623f3e89a2af50aaf25"
+    },
+    {
+      "pipeline": 3,
+      "asset": 236,
       "path": "SpriteCollab-master/SpriteCollab-master/sprite/0229/0001",
       "source_sha256": "32ca25c180a509da5ce9694b91b48044f844127a59d71fb8c2fd742e2b3e9ab4",
       "status": "converted",
@@ -6038,7 +6168,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 232,
+      "asset": 237,
       "path": "output/sprite-normalized/0229/0001-Mega_Aura/Shiny",
       "source_sha256": "cdc273a9e0c4cb948fa85293480dcc03c9e3ad0e9d1d60a0568ff607daba0c01",
       "status": "converted",
@@ -6064,7 +6194,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 233,
+      "asset": 238,
       "path": "output/sprite-normalized/0230/Base_Aura/Normal",
       "source_sha256": "42e0bd5baa30fbadb16bfaf8013b4d8ddf7b8f711ba8ff9b15aaef67d5ba8cb4",
       "status": "converted",
@@ -6090,7 +6220,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 234,
+      "asset": 239,
       "path": "output/sprite-normalized/0230/Base_Aura/Shiny",
       "source_sha256": "e7642b5e3032427ffcf61eefb598c619e37c90d2b26466420737f8ca0d629f01",
       "status": "converted",
@@ -6116,7 +6246,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 235,
+      "asset": 240,
       "path": "output/sprite-normalized/0232/Base_Aura/Normal",
       "source_sha256": "78c9063ade744ad109860024239d073d4d1545b73a636d9000b2867d0770caca",
       "status": "converted",
@@ -6142,7 +6272,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 236,
+      "asset": 241,
       "path": "output/sprite-normalized/0232/Base_Aura/Shiny",
       "source_sha256": "22048b0dc1cff5710ae555006c1a3c0c8353ba33c89d94ae408b921b1b3794cb",
       "status": "converted",
@@ -6168,7 +6298,59 @@
     },
     {
       "pipeline": 3,
-      "asset": 237,
+      "asset": 242,
+      "path": "true_patches/mega_evolve/.cache/phase5_fix/23e90859f046f6267fb59d6fd504c8f4de3ae9e2aa5f8b8d26c361d944bb4e5a/aura",
+      "source_sha256": "2743b695232133e7f43b5e4d2e14fdd7c840e36a432697769de9749255b664fd",
+      "status": "converted",
+      "outputs": {
+        "monster.wan": "5df9ffaf06d3e5b842976850b248f227d12e01478214a73203bb1720ff870b5b",
+        "ground.wan": "64191d09994877ae826d2a17ccbb95d16687091811473ffa1f0ee2a26ccbfcb7",
+        "attack.wan": "d326c194193aaf092333f473842909ece8b0c1f34d73cb05e99537f10b32c922"
+      },
+      "sizes": {
+        "monster": 59092,
+        "ground": 496864,
+        "attack": 157520
+      },
+      "raw_sizes": {
+        "monster": 175744,
+        "ground": 496864,
+        "attack": 399936
+      },
+      "tile_slots": 7,
+      "file_pages": 344,
+      "palette_policy": "SkyTemple import16; transparent index0",
+      "cache": ".cache/phase5/2743b695232133e7f43b5e4d2e14fdd7c840e36a432697769de9749255b664fd"
+    },
+    {
+      "pipeline": 3,
+      "asset": 243,
+      "path": "true_patches/mega_evolve/.cache/phase5_fix/5f22d9fe303e532a6911afbf8b44ea3e0467925dc1ae95a830d7c96323b5acdf/aura",
+      "source_sha256": "008bdbbbb16b3f5d21693c3f5f8ca1bdeb5f5899853a0173180c0b4887ca8a62",
+      "status": "converted",
+      "outputs": {
+        "monster.wan": "6b55a78e3dbddfe7bcbb3c219688824b1f4d8560ecdaf6d9799c0d13f801c4f7",
+        "ground.wan": "9df0537badddcf1ad7286e5fcec9759dd3f29195d14f34222ab5546769a6d042",
+        "attack.wan": "45a675e64137d7355097931d6410368474bde8642b8a5e9db47e786099661f08"
+      },
+      "sizes": {
+        "monster": 59004,
+        "ground": 496864,
+        "attack": 157248
+      },
+      "raw_sizes": {
+        "monster": 175744,
+        "ground": 496864,
+        "attack": 399936
+      },
+      "tile_slots": 7,
+      "file_pages": 344,
+      "palette_policy": "SkyTemple import16; transparent index0",
+      "cache": ".cache/phase5/008bdbbbb16b3f5d21693c3f5f8ca1bdeb5f5899853a0173180c0b4887ca8a62"
+    },
+    {
+      "pipeline": 3,
+      "asset": 244,
       "path": "output/sprite-normalized/0235/Base_Aura/Normal",
       "source_sha256": "0f24325dd44ce859684341ee25a330c09335aa252d2899058174f28017cfa626",
       "status": "converted",
@@ -6194,7 +6376,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 238,
+      "asset": 245,
       "path": "output/sprite-normalized/0235/Base_Aura/Shiny",
       "source_sha256": "62d3b229cca01791642f21c1d8bfa514ed707241736e094d460867b4fb6465a9",
       "status": "converted",
@@ -6220,7 +6402,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 239,
+      "asset": 246,
       "path": "output/sprite-normalized/0237/Base_Aura/Normal",
       "source_sha256": "393218b3e682bf01ab9df38065e83bdeb613eb2c122e39716037586a69fcedc2",
       "status": "converted",
@@ -6246,7 +6428,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 240,
+      "asset": 247,
       "path": "output/sprite-normalized/0237/Base_Aura/Shiny",
       "source_sha256": "5f4919737ff72b61b32e84bae0d5dc096f0e1382a7627b679e16bd565fd04c14",
       "status": "converted",
@@ -6272,7 +6454,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 241,
+      "asset": 248,
       "path": "output/sprite-normalized/0241/Base_Aura/Normal",
       "source_sha256": "8bcdd36605da3d29d26bd417734274ee6c93823cd5791f2144a89ebcdb5740fc",
       "status": "converted",
@@ -6298,7 +6480,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 242,
+      "asset": 249,
       "path": "output/sprite-normalized/0241/Base_Aura/Shiny",
       "source_sha256": "f4c115879a51a9ae8a9af9842762a986f85314ee45b778099f1f5e46c0ac4d8a",
       "status": "converted",
@@ -6324,7 +6506,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 243,
+      "asset": 250,
       "path": "output/sprite-normalized/0242/Base_Aura/Normal",
       "source_sha256": "c12a9618a02033940181ace01ddcc37de8a5029021da25dc88945c45459709dc",
       "status": "converted",
@@ -6350,7 +6532,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 244,
+      "asset": 251,
       "path": "output/sprite-normalized/0242/Base_Aura/Shiny",
       "source_sha256": "1352e523213049908a5a4d2dc27e3213270901d2c0c15df7c6131196ad47e34a",
       "status": "converted",
@@ -6376,7 +6558,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 245,
+      "asset": 252,
       "path": "output/sprite-normalized/0243/Base_Aura/Normal",
       "source_sha256": "6eaf4911d918e704cd6eea9c54ae89b9d7a3853b650459e432edcde57afbc208",
       "status": "converted",
@@ -6402,7 +6584,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 246,
+      "asset": 253,
       "path": "output/sprite-normalized/0243/Base_Aura/Shiny",
       "source_sha256": "f3d0ca7607abf8287181d97adfb6a4ca47393a86c812b91e064c52ceafc0c315",
       "status": "converted",
@@ -6428,7 +6610,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 247,
+      "asset": 254,
       "path": "output/sprite-normalized/0244/Base_Aura/Normal",
       "source_sha256": "88e8cde10c7f83fe4276ec2738fc4584f0d29d7292dc9d7ed945035a1f156cdf",
       "status": "converted",
@@ -6454,7 +6636,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 248,
+      "asset": 255,
       "path": "output/sprite-normalized/0244/Base_Aura/Shiny",
       "source_sha256": "f7928abd97e810bdb58da3d947e68d3fff03f63c709de7b45012bb941bfba69c",
       "status": "converted",
@@ -6480,7 +6662,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 249,
+      "asset": 256,
       "path": "output/sprite-normalized/0245/Base_Aura/Normal",
       "source_sha256": "bc75379febade55f4b311a383712ac74562f49d67941f3a5e353bbd38a45362b",
       "status": "converted",
@@ -6506,7 +6688,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 250,
+      "asset": 257,
       "path": "output/sprite-normalized/0245/Base_Aura/Shiny",
       "source_sha256": "38854ecf2db3cbb9d26a88c073c2e481958dfb89edd7425d2fdcd26395551331",
       "status": "converted",
@@ -6532,7 +6714,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 251,
+      "asset": 258,
       "path": "SpriteCollab-master/SpriteCollab-master/sprite/0248/0001",
       "source_sha256": "0411fca57fab4c48eabff5d186c0ab967690ea05f480416f021f63aec5b8341c",
       "status": "converted",
@@ -6558,7 +6740,33 @@
     },
     {
       "pipeline": 3,
-      "asset": 252,
+      "asset": 259,
+      "path": "true_patches/mega_evolve/.cache/phase5_fix/62d3c12d10420adca084d83477e5fa60b3c225a7bfc700033120b3ddf2c80e2c/aura",
+      "source_sha256": "970a0224c86b945ec3ac13c1784c90f48f89e1273407cefdfe2ac6084cf3edaa",
+      "status": "converted",
+      "outputs": {
+        "monster.wan": "9083f9b220e719379b57bc9c64571ba2db83f247d30bd9757fa82bf26b9b1a08",
+        "ground.wan": "17ba3db02cd7d8abed11b93400b87916d1d34b7684fda02e976e1da451a67287",
+        "attack.wan": "0b02939fbb52ddd995dd2c7adc5df912546eef4eef25782e3477d6885f600c2f"
+      },
+      "sizes": {
+        "monster": 49496,
+        "ground": 413760,
+        "attack": 151816
+      },
+      "raw_sizes": {
+        "monster": 120768,
+        "ground": 413760,
+        "attack": 373600
+      },
+      "tile_slots": 7,
+      "file_pages": 236,
+      "palette_policy": "SkyTemple import16; transparent index0",
+      "cache": ".cache/phase5/970a0224c86b945ec3ac13c1784c90f48f89e1273407cefdfe2ac6084cf3edaa"
+    },
+    {
+      "pipeline": 3,
+      "asset": 260,
       "path": "output/sprite-normalized/0249/Base_Aura/Normal",
       "source_sha256": "c941e2b9d5b53ba46668f1790d9595fe6e7c2d08bb52f2ea4c6e5655ace954a0",
       "status": "converted",
@@ -6584,7 +6792,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 253,
+      "asset": 261,
       "path": "output/sprite-normalized/0249/Base_Aura/Shiny",
       "source_sha256": "e2b98f9f5fd0b8464a6d43456d5680ffb30c430bb441583172c691fd4c665458",
       "status": "converted",
@@ -6610,7 +6818,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 254,
+      "asset": 262,
       "path": "output/sprite-normalized/0250/Base_Aura/Normal",
       "source_sha256": "c244c56c1087311e157937ce55040c3b6f18f0d4163b5789e504a58a6ee81021",
       "status": "converted",
@@ -6636,7 +6844,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 255,
+      "asset": 263,
       "path": "output/sprite-normalized/0250/Base_Aura/Shiny",
       "source_sha256": "b942eff1cdc80179299094f88cfbd4531ead6594907d6d998837b41d93a9d3e0",
       "status": "converted",
@@ -6662,7 +6870,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 256,
+      "asset": 264,
       "path": "output/sprite-normalized/0251/Base_Aura/Normal",
       "source_sha256": "b8d11de5cbe4fb5bc72964e13f0bac0ffe9186f60f76dd0ddd5cda91d9154557",
       "status": "converted",
@@ -6688,7 +6896,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 257,
+      "asset": 265,
       "path": "output/sprite-normalized/0251/Base_Aura/Shiny",
       "source_sha256": "b70e5423b5a4203d7b936081c977e3fe661e0a7b431229794c67bfd357697597",
       "status": "converted",
@@ -6714,7 +6922,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 258,
+      "asset": 266,
       "path": "SpriteCollab-master/SpriteCollab-master/sprite/0254/0001",
       "source_sha256": "0de2d86ca72457ff0149c97227e6cb59bf84f3045ca8155f285681a8e40392b9",
       "status": "converted",
@@ -6740,7 +6948,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 259,
+      "asset": 267,
       "path": "output/sprite-normalized/0254/0001-Mega_Aura/Shiny",
       "source_sha256": "ac1fb7be00a52365657137205264961379f92bf75ea357bf35294b020c0178cc",
       "status": "converted",
@@ -6766,7 +6974,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 260,
+      "asset": 268,
       "path": "output/sprite-normalized/0257/Base_Aura/Normal",
       "source_sha256": "c9eb949323a2eba4399eb54cbaf026bc4a865d7dc795cb903ee557f55d9358d6",
       "status": "converted",
@@ -6792,7 +7000,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 261,
+      "asset": 269,
       "path": "output/sprite-normalized/0257/Base_Aura/Shiny",
       "source_sha256": "89c42c76515cae7e0c59fe7da8a7c5029f1a9143bc5613d53755b9c36855c2c8",
       "status": "converted",
@@ -6818,7 +7026,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 262,
+      "asset": 270,
       "path": "output/sprite-normalized/0260/Base_Aura/Normal",
       "source_sha256": "590a6a0f459d004900a711741b395d11cfa6284fef58d996a73d1cebc2c659a5",
       "status": "converted",
@@ -6844,7 +7052,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 263,
+      "asset": 271,
       "path": "output/sprite-normalized/0260/Base_Aura/Shiny",
       "source_sha256": "288e2063ae951243d7f6e5655923df059a53574abb108fca8229285a3e310316",
       "status": "converted",
@@ -6870,7 +7078,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 264,
+      "asset": 272,
       "path": "output/sprite-normalized/0262/Base_Aura/Normal",
       "source_sha256": "827139d71303cfb7350308d52ef90584a911e26f7c6d04393df1b0772eebd0f6",
       "status": "converted",
@@ -6896,7 +7104,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 265,
+      "asset": 273,
       "path": "output/sprite-normalized/0262/Base_Aura/Shiny",
       "source_sha256": "7462dffb9c3a426b73cf5b6c5d321298a506213ff2e1501d95884ff7b848383c",
       "status": "converted",
@@ -6922,7 +7130,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 266,
+      "asset": 274,
       "path": "output/sprite-normalized/0264/Base_Aura/Normal",
       "source_sha256": "44aa51949161a637247a08c85ecb182c92eeefad555f848227ddf1ce6d90cc25",
       "status": "converted",
@@ -6948,7 +7156,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 267,
+      "asset": 275,
       "path": "output/sprite-normalized/0264/Base_Aura/Shiny",
       "source_sha256": "39c9c632b785be36bcd04f0bda52922d2decaa6fc821d1bbf39282d3342bc2e0",
       "status": "converted",
@@ -6974,7 +7182,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 268,
+      "asset": 276,
       "path": "output/sprite-normalized/0267/Base_Aura/Normal",
       "source_sha256": "786e7e332a1f21eaae189d7c81ae5f412af9acae175bc587ba42e868a48e39e3",
       "status": "converted",
@@ -7000,7 +7208,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 269,
+      "asset": 277,
       "path": "output/sprite-normalized/0267/Base_Aura/Shiny",
       "source_sha256": "d38ec57ef7d90acb98554931c738ee2ab0b959f3ec8165ba6b4d88b61924a4a2",
       "status": "converted",
@@ -7026,7 +7234,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 270,
+      "asset": 278,
       "path": "output/sprite-normalized/0269/Base_Aura/Normal",
       "source_sha256": "5c55da99567122b853d86bf8ebbc468f298d00dbc12c021fbb8478bb2c305781",
       "status": "converted",
@@ -7052,7 +7260,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 271,
+      "asset": 279,
       "path": "output/sprite-normalized/0269/Base_Aura/Shiny",
       "source_sha256": "3d8dfd6b203788186bce7689688c7aaad6993223e19978cfb472372bbc6f79a3",
       "status": "converted",
@@ -7078,7 +7286,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 272,
+      "asset": 280,
       "path": "output/sprite-normalized/0272/Base_Aura/Normal",
       "source_sha256": "b4e862d3677f9f8b55ccdcbef28a1051c56bfd9c8c22ea18fcd4c5361e8cb0ac",
       "status": "converted",
@@ -7104,7 +7312,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 273,
+      "asset": 281,
       "path": "output/sprite-normalized/0272/Base_Aura/Shiny",
       "source_sha256": "6c280970bd434a069077aa81a4a1998d8f0a007db076d5659b54f87571e9086c",
       "status": "converted",
@@ -7130,7 +7338,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 274,
+      "asset": 282,
       "path": "output/sprite-normalized/0275/Base_Aura/Normal",
       "source_sha256": "711d1c6ad28fa130ab6a5ea8be42204b7415717b1092b76a9864f63a77a9601d",
       "status": "converted",
@@ -7156,7 +7364,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 275,
+      "asset": 283,
       "path": "output/sprite-normalized/0275/Base_Aura/Shiny",
       "source_sha256": "6ab9ace4f31cbd8eb3c37fda8707c6d9c09925566511daed5ef5be26ceb47ab9",
       "status": "converted",
@@ -7182,7 +7390,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 276,
+      "asset": 284,
       "path": "output/sprite-normalized/0277/Base_Aura/Normal",
       "source_sha256": "8dae1fb6910edeb5d81ae0fbb7cec10f19b3775468c43f86fe6ff602712c3108",
       "status": "converted",
@@ -7208,7 +7416,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 277,
+      "asset": 285,
       "path": "output/sprite-normalized/0277/Base_Aura/Shiny",
       "source_sha256": "c4bc48a413b416f1a745a4bf0867b49ef2eb50690df9b298165504aaf8a3a8d3",
       "status": "converted",
@@ -7234,7 +7442,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 278,
+      "asset": 286,
       "path": "output/sprite-normalized/0279/Base_Aura/Normal",
       "source_sha256": "f237688ad76406f5a655ab1c034d2547bb9ebec72f58125857caf50ee0179133",
       "status": "converted",
@@ -7260,7 +7468,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 279,
+      "asset": 287,
       "path": "output/sprite-normalized/0279/Base_Aura/Shiny",
       "source_sha256": "02d31797486225441ab1fcf982a1a4a60af567ceabe8d79d43a40c33752e1fa7",
       "status": "converted",
@@ -7286,7 +7494,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 280,
+      "asset": 288,
       "path": "SpriteCollab-master/SpriteCollab-master/sprite/0282/0001",
       "source_sha256": "2e68df4da3f5840cf93538bc9914c3cf8b4406a3305e19aaa45499898e07be04",
       "status": "converted",
@@ -7312,7 +7520,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 281,
+      "asset": 289,
       "path": "output/sprite-normalized/0282/0001-Mega_Aura/Shiny",
       "source_sha256": "dbc7424d6e5bb9fb852931c3ca15a4d5361eb0e4fd8d3df94d7862ad2f13ed81",
       "status": "converted",
@@ -7338,7 +7546,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 282,
+      "asset": 290,
       "path": "output/sprite-normalized/0284/Base_Aura/Normal",
       "source_sha256": "950642f3f1bedd3a8d690eeb664732f24b26435716f331372fbb0428b47e417a",
       "status": "converted",
@@ -7364,7 +7572,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 283,
+      "asset": 291,
       "path": "output/sprite-normalized/0284/Base_Aura/Shiny",
       "source_sha256": "06e908ac573b86e5ba260a87622f593486c744c57fc810cc516f87ceb7f323a5",
       "status": "converted",
@@ -7390,7 +7598,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 284,
+      "asset": 292,
       "path": "output/sprite-normalized/0286/Base_Aura/Normal",
       "source_sha256": "743aea85241af0719812c988a973f0356011e915c4096f61640998ad4136c8ce",
       "status": "converted",
@@ -7416,7 +7624,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 285,
+      "asset": 293,
       "path": "output/sprite-normalized/0286/Base_Aura/Shiny",
       "source_sha256": "104ad82b22d48a92555442648f8dce7900524cdbe4e2285a2f0b2e0d9780e9f9",
       "status": "converted",
@@ -7442,7 +7650,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 286,
+      "asset": 294,
       "path": "output/sprite-normalized/0289/Base_Aura/Normal",
       "source_sha256": "b629265a6442927ba480a7dd5ce568508ee8fa170f5882d19b07db6d63af970d",
       "status": "converted",
@@ -7468,7 +7676,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 287,
+      "asset": 295,
       "path": "output/sprite-normalized/0289/Base_Aura/Shiny",
       "source_sha256": "3d45c52199463dc199d5989c62cb0169cf8a3dd6720b191fff74d2e34d1b6cd0",
       "status": "converted",
@@ -7494,7 +7702,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 288,
+      "asset": 296,
       "path": "output/sprite-normalized/0291/Base_Aura/Normal",
       "source_sha256": "1967e731e7ebb792826f055edfd44f7730c108b7cc91edd1b203faa3fd45742b",
       "status": "converted",
@@ -7520,7 +7728,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 289,
+      "asset": 297,
       "path": "output/sprite-normalized/0291/Base_Aura/Shiny",
       "source_sha256": "0318d54f79332ea5055dcccb2ffe0c20ebe97f570e8fb0a59ee14fba16c97993",
       "status": "converted",
@@ -7546,7 +7754,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 290,
+      "asset": 298,
       "path": "output/sprite-normalized/0292/Base_Aura/Normal",
       "source_sha256": "cd8022351692461eb184bff51be5adc66e968288535b39af7ec2726367cd4afd",
       "status": "converted",
@@ -7572,7 +7780,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 291,
+      "asset": 299,
       "path": "output/sprite-normalized/0292/Base_Aura/Shiny",
       "source_sha256": "bcbd679859fd669a1e5a4f4f6e2581c3f1c1041b6fda34c8104dd8513fb9ba11",
       "status": "converted",
@@ -7598,7 +7806,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 292,
+      "asset": 300,
       "path": "output/sprite-normalized/0295/Base_Aura/Normal",
       "source_sha256": "18ea831f8bf7c7bfc31eeffa5d7ec4c371304a054177e38ab24ee66fd01a0617",
       "status": "converted",
@@ -7624,7 +7832,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 293,
+      "asset": 301,
       "path": "output/sprite-normalized/0295/Base_Aura/Shiny",
       "source_sha256": "d51d29541fa0fba8e25a08fbff49496d6d5f802e4a451736809379d226998355",
       "status": "converted",
@@ -7650,7 +7858,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 294,
+      "asset": 302,
       "path": "output/sprite-normalized/0297/Base_Aura/Normal",
       "source_sha256": "a0024929d188300a3413f439fb4de0fc7d7f7739b79fae175221311599059dee",
       "status": "converted",
@@ -7676,7 +7884,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 295,
+      "asset": 303,
       "path": "output/sprite-normalized/0297/Base_Aura/Shiny",
       "source_sha256": "b26a3f3af983e34bc2b843cd9bb040d3057b92ec42f6d97752345196c241ad08",
       "status": "converted",
@@ -7702,7 +7910,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 296,
+      "asset": 304,
       "path": "output/sprite-normalized/0301/Base_Aura/Normal",
       "source_sha256": "e457fc67a8267c05642e4073675986e3af73b6b52f0d2e58ced963d92b5f0a0d",
       "status": "converted",
@@ -7728,7 +7936,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 297,
+      "asset": 305,
       "path": "output/sprite-normalized/0301/Base_Aura/Shiny",
       "source_sha256": "86ee91ac367cff0ad2f3cb9072f1b80075d46eac32ca17d5ae76c487665d76bc",
       "status": "converted",
@@ -7754,7 +7962,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 298,
+      "asset": 306,
       "path": "SpriteCollab-master/SpriteCollab-master/sprite/0302/0001",
       "source_sha256": "beabb4f86b1343ad73a82af9cf34c4ee7115b661ef9746ff2b76062ec920bc10",
       "status": "converted",
@@ -7780,7 +7988,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 299,
+      "asset": 307,
       "path": "output/sprite-normalized/0302/0001-Mega_Aura/Shiny",
       "source_sha256": "62596a9b81e411de47867e3ef5ddde8a6aad227cbab579da057f88c3fa7dbc9f",
       "status": "converted",
@@ -7806,7 +8014,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 300,
+      "asset": 308,
       "path": "SpriteCollab-master/SpriteCollab-master/sprite/0303/0001",
       "source_sha256": "d52ee650612d75c3ea247246a8c38bc086aa8bc6332617d239781fe786f3c639",
       "status": "converted",
@@ -7832,7 +8040,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 301,
+      "asset": 309,
       "path": "output/sprite-normalized/0303/0001-Mega_Aura/Shiny",
       "source_sha256": "a5bd352cba23a9f6a07fb897b1aed7e39ae15839cc0a99f4e751d8cba783997e",
       "status": "converted",
@@ -7858,7 +8066,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 302,
+      "asset": 310,
       "path": "output/sprite-normalized/0306/Base_Aura/Normal",
       "source_sha256": "bb2bd9625a601a4b8322bb93ee25beadc2b787367b180a65188fb2a40e8c21f8",
       "status": "converted",
@@ -7884,7 +8092,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 303,
+      "asset": 311,
       "path": "output/sprite-normalized/0306/Base_Aura/Shiny",
       "source_sha256": "6bba6e568f2f783310e9344fac9a51c8ad9644c7fce9430d30ea73572d833ff9",
       "status": "converted",
@@ -7910,7 +8118,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 304,
+      "asset": 312,
       "path": "SpriteCollab-master/SpriteCollab-master/sprite/0308/0001",
       "source_sha256": "e2024b57470ee1bb428d4bd04d946c8dd365683408a2205b90e9fe4e367b8406",
       "status": "converted",
@@ -7936,7 +8144,33 @@
     },
     {
       "pipeline": 3,
-      "asset": 305,
+      "asset": 313,
+      "path": "true_patches/mega_evolve/.cache/phase5_fix/88350b522dcf534720805c20aa883b09f327224673d2a2f274ad2e99d7be085a/aura",
+      "source_sha256": "add1dafc2145d47acfb0f4858c84853ad2e6538c8454a528e6efeea27d6b5e6f",
+      "status": "converted",
+      "outputs": {
+        "monster.wan": "1cd4841a57c6919bd47720dd66dfd1edb94880687796fb518d053ccea5c02ae7",
+        "ground.wan": "3fb158e7bf16ec78331f5ff6082ddeee3f2084706db1074aa95cdb7082af6f81",
+        "attack.wan": "ecf480aeae2021e340373908eeecbc63f05073b154a591a0fb00fefaa9406c4c"
+      },
+      "sizes": {
+        "monster": 53632,
+        "ground": 481776,
+        "attack": 157880
+      },
+      "raw_sizes": {
+        "monster": 150400,
+        "ground": 481776,
+        "attack": 413792
+      },
+      "tile_slots": 7,
+      "file_pages": 294,
+      "palette_policy": "SkyTemple import16; transparent index0",
+      "cache": ".cache/phase5/add1dafc2145d47acfb0f4858c84853ad2e6538c8454a528e6efeea27d6b5e6f"
+    },
+    {
+      "pipeline": 3,
+      "asset": 314,
       "path": "SpriteCollab-master/SpriteCollab-master/sprite/0310/0001",
       "source_sha256": "3c1261b93bc059c064ee7ef3363298dd1f8f44e1786589b2fee18f01c136e41e",
       "status": "converted",
@@ -7962,7 +8196,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 306,
+      "asset": 315,
       "path": "output/sprite-normalized/0310/0001-Mega_Aura/Shiny",
       "source_sha256": "1ab37cc7be059127661ce5247f11410d723887117cd77621242424b3dacb71ec",
       "status": "converted",
@@ -7988,7 +8222,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 307,
+      "asset": 316,
       "path": "output/sprite-normalized/0311/Base_Aura/Normal",
       "source_sha256": "696d48e0660d902ee7b9556f848cc318fd1c9b6a5c8acf5ac333360d04fc5624",
       "status": "converted",
@@ -8014,7 +8248,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 308,
+      "asset": 317,
       "path": "output/sprite-normalized/0311/Base_Aura/Shiny",
       "source_sha256": "0c3c6bc42b05adc4ef38dc4acec7dcce237e15eee3c8bc17261797b9f459a0e6",
       "status": "converted",
@@ -8040,7 +8274,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 309,
+      "asset": 318,
       "path": "output/sprite-normalized/0312/Base_Aura/Normal",
       "source_sha256": "9296a39a23e1e919884f9842e697da5aa6976e60c0a4742f152c6bebc5b12629",
       "status": "converted",
@@ -8066,7 +8300,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 310,
+      "asset": 319,
       "path": "output/sprite-normalized/0312/Base_Aura/Shiny",
       "source_sha256": "80bc03992b75b741509076d53a547749dd1ff50bf637891a919ae7b6f2f9059a",
       "status": "converted",
@@ -8092,7 +8326,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 311,
+      "asset": 320,
       "path": "output/sprite-normalized/0313/Base_Aura/Normal",
       "source_sha256": "ea83208ef7d4985fa4678ef5486bc86abb7e9569f35cd3bd93bded38a209437f",
       "status": "converted",
@@ -8118,7 +8352,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 312,
+      "asset": 321,
       "path": "output/sprite-normalized/0313/Base_Aura/Shiny",
       "source_sha256": "507a3e804b5d51efc86076589bf4d7a8358e604d71663636f277a2994be75103",
       "status": "converted",
@@ -8144,7 +8378,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 313,
+      "asset": 322,
       "path": "output/sprite-normalized/0314/Base_Aura/Normal",
       "source_sha256": "b03cdec4e3123952afb472c74b026d7125ec0488a76addba3aadf2ffca1a89fc",
       "status": "converted",
@@ -8170,7 +8404,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 314,
+      "asset": 323,
       "path": "output/sprite-normalized/0314/Base_Aura/Shiny",
       "source_sha256": "d618bed1697cc92be4acf1d0616f952d5f8ed6237025b63e5a8b750307d32257",
       "status": "converted",
@@ -8196,7 +8430,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 315,
+      "asset": 324,
       "path": "output/sprite-normalized/0317/Base_Aura/Normal",
       "source_sha256": "71080aca5c2882a935178d53e318966edf44aecc91623bebf4cb0ed63e6084e9",
       "status": "converted",
@@ -8222,7 +8456,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 316,
+      "asset": 325,
       "path": "output/sprite-normalized/0317/Base_Aura/Shiny",
       "source_sha256": "5cb0f8b4d6fba2a341b32bb02d17e7aa7a4a0a5f56466ab3e6ce710ab5604095",
       "status": "converted",
@@ -8248,7 +8482,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 317,
+      "asset": 326,
       "path": "SpriteCollab-master/SpriteCollab-master/sprite/0319/0001",
       "source_sha256": "f5c9e980c7a1d8f242e46e05aa6e2a43f3813142214dcf9e8e439f1567908eb9",
       "status": "converted",
@@ -8274,7 +8508,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 318,
+      "asset": 327,
       "path": "output/sprite-normalized/0319/0001-Mega_Aura/Shiny",
       "source_sha256": "3225d6de772b988629cc4f375427119cc5350586994e640b1e7bad20296229cb",
       "status": "converted",
@@ -8300,7 +8534,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 319,
+      "asset": 328,
       "path": "output/sprite-normalized/0321/Base_Aura/Normal",
       "source_sha256": "a0fc6bd75741edd80e164dacf30307c7780819f669739cc51aca3fef9237e190",
       "status": "converted",
@@ -8326,7 +8560,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 320,
+      "asset": 329,
       "path": "output/sprite-normalized/0321/Base_Aura/Shiny",
       "source_sha256": "98283d3e0db01b73735abbfd3ec04d9ab96c945ab5fcf624b30800135611de00",
       "status": "converted",
@@ -8352,7 +8586,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 321,
+      "asset": 330,
       "path": "SpriteCollab-master/SpriteCollab-master/sprite/0323/0001",
       "source_sha256": "df7790f4f21c6ec94cec0c5f3508a1d5b0c61c059b8861892c3212f77ff0f3f1",
       "status": "converted",
@@ -8378,7 +8612,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 322,
+      "asset": 331,
       "path": "output/sprite-normalized/0323/0001-Mega_Aura/Shiny",
       "source_sha256": "de36b6b58ae8a62150bdc6c566a8c787b4ccb0758fd3ebb1a20e6ee22674c3bd",
       "status": "converted",
@@ -8404,7 +8638,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 323,
+      "asset": 332,
       "path": "output/sprite-normalized/0324/Base_Aura/Normal",
       "source_sha256": "f9f7823ad5273211e4fcfe8afd80f2c6b57556d6033958029f4ba46d0108146b",
       "status": "converted",
@@ -8430,7 +8664,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 324,
+      "asset": 333,
       "path": "output/sprite-normalized/0324/Base_Aura/Shiny",
       "source_sha256": "56c7f790d7dbb0b2a11c3fbbdc518515678043123d7d0913151f57ade155ef00",
       "status": "converted",
@@ -8456,7 +8690,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 325,
+      "asset": 334,
       "path": "output/sprite-normalized/0326/Base_Aura/Normal",
       "source_sha256": "55a118fa84d2919b08e17664d00071330cb3f8e3a086fcdd9da62a13475d5e30",
       "status": "converted",
@@ -8482,7 +8716,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 326,
+      "asset": 335,
       "path": "output/sprite-normalized/0326/Base_Aura/Shiny",
       "source_sha256": "1b0ca920b9c8089720733582cde72d205f433b9adc42f491bf8613958cb41b25",
       "status": "converted",
@@ -8508,7 +8742,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 327,
+      "asset": 336,
       "path": "output/sprite-normalized/0327/Base_Aura/Normal",
       "source_sha256": "80878bf5f04e586f540d924d0e43794e4a860ba189e9cc8dfef2112374e60fbb",
       "status": "converted",
@@ -8534,7 +8768,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 328,
+      "asset": 337,
       "path": "output/sprite-normalized/0327/Base_Aura/Shiny",
       "source_sha256": "2c26fb79191db354da8555f8685cf8c685bc5aadb3600abae748235dd1f6325e",
       "status": "converted",
@@ -8560,7 +8794,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 329,
+      "asset": 338,
       "path": "output/sprite-normalized/0330/Base_Aura/Normal",
       "source_sha256": "24498923ff20fa514edec3e7428ff8f7f5d3770eacb2f13b363bc2ab0d5bf5ec",
       "status": "converted",
@@ -8586,7 +8820,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 330,
+      "asset": 339,
       "path": "output/sprite-normalized/0330/Base_Aura/Shiny",
       "source_sha256": "082cdf251d43ce50c8fe844a6b923fc39efed2e90c4ea8b33adf6478329d8118",
       "status": "converted",
@@ -8612,7 +8846,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 331,
+      "asset": 340,
       "path": "output/sprite-normalized/0332/Base_Aura/Normal",
       "source_sha256": "1f06886199bfe6ca7791212cac26d68e462fa57eb8080344375b4551d66fa1e6",
       "status": "converted",
@@ -8638,7 +8872,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 332,
+      "asset": 341,
       "path": "output/sprite-normalized/0332/Base_Aura/Shiny",
       "source_sha256": "08c1cb2d502db1838d623ba17eb57aa8867e79719a46fe975ae94c7c8e32531c",
       "status": "converted",
@@ -8664,7 +8898,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 333,
+      "asset": 342,
       "path": "SpriteCollab-master/SpriteCollab-master/sprite/0334/0001",
       "source_sha256": "164df0f9f3dc465eb31a8b94aca1c2e46279516e6fad88cd363d924052377e46",
       "status": "converted",
@@ -8690,7 +8924,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 334,
+      "asset": 343,
       "path": "output/sprite-normalized/0334/0001-Mega_Aura/Shiny",
       "source_sha256": "72c134aa752ac885901de5d51da39f5d55dc0cb2b82ad2b40901ef65374ded2d",
       "status": "converted",
@@ -8716,7 +8950,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 335,
+      "asset": 344,
       "path": "output/sprite-normalized/0335/Base_Aura/Normal",
       "source_sha256": "9cee76340102eb2fb369a9a8a4ce8fa33be3027da7fb9959a16e8570a119723d",
       "status": "converted",
@@ -8742,7 +8976,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 336,
+      "asset": 345,
       "path": "output/sprite-normalized/0335/Base_Aura/Shiny",
       "source_sha256": "6794f3747cec455139ca5c874fbef359c7a8920aaaf0b2b6f759e1b119d60273",
       "status": "converted",
@@ -8768,7 +9002,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 337,
+      "asset": 346,
       "path": "output/sprite-normalized/0336/Base_Aura/Normal",
       "source_sha256": "7a1c6a789e2e1750e4673a3f6b043a9d38c9c4731203f57b3fb1352b8c7d6490",
       "status": "converted",
@@ -8794,7 +9028,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 338,
+      "asset": 347,
       "path": "output/sprite-normalized/0336/Base_Aura/Shiny",
       "source_sha256": "36f00fc2234b51f9f4ab416d4b353bf29ed756af398010f86460156f4749ed58",
       "status": "converted",
@@ -8820,7 +9054,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 339,
+      "asset": 348,
       "path": "output/sprite-normalized/0337/Base_Aura/Normal",
       "source_sha256": "b5ea4f1bed44b98de42b4c9adad6892651e3957e04a639fccefecd5639eb1918",
       "status": "converted",
@@ -8846,7 +9080,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 340,
+      "asset": 349,
       "path": "output/sprite-normalized/0337/Base_Aura/Shiny",
       "source_sha256": "074893217b20dea797ff8f67c21737b476a7c419d74825bcf034241eb25b8478",
       "status": "converted",
@@ -8872,7 +9106,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 341,
+      "asset": 350,
       "path": "output/sprite-normalized/0338/Base_Aura/Normal",
       "source_sha256": "ad465e3c8155d5c7c662a949199a3c1939cb450deca2c0460661597d6820585a",
       "status": "converted",
@@ -8898,7 +9132,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 342,
+      "asset": 351,
       "path": "output/sprite-normalized/0338/Base_Aura/Shiny",
       "source_sha256": "394a01cc5cb164abee79945bb2044e3c11d847bb140825758a7c2e1ab17dd49c",
       "status": "converted",
@@ -8924,7 +9158,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 343,
+      "asset": 352,
       "path": "output/sprite-normalized/0340/Base_Aura/Normal",
       "source_sha256": "ee1c37892757d69ca510e6910c9609127ed5a3faff7d669be3cc24ef755de8df",
       "status": "converted",
@@ -8950,7 +9184,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 344,
+      "asset": 353,
       "path": "output/sprite-normalized/0340/Base_Aura/Shiny",
       "source_sha256": "d72e930e235e53b537dc5a048075f2b95598389d6f885e419290e237327da8d3",
       "status": "converted",
@@ -8976,7 +9210,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 345,
+      "asset": 354,
       "path": "output/sprite-normalized/0342/Base_Aura/Normal",
       "source_sha256": "ee5951f2b1bd48fda8c5e414064de7b043fda32e433f512cf78c543874c00314",
       "status": "converted",
@@ -9002,7 +9236,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 346,
+      "asset": 355,
       "path": "output/sprite-normalized/0342/Base_Aura/Shiny",
       "source_sha256": "9e16e5e8f6c0ce1f38d70e825895bd34a368f7981b769e5528a49ba05cf6bcb5",
       "status": "converted",
@@ -9028,7 +9262,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 347,
+      "asset": 356,
       "path": "output/sprite-normalized/0344/Base_Aura/Normal",
       "source_sha256": "298182c481e9ec68192498546910d00ef14cd382774ea3634aeabbf0e324098a",
       "status": "converted",
@@ -9054,7 +9288,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 348,
+      "asset": 357,
       "path": "output/sprite-normalized/0344/Base_Aura/Shiny",
       "source_sha256": "c2d16d0a27f56c473cfa222b35e7d02303fe808550b8048730fdd2b20bc069e7",
       "status": "converted",
@@ -9080,7 +9314,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 349,
+      "asset": 358,
       "path": "output/sprite-normalized/0346/Base_Aura/Normal",
       "source_sha256": "5ced0c46c2871ca1ab647225f938a8dfcc4ca298bcca4b8b4db89d3800965c4d",
       "status": "converted",
@@ -9106,7 +9340,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 350,
+      "asset": 359,
       "path": "output/sprite-normalized/0346/Base_Aura/Shiny",
       "source_sha256": "f31a4c8271cda0088739e441687082fd9bf39d5d521a7a8b1b7951e41cc54a17",
       "status": "converted",
@@ -9132,7 +9366,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 351,
+      "asset": 360,
       "path": "output/sprite-normalized/0348/Base_Aura/Normal",
       "source_sha256": "685a2871afc48caf8b07f3172c97c8967ac6ec8e26a8d4de41c583ea31a3099b",
       "status": "converted",
@@ -9158,7 +9392,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 352,
+      "asset": 361,
       "path": "output/sprite-normalized/0348/Base_Aura/Shiny",
       "source_sha256": "7b14a112d4f87ad45154ffcc9d44d3ce5d429205eb462528b442b50e2c89f7fb",
       "status": "converted",
@@ -9184,7 +9418,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 353,
+      "asset": 362,
       "path": "output/sprite-normalized/0350/Base_Aura/Normal",
       "source_sha256": "25d328211b818651ffdd6a5d69ef87f06e9f5f5aac2384771d99cf32af997031",
       "status": "converted",
@@ -9210,7 +9444,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 354,
+      "asset": 363,
       "path": "output/sprite-normalized/0350/Base_Aura/Shiny",
       "source_sha256": "f510c507d3e5e6f98f9e8f83b675df9ecaa5046c0dbb06b48abf5c22102f5692",
       "status": "converted",
@@ -9236,7 +9470,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 355,
+      "asset": 364,
       "path": "output/sprite-normalized/0351/Base_Aura/Normal",
       "source_sha256": "4d0c71606bcb026233d829d350fb5737f05789dee1595e19342d5d85aaa57945",
       "status": "converted",
@@ -9262,7 +9496,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 356,
+      "asset": 365,
       "path": "output/sprite-normalized/0351/Base_Aura/Shiny",
       "source_sha256": "dcb841c3f9c3d273833d4df6dd7cb5c6fe538f0359114e3cd634722a5954304e",
       "status": "converted",
@@ -9288,7 +9522,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 357,
+      "asset": 366,
       "path": "output/sprite-normalized/0352/Base_Aura/Normal",
       "source_sha256": "91d739d7fdf2d515cfdc7644e1e124e512e34f05ab5f9ea78fbbdfe8a6b50bea",
       "status": "converted",
@@ -9314,7 +9548,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 358,
+      "asset": 367,
       "path": "output/sprite-normalized/0352/Base_Aura/Shiny",
       "source_sha256": "89fd8677737068d84284503e4f0f2f6ab342fedfe3ffa271c0e7f132de627c9d",
       "status": "converted",
@@ -9340,7 +9574,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 359,
+      "asset": 368,
       "path": "SpriteCollab-master/SpriteCollab-master/sprite/0354/0001",
       "source_sha256": "8e176c52ced9eb5bea73a648b6bb5af237ac52c0f3bbb99a9a2d6b3dacf0b167",
       "status": "converted",
@@ -9366,7 +9600,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 360,
+      "asset": 369,
       "path": "output/sprite-normalized/0354/0001-Mega_Aura/Shiny",
       "source_sha256": "25f4f346f169f9f60455e0fe46149b5d017983c41b012120b35d4a862fb8e271",
       "status": "converted",
@@ -9392,7 +9626,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 361,
+      "asset": 370,
       "path": "output/sprite-normalized/0357/Base_Aura/Normal",
       "source_sha256": "a70ac81beb91e7692c2083259e11e850f1d9f9847ddd22c31f7d71ccd1daa2d7",
       "status": "converted",
@@ -9418,7 +9652,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 362,
+      "asset": 371,
       "path": "output/sprite-normalized/0357/Base_Aura/Shiny",
       "source_sha256": "ffb05191c1b60a5be4d5cc8d8fdc87b1dbe320894a66b560f59778ad57539390",
       "status": "converted",
@@ -9444,7 +9678,59 @@
     },
     {
       "pipeline": 3,
-      "asset": 363,
+      "asset": 372,
+      "path": "true_patches/mega_evolve/.cache/phase5_fix/c228d01e0575a0887dd07d5ef2595aa7cbda44fe0073da921063873a52c5f7ad/aura",
+      "source_sha256": "2289faf97bfd19ea704682318841f42d27a884e5810c456f49dcc5a8d2d3242d",
+      "status": "converted",
+      "outputs": {
+        "monster.wan": "aae516ba1b94e6de911f7f64ca0c636df9d8f13e14b6be549f5d8ec0b2f6d4bf",
+        "ground.wan": "f3f6973c9a0039654f8f15987275033e9882c15d70cb88ec21d71ed798853e04",
+        "attack.wan": "3df8a844fd19aa65509c57ea7ac8d8b7746115e6e02d6c354129c90959e908c3"
+      },
+      "sizes": {
+        "monster": 38324,
+        "ground": 374416,
+        "attack": 105452
+      },
+      "raw_sizes": {
+        "monster": 109200,
+        "ground": 374416,
+        "attack": 309552
+      },
+      "tile_slots": 6,
+      "file_pages": 214,
+      "palette_policy": "SkyTemple import16; transparent index0",
+      "cache": ".cache/phase5/2289faf97bfd19ea704682318841f42d27a884e5810c456f49dcc5a8d2d3242d"
+    },
+    {
+      "pipeline": 3,
+      "asset": 373,
+      "path": "true_patches/mega_evolve/.cache/phase5_fix/1eafc6c40b0d362586cf30366d38f26f37d4beca22f804dfff7e22f40b8de2a7/aura",
+      "source_sha256": "0bd77b00f3da15912cc0302273e1614b99a5a44a577222298bbb1b7036f6c57e",
+      "status": "converted",
+      "outputs": {
+        "monster.wan": "015f11727bfa62fe558a528d3a0cdb46caef3ced99cc823ad3584d728b888663",
+        "ground.wan": "403c946f010acd2a02da29875d82ae6a8f2f7e88388f006478cafdaf7d46986a",
+        "attack.wan": "7740d336ec56f45c27a72d023e6db5f48a94c09c4dcf5529084c70b329d33f70"
+      },
+      "sizes": {
+        "monster": 38324,
+        "ground": 374416,
+        "attack": 105356
+      },
+      "raw_sizes": {
+        "monster": 109200,
+        "ground": 374416,
+        "attack": 309552
+      },
+      "tile_slots": 6,
+      "file_pages": 214,
+      "palette_policy": "SkyTemple import16; transparent index0",
+      "cache": ".cache/phase5/0bd77b00f3da15912cc0302273e1614b99a5a44a577222298bbb1b7036f6c57e"
+    },
+    {
+      "pipeline": 3,
+      "asset": 374,
       "path": "SpriteCollab-master/SpriteCollab-master/sprite/0359/0001",
       "source_sha256": "1f019fb02017afca8024522eb1fe2f28f15aedd1a4f0692149526af40599358b",
       "status": "converted",
@@ -9470,7 +9756,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 364,
+      "asset": 375,
       "path": "output/sprite-normalized/0359/0001-Mega_Aura/Shiny",
       "source_sha256": "617deef14a094c4661b4296f6d88209deb154372cea200071ca3cbefd2ef25ce",
       "status": "converted",
@@ -9496,7 +9782,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 365,
+      "asset": 376,
       "path": "output/sprite-normalized/0359/Base_Aura/Normal",
       "source_sha256": "c72690b4fe7d612e1f3fa7a46616c850c7b9dff36d756b6d740e567ceb5c3834",
       "status": "converted",
@@ -9522,7 +9808,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 366,
+      "asset": 377,
       "path": "output/sprite-normalized/0359/Base_Aura/Shiny",
       "source_sha256": "7fad871dd0c31cd1e70f6de9e8e5fc14cc854cf6fc6873bc175948854385a7dd",
       "status": "converted",
@@ -9548,7 +9834,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 367,
+      "asset": 378,
       "path": "SpriteCollab-master/SpriteCollab-master/sprite/0362/0001",
       "source_sha256": "82823219cc2980119b7676e2ea758ec776589e259985c3502c45062da367d479",
       "status": "converted",
@@ -9574,7 +9860,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 368,
+      "asset": 379,
       "path": "output/sprite-normalized/0362/0001-Mega_Aura/Shiny",
       "source_sha256": "63c90c75b442c5c35e89fc9c20c10568935c1f61cf37dc590e86ce0eb2162329",
       "status": "converted",
@@ -9600,7 +9886,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 369,
+      "asset": 380,
       "path": "output/sprite-normalized/0365/Base_Aura/Normal",
       "source_sha256": "2a9eedb2aff2957e2029b8c687be7be040d34bd2c6d1a5e3e9a7c9aab7de4f7e",
       "status": "converted",
@@ -9626,7 +9912,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 370,
+      "asset": 381,
       "path": "output/sprite-normalized/0365/Base_Aura/Shiny",
       "source_sha256": "ad0665b42771a4a118e512bdbb40456d394e12011f79c82be4a92f3a66158283",
       "status": "converted",
@@ -9652,7 +9938,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 371,
+      "asset": 382,
       "path": "output/sprite-normalized/0367/Base_Aura/Normal",
       "source_sha256": "edab8a15c8567c6a4fec0f7748abb6c65129f8f6fd0a78d5d2206046d7320fa1",
       "status": "converted",
@@ -9678,7 +9964,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 372,
+      "asset": 383,
       "path": "output/sprite-normalized/0367/Base_Aura/Shiny",
       "source_sha256": "8d8a2c28c71977378ac006ab435ddf683265ac886a6751f12eea470ebc0b9462",
       "status": "converted",
@@ -9704,7 +9990,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 373,
+      "asset": 384,
       "path": "output/sprite-normalized/0368/Base_Aura/Normal",
       "source_sha256": "d0d1814bfbe4390891468d370a19800731ef3bb49a6266881332efb3b845abd6",
       "status": "converted",
@@ -9730,7 +10016,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 374,
+      "asset": 385,
       "path": "output/sprite-normalized/0368/Base_Aura/Shiny",
       "source_sha256": "209d73406b53bc0367e7a83e2fe940e7db2df08ab35b35b557b6bfed91c57563",
       "status": "converted",
@@ -9756,7 +10042,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 375,
+      "asset": 386,
       "path": "output/sprite-normalized/0369/Base_Aura/Normal",
       "source_sha256": "4fc74ae193501c8181d9610f797c2f4cd04304c4500647c1c8f18bf8e0eb56bc",
       "status": "converted",
@@ -9782,7 +10068,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 376,
+      "asset": 387,
       "path": "output/sprite-normalized/0369/Base_Aura/Shiny",
       "source_sha256": "c91e0c5bd12bde7e0bb4742123db6c46b5f40a6328dbfde2bced7a1f8018a9f2",
       "status": "converted",
@@ -9808,7 +10094,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 377,
+      "asset": 388,
       "path": "output/sprite-normalized/0370/Base_Aura/Normal",
       "source_sha256": "c8d477597095f843c95864605be77a7063b1897a12fdf6be6b2f790fc1006971",
       "status": "converted",
@@ -9834,7 +10120,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 378,
+      "asset": 389,
       "path": "output/sprite-normalized/0370/Base_Aura/Shiny",
       "source_sha256": "cffe8e8cf5ed81e4dcea89cb8fecbfe14430cdf6c58162c260060a64298c17a3",
       "status": "converted",
@@ -9860,7 +10146,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 379,
+      "asset": 390,
       "path": "output/sprite-normalized/0373/Base_Aura/Normal",
       "source_sha256": "ca64bd6236b2b5778edc446d9d5c63f3ac2f369658a99487405ab4ad0dbfbbd5",
       "status": "converted",
@@ -9886,7 +10172,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 380,
+      "asset": 391,
       "path": "output/sprite-normalized/0373/Base_Aura/Shiny",
       "source_sha256": "2841b5c44d0cce0fcbf8ecea530f742e344d5b25adb9da89477019bd954451a6",
       "status": "converted",
@@ -9912,7 +10198,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 381,
+      "asset": 392,
       "path": "output/sprite-normalized/0376/Base_Aura/Normal",
       "source_sha256": "e8ddd2c2ae79b9ee62159a5a26ddd2ae5a4eacf102f7645f62a8ef2157c48cc3",
       "status": "converted",
@@ -9938,7 +10224,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 382,
+      "asset": 393,
       "path": "output/sprite-normalized/0376/Base_Aura/Shiny",
       "source_sha256": "82dee7b5d0e433773b1b9d222230fb3e18bbe27b3be7b6b0cb5406adda097463",
       "status": "converted",
@@ -9964,7 +10250,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 383,
+      "asset": 394,
       "path": "output/sprite-normalized/0377/Base_Aura/Normal",
       "source_sha256": "2b55b48581ac7596c8e1eeae71d7afe20a0e1f1db3fcf0fdf033d1b82f433537",
       "status": "converted",
@@ -9990,7 +10276,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 384,
+      "asset": 395,
       "path": "output/sprite-normalized/0377/Base_Aura/Shiny",
       "source_sha256": "8911098ac2a18f11ce502ff553becdf084ee0c5cc0b2bc1eb6c04b74716fee72",
       "status": "converted",
@@ -10016,7 +10302,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 385,
+      "asset": 396,
       "path": "output/sprite-normalized/0378/Base_Aura/Normal",
       "source_sha256": "75a12a61c5d90a549240fd447ced6f28be5b931bd1a6cde2558210d56a5823d6",
       "status": "converted",
@@ -10042,7 +10328,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 386,
+      "asset": 397,
       "path": "output/sprite-normalized/0378/Base_Aura/Shiny",
       "source_sha256": "80f59756d4d0434164a68f7cd2c75e7fab3dfc4c3ae95657c8638429be1c1965",
       "status": "converted",
@@ -10068,7 +10354,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 387,
+      "asset": 398,
       "path": "output/sprite-normalized/0379/Base_Aura/Normal",
       "source_sha256": "0ff6bee23efcab4dec3e31b00832d457bdb7c67e3d649aa961796848a8316964",
       "status": "converted",
@@ -10094,7 +10380,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 388,
+      "asset": 399,
       "path": "output/sprite-normalized/0379/Base_Aura/Shiny",
       "source_sha256": "4d5a616e37aa96b7b209d44f6320af5b8e37808e41ced7ea91412c2e0735fc22",
       "status": "converted",
@@ -10120,7 +10406,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 389,
+      "asset": 400,
       "path": "SpriteCollab-master/SpriteCollab-master/sprite/0380/0001",
       "source_sha256": "71f147ff917a81299e2ca1d0a539ca5e6a3650105f18e2089c48ac67b9d68fda",
       "status": "converted",
@@ -10146,7 +10432,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 390,
+      "asset": 401,
       "path": "output/sprite-normalized/0380/0001-Mega_Aura/Shiny",
       "source_sha256": "2691624f362d0fb8a621d30e8da7cf6bcad14c569247e6cd82b1d50d5780d091",
       "status": "converted",
@@ -10172,7 +10458,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 391,
+      "asset": 402,
       "path": "SpriteCollab-master/SpriteCollab-master/sprite/0381/0001",
       "source_sha256": "a772dd75668d27732f4ea2a60d04bbce0ed40751d591f2d91f87633426b619e9",
       "status": "converted",
@@ -10198,7 +10484,33 @@
     },
     {
       "pipeline": 3,
-      "asset": 392,
+      "asset": 403,
+      "path": "true_patches/mega_evolve/.cache/phase5_fix/907223f11edc9aeacb456583f65ad7f146b7f96528ea0cf5068796f13a8f5225/aura",
+      "source_sha256": "52ee2d65363abf8181ebb4527cd5146dc604f9bad544eff4a872256e8b187cbb",
+      "status": "converted",
+      "outputs": {
+        "monster.wan": "fcbc8da23bd43e72fd342c0c9d18b9f7955c9bf675e6e2d03a61ff60f155c3bd",
+        "ground.wan": "fbf91176a359dbc47c86ebd514d01bcae415de7e8bddd6122fca99f4193dc10a",
+        "attack.wan": "400a90ecaafa8a9fc2d07d57ef2a7d96a71de6d23de48752ebad46b79ef96b0c"
+      },
+      "sizes": {
+        "monster": 128356,
+        "ground": 1102592,
+        "attack": 363740
+      },
+      "raw_sizes": {
+        "monster": 339680,
+        "ground": 1102592,
+        "attack": 939488
+      },
+      "tile_slots": 15,
+      "file_pages": 664,
+      "palette_policy": "SkyTemple import16; transparent index0",
+      "cache": ".cache/phase5/52ee2d65363abf8181ebb4527cd5146dc604f9bad544eff4a872256e8b187cbb"
+    },
+    {
+      "pipeline": 3,
+      "asset": 404,
       "path": "SpriteCollab-master/SpriteCollab-master/sprite/0382/0001",
       "source_sha256": "0ae571283e93b16cbe5a491af73bb0cc60a6f512b76cad82228725281b0e1801",
       "status": "converted",
@@ -10224,7 +10536,33 @@
     },
     {
       "pipeline": 3,
-      "asset": 393,
+      "asset": 405,
+      "path": "true_patches/mega_evolve/.cache/phase5_fix/ebcc0a6b23fb21994f66853537fc530a44106f0960d9f9cc50c4e08cecf05a9b/aura",
+      "source_sha256": "60d77bcf9207e57d270dcf0345221a8d1b558bc83ea209f70f9031fced7ffccd",
+      "status": "converted",
+      "outputs": {
+        "monster.wan": "845f188039a0a477c0c8f73614894edd3c5bc2b2d24386e0840aea7fed7fd6b7",
+        "ground.wan": "00411e14fcae10e2b77c22e432a6603c66017a228c9279b6c15a46dcf704b4bf",
+        "attack.wan": "e208abcaedb4dd2867a654d3441516a640a3d40adaf6b95f371498276fbfb08c"
+      },
+      "sizes": {
+        "monster": 135480,
+        "ground": 1112240,
+        "attack": 423400
+      },
+      "raw_sizes": {
+        "monster": 316176,
+        "ground": 1112240,
+        "attack": 973968
+      },
+      "tile_slots": 17,
+      "file_pages": 618,
+      "palette_policy": "SkyTemple import16; transparent index0",
+      "cache": ".cache/phase5/60d77bcf9207e57d270dcf0345221a8d1b558bc83ea209f70f9031fced7ffccd"
+    },
+    {
+      "pipeline": 3,
+      "asset": 406,
       "path": "SpriteCollab-master/SpriteCollab-master/sprite/0383/0001",
       "source_sha256": "73e9e1ccc4b8c158e672bc4c8fae0667b645dfaf4fdbea69a5bff5b52da3897c",
       "status": "converted",
@@ -10250,7 +10588,33 @@
     },
     {
       "pipeline": 3,
-      "asset": 394,
+      "asset": 407,
+      "path": "true_patches/mega_evolve/.cache/phase5_fix/ace6dfc54ef4e9b755d7c296dc56a51efdb26d776b013c019f40cea104a4e9ed/aura",
+      "source_sha256": "7b54b85595bc064511470fa45c76fd793c03747943744c9654eeb436da4b212e",
+      "status": "converted",
+      "outputs": {
+        "monster.wan": "13a4334cf78edbf58590e2f79bc0a37686d5513ee01f4f7eedacfc6558bceaa5",
+        "ground.wan": "ef361acb099c90f0d9df9b0108d445bfb185f61c6f880a17162851802dfe871d",
+        "attack.wan": "46651cfe946afc83fe689cbc9e0bc57387abdc2dcad6e560637859418d6e3d2a"
+      },
+      "sizes": {
+        "monster": 130540,
+        "ground": 1154352,
+        "attack": 436000
+      },
+      "raw_sizes": {
+        "monster": 347376,
+        "ground": 1154352,
+        "attack": 976208
+      },
+      "tile_slots": 16,
+      "file_pages": 679,
+      "palette_policy": "SkyTemple import16; transparent index0",
+      "cache": ".cache/phase5/7b54b85595bc064511470fa45c76fd793c03747943744c9654eeb436da4b212e"
+    },
+    {
+      "pipeline": 3,
+      "asset": 408,
       "path": "SpriteCollab-master/SpriteCollab-master/sprite/0384/0001",
       "source_sha256": "7eeead604d50b4d3dfd1e2c87ab15fa170353f18c906df978a7cad7df266f5ee",
       "status": "converted",
@@ -10276,7 +10640,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 395,
+      "asset": 409,
       "path": "output/sprite-normalized/0384/0001-Mega_Aura/Shiny",
       "source_sha256": "a4d72f99565e954c9c08679163e0ab80521789a3119c6db295520fc1bb1f3ccf",
       "status": "converted",
@@ -10302,7 +10666,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 396,
+      "asset": 410,
       "path": "output/sprite-normalized/0385/Base_Aura/Normal",
       "source_sha256": "286856a7b4e851d94f801d604917a9fd35029abb2d1808b7576bdb986a04e822",
       "status": "converted",
@@ -10328,7 +10692,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 397,
+      "asset": 411,
       "path": "output/sprite-normalized/0385/Base_Aura/Shiny",
       "source_sha256": "ecc02593d0a783539c1b0d6a161028f22ebe5ed2534851bd8a1663da42cbea32",
       "status": "converted",
@@ -10354,7 +10718,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 398,
+      "asset": 412,
       "path": "output/sprite-normalized/0386/Base_Aura/Normal",
       "source_sha256": "c68f77403285511f8b1ee23b66af5e1e1f6e23e9c91ca6e5d267f1a1278cf2b3",
       "status": "converted",
@@ -10380,7 +10744,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 399,
+      "asset": 413,
       "path": "output/sprite-normalized/0386/Base_Aura/Shiny",
       "source_sha256": "1ce55fb33dd92c3b5b74be9cada26278f3c48d15c5675be1efebec5805ffe241",
       "status": "converted",
@@ -10406,7 +10770,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 400,
+      "asset": 414,
       "path": "output/sprite-normalized/0389/Base_Aura/Normal",
       "source_sha256": "fe958b8bc79456bd2bc7a165e958a16495101e3142fb38e55eba7eff9d5755fa",
       "status": "converted",
@@ -10432,7 +10796,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 401,
+      "asset": 415,
       "path": "output/sprite-normalized/0389/Base_Aura/Shiny",
       "source_sha256": "59ac82f61a4abd55168c9396ef6554e838a83cb2051ded0400541d89bebeb4b9",
       "status": "converted",
@@ -10458,7 +10822,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 402,
+      "asset": 416,
       "path": "output/sprite-normalized/0392/Base_Aura/Normal",
       "source_sha256": "7e58ae04eaadd16a5f402759db95ea4f6cba26df5508172b5cf2f5a2ba4d39e4",
       "status": "converted",
@@ -10484,7 +10848,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 403,
+      "asset": 417,
       "path": "output/sprite-normalized/0392/Base_Aura/Shiny",
       "source_sha256": "a09215fa6f94bc773a7e27f61e00bd957c881bb9fa219971a239f325543c5231",
       "status": "converted",
@@ -10510,7 +10874,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 404,
+      "asset": 418,
       "path": "output/sprite-normalized/0395/Base_Aura/Normal",
       "source_sha256": "aef45d67e06ed23a364697a11a07410c2548e7ad7ed0e4f72fb4355c048512ca",
       "status": "converted",
@@ -10536,7 +10900,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 405,
+      "asset": 419,
       "path": "output/sprite-normalized/0395/Base_Aura/Shiny",
       "source_sha256": "d3fcf35f07d6ad5c6d788a7525d926b3e8f8ee54ecf2a9368997a1b7ab35fe61",
       "status": "converted",
@@ -10562,7 +10926,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 406,
+      "asset": 420,
       "path": "output/sprite-normalized/0398/Base_Aura/Normal",
       "source_sha256": "64aa462086f375d70fc81ab9006357a82eddacbb40c30980c3a2dc90a416eede",
       "status": "converted",
@@ -10588,7 +10952,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 407,
+      "asset": 421,
       "path": "output/sprite-normalized/0398/Base_Aura/Shiny",
       "source_sha256": "00236cdc23dd0ed41064bc495acc0566ce794916afcbb6879807fa88e9cb9c0e",
       "status": "converted",
@@ -10614,7 +10978,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 408,
+      "asset": 422,
       "path": "output/sprite-normalized/0400/Base_Aura/Normal",
       "source_sha256": "b7d99315940951f641c6fa0e45081401e537682368579742c664e20696107fa7",
       "status": "converted",
@@ -10640,7 +11004,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 409,
+      "asset": 423,
       "path": "output/sprite-normalized/0400/Base_Aura/Shiny",
       "source_sha256": "210438442857493f11d809eb99066d722603eb22caf6c531193ced8d0160f1f5",
       "status": "converted",
@@ -10666,7 +11030,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 410,
+      "asset": 424,
       "path": "output/sprite-normalized/0402/Base_Aura/Normal",
       "source_sha256": "68655a3877dccb78a2829a33bebbe8e0e314763cc5798831e545e256103a5067",
       "status": "converted",
@@ -10692,7 +11056,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 411,
+      "asset": 425,
       "path": "output/sprite-normalized/0402/Base_Aura/Shiny",
       "source_sha256": "3f3f10dc572cf0750dd4c1353942141b46d060707611d8e73bec5a861cded5f1",
       "status": "converted",
@@ -10718,7 +11082,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 412,
+      "asset": 426,
       "path": "output/sprite-normalized/0405/Base_Aura/Normal",
       "source_sha256": "119bc0e6859a1e47df2247490e14d198da028a25e4dd371aa726b9a6d51b848b",
       "status": "converted",
@@ -10744,7 +11108,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 413,
+      "asset": 427,
       "path": "output/sprite-normalized/0405/Base_Aura/Shiny",
       "source_sha256": "dfe44b29998b7f17fa5ef321b600023140cab96ecae39dece13a5a9aa6c7c663",
       "status": "converted",
@@ -10770,7 +11134,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 414,
+      "asset": 428,
       "path": "output/sprite-normalized/0407/Base_Aura/Normal",
       "source_sha256": "99450e3f61198b0b1ef8bc882af0401993d5c766a8af3c2b12e378ab005c311f",
       "status": "converted",
@@ -10796,7 +11160,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 415,
+      "asset": 429,
       "path": "output/sprite-normalized/0407/Base_Aura/Shiny",
       "source_sha256": "56d80a78b3321fe0240a6fb3c94c1b309ed84d024402901a0f3a2bc9dd512afa",
       "status": "converted",
@@ -10822,7 +11186,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 416,
+      "asset": 430,
       "path": "output/sprite-normalized/0409/Base_Aura/Normal",
       "source_sha256": "aa9027c81aae9e5bcc97aa2a81ce8295d6c239f461ba47568cdaff1a240c6015",
       "status": "converted",
@@ -10848,7 +11212,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 417,
+      "asset": 431,
       "path": "output/sprite-normalized/0409/Base_Aura/Shiny",
       "source_sha256": "d203785563df9c1f72052b9ee6ddc9785f0f72ac7514aa9f9579072908c83726",
       "status": "converted",
@@ -10874,7 +11238,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 418,
+      "asset": 432,
       "path": "output/sprite-normalized/0411/Base_Aura/Normal",
       "source_sha256": "b22ccc956efe82ac97a397938debd20a1a84bb28f5db38dc44eededfc13f35fc",
       "status": "converted",
@@ -10900,7 +11264,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 419,
+      "asset": 433,
       "path": "output/sprite-normalized/0411/Base_Aura/Shiny",
       "source_sha256": "1bf537579b51eac69666dd5acd6738cf415246df14a6da9a396c1ce52879dc93",
       "status": "converted",
@@ -10926,7 +11290,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 420,
+      "asset": 434,
       "path": "output/sprite-normalized/0413/Base_Aura/Normal",
       "source_sha256": "4230cefb0703d5d190a9f7e8aef4c9c8c534a79a3617ec3fc990716f1c406bfb",
       "status": "converted",
@@ -10952,7 +11316,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 421,
+      "asset": 435,
       "path": "output/sprite-normalized/0413/Base_Aura/Shiny",
       "source_sha256": "cc51a1586f9e26f39594a3362f804af19cccc17a8a187250fc2308a39a741db3",
       "status": "converted",
@@ -10978,7 +11342,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 422,
+      "asset": 436,
       "path": "output/sprite-normalized/0414/Base_Aura/Normal",
       "source_sha256": "ebb131a13437045c3412d9b67a8f5b488023d437d1522536be4587462322240d",
       "status": "converted",
@@ -11004,7 +11368,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 423,
+      "asset": 437,
       "path": "output/sprite-normalized/0414/Base_Aura/Shiny",
       "source_sha256": "a8527b73c0f416027308054ffbbd7eeda7fc9d172978be24f314c7aa798b08e8",
       "status": "converted",
@@ -11030,7 +11394,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 424,
+      "asset": 438,
       "path": "output/sprite-normalized/0416/Base_Aura/Normal",
       "source_sha256": "33fcedb0b7491098b9f4ca97eadfdfe21387524b393d135187ac36dce52d725b",
       "status": "converted",
@@ -11056,7 +11420,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 425,
+      "asset": 439,
       "path": "output/sprite-normalized/0416/Base_Aura/Shiny",
       "source_sha256": "1bf86148b607396575e46a06b23bd31fe614aff53ca148759174e8e713f0b92b",
       "status": "converted",
@@ -11082,7 +11446,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 426,
+      "asset": 440,
       "path": "output/sprite-normalized/0417/Base_Aura/Normal",
       "source_sha256": "a6491b91dfc55c9139ac877ea2164eca0de5e0c5608fd56e2c76317d054c149d",
       "status": "converted",
@@ -11108,7 +11472,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 427,
+      "asset": 441,
       "path": "output/sprite-normalized/0417/Base_Aura/Shiny",
       "source_sha256": "d032a4b35c0c532d8fec75cae8bb1bdf29d2a78d22b57ed5d346b4c7bebea06b",
       "status": "converted",
@@ -11134,7 +11498,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 428,
+      "asset": 442,
       "path": "output/sprite-normalized/0419/Base_Aura/Normal",
       "source_sha256": "453444b1100c545026930739279ad1b941ec537717b99d6243e32ab3c71f67c6",
       "status": "converted",
@@ -11160,7 +11524,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 429,
+      "asset": 443,
       "path": "output/sprite-normalized/0419/Base_Aura/Shiny",
       "source_sha256": "c2df8ba50d6b64982ce7d8eec097d905e539925729a6bdd82d6339b7902535f7",
       "status": "converted",
@@ -11186,7 +11550,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 430,
+      "asset": 444,
       "path": "output/sprite-normalized/0421/Base_Aura/Normal",
       "source_sha256": "c27d2752e0c6580d3db611a6fffd930ea65f852edb163a625f4b5ca4966c7d84",
       "status": "converted",
@@ -11212,7 +11576,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 431,
+      "asset": 445,
       "path": "output/sprite-normalized/0421/Base_Aura/Shiny",
       "source_sha256": "1e09f169f4eb5bde16cedcfb5b97d10229c6f70d9f2374a014490927d03538c8",
       "status": "converted",
@@ -11238,7 +11602,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 432,
+      "asset": 446,
       "path": "output/sprite-normalized/0423/Base_Aura/Normal",
       "source_sha256": "d47155fc2ce25f1b0fea0696b68d964f1c2415168dd8f7949943ccb375f0a4e9",
       "status": "converted",
@@ -11264,7 +11628,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 433,
+      "asset": 447,
       "path": "output/sprite-normalized/0423/Base_Aura/Shiny",
       "source_sha256": "4871a539a412b7ac65bab5fa5c39a8e6f3ea8a697ed579e73d69df4dd386b709",
       "status": "converted",
@@ -11290,7 +11654,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 434,
+      "asset": 448,
       "path": "output/sprite-normalized/0424/Base_Aura/Normal",
       "source_sha256": "dc1fc3860e6d6c50ee588cdd56f10a472b6e54259bf47b41ffd08c4a0d68db01",
       "status": "converted",
@@ -11316,7 +11680,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 435,
+      "asset": 449,
       "path": "output/sprite-normalized/0424/Base_Aura/Shiny",
       "source_sha256": "ae68fff695e8c2fceef7c97ae33905696dbe63aebfaee9dd0fd368dd10ca61e6",
       "status": "converted",
@@ -11342,7 +11706,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 436,
+      "asset": 450,
       "path": "output/sprite-normalized/0426/Base_Aura/Normal",
       "source_sha256": "35b3c3a7d7ca47a8cbacbadec99c43356ce694217909e7d83416581e7ce534bc",
       "status": "converted",
@@ -11368,7 +11732,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 437,
+      "asset": 451,
       "path": "output/sprite-normalized/0426/Base_Aura/Shiny",
       "source_sha256": "3fd158819a316a66983216b6b23f581c68a6482ce8c9cbd86fff89129e073790",
       "status": "converted",
@@ -11394,7 +11758,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 438,
+      "asset": 452,
       "path": "SpriteCollab-master/SpriteCollab-master/sprite/0428/0001",
       "source_sha256": "903d44f9d5c82220775d36138d1fc87c6e64d69dd91fd0c70bb7a8a581c8074e",
       "status": "converted",
@@ -11420,7 +11784,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 439,
+      "asset": 453,
       "path": "output/sprite-normalized/0428/0001-Mega_Aura/Shiny",
       "source_sha256": "af783e7ce56ed5b376563edadfe47470a4973056d5c9f759462dc4ef9fe9bb30",
       "status": "converted",
@@ -11446,7 +11810,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 440,
+      "asset": 454,
       "path": "output/sprite-normalized/0429/Base_Aura/Normal",
       "source_sha256": "4c86eb29ce0d6307305f8ab1ae54158f22414fd47a3bd8a88663ce0a2a8e54e0",
       "status": "converted",
@@ -11472,7 +11836,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 441,
+      "asset": 455,
       "path": "output/sprite-normalized/0429/Base_Aura/Shiny",
       "source_sha256": "fb9334f92917da1c35029f73ebe5bb42e8c81239a2f2bfefef15e8ebef923e02",
       "status": "converted",
@@ -11498,7 +11862,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 442,
+      "asset": 456,
       "path": "output/sprite-normalized/0430/Base_Aura/Normal",
       "source_sha256": "63e8fce5e5514bad7f654fae1f272fbcad67f69d179d083d78ab17e8d64e1e03",
       "status": "converted",
@@ -11524,7 +11888,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 443,
+      "asset": 457,
       "path": "output/sprite-normalized/0430/Base_Aura/Shiny",
       "source_sha256": "3d4ef218fd299d8bebb91f95f046a7e853a6545a759a22f1c1a728cc8f461e76",
       "status": "converted",
@@ -11550,7 +11914,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 444,
+      "asset": 458,
       "path": "output/sprite-normalized/0432/Base_Aura/Normal",
       "source_sha256": "fd27a48c05a7c0c7ea5d232d74260ac2b2a255bdb7cee1b6f500fe2ff1009549",
       "status": "converted",
@@ -11576,7 +11940,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 445,
+      "asset": 459,
       "path": "output/sprite-normalized/0432/Base_Aura/Shiny",
       "source_sha256": "c6a7fa878156c90ea3bb0de509b797240e8f1e364184b3d48fbd52a8c8a69393",
       "status": "converted",
@@ -11602,7 +11966,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 446,
+      "asset": 460,
       "path": "output/sprite-normalized/0435/Base_Aura/Normal",
       "source_sha256": "3e0bb19e35222fdc6b12ca6b2793ef00bf7039f8c9e6aabbadfff14fda433483",
       "status": "converted",
@@ -11628,7 +11992,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 447,
+      "asset": 461,
       "path": "output/sprite-normalized/0435/Base_Aura/Shiny",
       "source_sha256": "2f1e2ef6a0944298abd2be287f6c123016363526ecc0050167c55dc5de14bf82",
       "status": "converted",
@@ -11654,7 +12018,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 448,
+      "asset": 462,
       "path": "output/sprite-normalized/0437/Base_Aura/Normal",
       "source_sha256": "fb43c2746d2ea41e34cf2308115781954ff9a16fc64bb29f88d862c69da3d39a",
       "status": "converted",
@@ -11680,7 +12044,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 449,
+      "asset": 463,
       "path": "output/sprite-normalized/0437/Base_Aura/Shiny",
       "source_sha256": "8f478a35c9a3183bdef640999356acce3721bdec0a118f69121963d446dee994",
       "status": "converted",
@@ -11706,7 +12070,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 450,
+      "asset": 464,
       "path": "output/sprite-normalized/0441/Base_Aura/Normal",
       "source_sha256": "a714ef3cd57d048466e139c4c3b40eaa96d9438e372252377bf2665af5aecdab",
       "status": "converted",
@@ -11732,7 +12096,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 451,
+      "asset": 465,
       "path": "output/sprite-normalized/0441/Base_Aura/Shiny",
       "source_sha256": "f19c33ab8d3d7b1b1e213609892add74d7a2226da8aac0f8f08d2356b1a76c71",
       "status": "converted",
@@ -11758,7 +12122,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 452,
+      "asset": 466,
       "path": "output/sprite-normalized/0442/Base_Aura/Normal",
       "source_sha256": "d0b348f80eabfa65b55cca6b1b8a60b090c6ac0ed4d4c409d5c28c1f88826590",
       "status": "converted",
@@ -11784,7 +12148,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 453,
+      "asset": 467,
       "path": "output/sprite-normalized/0442/Base_Aura/Shiny",
       "source_sha256": "2d4a69ca4020f30fb49aae1c89e75e86956692e3ce12a584cae51ea15a70733b",
       "status": "converted",
@@ -11810,7 +12174,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 454,
+      "asset": 468,
       "path": "output/sprite-normalized/0445/Base_Aura/Normal",
       "source_sha256": "9d62ca1665b37bbf4aaa01af480313c76f147506e0a156d91fa40eb0583f7b98",
       "status": "converted",
@@ -11836,7 +12200,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 455,
+      "asset": 469,
       "path": "output/sprite-normalized/0445/Base_Aura/Shiny",
       "source_sha256": "3d4ec6239904f9c9fcf317c4a20fa7b7f5225dbac49414b6571b8c9a4e11833b",
       "status": "converted",
@@ -11862,7 +12226,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 456,
+      "asset": 470,
       "path": "SpriteCollab-master/SpriteCollab-master/sprite/0448/0001",
       "source_sha256": "c120be98728c8dfe8bddb054b262968b78486484c8f962e606fcd99874857971",
       "status": "converted",
@@ -11888,7 +12252,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 457,
+      "asset": 471,
       "path": "output/sprite-normalized/0448/0001-Mega_Aura/Shiny",
       "source_sha256": "a7e6bbbc5ca13683a115ab6bc2784281f016b1287ab635e831a76e2b24b5e172",
       "status": "converted",
@@ -11914,7 +12278,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 458,
+      "asset": 472,
       "path": "output/sprite-normalized/0448/Base_Aura/Normal",
       "source_sha256": "137335cfb05d245acdd73ae9ec21c760b98916ce11a6f7f4d09c653d399b35c9",
       "status": "converted",
@@ -11940,7 +12304,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 459,
+      "asset": 473,
       "path": "output/sprite-normalized/0448/Base_Aura/Shiny",
       "source_sha256": "147a2e45345244b37b2b02ad7e0f55bdda91e6b84772dd5cc6f0e8624cf037c9",
       "status": "converted",
@@ -11966,7 +12330,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 460,
+      "asset": 474,
       "path": "output/sprite-normalized/0450/Base_Aura/Normal",
       "source_sha256": "af23f82d0aff34d28c29a4671137a5f517af795b33fc7128948624f078d9cf6b",
       "status": "converted",
@@ -11992,7 +12356,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 461,
+      "asset": 475,
       "path": "output/sprite-normalized/0450/Base_Aura/Shiny",
       "source_sha256": "1f9e7f5336535ef10aa810c8ca5c048f11181347ebec0e0e95004a9023977c17",
       "status": "converted",
@@ -12018,7 +12382,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 462,
+      "asset": 476,
       "path": "output/sprite-normalized/0452/Base_Aura/Normal",
       "source_sha256": "804c0581d5d5485d00179e9319b7c83677b10ff0ce18f7c81eb48e68d1736a01",
       "status": "converted",
@@ -12044,7 +12408,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 463,
+      "asset": 477,
       "path": "output/sprite-normalized/0452/Base_Aura/Shiny",
       "source_sha256": "93280a9811220312eaf9e41fa468fb48d5d8d1c73f2ed43e2901f0fe24c17d5a",
       "status": "converted",
@@ -12070,7 +12434,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 464,
+      "asset": 478,
       "path": "output/sprite-normalized/0454/Base_Aura/Normal",
       "source_sha256": "49c073401eb2fdae7e51a5de62a33764d225fb5c19c5b0438dcafd00ad54d838",
       "status": "converted",
@@ -12096,7 +12460,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 465,
+      "asset": 479,
       "path": "output/sprite-normalized/0454/Base_Aura/Shiny",
       "source_sha256": "035139080feab2e522fea2c4bb815975e8a1012b356c74e1da01d878785515b1",
       "status": "converted",
@@ -12122,7 +12486,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 466,
+      "asset": 480,
       "path": "output/sprite-normalized/0455/Base_Aura/Normal",
       "source_sha256": "9b603808752f1831d0e45529f746e6461a08ff7dc1249ef9b18727d459e23271",
       "status": "converted",
@@ -12148,7 +12512,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 467,
+      "asset": 481,
       "path": "output/sprite-normalized/0455/Base_Aura/Shiny",
       "source_sha256": "faf1437e206720ed530a8b1a1fb4b537148b0188c5c6127393f96490fc073c86",
       "status": "converted",
@@ -12174,7 +12538,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 468,
+      "asset": 482,
       "path": "output/sprite-normalized/0457/Base_Aura/Normal",
       "source_sha256": "81418ba161931775eae0e57e1479d9b47de40a26129ba5fdd0c8ae2ed19f139d",
       "status": "converted",
@@ -12200,7 +12564,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 469,
+      "asset": 483,
       "path": "output/sprite-normalized/0457/Base_Aura/Shiny",
       "source_sha256": "7b1878cd8819d46991d36a4721078eed895ec3e8018fcafb1edf0bd10a4a2e83",
       "status": "converted",
@@ -12226,7 +12590,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 470,
+      "asset": 484,
       "path": "output/sprite-normalized/0460/Base_Aura/Normal",
       "source_sha256": "1df9f60f6324c0de260abcb8bdaf29e859f38ea18ba95bf4fde59f7c64f4450a",
       "status": "converted",
@@ -12252,7 +12616,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 471,
+      "asset": 485,
       "path": "output/sprite-normalized/0460/Base_Aura/Shiny",
       "source_sha256": "3d1c9e1cd5cf3caf90f946b8ac3411a06e41ea69bacc39fdba17a50baf40db24",
       "status": "converted",
@@ -12278,7 +12642,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 472,
+      "asset": 486,
       "path": "output/sprite-normalized/0461/Base_Aura/Normal",
       "source_sha256": "8d1cfd5ca78727c6889d535c9e7552e592de00aa553d32565968a5a6f4259c1f",
       "status": "converted",
@@ -12304,7 +12668,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 473,
+      "asset": 487,
       "path": "output/sprite-normalized/0461/Base_Aura/Shiny",
       "source_sha256": "e39566c49a39346bb59aab6d93c5dfba6c772cb25382a554eeb30550e0f0832a",
       "status": "converted",
@@ -12330,7 +12694,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 474,
+      "asset": 488,
       "path": "output/sprite-normalized/0462/Base_Aura/Normal",
       "source_sha256": "bcd17e2f98217abd9f3ece6250e8755db6ef3cda97c9e43529d8ef81927eb070",
       "status": "converted",
@@ -12356,7 +12720,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 475,
+      "asset": 489,
       "path": "output/sprite-normalized/0462/Base_Aura/Shiny",
       "source_sha256": "86661fd0944b0a8542cea3aa472e267a99c6b72fa7b9d0c2e4738ec6983cba68",
       "status": "converted",
@@ -12382,7 +12746,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 476,
+      "asset": 490,
       "path": "output/sprite-normalized/0463/Base_Aura/Normal",
       "source_sha256": "2e2798e3e935f0be6cda29b355b409e412e0bd09057766fb4f880e84a90687bb",
       "status": "converted",
@@ -12408,7 +12772,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 477,
+      "asset": 491,
       "path": "output/sprite-normalized/0463/Base_Aura/Shiny",
       "source_sha256": "1be9d2b69a7645838391eac02e4f12c62614721c382baf0c242c94d8cce10e74",
       "status": "converted",
@@ -12434,7 +12798,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 478,
+      "asset": 492,
       "path": "output/sprite-normalized/0464/Base_Aura/Normal",
       "source_sha256": "a70c5558724ebd46f0da6615920887e022119aed4af74cf3df6d26bdb2f22a70",
       "status": "converted",
@@ -12460,7 +12824,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 479,
+      "asset": 493,
       "path": "output/sprite-normalized/0464/Base_Aura/Shiny",
       "source_sha256": "14f2188216e16f0bc9be021302a4e14fddc81284563a1220a9c27d67750293b9",
       "status": "converted",
@@ -12486,7 +12850,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 480,
+      "asset": 494,
       "path": "output/sprite-normalized/0465/Base_Aura/Normal",
       "source_sha256": "f670d914459ba34a84bd65a92b0fb1fd94c2462c7b1dd686d2d3fe5a8e660365",
       "status": "converted",
@@ -12512,7 +12876,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 481,
+      "asset": 495,
       "path": "output/sprite-normalized/0465/Base_Aura/Shiny",
       "source_sha256": "1683e4328aa52328c65dbf11a9ebce22264f12414e87d999ca51727314963c30",
       "status": "converted",
@@ -12538,7 +12902,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 482,
+      "asset": 496,
       "path": "output/sprite-normalized/0466/Base_Aura/Normal",
       "source_sha256": "a70d690add6ebfe4eb2beaf9560b01db97df22252392b62837887ed38d5ada7c",
       "status": "converted",
@@ -12564,7 +12928,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 483,
+      "asset": 497,
       "path": "output/sprite-normalized/0466/Base_Aura/Shiny",
       "source_sha256": "5503c32d5b8fa01765fef080961c08c27dc7d165b63d3b099855a304c2611a0f",
       "status": "converted",
@@ -12590,7 +12954,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 484,
+      "asset": 498,
       "path": "output/sprite-normalized/0467/Base_Aura/Normal",
       "source_sha256": "18282a6d57a30e119c84e59e5c912059e2cc57beb890d8e0d576c450ea4552fe",
       "status": "converted",
@@ -12616,7 +12980,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 485,
+      "asset": 499,
       "path": "output/sprite-normalized/0467/Base_Aura/Shiny",
       "source_sha256": "fa805fcc1f7720166216e31055411919c24f7656612a232574e423266fb9169c",
       "status": "converted",
@@ -12642,7 +13006,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 486,
+      "asset": 500,
       "path": "output/sprite-normalized/0468/Base_Aura/Normal",
       "source_sha256": "23e327062c5184f3a190a1d2f3de4839959813a7a9625bafb260b7387687ef20",
       "status": "converted",
@@ -12668,7 +13032,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 487,
+      "asset": 501,
       "path": "output/sprite-normalized/0468/Base_Aura/Shiny",
       "source_sha256": "0c458a09bb20456951ec1bb63a7dcd856584084e52654c4866c0937c083a2e72",
       "status": "converted",
@@ -12694,7 +13058,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 488,
+      "asset": 502,
       "path": "output/sprite-normalized/0469/Base_Aura/Normal",
       "source_sha256": "7529f158d6e22e4c4245758d9a48d77ff7ba58524a1a1b18a6ce7ef4722d4115",
       "status": "converted",
@@ -12720,7 +13084,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 489,
+      "asset": 503,
       "path": "output/sprite-normalized/0469/Base_Aura/Shiny",
       "source_sha256": "f1165b8aa915274a1cdf1d9c0608ec9d6048c179ebc018a644a7689088f1387d",
       "status": "converted",
@@ -12746,7 +13110,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 490,
+      "asset": 504,
       "path": "output/sprite-normalized/0470/Base_Aura/Normal",
       "source_sha256": "d0304680eae15d38cede0022108b0c176e78e89018e4c509027a6a8f2f28ddcc",
       "status": "converted",
@@ -12772,7 +13136,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 491,
+      "asset": 505,
       "path": "output/sprite-normalized/0470/Base_Aura/Shiny",
       "source_sha256": "13fa8de9744f6604f75d835650e373e28c00cc2dfd0fc3f5506665ec8cbded86",
       "status": "converted",
@@ -12798,7 +13162,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 492,
+      "asset": 506,
       "path": "output/sprite-normalized/0471/Base_Aura/Normal",
       "source_sha256": "9cadcaeddcbd4bd750e7ea2711e86c208a4e60eefdf7399abd11179e93789c68",
       "status": "converted",
@@ -12824,7 +13188,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 493,
+      "asset": 507,
       "path": "output/sprite-normalized/0471/Base_Aura/Shiny",
       "source_sha256": "eb97d2d6e0097448dbb595c2855ab88fc8ddc2e0788b449007fc574ab5877eec",
       "status": "converted",
@@ -12850,7 +13214,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 494,
+      "asset": 508,
       "path": "output/sprite-normalized/0472/Base_Aura/Normal",
       "source_sha256": "18f704677fb127093300f17add05f947bdb7d404907309a351e107dc6a53fc18",
       "status": "converted",
@@ -12876,7 +13240,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 495,
+      "asset": 509,
       "path": "output/sprite-normalized/0472/Base_Aura/Shiny",
       "source_sha256": "205ad785599bb1a0c9c97dfc25d4f27aa75da972b896de4077a758dc5378d7e7",
       "status": "converted",
@@ -12902,7 +13266,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 496,
+      "asset": 510,
       "path": "output/sprite-normalized/0473/Base_Aura/Normal",
       "source_sha256": "1167409455659d1b20e54c33f2cbef0cf0b1b9ce2fe90c97fe08d3bc37f9b711",
       "status": "converted",
@@ -12928,7 +13292,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 497,
+      "asset": 511,
       "path": "output/sprite-normalized/0473/Base_Aura/Shiny",
       "source_sha256": "c21387109cd22bba491b1aee0d15d4f073df6a30cd5264b4ecf3e80eff6caa8f",
       "status": "converted",
@@ -12954,7 +13318,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 498,
+      "asset": 512,
       "path": "output/sprite-normalized/0474/Base_Aura/Normal",
       "source_sha256": "bb80c4fbbb35c1ab8e5f2d7b675a5420b990dd2da4be5b2b873f5ef4fec0a20b",
       "status": "converted",
@@ -12980,7 +13344,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 499,
+      "asset": 513,
       "path": "output/sprite-normalized/0474/Base_Aura/Shiny",
       "source_sha256": "870d1475b12214faad93e3a077787f48b0cfbc2b674ebb3517422595b660df47",
       "status": "converted",
@@ -13006,7 +13370,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 500,
+      "asset": 514,
       "path": "SpriteCollab-master/SpriteCollab-master/sprite/0475/0001",
       "source_sha256": "ab9d541687f7f11b0a7f0cf216ee565039bc40516cbfe546dc4725a12cfd8336",
       "status": "converted",
@@ -13032,7 +13396,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 501,
+      "asset": 515,
       "path": "output/sprite-normalized/0475/0001-Mega_Aura/Shiny",
       "source_sha256": "0bc518b9a38cff1352c71a5da41e91b19226f5946084278cf8731210c592b562",
       "status": "converted",
@@ -13058,7 +13422,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 502,
+      "asset": 516,
       "path": "output/sprite-normalized/0476/Base_Aura/Normal",
       "source_sha256": "41a114ae0b70519707400db0f481d0124ce9a0272411907e852e2d2a07bfd752",
       "status": "converted",
@@ -13084,7 +13448,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 503,
+      "asset": 517,
       "path": "output/sprite-normalized/0476/Base_Aura/Shiny",
       "source_sha256": "c9749357d91abe1446af63670a9af7faa9a1a47b89457970621c21b103ae9e5b",
       "status": "converted",
@@ -13110,7 +13474,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 504,
+      "asset": 518,
       "path": "output/sprite-normalized/0477/Base_Aura/Normal",
       "source_sha256": "1686bc2c1c24f9b02fb47f1f1a5be8afbc20a6033e8bfa493177837c82938a05",
       "status": "converted",
@@ -13136,7 +13500,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 505,
+      "asset": 519,
       "path": "output/sprite-normalized/0477/Base_Aura/Shiny",
       "source_sha256": "e11bc7f3c78779da0a3db186f782b76f859c0c8605faf1c373814bb0f8bd49df",
       "status": "converted",
@@ -13162,7 +13526,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 506,
+      "asset": 520,
       "path": "output/sprite-normalized/0478/Base_Aura/Normal",
       "source_sha256": "5c2cea428ff7daca09ef5d33304f431b18f9c570e93935539f5cf36c0c5c53cc",
       "status": "converted",
@@ -13188,7 +13552,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 507,
+      "asset": 521,
       "path": "output/sprite-normalized/0478/Base_Aura/Shiny",
       "source_sha256": "03d24b71ec0d48e1859a854cbcf248b9e52e6706b82fd30b3a33cae599dc47c5",
       "status": "converted",
@@ -13214,7 +13578,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 508,
+      "asset": 522,
       "path": "output/sprite-normalized/0479/Base_Aura/Normal",
       "source_sha256": "11c9d9beaafdd84fd73ee690c3575a41ab5e49551baeee8f5facd8b041c63e94",
       "status": "converted",
@@ -13240,7 +13604,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 509,
+      "asset": 523,
       "path": "output/sprite-normalized/0479/Base_Aura/Shiny",
       "source_sha256": "c381975dd3c041b7fd32868288572a4828e784b8e4f56a4d2e77b632cb58ce82",
       "status": "converted",
@@ -13266,7 +13630,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 510,
+      "asset": 524,
       "path": "output/sprite-normalized/0480/Base_Aura/Normal",
       "source_sha256": "280a3c71c5af210148e745c4756782fcc266d6907c860fa86479dec65822a94c",
       "status": "converted",
@@ -13292,7 +13656,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 511,
+      "asset": 525,
       "path": "output/sprite-normalized/0480/Base_Aura/Shiny",
       "source_sha256": "1874e2034dce8259e5ce0f1575883525e288b06304fe1bdea68cb3e558820df9",
       "status": "converted",
@@ -13318,7 +13682,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 512,
+      "asset": 526,
       "path": "output/sprite-normalized/0481/Base_Aura/Normal",
       "source_sha256": "e2577ae0e81cfdc6458580ddba432e45bdfe0737e2f6c3a32edd6de946987e0d",
       "status": "converted",
@@ -13344,7 +13708,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 513,
+      "asset": 527,
       "path": "output/sprite-normalized/0481/Base_Aura/Shiny",
       "source_sha256": "2dd9d8b44209c816bbda5c82abf1bdfb5e6406fc5ca602ea00e520c0cb9aa5a9",
       "status": "converted",
@@ -13370,7 +13734,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 514,
+      "asset": 528,
       "path": "output/sprite-normalized/0482/Base_Aura/Normal",
       "source_sha256": "8b377d6fb54776fed91ce5a28c0c93d52053cf6ec446cd1724777ad389b66fe9",
       "status": "converted",
@@ -13396,7 +13760,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 515,
+      "asset": 529,
       "path": "output/sprite-normalized/0482/Base_Aura/Shiny",
       "source_sha256": "e3511668fd421841cfb53309c79ca65975f3dc50fb41fbabecb114846012ec7e",
       "status": "converted",
@@ -13422,7 +13786,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 516,
+      "asset": 530,
       "path": "SpriteCollab-master/SpriteCollab-master/sprite/0483/0001",
       "source_sha256": "c7afd94557fac740c8d84c3d9dd9d2c998e1334f47b2c0ceee4a417ad6dd05fc",
       "status": "converted",
@@ -13448,7 +13812,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 517,
+      "asset": 531,
       "path": "output/sprite-normalized/0483/0001-Origin_Aura/Shiny",
       "source_sha256": "8a869cc38811e4502a026c50e17dc1ddfcd6bbb472a75c9782c07aca8151814a",
       "status": "converted",
@@ -13474,7 +13838,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 518,
+      "asset": 532,
       "path": "SpriteCollab-master/SpriteCollab-master/sprite/0484/0001",
       "source_sha256": "4a2283fd96d2d433b7fbbf74850e7cf52c0a86b3520ff7cb6e46ffa9e3be0063",
       "status": "converted",
@@ -13500,7 +13864,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 519,
+      "asset": 533,
       "path": "output/sprite-normalized/0484/0001-Origin_Aura/Shiny",
       "source_sha256": "445986b0ce16d78c408159abc4c902612798b30bf18e0efc0e36767481593d29",
       "status": "converted",
@@ -13526,7 +13890,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 520,
+      "asset": 534,
       "path": "output/sprite-normalized/0485/Base_Aura/Normal",
       "source_sha256": "67f34288d0b414b23845b46bcce6f76cc1d585725527aa5ca6e0cc38aba9552e",
       "status": "converted",
@@ -13552,7 +13916,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 521,
+      "asset": 535,
       "path": "output/sprite-normalized/0485/Base_Aura/Shiny",
       "source_sha256": "af8bfa0b261aa9fc1f03a69765660bdc11455364cd7f709c613a38a04cfaa78c",
       "status": "converted",
@@ -13578,7 +13942,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 522,
+      "asset": 536,
       "path": "output/sprite-normalized/0486/Base_Aura/Normal",
       "source_sha256": "49ebe6b186fc2ceea40a9c0b3357232cac0fc979513a1f4db9396ceaff71fed0",
       "status": "converted",
@@ -13604,7 +13968,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 523,
+      "asset": 537,
       "path": "output/sprite-normalized/0486/Base_Aura/Shiny",
       "source_sha256": "2e5a5eddd567636e676a77197f1bb40e746322502146e373366e59c4b8c52861",
       "status": "converted",
@@ -13630,7 +13994,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 524,
+      "asset": 538,
       "path": "SpriteCollab-master/SpriteCollab-master/sprite/0487/0001",
       "source_sha256": "7f10767e26962a36d14fc09bbc0fc76700b593f78edee35d472546df1cf95934",
       "status": "converted",
@@ -13656,7 +14020,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 525,
+      "asset": 539,
       "path": "output/sprite-normalized/0487/0001-Origin_Aura/Shiny",
       "source_sha256": "01df1fd822fe2a33b70df14b0e78d3fe5c8c2623eedef59daa2bbdc5e8f6d2b4",
       "status": "converted",
@@ -13682,7 +14046,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 526,
+      "asset": 540,
       "path": "output/sprite-normalized/0488/Base_Aura/Normal",
       "source_sha256": "9e048983fc2eabdbbc2f9f15236b83d66f5967ac314b633641d1a89b9bcc22ab",
       "status": "converted",
@@ -13708,7 +14072,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 527,
+      "asset": 541,
       "path": "output/sprite-normalized/0488/Base_Aura/Shiny",
       "source_sha256": "6c1ec61f245f1de134e00896a65b2b197213bbd67926133f1ed3a3377e41670a",
       "status": "converted",
@@ -13734,7 +14098,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 528,
+      "asset": 542,
       "path": "output/sprite-normalized/0489/Base_Aura/Normal",
       "source_sha256": "ef7c56c1df725595d787bc50859876e439831149b6673a6133f985342be0a833",
       "status": "converted",
@@ -13760,7 +14124,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 529,
+      "asset": 543,
       "path": "output/sprite-normalized/0489/Base_Aura/Shiny",
       "source_sha256": "5d2f11a2b9b986480fbf9e772670fefee090a728988d8b99382e51b527c589e3",
       "status": "converted",
@@ -13786,7 +14150,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 530,
+      "asset": 544,
       "path": "output/sprite-normalized/0490/Base_Aura/Normal",
       "source_sha256": "3d2232a317fd498f93a0f6308e93ed8174d4fab7e344e885fa851b42b2dc8bb4",
       "status": "converted",
@@ -13812,7 +14176,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 531,
+      "asset": 545,
       "path": "output/sprite-normalized/0490/Base_Aura/Shiny",
       "source_sha256": "089085878c29c19cc36a7e32fb8e7091f7270f6b53bd73c7ff5f908347fa72de",
       "status": "converted",
@@ -13838,7 +14202,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 532,
+      "asset": 546,
       "path": "SpriteCollab-master/SpriteCollab-master/sprite/0491/0002",
       "source_sha256": "0c2ed30ae3bea8af1e8a042a163208f94c60e4759e0bc948f9c9405b735ab72e",
       "status": "converted",
@@ -13864,7 +14228,33 @@
     },
     {
       "pipeline": 3,
-      "asset": 533,
+      "asset": 547,
+      "path": "true_patches/mega_evolve/.cache/phase5_fix/5aae2825e64d15d30185b0eca66f6c109769093513603c9830365ccfe063aa54/aura",
+      "source_sha256": "52798bf42eb9321b9bf1a4e66dbe368a82d2769b1f51f3f6d457552d940183e5",
+      "status": "converted",
+      "outputs": {
+        "monster.wan": "3431e8cd4fafba0612e6e88bf9abb93236b9bf5a815e62e9944a5574a12001c9",
+        "ground.wan": "f0026181aaf565e0c4ad3fd00d685dcead3725dec1677dd26cba4296637a93d0",
+        "attack.wan": "4d75458d9341ec6a81011c64cc3cc2d13a5d9a3dbea2fb8fea9bfa6e9bee4954"
+      },
+      "sizes": {
+        "monster": 138124,
+        "ground": 1020656,
+        "attack": 339544
+      },
+      "raw_sizes": {
+        "monster": 344976,
+        "ground": 1020656,
+        "attack": 871296
+      },
+      "tile_slots": 19,
+      "file_pages": 674,
+      "palette_policy": "SkyTemple import16; transparent index0",
+      "cache": ".cache/phase5/52798bf42eb9321b9bf1a4e66dbe368a82d2769b1f51f3f6d457552d940183e5"
+    },
+    {
+      "pipeline": 3,
+      "asset": 548,
       "path": "output/sprite-normalized/0492/Base_Aura/Normal",
       "source_sha256": "7179761b0d044f5868821a39c39214c1d4107b4f1a5c93fe1da36f710fa58d7f",
       "status": "converted",
@@ -13890,7 +14280,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 534,
+      "asset": 549,
       "path": "output/sprite-normalized/0492/Base_Aura/Shiny",
       "source_sha256": "ccc271b2a0d932aced8527c6dd1048cd29c7751816c16fa38267bec6eed11782",
       "status": "converted",
@@ -13916,7 +14306,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 535,
+      "asset": 550,
       "path": "output/sprite-normalized/0493/Base_Aura/Normal",
       "source_sha256": "cde0376cbe943dcbd2122b5a447781c7087018643cdfb96c3f5a078c0e7efefd",
       "status": "converted",
@@ -13942,7 +14332,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 536,
+      "asset": 551,
       "path": "output/sprite-normalized/0493/Base_Aura/Shiny",
       "source_sha256": "79ddc4e4cccf8e323cc3c88062b222b8518478a5d5188d859c4aec872865e300",
       "status": "converted",
@@ -13968,7 +14358,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 537,
+      "asset": 552,
       "path": "output/sprite-normalized/0571/Base_Aura/Normal",
       "source_sha256": "669714f49c5c1cabfd4f8204d12387440a0f72c518e38e27d5bcce2c30a68c88",
       "status": "converted",
@@ -13994,7 +14384,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 538,
+      "asset": 553,
       "path": "output/sprite-normalized/0571/Base_Aura/Shiny",
       "source_sha256": "af4872866f504cc653526c7b37ca99dd8e2dcd9753381daaa3eca97f727b584f",
       "status": "converted",
@@ -14020,7 +14410,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 539,
+      "asset": 554,
       "path": "output/sprite-normalized/0571/0001-Hisui_Aura/Normal",
       "source_sha256": "67fc9a700feef9344fc7d9a0a995debc465ccfb13568bbdb38b2feed9b888ef9",
       "status": "converted",
@@ -14046,7 +14436,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 540,
+      "asset": 555,
       "path": "output/sprite-normalized/0571/0001-Hisui_Aura/Shiny",
       "source_sha256": "a1064c5c9ff292999d4c01f48debc744045b198bcd678de5824d2e74c7bba2ef",
       "status": "converted",
@@ -14072,7 +14462,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 541,
+      "asset": 556,
       "path": "output/sprite-normalized/0573/Base_Aura/Normal",
       "source_sha256": "eb3c8bf3c81b1696afbabd88330c67520e4340d1bca3b9feed7f1dee3240ab58",
       "status": "converted",
@@ -14098,7 +14488,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 542,
+      "asset": 557,
       "path": "output/sprite-normalized/0573/Base_Aura/Shiny",
       "source_sha256": "4591a469ccf5946f4251eca79282b2bc7a73cbc78eadf030ea2fa35daf714d14",
       "status": "converted",
@@ -14124,7 +14514,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 543,
+      "asset": 558,
       "path": "output/sprite-normalized/0649/Base_Aura/Normal",
       "source_sha256": "da48e46ebf8b77c415df28ef12b798d99ad30c9d74d34609513c1b31e2bf1a27",
       "status": "converted",
@@ -14150,7 +14540,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 544,
+      "asset": 559,
       "path": "output/sprite-normalized/0649/Base_Aura/Shiny",
       "source_sha256": "e1170345d138097c79d84bb781a83f725e42e1e177fba4b61200b8bc5fdb5875",
       "status": "converted",
@@ -14176,7 +14566,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 545,
+      "asset": 560,
       "path": "output/sprite-normalized/0700/Base_Aura/Normal",
       "source_sha256": "8abdf5ebde59d104bb7a8624d1e34b6a4ca9f310970328cb4e6c19ba9ce448cd",
       "status": "converted",
@@ -14202,7 +14592,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 546,
+      "asset": 561,
       "path": "output/sprite-normalized/0700/Base_Aura/Shiny",
       "source_sha256": "d8594f95953e59e7085cd073fca09e8697643253c2a3475c9844fc2a96208354",
       "status": "converted",
@@ -14228,7 +14618,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 547,
+      "asset": 562,
       "path": "SpriteCollab-master/SpriteCollab-master/sprite/0719/0001",
       "source_sha256": "96c09ee4ca7ce6488aa0f6fde6d1d682ca23db3d11ab3da7a6f1c1ea201539c3",
       "status": "converted",
@@ -14254,7 +14644,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 548,
+      "asset": 563,
       "path": "output/sprite-normalized/0719/0001-Mega_Aura/Shiny",
       "source_sha256": "be3ccd44aee919533fd2022325f2e6e0a8bd28b00d1f1ed8b467210132c195de",
       "status": "converted",
@@ -14280,7 +14670,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 549,
+      "asset": 564,
       "path": "output/sprite-normalized/0802/Base_Aura/Normal",
       "source_sha256": "407022eb711907c6982bf493e2b279829bac3938c512a7376f8d1179aa759ee2",
       "status": "converted",
@@ -14306,7 +14696,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 550,
+      "asset": 565,
       "path": "output/sprite-normalized/0802/Base_Aura/Shiny",
       "source_sha256": "8ebe05632819aadcfd6e83d9af8e1bfe28da861ae7d13f7aa9d139ca5b5a03fd",
       "status": "converted",
@@ -14332,7 +14722,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 551,
+      "asset": 566,
       "path": "output/sprite-normalized/0864/Base_Aura/Normal",
       "source_sha256": "c4851e965c2faf89bf17bb350349396e72459891944e63bfa5515582771a9eb0",
       "status": "converted",
@@ -14358,7 +14748,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 552,
+      "asset": 567,
       "path": "output/sprite-normalized/0864/Base_Aura/Shiny",
       "source_sha256": "aca0fa62f9b637ded111b6a748f27720251ece50ce70c65cc4f332422613381a",
       "status": "converted",
@@ -14384,7 +14774,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 553,
+      "asset": 568,
       "path": "output/sprite-normalized/0890/Base_Aura/Normal",
       "source_sha256": "012f4246c22fe3a1ada624d964f16389566f421103bfca12e3fcb86216363660",
       "status": "converted",
@@ -14410,7 +14800,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 554,
+      "asset": 569,
       "path": "output/sprite-normalized/0890/Base_Aura/Shiny",
       "source_sha256": "277a1580dc2a3eb901eee1d77c41255e46ba78ffccc37b0a91fa4e2a4a865ef1",
       "status": "converted",
@@ -14436,7 +14826,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 555,
+      "asset": 570,
       "path": "output/sprite-normalized/0894/Base_Aura/Normal",
       "source_sha256": "455e8c7605b7cc0db5f6c9837e52e00f19cd9ff1687e16af91b1f12eb2784741",
       "status": "converted",
@@ -14462,7 +14852,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 556,
+      "asset": 571,
       "path": "output/sprite-normalized/0894/Base_Aura/Shiny",
       "source_sha256": "8504e3d2d81269d34cc6be9e19345df80f9bf6b8f9b12bd4bda605f2d89cbbfe",
       "status": "converted",
@@ -14488,7 +14878,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 557,
+      "asset": 572,
       "path": "output/sprite-normalized/0895/Base_Aura/Normal",
       "source_sha256": "f90ba99bf1fde59911b550a5e4179f3614aca8bc19e052510321c6a17d3990e0",
       "status": "converted",
@@ -14514,7 +14904,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 558,
+      "asset": 573,
       "path": "output/sprite-normalized/0895/Base_Aura/Shiny",
       "source_sha256": "c38ada74eed5999ae879e608d7b7fe7e85addc8de0b241f65b64800936ebd4a0",
       "status": "converted",
@@ -14540,7 +14930,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 559,
+      "asset": 574,
       "path": "output/sprite-normalized/0901/Base_Aura/Normal",
       "source_sha256": "95ad7e300e41fa94f57db9fee82c7a3b7866a94cbcefc4ff1314834b3bcad7d3",
       "status": "converted",
@@ -14566,7 +14956,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 560,
+      "asset": 575,
       "path": "output/sprite-normalized/0901/Base_Aura/Shiny",
       "source_sha256": "06ed68bc4f42c5ac9c304846add767c0266072b5b4d66ad31c7a06de306437ca",
       "status": "converted",
@@ -14592,7 +14982,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 561,
+      "asset": 576,
       "path": "output/sprite-normalized/0903/Base_Aura/Normal",
       "source_sha256": "df3fbf6cac0a16866494e3f8af96560027c7598bd70d039a79036dffa64933fe",
       "status": "converted",
@@ -14618,7 +15008,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 562,
+      "asset": 577,
       "path": "output/sprite-normalized/0903/Base_Aura/Shiny",
       "source_sha256": "93df36c8dc082f9563b84bbf17230f60429f32ccc8c7c4e389eda6fb363c8066",
       "status": "converted",
@@ -14644,7 +15034,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 563,
+      "asset": 578,
       "path": "output/sprite-normalized/0904/Base_Aura/Normal",
       "source_sha256": "e845304979099e95c2ad3a17991c81988213b91fceb93b0f0b4b2fdb45c69565",
       "status": "converted",
@@ -14670,7 +15060,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 564,
+      "asset": 579,
       "path": "output/sprite-normalized/0904/Base_Aura/Shiny",
       "source_sha256": "0856fc67f53aa179093b2c2b823f3bc716c397ef15224350503a9f9ece02f000",
       "status": "converted",
@@ -14696,7 +15086,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 565,
+      "asset": 580,
       "path": "output/sprite-normalized/0979/Base_Aura/Normal",
       "source_sha256": "e2e5f057ca1b54c7728c16cac85084e201f2c392a15f20df30f3e61ab942512f",
       "status": "converted",
@@ -14722,7 +15112,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 566,
+      "asset": 581,
       "path": "output/sprite-normalized/0979/Base_Aura/Shiny",
       "source_sha256": "e4d9b65ec46ac0dcff28d5979c8a0714ec4cd477efb8787e9e5821307bdd4043",
       "status": "converted",
@@ -14748,7 +15138,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 567,
+      "asset": 582,
       "path": "output/sprite-normalized/0981/Base_Aura/Normal",
       "source_sha256": "dd04551195d5d253583df7e2b546f7274236e0e52f2467b3af8e3a01195f73b1",
       "status": "converted",
@@ -14774,7 +15164,7 @@
     },
     {
       "pipeline": 3,
-      "asset": 568,
+      "asset": 583,
       "path": "output/sprite-normalized/0981/Base_Aura/Shiny",
       "source_sha256": "de6d1bc48ee5f56e5ff4f30f7409f90b91a5d51a4658c9a728fe8cef82e74c31",
       "status": "converted",
@@ -14797,6 +15187,58 @@
       "file_pages": 433,
       "palette_policy": "SkyTemple import16; transparent index0",
       "cache": ".cache/phase5/de6d1bc48ee5f56e5ff4f30f7409f90b91a5d51a4658c9a728fe8cef82e74c31"
+    },
+    {
+      "pipeline": 3,
+      "asset": 584,
+      "path": "SpriteCollab-master/SpriteCollab-master/sprite/0982",
+      "source_sha256": "2d98cf77820940b60e98e906e4294d08bc76926ff4bcd9547d0ff028475bd270",
+      "status": "converted",
+      "outputs": {
+        "monster.wan": "75bccdfaf0bcfda675fb515ad3e84b6ca9a0dc9449cfe044420c6cd52d4acedb",
+        "ground.wan": "29c1c73040e1b62825d9caa800bd27a32fa0f40e114c959c387c9258e4969852",
+        "attack.wan": "82448474acdba3a0fb6d768460c5f01c5f479cb83e7e32852631b32a53aa361f"
+      },
+      "sizes": {
+        "monster": 9932,
+        "ground": 36560,
+        "attack": 12208
+      },
+      "raw_sizes": {
+        "monster": 18896,
+        "ground": 36560,
+        "attack": 25856
+      },
+      "tile_slots": 6,
+      "file_pages": 37,
+      "palette_policy": "SkyTemple import16; transparent index0",
+      "cache": ".cache/phase5/2d98cf77820940b60e98e906e4294d08bc76926ff4bcd9547d0ff028475bd270"
+    },
+    {
+      "pipeline": 3,
+      "asset": 585,
+      "path": "SpriteCollab-master/SpriteCollab-master/sprite/0899",
+      "source_sha256": "308ce549c1111ead4657d8736849487ba2f612bc13b4ac109fad777a6878ed8c",
+      "status": "converted",
+      "outputs": {
+        "monster.wan": "cc8d20cece50bdb0c967ed63213a08e394d7d095d8849ac74b18a553a8b308d0",
+        "ground.wan": "0c3deeb157252f10830ff4663798061a34d9d9b33618c6e93cc12369572ec8c0",
+        "attack.wan": "bf9de8ab44fa051ce17297d5c257edb5579804fed0ebcb00dbdebf4100a91a3d"
+      },
+      "sizes": {
+        "monster": 8144,
+        "ground": 35840,
+        "attack": 11104
+      },
+      "raw_sizes": {
+        "monster": 18368,
+        "ground": 35840,
+        "attack": 28864
+      },
+      "tile_slots": 6,
+      "file_pages": 36,
+      "palette_policy": "SkyTemple import16; transparent index0",
+      "cache": ".cache/phase5/308ce549c1111ead4657d8736849487ba2f612bc13b4ac109fad777a6878ed8c"
     }
   ]
 }

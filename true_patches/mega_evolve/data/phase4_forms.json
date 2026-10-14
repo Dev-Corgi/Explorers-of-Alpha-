@@ -1,7 +1,7 @@
 {
   "schema": 1,
   "first_species": 1155,
-  "total_species": 2269,
+  "total_species": 2273,
   "save_bits": 12,
   "stat_bits": 16,
   "stats_order": [
@@ -12952,11 +12952,11 @@
     },
     {
       "species": 1547,
-      "origin": 233,
+      "origin": 2269,
       "target": "md0233:custom",
       "branch": "Mega",
       "stage": 1,
-      "parent": 233,
+      "parent": 2269,
       "mega": 1547,
       "shiny": 1548,
       "abilities": [
@@ -12970,22 +12970,24 @@
         0
       ],
       "stats": [
-        102,
-        92,
-        92,
-        85,
-        85,
-        59
+        128,
+        131,
+        105,
+        111,
+        98,
+        72
       ],
       "asset_source": 233,
-      "portrait_source": 233,
-      "learnset_source": 233,
-      "name_source": 233,
-      "official": false
+      "portrait_source": 2269,
+      "learnset_source": 2269,
+      "name_source": 2269,
+      "official": false,
+      "template": 233,
+      "dex": 982
     },
     {
       "species": 1548,
-      "origin": 233,
+      "origin": 2269,
       "target": "md0233:custom",
       "branch": "Mega",
       "stage": 2,
@@ -13003,26 +13005,28 @@
         0
       ],
       "stats": [
-        102,
-        92,
-        92,
-        85,
-        85,
-        59
+        128,
+        131,
+        105,
+        111,
+        98,
+        72
       ],
       "asset_source": 233,
-      "portrait_source": 233,
-      "learnset_source": 233,
-      "name_source": 233,
-      "official": false
+      "portrait_source": 2269,
+      "learnset_source": 2269,
+      "name_source": 2269,
+      "official": false,
+      "template": 233,
+      "dex": 982
     },
     {
       "species": 1549,
-      "origin": 833,
+      "origin": 2270,
       "target": "md0233:custom",
       "branch": "Mega",
       "stage": 1,
-      "parent": 833,
+      "parent": 2270,
       "mega": 1549,
       "shiny": 1550,
       "abilities": [
@@ -13036,22 +13040,24 @@
         0
       ],
       "stats": [
-        102,
-        92,
-        92,
-        85,
-        85,
-        59
+        128,
+        131,
+        105,
+        111,
+        98,
+        72
       ],
       "asset_source": 833,
-      "portrait_source": 833,
-      "learnset_source": 833,
-      "name_source": 833,
-      "official": false
+      "portrait_source": 2270,
+      "learnset_source": 2270,
+      "name_source": 2270,
+      "official": false,
+      "template": 833,
+      "dex": 982
     },
     {
       "species": 1550,
-      "origin": 833,
+      "origin": 2270,
       "target": "md0233:custom",
       "branch": "Mega",
       "stage": 2,
@@ -13069,18 +13075,20 @@
         0
       ],
       "stats": [
-        102,
-        92,
-        92,
-        85,
-        85,
-        59
+        128,
+        131,
+        105,
+        111,
+        98,
+        72
       ],
       "asset_source": 833,
-      "portrait_source": 833,
-      "learnset_source": 833,
-      "name_source": 833,
-      "official": false
+      "portrait_source": 2270,
+      "learnset_source": 2270,
+      "name_source": 2270,
+      "official": false,
+      "template": 833,
+      "dex": 982
     },
     {
       "species": 1551,
@@ -15064,11 +15072,11 @@
     },
     {
       "species": 1611,
-      "origin": 261,
+      "origin": 2271,
       "target": "md0261:custom",
       "branch": "Mega",
       "stage": 1,
-      "parent": 261,
+      "parent": 2271,
       "mega": 1611,
       "shiny": 1612,
       "abilities": [
@@ -15079,25 +15087,27 @@
       "grade": 0,
       "types": [
         1,
-        0
+        11
       ],
       "stats": [
-        76,
-        119,
-        77,
-        106,
-        81,
-        106
+        107,
+        132,
+        89,
+        131,
+        93,
+        81
       ],
       "asset_source": 261,
-      "portrait_source": 261,
-      "learnset_source": 261,
-      "name_source": 261,
-      "official": false
+      "portrait_source": 2271,
+      "learnset_source": 2271,
+      "name_source": 2271,
+      "official": false,
+      "template": 261,
+      "dex": 899
     },
     {
       "species": 1612,
-      "origin": 261,
+      "origin": 2271,
       "target": "md0261:custom",
       "branch": "Mega",
       "stage": 2,
@@ -15112,29 +15122,31 @@
       "grade": 1,
       "types": [
         1,
-        0
+        11
       ],
       "stats": [
-        76,
-        119,
-        77,
-        106,
-        81,
-        106
+        107,
+        132,
+        89,
+        131,
+        93,
+        81
       ],
       "asset_source": 261,
-      "portrait_source": 261,
-      "learnset_source": 261,
-      "name_source": 261,
-      "official": false
+      "portrait_source": 2271,
+      "learnset_source": 2271,
+      "name_source": 2271,
+      "official": false,
+      "template": 261,
+      "dex": 899
     },
     {
       "species": 1613,
-      "origin": 861,
+      "origin": 2272,
       "target": "md0261:custom",
       "branch": "Mega",
       "stage": 1,
-      "parent": 861,
+      "parent": 2272,
       "mega": 1613,
       "shiny": 1614,
       "abilities": [
@@ -15145,25 +15157,27 @@
       "grade": 0,
       "types": [
         1,
-        0
+        11
       ],
       "stats": [
-        76,
-        119,
-        77,
-        106,
-        81,
-        106
+        107,
+        132,
+        89,
+        131,
+        93,
+        81
       ],
       "asset_source": 861,
-      "portrait_source": 861,
-      "learnset_source": 861,
-      "name_source": 861,
-      "official": false
+      "portrait_source": 2272,
+      "learnset_source": 2272,
+      "name_source": 2272,
+      "official": false,
+      "template": 861,
+      "dex": 899
     },
     {
       "species": 1614,
-      "origin": 861,
+      "origin": 2272,
       "target": "md0261:custom",
       "branch": "Mega",
       "stage": 2,
@@ -15178,21 +15192,23 @@
       "grade": 1,
       "types": [
         1,
-        0
+        11
       ],
       "stats": [
-        76,
-        119,
-        77,
-        106,
-        81,
-        106
+        107,
+        132,
+        89,
+        131,
+        93,
+        81
       ],
       "asset_source": 861,
-      "portrait_source": 861,
-      "learnset_source": 861,
-      "name_source": 861,
-      "official": false
+      "portrait_source": 2272,
+      "learnset_source": 2272,
+      "name_source": 2272,
+      "official": false,
+      "template": 861,
+      "dex": 899
     },
     {
       "species": 1615,
@@ -36775,6 +36791,146 @@
       "learnset_source": 825,
       "name_source": 825,
       "official": false
+    },
+    {
+      "species": 2269,
+      "origin": 2269,
+      "template": 233,
+      "target": "md0233:custom",
+      "branch": "Ordinary",
+      "stage": 0,
+      "parent": 233,
+      "mega": 1547,
+      "shiny": 1548,
+      "abilities": [
+        453,
+        294,
+        0
+      ],
+      "grade": 0,
+      "types": [
+        1,
+        0
+      ],
+      "stats": [
+        125,
+        100,
+        80,
+        85,
+        75,
+        55
+      ],
+      "asset_source": 233,
+      "portrait_source": 2269,
+      "learnset_source": 2269,
+      "name_source": 2269,
+      "official": false,
+      "dex": 982
+    },
+    {
+      "species": 2270,
+      "origin": 2270,
+      "template": 833,
+      "target": "md0233:custom",
+      "branch": "Ordinary",
+      "stage": 0,
+      "parent": 833,
+      "mega": 1549,
+      "shiny": 1550,
+      "abilities": [
+        453,
+        294,
+        0
+      ],
+      "grade": 0,
+      "types": [
+        1,
+        0
+      ],
+      "stats": [
+        125,
+        100,
+        80,
+        85,
+        75,
+        55
+      ],
+      "asset_source": 833,
+      "portrait_source": 2270,
+      "learnset_source": 2270,
+      "name_source": 2270,
+      "official": false,
+      "dex": 982
+    },
+    {
+      "species": 2271,
+      "origin": 2271,
+      "template": 261,
+      "target": "md0261:custom",
+      "branch": "Ordinary",
+      "stage": 0,
+      "parent": 261,
+      "mega": 1611,
+      "shiny": 1612,
+      "abilities": [
+        382,
+        430,
+        0
+      ],
+      "grade": 0,
+      "types": [
+        1,
+        11
+      ],
+      "stats": [
+        103,
+        105,
+        72,
+        105,
+        75,
+        65
+      ],
+      "asset_source": 261,
+      "portrait_source": 2271,
+      "learnset_source": 2271,
+      "name_source": 2271,
+      "official": false,
+      "dex": 899
+    },
+    {
+      "species": 2272,
+      "origin": 2272,
+      "template": 861,
+      "target": "md0261:custom",
+      "branch": "Ordinary",
+      "stage": 0,
+      "parent": 861,
+      "mega": 1613,
+      "shiny": 1614,
+      "abilities": [
+        382,
+        430,
+        0
+      ],
+      "grade": 0,
+      "types": [
+        1,
+        11
+      ],
+      "stats": [
+        103,
+        105,
+        72,
+        105,
+        75,
+        65
+      ],
+      "asset_source": 861,
+      "portrait_source": 2272,
+      "learnset_source": 2272,
+      "name_source": 2272,
+      "official": false,
+      "dex": 899
     }
   ]
 }

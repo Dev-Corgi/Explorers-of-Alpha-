@@ -22,13 +22,15 @@ def build():
     tracker=json.loads((ROOT/'tracker.json').read_text(encoding='utf-8'))
     assets=[];mapping=[];keys={};missing=[]
     targets={t['key']:t for t in registry['targets']}
+    repairs=json.loads((MODULE/'data/phase5_repairs.json').read_text(encoding='utf-8'))['packages']
+    derived={(p['settings']['dex'],p['settings']['color']):p for p in repairs}
     for row in forms()['rows']:
-        t=targets[row['target']];dex=f"{t['dex']:04d}";official=None
+        t=targets[row['target']];dex=f"{row.get('dex',t['dex']):04d}";official=None
         for formid,meta in tracker.get(dex,{}).get('subgroups',{}).items():
             if t['official_form'] and token(meta.get('name',''))==token(t['official_form']):
                 p=ROOT/'sprite'/dex/formid
                 if (p/'AnimData.xml').is_file():official=p
-        candidates=t['sprites']['candidates'];color='Normal' if row['stage']==1 else 'Shiny'
+        candidates=t['sprites']['candidates'];color='Normal' if row['stage']<=1 else 'Shiny'
         selected=None;policy=None
         if row['stage']==1 and official:
             # Prefer an explicit female animation package when available.
@@ -46,6 +48,12 @@ def build():
                         token(region) in token(p.name) if region else p.name.startswith('Base'))
                     if matches and (p/color/'AnimData.xml').is_file():dirs.append(p/color)
             if dirs:selected=dirs[0];policy='official_shiny_aura' if official else 'base_aura_fallback' if t['official_form'] else 'base_aura'
+        replacement=derived.get((int(dex),color))
+        if replacement:
+            selected=REPO/replacement['path'];policy='user_requested_derived_aura'
+            if not selected.is_dir():raise ValueError('Regenerate missing derived auras with phase5_repair')
+        if row['stage']==0:
+            selected=ROOT/'sprite'/dex;policy='new_ordinary_species'
         incomplete=selected is not None and not {0,7}<=set(int(a.findtext('Index','-1')) for a in ET.parse(selected/'AnimData.xml').findall('./Anims/Anim'))
         if selected is None or incomplete:
             missing.append(dict(species=row['species'],target=t['key'],dex=t['dex'],color=color,

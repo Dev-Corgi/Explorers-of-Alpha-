@@ -26,7 +26,7 @@ def convert(asset):
     try:
         if marker.is_file():
             saved=json.loads(marker.read_text(encoding='utf-8'))
-            if saved.get('pipeline')==3 and all(hashlib.sha256((directory/p).read_bytes()).hexdigest()==h for p,h in saved['outputs'].items()):return dict(saved,asset=asset['index'])
+            if saved.get('pipeline')==3 and all(hashlib.sha256((directory/p).read_bytes()).hexdigest()==h for p,h in saved['outputs'].items()):return dict(saved,asset=asset['index'],path=asset['path'])
         path=REPO/asset['path']
         if package(path)['sha256']!=asset['sha256']:raise ValueError('source sprite changed since inventory')
         # SkyTemple's importer maps whole-package colors to the native16-color

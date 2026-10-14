@@ -9,6 +9,7 @@ import json
 import struct
 from pathlib import Path
 from .phase2 import load as load_abilities
+from .new_species import load as new_species,scaled_stats
 
 MODULE=Path(__file__).resolve().parent
 
@@ -34,6 +35,22 @@ def build():
                                  asset_source=target['special_existing_target'] or origin,
                                  portrait_source=origin,learnset_source=origin,
                                  name_source=origin,official=bool(target['official_form'])))
+    for item in new_species():
+        for gender,new_id in enumerate(item['species']):
+            origin=item['parent']+gender*600
+            pair=[r for r in rows if r['target']==item['target'] and r['origin']==origin]
+            if len(pair)!=2:raise ValueError('new evolution form pair missing')
+            for row in pair:
+                row.update(template=origin,origin=new_id,name_source=new_id,
+                           learnset_source=new_id,portrait_source=new_id,types=item['types'],
+                           stats=scaled_stats(item,row['stats']),dex=item['dex'])
+                if row['stage']==1:row['parent']=new_id
+            rows.append(dict(species=new_id,origin=new_id,template=origin,target=item['target'],
+                             branch='Ordinary',stage=0,parent=origin,mega=pair[0]['species'],
+                             shiny=pair[1]['species'],abilities=pair[0]['abilities'][:2]+[0],
+                             grade=0,types=item['types'],stats=item['stats'],asset_source=origin,
+                             portrait_source=new_id,learnset_source=new_id,name_source=new_id,
+                             official=False,dex=item['dex']))
     result=dict(schema=1,first_species=start,total_species=start+len(rows),
                 save_bits=12,stat_bits=16,stats_order=['HP','Atk','Def','SpA','SpD','Spe'],
                 registry_sha256=hashlib.sha256((MODULE/'data/registry.json').read_bytes()).hexdigest(),
@@ -50,20 +67,21 @@ def validate(data):
         raise ValueError('phase4 species capacity/pair mismatch')
     seen=set()
     for index,row in enumerate(rows):
-        if row['species']!=first+index or not 0<row['origin']<first:
+        if row['species']!=first+index or not 0<row['origin']<total:
             raise ValueError('phase4 noncontiguous identities or invalid origin')
         if len(row['stats'])!=6 or any(not 0<v<=65535 for v in row['stats']):
             raise ValueError('phase4 stat width mismatch')
         if len(row['types'])!=2 or any(not 0<=v<=18 for v in row['types']):
             raise ValueError('phase4 type mismatch')
-        if len(row['abilities'])!=3 or any(not 256<=v<462 for v in row['abilities']):
+        if len(row['abilities'])!=3 or any(not (256<=v<462 or (row['stage']==0 and i==2 and v==0)) for i,v in enumerate(row['abilities'])):
             raise ValueError('phase4 ability identity mismatch')
-        if row['stage'] not in (1,2) or row['grade']!=row['stage']-1:
+        if row['stage'] not in (0,1,2) or row['grade']!=max(0,row['stage']-1):
             raise ValueError('phase4 stage mismatch')
         key=(row['origin'],row['target'],row['stage'])
         if key in seen:raise ValueError('phase4 duplicate origin/branch/stage')
         seen.add(key)
-    for mega,shiny in zip(rows[::2],rows[1::2]):
+    evolved=[r for r in rows if r['stage']]
+    for mega,shiny in zip(evolved[::2],evolved[1::2]):
         if (mega['stage'],shiny['stage'])!=(1,2):raise ValueError('phase4 pair order')
         if mega['parent']!=mega['origin'] or shiny['parent']!=mega['species']:
             raise ValueError('phase4 devolution mismatch')

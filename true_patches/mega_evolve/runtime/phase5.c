@@ -1,4 +1,5 @@
 /* Additional cache slots are heap BSS, never the native1155-slot array. */
+#include "phase5_decode.c"
 static s16 form_sprite_cache[ME_FORM_COUNT];
 static u32 form_sprite_dungeon;
 static u16 form_sprite_owners[ME_FORM_COUNT];

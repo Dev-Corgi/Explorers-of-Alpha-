@@ -14,6 +14,16 @@ def chunks(raw):
 def prepare(rom,module,inventory=None,conversion=None):
     inventory=inventory or json.loads((module/'data/phase5_assets.json').read_text(encoding='utf-8'))
     conversion=conversion or json.loads((module/'data/phase5_conversion.json').read_text(encoding='utf-8'))
+    derived=[a for a in inventory['assets'] if a.get('policy')=='user_requested_derived_aura']
+    if any(not (module.parents[1]/a['path']/'AnimData.xml').is_file() for a in derived):
+        import subprocess,shutil
+        expected=(module/'data/phase5_repairs.json').read_bytes()
+        python=shutil.which('python')
+        if not python:raise RuntimeError('Aura regeneration requires Python with numpy/scipy')
+        subprocess.run([python,'-B','-X','utf8','-m','true_patches.mega_evolve.phase5_repair'],
+                       cwd=module.parents[1],check=True)
+        if (module/'data/phase5_repairs.json').read_bytes()!=expected:
+            raise RuntimeError('Regenerated aura provenance differs')
     if conversion['converted']!=conversion['total']:raise RuntimeError('phase5 sprite conversion is incomplete')
     rows={r['asset']:r for r in conversion['assets']};paths={
         'monster':'MONSTER/monster.bin','ground':'MONSTER/m_ground.bin','attack':'MONSTER/m_attack.bin'}
