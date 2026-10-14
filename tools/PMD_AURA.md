@@ -19,22 +19,22 @@ python -m pip install Pillow numpy scipy
 저장소 루트 `C:\Working\SkyTemple`에서 실행합니다:
 
 ```powershell
-python tools/pmd_aura.py --sprite-root SpriteCollab-master/SpriteCollab-master/sprite --csv tools/data/pmd_aura_targets.csv --output output/aura/final-evolutions-v1 --dry-run
-python tools/pmd_aura.py --sprite-root SpriteCollab-master/SpriteCollab-master/sprite --csv tools/data/pmd_aura_targets.csv --output output/aura/final-evolutions-v1
+python tools/pmd_aura.py --sprite-root output/sprite-normalized --csv tools/data/pmd_aura_targets.csv --output output/aura/final-evolutions-v2 --dry-run
+python tools/pmd_aura.py --sprite-root output/sprite-normalized --csv tools/data/pmd_aura_targets.csv --output output/aura/final-evolutions-v2
 ```
 
 배치 모드는 기본적으로 모든 실제 동작을 처리하고 미리보기는 생성하지 않습니다. `--animations Idle`로 일부만 선택하고 `--previews`로 미리보기를 켤 수 있습니다. `--only-dex 0012`는 버터플만 처리합니다.
 
-배치 대상 색상은 `--variants normal`(원본 `AltMeta`만), `--variants shiny`(이로치 `AltMetaColor`만), `--variants both`(기본값, 둘 다)로 선택합니다.
+배치 대상 색상은 `--variants normal`(일반형만), `--variants shiny`(이로치만), `--variants both`(기본값, 둘 다)로 선택합니다. 현재 배치 입력은 정규화한 Base/Normal·Base/Shiny 패키지입니다.
 
 입력과 출력 대응:
 
 | 입력 | 출력 |
 |---|---|
-| `sprite/번호/` | `출력/번호/AltMeta/` |
-| `sprite/번호/0000/0001/` | `출력/번호/AltMetaColor/` |
+| `sprite-normalized/번호/Base/Normal/` | `출력/번호/Base_Aura/Normal/` |
+| `sprite-normalized/번호/Base/Shiny/` | `출력/번호/Base_Aura/Shiny/` |
 
-원본 디렉터리와 tracker는 수정하지 않습니다. AltMeta·AltMetaColor는 생성 패키지의 폴더 이름이며 게임 등록·ROM 적용은 별도 작업입니다. 마스크를 쓰면 `--mask-dir` 아래의 `번호/AltMeta/동작-Mask.png`, `번호/AltMetaColor/동작-Mask.png`를 준비합니다.
+원본 디렉터리와 tracker는 수정하지 않습니다. 게임 등록·ROM 적용은 별도 작업입니다. 마스크를 쓰면 `--mask-dir` 아래의 `번호/Base_Aura/Normal/동작-Mask.png`, `번호/Base_Aura/Shiny/동작-Mask.png`를 준비합니다. 정규화하지 않은 SpriteCollab 원본은 아래 단일 패키지 모드로 지정할 수 있습니다.
 
 전체 실행이 끝나면 출력 루트의 `batch-report.json`에 생성·누락·실패 결과가 남습니다. 누락은 건너뛰고, 개별 실패 후에도 다른 포켓몬을 계속 처리합니다. 색상 여유가 없는 원본은 실패로 기록되며 원본을 줄이거나 덮어쓰지 않습니다. 종료 코드 1은 실패 항목이 있다는 뜻입니다.
 
@@ -71,7 +71,11 @@ python tools/pmd_aura.py --sprite-dir SpriteCollab-master/SpriteCollab-master/sp
 - `--palette-limit 16`: 투명색 포함 최대 색 수. 원본을 재색칠하거나 양자화하지 않습니다. 복합 타입에 필요한 색이 부족하면 실패합니다.
 - `--type-colors colors.json`: `{ "bug": "#A8B820", "flying": "#A890F0" }` 형식으로 기본 색을 변경합니다.
 
-아우라 모양은 알파 마스크의 거리와 위쪽 방향, 시간에 따라 연속적으로 변하는 파동으로 계산합니다. 원본 얼굴·날개·팔다리 위에는 그리지 않습니다. 공통 아우라 색을 모든 처리 동작에 사용하고, 디더링과 반투명 픽셀은 사용하지 않습니다. 원본의 반투명 알파는 지원하지 않으므로 먼저 정리해야 합니다. 완전 투명 픽셀의 보이지 않는 RGB는 출력에서 0으로 정규화합니다.
+아우라 모양은 알파 마스크의 거리와 위쪽 방향으로 계산합니다. 걷기·대기·수면 등 반복/종류 미확인 동작은 물결의 시간 위상을0으로 고정합니다. 단발 공격 그룹1·2·3·4·8·9·10·11·12에서만 포즈별 물결 위상을 바꿉니다. ReturnFrame은 공격 복귀 타이밍이며 반복 시작점으로 해석하지 않습니다.
+
+같은 원본 그림은 다른 프레임·동작에 나와도 동일한 아우라를 재사용합니다. 좌표 이동과 좌우 반전도 같은 포즈로 취급합니다. 반복 동작에도 등장하는 포즈는 단발 동작에서 시간 위상을 추가하지 않습니다. 따라서 물결 위상 때문에 같은 포즈의 그림이 여러 장으로 늘어나지 않습니다. 새 프레임을 만들거나 원본 Durations를 바꾸지 않습니다. 그림 외곽이 커지는 만큼의 데이터 증가는 별도로 존재하므로 실제 WAN 크기는 변환 후 확인해야 합니다.
+
+원본 얼굴·날개·팔다리 위에는 그리지 않습니다. 공통 아우라 색을 모든 처리 동작에 사용하고, 디더링과 반투명 픽셀은 사용하지 않습니다. 원본의 반투명 알파는 지원하지 않으므로 먼저 정리해야 합니다. 완전 투명 픽셀의 보이지 않는 RGB는 출력에서0으로 정규화합니다. `aura-report.json`의 aura_pipeline=2, wave_policy, unique_source_poses/unique_aura_poses에 처리 기준을 기록합니다.
 
 ## 여백·위치·XML
 

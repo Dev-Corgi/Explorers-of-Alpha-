@@ -1,0 +1,22 @@
+{
+  "schema": 1,
+  "policy": "Hand-mapped material ramps using the existing official shiny reference color families; black outlines retained. Never nearest-color extrapolation.",
+  "palettes": {
+    "227": {
+      "style": "champagne armor and emerald blades",
+      "colors": {"000000":"000000","edff37":"fff1c4","ffcb00":"e1c67d","d8a700":"b99b58","a88000":"856b40","807500":"51472e","2a3538":"18352d","283235":"18352d","2f525c":"34825b","2c4d56":"256548","557787":"99d367","b20000":"b53a36","f4eded":"fff0dc","e37673":"f19173"}
+    },
+    "248": {
+      "style": "ivory gold armor and amethyst core",
+      "colors": {"000000":"000000","a7b777":"d4b46a","778757":"a58244","394326":"44392c","cfe797":"f3d995","e7f7cf":"fff2cf","ffffff":"fff9e3","9f0000":"512d79","d73f00":"8151b5","ff875f":"c99be9","b7cfff":"9fbbff"}
+    },
+    "308": {
+      "style": "warm gold skin, sapphire cloth and pearl ornaments",
+      "colors": {"000000":"000000","afb7bf":"efbd74","d7dfdf":"ffe0a0","ffffff":"fff4d3","7f8f97":"bf824a","47676f":"7b5030","e74f87":"3866bd","97375f":"1f3f88","ff6fa7":"86b3ff","581c35":"1f3f88","e7b700":"dcecff","af7700":"8ba9e7","efd700":"f4fbff","7fcfff":"86b3ff","1f9fe7":"3866bd"}
+    },
+    "491": {
+      "style": "obsidian violet body, platinum crest and ruby collar",
+      "colors": {"000000":"000000","2b2b2b":"342341","1a1a1a":"1d142b","3c3d41":"50365f","4a4b4f":"72507f","d7dfdf":"e9edff","bab3be":"b7b8e2","8f9797":"717697","aa0042":"9b1757","dd287f":"e34398","c45bc4":"bf86f1","161616":"151022","4e3dc6":"60efff","232323":"20152c"}
+    }
+  }
+}

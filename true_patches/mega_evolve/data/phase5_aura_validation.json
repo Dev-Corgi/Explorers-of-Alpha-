@@ -1,0 +1,44 @@
+{
+  "schema": 1,
+  "aura_packages": 584,
+  "connected_forms": 1118,
+  "held_forms": 0,
+  "official_normal_auras": 36,
+  "redesigned_palettes": 4,
+  "converted_packages": 586,
+  "max_raw_bytes_and_asset": {
+    "monster": [
+      100928,
+      213
+    ],
+    "ground": [
+      168656,
+      551
+    ],
+    "attack": [
+      126720,
+      115
+    ]
+  },
+  "roms": {
+    "Explorers of Alpha+.nds": {
+      "bytes": 167240352,
+      "sha256": "89396c7fc8a0dc96b3664baa25ef4f53005a6fc929a3bd9fc40ae2ee52dbe3db",
+      "card_capacity_mib": 256
+    },
+    "Explorers of Alpha+_kor.nds": {
+      "bytes": 166124704,
+      "sha256": "785f4baf7a10cb1c35126f2bee2191910c7cfb2d232e3d4aef691725653eefd0",
+      "card_capacity_mib": 256
+    }
+  },
+  "checks": [
+    "9 aura/normalized-package unit tests",
+    "584 XML/pose/source audits",
+    "native whole-WAN decoder/manager and shared cleanup for Flareon, Blissey, Mega Lucario",
+    "native mixed actor sprite-cache refresh",
+    "1118 native MD row consumers and legacy save/updater roundtrip"
+  ],
+  "native_loader_peak_modeled_sprite_bytes": 351980,
+  "scope": "Actual ARM loaders/decoders/cache/updater execute. Pack IO and allocator modeled; no DraStic gameplay or FPS certification. Per-action loader changes cancelled."
+}

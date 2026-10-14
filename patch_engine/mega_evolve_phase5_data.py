@@ -14,6 +14,14 @@ def chunks(raw):
 def prepare(rom,module,inventory=None,conversion=None):
     inventory=inventory or json.loads((module/'data/phase5_assets.json').read_text(encoding='utf-8'))
     conversion=conversion or json.loads((module/'data/phase5_conversion.json').read_text(encoding='utf-8'))
+    if (module/'data/phase5_aura_pose.json').is_file() and any(
+        '/.cache/phase5_pose/' in a['path'] and not (module.parents[1]/a['path']/'AnimData.xml').is_file()
+        for a in inventory['assets']):
+        import subprocess,shutil
+        python=shutil.which('python')
+        if not python:raise RuntimeError('Aura regeneration requires Python with numpy/scipy')
+        subprocess.run([python,'-B','-X','utf8','-m','true_patches.mega_evolve.phase5_reaura','--ensure'],
+                       cwd=module.parents[1],check=True)
     derived=[a for a in inventory['assets'] if a.get('policy')=='user_requested_derived_aura']
     if any(not (module.parents[1]/a['path']/'AnimData.xml').is_file() for a in derived):
         import subprocess,shutil

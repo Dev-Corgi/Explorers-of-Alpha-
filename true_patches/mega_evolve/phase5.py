@@ -65,8 +65,9 @@ def build():
         if key not in keys:
             keys[key]=len(assets);assets.append(dict(index=len(assets),policy=policy,**package(selected)))
         mapping.append(dict(species=row['species'],asset=keys[key]))
-    return dict(schema=1,total_forms=len(forms()['rows']),assets=assets,mapping=mapping,missing=missing,
-                tracker_sha256=hashlib.sha256((ROOT/'tracker.json').read_bytes()).hexdigest())
+    from .phase5_reaura import overlay
+    return overlay(dict(schema=1,total_forms=len(forms()['rows']),assets=assets,mapping=mapping,missing=missing,
+                tracker_sha256=hashlib.sha256((ROOT/'tracker.json').read_bytes()).hexdigest()))
 
 def main():
     data=build();(MODULE/'data/phase5_assets.json').write_text(json.dumps(data,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')

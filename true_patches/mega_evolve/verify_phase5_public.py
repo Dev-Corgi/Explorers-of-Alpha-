@@ -33,12 +33,14 @@ def main():
         # Held images retain phase4's old sprite reference.
         assert md.entries[row['species']].sprite_index<819
     output=_serialize_rom(rom,state)
-    assert output[0x14]==12 and 256*1024*1024<len(output)<=512*1024*1024
+    capacity=128*1024*(1<<output[0x14])
+    assert capacity in (128*1024*1024,256*1024*1024,512*1024*1024)
+    assert 0<len(output)<=capacity
     restored=NintendoDSRom(output);verify_mega_evolve_module(restored,MODULE,manifest,record)
     assert hashlib.sha256(SOURCE.read_bytes()).hexdigest()==before
     report=dict(schema=1,connected_forms=len(inventory['mapping']),held_forms=len(inventory['missing']),
                 packages=len(inventory['assets']),additional_bytes=record.data[0]['sprites']['additional_bytes'],
-                serialized_rom_bytes=len(output),card_capacity_mib=512,
+                serialized_rom_bytes=len(output),card_capacity_mib=capacity//(1024*1024),
                 runtime_bytes=record.data[0]['runtime_size'],resident_bytes=record.data[0]['form_consumers']['cave']['size'],
                 scope='Public apply/verify and all-pack memory serialization; no NDS/save outputs. Hardware/RAM integration deferred to phase8.')
     if phase>=6:report['spring_runtime_bytes']=record.data[0]['spring']['runtime_bytes']

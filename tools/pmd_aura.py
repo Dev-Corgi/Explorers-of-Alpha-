@@ -1,4 +1,4 @@
-"""Add deterministic, palette-limited aura layers to SpriteCollab sprite sheets.
+﻿"""Add deterministic, palette-limited aura layers to SpriteCollab sprite sheets.
 
 Dependencies: Pillow, numpy, scipy. No image-generation service or ROM required.
 """
@@ -136,6 +136,27 @@ def padded_sheet(image: Image.Image, fw: int, fh: int, padding: int) -> Image.Im
     return out
 
 
+def source_pose(source: np.ndarray, body: np.ndarray) -> tuple:
+    """Translation/mirror invariant identity, including any body-only mask."""
+    yy, xx = np.where(source[:, :, 3] > 0)
+    if not len(xx):
+        return ((0, 0, b'', b''), source[:0, :0], body[:0, :0], 0, 0, False)
+    left, top, right, bottom = int(xx.min()), int(yy.min()), int(xx.max()) + 1, int(yy.max()) + 1
+    cropped, mask = source[top:bottom, left:right], body[top:bottom, left:right]
+    direct = (cropped.tobytes(), mask.tobytes())
+    mirrored = (cropped[:, ::-1].tobytes(), mask[:, ::-1].tobytes())
+    flip = mirrored < direct
+    if flip:
+        cropped, mask = cropped[:, ::-1], mask[:, ::-1]
+    pixels, mask_bytes = mirrored if flip else direct
+    return ((bottom - top, right - left, pixels, mask_bytes), cropped, mask, left, top, flip)
+
+
+# These native attack groups play once. Other/unknown sheets stay phase-fixed;
+# ReturnFrame is attack return timing, not a loop boundary.
+ONE_SHOT_GROUPS = {1, 2, 3, 4, 8, 9, 10, 11, 12}
+
+
 def save_preview(path: Path, source: np.ndarray, result: np.ndarray,
                  fw: int, fh: int, padding: int, durations: list[int],
                  ticks_per_second: float, scale: int) -> None:
@@ -248,32 +269,57 @@ def build(args: argparse.Namespace) -> dict:
         raise ValueError(f'Palette has {len(original_colors)} source colors; {available} free slots. Cannot fit aura steps={steps}.')
     ramp = color_ramp(colors, steps)
     palette = sorted(original_colors | {tuple(map(int, c)) for c in ramp})
+    poses, phases = {}, {}
+    # Reserve phase zero for every pose used by a repeating/unknown animation,
+    # before one-shot actions assign their phases. A pose never gains variants.
+    for name, (image, mask, fw, fh, ds, _) in loaded.items():
+        repeating = int(by_name[name].findtext('Index', '-1')) not in ONE_SHOT_GROUPS
+        for r in range(image.shape[0] // fh):
+            for c in range(image.shape[1] // fw):
+                pose = source_pose(image[r*fh:(r+1)*fh, c*fw:(c+1)*fw],
+                                   mask[r*fh:(r+1)*fh, c*fw:(c+1)*fw])
+                poses[name, r, c] = pose
+                if repeating:
+                    phases[pose[0]] = 0.0
+    rendered = {}
     plans = {}
     report = {'types': types, 'type_colors': [defaults[t] for t in types], 'palette_limit': args.palette_limit,
               'opaque_source_colors': len(original_colors), 'gradient_steps': steps, 'aura_colors': ramp.tolist(),
               'padding_per_side': padding, 'gradient_axis': args.gradient_axis, 'seed': args.seed,
               'preview_ticks_per_second_assumption': args.ticks_per_second, 'animations': {}, 'warnings': [],
               'rom_validated': False, 'source_hashes': hashes}
+    report.update(aura_pipeline=2, wave_policy='non_loop_unique_poses',
+                  unique_source_poses=len({p[0] for p in poses.values()}))
     for name, (image, mask, fw, fh, ds, companions) in loaded.items():
         cols, rows = image.shape[1] // fw, image.shape[0] // fh
         nw, nh = fw + padding * 2, fh + padding * 2
         result = np.zeros((rows * nh, cols * nw, 4), np.uint8)
         metrics = []
         elapsed = 0
-        offsets = np.array(companions['Offsets'])
         for c, duration in enumerate(ds):
-            phase = elapsed / sum(ds)
+            proposed_phase = elapsed / sum(ds)
             elapsed += duration
             for r in range(rows):
                 old = image[r * fh:(r + 1) * fh, c * fw:(c + 1) * fw]
                 body = mask[r * fh:(r + 1) * fh, c * fw:(c + 1) * fw]
-                tile = offsets[r * fh:(r + 1) * fh, c * fw:(c + 1) * fw]
-                yy, xx = np.where((tile[:, :, :3] == 0).all(axis=2) & (tile[:, :, 3] > 0))
-                anchor = (float(xx[0]), float(yy[0])) if len(xx) == 1 else None
-                new, metric = render_frame(old, body, ramp, phase, args.width, args.flame_height,
-                                          padding, args.gradient_axis, args.seed, anchor)
+                key, cropped, cropped_mask, left, top, flip = poses[name, r, c]
+                phase = phases.setdefault(key, proposed_phase)
+                reused = key in rendered
+                if not reused:
+                    if cropped.size:
+                        rendered[key] = render_frame(cropped, cropped_mask, ramp, phase, args.width,
+                                                     args.flame_height, padding, args.gradient_axis, args.seed)
+                    else:
+                        rendered[key] = (None, {'empty_mask': True, 'clipped_aura_pixels': 0, 'added_pixels': 0})
+                picture, info = rendered[key]
+                new = np.zeros((nh, nw, 4), np.uint8)
+                if picture is not None:
+                    h, w = picture.shape[:2]
+                    new[top:top+h, left:left+w] = picture[:, ::-1] if flip else picture
+                metric = dict(info)
                 metric.update(row=r + 1, frame=c, phase=phase,
-                              anchor_source='offsets_black_marker' if anchor else 'mask_bbox')
+                              anchor_source='canonical_pose_bbox', source_pose_reused=reused,
+                              mirrored_pose=flip)
                 if metric['clipped_aura_pixels'] and not args.allow_clipping:
                     raise ValueError(f'{name} row {r + 1} frame {c}: aura would clip. Use --padding auto or explicitly --allow-clipping.')
                 preserved = new[padding:padding + fh, padding:padding + fw]
@@ -309,6 +355,7 @@ def build(args: argparse.Namespace) -> dict:
             save_preview(preview / f'{name}-comparison.gif', image, result, fw, fh, padding,
                          ds, args.ticks_per_second, args.preview_scale)
     tree.write(out / 'AnimData.xml', encoding='utf-8', xml_declaration=True)
+    report['unique_aura_poses'] = len(rendered)
     report['output_opaque_palette_colors'] = len(palette)
     report['output_palette_colors_including_transparency'] = len(palette) + 1
     report['source_unchanged'] = all(hashlib.sha256(p.read_bytes()).hexdigest() == hashes[p.name] for p in source_files)
@@ -337,7 +384,7 @@ def preview_existing(source: Path, output: Path, selected: list[str], ticks: flo
 
 def batch(args: argparse.Namespace) -> dict:
     root, output = args.sprite_root.resolve(), args.output.resolve()
-    if not root.is_dir() or root == output or root in output.parents or output in root.parents:
+    if not root.is_dir():
         raise ValueError('Input must exist and output must be outside the input tree.')
     if not args.csv or args.types:
         raise ValueError('Batch mode requires --csv and reads types from CSV, not --types.')
@@ -361,7 +408,7 @@ def batch(args: argparse.Namespace) -> dict:
                 raise ValueError(f'{dex}: enabled must be 0 or 1')
             if row['enabled'].strip() == '0' or (only and dex not in only):
                 continue
-            variants = [('AltMeta', dex), ('AltMetaColor', f'{dex}/0000/0001')]
+            variants = [('Base_Aura/Normal', f'{dex}/Base/Normal'), ('Base_Aura/Shiny', f'{dex}/Base/Shiny')]
             if args.variants == 'normal':
                 variants = variants[:1]
             elif args.variants == 'shiny':

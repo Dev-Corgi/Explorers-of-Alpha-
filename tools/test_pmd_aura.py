@@ -101,12 +101,47 @@ class AuraTests(unittest.TestCase):
             with self.assertRaisesRegex(ValueError, 'at least two'): build(args)
             self.assertFalse(out.exists())
 
+    def test_repeated_translated_mirrored_poses_share_one_aura(self):
+        with tempfile.TemporaryDirectory() as temp:
+            root=Path(temp);src=root/'source';out=root/'output';self.fixture(src)
+            attack=np.zeros((10,40,4),np.uint8)
+            attack[2:7,2:5]=(140,60,80,255)
+            attack[2,4]=(240,50,30,255)
+            attack[:,8:16]=attack[:,:8]
+            attack[:,16:24]=attack[:,:8, :][:,::-1]
+            attack[1:,25:32]=attack[:-1,:7]
+            attack[:,32:40]=attack[:,:8]
+            attack[4,35]=(240,50,30,255)
+            Image.fromarray(attack).save(src/'Attack-Anim.png')
+            for suffix in ('Offsets','Shadow'):
+                companion=Image.new('RGBA',(40,10))
+                companion.paste(Image.open(src/f'Idle-{suffix}.png'),(0,0))
+                companion.save(src/f'Attack-{suffix}.png')
+            tree=ET.parse(src/'AnimData.xml');node=ET.SubElement(tree.find('Anims'),'Anim')
+            for key,value in [('Name','Attack'),('Index','1'),('FrameWidth','8'),('FrameHeight','10'),('ReturnFrame','1')]:
+                ET.SubElement(node,key).text=value
+            ds=ET.SubElement(node,'Durations')
+            for duration in (2,3,4,5,6):ET.SubElement(ds,'Duration').text=str(duration)
+            tree.write(src/'AnimData.xml')
+            args=parser().parse_args(['--sprite-dir',str(src),'--output',str(out),'--types','fire','--all','--no-previews'])
+            report=build(args)
+            idle=report['animations']['Idle'];attack_report=report['animations']['Attack']
+            self.assertTrue(all(m['phase']==0 for m in idle['frames']))
+            self.assertEqual(len({m['phase'] for m in attack_report['frames'][:4]}),1)
+            self.assertGreater(attack_report['frames'][4]['phase'],0)
+            self.assertEqual(attack_report['durations'],[2,3,4,5,6])
+            image=np.array(Image.open(out/'Attack-Anim.png').convert('RGBA'))
+            w,h=attack_report['output_frame_size']
+            self.assertTrue(np.array_equal(image[:h,:w],image[:h,w:2*w]))
+            self.assertTrue(np.array_equal(image[:h,:w][:,::-1],image[:h,2*w:3*w]))
+            self.assertTrue(np.array_equal(image[:h,:w][:-1,:-1],image[:h,3*w:4*w][1:,1:]))
+            self.assertEqual(report['unique_source_poses'],report['unique_aura_poses'])
+
     def test_batch_variants_resume_missing_and_modified_output(self):
         with tempfile.TemporaryDirectory() as temp:
             root = Path(temp); sprites = root / 'sprites'; sprites.mkdir()
-            self.fixture(sprites / '0012')
-            shiny = sprites / '0012/0000'; shiny.mkdir()
-            self.fixture(shiny / '0001')
+            form=sprites/'0012/Base';form.mkdir(parents=True)
+            self.fixture(form/'Normal');self.fixture(form/'Shiny')
             csv_path = root / 'targets.csv'
             csv_path.write_text('dex_id,type1,type2,enabled\n0012,bug,flying,1\n0003,grass,poison,1\n', encoding='utf-8-sig')
             args = parser().parse_args(['--sprite-root', str(sprites), '--csv', str(csv_path),
@@ -116,10 +151,10 @@ class AuraTests(unittest.TestCase):
             self.assertFalse(args.output.exists())
             args.dry_run = False
             self.assertEqual(batch(args)['summary'], {'created': 1, 'skipped_missing': 1})
-            self.assertFalse((args.output / '0012/AltMeta/Preview').exists())
+            self.assertFalse((args.output / '0012/Base_Aura/Normal/Preview').exists())
             args.resume = True
             self.assertEqual(batch(args)['summary'], {'skipped_completed': 1, 'skipped_missing': 1})
-            (args.output / '0012/AltMeta/credits.txt').write_text('modified')
+            (args.output / '0012/Base_Aura/Normal/credits.txt').write_text('modified')
             self.assertEqual(batch(args)['summary']['failed'], 1)
             args.width = 2
             self.assertEqual(batch(args)['summary']['failed'], 1)

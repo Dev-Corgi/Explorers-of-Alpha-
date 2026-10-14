@@ -61,7 +61,8 @@ def load_registry(module_dir, manifest):
         for relative in ('data/phase5_assets.json','data/phase5_conversion.json','phase5.py','phase5_convert.py',
                          'runtime/phase5.c','runtime/phase5_hooks.S','runtime/phase5_decode.c',
                          'phase5_repair.py','data/phase5_repairs.json','phase5_routes.py',
-                         'data/phase5_evolution_routes.json'):
+                         'data/phase5_evolution_routes.json','phase5_reaura.py',
+                         'data/phase5_shiny_palettes.json','data/phase5_aura_pose.json'):
             metadata[relative+'_sha256']=hashlib.sha256((module_dir/relative).read_bytes()).hexdigest()
     if manifest.get('phase',0)>=6:
         from true_patches.mega_evolve.phase6 import load

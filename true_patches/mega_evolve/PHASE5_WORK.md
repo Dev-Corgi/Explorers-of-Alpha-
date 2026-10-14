@@ -34,6 +34,26 @@ data/phase5_repairs.json에 있다. 처리 결과는 [PHASE5_MISSING.md](PHASE5_
 
 ## 길이·캐시·자원 로딩
 
+version13은 동작별 로딩 변경을 채택하지 않고, `tools/pmd_aura.py`의 포즈 단위
+생성 결과를 기존 전체 WAN 로더에 연결한다. 반복 포즈는 좌표 이동·좌우 반전을
+정규화해 같은 아우라 그림을 재사용하며, 단발 공격의 새 포즈에만 물결 위상을
+배정한다. 프레임 수·재생 시간·공격 타이밍은 유지한다.
+공식 메가·원시회귀·오리진 일반 단계에도 해당 폼의 아우라를 입힌다.
+이로치 단계는 이로치 폼+아우라를 유지하며, 누락 이로치4종의 팔레트는
+`data/phase5_shiny_palettes.json`의 부위별 명암표로 재배치한다.
+`phase5_reaura.py`와 `data/phase5_aura_pose.json`에 입력/옵션/도구 해시와
+생성물 해시를 고정한다. 생성 PNG는 무시되는 캐시에 보관한다.
+동작별 attack/ground 팩 추가, 방향별 실행 중 로딩과 새 VRAM 복사 우회는 없다.
+
+584개 재생성물 전체의 XML ID/시간/별칭과 포즈 수·원본 보존을 검사했다.
+부스터·해피너스 공격 raw 크기는331376→28560,459584→30544바이트다.
+최대 raw 크기는 monster100928/ground168656/attack126720바이트다.
+`verify_aura_loading`은 실제 완성 ROM에서 부스터·해피너스·메가 루카리오의
+전체 WAN 로드/디코딩/공유/해제를 실행했다. allocator·pack IO 모델의 동시
+sprite 최대351980바이트이며 runtime/다른 엔진 메모리를 포함하는 실측은 아니다.
+기존 actor cache, native MD1118행과 구버전 세이브/업데이트 회귀도 통과했다.
+한글·영문 풀스택을 재빌드했고, DraStic의 맵/공격/FPS는 실제 기기 확인이 필요하다.
+
 아우라의 큰 애니메이션을 기존 PKDPX의 압축 길이16비트와 MD 파일 크기8비트에
 잘라 넣지 않는다. MEW5 패키지는 magic/raw size/chunk count 뒤에 크기와
 PKDPX 블록을 기록한다. 블록의 원본 크기는 최대32768바이트이며 native

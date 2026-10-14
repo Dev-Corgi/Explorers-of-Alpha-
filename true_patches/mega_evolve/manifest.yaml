@@ -1,5 +1,5 @@
 id: mega_evolve
-version: 12
+version: 13
 kind: mega_evolve
 rom_profile: us_vanilla
 phase: 6
@@ -10,7 +10,9 @@ description: >-
   Branch selection and single-stage regression are supported. Existing
   Primal/Origin forms awaken directly. Ordinary evolution and supported form
   changes remain; permanent XP, doping, nicknames and gender are preserved.
-  All 1118 added rows use 586 sprite packages. Enhanced effects remain phase7.
+  All 1118 added rows use 586 sprite packages. Mega, Primal and Origin sprites
+  include pose-stable aura; repeating source poses share the same aura pixels.
+  Enhanced effects remain phase7.
 requires:
   - z_move_v2
   - base_stats_speed
