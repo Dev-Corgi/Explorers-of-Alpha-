@@ -83,6 +83,11 @@ def build_runtime(module_dir,work,cave,entity_speed,from_monster,phase=1,skill_s
         from true_patches.mega_evolve.phase3_moves import header as move_header
         (work/'phase3_moves_generated.h').write_text(move_header(),encoding='ascii')
         defines.update(ME_PHASE3=1)
+    if phase>=4:
+        from true_patches.mega_evolve.phase4 import load as forms,header as form_header
+        data=forms()
+        (work/'phase4_generated.h').write_text(form_header(data),encoding='ascii')
+        defines['ME_PHASE4']=1
     defines.update(additional_defines or {})
     if phase>=3:
         from true_patches.mega_evolve.status_hooks import assembly
@@ -196,7 +201,7 @@ def apply_phase1(rom,module_dir,manifest,state,metadata):
         from true_patches.mega_evolve.phase3_moves import validate_rom as validate_moves
         validate_moves(rom)
         from .mega_evolve_loader import link_runtime
-        caves,ov36,symbols,scatter_info,runtime_payload=link_runtime(module_dir,ov29,ov36,state,entity_speed,from_monster)
+        caves,ov36,symbols,scatter_info,runtime_payload=link_runtime(module_dir,ov29,ov36,state,entity_speed,from_monster,manifest['phase'])
     else:
         slot,ov36=allocate_runtime(ov36,state,runtime_size)
         with tempfile.TemporaryDirectory(prefix="mega_evolve_phase1_") as temporary:
@@ -236,6 +241,13 @@ def apply_phase1(rom,module_dir,manifest,state,metadata):
     if manifest["phase"]>=3:
         from .mega_evolve_phase3_runtime import install_hooks
         install_hooks(ov29,ov36,symbols,patch)
+    if manifest['phase']>=4:
+        from true_patches.base_stats_speed.generate_tables import COMBAT_OFF
+        root=from_monster-COMBAT_OFF
+        for offset,target in ((0,'ME_FormStatHook'),(4,'ME_FormRateHook')):
+            if word(ov36,root+offset,OV36)>>24!=0xea:
+                raise RuntimeError('phase4 base-stat entry guard changed')
+            patch(36,root+offset,branch(root+offset,symbols[target]),target,target)
     strings=parse_str_file(rom.getFileByName("MESSAGE/text_e.str"))
     text_data=json.loads((module_dir/"data/phase1_strings.json").read_text(encoding="utf-8"))
     for entry in text_data["entries"]:

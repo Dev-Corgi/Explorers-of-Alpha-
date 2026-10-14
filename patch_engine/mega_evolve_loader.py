@@ -53,7 +53,7 @@ def install_file(rom,payload):
     rom.filenames.folders.append(('MEGA',Folder(files=['runtime.bin'],firstID=len(rom.files))))
     rom.files.append(payload)
 
-def link_runtime(module,ov29,ov36,state,entity_speed,from_monster):
+def link_runtime(module,ov29,ov36,state,entity_speed,from_monster,phase=3):
     from .mega_evolve_phase3_runtime import native_defines,elf_sections
     import shutil
     compiler=shutil.which('arm-none-eabi-gcc')
@@ -61,9 +61,17 @@ def link_runtime(module,ov29,ov36,state,entity_speed,from_monster):
     prefix=str(Path(compiler).with_name('arm-none-eabi-'))
     suffix='.exe' if compiler.lower().endswith('.exe') else ''
     defines=native_defines(ov29)
+    if phase>=4:
+        from true_patches.base_stats_speed.generate_tables import COMBAT_OFF
+        from .hook_registry import branch_target
+        root=from_monster-COMBAT_OFF
+        for offset,name in ((0,'FORM_STAT_RESUME'),(4,'FORM_RATE_RESUME')):
+            instruction=word(ov36,root+offset,OV36)
+            if instruction>>24!=0xea:raise RuntimeError('phase4 base-stat entry changed')
+            defines[name]=branch_target(root+offset,instruction)
     with tempfile.TemporaryDirectory(prefix='mega_evolve_loader_') as temp:
         work=Path(temp)
-        blob,body_symbols=build_runtime(module,work,LINK_BASE,entity_speed,from_monster,3,
+        blob,body_symbols=build_runtime(module,work,LINK_BASE,entity_speed,from_monster,phase,
             word(ov29,0x02328790,OV29),defines,emit_relocations=True)
         size=(body_symbols['MERuntimeEnd']-LINK_BASE+31)&~31
         if size>MAX_IMAGE:raise RuntimeError(f'mega_evolve execution image exceeds explicit RAM budget: {size}')

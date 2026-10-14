@@ -75,6 +75,15 @@ static AbilityBank *bank(u8 *e) {
         }
 #ifdef ME_PHASE3
         const BaseProfile *profile=ME_FindProfile(b->species);
+#ifdef ME_PHASE4
+        const MEForm *form=ME_FindForm(b->species);
+        if(form) {
+            b->configured=1;
+            for(int j=0;j<3;j++) b->current[j]=b->permanent[j]=
+                (u32)form->ability[j]|((u32)form->grade<<16);
+            publish(b);
+        } else
+#endif
         if(profile) {
             b->configured=1;
             for(int j=0;j<2;j++) b->current[j]=b->permanent[j]=profile->ability[j];

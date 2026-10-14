@@ -20,6 +20,10 @@ int ME_ChangeStat(u8*,u8*,int,int);
 int ME_MegaSolActive(u8*);
 #endif
 #define BYTE(p,o) (*((u8 *)(p)+(o)))
+#ifdef ME_PHASE4
+#include "phase4_generated.h"
+const MEForm *ME_FindForm(int);
+#endif
 enum { COUNT=20, SOURCES=60, SNAPSHOT=1024, MAGIC=0x3147454d,
 #ifdef ME_PHASE2
  SCHEMA=2
@@ -40,6 +44,9 @@ static u8 *dungeon(void) { return *(u8 **)DUNGEON_PTR; }
 static void zero(void *p,u32 n) { u8 *b=p; while(n--) *b++=0; }
 static int clamp(int x,int lo,int hi) { return x<lo?lo:x>hi?hi:x; }
 static int divide(int a,int b) { return FN(SIGNED_DIVIDE,int (*)(int,int))(a,b); }
+#ifdef ME_PHASE4
+#include "phase4.c"
+#endif
 static u8 *monster(u8 *e) { return e && U32(e,0)==1 ? (u8 *)U32(e,0xb4) : 0; }
 static int alive(u8 *e) { u8 *m=monster(e); return m && (s16)U16(m,0x10)>0; }
 static int has(u8 *e,int ability) {

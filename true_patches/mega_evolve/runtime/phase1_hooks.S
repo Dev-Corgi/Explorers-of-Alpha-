@@ -8,6 +8,27 @@
 \name:
 .endm
 
+#ifdef ME_PHASE4
+entry ME_FormStatHook
+ push {r0-r4,lr}
+ bl ME_FormCalcStat
+ cmp r0,#0
+ strge r0,[sp]
+ pop {r0-r4,lr}
+ bxge lr
+ ldr pc,=FORM_STAT_RESUME
+
+entry ME_FormRateHook
+ push {r0,r1,r2,lr}
+ bl ME_FormStage
+ cmp r0,#0
+ movne r0,#0
+ strne r0,[sp]
+ pop {r0,r1,r2,lr}
+ bxne lr
+ ldr pc,=FORM_RATE_RESUME
+#endif
+
 entry ME_OriginalApparentWeather
  push {r4,lr}
  ldr pc,=0x02334d0c
