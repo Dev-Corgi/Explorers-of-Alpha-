@@ -20,7 +20,8 @@ def load_registry(module_dir, manifest):
     if manifest.get('phase',0)>=3 and bits==12:
         metadata['species_save_bits']=12
         for codec_path in (module_dir/'runtime/save12.c',Path(__file__).with_name('mega_evolve_save12.py'),
-                     Path(__file__).with_name('mega_evolve_resident_slot.py')):
+                     Path(__file__).with_name('mega_evolve_resident_slot.py'),
+                     Path(__file__).with_name('mega_evolve_native_data.py')):
             metadata[codec_path.name+'_sha256']=hashlib.sha256(codec_path.read_bytes()).hexdigest()
     if manifest.get("phase",0)>=2:
         from true_patches.mega_evolve.phase2 import load

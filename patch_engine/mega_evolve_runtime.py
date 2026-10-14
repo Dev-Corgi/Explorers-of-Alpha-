@@ -336,6 +336,9 @@ def apply_phase1(rom,module_dir,manifest,state,metadata):
     if manifest['phase']>=6:
         from .mega_evolve_phase6 import install
         record.data[0]['spring']=install(rom,module_dir,state,record)
+    if manifest['phase']>=4:
+        from .mega_evolve_native_data import install
+        record.data[0]['native_data']=install(rom,record.data[0]['species_save_codec'])
     return record
 
 
@@ -346,6 +349,9 @@ def verify_phase1(rom,module_dir,manifest,record,metadata):
         raise AssertionError("mega_evolve phase1 record version/phase mismatch")
     if not isinstance(rom,NintendoDSRom):
         rom=NintendoDSRom(Path(rom).read_bytes())
+    if manifest['phase']>=4:
+        from .mega_evolve_native_data import verify
+        verify(rom,record.data[0]['native_data'])
     tables=rom.loadArm9Overlays()
     if manifest['phase']>=3:
         if hashlib.sha256(rom.getFileByName(record.data[0]['runtime_file'])).hexdigest()!=record.data[0]['runtime_sha256']:
