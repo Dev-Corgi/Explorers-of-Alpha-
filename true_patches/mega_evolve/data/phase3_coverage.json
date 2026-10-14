@@ -38,7 +38,8 @@
     "python -B -X utf8 -m true_patches.mega_evolve.verify_phase3_unaware",
     "python -B -X utf8 -m true_patches.mega_evolve.verify_phase3_inherited",
     "python -B -X utf8 -m true_patches.mega_evolve.verify_phase3_bad_dreams_cursed",
-    "python -B -X utf8 -m true_patches.mega_evolve.verify_phase3_strong_weather"
+    "python -B -X utf8 -m true_patches.mega_evolve.verify_phase3_strong_weather",
+    "python -B -X utf8 -m true_patches.mega_evolve.verify_native_factors"
   ],
   "work_classification": {
     "basis": "definition tags and existing effect identity; candidate classification is not implementation proof",
@@ -1769,7 +1770,7 @@
       "normal_status": "implemented",
       "work_class_candidate": "modify_or_connect",
       "verified_paths": [
-        "native_same_type_factor_seventeen_tenths_retained"
+        "native_fx64_16_stab_seventeen_tenths_word_order_actual_multiply_no_double_stack"
       ],
       "enhanced_status": "phase7"
     },

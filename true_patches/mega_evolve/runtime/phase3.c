@@ -751,7 +751,7 @@ int ME_LegacyAbilityActive(u8 *e,int id,u32 caller) {
 int ME_FriskCoefficient(int value) {return multiply(value,6,5);}
 int ME_FriendGuardCoefficient(int value) {return multiply(value,4,5);}
 u32 *ME_FilterMultiplier(u8 *actor,u8 *target) {
-    static u32 factor[2]={0xcccccccd,0xcccc};
+    static u32 factor[2]={0,0xcccc};
     /* This native site is shared by Omniscience and Filter. Keep the existing
      * Omniscience-only x0.75 constant rather than changing its supplied effect. */
     return defhas(actor,target,110)?factor:(u32 *)0x02352864;

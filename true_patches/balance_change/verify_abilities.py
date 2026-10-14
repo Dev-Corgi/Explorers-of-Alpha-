@@ -198,8 +198,8 @@ def check(rom):
         w.run(target, r0=ENTITIES[0])
         assert uc.reg_read(UC_ARM_REG_R0) == bool(abilities)
     w.run(0x0230B5A8, stop=0x0230B5AC)
-    factor = struct.unpack('<Q', uc.mem_read(uc.reg_read(UC_ARM_REG_R2), 8))[0]
-    assert abs(factor / 2**48 - 1.7) < 1e-10
+    upper, lower = struct.unpack('<II', uc.mem_read(uc.reg_read(UC_ARM_REG_R2), 8))
+    assert upper==0 and abs(lower / 2**16 - 1.7) < 1/2**16
     # Adaptate changed types in both damage calculation and common GetMoveType.
     w.reset()
     w.abilities[ENTITIES[0]] = {24}

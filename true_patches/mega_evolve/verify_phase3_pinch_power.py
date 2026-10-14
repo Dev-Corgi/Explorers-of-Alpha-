@@ -1,5 +1,5 @@
 """Native pinch HP/type gates and revised Iron Fist/Reckless power arithmetic.
-Fixed-point multiplication and status-cache/UI services are modeled.
+Native fixed-point multiplication runs; status-cache/UI services are modeled.
 """
 from __future__ import annotations
 import hashlib,struct
@@ -15,16 +15,12 @@ class World(PreviousWorld):
     def service(self,u,address,size,data):
         if address==0x023023c0:self.ret(0);return
         if address in (0x0234b350,0x022e6510):self.ret();return
-        if address==0x02001df4:
-            out,left,right=[u.reg_read(r) for r in (UC_ARM_REG_R0,UC_ARM_REG_R1,UC_ARM_REG_R2)]
-            a,b=[struct.unpack('<Q',bytes(u.mem_read(p,8)))[0] for p in (left,right)]
-            u.mem_write(out,struct.pack('<Q',(a*b)>>48));self.ret();return
         super().service(u,address,size,data)
     def pinch(self,start,end,type_):
-        out=BUFFER+0x300;self.u.mem_write(out,struct.pack('<Q',100<<48))
+        out=BUFFER+0x300;self.u.mem_write(out,struct.pack('<II',0,100<<16))
         self.segment(start,{end,0x0230b534} if start==0x0230b44c else {end},{UC_ARM_REG_R6:MONSTERS[0],UC_ARM_REG_R8:type_,UC_ARM_REG_R9:ENTITIES[1],
             UC_ARM_REG_R10:ENTITIES[0],UC_ARM_REG_R11:out})
-        return struct.unpack('<Q',bytes(self.u.mem_read(out,8)))[0]>>48
+        return self.call('',out,start=0x02001cb0)
     def power(self,move):
         self.u.mem_write(STACK+0x1c,struct.pack('<I',100));self.u.mem_write(STACK+0xf4,struct.pack('<I',move))
         self.segment(0x0230bc1c,{0x0230bc84},{UC_ARM_REG_R10:ENTITIES[0]})

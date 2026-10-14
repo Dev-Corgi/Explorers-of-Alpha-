@@ -329,7 +329,8 @@ BalanceAbility_ActionInvoke:
 
 .align 4
 BalanceAbility_Stab17:
-    .word 0x33333333, 0x0001B333
+    ; Native fx64_16 stores upper32 first, lower32 second (16 fractional bits).
+    .word 0, 0x0001B333
 BalanceAbility_Action:
     .word 0, 0, 0, 0
 BalanceAbility_Scope:

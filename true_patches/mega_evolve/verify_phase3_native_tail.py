@@ -10,17 +10,11 @@ from ndspy.rom import NintendoDSRom
 from unicorn.arm_const import *
 
 class World(PreviousWorld):
-    def service(self,u,address,size,data):
-        if address==0x02001df4:
-            out,left,right=[u.reg_read(r) for r in (UC_ARM_REG_R0,UC_ARM_REG_R1,UC_ARM_REG_R2)]
-            a,b=[struct.unpack('<Q',bytes(u.mem_read(p,8)))[0] for p in (left,right)]
-            u.mem_write(out,struct.pack('<Q',(a*b)>>48));self.ret();return
-        super().service(u,address,size,data)
     def multiplier(self,start,end,type_,holder=1):
-        out=BUFFER+0x400;self.u.mem_write(out,struct.pack('<Q',100<<48))
+        out=BUFFER+0x400;self.u.mem_write(out,struct.pack('<II',0,100<<16))
         self.segment(start,{end},{UC_ARM_REG_R7:BUFFER+0x480,UC_ARM_REG_R8:type_,UC_ARM_REG_R9:ENTITIES[1],
             UC_ARM_REG_R10:ENTITIES[0],UC_ARM_REG_R11:out})
-        return struct.unpack('<Q',bytes(self.u.mem_read(out,8)))[0]>>48
+        return self.call('',out,start=0x02001cb0)
     def sound_tail(self,move):
         context=self.call('ME_EnterCalculation',ENTITIES[0],ENTITIES[1])
         self.u.mem_write(BUFFER+0x400,struct.pack('<5I',100,0,0,0,0));self.u.mem_write(STACK+0xf4,struct.pack('<I',move))
@@ -75,5 +69,5 @@ def main():
         assert w.call('ME_AttackDropTrait',ENTITIES[0],ENTITIES[1])==int(mode.startswith('slot'))
         assert w.call('ME_AttackDropTrait',ENTITIES[1],ENTITIES[1])==0;cases+=3
     assert hashlib.sha256(SOURCE.read_bytes()).hexdigest()==before
-    print(f'PASS {cases} live normal tail cases: Thick Fat/Heatproof x0.5, Fur Coat physical x0.5, Punk Rock sound attack/defense, Multitype original Arceus x1.2, native rain/snow recovery active gate, Justified +3, Hyper Cutter self-drop exception. Fixed multiply/cache/writer services modeled; no ROM/save output.')
+    print(f'PASS {cases} live normal tail cases: Thick Fat/Heatproof x0.5, Fur Coat physical x0.5, Punk Rock sound attack/defense, Multitype original Arceus x1.2, native rain/snow recovery active gate, Justified +3, Hyper Cutter self-drop exception. Native fixed multiply; cache/writer services modeled; no ROM/save output.')
 if __name__=='__main__':main()

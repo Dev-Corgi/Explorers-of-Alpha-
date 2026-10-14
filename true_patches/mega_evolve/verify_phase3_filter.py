@@ -1,5 +1,5 @@
-"""Actual shared Filter/Omniscience matchup branch, with fixed-point multiply
-modeled from the native factor pointer. No final damage/battle certification.
+"""Actual shared Filter/Omniscience matchup branch and native fixed-point multiply.
+No final damage/battle certification.
 """
 from __future__ import annotations
 import hashlib,struct
@@ -12,19 +12,13 @@ from ndspy.rom import NintendoDSRom
 from unicorn.arm_const import *
 
 class World(PreviousWorld):
-    def service(self,u,address,size,data):
-        if address==0x02001df4:
-            out,left,right=[u.reg_read(r) for r in (UC_ARM_REG_R0,UC_ARM_REG_R1,UC_ARM_REG_R2)]
-            a,b=[struct.unpack('<Q',bytes(u.mem_read(p,8)))[0] for p in (left,right)]
-            u.mem_write(out,struct.pack('<Q',(a*b)>>48));self.ret();return
-        super().service(u,address,size,data)
     def multiplier(self,matchup):
         out=BUFFER+0x300;damage=BUFFER+0x320
-        self.u.mem_write(out,struct.pack('<Q',100<<48));self.u.mem_write(damage,bytes(20))
+        self.u.mem_write(out,struct.pack('<II',0,100<<16));self.u.mem_write(damage,bytes(20))
         self.u.mem_write(damage+8,struct.pack('<I',matchup))
         self.segment(0x0230b02c,{0x0230b080},{UC_ARM_REG_R7:damage,UC_ARM_REG_R9:ENTITIES[1],
             UC_ARM_REG_R10:ENTITIES[0],UC_ARM_REG_R11:out})
-        return struct.unpack('<Q',bytes(self.u.mem_read(out,8)))[0]>>48
+        return self.call('',out,start=0x02001cb0)
 
 def main():
     before=hashlib.sha256(SOURCE.read_bytes()).hexdigest()

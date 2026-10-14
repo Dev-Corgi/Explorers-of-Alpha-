@@ -1,7 +1,8 @@
 id: balance_change
-version: 15
+version: 16
 region: US
 description: >
+  v16: encode Adaptability's x1.7 factor in native fx64_16 word order.
   v15: canonical ability names and workbook E-column effects for Adaptability,
   Gale Wings, Punk Rock, Grim Neigh, and Aura Break; ability IDs stay unchanged.
   v11: the expanded fixed-room monster stats table is allocated and reserved

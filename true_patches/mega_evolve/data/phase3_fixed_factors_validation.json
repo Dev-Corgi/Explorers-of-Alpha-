@@ -1,0 +1,13 @@
+{
+  "schema": 1,
+  "cases": 50,
+  "rom_sha256": "7b27346a80e265346e14166ef23de71bdd7968a585c477a0cab90bb5cb4631cc",
+  "korean_rom_sha256": "44fed2763f3fee267d3dff136a3c16b03cafad46689cf8756bb38d7d7ff86b32",
+  "korean_factor_code_identical": true,
+  "old_encoding_native_intermediate": 4293656745.999695,
+  "adaptability_100": 170,
+  "ordinary_stab_100": 150,
+  "non_stab_100": 100,
+  "filter_100": 80,
+  "scope": "Actual ARM type gate, STAB query wrapper, Filter pointer helper, fx64_16 multiply/conversion. Ability availability, exclusive items and file IO controlled; no gameplay claim."
+}
