@@ -1,0 +1,4140 @@
+{
+  "schema": 1,
+  "source_sha256": "0bcb4684dfd5f197b7df24d4f8ff60c1da6685c5e77833830e4775a185f6f747",
+  "scope": "Native instruction provenance and extended lookup routing; dynamic effect tests are listed separately.",
+  "abilities": [
+    {
+      "key": "Omniscience",
+      "legacy_effect_id": 250,
+      "candidate": "reuse_candidate",
+      "consumers": [
+        {
+          "overlay": 29,
+          "site": 36707292,
+          "query": 36706828,
+          "window_start": 36707200,
+          "window_sha256": "b28eb60e5fab441f9345463e0302b4f4a5b3ad64a0bba0770543978f6b5a8e4b",
+          "disconnected_copy": false
+        },
+        {
+          "overlay": 29,
+          "site": 36745276,
+          "query": 36743488,
+          "window_start": 36745184,
+          "window_sha256": "7875eff9a1620900a388e96203edcdb08304e30d50889fbcb23f97f292a35d7f",
+          "disconnected_copy": false
+        },
+        {
+          "overlay": 36,
+          "site": 37419304,
+          "query": 36707704,
+          "window_start": 37419212,
+          "window_sha256": "792e94d1d31076a652832b8e3e51cf40dbaf9d93b3c61ab2bbd3dcd9a34994b2",
+          "disconnected_copy": false
+        },
+        {
+          "overlay": 36,
+          "site": 37419324,
+          "query": 36707704,
+          "window_start": 37419232,
+          "window_sha256": "49f4cb93b48befe5a65f8cd575eccd45ccdf45a6ab6a271cbbb2d7c8cf10bd5e",
+          "disconnected_copy": false
+        }
+      ]
+    },
+    {
+      "key": "가뭄",
+      "legacy_effect_id": 49,
+      "candidate": "modify_or_connect",
+      "consumers": [
+        {
+          "overlay": 29,
+          "site": 36672396,
+          "query": 36707704,
+          "window_start": 36672304,
+          "window_sha256": "2700436cafb26912fa18e69ef4a6e0847d0421f26a054a3e128b069416d8b182",
+          "disconnected_copy": false
+        }
+      ]
+    },
+    {
+      "key": "가속",
+      "legacy_effect_id": 11,
+      "candidate": "reuse_candidate",
+      "consumers": [
+        {
+          "overlay": 29,
+          "site": 36766844,
+          "query": 36707704,
+          "window_start": 36766752,
+          "window_sha256": "532d0fd20ec9bdabf9d4e2275f1e9a9d77ec403d021815ae071df3645cf8d965",
+          "disconnected_copy": false
+        }
+      ]
+    },
+    {
+      "key": "갈지자걸음",
+      "legacy_effect_id": 98,
+      "candidate": "reuse_candidate",
+      "consumers": [
+        {
+          "overlay": 29,
+          "site": 36847288,
+          "query": 36842852,
+          "window_start": 36847196,
+          "window_sha256": "8c3a92df0fbde1a33941f7b441fdd913af980008282e71eb76fbcca5a633c676",
+          "disconnected_copy": false
+        }
+      ]
+    },
+    {
+      "key": "감미로운꿀",
+      "legacy_effect_id": 0,
+      "candidate": "new_handler",
+      "consumers": []
+    },
+    {
+      "key": "강철술사",
+      "legacy_effect_id": 210,
+      "candidate": "modify_or_connect",
+      "consumers": []
+    },
+    {
+      "key": "개미지옥",
+      "legacy_effect_id": 5,
+      "candidate": "reuse_candidate",
+      "consumers": [
+        {
+          "overlay": 29,
+          "site": 36735936,
+          "query": 36743488,
+          "window_start": 36735844,
+          "window_sha256": "f6b9ab1f047e113e261a808e3e79186f88148a5d3eff18496166bb71518ef0e5",
+          "disconnected_copy": false
+        }
+      ]
+    },
+    {
+      "key": "건조피부",
+      "legacy_effect_id": 85,
+      "candidate": "modify_or_connect",
+      "consumers": [
+        {
+          "overlay": 29,
+          "site": 36737880,
+          "query": 36743488,
+          "window_start": 36737788,
+          "window_sha256": "dbfa8e8ce8a23a8f7d93208db27ebe583bf129731fb15befd8e7727bb50b0b32",
+          "disconnected_copy": false
+        },
+        {
+          "overlay": 29,
+          "site": 36746504,
+          "query": 36743488,
+          "window_start": 36746412,
+          "window_sha256": "5bb1c22dd0e905cd87c20482e27639f809f6ef7ddd37edd1bc2abb1ad1ad1da5",
+          "disconnected_copy": false
+        },
+        {
+          "overlay": 29,
+          "site": 36766476,
+          "query": 36707704,
+          "window_start": 36766384,
+          "window_sha256": "eab606087472a532267e55fb758bd931b78b0448c53d100710669813c25255c2",
+          "disconnected_copy": false
+        },
+        {
+          "overlay": 29,
+          "site": 36770212,
+          "query": 36707704,
+          "window_start": 36770120,
+          "window_sha256": "a1a9589c1480e58ce95d409a502518a0fead86a3486a197eec7ebb5947cccafb",
+          "disconnected_copy": false
+        }
+      ]
+    },
+    {
+      "key": "게으름",
+      "legacy_effect_id": 42,
+      "candidate": "reuse_candidate",
+      "consumers": [
+        {
+          "overlay": 29,
+          "site": 36673552,
+          "query": 36707704,
+          "window_start": 36673460,
+          "window_sha256": "72bdf84be39fa65dba7c7d534a46304f827f9a13d6c8459edb6a6c343e3d546f",
+          "disconnected_copy": false
+        },
+        {
+          "overlay": 29,
+          "site": 36888004,
+          "query": 36888096,
+          "window_start": 36887912,
+          "window_sha256": "c0bfee184f23700dec97e4e84b86c29066f8ffc328b948fba679c63143674cdb",
+          "disconnected_copy": false
+        },
+        {
+          "overlay": 36,
+          "site": 37419084,
+          "query": 36707704,
+          "window_start": 37418992,
+          "window_sha256": "315df019ed21e70692be59c193ec15d142659e9e4063b0654def35499e7c55f0",
+          "disconnected_copy": false
+        }
+      ]
+    },
+    {
+      "key": "고대활성",
+      "legacy_effect_id": 0,
+      "candidate": "new_handler",
+      "consumers": []
+    },
+    {
+      "key": "곡예",
+      "legacy_effect_id": 84,
+      "candidate": "modify_or_connect",
+      "consumers": [
+        {
+          "overlay": 29,
+          "site": 36700168,
+          "query": 36707600,
+          "window_start": 36700076,
+          "window_sha256": "400d2105e7b7d465c7478f82499897548e4779a6e3d25c88abcc42210ef0f4bb",
+          "disconnected_copy": false
+        },
+        {
+          "overlay": 36,
+          "site": 37419184,
+          "query": 36707704,
+          "window_start": 37419092,
+          "window_sha256": "133bdd7b6181b12c1c68970379831aea5619a7d9698a50724fd984dd24af1104",
+          "disconnected_copy": false
+        }
+      ]
+    },
+    {
+      "key": "괴력집게",
+      "legacy_effect_id": 9,
+      "candidate": "modify_or_connect",
+      "consumers": [
+        {
+          "overlay": 29,
+          "site": 36779748,
+          "query": 36772756,
+          "window_start": 36779656,
+          "window_sha256": "fc3604f8da6cf99599da38d2a5115fb438d9b7ab30c106b1b0df4643784c1ba3",
+          "disconnected_copy": false
+        },
+        {
+          "overlay": 29,
+          "site": 36781596,
+          "query": 36772756,
+          "window_start": 36781504,
+          "window_sha256": "84bf86be144d3ab7cffbc05a515328298e6723b29ac3271d207ddfa64c608685",
+          "disconnected_copy": false
+        }
+      ]
+    },
+    {
+      "key": "괴짜",
+      "legacy_effect_id": 166,
+      "candidate": "reuse_candidate",
+      "consumers": []
+    },
+    {
+      "key": "굳건한신념",
+      "legacy_effect_id": 0,
+      "candidate": "new_handler",
+      "consumers": []
+    },
+    {
+      "key": "그림자밟기",
+      "legacy_effect_id": 10,
+      "candidate": "reuse_candidate",
+      "consumers": [
+        {
+          "overlay": 29,
+          "site": 36736072,
+          "query": 36743488,
+          "window_start": 36735980,
+          "window_sha256": "225aefef345faef001d063d74efcd0fbc6289796f3dd8037122075285bb5804e",
+          "disconnected_copy": false
+        }
+      ]
+    },
+    {
+      "key": "근성",
+      "legacy_effect_id": 17,
+      "candidate": "modify_or_connect",
+      "consumers": [
+        {
+          "overlay": 29,
+          "site": 36750936,
+          "query": 36707704,
+          "window_start": 36750844,
+          "window_sha256": "e1f7531887f999941006b4a53f6da6e70fb677c83462e7328066aac378a6ba9a",
+          "disconnected_copy": false
+        }
+      ]
+    },
+    {
+      "key": "급류",
+      "legacy_effect_id": 16,
+      "candidate": "modify_or_connect",
+      "consumers": [
+        {
+          "overlay": 29,
+          "site": 36745816,
+          "query": 36707704,
+          "window_start": 36745724,
+          "window_sha256": "5498efe8c1d9f06e962cbf7845a15057a9b02203d25a5d27e9c711dca4921026",
+          "disconnected_copy": false
+        },
+        {
+          "overlay": 29,
+          "site": 36747748,
+          "query": 36707704,
+          "window_start": 36747656,
+          "window_sha256": "5aa526aed0f67bfc93d5fce11800362e16aa65386238874f074fbd71cdf60564",
+          "disconnected_copy": false
+        }
+      ]
+    },
+    {
+      "key": "기분파",
+      "legacy_effect_id": 37,
+      "candidate": "reuse_candidate",
+      "consumers": [
+        {
+          "overlay": 29,
+          "site": 36671908,
+          "query": 36707704,
+          "window_start": 36671816,
+          "window_sha256": "e19cfd1582da196ce421e464abcd3d4a7b4744d63248c98d944bb41f0888687a",
+          "disconnected_copy": false
+        },
+        {
+          "overlay": 29,
+          "site": 36672560,
+          "query": 36707704,
+          "window_start": 36672468,
+          "window_sha256": "7d34ae3b48fca47ffb17ea20ac38e4809caf78ed88277df2ece96e8709b8257c",
+          "disconnected_copy": false
+        },
+        {
+          "overlay": 29,
+          "site": 36672636,
+          "query": 36707704,
+          "window_start": 36672544,
+          "window_sha256": "140bcd1b8dde9cc650e8eb8902bb5c4dad0ddc82218395163e1f8a1613aa1318",
+          "disconnected_copy": false
+        },
+        {
+          "overlay": 29,
+          "site": 36678048,
+          "query": 36707704,
+          "window_start": 36677956,
+          "window_sha256": "d697357a9c8c7cb366751ac23442a7c9edba6a20946f8524482dfd4dc8cab20a",
+          "disconnected_copy": false
+        },
+        {
+          "overlay": 29,
+          "site": 36803808,
+          "query": 36707704,
+          "window_start": 36803716,
+          "window_sha256": "b65f8398fb34703da4080f27a8ffd81ee742cbd0857331877cd24a42631971fd",
+          "disconnected_copy": false
+        },
+        {
+          "overlay": 29,
+          "site": 36869492,
+          "query": 36707704,
+          "window_start": 36869400,
+          "window_sha256": "727d85f732d60efc7bcc4cfc3e86b2128abba2bc6cea414517103da3f863d29f",
+          "disconnected_copy": false
+        },
+        {
+          "overlay": 29,
+          "site": 36877652,
+          "query": 36707704,
+          "window_start": 36877560,
+          "window_sha256": "d77a4473bdbda0f0b7cc620ccad4c42f92d0dee4bf3f97856c923842d501b570",
+          "disconnected_copy": false
+        },
+        {
+          "overlay": 29,
+          "site": 36917676,
+          "query": 36707704,
+          "window_start": 36917584,
+          "window_sha256": "e282d01c53fa2284fb6a906f0964a1bab5580e1dc755245ed6f4d506cdf28ba7",
+          "disconnected_copy": false
+        },
+        {
+          "overlay": 29,
+          "site": 36917880,
+          "query": 36707704,
+          "window_start": 36917788,
+          "window_sha256": "4b0c45612c2b131768d170cf5759852671ad950d98d908d29993e34d89720a58",
+          "disconnected_copy": false
+        }
+      ]
+    },
+    {
+      "key": "긴장감",
+      "legacy_effect_id": 163,
+      "candidate": "reuse_candidate",
+      "consumers": [
+        {
+          "overlay": 36,
+          "site": 37490796,
+          "query": 37482624,
+          "window_start": 37490704,
+          "window_sha256": "99a590465e7f863b5010122e1152963dd7a429c69c4d24c15fb6f727c152b2a6",
+          "disconnected_copy": false
+        },
+        {
+          "overlay": 36,
+          "site": 37577156,
+          "query": 37574784,
+          "window_start": 37577064,
+          "window_sha256": "092427c748d148cbb6da5a819314a7ee795bf71264ae152559cfbddf175c9ed3",
+          "disconnected_copy": false
+        }
+      ]
+    },
+    {
+      "key": "까칠한피부",
+      "legacy_effect_id": 18,
+      "candidate": "modify_or_connect",
+      "consumers": [
+        {
+          "overlay": 29,
+          "site": 36735268,
+          "query": 36743488,
+          "window_start": 36735176,
+          "window_sha256": "5e854e12dc9ee7502fe664bdfc31bdf3411fcf8fc37b3ac9b04aee2fa34ac552",
+          "disconnected_copy": false
+        },
+        {
+          "overlay": 29,
+          "site": 36779684,
+          "query": 36772856,
+          "window_start": 36779592,
+          "window_sha256": "4a402c9e808a4555ddf4b9d9f89ae696ce5617728917bdb69370c3fec5022003",
+          "disconnected_copy": false
+        },
+        {
+          "overlay": 29,
+          "site": 36781524,
+          "query": 36772856,
+          "window_start": 36781432,
+          "window_sha256": "b1a26122350c42a5d5a5241629a15c11410c98104dad2e6105a5f34516cbad41",
+          "disconnected_copy": false
+        }
+      ]
+    },
+    {
+      "key": "깨어진갑옷",
+      "legacy_effect_id": 0,
+      "candidate": "new_handler",
+      "consumers": []
+    },
+    {
+      "key": "끝의대지",
+      "legacy_effect_id": 253,
+      "candidate": "modify_or_connect",
+      "consumers": []
+    },
+    {
+      "key": "나쁜손버릇",
+      "legacy_effect_id": 168,
+      "candidate": "modify_or_connect",
+      "consumers": []
+    },
+    {
+      "key": "나이트메어",
+      "legacy_effect_id": 105,
+      "candidate": "modify_or_connect",
+      "consumers": [
+        {
+          "overlay": 29,
+          "site": 36767204,
+          "query": 36707704,
+          "window_start": 36767112,
+          "window_sha256": "f95125798ad264ca8ed903f8003ab9af66eac6935801b4021afa61861b5f9629",
+          "disconnected_copy": false
+        }
+      ]
+    },
+    {
+      "key": "날씨부정",
+      "legacy_effect_id": 45,
+      "candidate": "reuse_candidate",
+      "consumers": [
+        {
+          "overlay": 36,
+          "site": 37579444,
+          "query": 36707704,
+          "window_start": 37579352,
+          "window_sha256": "0461b6d54a58c393caa1fcad0777762a4d83ca420c91a87486fef0391d965313",
+          "disconnected_copy": false
+        }
+      ]
+    },
+    {
+      "key": "날카로운눈",
+      "legacy_effect_id": 30,
+      "candidate": "reuse_candidate",
+      "consumers": [
+        {
+          "overlay": 29,
+          "site": 36782788,
+          "query": 36772756,
+          "window_start": 36782696,
+          "window_sha256": "8fbc32ef9c731896da7971d34f32320b64c269932e8a016237d5ce3d0836dc01",
+          "disconnected_copy": false
+        },
+        {
+          "overlay": 36,
+          "site": 37491916,
+          "query": 36707600,
+          "window_start": 37491824,
+          "window_sha256": "dc37ae285b7758c4e6fad294484c8170929e1a395e9b8e256c2a2e35c96ef720",
+          "disconnected_copy": false
+        }
+      ]
+    },
+    {
+      "key": "내열",
+      "legacy_effect_id": 95,
+      "candidate": "modify_or_connect",
+      "consumers": [
+        {
+          "overlay": 29,
+          "site": 36745648,
+          "query": 36743488,
+          "window_start": 36745556,
+          "window_sha256": "f1b9a2e42f99cdd99cc57e5d05368c78124f83f031612aa4436f2acac774b806",
+          "disconnected_copy": false
+        }
+      ]
+    },
+    {
+      "key": "내용물분출",
+      "legacy_effect_id": 225,
+      "candidate": "modify_or_connect",
+      "consumers": []
+    },
+    {
+      "key": "노가드",
+      "legacy_effect_id": 106,
+      "candidate": "modify_or_connect",
+      "consumers": [
+        {
+          "overlay": 29,
+          "site": 36847440,
+          "query": 36707704,
+          "window_start": 36847348,
+          "window_sha256": "05056170a0bd1d80224dc0cea398df0b96504e47c4611dec94f659d76825ecc6",
+          "disconnected_copy": false
+        },
+        {
+          "overlay": 29,
+          "site": 36847472,
+          "query": 36842852,
+          "window_start": 36847380,
+          "window_sha256": "31ac3136de15de5241bdbfa96cadaf8ba1ccdc71ce4c8aef96917ca3928024c7",
+          "disconnected_copy": false
+        }
+      ]
+    },
+    {
+      "key": "노말스킨",
+      "legacy_effect_id": 107,
+      "candidate": "modify_or_connect",
+      "consumers": [
+        {
+          "overlay": 29,
+          "site": 36709040,
+          "query": 36707600,
+          "window_start": 36708948,
+          "window_sha256": "9f9f20d8358291659538bc696156d74719d59b539a3f337aa16fbd5fe20c587e",
+          "disconnected_copy": false
+        },
+        {
+          "overlay": 29,
+          "site": 36747284,
+          "query": 36707704,
+          "window_start": 36747192,
+          "window_sha256": "f7c5f03ee7919ca2a3f96ad39565a12ddab6d49d3a18666b6449490e2462470b",
+          "disconnected_copy": false
+        },
+        {
+          "overlay": 29,
+          "site": 36748428,
+          "query": 36707704,
+          "window_start": 36748336,
+          "window_sha256": "822e4775b8a9f5e73152aa5d34748349615c4c2561ccaba08fceb664f9169087",
+          "disconnected_copy": false
+        },
+        {
+          "overlay": 29,
+          "site": 36781212,
+          "query": 36707704,
+          "window_start": 36781120,
+          "window_sha256": "07217112aa00914a878799a2bfc608b4d2803bec65b2fa4cd4269015caf27b9e",
+          "disconnected_copy": false
+        },
+        {
+          "overlay": 36,
+          "site": 37419224,
+          "query": 36707704,
+          "window_start": 37419132,
+          "window_sha256": "7361f9c7ba9ba12e70d83966f97efb866a895a80822ef0d161633c24151f1b7c",
+          "disconnected_copy": false
+        }
+      ]
+    },
+    {
+      "key": "눈숨기",
+      "legacy_effect_id": 119,
+      "candidate": "reuse_candidate",
+      "consumers": [
+        {
+          "overlay": 29,
+          "site": 36766088,
+          "query": 36707704,
+          "window_start": 36765996,
+          "window_sha256": "3def4d96aa327e724d88d75fc2f5006efade55963930f434fab93ec59d547e70",
+          "disconnected_copy": false
+        },
+        {
+          "overlay": 29,
+          "site": 36847336,
+          "query": 36842852,
+          "window_start": 36847244,
+          "window_sha256": "01f9f50d65a951519e5bad25e96d8f40566361be50bdf17b4d300e2939ab1e3f",
+          "disconnected_copy": false
+        }
+      ]
+    },
+    {
+      "key": "눈치우기",
+      "legacy_effect_id": 145,
+      "candidate": "modify_or_connect",
+      "consumers": [
+        {
+          "overlay": 36,
+          "site": 37417240,
+          "query": 36707704,
+          "window_start": 37417148,
+          "window_sha256": "dc2ad2e9f6ec19496f5445a18edb2aed2ffd7800eed74ec149d046a91d8073a4",
+          "disconnected_copy": false
+        },
+        {
+          "overlay": 36,
+          "site": 37419544,
+          "query": 36707704,
+          "window_start": 37419452,
+          "window_sha256": "c97d28acc8cccac88f2dbf0624d8bf7f3e3b22a7147b9fc2ab71ced358f00b66",
+          "disconnected_copy": false
+        },
+        {
+          "overlay": 36,
+          "site": 37490720,
+          "query": 36707704,
+          "window_start": 37490628,
+          "window_sha256": "4292df6f3cab4ad5d77d06b2660a8249fb45ed6bb76e626656b2ecbf11c47adb",
+          "disconnected_copy": false
+        },
+        {
+          "overlay": 36,
+          "site": 37577080,
+          "query": 36707704,
+          "window_start": 37576988,
+          "window_sha256": "6a56a96760aa494aa3314704753e9c53b77b76bd1cf92123ebd54c2a763fb818",
+          "disconnected_copy": false
+        }
+      ]
+    },
+    {
+      "key": "눈퍼뜨리기",
+      "legacy_effect_id": 120,
+      "candidate": "reuse_candidate",
+      "consumers": [
+        {
+          "overlay": 29,
+          "site": 36672428,
+          "query": 36707704,
+          "window_start": 36672336,
+          "window_sha256": "889a58cd312d8156069842c20d5578ae2f4e70a226ec642ac46cd8522c8dbb5a",
+          "disconnected_copy": false
+        }
+      ]
+    },
+    {
+      "key": "다운로드",
+      "legacy_effect_id": 96,
+      "candidate": "reuse_candidate",
+      "consumers": [
+        {
+          "overlay": 29,
+          "site": 36748784,
+          "query": 36707704,
+          "window_start": 36748692,
+          "window_sha256": "49ad42a18cce138d999df41686b6dbdb96ae69a0269f4e09d1194e4db1acf03b",
+          "disconnected_copy": false
+        }
+      ]
+    },
+    {
+      "key": "단단한발톱",
+      "legacy_effect_id": 144,
+      "candidate": "modify_or_connect",
+      "consumers": [
+        {
+          "overlay": 36,
+          "site": 37419524,
+          "query": 36707704,
+          "window_start": 37419432,
+          "window_sha256": "110e80161de165276d74c09ac89d15dac2953e08e139eea34c782b9396c22eaa",
+          "disconnected_copy": false
+        }
+      ]
+    },
+    {
+      "key": "단순",
+      "legacy_effect_id": 97,
+      "candidate": "modify_or_connect",
+      "consumers": [
+        {
+          "overlay": 29,
+          "site": 36779852,
+          "query": 36707704,
+          "window_start": 36779760,
+          "window_sha256": "00e8c63e0a03e75554298f3e8da0eddc5b7969d103254236a3fb620e49c1d6f9",
+          "disconnected_copy": false
+        },
+        {
+          "overlay": 29,
+          "site": 36780256,
+          "query": 36707704,
+          "window_start": 36780164,
+          "window_sha256": "ddcaec4fda6783e22f17c39459dc572e5f0fe2d0870da611288a0399512eac9c",
+          "disconnected_copy": false
+        },
+        {
+          "overlay": 29,
+          "site": 36780612,
+          "query": 36707704,
+          "window_start": 36780520,
+          "window_sha256": "a1dd7dda64b214c7ff0a983b493361d950a1932299ae51f77fb4a1e5cdcde912",
+          "disconnected_copy": false
+        },
+        {
+          "overlay": 29,
+          "site": 36780976,
+          "query": 36707704,
+          "window_start": 36780884,
+          "window_sha256": "b13b4ba46a60b499819eaf8782ddd6ac9d2dcf88c9be4522383db04b6490263b",
+          "disconnected_copy": false
+        },
+        {
+          "overlay": 29,
+          "site": 36782460,
+          "query": 36707704,
+          "window_start": 36782368,
+          "window_sha256": "9992f33df1005ea8ec3e88f37b1576e17a7b6c221ef72c906ed66c7503b928b4",
+          "disconnected_copy": false
+        },
+        {
+          "overlay": 29,
+          "site": 36782864,
+          "query": 36707704,
+          "window_start": 36782772,
+          "window_sha256": "c9af8e15e5b1d6b991d3dc8e9b3240b61e0c736fa559c305fa835053d99d176b",
+          "disconnected_copy": false
+        }
+      ]
+    },
+    {
+      "key": "대운",
+      "legacy_effect_id": 88,
+      "candidate": "reuse_candidate",
+      "consumers": [
+        {
+          "overlay": 29,
+          "site": 36752840,
+          "query": 36707704,
+          "window_start": 36752748,
+          "window_sha256": "d5e4d5a55b02b17630e61d062daf0771f194eb91ef4a46d4424792c4bdd5af05",
+          "disconnected_copy": false
+        }
+      ]
+    },
+    {
+      "key": "델타스트림",
+      "legacy_effect_id": 254,
+      "candidate": "modify_or_connect",
+      "consumers": []
+    },
+    {
+      "key": "도주",
+      "legacy_effect_id": 43,
+      "candidate": "modify_or_connect",
+      "consumers": [
+        {
+          "overlay": 29,
+          "site": 36678100,
+          "query": 36707704,
+          "window_start": 36678008,
+          "window_sha256": "897435a6da892dc973be0c1ea9e02afb21d303902f631dcbb837bd31dffd217b",
+          "disconnected_copy": false
+        },
+        {
+          "overlay": 29,
+          "site": 36705792,
+          "query": 36707600,
+          "window_start": 36705700,
+          "window_sha256": "c240a4217e3424407e7857bf64553bcebb583c7b2b7d0036a33a4dab97fdfe56",
+          "disconnected_copy": false
+        },
+        {
+          "overlay": 29,
+          "site": 36706040,
+          "query": 36707600,
+          "window_start": 36705948,
+          "window_sha256": "e57db370d8f9c6869c82702355bfe1195a220cc2b948723abf0899d6f79c3bb0",
+          "disconnected_copy": false
+        },
+        {
+          "overlay": 29,
+          "site": 36777956,
+          "query": 36772756,
+          "window_start": 36777864,
+          "window_sha256": "4376e9a45dd5e5b4d2ba9578af21b21f671a43d07b7a4a6b2db9278364cf477e",
+          "disconnected_copy": false
+        }
+      ]
+    },
+    {
+      "key": "독가시",
+      "legacy_effect_id": 39,
+      "candidate": "reuse_candidate",
+      "consumers": [
+        {
+          "overlay": 29,
+          "site": 36736308,
+          "query": 36743488,
+          "window_start": 36736216,
+          "window_sha256": "0ebd8328cf828b12aa161bd26b0155a97e99f4eca8c5cd015432ea32bc95b4f6",
+          "disconnected_copy": false
+        }
+      ]
+    },
+    {
+      "key": "독수",
+      "legacy_effect_id": 126,
+      "candidate": "reuse_candidate",
+      "consumers": [
+        {
+          "overlay": 36,
+          "site": 37490996,
+          "query": 36707600,
+          "window_start": 37490904,
+          "window_sha256": "c19bd3a7f4d8f447b984e7258a85794c10c43ec768a5ba006715b4dd8f3b4068",
+          "disconnected_copy": false
+        },
+        {
+          "overlay": 36,
+          "site": 37577508,
+          "query": 36707600,
+          "window_start": 37577416,
+          "window_sha256": "6cdf1cbf525fdd5c9125381de1a7067b7638935c16e572e2cbb71962b179b805",
+          "disconnected_copy": false
+        }
+      ]
+    },
+    {
+      "key": "독폭주",
+      "legacy_effect_id": 0,
+      "candidate": "new_handler",
+      "consumers": []
+    },
+    {
+      "key": "돌머리",
+      "legacy_effect_id": 7,
+      "candidate": "reuse_candidate",
+      "consumers": [
+        {
+          "overlay": 29,
+          "site": 36863908,
+          "query": 36707704,
+          "window_start": 36863816,
+          "window_sha256": "71b81e7b85e11ea617b30c14daf3e90e6cebbf01f25babd09569fa2daffbc6ee",
+          "disconnected_copy": false
+        },
+        {
+          "overlay": 29,
+          "site": 36866404,
+          "query": 36707704,
+          "window_start": 36866312,
+          "window_sha256": "d94b9a4e6bcfe49a202119ac1c78ef666674d44de1ddb8b63348e50f29ceaf7d",
+          "disconnected_copy": false
+        },
+        {
+          "overlay": 29,
+          "site": 36889036,
+          "query": 36707704,
+          "window_start": 36888944,
+          "window_sha256": "1b0ea58c8b2c0245d9ac2d74445e3a34dcf674149fe05a50ace105b823345261",
+          "disconnected_copy": false
+        },
+        {
+          "overlay": 29,
+          "site": 36889824,
+          "query": 36707704,
+          "window_start": 36889732,
+          "window_sha256": "4d4325294712b4a212b607386b41f30ccaebb20c6b5c96dc336d9938bea30473",
+          "disconnected_copy": false
+        }
+      ]
+    },
+    {
+      "key": "되새김질",
+      "legacy_effect_id": 218,
+      "candidate": "modify_or_connect",
+      "consumers": []
+    },
+    {
+      "key": "두꺼운지방",
+      "legacy_effect_id": 2,
+      "candidate": "modify_or_connect",
+      "consumers": [
+        {
+          "overlay": 29,
+          "site": 36745504,
+          "query": 36743488,
+          "window_start": 36745412,
+          "window_sha256": "36af4a2fb0284ee4762de7da8ef6e5deb43f457e049c23058fd1a53b17cf3abd",
+          "disconnected_copy": false
+        },
+        {
+          "overlay": 29,
+          "site": 36747716,
+          "query": 36743488,
+          "window_start": 36747624,
+          "window_sha256": "b932430a01c382ed323901fb551755401e7b69af3fb74ca87f862d28f67bb8c5",
+          "disconnected_copy": false
+        }
+      ]
+    },
+    {
+      "key": "둔감",
+      "legacy_effect_id": 41,
+      "candidate": "reuse_candidate",
+      "consumers": [
+        {
+          "overlay": 29,
+          "site": 36677780,
+          "query": 36673228,
+          "window_start": 36677688,
+          "window_sha256": "19dee9e33feb6e82bdca270e7560c2caad6669fa1c3413fa4dd8926ca7ebae24",
+          "disconnected_copy": false
+        },
+        {
+          "overlay": 29,
+          "site": 36774436,
+          "query": 36772756,
+          "window_start": 36774344,
+          "window_sha256": "b0305ca7b4c1b915f6344c6709f279a37ab01172e0ea9db99be1e294dcbabf76",
+          "disconnected_copy": false
+        },
+        {
+          "overlay": 29,
+          "site": 36890016,
+          "query": 36888096,
+          "window_start": 36889924,
+          "window_sha256": "f003fd88d70d6d2558c6f64f2079d7aa8ebc0a74291ba8331d8b3dae5ca8f72b",
+          "disconnected_copy": false
+        }
+      ]
+    },
+    {
+      "key": "드래곤스킨",
+      "legacy_effect_id": 0,
+      "candidate": "new_handler",
+      "consumers": []
+    },
+    {
+      "key": "떠도는영혼",
+      "legacy_effect_id": 0,
+      "candidate": "new_handler",
+      "consumers": []
+    },
+    {
+      "key": "라이트메탈",
+      "legacy_effect_id": 0,
+      "candidate": "new_handler",
+      "consumers": []
+    },
+    {
+      "key": "리프가드",
+      "legacy_effect_id": 123,
+      "candidate": "reuse_candidate",
+      "consumers": [
+        {
+          "overlay": 29,
+          "site": 36706756,
+          "query": 36706828,
+          "window_start": 36706664,
+          "window_sha256": "33259c07795d80c2092f6a59483430b73fa57e89c600bb114a305fe04008a65c",
+          "disconnected_copy": false
+        }
+      ]
+    },
+    {
+      "key": "마그마의무장",
+      "legacy_effect_id": 65,
+      "candidate": "reuse_candidate",
+      "consumers": [
+        {
+          "overlay": 29,
+          "site": 36677940,
+          "query": 36673228,
+          "window_start": 36677848,
+          "window_sha256": "762ea5d8b670fa2c7f59a52180fa6f84255ca9e87e3017700e0a38155d51f719",
+          "disconnected_copy": false
+        },
+        {
+          "overlay": 29,
+          "site": 36777116,
+          "query": 36772756,
+          "window_start": 36777024,
+          "window_sha256": "0cb5e096b228b886fc7b06a84f7b3d80fbfd4bef14e7fb6e5009b3c269e63d2b",
+          "disconnected_copy": false
+        },
+        {
+          "overlay": 36,
+          "site": 37582992,
+          "query": 36707600,
+          "window_start": 37582900,
+          "window_sha256": "48d133307544f97410d2be8a5b6d103a564a58219811bdc30d91beb8e6240a3a",
+          "disconnected_copy": false
+        }
+      ]
+    },
+    {
+      "key": "마이너스",
+      "legacy_effect_id": 63,
+      "candidate": "reuse_candidate",
+      "consumers": [
+        {
+          "overlay": 29,
+          "site": 36620176,
+          "query": 36707704,
+          "window_start": 36620084,
+          "window_sha256": "1056099594176ef5084cc743aee681caea8caf308faaba0361aa98756897e5f0",
+          "disconnected_copy": false
+        },
+        {
+          "overlay": 29,
+          "site": 36751324,
+          "query": 36707704,
+          "window_start": 36751232,
+          "window_sha256": "cf9c4dbb72986a8ff3afea0d9d73e623849263c17345752527213bf0b846f796",
+          "disconnected_copy": false
+        }
+      ]
+    },
+    {
+      "key": "마이페이스",
+      "legacy_effect_id": 64,
+      "candidate": "reuse_candidate",
+      "consumers": [
+        {
+          "overlay": 29,
+          "site": 36677676,
+          "query": 36673228,
+          "window_start": 36677584,
+          "window_sha256": "0ba2f2a137d04f43d5bd230c373656bc874acc82a829f0393caf06fb939d15e0",
+          "disconnected_copy": false
+        },
+        {
+          "overlay": 29,
+          "site": 36786256,
+          "query": 36707704,
+          "window_start": 36786164,
+          "window_sha256": "4313245c4152f692e7c13294e2ea4d5226dd7396731f66fba766f600d0962ab0",
+          "disconnected_copy": false
+        }
+      ]
+    },
+    {
+      "key": "마중물",
+      "legacy_effect_id": 122,
+      "candidate": "reuse_candidate",
+      "consumers": [
+        {
+          "overlay": "itcm",
+          "site": 33537464,
+          "query": 36707704,
+          "window_start": 33537372,
+          "window_sha256": "6c7b7d2eb373c77d0950047501c9b0941a0a417fefe21908df4101df73a0eb80",
+          "disconnected_copy": false
+        }
+      ]
+    },
+    {
+      "key": "매직가드",
+      "legacy_effect_id": 115,
+      "candidate": "reuse_candidate",
+      "consumers": [
+        {
+          "overlay": 29,
+          "site": 36737208,
+          "query": 36743488,
+          "window_start": 36737116,
+          "window_sha256": "f8ae633387f5bdc0637b36944e8294299fb5282f418065fe8f75312600cf5946",
+          "disconnected_copy": false
+        },
+        {
+          "overlay": 29,
+          "site": 36737348,
+          "query": 36707704,
+          "window_start": 36737256,
+          "window_sha256": "60b19dbd27b5d942147dbf7c7901e966ab8cfea970bb498becafdfb9c039f642",
+          "disconnected_copy": false
+        },
+        {
+          "overlay": 29,
+          "site": 36769180,
+          "query": 36707704,
+          "window_start": 36769088,
+          "window_sha256": "fb17cb83d90cb3ed6b9ea4e4ae6981ab260421ec80dc22d1f1c91bb70cfdf50d",
+          "disconnected_copy": false
+        }
+      ]
+    },
+    {
+      "key": "매직미러",
+      "legacy_effect_id": 135,
+      "candidate": "reuse_candidate",
+      "consumers": [
+        {
+          "overlay": 36,
+          "site": 37417900,
+          "query": 36707704,
+          "window_start": 37417808,
+          "window_sha256": "7142a8ee466555bacc66cf1b86555207076be80aff9e22d9a0733d4142283ecd",
+          "disconnected_copy": false
+        }
+      ]
+    },
+    {
+      "key": "맹화",
+      "legacy_effect_id": 70,
+      "candidate": "modify_or_connect",
+      "consumers": [
+        {
+          "overlay": 29,
+          "site": 36746332,
+          "query": 36707704,
+          "window_start": 36746240,
+          "window_sha256": "5c9931a99769006774b19e871bb9165ab62a6814d11434a89df55a82321ae0a8",
+          "disconnected_copy": false
+        },
+        {
+          "overlay": 29,
+          "site": 36747964,
+          "query": 36707704,
+          "window_start": 36747872,
+          "window_sha256": "32567fc0f900acd29b52935892c5c07684ba309d5525e79fba255bb1e3d512a6",
+          "disconnected_copy": false
+        }
+      ]
+    },
+    {
+      "key": "먹보",
+      "legacy_effect_id": 89,
+      "candidate": "reuse_candidate",
+      "consumers": [
+        {
+          "overlay": 29,
+          "site": 36765124,
+          "query": 36707704,
+          "window_start": 36765032,
+          "window_sha256": "5ae0ebe1de8e8a512642b24a6f2b938f7a21d9f0cd74d09fe94675b89b4f32c9",
+          "disconnected_copy": false
+        },
+        {
+          "overlay": 29,
+          "site": 36793340,
+          "query": 36707704,
+          "window_start": 36793248,
+          "window_sha256": "f9cf06f7d4b88004764bf0d33919fd4867ea678056da59bbbc96e4ea11366222",
+          "disconnected_copy": false
+        },
+        {
+          "overlay": 29,
+          "site": 36820340,
+          "query": 36707704,
+          "window_start": 36820248,
+          "window_sha256": "0cec319484a8df394cdd5a93d4e43baeca3e4e1fe64a89d834a5d2943ce3e835",
+          "disconnected_copy": false
+        },
+        {
+          "overlay": 36,
+          "site": 37393856,
+          "query": 36707600,
+          "window_start": 37393764,
+          "window_sha256": "8343a91fa726767b9640e7c17e94c0ca9468253fc38dc24d1d4a5044e22aaaa1",
+          "disconnected_copy": false
+        }
+      ]
+    },
+    {
+      "key": "멀티스케일",
+      "legacy_effect_id": 12,
+      "candidate": "modify_or_connect",
+      "consumers": [
+        {
+          "overlay": 36,
+          "site": 37419044,
+          "query": 36707704,
+          "window_start": 37418952,
+          "window_sha256": "a5e682694d19e105be071962090f35c0b1c2490e81aa44a6ff94a0f28b2d20f0",
+          "disconnected_copy": false
+        }
+      ]
+    },
+    {
+      "key": "멀티타입",
+      "legacy_effect_id": 116,
+      "candidate": "modify_or_connect",
+      "consumers": [
+        {
+          "overlay": 29,
+          "site": 36865776,
+          "query": 36707704,
+          "window_start": 36865684,
+          "window_sha256": "d2bc06d0c403aa7c37d88ed3459be42d5bf4d1777c84a2e58b490f219bf7d1e8",
+          "disconnected_copy": false
+        },
+        {
+          "overlay": 36,
+          "site": 37419284,
+          "query": 36707704,
+          "window_start": 37419192,
+          "window_sha256": "670c8df3730845b3b416dd766255549a65536e035befb2f1f17202ffeb75ad95",
+          "disconnected_copy": false
+        }
+      ]
+    },
+    {
+      "key": "메가런처",
+      "legacy_effect_id": 143,
+      "candidate": "modify_or_connect",
+      "consumers": [
+        {
+          "overlay": 36,
+          "site": 37419464,
+          "query": 36707704,
+          "window_start": 37419372,
+          "window_sha256": "f9fe9bc8e0dacb7efdb7028c8995fea5f154b94d6157d8fc0912e4fd12f490a0",
+          "disconnected_copy": false
+        }
+      ]
+    },
+    {
+      "key": "메가솔라",
+      "legacy_effect_id": 0,
+      "candidate": "new_handler",
+      "consumers": []
+    },
+    {
+      "key": "면역",
+      "legacy_effect_id": 69,
+      "candidate": "reuse_candidate",
+      "consumers": [
+        {
+          "overlay": 29,
+          "site": 36677996,
+          "query": 36673228,
+          "window_start": 36677904,
+          "window_sha256": "2d216ea21ad079312115102783507d976a7d1c21b2bfa57fbcc5aa648116f90b",
+          "disconnected_copy": false
+        },
+        {
+          "overlay": 29,
+          "site": 36775716,
+          "query": 36772756,
+          "window_start": 36775624,
+          "window_sha256": "155ed4676c392859d6949dc25acda9c65ef990a12a55e750fbba72f26308d0df",
+          "disconnected_copy": false
+        },
+        {
+          "overlay": 29,
+          "site": 36776444,
+          "query": 36772756,
+          "window_start": 36776352,
+          "window_sha256": "ad41d1b287ccce6b83117754f84efd13151f0fe0f5dae4b3365d5a07505d2dc5",
+          "disconnected_copy": false
+        }
+      ]
+    },
+    {
+      "key": "멸망의바디",
+      "legacy_effect_id": 152,
+      "candidate": "reuse_candidate",
+      "consumers": [
+        {
+          "overlay": 36,
+          "site": 37418220,
+          "query": 36743488,
+          "window_start": 37418128,
+          "window_sha256": "e95f670c504084406087bb1e0aee725dc7303aeb131d83e9d464841a1b7fb956",
+          "disconnected_copy": false
+        }
+      ]
+    },
+    {
+      "key": "모래날림",
+      "legacy_effect_id": 28,
+      "candidate": "reuse_candidate",
+      "consumers": [
+        {
+          "overlay": 29,
+          "site": 36672364,
+          "query": 36707704,
+          "window_start": 36672272,
+          "window_sha256": "2e34531ae9fc17f05232e197d422c45540e2bbd5aa924a7d85ef14e883b5427d",
+          "disconnected_copy": false
+        },
+        {
+          "overlay": 29,
+          "site": 36772640,
+          "query": 36772856,
+          "window_start": 36772548,
+          "window_sha256": "b7651f7e8ee1ad33c85386f99f76eda233723b39d344712c8965ba2b5c5204a3",
+          "disconnected_copy": false
+        }
+      ]
+    },
+    {
+      "key": "모래숨기",
+      "legacy_effect_id": 29,
+      "candidate": "reuse_candidate",
+      "consumers": [
+        {
+          "overlay": 29,
+          "site": 36847140,
+          "query": 36842852,
+          "window_start": 36847048,
+          "window_sha256": "e3e0e78a854b2305019cb016347cc1752de018eacf416996b9a77c3acf488d50",
+          "disconnected_copy": false
+        }
+      ]
+    },
+    {
+      "key": "모래의힘",
+      "legacy_effect_id": 138,
+      "candidate": "modify_or_connect",
+      "consumers": [
+        {
+          "overlay": 36,
+          "site": 37419364,
+          "query": 36707704,
+          "window_start": 37419272,
+          "window_sha256": "2ad2a35e230e591b4774cf4eef72f19611e6dd4e2a358f2c2115ce30496f9f0f",
+          "disconnected_copy": false
+        }
+      ]
+    },
+    {
+      "key": "모래헤치기",
+      "legacy_effect_id": 132,
+      "candidate": "modify_or_connect",
+      "consumers": [
+        {
+          "overlay": 36,
+          "site": 37417208,
+          "query": 36707704,
+          "window_start": 37417116,
+          "window_sha256": "d36f734e04db9667eb3f7a0ecf3afc10b2187c2282f8e458a3761dd2f62dad4e",
+          "disconnected_copy": false
+        },
+        {
+          "overlay": 36,
+          "site": 37419344,
+          "query": 36707704,
+          "window_start": 37419252,
+          "window_sha256": "9ca5c7168ddfde3c77a2e3a7465eae402965f1691110520b6406ce9a3cf39014",
+          "disconnected_copy": false
+        },
+        {
+          "overlay": 36,
+          "site": 37490664,
+          "query": 36707704,
+          "window_start": 37490572,
+          "window_sha256": "1e94311adec6b1539d0584ae67ec2aa31e1db6b173144c2c953ae3fb2b5b44e0",
+          "disconnected_copy": false
+        },
+        {
+          "overlay": 36,
+          "site": 37577024,
+          "query": 36707704,
+          "window_start": 37576932,
+          "window_sha256": "b73cbd7d78327317f21cb65d8a320e27dbbd148ff9f7c2f89a35a9c9fe17022d",
+          "disconnected_copy": false
+        }
+      ]
+    },
+    {
+      "key": "무아지경",
+      "legacy_effect_id": 213,
+      "candidate": "modify_or_connect",
+      "consumers": []
+    },
+    {
+      "key": "미라클스킨",
+      "legacy_effect_id": 175,
+      "candidate": "modify_or_connect",
+      "consumers": []
+    },
+    {
+      "key": "바람타기",
+      "legacy_effect_id": 216,
+      "candidate": "modify_or_connect",
+      "consumers": []
+    },
+    {
+      "key": "발광",
+      "legacy_effect_id": 46,
+      "candidate": "reuse_candidate",
+      "consumers": [
+        {
+          "overlay": 29,
+          "site": 36908480,
+          "query": 36907532,
+          "window_start": 36908388,
+          "window_sha256": "30bb596ccc0476713487752e016415dac1df5e39edb7822379c3bd26bf520ddc",
+          "disconnected_copy": false
+        },
+        {
+          "overlay": 36,
+          "site": 37491864,
+          "query": 36772756,
+          "window_start": 37491772,
+          "window_sha256": "b6ce30ba0e4ecc38b94235d8d30360b81a05bdb4cc568f7481b00b9b16879b2d",
+          "disconnected_copy": false
+        },
+        {
+          "overlay": 36,
+          "site": 37491896,
+          "query": 36707600,
+          "window_start": 37491804,
+          "window_sha256": "4c2b818f529cf6c8f37a9de4946a9db0f97bef8a050cae3c9e6096c5036c3315",
+          "disconnected_copy": false
+        }
+      ]
+    },
+    {
+      "key": "발끈",
+      "legacy_effect_id": 169,
+      "candidate": "modify_or_connect",
+      "consumers": []
+    },
+    {
+      "key": "방음",
+      "legacy_effect_id": 60,
+      "candidate": "reuse_candidate",
+      "consumers": [
+        {
+          "overlay": 29,
+          "site": 36893232,
+          "query": 36907532,
+          "window_start": 36893140,
+          "window_sha256": "a8b43b60b13b0af470713926e84337885e6027f6954842e5a6de00af49cee69b",
+          "disconnected_copy": false
+        }
+      ]
+    },
+    {
+      "key": "방진",
+      "legacy_effect_id": 130,
+      "candidate": "reuse_candidate",
+      "consumers": [
+        {
+          "overlay": 36,
+          "site": 37490684,
+          "query": 36707704,
+          "window_start": 37490592,
+          "window_sha256": "4b8ac04c0051eb28ce40646d98edd9cecd9e062d916dda604c61e4a37e82a3ba",
+          "disconnected_copy": false
+        },
+        {
+          "overlay": 36,
+          "site": 37490700,
+          "query": 36707704,
+          "window_start": 37490608,
+          "window_sha256": "9c90d0c6533ab6e07973af7093c842909d8b8425e9f647f2afb20b41e4fefb20",
+          "disconnected_copy": false
+        },
+        {
+          "overlay": 36,
+          "site": 37490740,
+          "query": 36707704,
+          "window_start": 37490648,
+          "window_sha256": "aa7e29a3c2cac7b921b59b628015a9472c4489bb9c237d13f6179464edaf4679",
+          "disconnected_copy": false
+        },
+        {
+          "overlay": 36,
+          "site": 37491284,
+          "query": 36907532,
+          "window_start": 37491192,
+          "window_sha256": "5c89c3c67dfd206610f8253afdd18583e42982ea9599ce2be8bbff91867d4d30",
+          "disconnected_copy": false
+        },
+        {
+          "overlay": 36,
+          "site": 37577044,
+          "query": 36707704,
+          "window_start": 37576952,
+          "window_sha256": "d7705640652c89600ebf14f91c308eb6fd04cd2d14db4e4deaf40e21e1d5c39a",
+          "disconnected_copy": false
+        },
+        {
+          "overlay": 36,
+          "site": 37577060,
+          "query": 36707704,
+          "window_start": 37576968,
+          "window_sha256": "213431879c762810a230b0a4c7ff4fdec4eef0697185fcbef587c031acac0b8c",
+          "disconnected_copy": false
+        },
+        {
+          "overlay": 36,
+          "site": 37577100,
+          "query": 36707704,
+          "window_start": 37577008,
+          "window_sha256": "e3fa7950a0afbb7f1f366f68e76c76bd5805502fe1152a42810419ffa316ee3d",
+          "disconnected_copy": false
+        },
+        {
+          "overlay": 36,
+          "site": 37577660,
+          "query": 36907532,
+          "window_start": 37577568,
+          "window_sha256": "9447b7c86a0ed4605ac48fe92c406a6e8027876210aeda568de0c8cd093e4b59",
+          "disconnected_copy": false
+        }
+      ]
+    },
+    {
+      "key": "방탄",
+      "legacy_effect_id": 141,
+      "candidate": "reuse_candidate",
+      "consumers": [
+        {
+          "overlay": 36,
+          "site": 37419444,
+          "query": 36707704,
+          "window_start": 37419352,
+          "window_sha256": "b2aa46fd738ecc2383e360d0395d0a6d5afaf06b8157680a3b47a329aa7df844",
+          "disconnected_copy": false
+        },
+        {
+          "overlay": 36,
+          "site": 37422648,
+          "query": 36707704,
+          "window_start": 37422556,
+          "window_sha256": "eff80c937124643fdd84d7e784656cc7db5d565801d2e7f3beddbd1444c63db0",
+          "disconnected_copy": false
+        }
+      ]
+    },
+    {
+      "key": "배짱",
+      "legacy_effect_id": 87,
+      "candidate": "reuse_candidate",
+      "consumers": [
+        {
+          "overlay": 29,
+          "site": 36864988,
+          "query": 36707704,
+          "window_start": 36864896,
+          "window_sha256": "1605875cc015fd972d5ef1fd3dde3773e57aa7abee03f65401f864c7eadc94c7",
+          "disconnected_copy": false
+        },
+        {
+          "overlay": 29,
+          "site": 36867004,
+          "query": 36707704,
+          "window_start": 36866912,
+          "window_sha256": "2796764567aca95656e09e8a86269b669d2e8b76abc2e46f0d2fb4bf9161b3d0",
+          "disconnected_copy": false
+        },
+        {
+          "overlay": 29,
+          "site": 36869228,
+          "query": 36707704,
+          "window_start": 36869136,
+          "window_sha256": "255355a9306cca33a09a00d56261eea55dff3574471858693c45a01cb8220872",
+          "disconnected_copy": false
+        },
+        {
+          "overlay": 36,
+          "site": 37604436,
+          "query": 36707600,
+          "window_start": 37604344,
+          "window_sha256": "d16883a4a25fff7a9930a144e4b3988d6a49067f5abbcf6218f21ef45d83bbee",
+          "disconnected_copy": false
+        }
+      ]
+    },
+    {
+      "key": "벌레의알림",
+      "legacy_effect_id": 67,
+      "candidate": "modify_or_connect",
+      "consumers": [
+        {
+          "overlay": 29,
+          "site": 36746160,
+          "query": 36707704,
+          "window_start": 36746068,
+          "window_sha256": "536e61b2ae232310aed1285cad6602e2a9270064aba6610578e2a5d3c6a0b838",
+          "disconnected_copy": false
+        },
+        {
+          "overlay": 29,
+          "site": 36747892,
+          "query": 36707704,
+          "window_start": 36747800,
+          "window_sha256": "ed78a1f63bb7e2f12de3aa250d75b873cb9fac5e0b10f41c26642d9baba97e81",
+          "disconnected_copy": false
+        }
+      ]
+    },
+    {
+      "key": "변덕쟁이",
+      "legacy_effect_id": 222,
+      "candidate": "modify_or_connect",
+      "consumers": []
+    },
+    {
+      "key": "변색",
+      "legacy_effect_id": 59,
+      "candidate": "reuse_candidate",
+      "consumers": [
+        {
+          "overlay": 29,
+          "site": 36673056,
+          "query": 36673228,
+          "window_start": 36672964,
+          "window_sha256": "d0cc1b8a3c5062d03b49e617e37bebacd559abe4d193862916ffd6ffe9f823a3",
+          "disconnected_copy": false
+        }
+      ]
+    },
+    {
+      "key": "변환자재",
+      "legacy_effect_id": 165,
+      "candidate": "reuse_candidate",
+      "consumers": [
+        {
+          "overlay": 36,
+          "site": 37422900,
+          "query": 36707600,
+          "window_start": 37422808,
+          "window_sha256": "ea730b81d30e85aa3a19b0680690ce8bc4974ba9f0a81182511f9900488e25d4",
+          "disconnected_copy": false
+        },
+        {
+          "overlay": 36,
+          "site": 37577300,
+          "query": 36707600,
+          "window_start": 37577208,
+          "window_sha256": "08a7dc94c8e4015786c856398b2f66d939b6a7f7084ec38de42ba199e8beddd5",
+          "disconnected_copy": false
+        }
+      ]
+    },
+    {
+      "key": "복안",
+      "legacy_effect_id": 51,
+      "candidate": "modify_or_connect",
+      "consumers": [
+        {
+          "overlay": 29,
+          "site": 36846980,
+          "query": 36707704,
+          "window_start": 36846888,
+          "window_sha256": "7d7fd23cfe90fbd98fc53a99aed1a5f9225ef2ca7b5135066e209ee09d52d408",
+          "disconnected_copy": false
+        }
+      ]
+    },
+    {
+      "key": "부유",
+      "legacy_effect_id": 55,
+      "candidate": "reuse_candidate",
+      "consumers": [
+        {
+          "overlay": 29,
+          "site": 36707896,
+          "query": 36707600,
+          "window_start": 36707804,
+          "window_sha256": "f1b2efadb286945da49440e1f789f9cc9b356f16fec97630e7ad0707844f392c",
+          "disconnected_copy": false
+        }
+      ]
+    },
+    {
+      "key": "부자유친",
+      "legacy_effect_id": 184,
+      "candidate": "modify_or_connect",
+      "consumers": []
+    },
+    {
+      "key": "부풀린가슴",
+      "legacy_effect_id": 0,
+      "candidate": "new_handler",
+      "consumers": []
+    },
+    {
+      "key": "분노의경혈",
+      "legacy_effect_id": 79,
+      "candidate": "modify_or_connect",
+      "consumers": [
+        {
+          "overlay": 29,
+          "site": 36749468,
+          "query": 36707704,
+          "window_start": 36749376,
+          "window_sha256": "90a024c2d40a1980927cf6ba4e70900ff42b261e4895f8dcdf649959604e450d",
+          "disconnected_copy": false
+        }
+      ]
+    },
+    {
+      "key": "불가사의부적",
+      "legacy_effect_id": 53,
+      "candidate": "reuse_candidate",
+      "consumers": [
+        {
+          "overlay": 29,
+          "site": 36744592,
+          "query": 36743488,
+          "window_start": 36744500,
+          "window_sha256": "e82873b47a2584a23b2facb1a69f718a3d2365392ce9a43a7828779b796ae01b",
+          "disconnected_copy": false
+        },
+        {
+          "overlay": 29,
+          "site": 36748628,
+          "query": 36743488,
+          "window_start": 36748536,
+          "window_sha256": "257ba46d693031aec817990231a96ad6f8f8077b232b3099a4a84d26c5079cf8",
+          "disconnected_copy": false
+        },
+        {
+          "overlay": 29,
+          "site": 36754128,
+          "query": 36743488,
+          "window_start": 36754036,
+          "window_sha256": "16d132e29a5d016ae1d00d88db940b8bc99a98cc3b957881651fa4416f922fbd",
+          "disconnected_copy": false
+        },
+        {
+          "overlay": 29,
+          "site": 36865712,
+          "query": 36707704,
+          "window_start": 36865620,
+          "window_sha256": "89bedc6813454ff36138786a07f956a5501ce603effe25665d691bf508c922e4",
+          "disconnected_copy": false
+        },
+        {
+          "overlay": 29,
+          "site": 36865732,
+          "query": 36707704,
+          "window_start": 36865640,
+          "window_sha256": "c64744d7b32d36d75fe2ef04a88a7c31fac8e9fba783d7b941bb43d6d62baba9",
+          "disconnected_copy": false
+        },
+        {
+          "overlay": 29,
+          "site": 36872612,
+          "query": 36871956,
+          "window_start": 36872520,
+          "window_sha256": "b27e5e7517471f0290e02aca2b0b408e2356c273a4741a3a4970ff848689256f",
+          "disconnected_copy": false
+        }
+      ]
+    },
+    {
+      "key": "불굴의마음",
+      "legacy_effect_id": 112,
+      "candidate": "modify_or_connect",
+      "consumers": [
+        {
+          "overlay": 29,
+          "site": 36811640,
+          "query": 36707704,
+          "window_start": 36811548,
+          "window_sha256": "c5a30ef43f190dede990e6ff9af4b3ca11f1985acfeb65f2df288d1a26f82c5a",
+          "disconnected_copy": false
+        }
+      ]
+    },
+    {
+      "key": "불꽃몸",
+      "legacy_effect_id": 62,
+      "candidate": "reuse_candidate",
+      "consumers": [
+        {
+          "overlay": 29,
+          "site": 36736496,
+          "query": 36743488,
+          "window_start": 36736404,
+          "window_sha256": "d1f8ff7a05ea7e5f103149aa8c15716b22c0c20fc0c9ef282cdabe4bd14c891b",
+          "disconnected_copy": false
+        }
+      ]
+    },
+    {
+      "key": "불꽃의갈기",
+      "legacy_effect_id": 0,
+      "candidate": "new_handler",
+      "consumers": []
+    },
+    {
+      "key": "불면",
+      "legacy_effect_id": 54,
+      "candidate": "reuse_candidate",
+      "consumers": [
+        {
+          "overlay": 29,
+          "site": 36677832,
+          "query": 36673228,
+          "window_start": 36677740,
+          "window_sha256": "9c3c5ad9bbc31a728f9cf075c259d84dae9ae79bbd1aa0eb99e08cb4bd18566d",
+          "disconnected_copy": false
+        },
+        {
+          "overlay": 29,
+          "site": 36772528,
+          "query": 36772756,
+          "window_start": 36772436,
+          "window_sha256": "4e5cc5fbf636bf4ff4bab3e59ee2bd6fe182e6c8133f72320bdca4d2b9519d63",
+          "disconnected_copy": false
+        }
+      ]
+    },
+    {
+      "key": "색안경",
+      "legacy_effect_id": 80,
+      "candidate": "modify_or_connect",
+      "consumers": [
+        {
+          "overlay": 29,
+          "site": 36745204,
+          "query": 36707704,
+          "window_start": 36745112,
+          "window_sha256": "6e1bbd0ddbe94c491f054c7e7e4042e5b9187e6e9b086bda595e86764946dbad",
+          "disconnected_copy": false
+        }
+      ]
+    },
+    {
+      "key": "선파워",
+      "legacy_effect_id": 90,
+      "candidate": "reuse_candidate",
+      "consumers": [
+        {
+          "overlay": 29,
+          "site": 36749228,
+          "query": 36707704,
+          "window_start": 36749136,
+          "window_sha256": "ac1cb4e2051ce70c1815bd10fb153406c3abb26d49ba100fa8ebb7251f951ce3",
+          "disconnected_copy": false
+        },
+        {
+          "overlay": 29,
+          "site": 36766380,
+          "query": 36707704,
+          "window_start": 36766288,
+          "window_sha256": "66fc183f3b2f288b692aa3fbec5623ad6a4990a121bc5cde02a666e71d6789ee",
+          "disconnected_copy": false
+        }
+      ]
+    },
+    {
+      "key": "소울하트",
+      "legacy_effect_id": 209,
+      "candidate": "modify_or_connect",
+      "consumers": []
+    },
+    {
+      "key": "속보",
+      "legacy_effect_id": 109,
+      "candidate": "modify_or_connect",
+      "consumers": [
+        {
+          "overlay": 29,
+          "site": 36785712,
+          "query": 36707704,
+          "window_start": 36785620,
+          "window_sha256": "ca78b329e22b9dc0e198154236aa6975f1d6b7a63a5ef32d6ecf82062336e664",
+          "disconnected_copy": false
+        }
+      ]
+    },
+    {
+      "key": "수의베일",
+      "legacy_effect_id": 66,
+      "candidate": "reuse_candidate",
+      "consumers": [
+        {
+          "overlay": 29,
+          "site": 36677728,
+          "query": 36673228,
+          "window_start": 36677636,
+          "window_sha256": "6aec4b0bac749eca8c84d8919588e28d84110c6baef4db50d9c6f97e0e9d4ea7",
+          "disconnected_copy": false
+        },
+        {
+          "overlay": 29,
+          "site": 36774852,
+          "query": 36772756,
+          "window_start": 36774760,
+          "window_sha256": "06d5bb96c30c25983d40150c3c6e84e7e7ba9ed872bd06221a9dbbe588b845ce",
+          "disconnected_copy": false
+        }
+      ]
+    },
+    {
+      "key": "수확",
+      "legacy_effect_id": 0,
+      "candidate": "new_handler",
+      "consumers": []
+    },
+    {
+      "key": "순수한힘",
+      "legacy_effect_id": 34,
+      "candidate": "modify_or_connect",
+      "consumers": [
+        {
+          "overlay": 29,
+          "site": 36751040,
+          "query": 36707704,
+          "window_start": 36750948,
+          "window_sha256": "d045d428a2639a8fcb6f5c1a01816d2ce577af77268f2889e5420580459537ab",
+          "disconnected_copy": false
+        },
+        {
+          "overlay": 29,
+          "site": 36751060,
+          "query": 36707704,
+          "window_start": 36750968,
+          "window_sha256": "2dcae75d5853c0bd11429bbebbd51e41cf3b99ee6e691f5e6352c86777e5edbc",
+          "disconnected_copy": false
+        }
+      ]
+    },
+    {
+      "key": "스나이퍼",
+      "legacy_effect_id": 93,
+      "candidate": "reuse_candidate",
+      "consumers": [
+        {
+          "overlay": 29,
+          "site": 36753080,
+          "query": 36707704,
+          "window_start": 36752988,
+          "window_sha256": "cda13e92fb67490c302af3d0597fc1307ec720ef186ac4d95bc3c639bfc65dd1",
+          "disconnected_copy": false
+        }
+      ]
+    },
+    {
+      "key": "스위트베일",
+      "legacy_effect_id": 0,
+      "candidate": "new_handler",
+      "consumers": []
+    },
+    {
+      "key": "스카이스킨",
+      "legacy_effect_id": 0,
+      "candidate": "new_handler",
+      "consumers": []
+    },
+    {
+      "key": "스킬링크",
+      "legacy_effect_id": 91,
+      "candidate": "reuse_candidate",
+      "consumers": [
+        {
+          "overlay": 29,
+          "site": 36841344,
+          "query": 36707704,
+          "window_start": 36841252,
+          "window_sha256": "d4d797f4b09d51752daa50d826533cfabc35d4ce7dccdfcae9c4f3bceb1ac224",
+          "disconnected_copy": false
+        }
+      ]
+    },
+    {
+      "key": "슬로스타트",
+      "legacy_effect_id": 94,
+      "candidate": "modify_or_connect",
+      "consumers": []
+    },
+    {
+      "key": "습기",
+      "legacy_effect_id": 21,
+      "candidate": "reuse_candidate",
+      "consumers": []
+    },
+    {
+      "key": "승기",
+      "legacy_effect_id": 151,
+      "candidate": "reuse_candidate",
+      "consumers": [
+        {
+          "overlay": 36,
+          "site": 37467156,
+          "query": 36707600,
+          "window_start": 37467064,
+          "window_sha256": "3110c595712a69821f7e25fc9fa2fbe93a2b36dc6fa6468dc5d7622c142f72a7",
+          "disconnected_copy": false
+        }
+      ]
+    },
+    {
+      "key": "시간벌기",
+      "legacy_effect_id": 78,
+      "candidate": "modify_or_connect",
+      "consumers": [
+        {
+          "overlay": 36,
+          "site": 37419144,
+          "query": 36707704,
+          "window_start": 37419052,
+          "window_sha256": "3b0eb674856cfecf2332fb738187c8db539e8093db0b3e9f519c333c62563b51",
+          "disconnected_copy": false
+        },
+        {
+          "overlay": "itcm",
+          "site": 33536932,
+          "query": 36707704,
+          "window_start": 33536840,
+          "window_sha256": "b5f18a57756d57a0b91dce9fb93d9db342457b586a1bc08ac9e64739bfd55bda",
+          "disconnected_copy": false
+        }
+      ]
+    },
+    {
+      "key": "시작의바다",
+      "legacy_effect_id": 252,
+      "candidate": "modify_or_connect",
+      "consumers": []
+    },
+    {
+      "key": "심록",
+      "legacy_effect_id": 26,
+      "candidate": "modify_or_connect",
+      "consumers": [
+        {
+          "overlay": 29,
+          "site": 36745988,
+          "query": 36707704,
+          "window_start": 36745896,
+          "window_sha256": "01c2d01c2394a20d46df1cf92886eb4c697c8abaa3c5ab74f9088631d526f7da",
+          "disconnected_copy": false
+        },
+        {
+          "overlay": 29,
+          "site": 36747820,
+          "query": 36707704,
+          "window_start": 36747728,
+          "window_sha256": "d9f3bf99fca4dc050e6ce09c0d85e92657ff5e9a75ac35e70644cbdc3822ea9d",
+          "disconnected_copy": false
+        }
+      ]
+    },
+    {
+      "key": "심술꾸러기",
+      "legacy_effect_id": 129,
+      "candidate": "reuse_candidate",
+      "consumers": [
+        {
+          "overlay": 36,
+          "site": 37466568,
+          "query": 36673228,
+          "window_start": 37466476,
+          "window_sha256": "b5a8e4e17ea3716c5f3062ae400244582f7fcb69c1ca094c2b0c64a458a7fb73",
+          "disconnected_copy": false
+        },
+        {
+          "overlay": 36,
+          "site": 37466624,
+          "query": 36673228,
+          "window_start": 37466532,
+          "window_sha256": "fd22b701e881e4281f83cac6f5b0b5ddc7f22090ab0b48a9f6f86486b67dcc71",
+          "disconnected_copy": false
+        },
+        {
+          "overlay": 36,
+          "site": 37466680,
+          "query": 36673228,
+          "window_start": 37466588,
+          "window_sha256": "366b8420741d741d5b4ab5e8972d312414941bcf699eb1f71c6f39473ad952ec",
+          "disconnected_copy": false
+        },
+        {
+          "overlay": 36,
+          "site": 37466736,
+          "query": 36673228,
+          "window_start": 37466644,
+          "window_sha256": "96bf6797e78d03f9be2e53bbcccb270828d562ee045cd30de9e118020629c69f",
+          "disconnected_copy": false
+        },
+        {
+          "overlay": 36,
+          "site": 37466792,
+          "query": 36673228,
+          "window_start": 37466700,
+          "window_sha256": "9daf3026d2a29a0201003584681b248801d81068044c51df7a2d22882a4c91fd",
+          "disconnected_copy": false
+        },
+        {
+          "overlay": 36,
+          "site": 37466856,
+          "query": 36673228,
+          "window_start": 37466764,
+          "window_sha256": "f1139525b007be41252a1098e988181ad68e4f4ed7237885640496ec0c3aaa73",
+          "disconnected_copy": false
+        },
+        {
+          "overlay": 36,
+          "site": 37466912,
+          "query": 36673228,
+          "window_start": 37466820,
+          "window_sha256": "3e498c6f8105097d9b4923562292f22eea8a9d510a2c5b67e448eb1d8b7ed520",
+          "disconnected_copy": false
+        },
+        {
+          "overlay": 36,
+          "site": 37466964,
+          "query": 36673228,
+          "window_start": 37466872,
+          "window_sha256": "6862a1ddf509b1d8e59e487bbeac93c244045d54c408b3c0dea858fdc4dbe90c",
+          "disconnected_copy": false
+        },
+        {
+          "overlay": 36,
+          "site": 37467028,
+          "query": 36673228,
+          "window_start": 37466936,
+          "window_sha256": "97bf88612b8fe4749920d2d011d9b9f22bd962165bd859a3e6d873ae138be7f7",
+          "disconnected_copy": false
+        }
+      ]
+    },
+    {
+      "key": "싱크로",
+      "legacy_effect_id": 25,
+      "candidate": "reuse_candidate",
+      "consumers": [
+        {
+          "overlay": 29,
+          "site": 36775188,
+          "query": 36707704,
+          "window_start": 36775096,
+          "window_sha256": "1564beffe5d9cb4e78c7e1299c46eaf53b244d2abd649babce8ae105150b383f",
+          "disconnected_copy": false
+        },
+        {
+          "overlay": 29,
+          "site": 36776008,
+          "query": 36707704,
+          "window_start": 36775916,
+          "window_sha256": "aca8f9f24383b0256cba7e6f3d2601171a16a91cc1a8275a04acb93722ea509a",
+          "disconnected_copy": false
+        },
+        {
+          "overlay": 29,
+          "site": 36776708,
+          "query": 36707704,
+          "window_start": 36776616,
+          "window_sha256": "12c8c6a72edd199275db92047af5f711df0c80d884fed778e6be436c9b478fb2",
+          "disconnected_copy": false
+        },
+        {
+          "overlay": 29,
+          "site": 36783864,
+          "query": 36707704,
+          "window_start": 36783772,
+          "window_sha256": "1979591b5014e664d65d00925efe00d578b0fab7dce5266d619216f17f2cfc0b",
+          "disconnected_copy": false
+        }
+      ]
+    },
+    {
+      "key": "쓱쓱",
+      "legacy_effect_id": 27,
+      "candidate": "modify_or_connect",
+      "consumers": [
+        {
+          "overlay": 29,
+          "site": 36700068,
+          "query": 36707600,
+          "window_start": 36699976,
+          "window_sha256": "395a2e7cab8929dd0bdbfdc0703e78240e8953ebd8581b5b66d3ad6aa9ef0b86",
+          "disconnected_copy": false
+        },
+        {
+          "overlay": 29,
+          "site": 36775656,
+          "query": 36772856,
+          "window_start": 36775564,
+          "window_sha256": "5742f96373153be1ff42e1e86dc7081998a9df07f3b190ad161c8f7a735d203a",
+          "disconnected_copy": false
+        },
+        {
+          "overlay": 29,
+          "site": 36776384,
+          "query": 36772856,
+          "window_start": 36776292,
+          "window_sha256": "85ae5157b4b98003e3609249b670175ffe1ac5942e495ef00449c7f09a09bf78",
+          "disconnected_copy": false
+        },
+        {
+          "overlay": 36,
+          "site": 37419064,
+          "query": 36707704,
+          "window_start": 37418972,
+          "window_sha256": "e6f297c80d11fa3537a465375f64f55dad89d0a3a8f552bd22d492b0e55349c5",
+          "disconnected_copy": false
+        }
+      ]
+    },
+    {
+      "key": "아로마베일",
+      "legacy_effect_id": 0,
+      "candidate": "new_handler",
+      "consumers": []
+    },
+    {
+      "key": "아이스바디",
+      "legacy_effect_id": 77,
+      "candidate": "modify_or_connect",
+      "consumers": [
+        {
+          "overlay": 29,
+          "site": 36770256,
+          "query": 36707704,
+          "window_start": 36770164,
+          "window_sha256": "728824cb48b117554792e27798d85af92f78c4b22d5716048b44f05c34d65eee",
+          "disconnected_copy": false
+        },
+        {
+          "overlay": 36,
+          "site": 37583380,
+          "query": 36743488,
+          "window_start": 37583288,
+          "window_sha256": "1e7b801e04d950cc9d9d0e99c7374e635f98411f6e949addc17f4d515bab4ba7",
+          "disconnected_copy": false
+        },
+        {
+          "overlay": 36,
+          "site": 37584276,
+          "query": 36743488,
+          "window_start": 37584184,
+          "window_sha256": "64111355867dd62dccb315870c04a0ba71abc96d616ff045e62ed676e47b765c",
+          "disconnected_copy": false
+        }
+      ]
+    },
+    {
+      "key": "악취",
+      "legacy_effect_id": 1,
+      "candidate": "reuse_candidate",
+      "consumers": [
+        {
+          "overlay": 29,
+          "site": 36736656,
+          "query": 36743488,
+          "window_start": 36736564,
+          "window_sha256": "ff8f7ef84a78a44d0219c1dffd6a0dda3e1fb727e5ce544bc271546798cf1719",
+          "disconnected_copy": false
+        },
+        {
+          "overlay": 36,
+          "site": 37491132,
+          "query": 36707600,
+          "window_start": 37491040,
+          "window_sha256": "5eb4d31862339bbf59f9d0f300b26362ce48ac202ebd153d006dbcfd7e4ba133",
+          "disconnected_copy": false
+        }
+      ]
+    },
+    {
+      "key": "애널라이즈",
+      "legacy_effect_id": 133,
+      "candidate": "modify_or_connect",
+      "consumers": [
+        {
+          "overlay": 36,
+          "site": 37419384,
+          "query": 36707704,
+          "window_start": 37419292,
+          "window_sha256": "892baa227da73e3a370f947808c09287c2770130bff190a4c83f83796c9964d3",
+          "disconnected_copy": false
+        }
+      ]
+    },
+    {
+      "key": "여왕의위엄",
+      "legacy_effect_id": 147,
+      "candidate": "reuse_candidate",
+      "consumers": [
+        {
+          "overlay": 36,
+          "site": 37491428,
+          "query": 36907532,
+          "window_start": 37491336,
+          "window_sha256": "3a4fe8fab5570d7e2c17d10c4f3837f33db4075165bc7ec1481ef32e82cbe59f",
+          "disconnected_copy": false
+        },
+        {
+          "overlay": 36,
+          "site": 37577804,
+          "query": 36907532,
+          "window_start": 37577712,
+          "window_sha256": "de85b9d537dcf319a4156cb473fea62eca617ea981d88ad4a168949b7e0b3ec4",
+          "disconnected_copy": false
+        }
+      ]
+    },
+    {
+      "key": "열폭주",
+      "legacy_effect_id": 0,
+      "candidate": "new_handler",
+      "consumers": []
+    },
+    {
+      "key": "엽록소",
+      "legacy_effect_id": 74,
+      "candidate": "modify_or_connect",
+      "consumers": [
+        {
+          "overlay": 29,
+          "site": 36700104,
+          "query": 36707600,
+          "window_start": 36700012,
+          "window_sha256": "d759fd2a0d4cf0d1ea8bcbe64f77825de59085b83257b0378b301f898d4e9270",
+          "disconnected_copy": false
+        },
+        {
+          "overlay": 36,
+          "site": 37419104,
+          "query": 36707704,
+          "window_start": 37419012,
+          "window_sha256": "3ca4234a4d5411a9a2103bf322eb0d98f361c70dcc087d2b6cf77097b9826e08",
+          "disconnected_copy": false
+        }
+      ]
+    },
+    {
+      "key": "예리함",
+      "legacy_effect_id": 108,
+      "candidate": "modify_or_connect",
+      "consumers": [
+        {
+          "overlay": 36,
+          "site": 37419244,
+          "query": 36707704,
+          "window_start": 37419152,
+          "window_sha256": "b7128f315445fdc957b8adfcf6ddb39ca5d6d02dd511642c7a30105b3c1cdd1b",
+          "disconnected_copy": false
+        }
+      ]
+    },
+    {
+      "key": "예지몽",
+      "legacy_effect_id": 121,
+      "candidate": "reuse_candidate",
+      "consumers": [
+        {
+          "overlay": 29,
+          "site": 36893368,
+          "query": 36907532,
+          "window_start": 36893276,
+          "window_sha256": "ea448157e4be53690fd71e5e72acfd69fa8922a1529db97c970c7596f28a7299",
+          "disconnected_copy": false
+        }
+      ]
+    },
+    {
+      "key": "오기",
+      "legacy_effect_id": 150,
+      "candidate": "reuse_candidate",
+      "consumers": [
+        {
+          "overlay": 36,
+          "site": 37467136,
+          "query": 36707600,
+          "window_start": 37467044,
+          "window_sha256": "1c79695d6faf03117d22467ec07f472b707733938eb5c0ee333c8116821e64cb",
+          "disconnected_copy": false
+        }
+      ]
+    },
+    {
+      "key": "옹골찬턱",
+      "legacy_effect_id": 75,
+      "candidate": "modify_or_connect",
+      "consumers": [
+        {
+          "overlay": 36,
+          "site": 37419124,
+          "query": 36707704,
+          "window_start": 37419032,
+          "window_sha256": "5a5da4d8f85fb47b0bf390c0a28da7701c9ebff2c69ae3a1d0354831561fb127",
+          "disconnected_copy": false
+        }
+      ]
+    },
+    {
+      "key": "옹골참",
+      "legacy_effect_id": 13,
+      "candidate": "reuse_candidate",
+      "consumers": [
+        {
+          "overlay": 29,
+          "site": 36737484,
+          "query": 36743488,
+          "window_start": 36737392,
+          "window_sha256": "53e816292f7f6f7303797c2a82f373cc175ecd586accdf4ce43f597b514e7e05",
+          "disconnected_copy": false
+        }
+      ]
+    },
+    {
+      "key": "용의턱",
+      "legacy_effect_id": 0,
+      "candidate": "new_handler",
+      "consumers": []
+    },
+    {
+      "key": "우격다짐",
+      "legacy_effect_id": 162,
+      "candidate": "modify_or_connect",
+      "consumers": [
+        {
+          "overlay": 36,
+          "site": 37491700,
+          "query": 36707704,
+          "window_start": 37491608,
+          "window_sha256": "7d4f438f7051383ba359ea1fd73d2263a2a1b35e571c282810a587165466d4a8",
+          "disconnected_copy": false
+        },
+        {
+          "overlay": 36,
+          "site": 37491728,
+          "query": 36707704,
+          "window_start": 37491636,
+          "window_sha256": "2889983250b6936097cf3e912fba7e714e0b5b946fa432274c02a870819e45a1",
+          "disconnected_copy": false
+        },
+        {
+          "overlay": 36,
+          "site": 37491764,
+          "query": 36707704,
+          "window_start": 37491672,
+          "window_sha256": "38dff39adcc38ad9bab2cca7728c71f8e8421286cb5d994c30a7fbae97171257",
+          "disconnected_copy": false
+        },
+        {
+          "overlay": 36,
+          "site": 37578116,
+          "query": 36707704,
+          "window_start": 37578024,
+          "window_sha256": "5e1667bc46d2727fc54746949d51ef1d13e9d8bb82d86d74a43b24cac6077314",
+          "disconnected_copy": false
+        },
+        {
+          "overlay": 36,
+          "site": 37578144,
+          "query": 36707704,
+          "window_start": 37578052,
+          "window_sha256": "7e2f7a3c189b75bfae651dfc73496c9fbcbc3557965ad642ac66d067eb61f327",
+          "disconnected_copy": false
+        },
+        {
+          "overlay": 36,
+          "site": 37578180,
+          "query": 36707704,
+          "window_start": 37578088,
+          "window_sha256": "ce2356f70934df077a83c1b88afd1f76e063a306e905e3ad469837ac8d7bb895",
+          "disconnected_copy": false
+        }
+      ]
+    },
+    {
+      "key": "위험예지",
+      "legacy_effect_id": 86,
+      "candidate": "modify_or_connect",
+      "consumers": [
+        {
+          "overlay": 29,
+          "site": 36892364,
+          "query": 36707704,
+          "window_start": 36892272,
+          "window_sha256": "bdd573f6446271df968409e0e004c380bbb456952fb882b35a7a7bc99882cf8f",
+          "disconnected_copy": false
+        },
+        {
+          "overlay": 36,
+          "site": 37419204,
+          "query": 36707704,
+          "window_start": 37419112,
+          "window_sha256": "9717a26145d939def88c39ebc465cfa5cbc26947c4867d109d2fa6b3659a7a8b",
+          "disconnected_copy": false
+        }
+      ]
+    },
+    {
+      "key": "위협",
+      "legacy_effect_id": 6,
+      "candidate": "modify_or_connect",
+      "consumers": [
+        {
+          "overlay": 29,
+          "site": 36751408,
+          "query": 36743488,
+          "window_start": 36751316,
+          "window_sha256": "743540c0423ab6229b107ebec2dfd29369c8881afaed4f4b17835ebb86cacc33",
+          "disconnected_copy": false
+        }
+      ]
+    },
+    {
+      "key": "유연",
+      "legacy_effect_id": 22,
+      "candidate": "reuse_candidate",
+      "consumers": [
+        {
+          "overlay": 29,
+          "site": 36677624,
+          "query": 36673228,
+          "window_start": 36677532,
+          "window_sha256": "1b3580d56abf64e731cde83ede226c5e73edacc3d0a7702326625745fa1c9bf7",
+          "disconnected_copy": false
+        },
+        {
+          "overlay": 29,
+          "site": 36783544,
+          "query": 36772756,
+          "window_start": 36783452,
+          "window_sha256": "d6a5e0342aad7e35fbe80fdfd57a88249fdc7b39fdd1ce2760329043871ed80b",
+          "disconnected_copy": false
+        }
+      ]
+    },
+    {
+      "key": "유폭",
+      "legacy_effect_id": 118,
+      "candidate": "reuse_candidate",
+      "consumers": [
+        {
+          "overlay": 29,
+          "site": 36743720,
+          "query": 36743488,
+          "window_start": 36743628,
+          "window_sha256": "f5c336906a635450eb70f60ee0867a1e719abe319a379639d60bcba2a2ade27c",
+          "disconnected_copy": false
+        }
+      ]
+    },
+    {
+      "key": "의기양양",
+      "legacy_effect_id": 73,
+      "candidate": "reuse_candidate",
+      "consumers": [
+        {
+          "overlay": 29,
+          "site": 36677860,
+          "query": 36673228,
+          "window_start": 36677768,
+          "window_sha256": "7386abd210c658812e14c4bf1046f00d72b64fba89ecc1b0e87ce044fe167f41",
+          "disconnected_copy": false
+        },
+        {
+          "overlay": 29,
+          "site": 36772588,
+          "query": 36772756,
+          "window_start": 36772496,
+          "window_sha256": "db0901927fc2bb297dc60689161ea3336e872a7d336606069fbd89499e09e2d3",
+          "disconnected_copy": false
+        }
+      ]
+    },
+    {
+      "key": "의욕",
+      "legacy_effect_id": 48,
+      "candidate": "reuse_candidate",
+      "consumers": [
+        {
+          "overlay": 29,
+          "site": 36751184,
+          "query": 36707704,
+          "window_start": 36751092,
+          "window_sha256": "f319d390c59f87c5d97aedea07ee6fe4d4d06ecd847a43084c9cf4260e703663",
+          "disconnected_copy": false
+        },
+        {
+          "overlay": 29,
+          "site": 36847160,
+          "query": 36707704,
+          "window_start": 36847068,
+          "window_sha256": "0a16eb16875673e4e63db3ea0bd0f7e6590ad4d134e062223b6d335077d3fe00",
+          "disconnected_copy": false
+        }
+      ]
+    },
+    {
+      "key": "이상한비늘",
+      "legacy_effect_id": 52,
+      "candidate": "reuse_candidate",
+      "consumers": [
+        {
+          "overlay": 29,
+          "site": 36751452,
+          "query": 36743488,
+          "window_start": 36751360,
+          "window_sha256": "6d626e04f334fde8612464919290bf9c96b7047101ec53796af8f1503f9a5ce8",
+          "disconnected_copy": false
+        }
+      ]
+    },
+    {
+      "key": "이판사판",
+      "legacy_effect_id": 92,
+      "candidate": "modify_or_connect",
+      "consumers": [
+        {
+          "overlay": 29,
+          "site": 36748324,
+          "query": 36707704,
+          "window_start": 36748232,
+          "window_sha256": "8d130aff2e16536305a65631a15155dbb0b00401d051d709203e9894deb5e456",
+          "disconnected_copy": false
+        },
+        {
+          "overlay": 29,
+          "site": 36753876,
+          "query": 36707704,
+          "window_start": 36753784,
+          "window_sha256": "489088958fb2995d5496548fda5740b20ef685f2f1b1e14a649abdf9b7ff4ec9",
+          "disconnected_copy": false
+        }
+      ]
+    },
+    {
+      "key": "인분",
+      "legacy_effect_id": 76,
+      "candidate": "reuse_candidate",
+      "consumers": [
+        {
+          "overlay": 29,
+          "site": 36850172,
+          "query": 36842852,
+          "window_start": 36850080,
+          "window_sha256": "ae4a32ec0770fe46557a9b2f7495530d49e654fb49cfd24aae3929a7cc079dc7",
+          "disconnected_copy": false
+        }
+      ]
+    },
+    {
+      "key": "일렉트릭스킨",
+      "legacy_effect_id": 0,
+      "candidate": "new_handler",
+      "consumers": []
+    },
+    {
+      "key": "일루전",
+      "legacy_effect_id": 125,
+      "candidate": "reuse_candidate",
+      "consumers": []
+    },
+    {
+      "key": "일찍기상",
+      "legacy_effect_id": 47,
+      "candidate": "modify_or_connect",
+      "consumers": [
+        {
+          "overlay": 29,
+          "site": 36771956,
+          "query": 36707704,
+          "window_start": 36771864,
+          "window_sha256": "b0991c32220cd87fe2a7079fb4ebf94033b8335c057e7b191abd1e92d5b71a17",
+          "disconnected_copy": false
+        },
+        {
+          "overlay": 29,
+          "site": 36773044,
+          "query": 36772756,
+          "window_start": 36772952,
+          "window_sha256": "1aea5a0ac34f1cb90c7aa3401b974e0bd7beda03065940bb8a9c38ee6591bd48",
+          "disconnected_copy": false
+        },
+        {
+          "overlay": 29,
+          "site": 36773328,
+          "query": 36772756,
+          "window_start": 36773236,
+          "window_sha256": "b13f035a1db45ec5bd6644cf0a8a66c2562db157c58170737d9c3b9ddf8dd6e3",
+          "disconnected_copy": false
+        }
+      ]
+    },
+    {
+      "key": "자기과신",
+      "legacy_effect_id": 170,
+      "candidate": "modify_or_connect",
+      "consumers": []
+    },
+    {
+      "key": "자력",
+      "legacy_effect_id": 23,
+      "candidate": "modify_or_connect",
+      "consumers": [
+        {
+          "overlay": 29,
+          "site": 36736152,
+          "query": 36743488,
+          "window_start": 36736060,
+          "window_sha256": "02982641b984353da688d28454291c06bd6f0dc89c3845707734c2b8792ea924",
+          "disconnected_copy": false
+        }
+      ]
+    },
+    {
+      "key": "자연회복",
+      "legacy_effect_id": 20,
+      "candidate": "reuse_candidate",
+      "consumers": [
+        {
+          "overlay": 29,
+          "site": 36613132,
+          "query": 36707704,
+          "window_start": 36613040,
+          "window_sha256": "5bc6319a640fec0eca8d885f9f3d217d04e2b1d1f19c6c2a0c79e051a71e93e2",
+          "disconnected_copy": false
+        }
+      ]
+    },
+    {
+      "key": "잔비",
+      "legacy_effect_id": 4,
+      "candidate": "modify_or_connect",
+      "consumers": [
+        {
+          "overlay": 29,
+          "site": 36672332,
+          "query": 36707704,
+          "window_start": 36672240,
+          "window_sha256": "8937142ffe4e56b88f13b496f2f9b2ca4e9be27d0bd54ea7aa0ead8b694d1855",
+          "disconnected_copy": false
+        }
+      ]
+    },
+    {
+      "key": "잠복",
+      "legacy_effect_id": 197,
+      "candidate": "modify_or_connect",
+      "consumers": []
+    },
+    {
+      "key": "재생력",
+      "legacy_effect_id": 131,
+      "candidate": "modify_or_connect",
+      "consumers": [
+        {
+          "overlay": 36,
+          "site": 37417176,
+          "query": 36707704,
+          "window_start": 37417084,
+          "window_sha256": "a6ea55da01d4374bcd9591a2b33e798d490bb05e4f97d6d3a1fe9751e5cca8fd",
+          "disconnected_copy": false
+        }
+      ]
+    },
+    {
+      "key": "저수",
+      "legacy_effect_id": 36,
+      "candidate": "reuse_candidate",
+      "consumers": [
+        {
+          "overlay": 29,
+          "site": 36737800,
+          "query": 36743488,
+          "window_start": 36737708,
+          "window_sha256": "00ace9d5860b9b39d836ec049d098389f50eca7516ca559b5af5fce14861467c",
+          "disconnected_copy": false
+        },
+        {
+          "overlay": 29,
+          "site": 36747404,
+          "query": 36743488,
+          "window_start": 36747312,
+          "window_sha256": "ca47374a57a0ba7c1790eb6361c314d8ff6a56df4cefdc246a572a6520ccfacf",
+          "disconnected_copy": false
+        }
+      ]
+    },
+    {
+      "key": "저주받은바디",
+      "legacy_effect_id": 149,
+      "candidate": "modify_or_connect",
+      "consumers": [
+        {
+          "overlay": 36,
+          "site": 37418132,
+          "query": 36743488,
+          "window_start": 37418040,
+          "window_sha256": "8227d2f1b9bd77e7fb38d0cea97216f587ff431de0eff733f9e92f94659925d8",
+          "disconnected_copy": false
+        }
+      ]
+    },
+    {
+      "key": "적응력",
+      "legacy_effect_id": 99,
+      "candidate": "modify_or_connect",
+      "consumers": [
+        {
+          "overlay": 36,
+          "site": 37531928,
+          "query": 36707704,
+          "window_start": 37531836,
+          "window_sha256": "10708fbb143a6f9331ea724075869a71e8cb85ddfc1a9189c0621d5e4c1b66ed",
+          "disconnected_copy": false
+        }
+      ]
+    },
+    {
+      "key": "전기로바꾸기",
+      "legacy_effect_id": 157,
+      "candidate": "modify_or_connect",
+      "consumers": [
+        {
+          "overlay": 36,
+          "site": 37483356,
+          "query": 36907532,
+          "window_start": 37483264,
+          "window_sha256": "27b9b7cffa681c45f71b1c46372b65b7b4e39d46fa378074f5a6de0231f7d458",
+          "disconnected_copy": false
+        },
+        {
+          "overlay": 36,
+          "site": 37575436,
+          "query": 36907532,
+          "window_start": 37575344,
+          "window_sha256": "50b9b2541fa8e103cb0deebd82524d95e47d57955300c87daf4e513040a257ba",
+          "disconnected_copy": false
+        }
+      ]
+    },
+    {
+      "key": "전기엔진",
+      "legacy_effect_id": 102,
+      "candidate": "modify_or_connect",
+      "consumers": [
+        {
+          "overlay": 29,
+          "site": 36737960,
+          "query": 36743488,
+          "window_start": 36737868,
+          "window_sha256": "fadc31dc03f5e825ba324a38a3b3d09abcbe10d9015b7f4429cb4f6419d37700",
+          "disconnected_copy": false
+        },
+        {
+          "overlay": 29,
+          "site": 36870072,
+          "query": 36865588,
+          "window_start": 36869980,
+          "window_sha256": "6089547e24b3ace39d7e0075820d1a970de0bf314aab167fa1b5d8f34bb19f0b",
+          "disconnected_copy": false
+        }
+      ]
+    },
+    {
+      "key": "전투무장",
+      "legacy_effect_id": 19,
+      "candidate": "reuse_candidate",
+      "consumers": [
+        {
+          "overlay": 29,
+          "site": 36752736,
+          "query": 36743488,
+          "window_start": 36752644,
+          "window_sha256": "7f4e19f7de269c62ec8f9cace515843424e35e929d73341777e907bbb7b518dc",
+          "disconnected_copy": false
+        }
+      ]
+    },
+    {
+      "key": "절대안깸",
+      "legacy_effect_id": 189,
+      "candidate": "modify_or_connect",
+      "consumers": []
+    },
+    {
+      "key": "점착",
+      "legacy_effect_id": 44,
+      "candidate": "modify_or_connect",
+      "consumers": [
+        {
+          "overlay": 29,
+          "site": 36629876,
+          "query": 36707704,
+          "window_start": 36629784,
+          "window_sha256": "7cf3a86334ffadec16ace4b48b64f99632ec143debe63e1ead13614faa737cac",
+          "disconnected_copy": false
+        },
+        {
+          "overlay": 29,
+          "site": 36871580,
+          "query": 36871956,
+          "window_start": 36871488,
+          "window_sha256": "dc1fa23e98810153d592bde777ebff6d400e214a6bdaf7809b82567a85664f06",
+          "disconnected_copy": false
+        },
+        {
+          "overlay": 29,
+          "site": 36874036,
+          "query": 36871956,
+          "window_start": 36873944,
+          "window_sha256": "4688ceebd21c789732985b8ffc10939223a0d3fa47eed97276fee05c7490e824",
+          "disconnected_copy": false
+        },
+        {
+          "overlay": 29,
+          "site": 36881292,
+          "query": 36879824,
+          "window_start": 36881200,
+          "window_sha256": "0d5007edcd187daf80b4d2fd5eb185e4226049e32e1b148195ceafae7925489f",
+          "disconnected_copy": false
+        },
+        {
+          "overlay": 29,
+          "site": 36887188,
+          "query": 36707704,
+          "window_start": 36887096,
+          "window_sha256": "f044db534180709232bfee7143375f8ccbfd27d47a8acacab86072c0c436641e",
+          "disconnected_copy": false
+        }
+      ]
+    },
+    {
+      "key": "정신력",
+      "legacy_effect_id": 31,
+      "candidate": "reuse_candidate",
+      "consumers": [
+        {
+          "overlay": 29,
+          "site": 36783196,
+          "query": 36772756,
+          "window_start": 36783104,
+          "window_sha256": "b198a51019c3535b5b75528c18dbd5fb0287d909eb50804ec02959bca6989f58",
+          "disconnected_copy": false
+        },
+        {
+          "overlay": 29,
+          "site": 36841852,
+          "query": 36842852,
+          "window_start": 36841760,
+          "window_sha256": "02dbcb89b4ed724025ca2632275d26e9d64769c13c270dc8f4c98b41c37fe26f",
+          "disconnected_copy": false
+        }
+      ]
+    },
+    {
+      "key": "정의의마음",
+      "legacy_effect_id": 167,
+      "candidate": "modify_or_connect",
+      "consumers": [
+        {
+          "overlay": 36,
+          "site": 37487672,
+          "query": 36907532,
+          "window_start": 37487580,
+          "window_sha256": "fadab7ed5c9e95d3a5e79a36d8a516f29f93092e178b7096cd46e6b95536b88c",
+          "disconnected_copy": false
+        }
+      ]
+    },
+    {
+      "key": "정전기",
+      "legacy_effect_id": 32,
+      "candidate": "reuse_candidate",
+      "consumers": [
+        {
+          "overlay": 29,
+          "site": 36736236,
+          "query": 36743488,
+          "window_start": 36736144,
+          "window_sha256": "1a9088f46815f3dd836d3ced4e34e7629265f3f8134ffcd4e0526fbdac54ef08",
+          "disconnected_copy": false
+        }
+      ]
+    },
+    {
+      "key": "젖은접시",
+      "legacy_effect_id": 3,
+      "candidate": "reuse_candidate",
+      "consumers": [
+        {
+          "overlay": 29,
+          "site": 36770168,
+          "query": 36707704,
+          "window_start": 36770076,
+          "window_sha256": "2f72b407700c1892e23ff93fb87aa34f629be603404c341cccaea6eda8470f09",
+          "disconnected_copy": false
+        }
+      ]
+    },
+    {
+      "key": "조가비갑옷",
+      "legacy_effect_id": 19,
+      "candidate": "modify_or_connect",
+      "consumers": [
+        {
+          "overlay": 29,
+          "site": 36752736,
+          "query": 36743488,
+          "window_start": 36752644,
+          "window_sha256": "7f4e19f7de269c62ec8f9cace515843424e35e929d73341777e907bbb7b518dc",
+          "disconnected_copy": false
+        }
+      ]
+    },
+    {
+      "key": "주눅",
+      "legacy_effect_id": 0,
+      "candidate": "new_handler",
+      "consumers": []
+    },
+    {
+      "key": "지구력",
+      "legacy_effect_id": 198,
+      "candidate": "modify_or_connect",
+      "consumers": []
+    },
+    {
+      "key": "짓궂은마음",
+      "legacy_effect_id": 137,
+      "candidate": "reuse_candidate",
+      "consumers": [
+        {
+          "overlay": 36,
+          "site": 37417336,
+          "query": 36707704,
+          "window_start": 37417244,
+          "window_sha256": "b21b9de5333215698050e1fdfc91c1eb46bb2efa4c028a79e79abac40f42823d",
+          "disconnected_copy": false
+        }
+      ]
+    },
+    {
+      "key": "천진",
+      "legacy_effect_id": 103,
+      "candidate": "modify_or_connect",
+      "consumers": [
+        {
+          "overlay": 29,
+          "site": 36749820,
+          "query": 36707704,
+          "window_start": 36749728,
+          "window_sha256": "90624e70c6d1798c77ec34976acd85f9b4169e5f267d0bd7559d3124fc2264b6",
+          "disconnected_copy": false
+        },
+        {
+          "overlay": 29,
+          "site": 36749860,
+          "query": 36743488,
+          "window_start": 36749768,
+          "window_sha256": "c70cb41a24b4df7f0d64cf36955a53b663e95fb29f30fdbba6d1e5bf760c22c9",
+          "disconnected_copy": false
+        }
+      ]
+    },
+    {
+      "key": "천하장사",
+      "legacy_effect_id": 34,
+      "candidate": "reuse_candidate",
+      "consumers": [
+        {
+          "overlay": 29,
+          "site": 36751040,
+          "query": 36707704,
+          "window_start": 36750948,
+          "window_sha256": "d045d428a2639a8fcb6f5c1a01816d2ce577af77268f2889e5420580459537ab",
+          "disconnected_copy": false
+        },
+        {
+          "overlay": 29,
+          "site": 36751060,
+          "query": 36707704,
+          "window_start": 36750968,
+          "window_sha256": "2dcae75d5853c0bd11429bbebbd51e41cf3b99ee6e691f5e6352c86777e5edbc",
+          "disconnected_copy": false
+        }
+      ]
+    },
+    {
+      "key": "철가시",
+      "legacy_effect_id": 0,
+      "candidate": "new_handler",
+      "consumers": []
+    },
+    {
+      "key": "철주먹",
+      "legacy_effect_id": 101,
+      "candidate": "modify_or_connect",
+      "consumers": [
+        {
+          "overlay": 29,
+          "site": 36748376,
+          "query": 36707704,
+          "window_start": 36748284,
+          "window_sha256": "6fad4f705fde73a084300c4b27370ff3b0dcbf7831b468909bbacd57b06e82dc",
+          "disconnected_copy": false
+        }
+      ]
+    },
+    {
+      "key": "초식",
+      "legacy_effect_id": 161,
+      "candidate": "reuse_candidate",
+      "consumers": [
+        {
+          "overlay": 36,
+          "site": 37487596,
+          "query": 36907532,
+          "window_start": 37487504,
+          "window_sha256": "e94da97b038f37123bef64303b265b9da2c6162f1900b83f511746411eb75f42",
+          "disconnected_copy": false
+        },
+        {
+          "overlay": 36,
+          "site": 37576712,
+          "query": 36907532,
+          "window_start": 37576620,
+          "window_sha256": "caa904636d3dfbfb7da7d357eeac418d34d16b0f5a0622b68e3c0ac1cfd5cfef",
+          "disconnected_copy": false
+        }
+      ]
+    },
+    {
+      "key": "촉촉바디",
+      "legacy_effect_id": 81,
+      "candidate": "reuse_candidate",
+      "consumers": [
+        {
+          "overlay": 29,
+          "site": 36766720,
+          "query": 36707704,
+          "window_start": 36766628,
+          "window_sha256": "559fbeb407ed708c1216f6d1a5c2e87d20640dd56101c5076116158e97517ee1",
+          "disconnected_copy": false
+        }
+      ]
+    },
+    {
+      "key": "축전",
+      "legacy_effect_id": 35,
+      "candidate": "reuse_candidate",
+      "consumers": [
+        {
+          "overlay": 29,
+          "site": 36737720,
+          "query": 36743488,
+          "window_start": 36737628,
+          "window_sha256": "04209ffde0661f85218df6ab128555791ee7f58560b33647b01d3fa7fab7304f",
+          "disconnected_copy": false
+        },
+        {
+          "overlay": 29,
+          "site": 36747364,
+          "query": 36743488,
+          "window_start": 36747272,
+          "window_sha256": "7d7ddaeebf23e35cad4ff069645ee1e2b96f018ebe0590b906c5b64ece73a41a",
+          "disconnected_copy": false
+        }
+      ]
+    },
+    {
+      "key": "치유의마음",
+      "legacy_effect_id": 0,
+      "candidate": "new_handler",
+      "consumers": []
+    },
+    {
+      "key": "컬리헤어",
+      "legacy_effect_id": 180,
+      "candidate": "modify_or_connect",
+      "consumers": []
+    },
+    {
+      "key": "클리어바디",
+      "legacy_effect_id": 15,
+      "candidate": "modify_or_connect",
+      "consumers": [
+        {
+          "overlay": 29,
+          "site": 36707264,
+          "query": 36706828,
+          "window_start": 36707172,
+          "window_sha256": "06e6db5159425a03426d408892f33227a084c5a6c6f21dd6d93eafce5a3c975c",
+          "disconnected_copy": false
+        }
+      ]
+    },
+    {
+      "key": "타오르는불꽃",
+      "legacy_effect_id": 72,
+      "candidate": "reuse_candidate",
+      "consumers": [
+        {
+          "overlay": 29,
+          "site": 36781244,
+          "query": 36772756,
+          "window_start": 36781152,
+          "window_sha256": "e678edc726bde046fb59fef3a012f008934ba1793bfb83002f5350c7d72757d7",
+          "disconnected_copy": false
+        }
+      ]
+    },
+    {
+      "key": "탈피",
+      "legacy_effect_id": 33,
+      "candidate": "reuse_candidate",
+      "consumers": [
+        {
+          "overlay": 29,
+          "site": 36766608,
+          "query": 36707704,
+          "window_start": 36766516,
+          "window_sha256": "1cf1eb4327d55364aab639eb1f389a079d8b5234c70903073c0bd94112629944",
+          "disconnected_copy": false
+        }
+      ]
+    },
+    {
+      "key": "테일아머",
+      "legacy_effect_id": 136,
+      "candidate": "reuse_candidate",
+      "consumers": [
+        {
+          "overlay": 36,
+          "site": 37491456,
+          "query": 36907532,
+          "window_start": 37491364,
+          "window_sha256": "f7fdae219019d734ee55d88383fa8da0cc2126e946a057bb5b842a48bc871fdd",
+          "disconnected_copy": false
+        },
+        {
+          "overlay": 36,
+          "site": 37577832,
+          "query": 36907532,
+          "window_start": 37577740,
+          "window_sha256": "0116ba8205b039b1244f5aabf0ba11affe2d925e26a0d5b35976e6cabf92de31",
+          "disconnected_copy": false
+        }
+      ]
+    },
+    {
+      "key": "테크니션",
+      "legacy_effect_id": 100,
+      "candidate": "reuse_candidate",
+      "consumers": [
+        {
+          "overlay": 29,
+          "site": 36745400,
+          "query": 36707704,
+          "window_start": 36745308,
+          "window_sha256": "2fa0b7f74c7b1048fda7738ae6a17b5d383432ebfece8d3dfe39cd0b617cccbc",
+          "disconnected_copy": false
+        }
+      ]
+    },
+    {
+      "key": "텔레파시",
+      "legacy_effect_id": 0,
+      "candidate": "new_handler",
+      "consumers": []
+    },
+    {
+      "key": "통찰",
+      "legacy_effect_id": 82,
+      "candidate": "modify_or_connect",
+      "consumers": [
+        {
+          "overlay": 29,
+          "site": 36892464,
+          "query": 36707704,
+          "window_start": 36892372,
+          "window_sha256": "19b9a4c3c599ffcf282bb3ab74fe22247711ac02c1546cffa55b28fbf9757499",
+          "disconnected_copy": false
+        },
+        {
+          "overlay": 36,
+          "site": 37419164,
+          "query": 36707704,
+          "window_start": 37419072,
+          "window_sha256": "3d9aedb8dc90c0e7c879734122cd9443f8a033d6bf8f6c85eae42974d7eae1c4",
+          "disconnected_copy": false
+        }
+      ]
+    },
+    {
+      "key": "투쟁심",
+      "legacy_effect_id": 104,
+      "candidate": "reuse_candidate",
+      "consumers": [
+        {
+          "overlay": 29,
+          "site": 36749056,
+          "query": 36707704,
+          "window_start": 36748964,
+          "window_sha256": "f62f56b2dd412781a7ed8bf98631c9176fb6c10c3c0594099775fe4fd5c73835",
+          "disconnected_copy": false
+        }
+      ]
+    },
+    {
+      "key": "트랜지스터",
+      "legacy_effect_id": 0,
+      "candidate": "new_handler",
+      "consumers": []
+    },
+    {
+      "key": "트레이스",
+      "legacy_effect_id": 40,
+      "candidate": "modify_or_connect",
+      "consumers": [
+        {
+          "overlay": 36,
+          "site": 37544024,
+          "query": 36707704,
+          "window_start": 37543932,
+          "window_sha256": "784ff58d7aba84d77754f2a49722990017c78541ced3b76b5a9305f0cd5616fd",
+          "disconnected_copy": false
+        }
+      ]
+    },
+    {
+      "key": "틀깨기",
+      "legacy_effect_id": 83,
+      "candidate": "reuse_candidate",
+      "consumers": [
+        {
+          "overlay": 29,
+          "site": 36614644,
+          "query": 36707704,
+          "window_start": 36614552,
+          "window_sha256": "dee6fa59565f8c2dcfbcc41d709b9d277675c2d8b512e0cf121315f0ea82f76f",
+          "disconnected_copy": false
+        },
+        {
+          "overlay": 29,
+          "site": 36673280,
+          "query": 36707704,
+          "window_start": 36673188,
+          "window_sha256": "51c49b813c9f310a1e1468ca73f0ca5910c48192865eacb4963ac460fdf9fe93",
+          "disconnected_copy": false
+        },
+        {
+          "overlay": 29,
+          "site": 36706880,
+          "query": 36707600,
+          "window_start": 36706788,
+          "window_sha256": "442b9bc674f50fdff4131844a3da2ef73933b3fb39a220aadbef1ec59a65cd7d",
+          "disconnected_copy": false
+        },
+        {
+          "overlay": 29,
+          "site": 36743540,
+          "query": 36707704,
+          "window_start": 36743448,
+          "window_sha256": "d7c861ab23ebc6a8199cff3c4e5eba3593da53d0c2fcca639aa01c323c01105a",
+          "disconnected_copy": false
+        },
+        {
+          "overlay": 29,
+          "site": 36745708,
+          "query": 36707704,
+          "window_start": 36745616,
+          "window_sha256": "b0b037d5eaa20a35fc061ff685482425d6f25fafb7c2f81961c039c830f958a7",
+          "disconnected_copy": false
+        },
+        {
+          "overlay": 29,
+          "site": 36747436,
+          "query": 36707704,
+          "window_start": 36747344,
+          "window_sha256": "0b071a115619cd9dab56f3b3ecdf9c163483af246b5fdd3d8e740c0ebdfd7ee3",
+          "disconnected_copy": false
+        },
+        {
+          "overlay": 29,
+          "site": 36768992,
+          "query": 36707704,
+          "window_start": 36768900,
+          "window_sha256": "ef04b4a898e214072cc4301921b9cad83db35ee5158d3382c410783357907305",
+          "disconnected_copy": false
+        },
+        {
+          "overlay": 29,
+          "site": 36772824,
+          "query": 36707704,
+          "window_start": 36772732,
+          "window_sha256": "dfa4a8d8031894672c6daef57081c26d9820608b3b093dc3c3d6fce4c6051926",
+          "disconnected_copy": false
+        },
+        {
+          "overlay": 29,
+          "site": 36786232,
+          "query": 36707704,
+          "window_start": 36786140,
+          "window_sha256": "479c5c732b86ff8c2d563eb6377dce15d182b11790019cf0abf56a5269439c8b",
+          "disconnected_copy": false
+        },
+        {
+          "overlay": 29,
+          "site": 36826692,
+          "query": 36707704,
+          "window_start": 36826600,
+          "window_sha256": "61ccd9f66d92bd49c7040b57625f3f5c48f1c6235446c72f3e8533c28c31a20b",
+          "disconnected_copy": false
+        },
+        {
+          "overlay": 29,
+          "site": 36830316,
+          "query": 36707704,
+          "window_start": 36830224,
+          "window_sha256": "9133ee73221670b1cad73ff03ab8e9d11d0f91bed60a43c0732398aa9941da3a",
+          "disconnected_copy": false
+        },
+        {
+          "overlay": 29,
+          "site": 36830876,
+          "query": 36707704,
+          "window_start": 36830784,
+          "window_sha256": "2efc627be927c05e68afbf69157722b0b1ebf2119bc90a6943f05de8683490c7",
+          "disconnected_copy": false
+        },
+        {
+          "overlay": 29,
+          "site": 36834664,
+          "query": 36707704,
+          "window_start": 36834572,
+          "window_sha256": "bfaaf789b7b2ae8b34df1ee087495a82990519913f1e5a699c21e93bc7143b31",
+          "disconnected_copy": false
+        },
+        {
+          "overlay": 29,
+          "site": 36842904,
+          "query": 36707704,
+          "window_start": 36842812,
+          "window_sha256": "3aaf00f3d85568f648280c86843e90c46e7c75b0354851b4d45703f3da2e114d",
+          "disconnected_copy": false
+        },
+        {
+          "overlay": 29,
+          "site": 36861096,
+          "query": 36707704,
+          "window_start": 36861004,
+          "window_sha256": "c5968ead6a175b93c9a367ed6e6e90eff1693b13209465ff98039f8abffea394",
+          "disconnected_copy": false
+        },
+        {
+          "overlay": 29,
+          "site": 36865028,
+          "query": 36707704,
+          "window_start": 36864936,
+          "window_sha256": "817f20312a057cf69c01a943a604b32fffbbfb9e28b6bcd65fd37271e30b0afb",
+          "disconnected_copy": false
+        },
+        {
+          "overlay": 29,
+          "site": 36865656,
+          "query": 36707704,
+          "window_start": 36865564,
+          "window_sha256": "5333b24bbdec1143f2ed6e02bd64732d0a40d3dfc9ce7189b84815c7bbefd4b8",
+          "disconnected_copy": false
+        },
+        {
+          "overlay": 29,
+          "site": 36872024,
+          "query": 36707704,
+          "window_start": 36871932,
+          "window_sha256": "4695a7d9f32ba763b84b871a2e0565ef09791e1cc306547c2fd5c8366fbceefa",
+          "disconnected_copy": false
+        },
+        {
+          "overlay": 29,
+          "site": 36879892,
+          "query": 36707704,
+          "window_start": 36879800,
+          "window_sha256": "e1716a5bdffa82863a87d13ac1caf780ca5a08833b03142d48ecdc8a5acb17b9",
+          "disconnected_copy": false
+        },
+        {
+          "overlay": 29,
+          "site": 36887164,
+          "query": 36707704,
+          "window_start": 36887072,
+          "window_sha256": "1b3f677e4825b5852a5832c762aa66a7e0b6eab5613bca8e92ae7cf6659f41e9",
+          "disconnected_copy": false
+        },
+        {
+          "overlay": 29,
+          "site": 36888164,
+          "query": 36707704,
+          "window_start": 36888072,
+          "window_sha256": "dbdf36db97632041d60b10b2fa0423e260162670094fa94957bf3da581712f34",
+          "disconnected_copy": false
+        },
+        {
+          "overlay": 29,
+          "site": 36907600,
+          "query": 36707704,
+          "window_start": 36907508,
+          "window_sha256": "d5551984ca216ca7a49007d97350af2e67ef1b2f8b5f819bb6dba783ed3cb69e",
+          "disconnected_copy": false
+        },
+        {
+          "overlay": 36,
+          "site": 37419644,
+          "query": 36707704,
+          "window_start": 37419552,
+          "window_sha256": "407877dfd4b9de3ee05a35e1a19ad75c1b9c91513ffa507145695e0c5f73dd20",
+          "disconnected_copy": false
+        },
+        {
+          "overlay": 36,
+          "site": 37421332,
+          "query": 36707704,
+          "window_start": 37421240,
+          "window_sha256": "2e7889b0ede12cbebd87659b41c4bc8f66fb190081b9a62a1fa1f709b745b863",
+          "disconnected_copy": false
+        },
+        {
+          "overlay": 36,
+          "site": 37421384,
+          "query": 36707704,
+          "window_start": 37421292,
+          "window_sha256": "28ace26824c5ef3eae54532f88abdd3e6e55687774096cdbbe5a4c89d9489d61",
+          "disconnected_copy": false
+        },
+        {
+          "overlay": 36,
+          "site": 37421436,
+          "query": 36707704,
+          "window_start": 37421344,
+          "window_sha256": "09bc9cd2f857a8ffecbb7fbba50fb902dcfb0d0ce97abcda0b6928db03df4b16",
+          "disconnected_copy": false
+        },
+        {
+          "overlay": "itcm",
+          "site": 33537688,
+          "query": 36707704,
+          "window_start": 33537596,
+          "window_sha256": "65bf62b70c56f1c2ff57ba6bc245f2ab8eef977de161873e9be319b05686685d",
+          "disconnected_copy": false
+        }
+      ]
+    },
+    {
+      "key": "틈새포착",
+      "legacy_effect_id": 134,
+      "candidate": "reuse_candidate",
+      "consumers": [
+        {
+          "overlay": 36,
+          "site": 37417664,
+          "query": 36707704,
+          "window_start": 37417572,
+          "window_sha256": "9ee980da7ecc59608dfd75651be459974bc05c886e6c77e86f42bda67be6bcde",
+          "disconnected_copy": false
+        },
+        {
+          "overlay": 36,
+          "site": 37417740,
+          "query": 36707704,
+          "window_start": 37417648,
+          "window_sha256": "8cf939bb36a88da7c39466c7c75ca2fa3f78b954724fdbd34babde388167c5b3",
+          "disconnected_copy": false
+        },
+        {
+          "overlay": 36,
+          "site": 37417812,
+          "query": 36707704,
+          "window_start": 37417720,
+          "window_sha256": "6bdafc28f1066beed9c84597d6636217fdc5d78606ae3b5c09839b52f4e43f16",
+          "disconnected_copy": false
+        },
+        {
+          "overlay": 36,
+          "site": 37417872,
+          "query": 36707704,
+          "window_start": 37417780,
+          "window_sha256": "ae9765848d599ca80f69c835f62a867cb92f7d535bdd02bf07862871db0f93de",
+          "disconnected_copy": false
+        }
+      ]
+    },
+    {
+      "key": "파동의방호",
+      "legacy_effect_id": 0,
+      "candidate": "new_handler",
+      "consumers": []
+    },
+    {
+      "key": "파스텔베일",
+      "legacy_effect_id": 159,
+      "candidate": "reuse_candidate",
+      "consumers": [
+        {
+          "overlay": 36,
+          "site": 37490404,
+          "query": 37482624,
+          "window_start": 37490312,
+          "window_sha256": "cf14b9735daee71ceb049ef75f75f1780cde58d0bd0f1b8c4753b5afd4395696",
+          "disconnected_copy": false
+        },
+        {
+          "overlay": 36,
+          "site": 37490552,
+          "query": 37482624,
+          "window_start": 37490460,
+          "window_sha256": "8383d0b9d89f4cccae86e121f0b5c3668ce7ca3b54b4962f271592b23dbc8c9f",
+          "disconnected_copy": false
+        },
+        {
+          "overlay": 36,
+          "site": 37576820,
+          "query": 37574784,
+          "window_start": 37576728,
+          "window_sha256": "22a2445aed0a755fba8ab501bc22b4debc34a6ff9a7cabf87da9dc55fb0198f8",
+          "disconnected_copy": false
+        },
+        {
+          "overlay": 36,
+          "site": 37576940,
+          "query": 37574784,
+          "window_start": 37576848,
+          "window_sha256": "3ff79f169af87e0e5fff84a923ac9f29c36d7cf266623a40f155ce6e7db62855",
+          "disconnected_copy": false
+        }
+      ]
+    },
+    {
+      "key": "파워스폿",
+      "legacy_effect_id": 217,
+      "candidate": "modify_or_connect",
+      "consumers": []
+    },
+    {
+      "key": "퍼코트",
+      "legacy_effect_id": 139,
+      "candidate": "modify_or_connect",
+      "consumers": [
+        {
+          "overlay": 36,
+          "site": 37419404,
+          "query": 36707704,
+          "window_start": 37419312,
+          "window_sha256": "f1cde9669d71db257efd9c1c0bbe588963b010b6b991cb6c426e1b91167decfa",
+          "disconnected_copy": false
+        }
+      ]
+    },
+    {
+      "key": "펑크록",
+      "legacy_effect_id": 148,
+      "candidate": "modify_or_connect",
+      "consumers": [
+        {
+          "overlay": 36,
+          "site": 37419484,
+          "query": 36707704,
+          "window_start": 37419392,
+          "window_sha256": "2a24167f1fdd55f28a4873b2384032c86d6c707c8005a1a92e06184be4947441",
+          "disconnected_copy": false
+        },
+        {
+          "overlay": 36,
+          "site": 37532064,
+          "query": 36707704,
+          "window_start": 37531972,
+          "window_sha256": "86af7eebd0072a8961e66e93f8a9ac34754ea072e45a2ea5423751924bd31bc5",
+          "disconnected_copy": false
+        },
+        {
+          "overlay": 36,
+          "site": 37532108,
+          "query": 36707704,
+          "window_start": 37532016,
+          "window_sha256": "a67ad89c8a288ec411120e4901761e4528fd527126e432d0e186f713d5e50b89",
+          "disconnected_copy": false
+        }
+      ]
+    },
+    {
+      "key": "페어리스킨",
+      "legacy_effect_id": 0,
+      "candidate": "new_handler",
+      "consumers": []
+    },
+    {
+      "key": "포이즌힐",
+      "legacy_effect_id": 114,
+      "candidate": "reuse_candidate",
+      "consumers": [
+        {
+          "overlay": 29,
+          "site": 36767688,
+          "query": 36707704,
+          "window_start": 36767596,
+          "window_sha256": "67cd731349bc0b2b401be2bfdee386fd454376929cd511644f0903a0bc737ae3",
+          "disconnected_copy": false
+        },
+        {
+          "overlay": 29,
+          "site": 36767936,
+          "query": 36707704,
+          "window_start": 36767844,
+          "window_sha256": "39d925f1f3663f594d9772951998b4d6e44a0328b7fb7b78d0997e7b3a7427d7",
+          "disconnected_copy": false
+        },
+        {
+          "overlay": 29,
+          "site": 36770004,
+          "query": 36707704,
+          "window_start": 36769912,
+          "window_sha256": "d5f690374f8d855b70519bf8caf9fa51d6bacfe0e8eb7c2254390debb15347bf",
+          "disconnected_copy": false
+        }
+      ]
+    },
+    {
+      "key": "포자",
+      "legacy_effect_id": 61,
+      "candidate": "reuse_candidate",
+      "consumers": [
+        {
+          "overlay": 29,
+          "site": 36736372,
+          "query": 36743488,
+          "window_start": 36736280,
+          "window_sha256": "e77498a2409470721403e32b8850afe7f193b9807070b468773e32d6bd7f7079",
+          "disconnected_copy": false
+        }
+      ]
+    },
+    {
+      "key": "프레셔",
+      "legacy_effect_id": 57,
+      "candidate": "reuse_candidate",
+      "consumers": [
+        {
+          "overlay": 29,
+          "site": 36894500,
+          "query": 36907532,
+          "window_start": 36894408,
+          "window_sha256": "38f50dfdd1d5b2bc85490c8f0badad22c45b80cd84cb2ce901cfcb5f080a8993",
+          "disconnected_copy": false
+        }
+      ]
+    },
+    {
+      "key": "프렌드가드",
+      "legacy_effect_id": 164,
+      "candidate": "modify_or_connect",
+      "consumers": [
+        {
+          "overlay": 36,
+          "site": 37419568,
+          "query": 37482624,
+          "window_start": 37419476,
+          "window_sha256": "9275163ede3096c7a5f0825422d426aeb87c3afa5e87c493af5034b71b87e5fa",
+          "disconnected_copy": false
+        }
+      ]
+    },
+    {
+      "key": "프리즈스킨",
+      "legacy_effect_id": 0,
+      "candidate": "new_handler",
+      "consumers": []
+    },
+    {
+      "key": "플라워기프트",
+      "legacy_effect_id": 113,
+      "candidate": "reuse_candidate",
+      "consumers": [
+        {
+          "overlay": 29,
+          "site": 36749172,
+          "query": 36707704,
+          "window_start": 36749080,
+          "window_sha256": "b84bc5c1b2ea52ff94e4da291af4f9f0aa6e0bce9323b16b300555582a0389b8",
+          "disconnected_copy": false
+        },
+        {
+          "overlay": 29,
+          "site": 36749192,
+          "query": 36707716,
+          "window_start": 36749100,
+          "window_sha256": "8529b83a9d4ec44d5aea9d5883382376f60fcc8b531f08184273698c99183516",
+          "disconnected_copy": false
+        },
+        {
+          "overlay": 29,
+          "site": 36749292,
+          "query": 36707704,
+          "window_start": 36749200,
+          "window_sha256": "37ed4bef82eceaa15d49b3988f20e9df2b87e13597ad2bc90749cd6361d70a5f",
+          "disconnected_copy": false
+        },
+        {
+          "overlay": 29,
+          "site": 36749312,
+          "query": 36707716,
+          "window_start": 36749220,
+          "window_sha256": "e677445b6bc4916c029b6f0742e6423b4517d8f9c195e985eaa5e7a681c30922",
+          "disconnected_copy": false
+        }
+      ]
+    },
+    {
+      "key": "플라워베일",
+      "legacy_effect_id": 158,
+      "candidate": "reuse_candidate",
+      "consumers": [
+        {
+          "overlay": 36,
+          "site": 37490376,
+          "query": 37482624,
+          "window_start": 37490284,
+          "window_sha256": "960e0bc5aab0849b9a313a340fae52bcc261aab8050c2794f7b369cb3b9edf6a",
+          "disconnected_copy": false
+        },
+        {
+          "overlay": 36,
+          "site": 37490524,
+          "query": 37482624,
+          "window_start": 37490432,
+          "window_sha256": "7a0c7747048ff88c28fdf712327d322d28330cbc18c7c4e6f49cf9fe0d4491a6",
+          "disconnected_copy": false
+        },
+        {
+          "overlay": 36,
+          "site": 37576792,
+          "query": 37574784,
+          "window_start": 37576700,
+          "window_sha256": "cb9cc6802c0a085ab342607a9411de268d75d856bbef1a99cc101094785f9062",
+          "disconnected_copy": false
+        },
+        {
+          "overlay": 36,
+          "site": 37576912,
+          "query": 37574784,
+          "window_start": 37576820,
+          "window_sha256": "55ec9dd88eed7165ccc47d36afec1aacb34d87a20f7c320cb67009d2a5851dab",
+          "disconnected_copy": false
+        }
+      ]
+    },
+    {
+      "key": "플러스",
+      "legacy_effect_id": 56,
+      "candidate": "reuse_candidate",
+      "consumers": [
+        {
+          "overlay": 29,
+          "site": 36620208,
+          "query": 36707704,
+          "window_start": 36620116,
+          "window_sha256": "2fd6a13c2d698dfc6a81247fd479a5c728b5962819287865e61bdb66e5501390",
+          "disconnected_copy": false
+        },
+        {
+          "overlay": 29,
+          "site": 36751248,
+          "query": 36707704,
+          "window_start": 36751156,
+          "window_sha256": "da7c9bcf2bca9d3bbd9b91d8ca8d65acd3252fdd54b8d21543154778a0a03e8e",
+          "disconnected_copy": false
+        }
+      ]
+    },
+    {
+      "key": "피뢰침",
+      "legacy_effect_id": 50,
+      "candidate": "reuse_candidate",
+      "consumers": [
+        {
+          "overlay": "itcm",
+          "site": 33537404,
+          "query": 36707704,
+          "window_start": 33537312,
+          "window_sha256": "9d76bccc9e68e2a05e23515b99991dc4b65922967d143d460d6b77a262e22fb9",
+          "disconnected_copy": false
+        }
+      ]
+    },
+    {
+      "key": "픽업",
+      "legacy_effect_id": 71,
+      "candidate": "modify_or_connect",
+      "consumers": []
+    },
+    {
+      "key": "필터",
+      "legacy_effect_id": 110,
+      "candidate": "modify_or_connect",
+      "consumers": [
+        {
+          "overlay": 29,
+          "site": 36745304,
+          "query": 36743488,
+          "window_start": 36745212,
+          "window_sha256": "a7886e1f5ef95199508ab84441f6c00420b48fc44b3b96e0b0b80605c41928f4",
+          "disconnected_copy": false
+        }
+      ]
+    },
+    {
+      "key": "하늘의은총",
+      "legacy_effect_id": 38,
+      "candidate": "reuse_candidate",
+      "consumers": [
+        {
+          "overlay": 29,
+          "site": 36850096,
+          "query": 36707704,
+          "window_start": 36850004,
+          "window_sha256": "5ef7a0c870442347967dad244626785103a2fab438fd312233192833d4d0a975",
+          "disconnected_copy": false
+        },
+        {
+          "overlay": 29,
+          "site": 36850256,
+          "query": 36707704,
+          "window_start": 36850164,
+          "window_sha256": "5fe4397b22704650836c29316adbdf863aa5be3dd389d6fbc9999eef1fce620f",
+          "disconnected_copy": false
+        }
+      ]
+    },
+    {
+      "key": "하드록",
+      "legacy_effect_id": 110,
+      "candidate": "modify_or_connect",
+      "consumers": [
+        {
+          "overlay": 29,
+          "site": 36745304,
+          "query": 36743488,
+          "window_start": 36745212,
+          "window_sha256": "a7886e1f5ef95199508ab84441f6c00420b48fc44b3b96e0b0b80605c41928f4",
+          "disconnected_copy": false
+        }
+      ]
+    },
+    {
+      "key": "하얀연기",
+      "legacy_effect_id": 15,
+      "candidate": "modify_or_connect",
+      "consumers": [
+        {
+          "overlay": 29,
+          "site": 36707264,
+          "query": 36706828,
+          "window_start": 36707172,
+          "window_sha256": "06e6db5159425a03426d408892f33227a084c5a6c6f21dd6d93eafce5a3c975c",
+          "disconnected_copy": false
+        }
+      ]
+    },
+    {
+      "key": "해감액",
+      "legacy_effect_id": 58,
+      "candidate": "modify_or_connect",
+      "consumers": [
+        {
+          "overlay": 29,
+          "site": 36769016,
+          "query": 36707704,
+          "window_start": 36768924,
+          "window_sha256": "e98a9b2be78bcdcd17c2a5817f7303f36d4c173531bab06abb69f97465081ca0",
+          "disconnected_copy": false
+        },
+        {
+          "overlay": 29,
+          "site": 36861120,
+          "query": 36707704,
+          "window_start": 36861028,
+          "window_sha256": "6cd30b0ff0b2e81d13bdc691a39efd444595ea0d9b650ffbf13e083c289f9f4f",
+          "disconnected_copy": false
+        },
+        {
+          "overlay": 29,
+          "site": 36865368,
+          "query": 36865588,
+          "window_start": 36865276,
+          "window_sha256": "ed5ba29d9cf3317beaf7c30f8c6da1319a82da2e4eeb907d17ae2922d45ca0c0",
+          "disconnected_copy": false
+        },
+        {
+          "overlay": 29,
+          "site": 36879588,
+          "query": 36879824,
+          "window_start": 36879496,
+          "window_sha256": "efcd8180df12c0a6eff7a7ec865faec716e2e6bd6ae1264b278f1a9386ea1a5a",
+          "disconnected_copy": false
+        }
+      ]
+    },
+    {
+      "key": "헤롱헤롱바디",
+      "legacy_effect_id": 68,
+      "candidate": "reuse_candidate",
+      "consumers": [
+        {
+          "overlay": 29,
+          "site": 36736560,
+          "query": 36743488,
+          "window_start": 36736468,
+          "window_sha256": "ae792d68b602183c631a16ff3a87b38d37812bf512e5b7c18920aa679378b0f7",
+          "disconnected_copy": false
+        }
+      ]
+    },
+    {
+      "key": "헤비메탈",
+      "legacy_effect_id": 0,
+      "candidate": "new_handler",
+      "consumers": []
+    },
+    {
+      "key": "화학변화가스",
+      "legacy_effect_id": 160,
+      "candidate": "reuse_candidate",
+      "consumers": [
+        {
+          "overlay": 36,
+          "site": 37487496,
+          "query": 36707704,
+          "window_start": 37487404,
+          "window_sha256": "edff622ee55faf7bd96765f2aea316154f022995973eae79b1ea82fed653fbbd",
+          "disconnected_copy": false
+        },
+        {
+          "overlay": 36,
+          "site": 37544228,
+          "query": 36707704,
+          "window_start": 37544136,
+          "window_sha256": "8046994349c1ac411bec41bb6094574af70093e7230668f1af4afc37d9254fd2",
+          "disconnected_copy": false
+        },
+        {
+          "overlay": 36,
+          "site": 37576656,
+          "query": 37574784,
+          "window_start": 37576564,
+          "window_sha256": "11f6dce003370ca84fc3d8edfba698cd86732e31e29973dbb12c2a1c236c5cde",
+          "disconnected_copy": false
+        }
+      ]
+    },
+    {
+      "key": "화학의힘",
+      "legacy_effect_id": 196,
+      "candidate": "modify_or_connect",
+      "consumers": []
+    },
+    {
+      "key": "흡반",
+      "legacy_effect_id": 14,
+      "candidate": "reuse_candidate",
+      "consumers": [
+        {
+          "overlay": 29,
+          "site": 36614540,
+          "query": 36707704,
+          "window_start": 36614448,
+          "window_sha256": "7b1edd61aaea5090440c8dadd2d4e0ed4672c4df4451f4a14b0a0549a63f8a9e",
+          "disconnected_copy": false
+        },
+        {
+          "overlay": 29,
+          "site": 36614668,
+          "query": 36707704,
+          "window_start": 36614576,
+          "window_sha256": "a780be98e7aacd7749808ca499ec131e12b922b7fce2e8305ae1d0ab1ccfdc26",
+          "disconnected_copy": false
+        },
+        {
+          "overlay": 29,
+          "site": 36826716,
+          "query": 36707704,
+          "window_start": 36826624,
+          "window_sha256": "fd30f4873cc51287cc983fcd0b6dd01307784624e3a21aa63777c0f141d8e94e",
+          "disconnected_copy": false
+        },
+        {
+          "overlay": 29,
+          "site": 36830340,
+          "query": 36707704,
+          "window_start": 36830248,
+          "window_sha256": "e1f02a549747a1cdd6122775d9d6ef01a4fa97e6bfb4342c38ad4e508fff169f",
+          "disconnected_copy": false
+        },
+        {
+          "overlay": 29,
+          "site": 36830900,
+          "query": 36707704,
+          "window_start": 36830808,
+          "window_sha256": "97f3bc46fcc4e78eb7bda1701d4b8f94e35921578eeedc0b38a118cc6cff68f8",
+          "disconnected_copy": false
+        },
+        {
+          "overlay": 29,
+          "site": 36834688,
+          "query": 36707704,
+          "window_start": 36834596,
+          "window_sha256": "1617f97fc2e0d94bb6558d8223a631a850da0b0db3585638c3af084918ca6ec4",
+          "disconnected_copy": false
+        },
+        {
+          "overlay": 29,
+          "site": 36875268,
+          "query": 36707704,
+          "window_start": 36875176,
+          "window_sha256": "0123c54b8bbd27a1b4490d93e5cdf1502dbd41c6eb01fe9dd3ee1821e8ae9a70",
+          "disconnected_copy": false
+        }
+      ]
+    }
+  ]
+}

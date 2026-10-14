@@ -25,7 +25,7 @@ def native_defines(ov29):
     for name,site in [('USE_MOVE',0x0232145c),('MOVE_TYPE',0x0230227c),
                       ('APPLY_DAMAGE',0x02308fe0),('DUNGEON_FREE',0x022deab0),
                       ('FAINT',0x022f7f34),('CALC_DAMAGE',0x0230bbac),('DEFENSE_DROP',0x02313814),
-                      ('HIT_CHECK',0x02323c48)]:
+                      ('HIT_CHECK',0x02323c48),('EXECUTE_EFFECT',0x0232e864)]:
         instruction=word(ov29,site,OV29)
         if instruction>>24!=0xea:raise RuntimeError(f'mega_evolve phase3 prior {name} missing')
         values['PRIOR_'+name]=branch_target(site,instruction)
@@ -40,7 +40,7 @@ def native_defines(ov29):
 
 
 def install_hooks(ov29,ov36,symbols,patch):
-    """Internal phase3 installation; the public module gate stays phase2.
+    """Phase3 installation of ordinary effect consumers.
 
     Preserve the balance damage tail before dispatching new final multipliers.
     A changed prerequisite stops installation before ROM files are written.
@@ -62,7 +62,9 @@ def install_hooks(ov29,ov36,symbols,patch):
             0x023277d4:branch(0x023277d4,0x020528fc,True),0x0232eaac:0xe1a00004,
             0x02305fdc:0xe92d43f8,0x023061a8:0xe92d4070,
             0x023063d4:0xe92d4070,0x02306258:0xe92d41f0,
-            0x02327928:0xe92d4008,0x02314810:0xe92d43f8}
+            0x02327928:0xe92d4008,0x02314810:0xe92d43f8,
+            0x0232c310:0xe92d41f8,0x0232c354:0xe3a00000,
+            0x02332b38:branch(0x02332b38,0x023c1428,True)}
     for site,expected in guards.items():
         if word(ov29,site,OV29)!=expected:
             raise RuntimeError(f'mega_evolve phase3 instruction guard failed at {site:#x}')
@@ -82,6 +84,30 @@ def install_hooks(ov29,ov36,symbols,patch):
     patch(29,0x0232eaac,branch(0x0232eaac,symbols['ME_TargetGuardHook']),'ME_TargetGuardHook','ME_TargetGuardHook')
     patch(29,0x02313814,branch(0x02313814,symbols['ME_DefenseDropHook']),'ME_DefenseDropHook','ME_DefenseDropHook')
     patch(29,0x02323c48,branch(0x02323c48,symbols['ME_NoGuardHitHook']),'ME_NoGuardHitHook','ME_NoGuardHitHook')
+    patch(29,0x0232e864,branch(0x0232e864,symbols['ME_ParentEffectHook']),'ME_ParentEffectHook','ME_ParentEffectHook')
+    patch(29,0x02332b38,branch(0x02332b38,symbols['ME_SheerForceObserveHook'],True),'SheerForceMoveIdObserver','ME_SheerForceObserveHook')
+    for overlay,site,expected,name,linked in (
+        (29,0x0230c830,branch(0x0230c830,0x0230a940,True),'ME_IntimidateAuraHook',True),
+        (29,0x023136e4,branch(0x023136e4,0x02311b94,True),'ME_AttackDropTraitHook',True),
+        (36,0x023c9e78,0xe3540000,'ME_MagnetDefenseHook',True),
+        (36,0x023c9e58,0xe59d1044,'ME_AttackStageHook',True),
+        (36,0x023c9f64,0xe35a0000,'ME_UnawareHitStagesHook',True),
+        (36,0x023c0470,0xe3500001,'ME_StrongDamageWeatherHook',True),
+        (36,0x023c04c4,0xe3a00000,'ME_StrongSunImmuneHook',True),
+        (29,0x02305fdc,0xe92d43f8,'ME_EndSleepHook',False),
+        (29,0x02332d9c,branch(0x02332d9c,0x023b05f0,True),'ME_LiquidOozeHook',True)):
+        data,base=(ov29,OV29) if overlay==29 else (ov36,OV36)
+        if word(data,site,base)!=expected:raise RuntimeError(f'mega_evolve {name} consumer changed')
+        patch(overlay,site,branch(site,symbols[name],linked),name,name)
+    for overlay,site,expected,value,name in (
+        (36,0x023af4c8,0xe350000f,0xe350000c,'CursedBodyTwelvePercent'),
+        (36,0x023c0454,0xe3a03001,0xe3a03003,'JustifiedThreeAttackStages'),
+        (29,0x02323d8c,0x108aa00a,0x128aa001,'CompoundEyesOneAccuracyStage'),
+        (29,0x023111d8,0x0a000005,0x1a000005,'IceBodyActiveRecoveryGate'),
+        (29,0x023111f0,0xe1a00000,0x01a040c4,'IceBodySnowRecoveryHalfDenominator')):
+        data,base=(ov29,OV29) if overlay==29 else (ov36,OV36)
+        if word(data,site,base)!=expected:raise RuntimeError(f'mega_evolve {name} arithmetic changed')
+        patch(overlay,site,value,name)
     # Known existing appearance consumers; only replace their ability reads.
     # No cave/storage is allocated in the protected original ov36 prefix.
     for site,hook in ((0x023bf470,'ME_SpawnTraitReadHook'),(0x023d5c10,'ME_SpawnTraitReadHook'),
@@ -122,6 +148,24 @@ def install_hooks(ov29,ov36,symbols,patch):
     if word(ov29,site,OV29)!=0x11a04084:
         raise RuntimeError('mega_evolve Guts numerator site changed')
     patch(29,site,(branch(site,symbols['ME_GutsRatioHook'],True)&0x0fffffff)|0x10000000,'GutsThreeHalves','ME_GutsRatioHook')
+    site=0x0230bc40
+    if bytes(ov29[site-OV29:site-OV29+12])!=struct.pack('<3I',0x10800080,0x10800fa0,0x11a000c0):
+        raise RuntimeError('mega_evolve Reckless power arithmetic changed')
+    patch(29,site,(branch(site,symbols['ME_PowerSixFifthsHook'],True)&0x0fffffff)|0x10000000,'RecklessPowerSixFifths','ME_PowerSixFifthsHook')
+    for offset in (4,8):patch(29,site+offset,0xe1a00000,'RecklessOldPowerScaleRemoved')
+    site=0x0230bc7c
+    if word(ov29,site,OV29)!=branch(site,0x02001a54,True):
+        raise RuntimeError('mega_evolve Iron Fist power call changed')
+    patch(29,site,branch(site,symbols['ME_PowerSixFifthsHook'],True),'IronFistPowerSixFifths','ME_PowerSixFifthsHook')
+    for site in (0x0230b2b8,0x0230b364,0x0230b410,0x0230b4bc):
+        expected=0xe59f2000|(0x0230b7bc-(site+8))
+        if word(ov29,site,OV29)!=expected:
+            raise RuntimeError(f'mega_evolve pinch multiplier pointer changed at {site:#x}')
+        patch(29,site,branch(site,symbols['ME_PinchMultiplierHook'],True),'PinchThreeHalves','ME_PinchMultiplierHook')
+    for site in (0x0230b130,0x0230b1c0):
+        expected=0xe59f2000|(0x0230b7a8-(site+8))
+        if word(ov29,site,OV29)!=expected:raise RuntimeError('mega_evolve Thick Fat/Heatproof multiplier changed')
+        patch(29,site,branch(site,symbols['ME_HalfMultiplierHook'],True),'ThickFatHeatproofHalfDamage','ME_HalfMultiplierHook')
     patch(29,0x02327928,branch(0x02327928,symbols['ME_BoostSpeedMoveHook']),'ME_BoostSpeedMoveHook','ME_BoostSpeedMoveHook')
     patch(29,0x02314810,branch(0x02314810,symbols['ME_IncreaseMovementHook']),'ME_IncreaseMovementHook','ME_IncreaseMovementHook')
     entry=0x0230d03c;owner=word(ov29,entry,OV29)
@@ -132,6 +176,10 @@ def install_hooks(ov29,ov36,symbols,patch):
     exits=[site for site in range(start,start+0x110,4)
            if word(ov36,site,OV36)==branch(site,0x0230d040)]
     if len(exits)!=1:raise RuntimeError('mega_evolve balance damage tail exit changed')
+    sound=start+0x18
+    if word(ov36,sound,OV36)!=branch(sound,0x02013d5c,True):
+        raise RuntimeError('mega_evolve sound damage classifier owner changed')
+    patch(36,sound,branch(sound,symbols['ME_SoundMoveIdHook'],True),'SoundDamageMoveIdABI','ME_SoundMoveIdHook')
     # This pair belongs only to Punk Rock's defensive multiplier, after its
     # query. The aura multiplier later in the same owner must stay 4/5.
     for offset,expected in ((0x68,0xe3a01004),(0x70,0xe3a01005)):

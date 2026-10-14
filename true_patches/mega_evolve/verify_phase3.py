@@ -1,7 +1,7 @@
-"""Internal phase3 integration checks. Does not certify all ordinary effects.
+"""Phase3 integration checks, with separate normal-family execution suites.
 
 Runs linked ARM services and wrappers with modeled external native services;
-phase3 stays behind the public gate until remaining effect consumers pass.
+unchanged ordinary bodies retain prerequisite native behavior.
 No ROM, save, workbook or full-stack output is written.
 """
 from __future__ import annotations
@@ -128,7 +128,8 @@ def main():
         else:broken['abilities'][0][mutation]=251
         reject(lambda:validate(broken),message)
     manifest=dict(load_module_manifest(MODULE),phase=3)
-    reject(lambda:load_registry(MODULE,manifest),'not implemented')
+    assert load_registry(MODULE,manifest)[1]['phase3_ordinary_count']==206
+    reject(lambda:load_registry(MODULE,dict(manifest,phase=4)),'not implemented')
     rom=NintendoDSRom(SOURCE.read_bytes())
     md_original=rom.getFileByName('BALANCE/monster.md')
     md0=MdHandler.deserialize(md_original)
@@ -285,7 +286,7 @@ def main():
     print('  heap image/bootstrap/BSS guards, real ARM numeric speed and conversion/action wrappers,')
     print('  resolved-type skin bonus, hit ledger and fixed-damage ABI, allocation failure/free.')
     print('  14 native status-entry wrappers: Comatose/Sweet Veil/Aroma Veil, Rest/Nightmare, native continuation ABI.')
-    print('Remaining ordinary effects are not certified. Public phase remains 2; no ROM/save output.')
+    print('Public phase3 ordinary implementation enabled; family tests/native inheritance are separate from full battle/hardware validation. No ROM/save output.')
 
 
 if __name__=='__main__':main()

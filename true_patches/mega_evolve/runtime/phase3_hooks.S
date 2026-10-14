@@ -45,6 +45,44 @@ entry ME_ActionHook
  add sp,sp,#8
  pop {r4-r8,pc}
 
+/* ExecuteMoveEffect is after the ordinary PP boundary. Keep both strikes in
+ * the same user action; nested effects get an independent quarter-damage scope. */
+entry ME_ParentEffectHook
+ push {r4-r9,lr}
+ sub sp,sp,#12
+ mov r4,r0
+ mov r5,r1
+ mov r7,r2
+ mov r8,r3
+ push {r0-r3}
+ mov r0,r1
+ mov r1,r2
+ bl ME_EnterEffect
+ mov r6,r0
+ pop {r0-r3}
+ ldr r12,[sp,#40]
+ str r12,[sp]
+ ldr r12,=PRIOR_EXECUTE_EFFECT
+ blx r12
+ mov r9,r0
+ mov r0,r6
+ bl ME_ParentRepeat
+ cmp r0,#0
+ beq 1f
+ mov r0,r4
+ mov r1,r5
+ mov r2,r7
+ mov r3,r8
+ ldr r12,=PRIOR_EXECUTE_EFFECT
+ blx r12
+1:
+ mov r0,r6
+ bl ME_LeaveEffect
+ mov r0,r9
+ add sp,sp,#12
+ pop {r4-r9,pc}
+.ltorg
+
 entry ME_MovementHook
  push {r4-r6,lr}
  push {r0-r3}
@@ -150,8 +188,8 @@ entry ME_HitBoundaryHook
  mov r0,r8
  mov r1,r7
  mov r2,r10
- ldrb r3,[r6,#0xc]
- bl ME_HitEvent
+ mov r3,r6
+ bl ME_ReportHit
  add sp,sp,#8
  pop {r0-r3,r12,pc}
 
@@ -164,6 +202,8 @@ entry ME_ExecuteActionHook
  ldr r6,[r4,#0xb4]
  ldrh r6,[r6,#0x4a]
  bl ME_ActorStarts
+ mov r0,r4
+ bl ME_BlockMagnetWalk
  mov r0,r4
  bl ME_ExecuteActionPrior
  mov r7,r0
@@ -368,6 +408,41 @@ entry ME_GutsRatioHook
  lsl r11,r11,#1
  bx lr
 
+/* Skip Thief/Covet's extra damage and secondary-effect chance. Retain its
+ * existing fixed-item, bag-space, held-item transfer and bag bookkeeping body. */
+entry ME_PickpocketTransfer
+ push {r3-r8,lr}
+ sub sp,sp,#4
+ mov r8,r0
+ mov r7,r1
+ mov r4,#1
+ mov r3,#0
+ str r3,[sp]
+ ldr pc,=0x0232c354
+.ltorg
+
+entry ME_SheerForceObserveHook
+ push {r0-r3,r12,lr}
+ mov r4,r3
+ bl ME_ObserveSecondaryMove
+ pop {r0-r3,r12,pc}
+
+/* Keep the conditional flags used by Reckless's following STRNE. */
+entry ME_PowerSixFifthsHook
+ push {r1-r3,r12,lr}
+ mrs r12,cpsr
+ push {r12}
+ bl ME_FriskCoefficient
+ pop {r12}
+ msr cpsr_f,r12
+ pop {r1-r3,r12,pc}
+
+entry ME_PinchMultiplierHook
+ push {r0,r1,r3,lr}
+ bl ME_PinchMultiplier
+ mov r2,r0
+ pop {r0,r1,r3,pc}
+
 entry ME_RedirectHook
  push {r0-r3,r12,lr}
  mov r0,r9
@@ -379,6 +454,108 @@ entry ME_RedirectHook
  ldr pc,=0x0232e9c4
 .ltorg
 #include "phase3_status_generated.S"
+
+entry ME_IntimidateAuraHook
+ mov r0,r10
+ b ME_IntimidateAura
+entry ME_AttackDropTraitHook
+ push {r3,lr}
+ bl ME_AttackDropTrait
+ pop {r3,pc}
+entry ME_MagnetDefenseHook
+ push {r0-r3,r12,lr}
+ mov r0,r10
+ mov r1,r9
+ mov r2,r4
+ add r3,sp,#24
+ bl ME_MagnetDefenseStage
+ mov r4,r0
+ pop {r0-r3,r12,lr}
+ cmp r4,#0
+ bx lr
+entry ME_AttackStageHook
+ push {r0,r2-r4,r12,lr}
+ ldr r2,[sp,#0x5c]
+ mov r0,r10
+ mov r1,r9
+ add r3,sp,#24
+ bl ME_AttackCalculationStage
+ mov r1,r0
+ pop {r0,r2-r4,r12,pc}
+entry ME_UnawareHitStagesHook
+ push {r0-r3,r12,lr}
+ mov r0,r7
+ mov r1,r6
+ bl ME_UnawareHitStages
+ tst r0,#1
+ movne r9,#10
+ tst r0,#2
+ movne r10,#10
+ pop {r0-r3,r12,lr}
+ cmp r10,#0
+ bx lr
+entry ME_EndSleepHook
+ push {r4-r6,lr}
+ sub sp,sp,#8
+ mov r4,r1
+ ldr r5,[r1,#0xb4]
+ ldrb r5,[r5,#0xbd]
+ ldr r12,[sp,#24]
+ str r12,[sp]
+ bl ME_EndSleepPrior
+ mov r6,r0
+ mov r0,r4
+ mov r1,r5
+ bl ME_WokeUp
+ mov r0,r6
+ add sp,sp,#8
+ pop {r4-r6,pc}
+entry ME_EndSleepPrior
+ push {r3-r9,lr}
+ ldr pc,=0x02305fe0
+entry ME_LiquidOozeHook
+ push {r0-r3,r12,lr}
+ ldr r12,=0x023b05f0
+ blx r12
+ str r0,[sp]
+ str r1,[sp,#4]
+ mov r3,r1
+ mov r0,r8
+ mov r1,r7
+ mov r2,r6
+ bl ME_LiquidOozeHit
+ pop {r0-r3,r12,pc}
+entry ME_SoundMoveIdHook
+ push {r4,lr}
+ sub sp,sp,#8
+ strh r0,[sp,#4]
+ mov r0,sp
+ ldr r12,=0x02013d5c
+ blx r12
+ add sp,sp,#8
+ pop {r4,pc}
+entry ME_HalfMultiplierHook
+ push {r0,r1,r3,lr}
+ bl ME_HalfMultiplier
+ mov r2,r0
+ pop {r0,r1,r3,pc}
+entry ME_StrongDamageWeatherHook
+ push {r1-r3,r12,lr}
+ sub sp,sp,#4
+ mov r1,r0
+ mov r0,r7
+ bl ME_StrongDamageWeather
+ add sp,sp,#4
+ pop {r1-r3,r12,lr}
+ cmp r0,#1
+ bx lr
+entry ME_StrongSunImmuneHook
+ mov r0,#1
+ strb r0,[r6,#0x10]
+ mov r0,#0
+ str r0,[r6]
+ bx lr
+.ltorg
 
 entry ME_CanUseMoveHook
  push {r0-r3,r12,lr}

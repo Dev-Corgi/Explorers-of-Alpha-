@@ -1,4 +1,4 @@
-# mega_evolve — 페이즈 2
+# mega_evolve — 페이즈 3
 
 메가진화·이로치 메가진화의 모든 새 기능은 이 모듈에서 구현한다.
 기존 `base_stats_speed`, `spinda_ev_speed`, `balance_change`, `bug_fixes`,
@@ -7,22 +7,24 @@
 카트리지 용량 정책은 [ROM_CAPACITY.md](ROM_CAPACITY.md)에 기록한다.
 필요할 때 128MiB에서 256MiB로 확장하며 RAM/ID 저장 폭과 별도로 처리한다.
 
-현재 `manifest.yaml`의 `phase: 2`는 세 특성 동시 조회, 독립적인 강화 등급,
-억제·임시 복사·교환 엔진을 페이즈 1의 스피드/날씨와 연결한다.
-현재 범위는 [PHASE2.md](PHASE2.md), 이전 기반은 [PHASE1.md](PHASE1.md)에 기록한다.
+현재 `manifest.yaml`의 `phase: 3`, version 5는 기존 최종형 546개 MD 행의
+특성 1·2 배정과 실제 배정된 206개 특성의 일반 효과를 연결한다.
+필요한 이름·설명 1174개 영어/한국어 문자열도 함께 적용한다.
+기반 범위는 [PHASE2.md](PHASE2.md), [PHASE1.md](PHASE1.md)에 기록한다.
 페이즈 0의 정규화 자료와 원본 개체 대응은 그대로 유지한다.
-메가진화 형태나 특성 배정을 적용한 단계는 아니다.
+새 메가·이로치 형태와 강화 개별 효과는 다음 페이즈에서 적용한다.
 `FULL_STACK_MODULES`에서 `luminous_evolution` 뒤에 등록했고 한글은 이후에 적용한다.
 검증하지 않은 다음 단계 번호는 엔진에서 거부한다.
 
 ## 자료와 재현
 
-페이즈 3 내부 구현은 별도 비압축 실행 파일을 heap RAM으로 로드한다.
+페이즈 3 구현은 별도 비압축 실행 파일을 heap RAM으로 로드한다.
 기존 ov36 빈 공간에는 8KiB 호출 bootstrap만 두며 특성 ID 배정표는 16비트를 유지한다.
 최초/반복 호출, 재배치, CPU 캐시 처리, 던전 종료 후 해제·재로딩은
 `python -B -X utf8 -m true_patches.mega_evolve.verify_loader`로 ARM 검증한다.
 파일 IO와 메모리 할당은 이 검증에서 모델링되며 실제 최대 부하 RAM 검증은 남아 있다.
-공개 적용 단계는 계속 phase 2다. 구현 상세와 미완료 범위는 PHASE3_WORK.md에 기록한다.
+일반 효과별 ARM 검증과 기존 효과의 소비자 출처는 PHASE3_WORK.md,
+NATIVE_REUSE.md, data/phase3_coverage.json에 구분해 기록한다.
 
 `data/registry.json`은 사용자 CSV 두 개와 종족값 XLSX, 기준 Alpha 롬,
 로컬 공식 폼 데이터에서 생성한다. 원본 자료·SpriteCollab·기존 출력 에셋은
@@ -33,6 +35,7 @@
 .venv\Scripts\python.exe -B -X utf8 true_patches\mega_evolve\verify.py
 .venv\Scripts\python.exe -B -X utf8 true_patches\mega_evolve\verify_phase1.py
 .venv\Scripts\python.exe -B -X utf8 true_patches\mega_evolve\verify_phase2.py
+.venv\Scripts\python.exe -B -X utf8 -m true_patches.mega_evolve.verify_phase3_suite
 ```
 
 `--refresh`는 이 모듈의 JSON만 갱신한다. 옵션 없이 실행하면 재생성 결과와
@@ -167,7 +170,8 @@ JSON의 sprite 항목은 로컬 tracker와 실제 XML 존재 여부로 만든 �
 새 문자열은 빈 인덱스를 선택하고 LogMessageById에는 인덱스+1을 넘긴다.
 한국어는 마지막 모듈에서 실제 설치된 영어와 일치할 때만 적용한다.
 
-페이즈 3은 진행 중이다. `PHASE3_WORK.md`와 `data/phase3_coverage.json`에
-조사 결과와 미완 항목을 보관한다. 내부 테스트용 연결에는 일반형 546개
-배정·필요한 특성 문자열·분산 ARM 런타임이 포함된다. 모든 일반 특성의
-실제 소비자 감사를 마칠 때까지 public gate와 manifest는 phase 2를 유지한다.
+페이즈 3은 일반 특성 배정·이름/설명·효과를 공개 적용 경로에 연결한다.
+변경/신규 효과의 실행 사례와 그대로 재사용하는 기존 효과의 코드 출처를
+별도로 보관한다. 기존 효과를 전부 새 코드로 다시 작성하지 않는다.
+테스트는 외부 UI·IO·할당·일부 native 서비스를 모델링하므로 전체 던전 전투,
+최대 부하 RAM, 실제 기기 실행까지 인증하지 않는다. 이 통합 검증은 페이즈 8이다.

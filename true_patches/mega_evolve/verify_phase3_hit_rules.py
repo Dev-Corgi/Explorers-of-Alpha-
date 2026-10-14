@@ -4,7 +4,7 @@ Native stat writers, fixed damage and RNG are modeled at their established ABI.
 from __future__ import annotations
 import hashlib,struct
 from .verify_phase3 import World
-from .verify_phase1 import SOURCE,MODULE,ENTITIES,MONSTERS,DUNGEON,STACK
+from .verify_phase1 import SOURCE,MODULE,ENTITIES,MONSTERS,DUNGEON,STACK,BUFFER
 from .phase3 import load
 from patch_engine.mega_evolve_runtime import apply_phase1,verify_phase1
 from patch_engine.manifest import load_module_manifest
@@ -75,6 +75,22 @@ def main():
         setup('점착',mode);hit();assert w.call('ME_GetStoredSpeed',ENTITIES[0])==(9 if mode.startswith('slot') else 10);cases+=1
     setup('점착');w.probability=0;hit();assert w.call('ME_GetStoredSpeed',ENTITIES[0])==10;cases+=1
     setup('점착');w.position(1,15,10);hit();assert w.call('ME_GetStoredSpeed',ENTITIES[0])==10;cases+=1
+    for mode in ('none','slot1','slot2','slot3','suppressed','acid'):
+        setup('분노의경혈',mode)
+        info=bytearray(20);struct.pack_into('<I',info,0,10);info[12]=1;info[14]=1
+        w.u.mem_write(BUFFER+0x400,bytes(info));w.u.mem_write(MONSTERS[1]+0x10,struct.pack('<H',90))
+        w.u.mem_write(STACK,struct.pack('<I',20));w.call('ME_ReportHit',ENTITIES[0],ENTITIES[1],100,BUFFER+0x400)
+        assert len(w.stats)==(2 if mode.startswith('slot') else 0),(mode,w.stats)
+        if w.stats:assert [r[3:5] for r in w.stats]==[(0,3),(1,3)]
+        cases+=1
+    # HP can be restored by a Reviver before the native hit callback. Its actual
+    # positive damage packet still triggers once-per-action responses.
+    setup('지구력');info=bytearray(20);struct.pack_into('<I',info,0,10);info[12]=1
+    w.u.mem_write(BUFFER+0x400,bytes(info));w.u.mem_write(MONSTERS[1]+0x10,struct.pack('<H',100))
+    w.u.mem_write(STACK,struct.pack('<I',20));w.call('ME_ReportHit',ENTITIES[0],ENTITIES[1],100,BUFFER+0x400)
+    assert len(w.stats)==1;cases+=1
+    setup('지구력');w.u.mem_write(BUFFER+0x400,bytes(20));w.u.mem_write(STACK,struct.pack('<I',20))
+    w.call('ME_ReportHit',ENTITIES[0],ENTITIES[1],100,BUFFER+0x400);assert not w.stats;cases+=1
     assert hashlib.sha256(SOURCE.read_bytes()).hexdigest()==before
     print(f'PASS {cases} shared hit responses: Weak Armor/Stamina/Rattled/Rough Skin action dedup, status/miss/range/category exclusions, new-action rearm, enemy-only floor-once Berserk and Sticky Hold 12% Speed drop. Native writers/damage/RNG modeled; no ROM/save output.')
 

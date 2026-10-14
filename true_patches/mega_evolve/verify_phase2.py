@@ -37,7 +37,7 @@ class World(BaseWorld):
 
 def main():
     before=hashlib.sha256(SOURCE.read_bytes()).hexdigest()
-    rom=NintendoDSRom(SOURCE.read_bytes());manifest=load_module_manifest(MODULE)
+    rom=NintendoDSRom(SOURCE.read_bytes());manifest=dict(load_module_manifest(MODULE),phase=2)
     record=apply_mega_evolve_module('mega_evolve',MODULE,manifest,rom)
     verify_mega_evolve_module(rom,MODULE,manifest,record)
     w=World(rom,record);data=load();ids={e['key']:e['id'] for e in data['entries']}

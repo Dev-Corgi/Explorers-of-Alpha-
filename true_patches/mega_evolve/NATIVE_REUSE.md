@@ -147,3 +147,67 @@ mega_sol은 해당 native return site와 현재 공격자만 가상 쾌청을 �
 sleep은 Snore/Bad Dreams/기술 status-check의 수면 조회만 교체하고 global action sleep은
 보존한다. Nightmare가 실제 BD3 수면 상태를 쓰는 entry는 기존 sleep 면역으로 보호한다.
 미검증 부분 및 native terminal service 모델링은 각 script docstring/출력에 명시한다.
+
+## 페이즈 3 마무리 연결
+
+- 부자유친은 ExecuteMoveEffect entry의 기존 balance owner를 호출한다. eligible 기술만
+  같은 action ledger 안에서 다시 실행하며 두 번째 피해 1/4, 첫 실행 이후 PP로 복원한다.
+  중첩 effect frame은 별개이며 원래 다단히트/고정 피해/충전 기술은 catalogue에서 제외한다.
+- 우격다짐의 활성 caller 0x02332b38에서 원래 pointer/ID 혼동을 제거했다. 기존 native
+  목록 128개를 그대로 추출하고 실제 호출된 기술 ID로 추가 효과와 최종 6/5 피해를 판정한다.
+- 나쁜손버릇은 기존 Thief/Covet item-transfer tail 0x0232c354를 재사용한다. 6바이트 item,
+  점착, 보스 고정 도구, 가방 여유, 팀 도구 등록/해제 조건을 유지한다.
+- 내용물분출은 기존 유폭118의 조회에225를 연결한다. 기존 50% 판정과 폭발 처리,
+  source 재귀 제한 및 틀깨기를 유지한다.
+- 실제 피해 packet의 type/critical을 HitBoundary에서 넘긴다. 부활로 HP가 복원된
+  타격도 양의 피해 packet으로 확인하며 분노의경혈은 공격/특공 저장+3을 요청한다.
+  기존 계산단계20 강제 query는 해당 소비자에서만 제거한다.
+- 급류/심록/벌레의알림/맹화의 기존 HP≤max/4 조건을 유지하고 factor2.0을1.5로
+  바꾼다. 이판사판/철주먹은 기존 기술 classifier와 위력 위치에서6/5를 적용한다.
+- 위협은 기존 물리 numerator4/denominator5 연산을 재사용하고 같은 방의 살아 있는
+  상대 보유자를 검사한다. 자력은 인접 강철 적의 계산 방어/특방 단계−1이며,
+  실제 walk action2만 pass action1로 처리한다. 별도 상태를 저장하거나 강제 이동을 막지 않는다.
+- 일찍기상은 기존 duration half/min1/127 예외를 유지하고 실제 EndSleepClassStatus
+  전후의 수면1/3/5→0 전환에서 최대 HP를 복원한다. 원래5인자 ABI를 보존한다.
+- 해감액은 DealDamageCore의 성공한 명중 이후 0x02332d9c 경계에서만 처리한다.
+  흡수 기술 피해 packet을0으로 바꾸고 절반을 기존 fixed-damage wrapper로 반사한다.
+  AI 피해 계산만으로 반사하거나 이미 피해를 받은 뒤 HP를 되돌리지 않는다.
+- 복안은 native accuracy bonus+1, 정의의마음은 native attack writer+3,
+  저주받은바디는 native seal flag RNG threshold12로 교정한다.
+- 아이스바디의 잘못된 active branch와 비활성화된 half 연산을 교정한다. native
+  설경 회복 분모 half와 원래25..400 clamp를 유지한다. 젖은접시도 같은 native 경로로 검증한다.
+- 두꺼운지방/내열의 공유 fire/ice factor0.8을 해당 pointer 경계에서0.5로 바꾼다.
+  내열의 얼음 경로는 별도 final rule이며 틀깨기를 적용한다.
+- 펑크록의 damage tail이 기술 ID를 IsSoundMove의 pointer 인자로 넘기던 ABI 오류를
+  최소 move struct wrapper로 교정한다. 공격6/5를 유지하고 방어는1/2로 바꾼다.
+- 천진은 최종 native attack/defense/accuracy/evasion lookup에서 단계10을 적용한다.
+  공격/방어 cached scalar를256으로 처리하고 저장 단계는 바꾸지 않는다. 기존 native
+  최초 neutralization 뒤의 다른 보정이 재도입되는 문제를 이 최종 경계에서 막는다.
+
+## 기존 효과를 재사용하는 근거와 검증 한계
+
+data/phase3_native_consumers.json은 source hash, query caller와 주변 instruction hash를
+보관한다. ov29/36만 조사하면 피뢰침/마중물의 실제 소비자를 놓친다. ARM9의
+0x020b3380..0x020bb380는 startup copy 후 ITCM0x01ff8000..0x02000000에서 실행하며,
+그 위치에서 native AbilityIsActive 목적지를 해석한다. 원본 위치만 disassemble하면
+branch destination이 다른 주소로 보이는 것도 기록한다.
+
+verify_phase3_inherited는 실제 copied ITCM record updater0x01ffbd20의 ID50/122 query와
+cache writes를 실행한다. 관련 없는 redirect eligibility는 모델링한다. 습기의21은
+native Explosion0x02320788에서 r7에 보관해 floor loop query로 전달하며, 일루전/괴짜는
+전용 appearance suite가 실제 소비자를 실행한다. 자동 immediate-query inventory의
+빈 목록을 곧바로 기능 부재로 해석하지 않는다.
+
+206개 전체의 세 슬롯 일반 identity/기존 native query ABI/억제는 공통 suite에서 검증한다.
+그대로 재사용한 기존 효과70개를 신규 구현/전투 전체 실행 인증으로 집계하지 않는다.
+수정·신규 공통 처리와 기존 효과의 연결136개는 개별 suite 및 앞선 공유 suite에 근거를
+기록한다. coverage의 implementation status와 verified_paths는 서로 다른 정보다.
+전체 던전 전투, 실제 file IO/RAM 최대 부하와 기기 실행은 후속 통합 검증 범위다.
+
+마무리 weather 회귀에서는 강한 비/햇살의 native type immunity가 날씨부정 등
+해당 대상의 날씨 억제를 무시하던 global flag 소비자를 교정했다. 해당 대상의
+ApparentWeather/strength가 억제되면 로컬 immunity flag만0으로 처리하며 source와
+세계 날씨를 지우지 않는다. 강한 햇살의 물 면역에는 누락된 damage packet miss
+marker를 추가해 피해 없이 추가 효과/흡수 회복이 발동하지 않도록 했다.
+verify_phase3_strong_weather는 실제 native branch와 Air Lock query를 실행하며,
+팀 관계 판정과 UI는 모델링한다.

@@ -1,12 +1,13 @@
 id: mega_evolve
-version: 4
+version: 5
 kind: mega_evolve
 rom_profile: us_vanilla
-phase: 2
+phase: 3
 description: >-
-  Mega and shiny-mega evolution, implemented in staged phases. Phase 2
-  adds three simultaneous ability identities, independent grades and temporary
-  copy/swap state on the phase-1 Speed and weather services.
+  Mega and shiny-mega evolution, implemented in staged phases. Phase 3
+  assigns ordinary abilities to existing final forms, updates assigned bilingual
+  names/descriptions and connects ordinary effect families through an uncompressed
+  relocatable runtime. New forms and enhanced effects remain later phases.
 requires:
   - z_move_v2
   - base_stats_speed

@@ -32,7 +32,7 @@ def main():
     saved = json.loads(registry_path.read_text(encoding="utf-8"))
     manifest = load_module_manifest(MODULE)
     catalog = load_yaml(REPO / "patch_engine/catalog.yaml")
-    assert manifest["phase"] in (0,1,2) and manifest["kind"] == "mega_evolve"
+    assert manifest["phase"] in (0,1,2,3) and manifest["kind"] == "mega_evolve"
     assert FULL_STACK_MODULES.count("mega_evolve") == 1
     assert all(FULL_STACK_MODULES.index(dep) < FULL_STACK_MODULES.index("mega_evolve")
                for dep in manifest["requires"])
@@ -97,7 +97,7 @@ def main():
     stale = copy.deepcopy(record)
     stale.data[0]["mega_evolve"]["registry_file_sha256"] = "stale"
     rejected(verify_mega_evolve_module, BASE_ROM, MODULE, phase0_manifest, stale)
-    rejected(load_registry, MODULE, {"phase": 3})
+    rejected(load_registry, MODULE, {"phase": 4})
     for filename in ("Explorers of Alpha+.nds", "Explorers of Alpha+_kor.nds"):
         existing = REPO / "PatchTesting/Export Rom" / filename
         if existing.exists():

@@ -2,6 +2,7 @@
  * enhanced individual effects are enabled by phase7, not by presentation text. */
 #include "phase3_items_generated.h"
 #include "phase3_moves_generated.h"
+extern int ME_PickpocketTransfer(u8*,u8*);
 
 int ME_KeepBerry(u8 *consumer,u8 *item) {
     if(!alive(consumer)||!item||!(BYTE(item,0)&1))return 0;
@@ -53,6 +54,47 @@ static int movement_context,calculation_context;
 static int speed_move_context;
 typedef struct {u8 *actor,*target;} Calculation;
 static Calculation calculations[16];
+typedef struct {u8 *actor,*move;u16 id,secondary;u8 eligible,second,pp,slot_pp[4],slot_exists[4];u16 slot_id[4];} EffectFrame;
+static EffectFrame effect_frames[16];
+static int effect_depth;
+int ME_EnterEffect(u8 *actor,u8 *move) {
+    int previous=effect_depth;
+    if(previous>=16)return -1;
+    EffectFrame *f=&effect_frames[effect_depth++];zero(f,sizeof(*f));f->actor=actor;f->move=move;
+    if(!move||!alive(actor))return previous;
+    f->id=f->secondary=U16(move,4);
+    for(unsigned i=0;i<sizeof(parental_moves)/sizeof(parental_moves[0]);i++)
+        if(f->id==parental_moves[i]&&has(actor,184))f->eligible=1;
+    return previous;
+}
+static int sheer_force_move(int id) {
+    for(unsigned i=0;i<sizeof(sheer_force_moves)/sizeof(sheer_force_moves[0]);i++)if(sheer_force_moves[i]==id)return 1;
+    return 0;
+}
+void ME_ObserveSecondaryMove(u8 *actor,u8 *move) {
+    if(effect_depth&&move&&effect_frames[effect_depth-1].actor==actor)
+        effect_frames[effect_depth-1].secondary=U16(move,4);
+}
+int ME_ParentRepeat(int previous) {
+    if(previous<0||effect_depth!=previous+1)return 0;
+    EffectFrame *f=&effect_frames[previous];if(!f->eligible||f->second||!alive(f->actor))return 0;
+    f->second=1;f->pp=BYTE(f->move,6);u8 *m=monster(f->actor);
+    for(int i=0;i<4;i++) {
+        f->slot_pp[i]=BYTE(m,0x12a+i*8);f->slot_exists[i]=BYTE(m,0x124+i*8)&1;f->slot_id[i]=U16(m,0x128+i*8);
+    }
+    return 1;
+}
+void ME_LeaveEffect(int previous) {
+    if(previous<0||effect_depth!=previous+1)return;
+    EffectFrame *f=&effect_frames[previous];u8 *m=monster(f->actor);
+    if(f->second) {
+        if(U16(f->move,4)==f->id&&BYTE(f->move,6)<f->pp)BYTE(f->move,6)=f->pp;
+        if(m)for(int i=0;i<4;i++)if(f->slot_exists[i]&&(BYTE(m,0x124+i*8)&1)&&
+            f->slot_id[i]==f->id&&U16(m,0x128+i*8)==f->id&&BYTE(m,0x12a+i*8)<f->slot_pp[i])
+            BYTE(m,0x12a+i*8)=f->slot_pp[i];
+    }
+    zero(f,sizeof(*f));effect_depth=previous;
+}
 static Extra *ext(u8 *e) {
     ensure();
     if(!extra) {
@@ -309,10 +351,13 @@ int ME_ConvertType(u8 *e,int type,u8 *move) {
 /* Additional final damage rules; existing audited ability multipliers remain
  * in their original stat/power/type locations rather than being approximated. */
 void ME_AdjustDamage(u8 *a,u8 *b,u8 *damage,int type,int move) {
+    if(effect_depth&&effect_frames[effect_depth-1].actor==a)effect_frames[effect_depth-1].secondary=(u16)move;
     int value=(int)U32(damage,0);if(value<=0)return;
     int category=FN(0x020151c8,int(*)(int))(move);
     if(category==2)return;
     if(stakeout_ready(a,b))value=multiply(value,6,5);
+    if(has(a,80)&&U32(damage,8)==1)value=multiply(value,6,5);
+    if(has(a,162)&&sheer_force_move(move))value=multiply(value,6,5);
     static const u16 boosters[]={A_STEELWORKER,A_DRAGONS_MAW,A_TRANSISTOR,A_FIRE_MANE};
     static const u8 types[]={17,15,5,2};
     for(int i=0;i<4;i++)if(type==types[i]&&has(a,boosters[i]))value=multiply(value,6,5);
@@ -336,6 +381,10 @@ void ME_AdjustDamage(u8 *a,u8 *b,u8 *damage,int type,int move) {
      * at that owner's call site instead of stacking another x0.5 here. */
     if(type==5&&x&&has(a,157)&&(x->charged||
        (ability_memory&&depth&&x->charge_action==actions[depth-1].token)))value=multiply(value,3,2);
+    if(effect_depth) {
+        EffectFrame *f=&effect_frames[effect_depth-1];
+        if(f->second&&f->actor==a&&f->id==move)value=multiply(value,1,4);
+    }
     U32(damage,0)=(u32)(immune?0:clamp(value,1,32767));
 }
 void ME_NewSunlight(void) {
@@ -417,10 +466,13 @@ void ME_FaintEvent(u8 *fainted,int move,u8 *actor) {
         }
     }
 }
-void ME_HitEvent(u8 *a,u8 *b,int previous_hp,int type,int move) {
-    if(move<0||move>559||previous_hp<=hp(b)||!monster(a)||!monster(b))return;
+static void process_hit(u8 *a,u8 *b,int previous_hp,int type,int move,int confirmed,int critical) {
+    if(move<0||move>559||(!confirmed&&previous_hp<=hp(b))||!monster(a)||!monster(b))return;
     int category=FN(0x020151c8,int(*)(int))(move);
     if(category==2)return;
+    if(critical&&alive(b)&&has(b,79)) {
+        ME_ChangeStat(b,b,0,3);ME_ChangeStat(b,b,2,3);
+    }
     if(stakeout_ready(a,b))ext(a)->stake_used[slot(b)]=ext(b)->moved_epoch;
     Extra *attacker=ext(a);
     if(attacker&&!attacker->locked_move&&move!=355&&move!=352&&
@@ -445,6 +497,8 @@ void ME_HitEvent(u8 *a,u8 *b,int previous_hp,int type,int move) {
         }
         if(has(b,180)&&ME_ClaimEffect(b,180,4,0))ME_ChangeStat(b,a,4,-1);
         if(has(b,44)&&FN(0x022eab20,int(*)(int))(12))ME_ChangeStat(b,a,4,-1);
+        if(alive(a)&&alive(b)&&has(b,168)&&!(BYTE(monster(b),0x62)&1)&&
+           (BYTE(monster(a),0x62)&1)&&!has(a,44))ME_PickpocketTransfer(b,a);
     }
     if(physical&&has(b,A_WEAK_ARMOR)&&ME_ClaimEffect(b,A_WEAK_ARMOR,4,0)) {ME_ChangeStat(b,b,1,-1);ME_ChangeStat(b,b,4,1);}
     if(has(b,198)&&ME_ClaimEffect(b,198,4,0))ME_ChangeStat(b,b,1,1);
@@ -454,6 +508,13 @@ void ME_HitEvent(u8 *a,u8 *b,int previous_hp,int type,int move) {
     if(x&&alive(b)&&!friends(a,b)&&!(x->once&2)&&previous_hp*2>maxhp(b)&&hp(b)*2<=maxhp(b)&&has(b,169)) {x->once|=2;ME_ChangeStat(b,b,2,1);}
     if(close)ME_WanderingSwap(a,b);
     ME_RunAway(a,b,previous_hp);
+}
+void ME_HitEvent(u8 *a,u8 *b,int previous_hp,int type,int move) {
+    process_hit(a,b,previous_hp,type,move,0,0);
+}
+void ME_ReportHit(u8 *a,u8 *b,int previous_hp,u8 *damage,int move) {
+    if(!damage)return;
+    process_hit(a,b,previous_hp,BYTE(damage,0xc),move,(int)U32(damage,0)>0,BYTE(damage,0xe)!=0);
 }
 int ME_StatusBlocked(u8 *actor,u8 *target,int status) {
     if(!monster(target))return 0;
@@ -513,8 +574,69 @@ int ME_TargetBlocked(u8 *actor,u8 *target,u8 *move) {
 int ME_DefenseDropBlocked(u8 *actor,u8 *target,int special,int amount) {
     return amount>0&&!special&&actor!=target&&!defhas(actor,target,129)&&defhas(actor,target,A_BIG_PECKS);
 }
+int ME_AttackDropTrait(u8 *actor,u8 *target) {
+    return actor!=target&&defhas(actor,target,9);
+}
 int ME_NoGuardHit(u8 *actor,u8 *target) {
     return alive(actor)&&alive(target)&&(has(actor,106)||defhas(actor,target,106));
+}
+int ME_IntimidateAura(u8 *actor) {
+    if(!alive(actor))return 0;
+    for(int i=0;i<COUNT;i++) {
+        u8 *e=entity(i);
+        if(alive(e)&&!friends(actor,e)&&room(actor,e)&&defhas(actor,e,6))return 1;
+    }
+    return 0;
+}
+int ME_Magnetized(u8 *target) {
+    u8 *m=monster(target);if(!alive(target)||(BYTE(m,0x5e)!=17&&BYTE(m,0x5f)!=17))return 0;
+    for(int i=0;i<COUNT;i++) {
+        u8 *e=entity(i);
+        if(alive(e)&&!friends(e,target)&&adjacent(e,target)&&has(e,23))return 1;
+    }
+    return 0;
+}
+int ME_MagnetDefenseStage(u8 *actor,u8 *target,int value,u8 *calculation_stack) {
+    if(has(actor,103)) {
+        if(calculation_stack)U32(calculation_stack,0x38)=256;
+        return 10;
+    }
+    if(ME_Magnetized(target))value--;
+    return value;
+}
+int ME_AttackCalculationStage(u8 *actor,u8 *target,int value,u8 *calculation_stack) {
+    if(defhas(actor,target,103)) {
+        U32(calculation_stack,0x3c)=256;return 10;
+    }
+    return value;
+}
+int ME_UnawareHitStages(u8 *actor,u8 *target) {
+    return (defhas(actor,target,103)?1:0)|(has(actor,103)?2:0);
+}
+int ME_StrongDamageWeather(u8 *target,int legacy_flag) {
+    /* Air Lock/Cloud Nine/exclusive weather protection suppress the weather's
+     * damaging-type immunities too; never clear the global source itself. */
+    return ME_WeatherStrength(target)?legacy_flag:0;
+}
+void ME_BlockMagnetWalk(u8 *e) {
+    u8 *m=monster(e);
+    if(m&&U16(m,0x4a)==2&&ME_Magnetized(e))U16(m,0x4a)=1;
+}
+void ME_WokeUp(u8 *target,int old_sleep) {
+    u8 *m=monster(target);
+    if(alive(target)&&!BYTE(m,0xbd)&&(old_sleep==1||old_sleep==3||old_sleep==5)&&has(target,47))
+        U16(m,0x10)=(u16)maxhp(target);
+}
+void ME_LiquidOozeHit(u8 *actor,u8 *target,u8 *damage,int move) {
+    if(!damage||!alive(actor)||!alive(target)||(int)U32(damage,0)<=0||!defhas(actor,target,58))return;
+    int drain=0;for(unsigned i=0;i<sizeof(drain_moves)/sizeof(drain_moves[0]);i++)if(drain_moves[i]==move)drain=1;
+    if(!drain)return;
+    int reflected=divide((int)U32(damage,0),2);U32(damage,0)=0;
+    if(reflected>0) {
+        u8 packet[0x14];zero(packet,sizeof(packet));
+        FN(0x0230d3f4,int(*)(u8*,u8*,int,int,u8*,int,int,int,int,int,int))
+            (target,actor,reflected,0,packet,0,3,563,0,0,0);
+    }
 }
 int ME_ReadAppearanceTrait(u8 *m,int active_only) {
     u8 *e=0;for(int i=0;i<COUNT;i++)if(monster(entity(i))==m){e=entity(i);break;}
@@ -573,6 +695,7 @@ int ME_ForcedMoveBlocked(u8 *actor,u8 *target) {return defhas(actor,target,A_HEA
 void ME_FreeAbilities(void) {
     if(ability_memory)FN(0x02001188,void(*)(void*))(ability_memory);
     ability_memory=0;
+    zero(effect_frames,sizeof(effect_frames));effect_depth=0;
     if(extra)FN(0x02001188,void(*)(void*))(extra);
     extra=0;sunlight_serial=0;movement_serial=0;state.magic=0;movement_context=0;calculation_context=0;speed_move_context=0;
     zero(calculations,sizeof(calculations));
@@ -592,6 +715,15 @@ void ME_LeaveCalculation(int previous) {
 }
 int ME_LegacyAbilityActive(u8 *e,int id,u32 caller) {
     ensure();if(!ability_memory)return 0;
+    if(id==118)return ME_AbilityActive(e,118)||ME_AbilityActive(e,225);
+    if(id==162&&(caller==0x023c13f8||caller==0x023c1414||caller==0x023d6588||caller==0x023d65a4)) {
+        if(!ME_AbilityActive(e,162))return 0;
+        if(effect_depth) {
+            EffectFrame *f=&effect_frames[effect_depth-1];
+            return f->actor==e&&sheer_force_move(f->secondary);
+        }
+        return ability_memory&&depth&&actions[depth-1].actor==(u32)e&&sheer_force_move(actions[depth-1].move);
+    }
     if(id==148&&calculation_context) {
         Calculation *c=&calculations[calculation_context-1];
         if(e==c->target&&c->actor!=e&&ME_AbilityActive(c->actor,83))return 0;
@@ -602,6 +734,9 @@ int ME_LegacyAbilityActive(u8 *e,int id,u32 caller) {
     if(id==14&&caller==0x0231ee60)return ME_AbilityActive(e,14)||ME_AbilityActive(e,A_HEAVY_METAL);
     if(id==43&&(caller==0x022fa9d8||caller==0x02301604||caller==0x023016fc))return 0;
     if(id==34&&(caller==0x0230c6c4||caller==0x0230c6d8))return 0;
+    if(id==80&&caller==0x0230aff8)return 0;
+    if(id==79&&caller==0x0230c0a0)return 0;
+    if(id==23&&caller==0x02308c9c)return 0; /* replaced by continuous adjacent magnet aura */
     if(id==85&&(caller==0x0230b50c||caller==0x02310310))return 0;
     if((id==27||id==74||id==84||id==132||id==145||id==94)&&
        ((caller>=0x023af81c&&caller<0x023afa74)||(caller>=0x023d9490&&caller<0x023d95b0)))return 0;
@@ -617,6 +752,12 @@ u32 *ME_FilterMultiplier(u8 *actor,u8 *target) {
     /* This native site is shared by Omniscience and Filter. Keep the existing
      * Omniscience-only x0.75 constant rather than changing its supplied effect. */
     return defhas(actor,target,110)?factor:(u32 *)0x02352864;
+}
+u32 *ME_PinchMultiplier(void) {
+    static u32 factor[2]={0,0x18000};return factor;
+}
+u32 *ME_HalfMultiplier(void) {
+    static u32 factor[2]={0,0x8000};return factor;
 }
 int ME_QuickFeet(u8 *a,u8 *b) {if(!has(b,109))return 0;ME_ChangeStat(a,b,4,1);return 1;}
 void ME_MotorDrive(u8 *e) {ME_ChangeStat(e,e,4,1);}

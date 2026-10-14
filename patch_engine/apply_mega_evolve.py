@@ -10,16 +10,27 @@ from true_patches.mega_evolve.phase0 import validate
 
 
 def load_registry(module_dir, manifest):
-    if manifest.get("phase") not in (0,1,2):
+    if manifest.get("phase") not in (0,1,2,3):
         raise RuntimeError("requested mega_evolve runtime phase is not implemented")
     path = module_dir / "data/registry.json"
     registry = json.loads(path.read_text(encoding="utf-8"))
     metadata = validate(registry)
-    if manifest.get("phase")==2:
+    if manifest.get("phase",0)>=2:
         from true_patches.mega_evolve.phase2 import load
         load()
         metadata["phase2_hooks_sha256"]=hashlib.sha256((module_dir/"data/phase2_hooks.json").read_bytes()).hexdigest()
         metadata["phase2_abilities_sha256"]=hashlib.sha256((module_dir/"data/phase2_abilities.json").read_bytes()).hexdigest()
+    if manifest.get("phase")==3:
+        from true_patches.mega_evolve.phase3 import load as phase3_data
+        from true_patches.mega_evolve.audit_phase3 import build as coverage
+        data=phase3_data();report=coverage()
+        if len(report['abilities'])!=206 or any(a['normal_status']=='pending_implementation' for a in report['abilities']):
+            raise RuntimeError('mega_evolve phase3 ordinary implementation is incomplete')
+        saved=json.loads((module_dir/'data/phase3_coverage.json').read_text(encoding='utf-8'))
+        if saved!=report:raise RuntimeError('mega_evolve phase3 effect coverage is stale')
+        metadata['phase3_ordinary_count']=len(data['abilities'])
+        for filename in ('phase3.json','phase3_strings.json','phase3_coverage.json','phase3_native_consumers.json'):
+            metadata[filename.replace('.json','')+'_sha256']=hashlib.sha256((module_dir/'data'/filename).read_bytes()).hexdigest()
     metadata["registry_file_sha256"] = hashlib.sha256(path.read_bytes()).hexdigest()
     return registry, metadata
 

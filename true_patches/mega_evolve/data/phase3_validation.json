@@ -1,0 +1,242 @@
+{
+  "schema": 1,
+  "scope": "All phase3 family/regression checks; ROM/save outputs prohibited. Native boundary models are specified by each test.",
+  "passed": 39,
+  "total": 39,
+  "tests": [
+    {
+      "test": "verify",
+      "exit_code": 0,
+      "seconds": 5.7,
+      "output": "PASS: source reconciliation, aliases, branching, official overrides, stat/save limits,\n      assigned ability scope, weather, Omniscience II spec, rejection cases and engine gate.\nNo ROM, save, build-state or source assets were written."
+    },
+    {
+      "test": "verify_loader",
+      "exit_code": 0,
+      "seconds": 56.1,
+      "output": "PASS execution loader ARM: uncompressed heap image, internal relocation, cold/warm register+flags+stack ABI, cache instructions, free/reload, checksum rejection; FAT IDs/overlay sizes unchanged. No ROM/save output."
+    },
+    {
+      "test": "verify_phase1",
+      "exit_code": 0,
+      "seconds": 11.2,
+      "output": "PASS ARM: Speed caps/multipliers/Simple/Clear Body/Unaware/Gale Wings, hit consumers,\n          native weather selection, family mapping, defense/power, suppression/source order,\n          component codec corruption/floor checks and instruction/cave guards.\nNo ROM/save/state files were written; automatic save-codec wiring belongs to phase 4."
+    },
+    {
+      "test": "verify_phase2",
+      "exit_code": 0,
+      "seconds": 53.0,
+      "output": "PASS phase2 ARM: 206 identities / both grades, three slots, native queries,\n  Gas/Gastro Acid/items, native Skill Swap/Role Play/Trace/restore, nested once ledger,\n  invalid profiles, entity reuse and cave/instruction/hash guards. No ROM/save outputs."
+    },
+    {
+      "test": "verify_phase3",
+      "exit_code": 0,
+      "seconds": 62.5,
+      "output": "PASS internal phase3: 546 profiles, assigned bilingual text, protected species/slots,\n  heap image/bootstrap/BSS guards, real ARM numeric speed and conversion/action wrappers,\n  resolved-type skin bonus, hit ledger and fixed-damage ABI, allocation failure/free.\n  14 native status-entry wrappers: Comatose/Sweet Veil/Aroma Veil, Rest/Nightmare, native continuation ABI.\nPublic phase3 ordinary implementation enabled; family tests/native inheritance are separate from full battle/hardware validation. No ROM/save output."
+    },
+    {
+      "test": "verify_phase3_actions",
+      "exit_code": 0,
+      "seconds": 17.1,
+      "output": "PASS phase3 actions ARM: physical stat x1.5/Unaware/nested contexts, native move lock,\n  first successful hit/PP/suppression/floor reset; one-slot grade-aware exchange,\n  protected identities, once ledger, restoration, contact-only dispatch and redirect-only bypass.\nNo ROM/save output."
+    },
+    {
+      "test": "verify_phase3_aftermath",
+      "exit_code": 0,
+      "seconds": 31.9,
+      "output": "PASS 30 native Aftermath/Innards Out cases: original 50% chance, three slots, suppression/acid/Mold Breaker, native explosion args and recursion-source exclusion. RNG/explosion terminal modeled; no ROM/save output."
+    },
+    {
+      "test": "verify_phase3_appearance",
+      "exit_code": 0,
+      "seconds": 22.1,
+      "output": "PASS 18 native Illusion/Imposter spawn cases: all slots, suppression/acid, existing fixed-room/candidate gates retained, native appearance/stats, permanent original ID2 versus apparent ID4, profile restore. Native ancillary services modeled; no ROM/save output."
+    },
+    {
+      "test": "verify_phase3_bad_dreams_cursed",
+      "exit_code": 0,
+      "seconds": 46.7,
+      "output": "PASS 50 Bad Dreams/Cursed Body cases: actual adjacent enemy asleep/virtual sleep cache-byte floor(V/8) damage and native seal flag at rolls0..11 only, slots/suppression/Mold Breaker. Fixed damage/contact eligibility/UI/RNG modeled; no ROM/save output."
+    },
+    {
+      "test": "verify_phase3_damage_rules",
+      "exit_code": 0,
+      "seconds": 148.6,
+      "output": "PASS 278 shared damage/target guard cases: type and status boosters, native-range Aura Guard, nonstacking adjacent Power Spot, full Telepathy handler skip, Miracle Skin 25% and weather/self/ally exclusions, slots/suppression/Mold Breaker. No ROM/save output."
+    },
+    {
+      "test": "verify_phase3_defense_guard",
+      "exit_code": 0,
+      "seconds": 24.5,
+      "output": "PASS 24 Big Pecks native-entry cases: physical-only opponent guard, self/special/Contrary passthrough, three slots, suppression/acid/Mold Breaker, original registers/stack/prior owner. Native decrease body modeled; no ROM/save output."
+    },
+    {
+      "test": "verify_phase3_escape",
+      "exit_code": 0,
+      "seconds": 32.6,
+      "output": "PASS phase3 escape ARM: quarter-HP enemy hit, closest/next ally/safe-floor fallback,\n  walls/stairs/objects/occupancy exclusions, floor-once and failed-destination safety,\n  suppression/fatal/friendly/no-loss, old AI-only suppression and hit dispatcher. No ROM/save output."
+    },
+    {
+      "test": "verify_phase3_events",
+      "exit_code": 0,
+      "seconds": 77.1,
+      "output": "PASS phase3 events ARM: accepted native sunlight/quiet updates/suppression, entry-once/highest-stat, KO scope, floor stats and precise native Healer cures. No ROM/save output."
+    },
+    {
+      "test": "verify_phase3_faint",
+      "exit_code": 0,
+      "seconds": 27.6,
+      "output": "PASS phase3 faint ARM: nearest/tie-slot/order-independent pending copy, grade/unique candidates,\n  room/team/suppression/protected source, one temporary slot/restoration, nested actions,\n  reset/death cancellation and environmental faint brackets. No ROM/save output."
+    },
+    {
+      "test": "verify_phase3_filter",
+      "exit_code": 0,
+      "seconds": 24.7,
+      "output": "PASS 42 native shared multiplier cases: Filter/Hard Rock x0.8 on super-effective matchup only, original Omniscience-only x0.75 retained, slots/suppression/acid/Mold Breaker. Fixed-point multiply modeled from native constants; no ROM/save output."
+    },
+    {
+      "test": "verify_phase3_guts_dry_skin",
+      "exit_code": 0,
+      "seconds": 56.6,
+      "output": "PASS 77 Guts/Dry Skin cases: real physical-category/negative-status gate, Guts exact ratio x3/2, Dry Skin sunny-only fire x1.2, old fire/sun-chip queries removed while water/rain queries retained, slots/suppression/Mold Breaker. Cache/UI/base category modeled; no ROM/save output."
+    },
+    {
+      "test": "verify_phase3_hit_rules",
+      "exit_code": 0,
+      "seconds": 88.3,
+      "output": "PASS 61 shared hit responses: Weak Armor/Stamina/Rattled/Rough Skin action dedup, status/miss/range/category exclusions, new-action rearm, enemy-only floor-once Berserk and Sticky Hold 12% Speed drop. Native writers/damage/RNG modeled; no ROM/save output."
+    },
+    {
+      "test": "verify_phase3_inherited",
+      "exit_code": 0,
+      "seconds": 81.5,
+      "output": "PASS 1909 inherited routing cases: all206 assigned ordinary identities in allthree slots, native legacy-query ABI and suppression, persistent consumer provenance including copied ITCM, Lightning Rod/Storm Drain native cache registration. Unchanged effect bodies inherited; redirect eligibility modeled. No ROM/save output."
+    },
+    {
+      "test": "verify_phase3_items",
+      "exit_code": 0,
+      "seconds": 32.1,
+      "output": "PASS phase3 items ARM: eight berry identities, Harvest 12/25%, Cud Chew 20%,\n  stacking/duplicates/suppression, real removal-call ABI; audited Pickup pool, exclusions,\n  bag capacity/team/floor-once and legacy-body guard. Other consumption paths remain under audit.\nNo ROM/save/item assets written."
+    },
+    {
+      "test": "verify_phase3_mega_sol",
+      "exit_code": 0,
+      "seconds": 20.2,
+      "output": "PASS 121 Mega Sol move-weather cases: slots/suppression, actor/target/world/ambient separation, nested actions/calculation context, native Solar Beam charge bypass and Morning Sun weather lookup, ordinary sun power. Native terminal services modeled; no ROM/save output."
+    },
+    {
+      "test": "verify_phase3_movement",
+      "exit_code": 0,
+      "seconds": 7.5,
+      "output": "PASS phase3 movement ARM: actual actor-wrapper ABI, successful-walk window,\n  first successful holder/target hit, miss/calculation safety, next action expiry,\n  blocked/non-walk/friendly exclusions, suppression and floor reset. No ROM/save output."
+    },
+    {
+      "test": "verify_phase3_native_coefficients",
+      "exit_code": 0,
+      "seconds": 75.6,
+      "output": "PASS 70 native coefficient cases: Frisk x1.2, Anticipation x1.5, native Multiscale full HP/Mold Breaker, Stall x0.8, slots/suppression, removed movement-speed damage penalties, r3-preserving query ABI. Threat/UI modeled; no ROM/save output."
+    },
+    {
+      "test": "verify_phase3_native_immunity",
+      "exit_code": 0,
+      "seconds": 69.2,
+      "output": "PASS 178 native Ground/sound/critical cases: 5 abilities, all three slots, suppression/Gastro Acid/Mold Breaker for defender immunities, real Gravity and 15 sound IDs, critical immunity and Super Luck threshold x2. Subsequent damage/messages excluded; no ROM/save output."
+    },
+    {
+      "test": "verify_phase3_native_status",
+      "exit_code": 0,
+      "seconds": 85.8,
+      "output": "PASS grouped native rejection/state-write paths: 7 ordinary abilities / 8 status paths, slots1/2/3, no-trait controls, item/Gastro Acid suppression and Mold Breaker. Post-status visuals/responses excluded; no ROM/save output."
+    },
+    {
+      "test": "verify_phase3_native_tail",
+      "exit_code": 0,
+      "seconds": 59.8,
+      "output": "PASS 102 live normal tail cases: Thick Fat/Heatproof x0.5, Fur Coat physical x0.5, Punk Rock sound attack/defense, Multitype original Arceus x1.2, native rain/snow recovery active gate, Justified +3, Hyper Cutter self-drop exception. Fixed multiply/cache/writer services modeled; no ROM/save output."
+    },
+    {
+      "test": "verify_phase3_no_guard",
+      "exit_code": 0,
+      "seconds": 28.2,
+      "output": "PASS 28 native No Guard hit-check cases: attacker/defender three slots, both accuracy passes, suppression/acid/Mold Breaker, original handler/stack passthrough. Separate damage/type-immunity handlers retained; no ROM/save output."
+    },
+    {
+      "test": "verify_phase3_numeric_stats",
+      "exit_code": 0,
+      "seconds": 171.3,
+      "output": "PASS 189 ordinary numeric Speed/Accuracy/Evasion cases: three slots, suppression/acid/Mold Breaker, protection/self drops, Simple/Contrary, actual-drop-only Defiant/Competitive, caps and allied sources. Native reactive stat writers modeled; no ROM/save output."
+    },
+    {
+      "test": "verify_phase3_parental",
+      "exit_code": 0,
+      "seconds": 23.5,
+      "output": "PASS 15 Parental Bond effect-wrapper cases: native arguments/stack/result, second damage quarter, single PP cost, slots/suppression, fixed/charge/multihit/status/regular/projectile/Z exclusions, death and nested-scope restoration. Native terminal effect modeled; no ROM/save output."
+    },
+    {
+      "test": "verify_phase3_pickpocket",
+      "exit_code": 0,
+      "seconds": 22.5,
+      "output": "PASS 15 native Pickpocket theft cases: 100% physical-adjacent empty-holder transfer, all six item bytes, slots/suppression/acid, no duplicate theft, held/empty/range/special/Sticky Hold/boss/bag-full/fatal exclusions, correct team bag callbacks. Native UI/bag services modeled; no ROM/save output."
+    },
+    {
+      "test": "verify_phase3_pinch_power",
+      "exit_code": 0,
+      "seconds": 100.4,
+      "output": "PASS 218 native pinch/power cases: four native HP-quarter/type/bonus gates, Iron Fist/Reckless classifiers and exact x1.2 power, conditional flags retained, Tinted Lens resistant-matchup x1.2 and old boost removed. Cache/UI/fixed multiply modeled; no ROM/save output."
+    },
+    {
+      "test": "verify_phase3_power_stats",
+      "exit_code": 0,
+      "seconds": 17.9,
+      "output": "PASS 54 Pure/Huge Power cases: physical attack x1.2, three slots/suppression/acid, special/defense/outside-damage exclusion, distinct traits compose, Unaware/Mold Breaker, exact old-boost query removal. Base-stat provider modeled; no ROM/save output."
+    },
+    {
+      "test": "verify_phase3_remaining_changes",
+      "exit_code": 0,
+      "seconds": 31.0,
+      "output": "PASS 81 changed normal effect cases: room Intimidate physical ratio, adjacent Steel Magnet Pull calculation/walk, actual native wake and full HP, drain amount immunity/half reflection after hit; external messages/stat/cache/fixed damage modeled. No ROM/save output."
+    },
+    {
+      "test": "verify_phase3_sheer_force",
+      "exit_code": 0,
+      "seconds": 88.4,
+      "output": "PASS 178 Sheer Force cases: all 128 native move IDs, slots/suppression, exact damage x1.2, real secondary chance gates, original coefficient/register contract, called-move tracking and context cleanup. RNG terminal modeled; no ROM/save output."
+    },
+    {
+      "test": "verify_phase3_sleep",
+      "exit_code": 0,
+      "seconds": 6.4,
+      "output": "PASS phase3 sleep ARM: targeted virtual sleep/suppression/native sleeping,\n  actual player/enemy Rest blocked without HP/sleep mutation; global action predicate unchanged.\n  Native Snore gate/Bad Dreams/status checks use virtual sleep; Rest/Nightmare real sleep blocked. No ROM/save output."
+    },
+    {
+      "test": "verify_phase3_strong_weather",
+      "exit_code": 0,
+      "seconds": 16.0,
+      "output": "PASS 24 native strong-weather cases: harsh sun Water and heavy rain Fire immunity, matching types only, Air Lock protected target passes damage, source retained, harsh-sun miss marker prevents additional effects. Native UI/team-relation eligibility modeled; no ROM/save output."
+    },
+    {
+      "test": "verify_phase3_tailwind",
+      "exit_code": 0,
+      "seconds": 20.5,
+      "output": "PASS Tailwind ARM: speed-move/source nesting, native argument/stack/return preservation, timer ownership/refresh/expiry/slot reuse, first-application Wind Rider, suppression/failure/floor reset. Native timer writer modeled; no ROM/save output."
+    },
+    {
+      "test": "verify_phase3_unaware",
+      "exit_code": 0,
+      "seconds": 17.5,
+      "output": "PASS 98 final Unaware stage/scalar cases: attack/defense and accuracy/evasion neutral10, 256/256 cached scalar, both sides, slots/suppression/Mold Breaker, original stored values unchanged. Native lookup boundaries execute; no ROM/save output."
+    },
+    {
+      "test": "verify_phase3_weight_wind",
+      "exit_code": 0,
+      "seconds": 55.9,
+      "output": "PASS phase3 weight/wind ARM: real MD weight lookup and two move paths, composed modifiers/suppression/Mold Breaker, all audited wind IDs, once/action and post-redirection target ABI. Tailwind lifetime is checked in verify_phase3_tailwind. No ROM/save output."
+    },
+    {
+      "test": "verify_phase3_world",
+      "exit_code": 0,
+      "seconds": 6.4,
+      "output": "PASS phase3 world ARM: floor-trap 50% avoidance, forced/direct activation exclusion,\n  direct trap entry unchanged; Heavy Metal blow-away, suppression/Mold Breaker, native ABI.\nOther forced-movement/world consumers remain under audit. No ROM/save output."
+    }
+  ]
+}
