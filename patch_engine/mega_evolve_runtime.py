@@ -260,7 +260,7 @@ def apply_phase1(rom,module_dir,manifest,state,metadata):
         install_file(rom,runtime_payload)
     rom.files[tables[29].fileID]=bytes(ov29)
     write_ov36_to_rom(rom,None,bytes(ov36))
-    return AppliedModule("mega_evolve",manifest.get("version",1),
+    record=AppliedModule("mega_evolve",manifest.get("version",1),
         caves,hooks,
         [{"mega_evolve":metadata,"phase":manifest["phase"],"symbols":symbols,"edits":edits,
           **scatter_info,
@@ -270,6 +270,13 @@ def apply_phase1(rom,module_dir,manifest,state,metadata):
           **({"phase3_md_sha256":hashlib.sha256(prepared_files["BALANCE/monster.md"]).hexdigest()} if manifest["phase"]>=3 else {}),
           "base_stats_helpers":{"entity_speed":entity_speed,"from_monster":from_monster},
           "save_component_schema":2 if manifest["phase"]>=2 else 1,"automatic_save_codec_integration_phase":4}])
+    if manifest['phase']>=3 and manifest.get('species_save_bits',11)==12:
+        from .mega_evolve_save12 import install
+        info=install(rom,module_dir,state)
+        record.caves.append(info['cave']);record.hooks.extend(info['hooks'])
+        record.data[0]['species_save_codec']={k:v for k,v in info.items() if k not in ('cave','hooks')}
+        record.data[0]['species_save_codec']['cave']=info['cave'].to_dict()
+    return record
 
 
 def verify_phase1(rom,module_dir,manifest,record,metadata):
@@ -285,11 +292,12 @@ def verify_phase1(rom,module_dir,manifest,record,metadata):
             raise AssertionError('mega_evolve execution payload hash mismatch')
     if manifest['phase']>=3 and hashlib.sha256(rom.getFileByName('BALANCE/monster.md')).hexdigest()!=record.data[0].get('phase3_md_sha256'):
         raise AssertionError('mega_evolve phase3 MD hash mismatch')
+    caves=[c for c in record.caves if c.overlay=='ov36']
     hashes=record.data[0].get('cave_hashes') or [record.data[0].get('cave_sha256')]
-    if len(record.caves)==1 and record.data[0].get('cave_sha256',hashes[0])!=hashes[0]:
+    if len(caves)==1 and record.data[0].get('cave_sha256',hashes[0])!=hashes[0]:
         raise AssertionError('mega_evolve conflicting single-cave hashes')
-    if len(hashes)!=len(record.caves):raise AssertionError('mega_evolve cave record mismatch')
-    for cave,expected in zip(record.caves,hashes):
+    if len(hashes)!=len(caves):raise AssertionError('mega_evolve cave record mismatch')
+    for cave,expected in zip(caves,hashes):
         blob=bytes(tables[36].data[cave.file_offset:cave.file_offset+cave.size])
         if hashlib.sha256(blob).hexdigest()!=expected:
             raise AssertionError("mega_evolve phase1 cave hash mismatch")
@@ -297,3 +305,9 @@ def verify_phase1(rom,module_dir,manifest,record,metadata):
         base=OV29 if edit["overlay"]==29 else OV36
         if word(tables[edit["overlay"]].data,edit["site"],base)!=edit["after"]:
             raise AssertionError(f"mega_evolve instruction changed at {edit['site']:#x}")
+    if manifest['phase']>=3 and manifest.get('species_save_bits',11)==12:
+        from .mega_evolve_save12 import verify
+        info=dict(record.data[0]['species_save_codec'])
+        c=info['cave'];info['cave']=CaveAllocation(c['overlay'],c['file_offset'],c['size'],c['load_address'])
+        if info['cave'] not in record.caves:raise AssertionError('missing resident species codec reservation')
+        verify(rom,info)

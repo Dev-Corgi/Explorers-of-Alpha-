@@ -163,7 +163,10 @@ def main():
     plan=plan_translation(rom,load_source(korean,load_module_manifest(korean)))
     for row in strings['entries']:assert plan.text_dec[row['index']].ko==row['ko']
     assert not any(row['where']=='text_e' and row['index'] in targets for row in plan.rejected)
-    assert len(record.caves)==1 and record.caves[0].size==0x2000
+    runtime_caves=[c for c in record.caves if c.overlay=='ov36']
+    assert len(runtime_caves)==1 and runtime_caves[0].size==0x2000
+    if manifest.get('species_save_bits',11)==12:
+        assert len(record.caves)==2 and record.caves[1].overlay=='arm9'
     assert record.data[0]['runtime_size']>record.caves[0].size
     w=World(rom,record)
     # Every baseline assignment is actually obtained by the linked ARM bank.

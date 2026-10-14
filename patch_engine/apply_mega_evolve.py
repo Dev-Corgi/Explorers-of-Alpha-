@@ -15,6 +15,12 @@ def load_registry(module_dir, manifest):
     path = module_dir / "data/registry.json"
     registry = json.loads(path.read_text(encoding="utf-8"))
     metadata = validate(registry)
+    bits=manifest.get('species_save_bits',11)
+    if bits not in (11,12):raise RuntimeError('unsupported mega_evolve species save width')
+    if manifest.get('phase',0)>=3 and bits==12:
+        metadata['species_save_bits']=12
+        for path in (module_dir/'runtime/save12.c',Path(__file__).with_name('mega_evolve_save12.py')):
+            metadata[path.name+'_sha256']=hashlib.sha256(path.read_bytes()).hexdigest()
     if manifest.get("phase",0)>=2:
         from true_patches.mega_evolve.phase2 import load
         load()

@@ -1,13 +1,15 @@
 id: mega_evolve
-version: 5
+version: 6
 kind: mega_evolve
 rom_profile: us_vanilla
 phase: 3
+species_save_bits: 12
 description: >-
   Mega and shiny-mega evolution, implemented in staged phases. Phase 3
   assigns ordinary abilities to existing final forms, updates assigned bilingual
   names/descriptions and connects ordinary effect families through an uncompressed
-  relocatable runtime. New forms and enhanced effects remain later phases.
+  relocatable runtime. A versioned 12-bit roster codec prepares phase 4 while
+  reading old 11-bit saves. New forms and enhanced effects remain later phases.
 requires:
   - z_move_v2
   - base_stats_speed
