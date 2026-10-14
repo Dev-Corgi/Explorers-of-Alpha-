@@ -21,7 +21,7 @@
 레벨20이고 기술목록은 현재 ROM에서 지원하는 기술만 사용한다.
 
 원시회귀는 이미 메가 단계다. 별도의 추가 메가 단계는 진화 선택지에 넣지
-않는다. 메가/이로치 샘 진화 활성화는 페이즈6이며 명시적 경로는
+않는다. 메가/이로치 샘 진화는 페이즈6에서 기존 진화 메뉴로 연결했다. 명시적 경로는
 [phase5_evolution_routes.json](data/phase5_evolution_routes.json)에 고정했다.
 
 생성 원본·팔레트·도구·결과 해시는 [phase5_repairs.json](data/phase5_repairs.json),

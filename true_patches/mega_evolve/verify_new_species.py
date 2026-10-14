@@ -26,8 +26,8 @@ class EvolutionWorld(FormWorld):
 def main():
     before=hashlib.sha256(SOURCE.read_bytes()).hexdigest()
     contract=routes()
-    assert contract['compatibility_only_mega_ids']==[1917,1923]
-    assert not any(r['target'] in (1917,1923) for r in contract['routes'])
+    assert contract['compatibility_only_mega_ids']==[1917,1923,2179,2185,2193]
+    assert not any(r['target'] in contract['compatibility_only_mega_ids'] for r in contract['routes'])
     for source,target in ((555,1918),(556,1924)):
         route=next(r for r in contract['routes'] if r['source']==source)
         assert route['target']==target and route['level'] is None and route['source_stage']==1

@@ -8181,14 +8181,6 @@
     },
     {
       "source": 552,
-      "target": 2179,
-      "source_stage": 0,
-      "target_stage": 1,
-      "level": 80,
-      "items": []
-    },
-    {
-      "source": 2179,
       "target": 2180,
       "source_stage": 1,
       "target_stage": 2,
@@ -8229,14 +8221,6 @@
     },
     {
       "source": 551,
-      "target": 2185,
-      "source_stage": 0,
-      "target_stage": 1,
-      "level": 80,
-      "items": []
-    },
-    {
-      "source": 2185,
       "target": 2186,
       "source_stage": 1,
       "target_stage": 2,
@@ -8293,14 +8277,6 @@
     },
     {
       "source": 536,
-      "target": 2193,
-      "source_stage": 0,
-      "target_stage": 1,
-      "level": 80,
-      "items": []
-    },
-    {
-      "source": 2193,
       "target": 2194,
       "source_stage": 1,
       "target_stage": 2,
@@ -8934,6 +8910,9 @@
   ],
   "compatibility_only_mega_ids": [
     1917,
-    1923
+    1923,
+    2179,
+    2185,
+    2193
   ]
 }

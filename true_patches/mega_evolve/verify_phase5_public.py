@@ -1,5 +1,5 @@
 """All available images through the public dispatcher; memory-only serialization."""
-import hashlib,json,struct
+import hashlib,json,struct,sys
 from ndspy.rom import NintendoDSRom
 from .verify_phase1 import SOURCE,MODULE
 from patch_engine.manifest import load_module_manifest
@@ -19,7 +19,8 @@ def main():
     for name,c in prerequisite.items():
         if name.startswith('arm9_') and isinstance(c,dict):caves.append(CaveAllocation('arm9',c['preferred'],c['estimated_bytes'],0x02000000+c['preferred']))
     state=BuildState('us_vanilla',0x022DC240,[AppliedModule('spinda_ev_speed',1,caves)])
-    manifest=dict(load_module_manifest(MODULE),phase=5)
+    phase=6 if '--phase6' in sys.argv else 5
+    manifest=dict(load_module_manifest(MODULE),phase=phase)
     record=apply_mega_evolve_module('mega_evolve',MODULE,manifest,rom,state)
     verify_mega_evolve_module(rom,MODULE,manifest,record);state.upsert_module(record)
     for path,old in original.items():
@@ -40,7 +41,9 @@ def main():
                 serialized_rom_bytes=len(output),card_capacity_mib=512,
                 runtime_bytes=record.data[0]['runtime_size'],resident_bytes=record.data[0]['form_consumers']['cave']['size'],
                 scope='Public apply/verify and all-pack memory serialization; no NDS/save outputs. Hardware/RAM integration deferred to phase8.')
-    (MODULE/'data/phase5_validation.json').write_text(json.dumps(report,indent=2)+'\n',encoding='utf-8')
-    print('PASS public phase5:',report)
+    if phase>=6:report['spring_runtime_bytes']=record.data[0]['spring']['runtime_bytes']
+    output_path=MODULE/(f'data/phase6_public_validation.json' if phase>=6 else 'data/phase5_validation.json')
+    output_path.write_text(json.dumps(report,indent=2)+'\n',encoding='utf-8')
+    print(f'PASS public phase{phase}:',report)
     print('Original sprite entries retained, all available forms connected, explicit holds, guards and512MiB FAT/FNT roundtrip. No ROM/save output.')
 if __name__=='__main__':main()

@@ -10,7 +10,7 @@ from true_patches.mega_evolve.phase0 import validate
 
 
 def load_registry(module_dir, manifest):
-    if manifest.get("phase") not in (0,1,2,3,4,5):
+    if manifest.get("phase") not in (0,1,2,3,4,5,6):
         raise RuntimeError("requested mega_evolve runtime phase is not implemented")
     path = module_dir / "data/registry.json"
     registry = json.loads(path.read_text(encoding="utf-8"))
@@ -61,6 +61,11 @@ def load_registry(module_dir, manifest):
                          'runtime/phase5.c','runtime/phase5_hooks.S','runtime/phase5_decode.c',
                          'phase5_repair.py','data/phase5_repairs.json','phase5_routes.py',
                          'data/phase5_evolution_routes.json'):
+            metadata[relative+'_sha256']=hashlib.sha256((module_dir/relative).read_bytes()).hexdigest()
+    if manifest.get('phase',0)>=6:
+        from true_patches.mega_evolve.phase6 import load
+        phase6=load();metadata['phase6_routes']=len(phase6['routes'])
+        for relative in ('phase6.py','data/phase6.json','runtime/phase6_spring.c','runtime/phase6_spring.S'):
             metadata[relative+'_sha256']=hashlib.sha256((module_dir/relative).read_bytes()).hexdigest()
     metadata["registry_file_sha256"] = hashlib.sha256(path.read_bytes()).hexdigest()
     return registry, metadata

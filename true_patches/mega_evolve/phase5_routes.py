@@ -16,7 +16,7 @@ def build():
     for row in forms()['rows']:
         if row['stage']!=1:continue
         t=targets[row['target']]
-        if t['official_form']=='Primal' and row['origin']==t['special_existing_target']:
+        if t['official_form'] in ('Primal','Origin') and row['origin']==t['special_existing_target']:
             routes.append(dict(source=row['origin'],target=row['shiny'],
                                source_stage=1,target_stage=2,level=None,items=[]))
             compatibility.append(row['species'])

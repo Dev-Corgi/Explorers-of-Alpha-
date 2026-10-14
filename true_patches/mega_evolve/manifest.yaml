@@ -1,16 +1,16 @@
 id: mega_evolve
-version: 9
+version: 10
 kind: mega_evolve
 rom_profile: us_vanilla
-phase: 5
+phase: 6
 species_save_bits: 12
 description: >-
-  Phase 5 connects 586 converted sprite packages to all 1118 additional rows,
-  with no remaining image holds. Adds Dudunsparce and Wyrdeer level20 evolution,
-  supported learnsets, names and portraits. Chunked sprite decoding, wide
-  file-size metadata, separate cache slots and owned resource buffers avoid
-  legacy limits. Primal origins awaken directly in the phase6 routing contract.
-  Mega Spring evolution and individual enhanced effects remain phases 6 and 7.
+  Phase 6 uses the existing Evolve action for level80 Mega Evolution and
+  unconditional Shiny Mega Evolution, with no separate Mega menu actions.
+  Branch selection and single-stage regression are supported. Existing
+  Primal/Origin forms awaken directly. Ordinary evolution and supported form
+  changes remain; permanent XP, doping, nicknames and gender are preserved.
+  All 1118 added rows use 586 sprite packages. Enhanced effects remain phase7.
 requires:
   - z_move_v2
   - base_stats_speed

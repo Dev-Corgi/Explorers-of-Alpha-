@@ -1,0 +1,13 @@
+{
+  "schema": 1,
+  "connected_forms": 1118,
+  "held_forms": 0,
+  "packages": 586,
+  "additional_bytes": 254505232,
+  "serialized_rom_bytes": 386022016,
+  "card_capacity_mib": 512,
+  "runtime_bytes": 48512,
+  "resident_bytes": 1264,
+  "scope": "Public apply/verify and all-pack memory serialization; no NDS/save outputs. Hardware/RAM integration deferred to phase8.",
+  "spring_runtime_bytes": 28216
+}

@@ -129,7 +129,7 @@ def main():
         reject(lambda:validate(broken),message)
     manifest=dict(load_module_manifest(MODULE),phase=3)
     assert load_registry(MODULE,manifest)[1]['phase3_ordinary_count']==206
-    reject(lambda:load_registry(MODULE,dict(manifest,phase=6)),'not implemented')
+    reject(lambda:load_registry(MODULE,dict(manifest,phase=7)),'not implemented')
     rom=NintendoDSRom(SOURCE.read_bytes())
     md_original=rom.getFileByName('BALANCE/monster.md')
     md0=MdHandler.deserialize(md_original)

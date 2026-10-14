@@ -333,6 +333,9 @@ def apply_phase1(rom,module_dir,manifest,state,metadata):
             revised={e['site']:e['after'] for e in record.data[0]['sprite_cache_edits']}
             for e in record.data[0]['form_consumers']['edits']:
                 if e['binary']==29 and e['site'] in revised:e['after']=revised[e['site']]
+    if manifest['phase']>=6:
+        from .mega_evolve_phase6 import install
+        record.data[0]['spring']=install(rom,module_dir,state,record)
     return record
 
 
@@ -384,3 +387,6 @@ def verify_phase1(rom,module_dir,manifest,record,metadata):
         from .mega_evolve_phase5_runtime import verify as verify_cache
         from .mega_evolve_phase5_data import verify as verify_sprites
         verify_cache(rom,record.data[0]['sprite_cache_edits']);verify_sprites(rom,record.data[0]['sprites'])
+    if manifest['phase']>=6:
+        from .mega_evolve_phase6 import verify
+        verify(rom,record.data[0]['spring'])

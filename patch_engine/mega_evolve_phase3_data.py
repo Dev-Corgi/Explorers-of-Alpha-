@@ -54,4 +54,8 @@ def installed_translations(text):
     for row in load():
         if row['name_index']<len(text) and text[row['name_index']]==row['en']:
             result[str(row['name_index'])]={'en':row['en'],'ko':row['ko']}
+    from true_patches.mega_evolve.phase6 import load as phase6
+    for row in phase6()['strings']:
+        if row['index']<len(text) and text[row['index']]==row['en']:
+            result[str(row['index'])]={'en':row['en'],'ko':row['ko']}
     return result
