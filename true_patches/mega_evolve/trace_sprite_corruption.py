@@ -50,6 +50,38 @@ def read_snapshot(path):
     return original, raw
 
 
+def write_pixel_probe(source_path, output_path):
+    """Create a separate DSS with only the observed ITCM word restored.
+
+    Existing VRAM and all game progress stay byte-identical in the expanded
+    state. This diagnoses subsequent uploads; it does not repair the writer.
+    """
+    original, raw = read_snapshot(source_path)
+    if not original.startswith(b'DraStic-SaveState---------------'):
+        raise ValueError('Pixel probe requires a supported DSS wrapper')
+    if source_path.resolve() == output_path.resolve():
+        raise ValueError('Pixel probe must not overwrite its source')
+    offset = ITCM_OFFSET + 0xD8
+    if words(raw, offset)[0] != 4:
+        raise ValueError('Pixel probe requires the observed damaged word 00000004')
+    changed = bytearray(raw)
+    struct.pack_into('<I', changed, offset, 0xE1A04204)
+    assert all(a == b for i, (a, b) in enumerate(zip(raw, changed))
+               if not offset <= i < offset + 4)
+    compressed = zlib.compress(changed)
+    header = bytearray(original[:68])
+    struct.pack_into('<I', header, 64, len(compressed))
+    output_path.parent.mkdir(parents=True, exist_ok=True)
+    with output_path.open('xb') as output:
+        output.write(header + compressed)
+    _, verified = read_snapshot(output_path)
+    assert verified == changed
+    assert source_path.read_bytes() == original
+    return dict(path=str(output_path), changed_word='01FF80D8: 00000004 -> E1A04204',
+                sha256=hashlib.sha256(output_path.read_bytes()).hexdigest(),
+                limitation='Diagnostic copy only. Existing VRAM is retained; subsequent uploads use restored code.')
+
+
 def unpack_sprite(entry):
     if entry[:4] == b'SIR0':
         return entry
@@ -318,7 +350,11 @@ def main():
     parser.add_argument('--report', type=Path)
     parser.add_argument('--replay-cache', action='store_true',
                         help='Replay native cache delete/reload/actor refresh on copied dungeon RAM')
+    parser.add_argument('--pixel-probe', type=Path,
+                        help='Write a separate diagnostic DSS restoring only the observed ITCM word')
     args = parser.parse_args()
+    if args.pixel_probe and len(args.state) != 1:
+        parser.error('--pixel-probe requires exactly one --state')
     rom_bytes = args.rom.read_bytes()
     rom = NintendoDSRom(rom_bytes)
     original = bytes(rom.arm9[ITCM_FILE:ITCM_FILE + ITCM_SIZE])
@@ -354,6 +390,8 @@ def main():
                   native_upload_256_inputs='pass',
                   corrupted_shift_256_inputs='reproduced', snapshots=states,
                   limitation='Snapshots cannot identify a historical writer or prove current gameplay is fixed.')
+    if args.pixel_probe:
+        report['pixel_probe'] = write_pixel_probe(args.state[0], args.pixel_probe)
     if args.report:
         args.report.write_text(json.dumps(report, indent=2, ensure_ascii=False) + '\n', encoding='utf-8')
     print(json.dumps(report, indent=2, ensure_ascii=False))
