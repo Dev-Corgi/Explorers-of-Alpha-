@@ -44,7 +44,7 @@ ME_TowerMenu:
  ldr r5,[r5,#4]
  cmp r5,#0
  beq .Lmenu_done
- cmp r4,#214
+ cmp r4,#TT_MENU_CAPACITY
  bhs .Lmenu_done
  ldr r0,[r5,#8]
  cmp r0,#0

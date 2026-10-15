@@ -1,5 +1,5 @@
 id: mega_evolve
-version: 16
+version: 17
 kind: mega_evolve
 rom_profile: us_vanilla
 phase: 6
@@ -16,6 +16,7 @@ description: >-
   Trial Tower unlocks on a successful Spring Mega Evolution. It clones Zero Isle
   South with nine distinct randomized bosses and a level60 final trio; cloned
   fixed rooms advance on victory, with CalcStat HP multipliers and maximum IQ.
+  Departure-menu state follows the original ARM PC-relative pointer load.
   Enhanced effects remain phase7.
 requires:
   - z_move_v2

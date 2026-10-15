@@ -15,7 +15,7 @@ from pathlib import Path
 
 ROOT=Path(__file__).resolve().parents[2]
 sys.path.insert(0,str(ROOT/'tools/.korean_jit_test_deps'))
-from unicorn import Uc, UC_ARCH_ARM, UC_MODE_ARM, UC_HOOK_CODE
+from unicorn import Uc, UcError, UC_ARCH_ARM, UC_MODE_ARM, UC_HOOK_CODE
 from unicorn.arm_const import UC_ARM_REG_R0,UC_ARM_REG_R1,UC_ARM_REG_R2,UC_ARM_REG_R3,UC_ARM_REG_R4,UC_ARM_REG_SP,UC_ARM_REG_LR,UC_ARM_REG_PC
 from ndspy.rom import NintendoDSRom
 from patch_engine.state import AppliedModule
@@ -89,7 +89,7 @@ class Machine:
 def main():
     source=ROOT/'PatchTesting/Explorers of Alpha/Explorers of Alpha.nds'
     before=hashlib.sha256(source.read_bytes()).hexdigest();rom=NintendoDSRom(source.read_bytes());d=load()
-    record=AppliedModule('mega_evolve',16,data=[{'symbols':{'ME_TowerSpawnHook':0x023b8000,'ME_TowerStatsHook':0x023b8010,'ME_TowerSpeciesHook':0x023b8020},'cave_hashes':[]}])
+    record=AppliedModule('mega_evolve',17,data=[{'symbols':{'ME_TowerSpawnHook':0x023b8000,'ME_TowerStatsHook':0x023b8010,'ME_TowerSpeciesHook':0x023b8020},'cave_hashes':[]}])
     info=install(rom,MODULE,None,record);verify(rom,info)
     assert rom.getFileByName('BALANCE/fixed.bin')==rom.getFileByName('UTILITY/fixed.bin')
     text=parse_str_file(rom.getFileByName('MESSAGE/text_e.str'))
@@ -194,15 +194,52 @@ static int clamp(int x,int lo,int hi){return x<lo?lo:x>hi?hi:x;}
                 assert m.u.mem_read(DUNGEON+6,1)==(b'\x01' if i==total-1 else b'\0')
                 m.write32(e,0)
         print('PASS all four native name aliases and native single/triple-enemy victory objective/advance paths',flush=True)
-        menu_ptr=word(rom.loadArm9Overlays()[11].data,0x022ffe64,rom.loadArm9Overlays()[11].ramAddress)
-        menu=BUFFER+0x1000;m.write32(menu_ptr+4,menu)
-        mode=[0];m.stubs[0x0204cf9c]=lambda:mode[0];m.stubs[0x022ffe0c]=lambda:0
-        for kind,opened,expected in ((0,0,4),(0,1,5),(0,3,5),(1,1,4),(2,1,4)):
-            mode[0]=opened;m.write32(menu+8,kind);m.u.reg_write(UC_ARM_REG_R4,4)
-            m.run('ME_TowerMenu')
-            assert m.u.reg_read(UC_ARM_REG_R4)==expected
-            if expected==5:assert m.read16(menu+0x18+8)==234
-        print('PASS main departure menu unlock visibility and special-episode/dojo exclusions',flush=True)
+        # Execute the ORIGINAL constructor and its epilogue, not a fabricated
+        # pointer plus a stubbed continuation. That old test duplicated the
+        # installer's wrong adjacent literal and hid a broken menu return.
+        ground=rom.loadArm9Overlays()[11]
+        m.u.mem_write(ground.ramAddress,bytes(ground.data))
+        menu=BUFFER+0x1000;allocations=[];dungeon_modes={}
+        def allocate_menu():
+            allocations.append(m.reg(0));return menu
+        m.stubs[0x02001170]=allocate_menu
+        m.stubs[0x0204cf9c]=lambda:dungeon_modes.get(m.reg(0),0)
+        # Reproduce v16: using the adjacent selector literal must fail this
+        # native-constructor test, even when Trial Tower is still locked.
+        cave=record.caves[-1]
+        resident=bytes(m.u.mem_read(cave.load_address,cave.size))
+        assert resident.count(struct.pack('<I',0x02324d1c))==1
+        wrong=resident.replace(struct.pack('<I',0x02324d1c),struct.pack('<I',0x0238a080))
+        m.u.mem_write(cave.load_address,wrong)
+        dungeon_modes.update({1:1,102:3})
+        m.write32(0x0238a080,0);m.write32(0x0238a084,0xdeadbeef)
+        try:m.run(0x022ffaf0)
+        except UcError:pass
+        else:raise AssertionError('v16 wrong menu pointer was not detected')
+        m.u.mem_write(cave.load_address,resident)
+        for kind,states,expected in (
+            (0,{1:1,102:3},[1,102]),
+            (0,{1:1,102:3,234:1},[1,102,234]),
+            (0,{1:1,102:3,234:3},[1,102,234]),
+            (0,{},[]),
+            (0,{234:1},[234]),
+            (2,{180:1,234:1},[180]),
+            (3,{191:1,234:1},[191]),
+        ):
+            dungeon_modes.clear();dungeon_modes.update(states)
+            # This selector and the allocated-menu owner are independent native
+            # globals. Keep a sentinel after the selector to catch wrong reads.
+            m.write32(0x0238a080,kind);m.write32(0x0238a084,0xdeadbeef)
+            m.u.mem_write(menu,bytes(0x518)+b'GUARD')
+            result=m.run(0x022ffaf0)
+            assert allocations[-1]==0x518
+            assert struct.unpack('<I',m.u.mem_read(0x02324d20,4))[0]==menu
+            assert struct.unpack('<I',m.u.mem_read(menu+0x14,4))[0]==len(expected)
+            assert [m.read16(menu+0x18+i*2) for i in range(len(expected))]==expected
+            assert result==int(bool(expected))
+            assert bytes(m.u.mem_read(menu+0x518,5))==b'GUARD'
+            assert struct.unpack('<I',m.u.mem_read(0x0238a084,4))[0]==0xdeadbeef
+        print('PASS v16 failure reproduction and native departure constructor through menu return: locked/unlocked/cleared, existing/empty lists and dojo exclusions',flush=True)
         # Compile the complete production payload to catch integration and
         # relocation failures without rebuilding or saving the full stack.
         from patch_engine.mega_evolve_phase3_runtime import native_defines

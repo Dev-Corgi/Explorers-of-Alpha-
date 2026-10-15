@@ -85,9 +85,15 @@ def install(rom, module, state, record):
     compiler=shutil.which('arm-none-eabi-gcc')
     if not compiler:raise RuntimeError('Trial Tower requires arm-none-eabi-gcc')
     prefix=str(Path(compiler).with_name('arm-none-eabi-'));suffix='.exe' if compiler.endswith('.exe') else ''
-    menu_ptr=word(tables[11].data,0x022ffe64,tables[11].ramAddress)
+    menu_load=word(tables[11].data,0x022ffe08,tables[11].ramAddress)
+    if menu_load!=0xe59f0058:raise RuntimeError('Trial Tower menu pointer load changed')
+    # ARM literal loads use PC=instruction+8. The preceding literal is the
+    # menu-kind selector, not the pointer to the allocated departure menu.
+    menu_literal=0x022ffe08+8+(menu_load&0xfff)
+    menu_ptr=word(tables[11].data,menu_literal,tables[11].ramAddress)
     defines=dict(TT_DUNGEON=dungeon,TT_GROUP=group,TT_MARKER=marker,
-                 TT_NAME_ID=index+1,TT_MENU_PTR=menu_ptr)
+                 TT_NAME_ID=index+1,TT_MENU_PTR=menu_ptr,
+                 TT_MENU_CAPACITY=(word(tables[11].data,0x022ffe60,tables[11].ramAddress)-0x1c4)//4)
     defines.update({f'TT_NAME_ALIAS_{i}':v for i,v in enumerate(name_aliases)})
     with tempfile.TemporaryDirectory(prefix='mega_tower_') as tmp:
         work=Path(tmp);(work/'tower_resident_generated.h').write_text(

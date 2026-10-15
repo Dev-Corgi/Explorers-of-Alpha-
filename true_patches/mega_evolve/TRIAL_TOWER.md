@@ -1,6 +1,6 @@
 # Trial Tower / 시련의 탑
 
-Part of `mega_evolve` version 16, phase 6. No separate module or xdelta.
+Part of `mega_evolve` version 17, phase 6. No separate module or xdelta.
 
 The input Alpha ROM uses all 180 ordinary dungeon definitions. Trial Tower uses
 unused dungeon ID 234, a new mappa group appended at application time, and the
@@ -47,6 +47,14 @@ South's location. The four unused dungeon-name slots alias new string index 1978
 StringFromId. Placeholder indices are not overwritten. Its exact English/Korean
 pair is in `korean/data/translations.json.gz`.
 
+Version 17 fixes the departure-menu owner pointer. The original instruction at
+0x022FFE08 reads its literal from PC+8+0x58 (0x022FFE68), whose value is
+0x02324D1C. Version 16 mistakenly used the preceding selector literal, 0x0238A080,
+and also supplied it to the native epilogue. That could break the entire list
+even while Trial Tower was locked. Installation now decodes the original load;
+the constructor's actual allocation size also bounds the appended status row.
+The unlock timing and existing saved open bits do not change.
+
 Read-only verification (no full-stack build, ROM or save output):
 
 ```powershell
@@ -57,7 +65,8 @@ The fixture clones the base ROM in memory and verifies data and hook guards.
 Compiled ARM checks cover all 81 boss/level combinations, HP, moves, IQ, sprite
 selection, saved permutations, the complete phase-6 payload's linking/relocations
 and RAM budget, original dungeon queries, name aliases, native victory objectives,
-departure visibility, and Spring success/exclusion cases. Engine file services,
+the original departure constructor through its real epilogue (including v16
+failure reproduction), and Spring success/exclusion cases. Engine file services,
 CalcStat inputs, random numbers and selected UI services are modeled where noted
 in the harness; this does not replace a playable emulator run after a requested
 full-stack build.
