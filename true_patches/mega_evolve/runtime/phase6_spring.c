@@ -15,6 +15,13 @@ static u32 evolution_kind; /* Evolve action: 0=ordinary, 1=Mega, 2=Shiny */
 static u32 story;
 static u32 submenu[16];
 static u8 *state(void) { return *(u8 **)SPRING_STATE_PTR; }
+/* The ground evolution flash outlives the shop controller. Its frame-180
+ * callback can arrive after the controller has been freed. On the DS a
+ * NULL+0xD8 write aliases ITCM and destroys CopyAndInterleave0's LSL. */
+void ME_Spring_AnimationComplete(void) {
+    u8 *s=state();
+    if(s)RD32(s,0xD8)=4;
+}
 static u8 *member(int index) { return FN(0x020555A8,u8*,(int))(index); }
 static int base(int species) {
     if (species >= 600) species -= 600;

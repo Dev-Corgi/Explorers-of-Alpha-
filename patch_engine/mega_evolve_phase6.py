@@ -58,6 +58,9 @@ def install(rom,module,state,record):
     data=load();tables=rom.loadArm9Overlays();ov=tables[16]
     if ov.ramAddress!=LOAD or ov.bssSize:raise RuntimeError('phase6 Spring overlay layout changed')
     source=bytes(ov.data);arm9=bytearray(rom.arm9)
+    if tuple(word(source,site,LOAD) for site in (0x0238CCF0,0x0238CCF4,0x0238CCF8,0x0238CCFC,0x0238CD00))!=(
+            0xE59F000C,0xE3A01004,0xE5900000,0xE58010D8,0xE12FFF1E):
+        raise RuntimeError('phase6 Spring animation completion callback changed')
     # Luminous prerequisite signatures and original resident writer are required.
     if word(arm9,0x02059B0C,0x02000000)!=0xE3A00005 or word(arm9,0x0205A340,0x02000000)!=0xE92D4070:
         raise RuntimeError('phase6 luminous Spring prerequisite missing')
@@ -102,6 +105,12 @@ def install(rom,module,state,record):
         blob=binary.read_bytes()
     patched=bytearray(extended[:slot.file_offset+SIZE]);patched[slot.file_offset:slot.file_offset+len(blob)]=blob
     edits=[]
+    site=0x0238CCF0
+    value=branch(site,symbols['ME_Spring_AnimationComplete'])
+    struct.pack_into('<I',patched,site-LOAD,value)
+    edits.append(dict(binary=16,site=site,before=word(source,site,LOAD),after=value))
+    record.hooks.append(HookRecord('ME_Spring_AnimationComplete',site,'b',
+                                  'ME_Spring_AnimationComplete','spring_animation_lifetime'))
     def patch(site,name,link=True,binary=16):
         b,base=(arm9,0x02000000) if binary==0 else (patched,LOAD)
         old=word(b,site,base);prior(site,bytes(b),base,link)

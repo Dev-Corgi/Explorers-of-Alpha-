@@ -1,5 +1,5 @@
 id: mega_evolve
-version: 14
+version: 15
 kind: mega_evolve
 rom_profile: us_vanilla
 phase: 6
@@ -12,6 +12,7 @@ description: >-
   changes remain; permanent XP, doping, nicknames and gender are preserved.
   All 1118 added rows use 586 sprite packages. Mega, Primal and Origin sprites
   include pose-stable aura; repeating source poses share the same aura pixels.
+  Late evolution-animation callbacks do not write after the Spring controller closes.
   Enhanced effects remain phase7.
 requires:
   - z_move_v2
