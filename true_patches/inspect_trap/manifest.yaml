@@ -1,0 +1,39 @@
+id: inspect_trap
+version: 1
+region: US
+description: >
+  During Y direction inspection, preview hidden traps in the controlled actor's
+  current room at half opacity on the tile-grid layer. Releasing/cancelling Y
+  removes the previews without revealing traps or changing their gameplay state.
+kind: asm
+rom_profile: us_vanilla
+hooks:
+  - name: InspectTrapBegin
+    symbol: InspectTrapBeginSite
+    binary: ov29
+    vanilla_word: 0xEB01111C
+    chain: first
+    target_symbol: InspectTrap_Begin
+  - name: InspectTrapGridTile
+    symbol: InspectTrapGridTileSite
+    binary: ov29
+    vanilla_word: 0xE0DA20B6
+    chain: first
+    target_symbol: InspectTrap_GridTile
+  - name: InspectTrapEnd
+    symbol: InspectTrapEndSite
+    binary: ov29
+    vanilla_word: 0xE5C01251
+    chain: first
+    target_symbol: InspectTrap_End
+cave:
+  binary: ov36
+  estimated_bytes: 1024
+  alignment: 4
+  base_label: InspectTrapCodeAddress
+asm:
+  entry: asm/main.asm
+verify:
+  - type: hooks_are_branch
+  - type: cave_nonempty
+    overlay: ov36

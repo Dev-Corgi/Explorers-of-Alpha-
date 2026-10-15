@@ -42,6 +42,7 @@ FULL_STACK_MODULES = [
     "spinda_ev_speed",
     "balance_change",
     "control_mode_enhance",
+    "inspect_trap",
     "belly_union",
     "bug_fixes",
     "luminous_evolution",
