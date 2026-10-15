@@ -39,6 +39,43 @@ def native_defines(ov29):
     return values
 
 
+def base_stat_consumers(ov29,ov36):
+    """Follow installed BaseStats branches; preceding modules move its cave."""
+    from .hook_registry import branch_target
+    from true_patches.base_stats_speed.generate_tables import SENTINEL_OFF,SPEED_OFF
+
+    def follow(data,base,site):
+        instruction=word(data,site,base)
+        if instruction>>24!=0xea:
+            raise RuntimeError(f'mega_evolve BaseStats branch changed at {site:#x}')
+        target=branch_target(site,instruction)
+        if not OV36<=target<OV36+len(ov36)-4:
+            raise RuntimeError('mega_evolve BaseStats consumer outside overlay36')
+        return target
+
+    combat=follow(ov29,OV29,0x0230c26c)
+    # spinda_ev_speed redirects the ov29 hit caller into arm9. Locate the
+    # BaseStats hit consumer from its unique installed table marker instead.
+    marker=struct.pack('<I',0xb5a7e001)
+    position=ov36.find(marker)
+    if position<SENTINEL_OFF or ov36.find(marker,position+1)!=-1:
+        raise RuntimeError('mega_evolve requires one installed BaseStats marker')
+    hit=OV36+position-SENTINEL_OFF+SPEED_OFF
+    if not OV36<=hit<OV36+len(ov36)-4:
+        raise RuntimeError('mega_evolve BaseStats hit consumer outside overlay36')
+    if word(ov36,combat,OV36)!=0xe59d1018:
+        raise RuntimeError('mega_evolve BaseStats combat entry changed')
+    sites={'ME_MagnetDefenseHook':combat+0x38,
+           'ME_AttackStageHook':combat+0x18,
+           'ME_UnawareHitStagesHook':hit}
+    for name,expected in [('ME_MagnetDefenseHook',0xe3540000),
+                          ('ME_AttackStageHook',0xe59d1044),
+                          ('ME_UnawareHitStagesHook',0xe35a0000)]:
+        if word(ov36,sites[name],OV36)!=expected:
+            raise RuntimeError(f'mega_evolve {name} consumer changed')
+    return sites
+
+
 def install_hooks(ov29,ov36,symbols,patch):
     """Phase3 installation of ordinary effect consumers.
 
@@ -47,6 +84,7 @@ def install_hooks(ov29,ov36,symbols,patch):
     """
     from .mega_evolve_runtime import branch
     from .hook_registry import branch_target
+    stage_sites=base_stat_consumers(ov29,ov36)
     guards={0x022ffdf4:0xe92d41f0,0x02311088:0xe92d4ff8,
             0x022fd9d4:0xe92d41f8,0x02309a28:branch(0x02309a28,0x022e81f8,True),
             0x02314e54:branch(0x02314e54,0x02314810,True),
@@ -89,9 +127,9 @@ def install_hooks(ov29,ov36,symbols,patch):
     for overlay,site,expected,name,linked in (
         (29,0x0230c830,branch(0x0230c830,0x0230a940,True),'ME_IntimidateAuraHook',True),
         (29,0x023136e4,branch(0x023136e4,0x02311b94,True),'ME_AttackDropTraitHook',True),
-        (36,0x023c9e78,0xe3540000,'ME_MagnetDefenseHook',True),
-        (36,0x023c9e58,0xe59d1044,'ME_AttackStageHook',True),
-        (36,0x023c9f64,0xe35a0000,'ME_UnawareHitStagesHook',True),
+        (36,stage_sites['ME_MagnetDefenseHook'],0xe3540000,'ME_MagnetDefenseHook',True),
+        (36,stage_sites['ME_AttackStageHook'],0xe59d1044,'ME_AttackStageHook',True),
+        (36,stage_sites['ME_UnawareHitStagesHook'],0xe35a0000,'ME_UnawareHitStagesHook',True),
         (36,0x023c0470,0xe3500001,'ME_StrongDamageWeatherHook',True),
         (36,0x023c04c4,0xe3a00000,'ME_StrongSunImmuneHook',True),
         (29,0x02305fdc,0xe92d43f8,'ME_EndSleepHook',False),
