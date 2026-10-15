@@ -26,6 +26,11 @@ const MEForm *ME_FindForm(int);
 static void ME_QuickActor(u8*);
 void ME_QuickReady(void);
 #endif
+#ifdef ME_TRIAL_TOWER
+void ME_TowerSave(u8*);
+int ME_TowerLoad(const u8*);
+void ME_TowerReset(void);
+#endif
 enum { COUNT=20, SOURCES=60, SNAPSHOT=1024, MAGIC=0x3147454d,
 #ifdef ME_PHASE2
  SCHEMA=2
@@ -328,4 +333,7 @@ int ME_ImportState(u8 *in,int size) {
 #ifdef ME_PHASE4
 #include "phase4_quick.c"
 #endif
+#endif
+#ifdef ME_TRIAL_TOWER
+#include "trial_tower.c"
 #endif

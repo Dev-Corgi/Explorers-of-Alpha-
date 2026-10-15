@@ -33,6 +33,9 @@ int ME_QuickWrite(u32 *position,u8 *main,int size) {
         quick_copy(row+28,(u8*)x+12,sizeof(Extra)-12);
     }
     U32(quick_pending,4880)=sunlight_serial;U32(quick_pending,4884)=movement_serial;
+#ifdef ME_TRIAL_TOWER
+    ME_TowerSave(quick_pending+4888);
+#endif
     U32(quick_pending,12)=quick_hash(quick_pending,QUICK_SIZE,12);
     result=FN(0x0204a9c8,int(*)(int,u8*,int))(QUICK_PAGE,quick_pending,QUICK_SIZE);
     quick_loaded=0;
@@ -66,6 +69,9 @@ int ME_QuickRead(u32 *position,u8 *main,int size) {
         if(!U16(row,2))continue;
         for(int j=0;j<6;j++)if(!packed_valid(U32(row,4+j*4)))return 2;
     }
+#ifdef ME_TRIAL_TOWER
+    if(!ME_TowerLoad(quick_pending+4888))return 2;
+#endif
     quick_loaded=1;return 0;
 }
 static void ME_QuickActor(u8 *e) {

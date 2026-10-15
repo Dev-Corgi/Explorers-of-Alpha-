@@ -176,6 +176,14 @@ int ME_Spring_Convert(s16 *index,int target) {
     FN(0x0205A340,int,(s16*,u8*,int))(index,p,target);
     p=member(*index);
     p[6]=first; p[7]=second; /* forms do not add evolution-history entries */
+    if (!mode && evolution_kind==1 && RD16(p,4)==target) {
+        /* Persist only completed Mega/Awakening conversions, never menu entry,
+         * cancelled choices, ordinary evolution, regression or Shiny changes. */
+        if(!FN(0x0204CF9C,int,(int))(TRIAL_TOWER_DUNGEON))
+            FN(0x0204D018,void,(int,int))(TRIAL_TOWER_DUNGEON,1);
+        FN(0x0204B988,void,(int,int,int,int))(0,0x53,TRIAL_TOWER_DUNGEON,1);
+        FN(0x0204B988,void,(int,int,int,int))(0,0x55,TRIAL_TOWER_MARKER,1);
+    }
     if (mode==1 && !old_stage) {
         if (p[7]) p[7]=0; else p[6]=0;
     }

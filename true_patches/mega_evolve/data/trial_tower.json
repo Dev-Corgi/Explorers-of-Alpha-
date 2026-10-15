@@ -1,0 +1,26 @@
+{
+  "schema": 1,
+  "dungeon_id": 234,
+  "source_dungeon": 102,
+  "room_first": 230,
+  "name_index": 19780,
+  "en": "Trial Tower",
+  "ko": "시련의 탑",
+  "levels": [12, 24, 30, 36, 41, 44, 47, 49, 51],
+  "bosses": [
+    {"name": "Mewtwo", "species": 150, "moves": [463, 145, 258, 528]},
+    {"name": "Lugia", "species": 276, "moves": [353, 240, 93, 12]},
+    {"name": "Ho-Oh", "species": 277, "moves": [149, 93, 133, 223]},
+    {"name": "Kyogre", "species": 414, "moves": [240, 310, 345, 93]},
+    {"name": "Groudon", "species": 415, "moves": [157, 299, 93, 265]},
+    {"name": "Rayquaza", "species": 416, "moves": [153, 343, 132, 93]},
+    {"name": "Deoxys", "species": 418, "moves": [110, 132, 186, 193]},
+    {"name": "Regigigas", "species": 528, "moves": [505, 322, 93, 271]},
+    {"name": "Cresselia", "species": 530, "moves": [234, 42, 81, 56]}
+  ],
+  "final": [
+    {"name": "Giratina", "species": 529, "source_species": 549, "moves": [477, 437, 106, 93]},
+    {"name": "Palkia", "species": 551, "source_species": 551, "moves": [435, 310, 93, 208]},
+    {"name": "Dialga", "species": 552, "source_species": 552, "moves": [494, 342, 93, 83]}
+  ]
+}

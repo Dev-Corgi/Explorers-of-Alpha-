@@ -36,7 +36,7 @@ modules:
     kind: asm
   mega_evolve:
     path: mega_evolve
-    description: Mega/shiny-mega evolution; phase 2 adds three ability slots, grades and temporary copy/swap state.
+    description: Mega/shiny-mega evolution, three ability slots, and the Spring-unlocked Trial Tower.
     kind: mega_evolve
   luminous_evolution:
     path: luminous_evolution

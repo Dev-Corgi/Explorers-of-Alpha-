@@ -1,0 +1,63 @@
+# Trial Tower / 시련의 탑
+
+Part of `mega_evolve` version 16, phase 6. No separate module or xdelta.
+
+The input Alpha ROM uses all 180 ordinary dungeon definitions. Trial Tower uses
+unused dungeon ID 234, a new mappa group appended at application time, and the
+empty fixed-room slots 230–239. Installation rejects occupied slots or differing
+BALANCE/UTILITY source banks. Native loaders use UTILITY; both banks are updated.
+Zero Isle South (102), its original floors, and original rooms 21/77 stay intact.
+All 99 floors and restrictions are copied; only the ten boss-floor references
+change. The copied final floor remains the end of the dungeon.
+
+The Spring controller unlocks the dungeon after a successful stage-1 Mega or
+existing Primal/Origin awakening conversion. Menu entry, cancellation, failed
+conversion, ordinary evolution, regression and Shiny conversion do not unlock it.
+The normal saved dungeon-open/present/world-map bits hold the unlock. Previously
+completed conversions cannot be inferred from a roster that may have regressed;
+an older save unlocks on its next successful Spring Mega conversion.
+
+Room slots 230–238 clone room 21; 239 clones room 77. All retain the native
+exit-on-enemy-defeat property. Native enemy-objective processing waits for all
+enemies in the room before requesting the next floor; floor 99 ends the run.
+The original room-77 Palkia (551) and Dialga (552) seats stay as their existing
+Alpha species. Only Darkrai (549) becomes Giratina (529).
+
+`data/trial_tower.json` defines nine bosses, nine levels, and all eleven movesets.
+Nine-way Fisher–Yates sampling uses the dungeon RNG. The permutation is shared by
+sprite preloading and spawning, survives floor changes, and is stored in unused
+MEK4 sidecar bytes 4888–4900 under its existing checksum. Loading rejects duplicate
+or out-of-range entries. DungeonFree resets it. A fresh run draws a fresh order.
+
+Species and level are chosen before SpawnMonster, so appearance, abilities and
+initialization use the chosen species. After the existing Strong Enemy stats
+application and V cleanup, only the specified level, current/max HP, IQ and moves
+are assigned. Combat stats continue using the existing CalcStat implementation.
+HP is CalcStat(species, level, HP, V=0) ×4 at floors 10–90 or ×2 at floor 99.
+IQ is 999, the native Gummi cap; native UpdateIqSkills applies that species' skills.
+Native InitMove initializes all four moves and their PP/AI flags. Slot 193 is
+original Zap Cannon, named Tesla Cannon in Alpha; that existing slot is used.
+
+The resident dungeon-query/name/menu helpers use a separately allocated ov36
+cave, avoiding the dungeon heap dispatcher in ground mode. Original IDs retain
+their native getter paths, including dojo definitions. Dungeon ID 234 is appended
+only to the main departure list after unlock. Its map marker copies Zero Isle
+South's location. The four unused dungeon-name slots alias new string index 19780
+(message ID 19781) at the common string-file reader, covering direct copies and
+StringFromId. Placeholder indices are not overwritten. Its exact English/Korean
+pair is in `korean/data/translations.json.gz`.
+
+Read-only verification (no full-stack build, ROM or save output):
+
+```powershell
+.venv/Scripts/python.exe -B -X utf8 -m true_patches.mega_evolve.verify_trial_tower
+```
+
+The fixture clones the base ROM in memory and verifies data and hook guards.
+Compiled ARM checks cover all 81 boss/level combinations, HP, moves, IQ, sprite
+selection, saved permutations, the complete phase-6 payload's linking/relocations
+and RAM budget, original dungeon queries, name aliases, native victory objectives,
+departure visibility, and Spring success/exclusion cases. Engine file services,
+CalcStat inputs, random numbers and selected UI services are modeled where noted
+in the harness; this does not replace a playable emulator run after a requested
+full-stack build.

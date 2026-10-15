@@ -180,6 +180,9 @@ entry ME_FreeHook
  ldr r12,=PRIOR_DUNGEON_FREE
  blx r12
  bl ME_FreeAbilities
+#ifdef ME_TRIAL_TOWER
+ bl ME_TowerReset
+#endif
  pop {r4,pc}
 
 entry ME_HitBoundaryHook

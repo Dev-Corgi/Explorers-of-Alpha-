@@ -43,6 +43,8 @@ def header(rom,ov,data):
                'STR_REGRESSION':19701,'STR_FORM':19702,'STR_REG_CONFIRM':19703,'STR_FORM_CONFIRM':19704,
                'STR_REG_SUCCESS':19705,'STR_FORM_SUCCESS':19706,'STR_FORM_SELECT':19707}
     constants.update({'STR_'+r['key'].upper():r['index']+1 for r in data['strings']})
+    from true_patches.mega_evolve.trial_tower import load as tower
+    constants.update(TRIAL_TOWER_DUNGEON=tower()['dungeon_id'],TRIAL_TOWER_MARKER=tower()['dungeon_id']+1)
     out=''.join(f'#define {k} {v}\n' for k,v in constants.items())
     def array(name,values,typ='unsigned short'):
         return f'static const {typ} {name}[]={{'+','.join(map(str,values))+'};\n'
