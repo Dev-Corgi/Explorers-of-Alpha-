@@ -105,6 +105,7 @@ modules:
     path: status_adjust
     description: Protect/Detect, Endure, Counter, and Mirror Coat counter 1 (this round only). Spite/Grudge
       PP halved. Reflect and Light Screen leave 1/3 damage. Stat stages capped at +/-6 (4..16).
+      Causing another monster to faint cures the attacker's Perish Song.
     kind: asm
   level_scaling_guest_fix:
     path: level_scaling_guest_fix

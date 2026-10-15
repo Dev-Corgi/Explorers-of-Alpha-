@@ -2,6 +2,9 @@
 
 .open "overlay_0029.bin", ov_29
 
+.org StatusAdjustPerishSongDefeatSite
+	b StatusAdjust_PerishSongDefeat
+
 .org CounterStatusDurationAddSite
 	b StatusAdjust_CounterForceDuration
 
@@ -167,6 +170,52 @@
 .open "overlay_0036.bin", ov_36
 
 .org ov_36 + StatusAdjustCodeAddress
+.area 512, 0
+
+; HandleFaint is reached only after revival was declined or unavailable.
+; Run before its victim cleanup and before control_mode_enhance can return
+; early to reserve a party member for next-floor revival. The entry hooks
+; owned by z_move_v2 and balance_change remain in their original order.
+StatusAdjust_PerishSongDefeat:
+	push {r0-r5, r12, lr}
+	mrs r4, cpsr
+	cmp r1, #DAMAGE_SOURCE_WENT_AWAY
+	beq StatusAdjust_PerishSongDefeatDone
+	cmp r0, #0
+	beq StatusAdjust_PerishSongDefeatDone
+	cmp r2, #0
+	beq StatusAdjust_PerishSongDefeatDone
+	cmp r0, r2
+	beq StatusAdjust_PerishSongDefeatDone
+	ldr r3, [r0]
+	cmp r3, #1
+	bne StatusAdjust_PerishSongDefeatDone
+	ldr r3, [r2]
+	cmp r3, #1
+	bne StatusAdjust_PerishSongDefeatDone
+	ldr r3, [r2, #0xb4]
+	cmp r3, #0
+	beq StatusAdjust_PerishSongDefeatDone
+	ldrsh r5, [r3, #0x10]
+	cmp r5, #0
+	ble StatusAdjust_PerishSongDefeatDone
+	ldrb r5, [r3, #PERISH_SONG_COUNTER_OFF]
+	cmp r5, #0
+	beq StatusAdjust_PerishSongDefeatDone
+	mov r5, #0
+	strb r5, [r3, #PERISH_SONG_COUNTER_OFF]
+	mov r5, r2
+	mov r0, r5
+	bl StatusAdjustUpdateStatusIconFlags
+	mov r0, r5
+	mov r1, r5
+	ldr r2, =PERISH_SONG_END_MESSAGE
+	bl StatusAdjustLogMessage
+StatusAdjust_PerishSongDefeatDone:
+	msr cpsr_f, r4
+	pop {r0-r5, r12, lr}
+	mov r10, r0
+	b StatusAdjustPerishSongDefeatResume
 
 ; Counter ticks at the start of the holder's own turn and ends at 0 (vanilla stores duration+1).
 ; 1 = rest of this round only; the next-turn-start tick clears it.
@@ -230,5 +279,6 @@ StatusAdjust_FxOneThird:
 	.word 0
 	.word SCREEN_DAMAGE_ONE_THIRD
 	.pool
+.endarea
 
 .close

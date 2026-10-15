@@ -10,6 +10,7 @@ overlay19_load: 0x0238A140
 arm9_load: 0x02000000
 
 symbols:
+  StatusAdjustPerishSongDefeatSite: 0x022F7F38
   InspectTrapBeginSite: 0x022F2FB0
   InspectTrapGridTileSite: 0x02337634
   InspectTrapEndSite: 0x0233780C

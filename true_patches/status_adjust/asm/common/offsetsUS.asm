@@ -3,6 +3,18 @@
 ov_29 equ 0x022DC240
 ov_36 equ 0x023A7080
 
+; HandleFaint: after z_move_v2's prologue and balance_change's frame allocation.
+; r0 = fainted entity, r1 = damage source, r2 = responsible entity.
+.definelabel StatusAdjustPerishSongDefeatSite,   0x022F7F38
+.definelabel StatusAdjustPerishSongDefeatResume, 0x022F7F3C
+.definelabel StatusAdjustUpdateStatusIconFlags, 0x022E3AB4
+.definelabel StatusAdjustLogMessage,            0x0234B350
+; Reuse EndNegativeStatusCondition's existing Perish Song cure message.
+; LogMessageById ID 0xC83 corresponds to text_e.str index 0xC82.
+PERISH_SONG_END_MESSAGE equ 0xC83
+PERISH_SONG_COUNTER_OFF equ 0x106
+DAMAGE_SOURCE_WENT_AWAY equ 604
+
 ; [monster+0xD6] ticked by TickStatusAndHealthRegen (0x02311420) before the holder acts.
 ; Shared Counter/Mini Counter/Metal Burst inflict (r2 = status id 4/0xA/0xF):
 ; add r0, r0, #1 after CalcStatusDuration.

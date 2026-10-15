@@ -1,7 +1,10 @@
 id: status_adjust
-version: 26
+version: 27
 region: US
 description: >
+  v27: In addition to all existing cures, causing another monster to faint cures Perish Song.
+  Self-faints, missing/non-monster sources and sending a member home do not count.
+  Only the Perish Song counter is cleared; other statuses are unchanged.
   Protect / Detect share Protect status. Inflict writes counter byte 1 (v23; was 2).
   TickStatusAndHealthRegen decrements [monster+0xD6] at the start of the holder's
   own turn and ends the status at 0, so 1 lasts the rest of this round only.
@@ -24,6 +27,13 @@ kind: asm
 rom_profile: us_vanilla
 
 hooks:
+  - name: PerishSongDefeat
+    symbol: StatusAdjustPerishSongDefeatSite
+    binary: ov29
+    vanilla_word: 0xE1A0A000
+    chain: first
+    target_symbol: StatusAdjust_PerishSongDefeat
+
   - name: CounterStatusDurationAddSite
     symbol: CounterStatusDurationAddSite
     binary: ov29
@@ -532,7 +542,7 @@ hooks:
 
 cave:
   binary: ov36
-  estimated_bytes: 224
+  estimated_bytes: 512
   alignment: 4
   base_label: StatusAdjustCodeAddress
 
