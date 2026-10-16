@@ -1,6 +1,6 @@
 # Trial Tower / 시련의 탑
 
-Part of `mega_evolve` version 19, phase 6. No separate module or xdelta.
+Part of `mega_evolve` version 20, phase 6. No separate module or xdelta.
 
 The input Alpha ROM uses all 180 ordinary dungeon definitions. Trial Tower uses
 unused dungeon ID 234, a new mappa group appended at application time, and the
@@ -74,6 +74,10 @@ These are conditional probabilities within Foods/Gummies, totaling 10000.
 Category selection rates, other item categories, shop/house/buried-item pools,
 item density, fixed-room content, and Zero Isle South remain unchanged. MAPPA
 stores cumulative per-category thresholds rather than the displayed deltas.
+
+Version 20 sets `item_density` to 4 on all 99 Trial Tower floor definitions.
+The item weights above and other layout settings are preserved. Fixed-room
+layouts still control the actual content of their boss floors.
 
 Read-only verification (no full-stack build, ROM or save output):
 

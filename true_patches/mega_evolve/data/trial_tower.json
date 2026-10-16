@@ -6,6 +6,7 @@
   "name_index": 19780,
   "en": "Trial Tower",
   "ko": "시련의 탑",
+  "item_density": 4,
   "floor_food_weights": {
     "109": 2055, "110": 2055,
     "119": 342, "120": 343, "121": 342, "122": 342,

@@ -46,6 +46,7 @@ def install(rom, module, state, record):
         if item not in food_ids:raise RuntimeError('Trial Tower food item category changed')
         total+=weight;food_thresholds[item]=total
     for floor in floors:
+        floor.layout.item_density=contract['item_density']
         items={k:v for k,v in floor.floor_items.items.items() if k not in food_ids}
         items.update(food_thresholds)
         floor.floor_items.items=dict(sorted(items.items()))
@@ -175,6 +176,8 @@ def verify(rom,info):
         expected=d['room_first']+(i+1)//10-1 if (i+1)%10==0 and i<90 else d['room_first']+9 if i==98 else int(b.layout.fixed_floor_id)
         if int(a.layout.fixed_floor_id)!=expected:raise AssertionError('Trial Tower floor assignment drift')
         clone.layout.fixed_floor_id=b.layout.fixed_floor_id
+        if a.layout.item_density!=d['item_density']:raise AssertionError('Trial Tower item density drift')
+        clone.layout.item_density=b.layout.item_density
         food_ids=set(c.dungeon_data.item_categories[3].item_ids())
         expected_items={k:v for k,v in b.floor_items.items.items() if k not in food_ids}
         total=0

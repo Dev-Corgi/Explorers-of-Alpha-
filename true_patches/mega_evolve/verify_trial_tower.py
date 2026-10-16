@@ -90,7 +90,7 @@ class Machine:
 def main():
     source=ROOT/'PatchTesting/Explorers of Alpha/Explorers of Alpha.nds'
     before=hashlib.sha256(source.read_bytes()).hexdigest();rom=NintendoDSRom(source.read_bytes());d=load()
-    record=AppliedModule('mega_evolve',19,data=[{'symbols':{'ME_TowerSpawnHook':0x023b8000,'ME_TowerStatsHook':0x023b8010,'ME_TowerSpeciesHook':0x023b8020},'cave_hashes':[]}])
+    record=AppliedModule('mega_evolve',20,data=[{'symbols':{'ME_TowerSpawnHook':0x023b8000,'ME_TowerStatsHook':0x023b8010,'ME_TowerSpeciesHook':0x023b8020},'cave_hashes':[]}])
     info=install(rom,MODULE,None,record);verify(rom,info)
     # Independent screenshot transcription; check displayed deltas AFTER the
     # MAPPA serialize/deserialize round-trip on every floor, not raw thresholds.
@@ -99,6 +99,7 @@ def main():
                    130:342,131:343,132:342,133:343,134:342,135:343,137:68}
     fixture=FileType.MAPPA_BIN.deserialize(rom.getFileByName('BALANCE/mappa_s.bin'))
     for floor in fixture.floor_lists[info['group']]:
+        assert floor.layout.item_density==4
         last=0;actual={}
         for item in [109,110,111,112,113,114,115,*range(119,139),353]:
             value=floor.floor_items.items.get(item)
