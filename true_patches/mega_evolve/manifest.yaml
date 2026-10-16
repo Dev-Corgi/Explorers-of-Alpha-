@@ -1,5 +1,5 @@
 id: mega_evolve
-version: 20
+version: 21
 kind: mega_evolve
 rom_profile: us_vanilla
 phase: 6
@@ -19,6 +19,8 @@ description: >-
   Departure-menu state follows the original ARM PC-relative pointer load.
   Trial Tower uses Zero Isle South's warning/confirmation route with its own entry ID.
   Floor food/gummi weights follow the requested Apple/Big Apple and 17-gummi mix.
+  Eight new fixed rooms256-263 supply key-room rewards, including a current-leader
+  three-star family/type exclusive item. Boss rooms230-239 retain separate IDs.
   Enhanced effects remain phase7.
 requires:
   - z_move_v2

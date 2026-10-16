@@ -13,10 +13,23 @@ from skytemple_files.common.types.file_types import FileType
 from skytemple_files.common.util import get_ppmdu_config_for_rom
 from skytemple_files.hardcoded.dungeons import HardcodedDungeons
 from skytemple_files.hardcoded.fixed_floor import HardcodedFixedFloorTables
+from skytemple_files.dungeon_data.fixed_bin.model import EntityRule,TileRule,TileRuleType
 from .mega_evolve_runtime import OV29, OV36, allocate_runtime, branch, word
 from .korean_codec import parse_str_file, build_str_file, decode_english
 from .state import BuildState, CaveAllocation, HookRecord
 from true_patches.mega_evolve.trial_tower import load
+from true_patches.mega_evolve.fixed_extension import read_extension,serialize_extended
+
+
+def key_room(template,rewards):
+    room=copy.deepcopy(template)
+    positions=[i for i,a in enumerate(room.actions) if isinstance(a,EntityRule)]
+    if len(positions)!=8 or any(room.actions[i].entity_rule_id!=216 for i in positions):
+        raise RuntimeError('Trial Tower key-room template changed')
+    for i,pos in enumerate(positions):
+        room.actions[pos]=(EntityRule(198 if rewards[i]==115 else 216)
+                           if i<len(rewards) else TileRule(TileRuleType.FLOOR_ROOM))
+    return room
 
 
 def install(rom, module, state, record):
@@ -51,22 +64,33 @@ def install(rom, module, state, record):
         items.update(food_thresholds)
         floor.floor_items.items=dict(sorted(items.items()))
     fixed=FileType.FIXED_BIN.deserialize(rom.getFileByName('BALANCE/fixed.bin'))
-    original_rooms={str(n):hashlib.sha256(fixed.fixed_floors[n].to_bytes()).hexdigest() for n in (21,77)}
+    original_rooms={str(n):hashlib.sha256(fixed.fixed_floors[n].to_bytes()).hexdigest() for n in (21,77,170,249)}
     used={int(f.layout.fixed_floor_id) for rows in mappa.floor_lists for f in rows}
     for i in range(10):
         n=first+i
         if n in used or fixed.fixed_floors[n].actions:raise RuntimeError(f'Trial Tower fixed room {n} occupied')
         fixed.fixed_floors[n]=copy.deepcopy(fixed.fixed_floors[21 if i<9 else 77])
         floors[(i+1)*10-1 if i<9 else 98].layout.fixed_floor_id=n
+    alias=contract['key_room_alias']
+    if len(fixed.fixed_floors)!=256 or fixed.fixed_floors[alias].actions or alias in used:
+        raise RuntimeError('Extended fixed-room bridge slot is occupied')
+    for rewards in contract['key_rewards']:
+        fixed.fixed_floors.append(key_room(fixed.fixed_floors[170],rewards))
+    tables=rom.loadArm9Overlays();ov10=bytearray(tables[10].data)
+    props=HardcodedFixedFloorTables.get_fixed_floor_properties(ov10,config)
+    if tables[10].ramAddress+config.bin_sections.overlay10.data.FIXED_ROOM_PROPERTIES_TABLE.address!=0x022c6c70:
+        raise RuntimeError('Extended fixed-room native property address changed')
+    extension=dict(first=256,count=8,alias=alias,properties=[props[170].to_bytes()]*8)
+    props[alias]=copy.deepcopy(props[170])
+    if len(FileType.ITEM_SP.deserialize(rom.getFileByName('BALANCE/item_s_p.bin')).item_list)!=956:
+        raise RuntimeError('Trial Tower exclusive-item range changed')
     mappa.floor_lists.append(floors)
     files={}
     for name,kind,value in (('mappa_s.bin',FileType.MAPPA_BIN,mappa),('fixed.bin',FileType.FIXED_BIN,fixed)):
-        blob=bytes(kind.serialize(value))
+        blob=serialize_extended(value,extension) if name=='fixed.bin' else bytes(kind.serialize(value))
         # Native Alpha loaders select UTILITY, while authoring APIs select BALANCE.
         for bank in ('BALANCE','UTILITY'):
             path=bank+'/'+name;rom.setFileByName(path,blob);files[path]=hashlib.sha256(blob).hexdigest()
-    tables=rom.loadArm9Overlays();ov10=bytearray(tables[10].data)
-    props=HardcodedFixedFloorTables.get_fixed_floor_properties(ov10,config)
     for i in range(10):
         props[first+i]=copy.deepcopy(props[21 if i<9 else 77])
         props[first+i].exit_floor_when_defeating_enemies=True
@@ -125,7 +149,7 @@ def install(rom, module, state, record):
     ov36[slot.file_offset:slot.file_offset+slot.size]=blob.ljust(slot.size,b'\0')
     edits=[]
     def patch(binary,site,target,expected,link=False):
-        b,base=(arm9,0x02000000) if binary==0 else (tables[binary].data,tables[binary].ramAddress)
+        b,base=(arm9,0x02000000) if binary==0 else (ov36,OV36) if binary==36 else (tables[binary].data,tables[binary].ramAddress)
         old=word(b,site,base)
         if old!=expected:raise RuntimeError(f'Trial Tower hook guard changed at {site:#x}: {old:#x}')
         value=branch(site,target,link);struct.pack_into('<I',b,site-base,value)
@@ -145,6 +169,11 @@ def install(rom, module, state, record):
     patch(29,0x0234389c,runtime['ME_TowerSpawnHook'],branch(0x0234389c,0x023da080,True),True)
     patch(29,0x023438bc,runtime['ME_TowerStatsHook'],0xe5d80000)
     patch(29,0x02343eb8,runtime['ME_TowerSpeciesHook'],branch(0x02343eb8,0x023da090,True),True)
+    patch(36,0x023dbbd4,runtime['ME_TowerSelectHook'],0xe3a0000c)
+    patch(29,0x022e6fbc,runtime['ME_TowerFloorHook'],0xe92d4ff8)
+    patch(29,0x02343db8,runtime['ME_TowerFixedLoadedHook'],0xe8bd8008)
+    patch(29,0x02343674,runtime['ME_TowerItemHook'],branch(0x02343674,0x02344430,True),True)
+    patch(29,0x022df6a4,runtime['ME_TowerTeamHook'],branch(0x022df6a4,0x022fc50c,True),True)
     rom.arm9=bytes(arm9)
     tables[10].data=ov10;tables[36].data=ov36
     for n in (10,11,29,36):
@@ -189,6 +218,13 @@ def verify(rom,info):
         # Floor/layout model equality covers the complete spawn/item/trap data.
         if clone!=b:raise AssertionError('Trial Tower floor clone drift')
     f=FileType.FIXED_BIN.deserialize(rom.getFileByName('BALANCE/fixed.bin'))
+    extension=read_extension(rom.getFileByName('BALANCE/fixed.bin'))
+    if not extension or len(f.fixed_floors)!=264:raise AssertionError('Extended fixed-room directory drift')
+    template=HardcodedFixedFloorTables.get_fixed_floor_properties(tables[10].data,c)[170].to_bytes()
+    if extension['properties']!=[template]*8:raise AssertionError('Extended room property drift')
+    for i,rewards in enumerate(d['key_rewards']):
+        if f.fixed_floors[256+i].to_bytes()!=key_room(f.fixed_floors[170],rewards).to_bytes():
+            raise AssertionError('Trial Tower extended key-room layout drift')
     for n,digest in info['original_rooms'].items():
         if hashlib.sha256(f.fixed_floors[int(n)].to_bytes()).hexdigest()!=digest:raise AssertionError('original boss room changed')
     for i in range(10):

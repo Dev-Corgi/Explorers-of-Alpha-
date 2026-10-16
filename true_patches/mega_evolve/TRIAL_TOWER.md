@@ -1,6 +1,6 @@
 # Trial Tower / 시련의 탑
 
-Part of `mega_evolve` version 20, phase 6. No separate module or xdelta.
+Part of `mega_evolve` version 21, phase 6. No separate module or xdelta.
 
 The input Alpha ROM uses all 180 ordinary dungeon definitions. Trial Tower uses
 unused dungeon ID 234, a new mappa group appended at application time, and the
@@ -79,6 +79,68 @@ Version 20 sets `item_density` to 4 on all 99 Trial Tower floor definitions.
 The item weights above and other layout settings are preserved. Fixed-room
 layouts still control the actual content of their boss floors.
 
+Version 21 appends eight actual fixed layouts, IDs256–263. Boss rooms230–239
+keep their separate IDs and original assignments. The new rooms clone room170's
+locked entrance; unused item positions become ordinary floor tiles.
+
+| Fixed Room | Reward |
+| --- | --- |
+| 256 | Golden Apple ×2, Max Elixir ×2 |
+| 257 | Reviver Seed ×2 |
+| 258 | Nectar (달콤한 꿀) ×4 |
+| 259 | Golden Seed ×1 |
+| 260 | Life Seed ×8 |
+| 261 | Wonder Gummi ×1 |
+| 262 | Current leader's exclusive item ×1 |
+| 263 | Joy Seed ×7 |
+
+Alpha's original chance and eligibility for a random key room are preserved.
+After that chance succeeds, Trial Tower chooses one of these eight rooms with
+equal probability. Other dungeons retain Alpha's original twelve-way choice.
+Static rewards are clean and bypass the native owned-item-to-Reviver replacement.
+Existing entity rows serve as placeholders; the room-specific placement hook
+resolves their actual item IDs without moving the shared entity/item tables.
+
+Room262 resolves its item after native SpawnTeam, when the current leader and
+all team held items exist. MD's explicit `base_form_index` identifies the whole
+evolution family, including branches, genders, native alternate forms and the
+inherited permanent-form rows. Valid item-SP types8/9/10 are three-star family
+items, including hatch/special items. Choose uniformly among unowned candidates;
+if none remain, choose uniformly among unowned type-three-star items (type4) for
+either of the leader's current types. If none remain, give Wonder Gummi. Ownership
+includes the team bag and all four teammates' equipped items, excluding storage.
+
+The MFX1 extension keeps MAPPA and native dungeon/save structures byte-compatible.
+The otherwise empty slot249 is an internal bridge, not a replacement boss room.
+The selected physical ID is held separately as a16-bit value. Whenever the native
+fixed.bin loader relocates its SIR0 pointers, the bridge points at that physical
+layout and receives its independent12-byte property row. Thus both sprite
+preloading and floor generation use the actual new room. DungeonFree and each
+new floor clear the selection. The existing checksummed MEK4 sidecar stores the
+selected ID and current properties at bytes4901–4914, following the original
+boss-order bytes4888–4900; old sidecars have zeroes there and remain compatible.
+The first-turn quicksave callback reapplies the validated selection/properties
+after any intervening native floor initialization.
+
+`fixed_extension.py` writes a112-byte unreferenced SIR0 content prefix: MFX1,
+version1, first ID256, count8, bridge249, reserved0, then eight12-byte property
+rows. The ordinary fixed-room pointer directory now has264 entries. SIR0
+relocation records include only real pointers, never the prefix's properties.
+
+The SkyTemple adapter in `fixed_extension_plugin/` lists and edits all264 room
+layouts and exposes the new property rows. Its contextual item preview follows
+the game's reward mapping; room262 shows a Wonder Gummi placeholder because its
+real reward depends on the leader and inventory during play. Saving preserves
+MFX1 and synchronizes BALANCE/fixed.bin with the native UTILITY bank. Native u8
+override controls are disabled on the extended rooms. These additional rooms
+are selected by Trial Tower's extension, not assigned as256+ in MAPPA's u8 field.
+
+Install/update the adapter, then restart SkyTemple:
+
+```powershell
+.venv/Scripts/python.exe -B true_patches/mega_evolve/fixed_extension_plugin/install.py
+```
+
 Read-only verification (no full-stack build, ROM or save output):
 
 ```powershell
@@ -86,6 +148,11 @@ Read-only verification (no full-stack build, ROM or save output):
 ```
 
 The fixture clones the base ROM in memory and verifies data and hook guards.
+It also checks SkyTemple layout/property save-reopen and bank synchronization,
+all eight native SIR0/load/preload paths, exact reward counts, bag/held-item
+exclusions, branch/hatch/female/form candidates, uniform sampling and extended
+ID/property quicksave restoration. Filesystem services and GUI widgets are
+modeled; no playable emulator run or live SkyTemple UI session is claimed.
 Compiled ARM checks cover all 81 boss/level combinations, HP, moves, IQ, sprite
 selection, saved permutations, the complete phase-6 payload's linking/relocations
 and RAM budget, original dungeon queries, name aliases, native victory objectives,

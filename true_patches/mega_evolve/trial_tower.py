@@ -14,12 +14,18 @@ def load():
     food = data['floor_food_weights']
     assert sum(food.values()) == 10000 and all(0 < w < 65535 for w in food.values())
     assert set(map(int, food)) == {109, 110, 137, *range(119, 136)}
+    assert len(data['key_rewards']) == 8
+    assert all(1 <= len(row) <= 8 for row in data['key_rewards'])
+    assert data['key_rewards'][6] == [0]  # Current-leader exclusive reward.
+    assert data['key_room_first'] == 256 and data['key_room_alias'] == 249
     return data
 
 
 def header():
     d = load()
     out = f"#define TT_DUNGEON {d['dungeon_id']}\n#define TT_ROOM_FIRST {d['room_first']}\n"
+    out += f"#define TT_FINAL_ROOM {d['final_room']}\n#define TT_KEY_FIRST {d['key_room_first']}\n"
+    out += f"#define TT_KEY_ALIAS {d['key_room_alias']}\n"
     out += 'static const unsigned char tt_levels[]={'+','.join(map(str,d['levels']))+'};\n'
     out += 'typedef struct {unsigned short species,moves[4];} TTBoss;\n'
     for name,rows in (('tt_bosses',d['bosses']),('tt_final',d['final'])):

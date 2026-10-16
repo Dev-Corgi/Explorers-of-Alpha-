@@ -90,8 +90,12 @@ class Machine:
 def main():
     source=ROOT/'PatchTesting/Explorers of Alpha/Explorers of Alpha.nds'
     before=hashlib.sha256(source.read_bytes()).hexdigest();rom=NintendoDSRom(source.read_bytes());d=load()
-    record=AppliedModule('mega_evolve',20,data=[{'symbols':{'ME_TowerSpawnHook':0x023b8000,'ME_TowerStatsHook':0x023b8010,'ME_TowerSpeciesHook':0x023b8020},'cave_hashes':[]}])
+    record=AppliedModule('mega_evolve',21,data=[{'symbols':{name:0x023b8000+i*16 for i,name in enumerate([
+        'ME_TowerSpawnHook','ME_TowerStatsHook','ME_TowerSpeciesHook','ME_TowerItemHook','ME_TowerTeamHook',
+        'ME_TowerSelectHook','ME_TowerFloorHook','ME_TowerFixedLoadedHook'])},'cave_hashes':[]}])
     info=install(rom,MODULE,None,record);verify(rom,info)
+    from .fixed_extension_plugin.verify import check_plugin
+    check_plugin(rom)
     # Independent screenshot transcription; check displayed deltas AFTER the
     # MAPPA serialize/deserialize round-trip on every floor, not raw thresholds.
     expected_food={109:2055,110:2055,119:342,120:343,121:342,122:342,
@@ -130,7 +134,28 @@ static u8 *monster(u8 *e){return e&&U32(e,0)==1?(u8*)U32(e,0xb4):0;}
 static int clamp(int x,int lo,int hi){return x<lo?lo:x>hi?hi:x;}
 #include "trial_tower.c"
 ''')
-        blob,symbols=compile_code(work,work/'test.c');m=Machine(rom,blob,symbols)
+        # Exercise the actual first-turn restore callback after a native floor
+        # reset, with unrelated actor/state restoration services isolated.
+        ready=(MODULE/'runtime/phase4_quick.c').read_text().split('void ME_QuickReady(void)',1)[1]
+        with (work/'test.c').open('a') as out:
+            out.write('''
+#define ME_TRIAL_TOWER 1
+enum {COUNT=0,SNAPSHOT=1024};
+static u8 quick_pending[0x1400];static int quick_loaded;
+static u32 sunlight_serial,movement_serial;
+static u8 *entity(int i){(void)i;return 0;}
+static void ME_QuickActor(u8 *e){(void)e;}
+static void ME_ImportState(u8 *p,int size){(void)p;(void)size;}
+void ME_QuickReady(void)'''+ready+'''
+void ME_TestResume(u8 *saved){
+    for(int i=0;i<27;i++)quick_pending[4888+i]=saved[i];
+    quick_loaded=1;ME_TowerFloorReset();ME_QuickReady();
+}
+''')
+        (work/'hooks.S').write_text('.syntax unified\n.arm\n.text\n.macro entry name\n.global \\name\n\\name:\n.endm\n#include "trial_tower_hooks.S"\n')
+        blob,symbols=compile_code(work,work/'test.c',[work/'hooks.S']);m=Machine(rom,blob,symbols)
+        from .verify_trial_tower_rewards import check_rewards
+        check_rewards(Machine(rom,blob,symbols),rom,info)
         m.stubs[0x020137b8]=lambda: m.u.mem_write(m.reg(0),struct.pack('<BBHHBB',9,0,0,m.reg(1),10,0)) or 0
         permutations=set();cases=0;covered=set()
         # Every Fisher-Yates decision sequence is a bijection onto all 9! orders.

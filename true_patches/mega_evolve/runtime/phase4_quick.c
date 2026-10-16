@@ -7,6 +7,9 @@ enum { QUICK_SIZE=0x1400, QUICK_MAIN=0x5800, QUICK_PAGE=488,
        QUICK_MAGIC=0x344b454d, QUICK_ROWS=1040, QUICK_STRIDE=192 };
 _Static_assert(28+sizeof(Extra)-12<=QUICK_STRIDE,"quicksave actor row overflow");
 _Static_assert(QUICK_ROWS+COUNT*QUICK_STRIDE+8<=QUICK_SIZE,"quicksave globals overflow");
+#ifdef ME_TRIAL_TOWER
+_Static_assert(4888+27<=QUICK_SIZE,"extended fixed-room quicksave overflow");
+#endif
 static u8 quick_pending[QUICK_SIZE];
 static int quick_loaded;
 static u32 quick_hash(u8 *p,int n,int skip) {
@@ -88,6 +91,11 @@ static void ME_QuickActor(u8 *e) {
 }
 void ME_QuickReady(void) {
     if(!quick_loaded)return;
+#ifdef ME_TRIAL_TOWER
+    /* Native floor initialization can run after the sidecar read. Reapply the
+     * validated room ID/properties after that reset, before the first turn. */
+    ME_TowerLoad(quick_pending+4888);
+#endif
     for(int i=0;i<COUNT;i++)ME_QuickActor(entity(i));
     ME_ImportState(quick_pending+16,SNAPSHOT);
     sunlight_serial=U32(quick_pending,4880);movement_serial=U32(quick_pending,4884);
