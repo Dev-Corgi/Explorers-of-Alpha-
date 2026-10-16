@@ -90,8 +90,22 @@ class Machine:
 def main():
     source=ROOT/'PatchTesting/Explorers of Alpha/Explorers of Alpha.nds'
     before=hashlib.sha256(source.read_bytes()).hexdigest();rom=NintendoDSRom(source.read_bytes());d=load()
-    record=AppliedModule('mega_evolve',18,data=[{'symbols':{'ME_TowerSpawnHook':0x023b8000,'ME_TowerStatsHook':0x023b8010,'ME_TowerSpeciesHook':0x023b8020},'cave_hashes':[]}])
+    record=AppliedModule('mega_evolve',19,data=[{'symbols':{'ME_TowerSpawnHook':0x023b8000,'ME_TowerStatsHook':0x023b8010,'ME_TowerSpeciesHook':0x023b8020},'cave_hashes':[]}])
     info=install(rom,MODULE,None,record);verify(rom,info)
+    # Independent screenshot transcription; check displayed deltas AFTER the
+    # MAPPA serialize/deserialize round-trip on every floor, not raw thresholds.
+    expected_food={109:2055,110:2055,119:342,120:343,121:342,122:342,
+                   123:343,124:342,125:343,126:342,127:343,128:342,129:343,
+                   130:342,131:343,132:342,133:343,134:342,135:343,137:68}
+    fixture=FileType.MAPPA_BIN.deserialize(rom.getFileByName('BALANCE/mappa_s.bin'))
+    for floor in fixture.floor_lists[info['group']]:
+        last=0;actual={}
+        for item in [109,110,111,112,113,114,115,*range(119,139),353]:
+            value=floor.floor_items.items.get(item)
+            if value is not None:
+                actual[item]=value-last;last=value
+        assert actual==expected_food and last==10000
+    print('PASS all 99 floor-food pools match screenshot weights after MAPPA round-trip; other pools/categories retain source values',flush=True)
     assert rom.getFileByName('BALANCE/fixed.bin')==rom.getFileByName('UTILITY/fixed.bin')
     text=parse_str_file(rom.getFileByName('MESSAGE/text_e.str'))
     translations=json.loads(gzip.decompress((ROOT/'true_patches/korean/data/translations.json.gz').read_bytes()))

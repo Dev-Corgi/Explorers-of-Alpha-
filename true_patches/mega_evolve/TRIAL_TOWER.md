@@ -1,6 +1,6 @@
 # Trial Tower / 시련의 탑
 
-Part of `mega_evolve` version 18, phase 6. No separate module or xdelta.
+Part of `mega_evolve` version 19, phase 6. No separate module or xdelta.
 
 The input Alpha ROM uses all 180 ordinary dungeon definitions. Trial Tower uses
 unused dungeon ID 234, a new mappa group appended at application time, and the
@@ -64,6 +64,16 @@ the selected ID, DUNGEON_SELECT/ENTER/ENTER_INDEX and dungeon_init retain ID 234
 The existing four warning messages and Yes/No choices are reused without
 editing scripts or strings. Confirmation continues through the native entry
 transition; cancellation follows the existing script exit.
+
+Version 19 replaces only the floor-wide Foods/Gummies item pool on all 99 floor
+definitions. Apple #109 and Big Apple #110 each have weight 2055 (20.55%).
+White/Blue/Grass/Clear/Pink/Sky/Green/Purple/Black Gummies have weight 342
+(3.42%); Red/Yellow/Orange/Brown/Gold/Gray/Royal/Silver Gummies have weight 343
+(3.43%). Gravelrock #137 has weight 68 (0.68%); Grimy Food #111 is removed.
+These are conditional probabilities within Foods/Gummies, totaling 10000.
+Category selection rates, other item categories, shop/house/buried-item pools,
+item density, fixed-room content, and Zero Isle South remain unchanged. MAPPA
+stores cumulative per-category thresholds rather than the displayed deltas.
 
 Read-only verification (no full-stack build, ROM or save output):
 

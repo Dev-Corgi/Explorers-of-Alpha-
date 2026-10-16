@@ -1,5 +1,5 @@
 id: mega_evolve
-version: 18
+version: 19
 kind: mega_evolve
 rom_profile: us_vanilla
 phase: 6
@@ -18,6 +18,7 @@ description: >-
   fixed rooms advance on victory, with CalcStat HP multipliers and maximum IQ.
   Departure-menu state follows the original ARM PC-relative pointer load.
   Trial Tower uses Zero Isle South's warning/confirmation route with its own entry ID.
+  Floor food/gummi weights follow the requested Apple/Big Apple and 17-gummi mix.
   Enhanced effects remain phase7.
 requires:
   - z_move_v2

@@ -38,6 +38,17 @@ def install(rom, module, state, record):
     if base.number_floors!=99 or base.start_after:raise RuntimeError('Zero Isle South definition changed')
     floors=copy.deepcopy(mappa.floor_lists[base.mappa_index])
     if len(floors)!=99:raise RuntimeError('Zero Isle South must have 99 floors')
+    # SkyTemple shows individual weights; MAPPA stores cumulative thresholds
+    # independently within each category. Keep category rates and other pools.
+    food_ids=set(config.dungeon_data.item_categories[3].item_ids())
+    food_thresholds={};total=0
+    for item,weight in sorted((int(k),v) for k,v in contract['floor_food_weights'].items()):
+        if item not in food_ids:raise RuntimeError('Trial Tower food item category changed')
+        total+=weight;food_thresholds[item]=total
+    for floor in floors:
+        items={k:v for k,v in floor.floor_items.items.items() if k not in food_ids}
+        items.update(food_thresholds)
+        floor.floor_items.items=dict(sorted(items.items()))
     fixed=FileType.FIXED_BIN.deserialize(rom.getFileByName('BALANCE/fixed.bin'))
     original_rooms={str(n):hashlib.sha256(fixed.fixed_floors[n].to_bytes()).hexdigest() for n in (21,77)}
     used={int(f.layout.fixed_floor_id) for rows in mappa.floor_lists for f in rows}
@@ -164,6 +175,14 @@ def verify(rom,info):
         expected=d['room_first']+(i+1)//10-1 if (i+1)%10==0 and i<90 else d['room_first']+9 if i==98 else int(b.layout.fixed_floor_id)
         if int(a.layout.fixed_floor_id)!=expected:raise AssertionError('Trial Tower floor assignment drift')
         clone.layout.fixed_floor_id=b.layout.fixed_floor_id
+        food_ids=set(c.dungeon_data.item_categories[3].item_ids())
+        expected_items={k:v for k,v in b.floor_items.items.items() if k not in food_ids}
+        total=0
+        for item,weight in sorted((int(k),v) for k,v in d['floor_food_weights'].items()):
+            total+=weight;expected_items[item]=total
+        if a.floor_items.categories!=b.floor_items.categories or a.floor_items.items!=expected_items:
+            raise AssertionError('Trial Tower floor food/gummi weights drift')
+        clone.floor_items=copy.deepcopy(b.floor_items)
         # Floor/layout model equality covers the complete spawn/item/trap data.
         if clone!=b:raise AssertionError('Trial Tower floor clone drift')
     f=FileType.FIXED_BIN.deserialize(rom.getFileByName('BALANCE/fixed.bin'))

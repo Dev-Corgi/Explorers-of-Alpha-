@@ -11,6 +11,9 @@ def load():
     assert len({r['species'] for r in data['bosses']}) == 9
     assert data['levels'] == [12, 24, 30, 36, 41, 44, 47, 49, 51]
     assert all(len(r['moves']) == 4 for r in data['bosses'] + data['final'])
+    food = data['floor_food_weights']
+    assert sum(food.values()) == 10000 and all(0 < w < 65535 for w in food.values())
+    assert set(map(int, food)) == {109, 110, 137, *range(119, 136)}
     return data
 
 
