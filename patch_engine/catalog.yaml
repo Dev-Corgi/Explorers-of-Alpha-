@@ -32,7 +32,7 @@ recommended_order:
 modules:
   inspect_trap:
     path: inspect_trap
-    description: Preview hidden traps in the current room at half opacity during Y direction inspection only.
+    description: Y direction inspection permanently reveals adjacent eight-tile traps; all traps are consumed after activation.
     kind: asm
   mega_evolve:
     path: mega_evolve

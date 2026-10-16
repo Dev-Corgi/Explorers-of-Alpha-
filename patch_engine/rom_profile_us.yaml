@@ -12,8 +12,7 @@ arm9_load: 0x02000000
 symbols:
   StatusAdjustPerishSongDefeatSite: 0x022F7F38
   InspectTrapBeginSite: 0x022F2FB0
-  InspectTrapGridTileSite: 0x02337634
-  InspectTrapEndSite: 0x0233780C
+  InspectTrapConsumeSite: 0x022EE2C4
   BugFixStoryStatCapSite: 0x023AA0D8
   BugFixSpawnTransformSite: 0x023BF4A8
   BugFixSpawnCandidatesSite: 0x023BF4C4
