@@ -93,6 +93,8 @@ Z_GAUGE_GAIN_LEADER_ATTACK equ 1
 Z_GAUGE_GAIN_LEADER_HIT    equ 1
 Z_GAUGE_GAIN_ENEMY_FAINT   equ 2
 MOVE_CATEGORY_STATUS      equ 2
+MOVE_CATEGORY_PHYSICAL    equ 0
+MOVE_CATEGORY_SPECIAL     equ 1
 
 StatusMoveSlotsBase       equ 0x124
 StatusActionField         equ 0x4A

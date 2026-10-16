@@ -106,6 +106,26 @@ ZMove_PriorRestorePpFallback:
 	push {r4, r5, r6, r7, r8, lr}
 	b RestorePpAllMovesSetFlagsBody
 
+; Exported at cave +0x2C (after the fixed integration stubs above).
+; r0 = move id. Only the pending Z shell inherits the selected move's category.
+; Keep r1-r3 intact: callers may have live arguments beyond the move id.
+ZMove_GetMoveCategoryHook:
+	push {r1, lr}
+	ldr r1, =Z_MOVE_SHELL_ID
+	cmp r0, r1
+	bne ZMove_GetMoveCategoryOriginal
+	ldr r1, =ZMovePendingFlag
+	ldrb r1, [r1]
+	cmp r1, #0
+	beq ZMove_GetMoveCategoryOriginal
+	ldr r0, =ZMoveActiveCategory
+	ldrb r0, [r0]
+	pop {r1, pc}
+ZMove_GetMoveCategoryOriginal:
+	pop {r1, lr}
+	b GetMoveCategory
+.pool
+
 ; DungeonFree entry: DUNGEON_PTR_MASTER is still live (working copy may be 0).
 ZMove_OnDungeonGroupEnd:
 	push {r0-r3, lr}
@@ -173,6 +193,10 @@ ZMovePendingEntity:
 
 ZMoveActiveType:
 .byte 0
+.align 4
+
+ZMoveActiveCategory:
+.byte MOVE_CATEGORY_SPECIAL
 .align 4
 
 ZMoveEffectApplied:
@@ -638,6 +662,16 @@ ZMove_SetupAction:
 	bne ZMove_SetupAction_Fail
 	ldr r0, =ZMoveSelectedMoveSlot
 	ldr r7, [r0]
+	; Capture before InitMove replaces slot 3 (which can itself be selected).
+	add r0, r6, #StatusMoveSlotsBase
+	add r0, r0, r7, lsl #3
+	ldrh r0, [r0, #MoveDataMoveIdOff]
+	bl GetMoveCategory
+	; Status moves keep the existing special Z attack behavior.
+	cmp r0, #MOVE_CATEGORY_PHYSICAL
+	movne r0, #MOVE_CATEGORY_SPECIAL
+	ldr r1, =ZMoveActiveCategory
+	strb r0, [r1]
 .if ZMOVE_DEBUG_FORCE_TYPE != 0
 	mov r0, #ZMOVE_DEBUG_FORCE_TYPE
 .else

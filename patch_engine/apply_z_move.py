@@ -53,6 +53,34 @@ ROOM_CHARGE_STATE_STUB_OFF = 0x14
 # After RoomChargeStateNoOp (+0x14, 8 bytes) → PriorLevelUpFallback @ +0x1C
 ZMOVE_PRIOR_LEVEL_UP_FALLBACK_OFF = 0x1C
 ZMOVE_PRIOR_RESTORE_PP_FALLBACK_OFF = 0x24
+GET_MOVE_CATEGORY = 0x020151C8
+ZMOVE_CATEGORY_HOOK_OFF = 0x2C
+# CalcDamage's stat selector plus all three damage-result category writes.
+ZMOVE_REQUIRED_CATEGORY_SITES = frozenset({0x0231EA1C, 0x0230BD18, 0x0230BD84, 0x0230BDAC})
+
+
+def _patch_zmove_category_calls(
+    overlay: bytearray, overlay_load: int, target: int, prior_target: int | None = None
+) -> list[int]:
+    """Redirect dungeon category queries, including screens/counter checks.
+
+    Keep the ARM9 function unchanged: it is also used outside the dungeon when
+    the ov36 runtime is unavailable. Re-apply can relocate the previous wrapper.
+    """
+    sites = []
+    for off in range(0, len(overlay) - 3, 4):
+        word = struct.unpack_from("<I", overlay, off)[0]
+        site = overlay_load + off
+        if word >> 24 == 0xEB and branch_target(site, word) in {
+            GET_MOVE_CATEGORY, prior_target
+        }:
+            sites.append(site)
+    missing = ZMOVE_REQUIRED_CATEGORY_SITES.difference(sites)
+    if missing:
+        raise RuntimeError(f"Z-Move category calls missing: {sorted(hex(s) for s in missing)}")
+    for site in sites:
+        struct.pack_into("<I", overlay, site - overlay_load, _encode_bl(site, target))
+    return sites
 
 
 def _parse_fixed(value: Any) -> int | None:
@@ -456,6 +484,17 @@ def apply_z_move_module(
     slot_end = slot_start + ov29_slot.size
     ov36_data[slot_start:slot_end] = bytes(ov29_slot.size)
 
+    prior_category_target = None
+    prior_mod = state.get_module(module_id) if state else None
+    if prior_mod:
+        prior_category = (prior_mod.data or [{}])[0].get("ZMove_GetMoveCategoryHook")
+        if prior_category:
+            prior_category_target = int(prior_category, 16)
+    category_target = ov29_slot.load_address + ZMOVE_CATEGORY_HOOK_OFF
+    category_sites = _patch_zmove_category_calls(
+        ov29_data, _binary_load(profile, "ov29"), category_target, prior_category_target
+    )
+
     arm9_reuse = _reuse_cave("arm9")
     if arm9_reuse is not None:
         arm9_slot = arm9_reuse
@@ -622,6 +661,11 @@ def apply_z_move_module(
     write_rom_binary(rom, config, "ov29", bytes(ov29_for_shell))
 
     hook_records: list[dict[str, Any]] = []
+    hook_records.extend(
+        {"name": f"ZMoveCategory_{site:08X}", "site": site, "kind": "bl",
+         "target_symbol": "ZMove_GetMoveCategoryHook", "chain": "first"}
+        for site in category_sites
+    )
     for hook in hooks_cfg:
         load = _binary_load(profile, hook.get("binary", "ov29"))
         hook_records.extend(collect_hook_records([hook], profile, load))
@@ -635,6 +679,7 @@ def apply_z_move_module(
         "room_charge_integration": room_charge_src,
         "tm_read_integration": tm_read_src,
         "shell_move": shell_meta,
+        "category_call_sites": [f"0x{site:X}" for site in category_sites],
         "PriorSubMenuStringCheck": f"0x{prior_sub:X}",
         "PriorCleanupTryRestore": f"0x{prior_cleanup:X}",
     }
@@ -710,6 +755,16 @@ def verify_z_move_module(
         "arm9": int(profile.get("arm9_load", ARM9_LOAD)),
     }
     blobs = {"ov29": ov29, "ov31": ov31, "ov11": ov11, "arm9": arm9}
+
+    metadata = (state_mod.data or [{}])[0]
+    category_target = int(metadata["ZMove_GetMoveCategoryHook"], 16)
+    category_sites = {int(site, 16) for site in metadata["category_call_sites"]}
+    if not ZMOVE_REQUIRED_CATEGORY_SITES.issubset(category_sites):
+        raise AssertionError("Z-Move damage category hooks missing")
+    for site in category_sites:
+        word = struct.unpack_from("<I", ov29, site - loads["ov29"])[0]
+        if word != _encode_bl(site, category_target):
+            raise AssertionError(f"Z-Move category call @ {site:#x} lost its hook")
 
     skip_branch_check = {"CalcDamageJudgmentTypeHook"}
     for hook in manifest.get("hooks") or []:
