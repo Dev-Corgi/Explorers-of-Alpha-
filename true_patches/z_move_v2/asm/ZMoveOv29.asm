@@ -465,9 +465,11 @@ ZMove_Ov31MenuHook:
 
 ; TeachItemHandler entry: force-restore tm_read + Z-Move slot 3 before moveset edits.
 TeachItemHandler_EntryHook:
-	push {r3, lr}
+	; Cleanup clobbers r0/r1 (user entity/item). Keep the native handler's
+	; arguments and 8-byte stack alignment across both slot restorations.
+	push {r0-r3, r12, lr}
 	bl ZMove_ForceRestoreAllPendingSlots
-	pop {r3, lr}
+	pop {r0-r3, r12, lr}
 	push {r3, r4, r5, r6, r7, r8, r9, r10, r11, lr}
 	b TeachItemHandlerResume
 

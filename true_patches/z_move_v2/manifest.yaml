@@ -1,10 +1,12 @@
 id: z_move_v2
-version: 26
+version: 27
 region: US
 description: >
   Z-Move v2 — move submenu, Z-Move (559) temp slot-3 shell, Z gauge (WRAM + HUD),
   Z-Power messages. Normal-type power 360; other types power 180 + per-type secondary effects (ov36 cave).
   Type follows the selected move. Mutually exclusive with z_move.
+  v27: Preserve the TM/HM user and item arguments across temporary-slot cleanup;
+  the native target selector must receive the actual TM move and eligible party.
   v26: Resolve the selected entity's status for temporary move-slot backup/action;
   partner Z-Moves must not replace the leader's fourth move.
   Custom strings: yaml 19100–19120 (avoid tm_read 19073–19076, orb 19082–19084).
