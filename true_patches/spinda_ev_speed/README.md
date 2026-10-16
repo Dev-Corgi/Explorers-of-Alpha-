@@ -118,6 +118,40 @@ cleanup, legacy policies, corruption/backup and script jump relocation.
 Actual dialogue and complete dungeon gameplay still require an emulator
 integration check on a user-requested ROM build.
 
+## Carbos and Wonder Gummi (v20)
+
+Carbos (알칼로이드) gives +3 outing Speed doping, capped at the same byte
+limit (255) as the other vitamins. This is CalcStat Speed, not movement
+speed stages. It uses the resident temporary-doping transaction: quicksaves
+retain the gain and leaving the dungeon group removes it. Wonder Gummi now
+adds +3 to all six doping stats, including Speed.
+
+Item 194 is Alpha's disabled Hail TM seat, the unused ordinary item slot
+within MAPPA's native 0..363 range. Carbos copies Protein's item properties
+and supplies a new item_cd effect calling the dynamically linked Speed
+routine. Both BALANCE and UTILITY banks are patched. Stale disabled-TM
+thresholds are removed from item pools to prevent unintended Carbos drops.
+
+Floor pools containing all four original vitamins redistribute their total
+weight across Protein, Calcium, Iron, Zinc and Carbos. Category rates and
+other vitamin-category item weights stay unchanged. Integer remainders are
+distributed one unit at a time so the total remains exact (5% each becomes
+4% each). The reference Alpha has 261 affected floor entries per bank.
+Shop, monster-house and buried pools do not receive new Carbos entries.
+
+English name/description use item 194's fixed string table seats. New effect
+messages use free indices 19612/19613 (LogMessageById 19613/19614).
+The Korean patch includes matching English/Korean records for all five strings.
+
+```powershell
+.venv\Scripts\python.exe -B true_patches\spinda_ev_speed\verify_carbos.py
+```
+
+This assembles the complete module in a temporary directory, executes the
+Carbos item effect and Wonder Gummi Speed/HP additions in Unicorn, checks
+caps and outing cleanup, and round-trips all floor tables and translations.
+It does not build or write a ROM.
+
 ## Apply
 
 ```

@@ -3,6 +3,7 @@ from __future__ import annotations
 import struct
 import shutil
 import tempfile
+import re
 from pathlib import Path
 from typing import Any
 
@@ -26,6 +27,7 @@ from .hook_registry import collect_hook_records, hook_word_kind, resolve_prior_t
 from .manifest import load_yaml, resolve_symbol
 from .spinda_save_runtime import build_runtime, patch_import_prompt
 from .state import AppliedModule, BuildState, CaveAllocation, HookRecord
+from true_patches.spinda_ev_speed.carbos import install as install_carbos, verify as verify_carbos
 
 ARM9_LOAD = 0x02000000
 OV19_LOAD = 0x0238A140
@@ -597,6 +599,10 @@ def apply_spinda_ev_module(
 
     patch_strings(rom, module_dir, manifest)
     if module_id == "spinda_ev_speed":
+        speed_label = re.search(r"\.definelabel EvSave_Speed, 0x([0-9a-fA-F]+)", labels)
+        if speed_label is None:
+            raise RuntimeError("Carbos requires the EvSave_Speed runtime export")
+        carbos_drops = install_carbos(rom, int(speed_label.group(1), 16))
         patch_drink_ingredients(rom)
         patch_import_prompt(rom, config)
 
@@ -648,6 +654,7 @@ def apply_spinda_ev_module(
                 "arm9_code_cave": f"0x{code_slot.load_address:X}",
                 "arm9_reset_cave": f"0x{reset_slot.load_address:X}",
                 "ov19_team_submenu_table": f"0x{team_table_load:X}",
+                **({"carbos_floor_pools": carbos_drops} if module_id == "spinda_ev_speed" else {}),
                 **(
                     {
                         "set_string_accuracy": "0x02024360",
@@ -836,6 +843,7 @@ def verify_spinda_ev_module(
                 break
 
     if manifest.get("id") == "spinda_ev_speed":
+        verify_carbos(rom)
         for path in ITEMBAR_PATHS:
             bar = DataSTHandler.deserialize(rom.getFileByName(path))
             shown = [i for i in range(bar.nb_struct_ids()) if bar.get_item_struct_id(i) >= 0]

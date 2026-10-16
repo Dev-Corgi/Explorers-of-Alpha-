@@ -1,4 +1,10 @@
 entries:
+  - id: 6967
+    text: "[M:I3] Carbos"
+  - id: 10898
+    text: "A nutritional drink that adds 3 temporary\nSpeed doping. The effect lasts until\nthe end of the outing."
+  - id: 12298
+    text: "Adds 3 temporary Speed doping."
   - id: 2387
     text: "HP:[CLUM_SET:25][value:0:4]/[value:1:4]"
   - id: 2388
@@ -40,3 +46,7 @@ entries:
     text: "Is this a save from the original Alpha?\nYes: reset old stats to zero doping.\nChoose No if this is an Alpha+ save."
   - id: 19611
     text: "Is this an existing Alpha+ save?\nYes: keep existing permanent doping.\nChoose No to return to the import question."
+  - id: 19612
+    text: "Speed doping rose!"
+  - id: 19613
+    text: "Speed doping cannot rise any further!"

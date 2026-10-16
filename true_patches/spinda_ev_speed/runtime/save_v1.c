@@ -87,6 +87,24 @@ void EvSave_End(void) {
     }
     s->entity=0;
 }
+/* Speed V lives at active-team +17, not monster speed_stage (turn speed).
+ * The same nested transaction covers Carbos and Wonder Gummi, so the gain
+ * is removed at outing end and survives a quicksave without becoming permanent.
+ */
+void EvSave_Speed(u8 *user,u8 *entity,int amount) {
+    u8 values[6],*team;
+    int id=entity_values(entity,values,&team);
+    if(id<0) return;
+    EvSave_Begin(entity);
+    int value=values[5]+amount;
+    if(value>255) value=255;
+    team[17]=value;
+    EvSave_End();
+    FN(0x022E3AB4,void (*)(u8 *))(entity);
+    /* LogMessageById is one greater than the text_e.str index. */
+    FN(0x0234B350,void (*)(u8 *,u8 *,int))(user,entity,
+        value>values[5]?19613:19614);
+}
 void EvSave_CopyMonster(void *stream,u8 *g) {
     State *s=state(); u8 local[0x44];
     copy(local,g,sizeof(local));

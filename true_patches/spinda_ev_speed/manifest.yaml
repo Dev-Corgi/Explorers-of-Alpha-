@@ -1,7 +1,10 @@
 id: spinda_ev_speed
-version: 19
+version: 20
 region: US
 description: >
+  Carbos (unused item 194) adds outing Speed V +3. Four-vitamin floor pools
+  share their unchanged total weight equally across five vitamins. Wonder
+  Gummi also adds Speed V +3.
   Spinda Cafe EV for the CalcStat stack. Save HP/Atk/SpA/Def/SpD/Spe bytes
   are doping V (Drink + outing). Caps stay floor(level/10)*5 per stat and
   floor(level/10)*13 total, now including Spe. Drink menu is

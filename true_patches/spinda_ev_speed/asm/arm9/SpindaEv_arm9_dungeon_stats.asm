@@ -83,6 +83,10 @@ WonderGummi_StatLoop:
 	add r4, r4, #WONDER_GUMMI_STAT_FN_STRIDE
 	subs r5, r5, #1
 	bne WonderGummi_StatLoop
+	mov r0, r10
+	mov r1, r9
+	mov r2, #WONDER_GUMMI_ALL_STAT
+	bl EvSave_Speed
 	ldr r2, [r9, #0xb4]
 	ldrsh r0, [r2, #0xc]
 	cmp r0, #0

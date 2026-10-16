@@ -211,6 +211,8 @@ notes:
     dungeon-group outing ends (DungeonFree, via DUNGEON_PTR_MASTER). Move-info Accuracy is stars (1 per
     10, leftover half); Always Hit is not used for a numeric Accuracy. Z-Move (559) skips the rank/Spe
     accuracy roll. Floor Gravity multiplies Accuracy by 5/3 on that roll. Always after base_stats_speed.
+    Carbos (item 194, disabled Hail TM seat) and Wonder Gummi add +3 outing Speed V.
+    Four-vitamin floor pools split the same total weight across five vitamins; both data banks are patched.
     Do not combine with spinda_ev or spinda_ev_v2.
   iq_change: ov36 cave. Intimidator procs at 20% on a close-range move only while that Pokemon is at low
     HP. Critical Dodger and special Counter Basher read the defender from r9. Apply after spinda_ev_v2.
