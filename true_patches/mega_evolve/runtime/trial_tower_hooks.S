@@ -55,7 +55,10 @@ entry ME_TowerItemHook
 .ltorg
 entry ME_TowerTeamHook
  push {r4,lr}
- ldr r12,=0x022fc50c
+#ifndef TT_PRIOR_TEAM
+#define TT_PRIOR_TEAM 0x022fc50c
+#endif
+ ldr r12,=TT_PRIOR_TEAM
  blx r12
  mov r4,r0
  bl ME_TowerResolveReward

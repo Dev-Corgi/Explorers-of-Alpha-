@@ -90,10 +90,12 @@ class Machine:
 def main():
     source=ROOT/'PatchTesting/Explorers of Alpha/Explorers of Alpha.nds'
     before=hashlib.sha256(source.read_bytes()).hexdigest();rom=NintendoDSRom(source.read_bytes());d=load()
-    record=AppliedModule('mega_evolve',21,data=[{'symbols':{name:0x023b8000+i*16 for i,name in enumerate([
+    record=AppliedModule('mega_evolve',22,data=[{'symbols':{name:0x023b8000+i*16 for i,name in enumerate([
         'ME_TowerSpawnHook','ME_TowerStatsHook','ME_TowerSpeciesHook','ME_TowerItemHook','ME_TowerTeamHook',
         'ME_TowerSelectHook','ME_TowerFloorHook','ME_TowerFixedLoadedHook'])},'cave_hashes':[]}])
     info=install(rom,MODULE,None,record);verify(rom,info)
+    from .verify_trial_tower_chain import check_spawn_chain
+    check_spawn_chain(source,MODULE)
     from .fixed_extension_plugin.verify import check_plugin
     check_plugin(rom)
     # Independent screenshot transcription; check displayed deltas AFTER the

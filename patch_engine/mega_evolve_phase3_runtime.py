@@ -22,6 +22,11 @@ def elf_sections(path):
 def native_defines(ov29):
     from .hook_registry import branch_target
     values={}
+    # Trial Tower wraps the installed team-spawn call after control_mode_enhance.
+    # Its installer additionally validates the known predecessor's entry body.
+    team_site=0x022df6a4;team_head=word(ov29,team_site,OV29)
+    if team_head>>24!=0xeb:raise RuntimeError('mega_evolve prior SpawnTeam call changed')
+    values['TT_PRIOR_TEAM']=branch_target(team_site,team_head)
     for name,site in [('USE_MOVE',0x0232145c),('MOVE_TYPE',0x0230227c),
                       ('APPLY_DAMAGE',0x02308fe0),('DUNGEON_FREE',0x022deab0),
                       ('FAINT',0x022f7f34),('CALC_DAMAGE',0x0230bbac),('DEFENSE_DROP',0x02313814),

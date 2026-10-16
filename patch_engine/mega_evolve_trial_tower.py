@@ -21,6 +21,24 @@ from true_patches.mega_evolve.trial_tower import load
 from true_patches.mega_evolve.fixed_extension import read_extension,serialize_extended
 
 
+def team_spawn_prior(ov29,ov36):
+    """Accept native SpawnTeam or the known control_mode_enhance wrapper.
+
+    Follow the installed branch, since the preceding module's cave moves with
+    stack composition. Never bypass its leader/revival bookkeeping.
+    """
+    from .hook_registry import branch_target
+    site=0x022df6a4;instruction=word(ov29,site,OV29)
+    if instruction>>24!=0xeb:raise RuntimeError('Trial Tower prior SpawnTeam is not an ARM BL')
+    target=branch_target(site,instruction)
+    if target==0x022fc50c:return target
+    if (not OV36<=target<=OV36+len(ov36)-8 or
+            word(ov36,target,OV36)!=0xe92d41f0 or
+            word(ov36,target+4,OV36)!=branch(target+4,0x022fc50c,True)):
+        raise RuntimeError(f'Trial Tower unrecognized prior SpawnTeam wrapper at {target:#x}')
+    return target
+
+
 def key_room(template,rewards):
     room=copy.deepcopy(template)
     positions=[i for i,a in enumerate(room.actions) if isinstance(a,EntityRule)]
@@ -34,6 +52,10 @@ def key_room(template,rewards):
 
 def install(rom, module, state, record):
     contract=load();config=get_ppmdu_config_for_rom(rom)
+    tables=rom.loadArm9Overlays()
+    prior_team=team_spawn_prior(tables[29].data,tables[36].data)
+    compiled=record.data[0].get('prior_helpers',{}).get('TT_PRIOR_TEAM',0x022fc50c)
+    if compiled!=prior_team:raise RuntimeError('Trial Tower compiled SpawnTeam chain differs from installed predecessor')
     dungeon=contract['dungeon_id'];source=contract['source_dungeon'];first=contract['room_first']
     # Alpha loads shared overlay36 during early ARM9 initialization, before
     # any ground/title string lookups can reach these resident entry points.
@@ -76,7 +98,7 @@ def install(rom, module, state, record):
         raise RuntimeError('Extended fixed-room bridge slot is occupied')
     for rewards in contract['key_rewards']:
         fixed.fixed_floors.append(key_room(fixed.fixed_floors[170],rewards))
-    tables=rom.loadArm9Overlays();ov10=bytearray(tables[10].data)
+    ov10=bytearray(tables[10].data)
     props=HardcodedFixedFloorTables.get_fixed_floor_properties(ov10,config)
     if tables[10].ramAddress+config.bin_sections.overlay10.data.FIXED_ROOM_PROPERTIES_TABLE.address!=0x022c6c70:
         raise RuntimeError('Extended fixed-room native property address changed')
@@ -173,7 +195,7 @@ def install(rom, module, state, record):
     patch(29,0x022e6fbc,runtime['ME_TowerFloorHook'],0xe92d4ff8)
     patch(29,0x02343db8,runtime['ME_TowerFixedLoadedHook'],0xe8bd8008)
     patch(29,0x02343674,runtime['ME_TowerItemHook'],branch(0x02343674,0x02344430,True),True)
-    patch(29,0x022df6a4,runtime['ME_TowerTeamHook'],branch(0x022df6a4,0x022fc50c,True),True)
+    patch(29,0x022df6a4,runtime['ME_TowerTeamHook'],branch(0x022df6a4,prior_team,True),True)
     rom.arm9=bytes(arm9)
     tables[10].data=ov10;tables[36].data=ov36
     for n in (10,11,29,36):
@@ -182,7 +204,7 @@ def install(rom, module, state, record):
     cave=CaveAllocation('ov36',slot.file_offset,slot.size,slot.load_address);record.caves.append(cave)
     record.data[0]['cave_hashes'].append(hashlib.sha256(bytes(ov36[slot.file_offset:slot.file_offset+slot.size])).hexdigest())
     record.data[0].pop('cave_sha256',None)
-    return dict(group=group,dungeon=dungeon,room_first=first,marker=marker,edits=edits,
+    return dict(group=group,dungeon=dungeon,room_first=first,marker=marker,edits=edits,team_spawn_prior=prior_team,
                 symbols=symbols,files=files,original_rooms=original_rooms,
                 name_index=index,restriction=restrictions[dungeon].to_bytes().hex(),
                 map_marker=markers[marker].to_bytes().hex(),

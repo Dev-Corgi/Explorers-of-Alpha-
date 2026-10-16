@@ -1,6 +1,6 @@
 # Trial Tower / 시련의 탑
 
-Part of `mega_evolve` version 21, phase 6. No separate module or xdelta.
+Part of `mega_evolve` version 22, phase 6. No separate module or xdelta.
 
 The input Alpha ROM uses all 180 ordinary dungeon definitions. Trial Tower uses
 unused dungeon ID 234, a new mappa group appended at application time, and the
@@ -140,6 +140,17 @@ Install/update the adapter, then restart SkyTemple:
 ```powershell
 .venv/Scripts/python.exe -B true_patches/mega_evolve/fixed_extension_plugin/install.py
 ```
+
+Version22 preserves the earlier `control_mode_enhance` SpawnTeam wrapper at
+0x022DF6A4. The payload captures the installed BL target during linking and calls
+that target before resolving Trial Tower rewards. Installation accepts the
+native call or the known control-mode wrapper prologue/native SpawnTeam call,
+rejects unknown targets, and checks that the compiled target matches. Its cave
+address is discovered on each build. This fixes version21's full-stack guard
+failure and retains control mode's leader/revival bookkeeping. The regression
+assembles the actual preceding module, applies Trial Tower afterward, and runs
+the patched call through native spawn, control leader synchronization and
+reward resolution, checking the original return value and unchanged prior cave.
 
 Read-only verification (no full-stack build, ROM or save output):
 
