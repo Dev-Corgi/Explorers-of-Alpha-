@@ -21,6 +21,30 @@ query ME_TowerGroupFloors,99,0x0204f5fc,"cmp r0,#0xb4"
 query ME_TowerSwapId,TT_DUNGEON,0x0206a718,"mov r12,#0"
 query ME_TowerSwapIndex,TT_DUNGEON,0x0206a754,"mvn r1,#0"
 query ME_TowerMap,TT_MARKER,0x0206a850,"cmp r0,#0xb4"
+/* Join the native special-restriction checks AFTER progress/mode checks.
+ * Keep the selected dungeon ID intact for unlock checks and actual entry. */
+.global ME_TowerEntryFlags
+ME_TowerEntryFlags:
+ cmp r5,#TT_DUNGEON
+ ldreq r0,=0x4001
+ popeq {r3-r5,pc}
+ cmp r5,#0x26
+ ldr pc,=0x0204f428
+.global ME_TowerEntryCheck
+ME_TowerEntryCheck:
+ cmp r9,#TT_DUNGEON
+ ldreq r0,=0x4001
+ popeq {r3-r9,pc}
+ cmp r9,#0x26
+ ldr pc,=0x0204f4fc
+/* Only the warning selector aliases Zero Isle South. The stack selection,
+ * DUNGEON_ENTER variables and dungeon_init must remain Trial Tower. */
+.global ME_TowerWarning
+ME_TowerWarning:
+ ldrsh r1,[sp,#4]
+ cmp r1,#TT_DUNGEON
+ moveq r1,#TT_SOURCE
+ ldr pc,=0x022ddad0
 .global ME_TowerName
 ME_TowerName:
  ldr r12,=TT_NAME_ALIAS_0

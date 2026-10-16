@@ -91,7 +91,7 @@ def install(rom, module, state, record):
     # menu-kind selector, not the pointer to the allocated departure menu.
     menu_literal=0x022ffe08+8+(menu_load&0xfff)
     menu_ptr=word(tables[11].data,menu_literal,tables[11].ramAddress)
-    defines=dict(TT_DUNGEON=dungeon,TT_GROUP=group,TT_MARKER=marker,
+    defines=dict(TT_DUNGEON=dungeon,TT_SOURCE=source,TT_GROUP=group,TT_MARKER=marker,
                  TT_NAME_ID=index+1,TT_MENU_PTR=menu_ptr,
                  TT_MENU_CAPACITY=(word(tables[11].data,0x022ffe60,tables[11].ramAddress)-0x1c4)//4)
     defines.update({f'TT_NAME_ALIAS_{i}':v for i,v in enumerate(name_aliases)})
@@ -123,9 +123,12 @@ def install(rom, module, state, record):
         (0x0204f5c8,'ME_TowerGroup',0xe35000b4),(0x0204f5e0,'ME_TowerPreceding',0xe35000b4),
         (0x0204f5f8,'ME_TowerGroupFloors',0xe35000b4),(0x0206a714,'ME_TowerSwapId',0xe3a0c000),
         (0x0206a750,'ME_TowerSwapIndex',0xe3e01000),(0x0206a84c,'ME_TowerMap',0xe35000b4),
-        (0x02025788,'ME_TowerName',0xe92d4038)):
+        (0x02025788,'ME_TowerName',0xe92d4038),
+        (0x0204f424,'ME_TowerEntryFlags',0xe3550026),
+        (0x0204f4f8,'ME_TowerEntryCheck',0xe3590026)):
         patch(0,site,symbols[name],expected)
     patch(11,0x022ffe08,symbols['ME_TowerMenu'],0xe59f0058)
+    patch(11,0x022ddacc,symbols['ME_TowerWarning'],0xe1dd10f4)
     runtime=record.data[0]['symbols']
     patch(29,0x0234389c,runtime['ME_TowerSpawnHook'],branch(0x0234389c,0x023da080,True),True)
     patch(29,0x023438bc,runtime['ME_TowerStatsHook'],0xe5d80000)

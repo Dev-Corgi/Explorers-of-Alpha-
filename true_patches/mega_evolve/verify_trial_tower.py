@@ -23,6 +23,7 @@ from patch_engine.mega_evolve_trial_tower import install,verify
 from patch_engine.mega_evolve_runtime import build_runtime,OV29,OV36,word
 from patch_engine.korean_codec import parse_str_file,decode_english
 from skytemple_files.common.types.file_types import FileType
+from skytemple_files.common.util import get_ppmdu_config_for_rom
 from true_patches.base_stats_speed.generate_tables import GEN,calc_stat_from_tables
 from .trial_tower import load,header
 
@@ -89,7 +90,7 @@ class Machine:
 def main():
     source=ROOT/'PatchTesting/Explorers of Alpha/Explorers of Alpha.nds'
     before=hashlib.sha256(source.read_bytes()).hexdigest();rom=NintendoDSRom(source.read_bytes());d=load()
-    record=AppliedModule('mega_evolve',17,data=[{'symbols':{'ME_TowerSpawnHook':0x023b8000,'ME_TowerStatsHook':0x023b8010,'ME_TowerSpeciesHook':0x023b8020},'cave_hashes':[]}])
+    record=AppliedModule('mega_evolve',18,data=[{'symbols':{'ME_TowerSpawnHook':0x023b8000,'ME_TowerStatsHook':0x023b8010,'ME_TowerSpeciesHook':0x023b8020},'cave_hashes':[]}])
     info=install(rom,MODULE,None,record);verify(rom,info)
     assert rom.getFileByName('BALANCE/fixed.bin')==rom.getFileByName('UTILITY/fixed.bin')
     text=parse_str_file(rom.getFileByName('MESSAGE/text_e.str'))
@@ -240,12 +241,78 @@ static int clamp(int x,int lo,int hi){return x<lo?lo:x>hi?hi:x;}
             assert bytes(m.u.mem_read(menu+0x518,5))==b'GUARD'
             assert struct.unpack('<I',m.u.mem_read(0x0238a084,4))[0]==0xdeadbeef
         print('PASS v16 failure reproduction and native departure constructor through menu return: locked/unlocked/cleared, existing/empty lists and dojo exclusions',flush=True)
+        # The native selector must reach the existing Zero Isle South warning
+        # Cases, while SetEnterDungeon and script variables keep the new ID.
+        script=FileType.SSB.deserialize(rom.getFileByName('SCRIPT/D46P21A/enter04.ssb'),
+                                       static_data=get_ppmdu_config_for_rom(rom))
+        ops={op.offset:op for routine in script.routine_ops for op in routine}
+        code=BUFFER+0x2000;frame=BUFFER+0x4000
+        for offset,op in ops.items():
+            m.u.mem_write(code+offset*2,struct.pack('<'+'H'*(len(op.params)+1),op.op_code.id,*op.params))
+        variables={}
+        m.stubs[0x0204b820]=lambda:variables.update({m.reg(1):m.reg(2)})
+        m.stubs[0x0204afc0]=lambda:2
+        m.stubs[0x0204ca94]=lambda:0
+        m.stubs[0x0200c240]=lambda:0  # debug logging only
+        m.stubs[0x0205ee40]=lambda:0  # no mission override
+        init=word(rom.arm9,0x0204e96c,0x02000000)
+        ready=word(rom.arm9,0x0204e970,0x02000000)
+        scene=word(ground.data,0x022e9588,ground.ramAddress)
+        def read32(p):return struct.unpack('<I',m.u.mem_read(p,4))[0]
+        def select(dungeon):
+            m.u.mem_write(frame,bytes(0x80));m.u.mem_write(frame+0xe,struct.pack('<H',5))
+            m.write32(frame+0x14,code);m.write32(frame+0x1c,code+918*2)
+            m.write32(frame+0x34,code+915*2)
+            m.u.mem_write(0x02324d1c,struct.pack('<h',dungeon))
+            m.run(0x022dd2c0,frame)
+        for dungeon in (102,234):
+            select(dungeon)
+            assert read32(frame+0x1c)==code+1154*2  # real Case 26
+            assert variables[38]==variables[39]==variables[41]==dungeon
+            assert m.u.mem_read(init,1)==bytes([dungeon]) and m.read16(init+2)==dungeon
+            assert m.u.mem_read(ready,1)==b'\x01'
+            # Follow the ROM's actual mail/Jump/menu operations. Model the UI
+            # answer only; the ARM selector, Case dispatch and entry are native.
+            for yes in (False,True):
+                pc=1154;messages=[]
+                while ops[pc].op_code.name!='main_EnterAdventure':
+                    op=ops[pc];name=op.op_code.name;args=op.params
+                    if name=='message_Mail':messages.append(script.strings['english'][args[0]])
+                    elif name=='Jump':pc=args[0];continue
+                    elif name=='message_SwitchMenu':
+                        choices=[ops[pc+3],ops[pc+6]]
+                        assert all(x.op_code.name=='CaseMenu' for x in choices)
+                        pc=choices[0 if yes else 1].params[1]
+                        if not yes:
+                            assert ops[pc+5].op_code.name=='supervision_Suspend'
+                            break
+                        continue
+                    pc+=1+len(args)
+                assert len(messages)==4
+                if yes:
+                    assert ops[pc].params==[251,30]
+                    m.write32(scene+0x1c,0)
+                    m.u.mem_write(frame+0xe,struct.pack('<H',5))
+                    m.u.mem_write(frame+0x44,struct.pack('<H',1))
+                    m.write32(frame+0x34,code+pc*2);m.write32(frame+0x1c,code+(pc+3)*2)
+                    m.run(0x022dd2c0,frame)
+                    assert read32(scene+0x1c)==3 and read32(scene+0x18)==30
+                    assert m.u.mem_read(init,1)==bytes([dungeon]) and m.read16(init+2)==dungeon
+        # Second admission query preserves Trial Tower's own open/progress bits.
+        m.stubs[0x0204d2f8]=lambda:1
+        m.stubs[0x0204cee0]=lambda:1
+        for mode,expected in ((1,17),(3,0x4001)):
+            dungeon_modes.clear();dungeon_modes[234]=mode
+            assert m.run(0x0204f488,234,0,0)==expected
+        select(-1)
+        assert m.read16(frame+0x44)==0xffff
+        print('PASS native selection/Case 26 warnings, ROM Yes/No routes, native entry with ID234, cancellation and own unlock checks',flush=True)
         # Compile the complete production payload to catch integration and
         # relocation failures without rebuilding or saving the full stack.
         from patch_engine.mega_evolve_phase3_runtime import native_defines
         from patch_engine.mega_evolve_loader import relocation_offsets
         from true_patches.mega_evolve.status_hooks import ENTRIES
-        installed=NintendoDSRom.fromFile(str(ROOT/'PatchTesting/Export Rom/Explorers of Alpha+.nds'))
+        installed=NintendoDSRom.fromFile(str(ROOT/'PatchTesting/Export Rom/Explorers of Alpha+_kor.nds'))
         ov29=bytearray(installed.loadArm9Overlays()[29].data)
         for _,site,expected in ENTRIES:
             if expected!=0xea000000:struct.pack_into('<I',ov29,site-OV29,expected)

@@ -1,6 +1,6 @@
 # Trial Tower / 시련의 탑
 
-Part of `mega_evolve` version 17, phase 6. No separate module or xdelta.
+Part of `mega_evolve` version 18, phase 6. No separate module or xdelta.
 
 The input Alpha ROM uses all 180 ordinary dungeon definitions. Trial Tower uses
 unused dungeon ID 234, a new mappa group appended at application time, and the
@@ -55,6 +55,16 @@ even while Trial Tower was locked. Installation now decodes the original load;
 the constructor's actual allocation size also bounds the appended status row.
 The unlock timing and existing saved open bits do not change.
 
+Version 18 connects selection to the native Zero Isle South warning and
+confirmation route. Cloning restriction data does not extend the hardcoded
+special-dungeon checks at 0x0204F424/0x0204F4F8 or the warning selector at
+0x022DDACC. Resident hooks add Trial Tower to those checks and map only the
+warning selector to source ID 102 (SSB Case 26). Dungeon progress/open checks,
+the selected ID, DUNGEON_SELECT/ENTER/ENTER_INDEX and dungeon_init retain ID 234.
+The existing four warning messages and Yes/No choices are reused without
+editing scripts or strings. Confirmation continues through the native entry
+transition; cancellation follows the existing script exit.
+
 Read-only verification (no full-stack build, ROM or save output):
 
 ```powershell
@@ -66,7 +76,12 @@ Compiled ARM checks cover all 81 boss/level combinations, HP, moves, IQ, sprite
 selection, saved permutations, the complete phase-6 payload's linking/relocations
 and RAM budget, original dungeon queries, name aliases, native victory objectives,
 the original departure constructor through its real epilogue (including v16
-failure reproduction), and Spring success/exclusion cases. Engine file services,
+failure reproduction), selection through native SSB Case dispatch, the ROM's
+warning/Yes/No script routes, native entry with the selected ID preserved,
+Trial Tower's own open/progress checks, and Spring success/exclusion cases.
+The full payload compile uses the last completed Korean full-stack ROM as a
+read-only fixture, so an interrupted English rebuild cannot supply partial data.
+Engine file services,
 CalcStat inputs, random numbers and selected UI services are modeled where noted
 in the harness; this does not replace a playable emulator run after a requested
 full-stack build.
