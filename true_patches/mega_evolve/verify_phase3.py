@@ -72,6 +72,9 @@ class World(PreviousWorld):
         elif address==0x022e35e4:
             self.effects.append((a,b,c,d,struct.unpack('<4I',bytes(u.mem_read(sp,16)))))
             self.ret()
+        elif address in (0x022e5258,0x022e52f8):
+            self.effects.append((address,a,b))
+            self.ret()
         elif address==0x0230d240:
             # Execute the actual CalcDamageFixedWrapper first; only its native
             # fixed-damage service is modeled, including all seven stack args.

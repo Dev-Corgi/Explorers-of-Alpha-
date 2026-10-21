@@ -7,6 +7,9 @@
     {"index":2635,"before":"The weather has become [CS:E]Snow[CR]!\nThe Movement Speed of Ice-type Pokémon is\nboosted by 1 level.","en":"[CS:E]Snow[CR] is falling!\nIce types gain 1.2 times Defense and Sp. Def.\nSnow does not cause periodic damage.","ko":"[CS:E]설경[CR]이 펼쳐졌다!\n얼음 타입의 방어·특방이 1.2배가 된다.\n설경은 주기적인 피해를 주지 않는다."},
     {"index":19750,"en":"A [CS:E]Strong Sandstorm[CR] is blowing!\nGround, Rock and Steel types gain 1.5 times\nDefense and Sp. Def.","ko":"[CS:E]강한 모래바람[CR]이 불기 시작했다!\n땅·바위·강철 타입의\n방어·특방이 1.5배가 된다."},
     {"index":19751,"en":"[CS:E]Strong Snow[CR] is falling!\nIce types gain 1.5 times Defense and Sp. Def.\nSnow does not cause periodic damage.","ko":"[CS:E]강한 설경[CR]이 펼쳐졌다!\n얼음 타입의 방어·특방이 1.5배가 된다.\n설경은 주기적인 피해를 주지 않는다."},
-    {"index":19752,"en":"The strong weather prevented\na change to ordinary weather!","ko":"강한 날씨 때문에\n일반 날씨로 바꿀 수 없었다!"}
+    {"index":19752,"en":"The strong weather prevented\na change to ordinary weather!","ko":"강한 날씨 때문에\n일반 날씨로 바꿀 수 없었다!"},
+    {"index":19753,"en":"[CS:E]Harsh sunlight[CR] began to shine!","ko":"[CS:E]큰가뭄[CR]이 시작되었다!"},
+    {"index":19754,"en":"A [CS:E]heavy rain[CR] began to fall!","ko":"[CS:E]강한 비[CR]가 내리기 시작했다!"},
+    {"index":19755,"en":"[CS:E]Strong winds[CR] began to blow!","ko":"[CS:E]강한 바람[CR]이 불기 시작했다!"}
   ]
 }

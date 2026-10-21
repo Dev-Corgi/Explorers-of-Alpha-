@@ -16,6 +16,23 @@ SPEED_EFFECT = 293
 SPEED_DOWN_ANIM = 707
 SPEED_UP_ANIM = 708
 SOURCE_SHA256 = "604b0ab8f8ee462332e4f3b6aea0fe64b16659a738f0a0450c9479a74e67f02a"
+OV29 = 0x022dc240
+
+
+def _guard_native_hit_visuals(rom) -> None:
+    """Keep the presentation-only wrapper ABI separate from rank writers."""
+    binary = rom.loadArm9Overlays()[29].data
+    instructions = {
+        0x022e5258: 0xe92d000f,  # accuracy/evasion up wrapper entry
+        0x022e5274: 0xe3a00f63,  # accuracy up: effect 0x18c
+        0x022e52b0: 0xe3a0000d,  # evasion up: effect 0x0d
+        0x022e52f8: 0xe92d000f,  # down wrapper entry
+        0x022e5350: 0xe3a0000e,  # evasion down: effect 0x0e
+        0x022e5398: 0x0000018d,  # accuracy down effect
+    }
+    for address, expected in instructions.items():
+        if struct.unpack_from("<I", binary, address - OV29)[0] != expected:
+            raise RuntimeError(f"mega_evolve native hit-stage visual changed at {address:#x}")
 
 
 def _speed_palette(source: bytes) -> bytes:
@@ -40,6 +57,7 @@ def _speed_palette(source: bytes) -> bytes:
 
 
 def prepare(rom) -> dict[str, bytes]:
+    _guard_native_hit_visuals(rom)
     original_anim = rom.getFileByName(ANIM_PATHS[0])
     if original_anim != rom.getFileByName(ANIM_PATHS[1]):
         raise RuntimeError("mega_evolve Speed visual animation tables differ")
@@ -47,6 +65,11 @@ def prepare(rom) -> dict[str, bytes]:
     effects = BinPackHandler.deserialize(rom.getFileByName(EFFECT_PATH))
     if len(animations.general_table) != SPEED_DOWN_ANIM or len(effects) != SPEED_EFFECT:
         raise RuntimeError("mega_evolve Speed visual ids are occupied")
+    wind_move = animations.move_table[444]
+    wind_screen = animations.general_table[471]
+    if (wind_move.anim2 != 471 or wind_screen.anim_type.value != 5 or
+            wind_screen.anim_file != 15 or wind_screen.sfx != 2843):
+        raise RuntimeError("mega_evolve native Tailwind screen visual changed")
     down, up = animations.general_table[686:688]
     if (down.anim_file, down.unk2, down.sfx, up.anim_file, up.unk2, up.sfx) != (257, 0, 544, 257, 1, 547):
         raise RuntimeError("mega_evolve native stat visual entries changed")

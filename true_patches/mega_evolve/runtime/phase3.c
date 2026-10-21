@@ -20,7 +20,13 @@ int ME_PickupItem(u8 *e) {
     if(index<0||index>=(int)(sizeof(pickup_items)/sizeof(pickup_items[0])))return 0;
     u8 item[6];zero(item,sizeof(item));
     FN(0x023443b4,void(*)(u8*,int,int,int))(item,pickup_items[index],1,0);
-    return FN(0x0200f874,int(*)(u8*))(item);
+    if(!FN(0x0200f874,int(*)(u8*))(item))return 0;
+    /* Same item/name placeholder services as TryLeaderItemPickUp.  The bag
+     * insertion succeeded, so the popup describes the exact generated item. */
+    FN(0x02024fe8,void(*)(int,u8*,void*))(0,item,0);
+    FN(0x022e2ad8,void(*)(int,u8*,int))(0,e,0);
+    FN(0x0234b2a4,void(*)(u8*,int))(e,3168);
+    return 1;
 }
 
 const BaseProfile *ME_FindProfile(int species) {
@@ -54,6 +60,11 @@ static void show_speed_stage(u8 *target,int delta) {
     int token=FN(0x022bdeb4,int(*)(int))(id);
     FN(0x022e35e4,int(*)(u8*,int,int,int,int,int,int,int))(
         target,id,1,token&255,2,0,-1,0);
+}
+static void show_no_effect(u8 *actor,u8 *target) {
+    /* Existing target-aware 'It had no effect on [string:1]!' message. */
+    FN(0x022e2ad8,void(*)(int,u8*,int))(1,target,0);
+    FN(0x0234b350,void(*)(u8*,u8*,int))(actor,target,3774);
 }
 /* Floor-local state. The persistent profile is owned by the bank, never here. */
 typedef struct {u32 entity,monster,floor,once; u16 locked_move;u8 charged,pad;u32 sun_serial;
@@ -267,6 +278,9 @@ void ME_FlushFaintCopies(u32 token) {
         if(alive(e)&&b&&action->copies[i].entity==(u32)e&&action->copies[i].monster==(u32)monster(e)&&
            own<3&&(b->current[own]&65535)==A_POWER_OF_ALCHEMY&&ME_ClaimEffect(e,A_POWER_OF_ALCHEMY,6,0)) {
             b->current[own]=action->copies[i].ability;publish(b);
+            /* Existing Trace copy announcement; only after a real bank write. */
+            FN(0x022e2ad8,void(*)(int,u8*,int))(0,e,0);
+            FN(0x0234b2a4,void(*)(u8*,int))(e,3808);
         }
         action->copies[i].ability=0;
     }
@@ -291,7 +305,12 @@ int ME_WanderingSwap(u8 *actor,u8 *holder) {
     if(chosen<0||chosen>=n)return 0;
     int other=slots[chosen];u32 v=a->current[other];
     a->current[other]=b->current[own];b->current[own]=v;
-    publish(a);publish(b);return 1;
+    publish(a);publish(b);
+    /* Reuse Skill Swap's existing user/target announcement (text index
+     * 3795; LogMessageById arguments are one-based). */
+    FN(0x022e2ad8,void(*)(int,u8*,int))(0,actor,0);
+    FN(0x0234b350,void(*)(u8*,u8*,int))(actor,holder,3796);
+    return 1;
 }
 /* stat order: Atk,Def,SpAtk,SpDef,numeric Speed,Accuracy,Evasion.
  * Stored changes use the existing event services for their UI and native
@@ -308,7 +327,9 @@ int ME_ChangeStat(u8 *actor,u8 *target,int stat,int delta) {
      * predicates include Mold Breaker, unlike a plain active-ability query.
      * React only to a stored decrease, never to blocked or capped requests. */
     if(defhas(actor,target,129))delta=-delta;
-    if(delta<0 && actor!=target && (defhas(actor,target,15)||(stat==5&&defhas(actor,target,30))))return 0;
+    if(delta<0 && actor!=target && (defhas(actor,target,15)||(stat==5&&defhas(actor,target,30)))) {
+        show_no_effect(actor,target);return 0;
+    }
     if(defhas(actor,target,97))delta*=2;
     u8 *m=monster(target);int off=stat==5?0x2c:0x2e;
     int old=stat==4?ME_GetStoredSpeed(target):U16(m,off);
@@ -317,7 +338,13 @@ int ME_ChangeStat(u8 *actor,u8 *target,int stat,int delta) {
     if(stat==4) {
         ME_SetStoredSpeed(target,value);
         show_speed_stage(target,value-old);
-    } else U16(m,off)=(u16)value;
+    } else {
+        U16(m,off)=(u16)value;
+        /* The native hit-chance/evasion writers use these presentation-only
+         * wrappers before editing the same rank fields.  Invoke the wrappers
+         * after our numeric write, never the writers themselves. */
+        FN(value>old?0x022e5258:0x022e52f8,void(*)(u8*,int))(target,stat==6);
+    }
     if(value<old && alive(actor) && !friends(actor,target)) {
         /* Reactive boosts belong to the holder; the triggering attack's
          * Mold Breaker must not suppress these separate self effects. */
@@ -539,12 +566,18 @@ void ME_ReportHit(u8 *a,u8 *b,int previous_hp,u8 *damage,int move) {
 int ME_StatusBlocked(u8 *actor,u8 *target,int status) {
     if(!monster(target))return 0;
     if(status==12||status==13)status=0;
-    if(status>=0&&status<=6&&defhas(actor,target,A_COMATOSE))return 1;
+    if(status>=0&&status<=6&&defhas(actor,target,A_COMATOSE)) {
+        show_no_effect(actor,target);return 1;
+    }
     if(status==0||status==7) {
-        for(int i=0;i<COUNT;i++) {u8 *e=entity(i);if(alive(e)&&friends(e,target)&&(e==target||room(e,target))&&has(e,A_SWEET_VEIL))return 1;}
+        for(int i=0;i<COUNT;i++) {u8 *e=entity(i);if(alive(e)&&friends(e,target)&&(e==target||room(e,target))&&has(e,A_SWEET_VEIL)) {
+            show_no_effect(actor,target);return 1;
+        }}
     }
     if(status>=8&&status<=11) {
-        for(int i=0;i<COUNT;i++) {u8 *e=entity(i);if(alive(e)&&friends(e,target)&&(e==target||room(e,target))&&has(e,A_AROMA_VEIL))return 1;}
+        for(int i=0;i<COUNT;i++) {u8 *e=entity(i);if(alive(e)&&friends(e,target)&&(e==target||room(e,target))&&has(e,A_AROMA_VEIL)) {
+            show_no_effect(actor,target);return 1;
+        }}
     }
     return 0;
 }
@@ -552,7 +585,11 @@ int ME_SleepTarget(u8 *e) {
     if(!monster(e))return 0;
     return has(e,A_COMATOSE)||FN(0x023007a8,int(*)(u8*))(e);
 }
-int ME_TrapAvoid(u8 *e) {return has(e,A_LIGHT_METAL)&&FN(0x022eab20,int(*)(int))(50);}
+int ME_TrapAvoid(u8 *e) {
+    int avoided=has(e,A_LIGHT_METAL)&&FN(0x022eab20,int(*)(int))(50);
+    if(avoided)show_no_effect(e,e);
+    return avoided;
+}
 int ME_Weight(u8 *e,int weight) {
     int light=has(e,A_LIGHT_METAL),heavy=has(e,A_HEAVY_METAL);
     if(light&&!heavy)weight=divide(weight,2);
@@ -582,17 +619,24 @@ int ME_TargetBlocked(u8 *actor,u8 *target,u8 *move) {
     int id=U16(move,4),category=FN(0x020151c8,int(*)(int))(id);
     /* Skip the complete harmful move, including its additional effects.
      * Friendly recovery/support (category2) keeps the original handler. */
-    if(category!=2&&friends(actor,target)&&defhas(actor,target,A_TELEPATHY))return 1;
+    if(category!=2&&friends(actor,target)&&defhas(actor,target,A_TELEPATHY)) {
+        show_no_effect(actor,target);return 1;
+    }
     if(category==2&&actor!=target&&!friends(actor,target)&&defhas(actor,target,175)) {
         int global=0;
         for(unsigned i=0;i<sizeof(global_status_moves)/sizeof(global_status_moves[0]);i++)
             if(id==global_status_moves[i])global=1;
-        if(!global&&FN(0x022eab20,int(*)(int))(25))return 1;
+        if(!global&&FN(0x022eab20,int(*)(int))(25)) {
+            show_no_effect(actor,target);return 1;
+        }
     }
-    return ME_WindBlocked(actor,target,move);
+    if(ME_WindBlocked(actor,target,move)) {show_no_effect(actor,target);return 1;}
+    return 0;
 }
 int ME_DefenseDropBlocked(u8 *actor,u8 *target,int special,int amount) {
-    return amount>0&&!special&&actor!=target&&!defhas(actor,target,129)&&defhas(actor,target,A_BIG_PECKS);
+    int blocked=amount>0&&!special&&actor!=target&&!defhas(actor,target,129)&&defhas(actor,target,A_BIG_PECKS);
+    if(blocked)show_no_effect(actor,target);
+    return blocked;
 }
 int ME_AttackDropTrait(u8 *actor,u8 *target) {
     return actor!=target&&defhas(actor,target,9);
@@ -711,7 +755,11 @@ int ME_MoveAllowed(u8 *e,u8 *move) {
     return id==locked;
 }
 int ME_RedirectBlocked(u8 *actor) {return has(actor,A_STALWART);}
-int ME_ForcedMoveBlocked(u8 *actor,u8 *target) {return defhas(actor,target,A_HEAVY_METAL);}
+int ME_ForcedMoveBlocked(u8 *actor,u8 *target) {
+    int blocked=defhas(actor,target,A_HEAVY_METAL);
+    if(blocked)show_no_effect(actor,target);
+    return blocked;
+}
 void ME_FreeAbilities(void) {
     if(ability_memory)FN(0x02001188,void(*)(void*))(ability_memory);
     ability_memory=0;

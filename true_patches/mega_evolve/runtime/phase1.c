@@ -47,6 +47,7 @@ typedef struct { u32 entity, monster, order; u16 ability; u8 weather, strong;
 typedef struct { u32 magic, dungeon, floor, order; Rank ranks[COUNT]; Source sources[SOURCES]; } State;
 static State state;
 int ME_ForcedWeather(void);
+int ME_WeatherStrength(u8*);
 static u8 *dungeon(void) { return *(u8 **)DUNGEON_PTR; }
 static void zero(void *p,u32 n) { u8 *b=p; while(n--) *b++=0; }
 static int clamp(int x,int lo,int hi) { return x<lo?lo:x>hi?hi:x; }
@@ -174,6 +175,12 @@ int ME_SetWeatherSource(u8 *e,int weather,int strong,int ability) {
     weather=family(weather);
     if(weather!=0 && weather!=1 && weather!=2 && weather!=4 && weather!=5) return 0;
     if(!strong && ME_ForcedWeather()>=0) return 0;
+    /* Native selector's force flag replays the weather visual.  Refresh the
+     * source/timer without replaying it when the visible family and strength
+     * already match; a new strong source still gets its first announcement. */
+    int prior_weather=ME_ApparentWeather(e);
+    int prior_strong=ME_WeatherStrength(e);
+    int replay=prior_weather!=weather || prior_strong!=!!strong;
     Source *s=source(e,ability); if(!s) return 0;
     s->entity=(u32)e; s->monster=(u32)monster(e);
     s->ability=(u16)ability; s->weather=(u8)weather; s->strong=(u8)!!strong;
@@ -183,7 +190,22 @@ int ME_SetWeatherSource(u8 *e,int weather,int strong,int ability) {
 #endif
     u8 *d=dungeon(); if(d) {
         U16(d,0xcd3a+weather*2)=(u16)(strong?1:3000); BYTE(d,0xe)=1;
-        FN(0x023354c4,int (*)(int,int))(0,1);
+        FN(0x023354c4,int (*)(int,int))(0,replay);
+#ifdef ME_PHASE3
+        if(strong&&replay&&ME_ApparentWeather(e)==weather&&ME_WeatherStrength(e)) {
+            int message=ability==A_DESOLATE_LAND?19754:
+                        ability==A_PRIMORDIAL_SEA?19755:
+                        ability==A_DELTA_STREAM?19756:0;
+            if(ability==A_DELTA_STREAM) {
+                /* Tailwind's existing screen-wide wind animation, not a new
+                 * effect file.  Play it only after the strong source wins. */
+                int token=FN(0x022bdeb4,int(*)(int))(471);
+                FN(0x022e35e4,int(*)(u8*,int,int,int,int,int,int,int))(
+                    e,471,1,token&255,2,0,-1,0);
+            }
+            if(message)FN(0x0234b2a4,void(*)(u8*,int))(e,message);
+        }
+#endif
     }
     return 1;
 }

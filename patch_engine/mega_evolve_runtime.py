@@ -153,6 +153,9 @@ def apply_phase1(rom,module_dir,manifest,state,metadata):
             raise RuntimeError('mega_evolve native file loader guard changed')
         if word(rom.arm9,0x020528fc,0x02000000)!=0xe59f2010 or word(rom.arm9,0x0205290c,0x02000000)!=0xe1d002b8:
             raise RuntimeError('mega_evolve native weight lookup guard changed')
+        if (word(rom.arm9,0x02024fe8,0x02000000)!=0xe92d4038 or
+            word(rom.arm9,0x02025020,0x02000000)!=0xe1d110b4):
+            raise RuntimeError('mega_evolve Pickup item-placeholder ABI changed')
         if rom.filenames.subfolder('MEGA') is not None:
             raise RuntimeError('mega_evolve runtime namespace already occupied')
     tables=loadOverlayTable(rom.arm9OverlayTable,lambda i,f:rom.files[f])
@@ -256,6 +259,14 @@ def apply_phase1(rom,module_dir,manifest,state,metadata):
                 raise RuntimeError('phase4 base-stat entry guard changed')
             patch(36,root+offset,branch(root+offset,symbols[target]),target,target)
     strings=parse_str_file(rom.getFileByName("MESSAGE/text_e.str"))
+    if manifest['phase']>=3 and decode_english(strings[3795])!="[string:0] swapped special abilities with\nthe target!":
+        raise RuntimeError('mega_evolve Wandering Spirit native message changed')
+    if manifest['phase']>=3 and decode_english(strings[3773])!="It had no effect on [string:1]!":
+        raise RuntimeError('mega_evolve no-effect native message changed')
+    if manifest['phase']>=3 and decode_english(strings[3167])!="[string:0] picked up the [item:0].":
+        raise RuntimeError('mega_evolve Pickup native item message changed')
+    if manifest['phase']>=3 and decode_english(strings[3807])!="[string:0] copied the target's ability!":
+        raise RuntimeError('mega_evolve Power of Alchemy native copy message changed')
     text_data=json.loads((module_dir/"data/phase1_strings.json").read_text(encoding="utf-8"))
     for entry in text_data["entries"]:
         index=entry["index"]
