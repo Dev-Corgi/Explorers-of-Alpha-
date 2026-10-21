@@ -21,6 +21,7 @@ recommended_order:
 - better_equipment
 - base_stats_speed
 - spinda_ev_speed
+- move_level
 - balance_change
 - control_mode_enhance
 - inspect_trap
@@ -95,6 +96,10 @@ modules:
       has no level-up add. Move-info Accuracy is stars: 1 per 10, leftover half. Floor Gravity multiplies
       Accuracy by 5/3. Apply after base_stats_speed. Do not combine with spinda_ev_v2.'
     kind: spinda_ev
+  move_level:
+    path: move_level
+    description: Per-Pokemon move mastery levels 0..3 with separate save storage, hit growth, and TM Read/Z-Move swap isolation.
+    kind: move_level
   iq_change:
     path: iq_change
     description: 'IQ rework — Status-Resistence, Critical Dodger (1.2x crits), Counter Basher (Mini Mirror

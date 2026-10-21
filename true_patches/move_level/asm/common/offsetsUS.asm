@@ -1,0 +1,23 @@
+.include "generated.inc"
+.definelabel MoveLevelStatusMoves, 0x124
+.definelabel MoveLevelMoveId, 0x4
+.definelabel MoveLevelMoveLevel, 0x7
+.definelabel MoveLevelMoveSize, 8
+.definelabel MoveLevelShell, 559
+.definelabel MoveLevelHitResult, 1
+.definelabel MoveLevelTmPending, 0x023C2C10
+.definelabel MoveLevelZPending, 0x023C3718
+.definelabel MoveLevelZSelectedSlot, 0x023C3714
+.definelabel MoveLevelHitEpilogueBody, 0x02324008
+.definelabel MoveLevelGetMaxPpBody, 0x02013A54
+.definelabel MoveLevelMoveBasePp, 0x02013A30
+.definelabel MoveLevelSoftDiv, 0x0208FEA4
+.definelabel ApplyGinsengToGroundMonster, 0x020115F8
+.definelabel GetMaxPpArm9, 0x02013A50
+.definelabel DopingReadSaveFile, 0x02048ED0
+.definelabel DopingWriteSaveFile, 0x02048E74
+.definelabel DopingNewGame, 0x020487C4
+.definelabel ExecuteMonsterActionHook, 0x022FE4C4
+.definelabel GetMovePower, 0x0230231C
+.definelabel ApplyItemEffectSite, 0x0231B68C
+.definelabel MoveHitEpilogue, 0x02324008

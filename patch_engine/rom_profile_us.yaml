@@ -355,6 +355,7 @@ symbols:
   AccuracyStageLoad: 0x02323D78
   MoveHitCheck: 0x02323C48
   MoveHitRankApply: 0x02323F94
+  MoveHitEpilogue: 0x02324008
   BandStageLoad: 0x0230C23C
   PowerBandFlatSkip: 0x0230C354
   DefBandFlatSkip: 0x0230C3F8
@@ -408,6 +409,8 @@ symbols:
   DopingCopyMonsterToStream: 0x02059334
   DopingReadMonsterInfo: 0x02059224
   DopingNewGame: 0x020487C4
+  ApplyGinsengToGroundMonster: 0x020115F8
+  GetMaxPpArm9: 0x02013A50
   DopingSpecialProcess: 0x022E7118
   DopingProteinEffect: 0x02317F50
   DopingCalciumEffect: 0x02317FE4

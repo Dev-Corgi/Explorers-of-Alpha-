@@ -40,6 +40,7 @@ FULL_STACK_MODULES = [
     "better_equipment",
     "base_stats_speed",
     "spinda_ev_speed",
+    "move_level",
     "balance_change",
     "control_mode_enhance",
     "inspect_trap",

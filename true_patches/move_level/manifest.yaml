@@ -1,0 +1,84 @@
+id: move_level
+version: 1
+region: US
+description: >
+  Per-guild-member move mastery. Four current move slots keep independent
+  mastery in a separate save block; levels are 0..3 at 0/100/300/700.
+  Successful move actions add four mastery, while TM Read and Z-Move shell
+  swaps are excluded from both synchronization and mastery gain.
+kind: move_level
+rom_profile: us_vanilla
+
+hooks:
+  - name: MoveLevelSaveRead
+    symbol: DopingReadSaveFile
+    binary: arm9
+    chain: append
+    prior_label: MoveLevel_PriorSaveRead
+    target_symbol: MoveLevel_SaveRead
+  - name: MoveLevelSaveWrite
+    symbol: DopingWriteSaveFile
+    binary: arm9
+    chain: append
+    prior_label: MoveLevel_PriorSaveWrite
+    target_symbol: MoveLevel_SaveWrite
+  - name: MoveLevelNewGame
+    symbol: DopingNewGame
+    binary: arm9
+    chain: append
+    prior_label: MoveLevel_PriorNewGame
+    target_symbol: MoveLevel_NewGame
+  - name: MoveLevelGinsengGround
+    symbol: ApplyGinsengToGroundMonster
+    binary: arm9
+    chain: first
+    vanilla_word: 0xE92D43F8
+    target_symbol: MoveLevel_GinsengGround
+  - name: MoveLevelGinsengItem
+    symbol: ApplyItemEffectSite
+    binary: ov29
+    chain: append
+    prior_label: MoveLevel_PriorItemEffect
+    target_symbol: MoveLevel_ItemEffect
+  - name: MoveLevelGetMaxPp
+    symbol: GetMaxPpArm9
+    binary: arm9
+    chain: first
+    vanilla_word: 0xE92D4010
+    target_symbol: MoveLevel_GetMaxPp
+  - name: MoveLevelActionStart
+    symbol: ExecuteMonsterActionHook
+    binary: ov29
+    chain: append
+    prior_label: MoveLevel_PriorActionStart
+    target_symbol: MoveLevel_ActionStart
+  - name: MoveLevelGetPower
+    symbol: GetMovePower
+    binary: ov29
+    chain: append
+    prior_label: MoveLevel_PriorGetPower
+    target_symbol: MoveLevel_GetPower
+  - name: MoveLevelHitEpilogue
+    symbol: MoveHitEpilogue
+    binary: ov29
+    chain: first
+    vanilla_word: 0xE28DD00C
+    target_symbol: MoveLevel_HitEpilogue
+
+caves:
+  arm9:
+    estimated_bytes: 0x400
+    alignment: 4
+  ov29:
+    binary: ov29
+    estimated_bytes: 0x900
+    alignment: 4
+
+asm:
+  dir: asm
+  entry: main.asm
+
+save:
+  page0: 400
+  page200: 440
+  bytes: 0x2300

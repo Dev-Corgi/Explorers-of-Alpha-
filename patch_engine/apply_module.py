@@ -269,6 +269,22 @@ def apply_module(
             save_state(state_path, state)
         return state
 
+    if kind == "move_level":
+        if not armips_exe.is_file():
+            raise FileNotFoundError(f"armips not found: {armips_exe}")
+        from .apply_move_level import apply_move_level_module
+        prior = _prior_hook_sites(state, exclude_module=module_id if force_reapply else None)
+        record = apply_move_level_module(
+            module_id=module_id, module_dir=module_dir, manifest=manifest,
+            profile=profile, rom=rom, armips=armips_exe, state=state,
+            prior_hook_sites=prior,
+        )
+        state.upsert_module(record)
+        rom_out.write_bytes(_serialize_rom(rom, state))
+        if state_path:
+            save_state(state_path, state)
+        return state
+
 
 
 
@@ -477,6 +493,12 @@ def verify_module_applied(
         mod_state = state.get_module(manifest["id"]) if state else None
         profile = load_rom_profile(Path(__file__).resolve().parent, manifest.get("rom_profile", "us_vanilla"))
         verify_spinda_ev_module(rom_path, module_dir, manifest, profile, mod_state)
+        return
+
+    if kind == "move_level":
+        from .apply_move_level import verify_move_level_module
+        mod_state = state.get_module(manifest["id"]) if state else None
+        verify_move_level_module(rom_path, module_dir, manifest, mod_state)
         return
 
     if kind == "berry_boost":
