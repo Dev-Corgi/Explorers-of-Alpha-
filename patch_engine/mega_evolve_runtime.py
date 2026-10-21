@@ -383,11 +383,7 @@ def verify_phase1(rom,module_dir,manifest,record,metadata):
         raise AssertionError('mega_evolve conflicting single-cave hashes')
     if len(hashes)!=len(caves):raise AssertionError('mega_evolve cave record mismatch')
     for cave,expected in zip(caves,hashes):
-        blob=bytearray(tables[36].data[cave.file_offset:cave.file_offset+cave.size])
-        addon=record.data[0].get('symbols',{}).get('ME_AddonHooks')
-        if addon is not None and cave.load_address<=addon<=(cave.load_address+cave.size-16):
-            start=addon-cave.load_address
-            blob[start:start+16]=b'\xff'*16
+        blob=bytes(tables[36].data[cave.file_offset:cave.file_offset+cave.size])
         if hashlib.sha256(blob).hexdigest()!=expected:
             raise AssertionError("mega_evolve phase1 cave hash mismatch")
     for edit in record.data[0]["edits"]:
