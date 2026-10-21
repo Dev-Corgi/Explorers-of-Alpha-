@@ -48,6 +48,7 @@ FULL_STACK_MODULES = [
     "bug_fixes",
     "luminous_evolution",
     "mega_evolve",
+    "trial_tower",
 ]
 
 

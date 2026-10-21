@@ -69,9 +69,6 @@ def load_registry(module_dir, manifest):
         phase6=load();metadata['phase6_routes']=len(phase6['routes'])
         for relative in ('phase6.py','data/phase6.json','runtime/phase6_spring.c','runtime/phase6_spring.S'):
             metadata[relative+'_sha256']=hashlib.sha256((module_dir/relative).read_bytes()).hexdigest()
-        for relative in ('trial_tower.py','data/trial_tower.json','runtime/trial_tower.c',
-                         'runtime/trial_tower_hooks.S','runtime/trial_tower_resident.S'):
-            metadata[relative+'_sha256']=hashlib.sha256((module_dir/relative).read_bytes()).hexdigest()
     metadata["registry_file_sha256"] = hashlib.sha256(path.read_bytes()).hexdigest()
     return registry, metadata
 

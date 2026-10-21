@@ -9,7 +9,7 @@ from skytemple_files.common.types.file_types import FileType
 from skytemple_files.common.util import get_ppmdu_config_for_rom
 from skytemple_files.hardcoded.fixed_floor import HardcodedFixedFloorTables as Tables,ItemSpawn
 from skytemple_files.dungeon_data.fixed_bin.model import TileRule,TileRuleType
-from true_patches.mega_evolve.fixed_extension import read_extension
+from true_patches.trial_tower.fixed_extension import read_extension
 
 
 def check_plugin(rom):

@@ -1,0 +1,11 @@
+id: trial_tower
+version: 1
+kind: trial_tower
+rom_profile: us_vanilla
+description: >-
+  Spring-unlocked Trial Tower with its own dungeon, bosses, fixed rooms,
+  rewards, resident hooks, and quicksave state.
+requires:
+  - mega_evolve
+  - control_mode_enhance
+conflicts: []

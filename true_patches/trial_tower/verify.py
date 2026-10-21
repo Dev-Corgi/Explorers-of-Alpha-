@@ -18,14 +18,14 @@ sys.path.insert(0,str(ROOT/'tools/.korean_jit_test_deps'))
 from unicorn import Uc, UcError, UC_ARCH_ARM, UC_MODE_ARM, UC_HOOK_CODE
 from unicorn.arm_const import UC_ARM_REG_R0,UC_ARM_REG_R1,UC_ARM_REG_R2,UC_ARM_REG_R3,UC_ARM_REG_R4,UC_ARM_REG_SP,UC_ARM_REG_LR,UC_ARM_REG_PC
 from ndspy.rom import NintendoDSRom
-from patch_engine.state import AppliedModule
-from patch_engine.mega_evolve_trial_tower import install,verify
+from patch_engine.state import AppliedModule, BuildState, CaveAllocation
+from patch_engine.trial_tower import install,verify
 from patch_engine.mega_evolve_runtime import build_runtime,OV29,OV36,word
 from patch_engine.korean_codec import parse_str_file,decode_english
 from skytemple_files.common.types.file_types import FileType
 from skytemple_files.common.util import get_ppmdu_config_for_rom
 from true_patches.base_stats_speed.generate_tables import GEN,calc_stat_from_tables
-from .trial_tower import load,header
+from .contract import load,header
 
 MODULE=Path(__file__).resolve().parent
 BASE=0x02180000
@@ -90,11 +90,26 @@ class Machine:
 def main():
     source=ROOT/'PatchTesting/Explorers of Alpha/Explorers of Alpha.nds'
     before=hashlib.sha256(source.read_bytes()).hexdigest();rom=NintendoDSRom(source.read_bytes());d=load()
-    record=AppliedModule('mega_evolve',22,data=[{'symbols':{name:0x023b8000+i*16 for i,name in enumerate([
-        'ME_TowerSpawnHook','ME_TowerStatsHook','ME_TowerSpeciesHook','ME_TowerItemHook','ME_TowerTeamHook',
-        'ME_TowerSelectHook','ME_TowerFloorHook','ME_TowerFixedLoadedHook'])},'cave_hashes':[]}])
-    info=install(rom,MODULE,None,record);verify(rom,info)
-    from .verify_trial_tower_chain import check_spawn_chain
+    tables=rom.loadArm9Overlays()
+    ov36=tables[36];addon_off=(len(ov36.data)+15)&~15
+    ov36.data=bytearray(ov36.data).ljust(addon_off,b'\0')+bytes([255])*16
+    ov36.ramSize=len(ov36.data);ov36.compressed=False
+    rom.files[ov36.fileID]=ov36.save(compress=False)
+    ov16=tables[16];spring_off=(len(ov16.data)+3)&~3
+    ov16.data=bytearray(ov16.data).ljust(spring_off,b'\0')+bytes([255])*4
+    ov16.ramSize=len(ov16.data);ov16.compressed=False
+    rom.files[ov16.fileID]=ov16.save(compress=False)
+    from ndspy.code import saveOverlayTable
+    rom.arm9OverlayTable=saveOverlayTable(tables)
+    mega=AppliedModule('mega_evolve',23,
+        caves=[CaveAllocation('ov36',addon_off,16,OV36+addon_off)],
+        data=[{'phase':6,'prior_helpers':{'FORM_STAT_RESUME':0x02001000},
+               'symbols':{'ME_AddonHooks':OV36+addon_off},
+               'spring':{'symbols':{'ME_SpringCompletionAddon':ov16.ramAddress+spring_off}}}])
+    state=BuildState('us_vanilla',OV29,[mega])
+    record=AppliedModule('trial_tower',1,[],[],[])
+    info=install(rom,MODULE,state,record);verify(rom,info)
+    from .verify_chain import check_spawn_chain
     check_spawn_chain(source,MODULE)
     from .fixed_extension_plugin.verify import check_plugin
     check_plugin(rom)
@@ -134,29 +149,19 @@ def main():
 static u8 *dungeon(void){return *(u8**)0x02353538;}
 static u8 *monster(u8 *e){return e&&U32(e,0)==1?(u8*)U32(e,0xb4):0;}
 static int clamp(int x,int lo,int hi){return x<lo?lo:x>hi?hi:x;}
-#include "trial_tower.c"
+#include "tower_core.c"
 ''')
-        # Exercise the actual first-turn restore callback after a native floor
-        # reset, with unrelated actor/state restoration services isolated.
-        ready=(MODULE/'runtime/phase4_quick.c').read_text().split('void ME_QuickReady(void)',1)[1]
+        # The tower callback reapplies validated room properties after the
+        # native floor reset; Mega's generic quicksave slot is tested below.
         with (work/'test.c').open('a') as out:
             out.write('''
-#define ME_TRIAL_TOWER 1
-enum {COUNT=0,SNAPSHOT=1024};
-static u8 quick_pending[0x1400];static int quick_loaded;
-static u32 sunlight_serial,movement_serial;
-static u8 *entity(int i){(void)i;return 0;}
-static void ME_QuickActor(u8 *e){(void)e;}
-static void ME_ImportState(u8 *p,int size){(void)p;(void)size;}
-void ME_QuickReady(void)'''+ready+'''
 void ME_TestResume(u8 *saved){
-    for(int i=0;i<27;i++)quick_pending[4888+i]=saved[i];
-    quick_loaded=1;ME_TowerFloorReset();ME_QuickReady();
+    ME_TowerFloorReset();ME_TowerLoad(saved);
 }
 ''')
-        (work/'hooks.S').write_text('.syntax unified\n.arm\n.text\n.macro entry name\n.global \\name\n\\name:\n.endm\n#include "trial_tower_hooks.S"\n')
+        (work/'hooks.S').write_text('.syntax unified\n.arm\n.text\n.macro entry name\n.global \\name\n\\name:\n.endm\n#include "tower_hooks.S"\n')
         blob,symbols=compile_code(work,work/'test.c',[work/'hooks.S']);m=Machine(rom,blob,symbols)
-        from .verify_trial_tower_rewards import check_rewards
+        from .verify_rewards import check_rewards
         check_rewards(Machine(rom,blob,symbols),rom,info)
         m.stubs[0x020137b8]=lambda: m.u.mem_write(m.reg(0),struct.pack('<BBHHBB',9,0,0,m.reg(1),10,0)) or 0
         permutations=set();cases=0;covered=set()
@@ -360,19 +365,25 @@ void ME_TestResume(u8 *saved){
             if expected!=0xea000000:struct.pack_into('<I',ov29,site-OV29,expected)
         defines=native_defines(ov29)
         defines.update(FORM_STAT_RESUME=0x023b0008,FORM_RATE_RESUME=0x023b0100)
-        _,body=build_runtime(MODULE,work,0x01000000,0x023b1000,0x023b1800,6,0,defines,emit_relocations=True)
+        mega_module=MODULE.parent/'mega_evolve'
+        _,body=build_runtime(mega_module,work,0x01000000,0x023b1000,0x023b1800,6,0,defines,emit_relocations=True)
         assert body['MERuntimeEnd']-0x01000000<0x40000
-        assert 'ME_TowerSpawnHook' in body and 'ME_TowerStatsHook' in body
+        assert 'ME_AddonHooks' in body and 'ME_TowerSpawnHook' not in body
         relocation_offsets(work/'phase1.elf')
-        print('PASS complete phase6 payload compilation, exports, relocation validation and RAM budget',flush=True)
+        from .verify_split import main as verify_split
+        verify_split()
+        print('PASS separate Mega phase6/addon and Tower payload compilation, relocation validation and RAM budget',flush=True)
         from patch_engine.mega_evolve_phase6 import header as spring_header
         from true_patches.mega_evolve.phase6 import load as spring_data
         from true_patches.luminous_evolution.verify import Machine as SpringMachine,ROSTER,INDEX
         spring=spring_data()
         (work/'phase6_generated.h').write_text(spring_header(installed,installed.loadArm9Overlays()[16].data,spring))
         (work/'phase6_generated_asm.h').write_text('')
-        blob,syms=compile_code(work,MODULE/'runtime/phase6_spring.c',[MODULE/'runtime/phase6_spring.S'])
+        blob,syms=compile_code(work,mega_module/'runtime/phase6_spring.c',[mega_module/'runtime/phase6_spring.S'])
         sm=SpringMachine(installed,syms);sm.u.mem_write(BASE,blob)
+        callbacks=[]
+        sm.u.mem_write(syms['ME_SpringCompletionAddon'],struct.pack('<I',0x02001004))
+        sm.stub(0x02001004,lambda:callbacks.append('mega complete'))
         sm.stub(0x020555a8,lambda:ROSTER+sm.reg(0)*0x44)
         opened={};writes=[];convert_ok=[True]
         sm.stub(0x0204cf9c,lambda:opened.get(sm.reg(0),0))
@@ -385,17 +396,17 @@ void ME_TestResume(u8 *saved){
         sm.stub(0x0205a340,convert);sm.stub(0x0205a288,lambda:1)
         mega=next(r for r in spring['routes'] if r['target_stage']==1)
         sm.run('ME_Spring_Prepare');sm.record(0,mega['source'],80);sm.select(0);sm.run('ME_Spring_Submenu')
-        assert not opened and not writes  # selecting or cancelling never unlocks
-        convert_ok[0]=False;sm.run('ME_Spring_Convert',INDEX,mega['target']);assert not opened
+        assert not callbacks and not opened and not writes
+        convert_ok[0]=False;sm.run('ME_Spring_Convert',INDEX,mega['target']);assert not callbacks
         convert_ok[0]=True;sm.run('ME_Spring_Convert',INDEX,mega['target'])
-        assert opened=={234:1} and (0x53,234,1) in writes and (0x55,235,1) in writes
+        assert callbacks==['mega complete']
         opened.clear();writes.clear()
         shiny=next(r for r in spring['routes'] if r['target_stage']==2)
         sm.run('ME_Spring_Prepare');sm.record(0,shiny['source'],1);sm.select(0);sm.run('ME_Spring_Submenu')
-        sm.run('ME_Spring_Convert',INDEX,shiny['target']);assert not opened and not writes
+        sm.run('ME_Spring_Convert',INDEX,shiny['target']);assert callbacks==['mega complete']
         sm.run('ME_Spring_Prepare');sm.record(0,1,80);sm.select(0)
-        sm.run('ME_Spring_Convert',INDEX,2);assert not opened and not writes
-        print('PASS compiled Spring success-only unlock; menu/cancel, failed conversion, ordinary evolution and Shiny exclusions',flush=True)
+        sm.run('ME_Spring_Convert',INDEX,2);assert callbacks==['mega complete']
+        print('PASS Spring success-only addon callback; menu/cancel, failed conversion, ordinary evolution and Shiny exclusions',flush=True)
     assert hashlib.sha256(source.read_bytes()).hexdigest()==before
 
 

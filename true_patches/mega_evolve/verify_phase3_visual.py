@@ -66,7 +66,7 @@ def _test_effects(rom):
 
 
 def _defines():
-    values = {"TT_PRIOR_TEAM": 0x022df6a4}
+    values = {}
     values.update({"PRIOR_" + name: 0x02200000 for name in (
         "USE_MOVE", "MOVE_TYPE", "APPLY_DAMAGE", "DUNGEON_FREE", "FAINT",
         "CALC_DAMAGE", "DEFENSE_DROP", "HIT_CHECK", "EXECUTE_EFFECT")})

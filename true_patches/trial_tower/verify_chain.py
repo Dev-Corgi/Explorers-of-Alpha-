@@ -12,12 +12,12 @@ from ndspy.rom import NintendoDSRom
 from unicorn.arm_const import UC_ARM_REG_LR
 
 from patch_engine.mega_evolve_runtime import OV29,OV36,branch,word
-from patch_engine.mega_evolve_trial_tower import install,verify,team_spawn_prior
+from patch_engine.trial_tower import team_spawn_prior
 from patch_engine.state import AppliedModule,BuildState,CaveAllocation
 
 
 def check_spawn_chain(source,module):
-    from .verify_trial_tower import ROOT,Machine,compile_code,ENTITY,RETURN
+    from .verify import ROOT,Machine,compile_code,ENTITY,RETURN
     rom=NintendoDSRom.fromFile(str(source));tables=rom.loadArm9Overlays()
     cme=ROOT/'true_patches/control_mode_enhance'
     cfg=yaml.safe_load((cme/'manifest.yaml').read_text(encoding='utf8'))
@@ -52,24 +52,10 @@ def check_spawn_chain(source,module):
             try:team_spawn_prior(bad,tables[36].data)
             except RuntimeError:pass
             else:raise AssertionError('unknown SpawnTeam predecessor accepted')
-        state=BuildState('us_vanilla',OV29,[AppliedModule('control_mode_enhance',cfg['version'],
-            caves=[CaveAllocation('ov36',offset,size,OV36+offset)])])
-        exports=['ME_TowerSpawnHook','ME_TowerStatsHook','ME_TowerSpeciesHook','ME_TowerItemHook',
-                 'ME_TowerTeamHook','ME_TowerSelectHook','ME_TowerFloorHook','ME_TowerFixedLoadedHook']
-        record=AppliedModule('mega_evolve',22,data=[dict(symbols={n:0x023b8000+i*16 for i,n in enumerate(exports)},
-                    cave_hashes=[],prior_helpers={'TT_PRIOR_TEAM':prior})])
-        # A stale compile target must fail rather than installing a bypass.
-        stale=copy.deepcopy(record);stale.data[0]['prior_helpers']['TT_PRIOR_TEAM']=0x022fc50c
-        try:install(copy.deepcopy(rom),module,state,stale)
-        except RuntimeError as error:assert 'compiled SpawnTeam chain' in str(error)
-        else:raise AssertionError('stale native-only payload accepted')
-        before=bytes(tables[36].data[offset:offset+size])
-        info=install(rom,module,state,record);verify(rom,info)
-        assert info['team_spawn_prior']==prior
-        assert bytes(rom.loadArm9Overlays()[36].data[offset:offset+size])==before
+        assert bytes(tables[36].data[offset:offset+size])==(asm/'overlay_0036.bin').read_bytes()[offset:offset+size]
         # Compile the production wrapper verbatim with the preceding module's
         # discovered address. Downstream native services are modeled below.
-        body=(module/'runtime/trial_tower_hooks.S').read_text().split('entry ME_TowerTeamHook',1)[1].split('.ltorg',1)[0]
+        body=(module/'runtime/tower_hooks.S').read_text().split('entry ME_TowerTeamHook',1)[1].split('.ltorg',1)[0]
         (work/'hook.S').write_text(f'.syntax unified\n.arm\n.text\n#define TT_PRIOR_TEAM {prior}\n.global ME_TowerTeamHook\nME_TowerTeamHook:\n'+body+'\n.ltorg\n')
         (work/'test.c').write_text('void ME_TowerResolveReward(void){((void(*)(void))0x02001004)();}\n')
         blob,syms=compile_code(work,work/'test.c',[work/'hook.S'])
@@ -92,4 +78,4 @@ def check_spawn_chain(source,module):
         m.stubs[0x022df6a8]=resume
         assert m.run(0x022df6a4,123)==17
         assert calls==['native spawn','control alive','control leader','tower reward']
-    print('PASS actual control_mode_enhance -> Trial Tower installation, prior-target guards, preserved cave and native spawn/control leader/reward order with original return',flush=True)
+    print('PASS control_mode_enhance -> Trial Tower wrapper, prior-target guards, native spawn/control leader/reward order with original return',flush=True)

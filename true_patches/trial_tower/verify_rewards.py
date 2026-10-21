@@ -15,7 +15,7 @@ def check_rewards(m,rom,info):
     fixed=FileType.FIXED_BIN.deserialize(rom.getFileByName('BALANCE/fixed.bin'))
     # All other fixed rooms, including inherited key rooms, remain byte-identical.
     from ndspy.rom import NintendoDSRom
-    from .verify_trial_tower import ROOT
+    from .verify import ROOT
     original=NintendoDSRom.fromFile(str(ROOT/'PatchTesting/Explorers of Alpha/Explorers of Alpha.nds'))
     old=FileType.FIXED_BIN.deserialize(original.getFileByName('BALANCE/fixed.bin'))
     for n in range(256):

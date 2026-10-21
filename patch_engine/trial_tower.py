@@ -1,4 +1,4 @@
-"""Install Trial Tower as part of mega_evolve, without altering shared bosses."""
+"""Install the standalone Trial Tower after mega_evolve."""
 from __future__ import annotations
 import copy
 import hashlib
@@ -16,9 +16,9 @@ from skytemple_files.hardcoded.fixed_floor import HardcodedFixedFloorTables
 from skytemple_files.dungeon_data.fixed_bin.model import EntityRule,TileRule,TileRuleType
 from .mega_evolve_runtime import OV29, OV36, allocate_runtime, branch, word
 from .korean_codec import parse_str_file, build_str_file, decode_english
-from .state import BuildState, CaveAllocation, HookRecord
-from true_patches.mega_evolve.trial_tower import load
-from true_patches.mega_evolve.fixed_extension import read_extension,serialize_extended
+from .state import CaveAllocation, HookRecord
+from true_patches.trial_tower.contract import load,header
+from true_patches.trial_tower.fixed_extension import read_extension,serialize_extended
 
 
 def team_spawn_prior(ov29,ov36):
@@ -54,8 +54,10 @@ def install(rom, module, state, record):
     contract=load();config=get_ppmdu_config_for_rom(rom)
     tables=rom.loadArm9Overlays()
     prior_team=team_spawn_prior(tables[29].data,tables[36].data)
-    compiled=record.data[0].get('prior_helpers',{}).get('TT_PRIOR_TEAM',0x022fc50c)
-    if compiled!=prior_team:raise RuntimeError('Trial Tower compiled SpawnTeam chain differs from installed predecessor')
+    mega=state.get_module('mega_evolve') if state else None
+    if not mega or not mega.data or mega.data[0].get('phase',0)<6:
+        raise RuntimeError('Trial Tower requires installed mega_evolve phase6')
+    mega_info=mega.data[0]
     dungeon=contract['dungeon_id'];source=contract['source_dungeon'];first=contract['room_first']
     # Alpha loads shared overlay36 during early ARM9 initialization, before
     # any ground/title string lookups can reach these resident entry points.
@@ -137,9 +139,7 @@ def install(rom, module, state, record):
     rom.setFileByName('MESSAGE/text_e.str',build_str_file(strings))
     # All four native name slots alias a genuinely empty new string. Placeholder
     # strings and original dungeon names are never overwritten.
-    combined=BuildState('us_vanilla',OV29,list(state.applied) if state else [])
-    combined.applied.append(record)
-    slot,ov36=allocate_runtime(bytearray(tables[36].data),combined,0x400)
+    slot,ov36=allocate_runtime(bytearray(tables[36].data),state,0x2000)
     compiler=shutil.which('arm-none-eabi-gcc')
     if not compiler:raise RuntimeError('Trial Tower requires arm-none-eabi-gcc')
     prefix=str(Path(compiler).with_name('arm-none-eabi-'));suffix='.exe' if compiler.endswith('.exe') else ''
@@ -153,13 +153,25 @@ def install(rom, module, state, record):
                  TT_NAME_ID=index+1,TT_MENU_PTR=menu_ptr,
                  TT_MENU_CAPACITY=(word(tables[11].data,0x022ffe60,tables[11].ramAddress)-0x1c4)//4)
     defines.update({f'TT_NAME_ALIAS_{i}':v for i,v in enumerate(name_aliases)})
-    with tempfile.TemporaryDirectory(prefix='mega_tower_') as tmp:
-        work=Path(tmp);(work/'tower_resident_generated.h').write_text(
+    with tempfile.TemporaryDirectory(prefix='trial_tower_') as tmp:
+        work=Path(tmp)
+        (work/'trial_tower_generated.h').write_text(header(),encoding='ascii')
+        (work/'tower_resident_generated.h').write_text(
             ''.join(f'#define {k} {v}\n' for k,v in defines.items()),encoding='ascii')
-        (work/'tower.ld').write_text(f'SECTIONS {{ . = {slot.load_address}; .text : {{ *(.text*) }} /DISCARD/ : {{ *(.ARM.attributes) }} }}',encoding='ascii')
+        runtime_defines=dict(TT_PRIOR_TEAM=prior_team,
+            FORM_STAT_RESUME=mega_info['prior_helpers']['FORM_STAT_RESUME'])
+        (work/'tower_runtime_generated.h').write_text(
+            ''.join(f'#define {k} 0x{v:X}\n' for k,v in runtime_defines.items()),encoding='ascii')
+        (work/'tower.ld').write_text(f'SECTIONS {{ . = {slot.load_address}; '
+            '.text : { *(.text*) *(.rodata*) } .data : { *(.data*) } '
+            '.bss : { *(.bss*) *(COMMON) } '
+            '/DISCARD/ : { *(.ARM.exidx*) *(.ARM.attributes) *(.comment) } }',encoding='ascii')
         elf=work/'tower.elf'
-        result=subprocess.run([compiler,'-mcpu=arm946e-s','-marm','-nostdlib','-I',str(work),
-            str(module/'runtime/trial_tower_resident.S'),'-Wl,-T,'+str(work/'tower.ld'),'-o',str(elf)],capture_output=True,text=True)
+        result=subprocess.run([compiler,'-mcpu=arm946e-s','-marm','-Os','-ffreestanding',
+            '-fno-builtin','-nostdlib','-Wall','-Wextra','-Werror',
+            '-I',str(work),'-I',str(module/'runtime'),'-include',str(work/'tower_runtime_generated.h'),
+            str(module/'runtime/tower.c'),str(module/'runtime/tower_entry.S'),
+            str(module/'runtime/tower_resident.S'),'-Wl,-T,'+str(work/'tower.ld'),'-o',str(elf)],capture_output=True,text=True)
         if result.returncode:raise RuntimeError(result.stdout+result.stderr)
         symbols={}
         for line in subprocess.check_output([prefix+'nm'+suffix,'--defined-only',str(elf)],text=True).splitlines():
@@ -167,7 +179,7 @@ def install(rom, module, state, record):
         binary=work/'tower.bin'
         subprocess.run([prefix+'objcopy'+suffix,'-O','binary',str(elf),str(binary)],check=True,capture_output=True)
         blob=binary.read_bytes()
-    if len(blob)>slot.size:raise RuntimeError('Trial Tower resident cave overflow')
+    if len(blob)>slot.size:raise RuntimeError('Trial Tower runtime cave overflow')
     ov36[slot.file_offset:slot.file_offset+slot.size]=blob.ljust(slot.size,b'\0')
     edits=[]
     def patch(binary,site,target,expected,link=False):
@@ -187,25 +199,38 @@ def install(rom, module, state, record):
         patch(0,site,symbols[name],expected)
     patch(11,0x022ffe08,symbols['ME_TowerMenu'],0xe59f0058)
     patch(11,0x022ddacc,symbols['ME_TowerWarning'],0xe1dd10f4)
-    runtime=record.data[0]['symbols']
-    patch(29,0x0234389c,runtime['ME_TowerSpawnHook'],branch(0x0234389c,0x023da080,True),True)
-    patch(29,0x023438bc,runtime['ME_TowerStatsHook'],0xe5d80000)
-    patch(29,0x02343eb8,runtime['ME_TowerSpeciesHook'],branch(0x02343eb8,0x023da090,True),True)
-    patch(36,0x023dbbd4,runtime['ME_TowerSelectHook'],0xe3a0000c)
-    patch(29,0x022e6fbc,runtime['ME_TowerFloorHook'],0xe92d4ff8)
-    patch(29,0x02343db8,runtime['ME_TowerFixedLoadedHook'],0xe8bd8008)
-    patch(29,0x02343674,runtime['ME_TowerItemHook'],branch(0x02343674,0x02344430,True),True)
-    patch(29,0x022df6a4,runtime['ME_TowerTeamHook'],branch(0x022df6a4,prior_team,True),True)
+    patch(29,0x0234389c,symbols['ME_TowerSpawnHook'],branch(0x0234389c,0x023da080,True),True)
+    patch(29,0x023438bc,symbols['ME_TowerStatsHook'],0xe5d80000)
+    patch(29,0x02343eb8,symbols['ME_TowerSpeciesHook'],branch(0x02343eb8,0x023da090,True),True)
+    patch(36,0x023dbbd4,symbols['ME_TowerSelectHook'],0xe3a0000c)
+    patch(29,0x022e6fbc,symbols['ME_TowerFloorHook'],0xe92d4ff8)
+    patch(29,0x02343db8,symbols['ME_TowerFixedLoadedHook'],0xe8bd8008)
+    patch(29,0x02343674,symbols['ME_TowerItemHook'],branch(0x02343674,0x02344430,True),True)
+    patch(29,0x022df6a4,symbols['ME_TowerTeamHook'],branch(0x022df6a4,prior_team,True),True)
+    addon=mega_info['symbols']['ME_AddonHooks']
+    for index,name in enumerate(('ME_TowerReset','ME_TowerQuickSave',
+                                 'ME_TowerQuickLoad','ME_TowerQuickReady')):
+        site=addon+index*4
+        if word(ov36,site,OV36)!=0xffffffff:
+            raise RuntimeError('Trial Tower mega addon slot occupied')
+        struct.pack_into('<I',ov36,site-OV36,symbols[name])
+        edits.append(dict(binary=36,site=site,after=symbols[name]))
+    spring_addon=mega_info['spring']['symbols']['ME_SpringCompletionAddon']
+    ov16=bytearray(tables[16].data)
+    if word(ov16,spring_addon,tables[16].ramAddress)!=0xffffffff:
+        raise RuntimeError('Trial Tower Spring addon slot occupied')
+    struct.pack_into('<I',ov16,spring_addon-tables[16].ramAddress,
+                     symbols['ME_TowerSpringComplete'])
+    edits.append(dict(binary=16,site=spring_addon,after=symbols['ME_TowerSpringComplete']))
     rom.arm9=bytes(arm9)
-    tables[10].data=ov10;tables[36].data=ov36
-    for n in (10,11,29,36):
+    tables[10].data=ov10;tables[16].data=ov16;tables[36].data=ov36
+    for n in (10,11,16,29,36):
         ov=tables[n];ov.compressed=False;ov.ramSize=len(ov.data);rom.files[ov.fileID]=ov.save(compress=False)
     rom.arm9OverlayTable=saveOverlayTable(tables)
     cave=CaveAllocation('ov36',slot.file_offset,slot.size,slot.load_address);record.caves.append(cave)
-    record.data[0]['cave_hashes'].append(hashlib.sha256(bytes(ov36[slot.file_offset:slot.file_offset+slot.size])).hexdigest())
-    record.data[0].pop('cave_sha256',None)
     return dict(group=group,dungeon=dungeon,room_first=first,marker=marker,edits=edits,team_spawn_prior=prior_team,
                 symbols=symbols,files=files,original_rooms=original_rooms,
+                cave=cave.to_dict(),cave_sha256=hashlib.sha256(bytes(ov36[slot.file_offset:slot.file_offset+slot.size])).hexdigest(),
                 name_index=index,restriction=restrictions[dungeon].to_bytes().hex(),
                 map_marker=markers[marker].to_bytes().hex(),
                 properties=[p.to_bytes().hex() for p in props[first:first+10]])
@@ -213,6 +238,9 @@ def install(rom, module, state, record):
 
 def verify(rom,info):
     c=get_ppmdu_config_for_rom(rom);tables=rom.loadArm9Overlays();d=load()
+    cave=info['cave'];blob=tables[36].data[cave['file_offset']:cave['file_offset']+cave['size']]
+    if hashlib.sha256(blob).hexdigest()!=info['cave_sha256']:
+        raise AssertionError('Trial Tower runtime cave drift')
     for path,digest in info['files'].items():
         if hashlib.sha256(rom.getFileByName(path)).hexdigest()!=digest:raise AssertionError('Trial Tower file drift: '+path)
     for edit in info['edits']:

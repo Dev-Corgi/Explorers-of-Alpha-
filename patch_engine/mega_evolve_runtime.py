@@ -91,10 +91,6 @@ def build_runtime(module_dir,work,cave,entity_speed,from_monster,phase=1,skill_s
         (work/'new_species_generated.h').write_text(new_header(),encoding='ascii')
         defines['ME_PHASE4']=1
     if phase>=5:defines.update(ME_PHASE5=1,ME_FORM_FIRST_ASM=data['first_species'])
-    if phase>=6:
-        from true_patches.mega_evolve.trial_tower import header as tower_header
-        (work/'trial_tower_generated.h').write_text(tower_header(),encoding='ascii')
-        defines['ME_TRIAL_TOWER']=1
     defines.update(additional_defines or {})
     if phase>=3:
         from true_patches.mega_evolve.status_hooks import assembly
@@ -355,8 +351,6 @@ def apply_phase1(rom,module_dir,manifest,state,metadata):
     if manifest['phase']>=6:
         from .mega_evolve_phase6 import install
         record.data[0]['spring']=install(rom,module_dir,state,record)
-        from .mega_evolve_trial_tower import install as install_tower
-        record.data[0]['trial_tower']=install_tower(rom,module_dir,state,record)
     if manifest['phase']>=4:
         from .mega_evolve_native_data import install
         record.data[0]['native_data']=install(rom,record.data[0]['species_save_codec'])
@@ -389,7 +383,11 @@ def verify_phase1(rom,module_dir,manifest,record,metadata):
         raise AssertionError('mega_evolve conflicting single-cave hashes')
     if len(hashes)!=len(caves):raise AssertionError('mega_evolve cave record mismatch')
     for cave,expected in zip(caves,hashes):
-        blob=bytes(tables[36].data[cave.file_offset:cave.file_offset+cave.size])
+        blob=bytearray(tables[36].data[cave.file_offset:cave.file_offset+cave.size])
+        addon=record.data[0].get('symbols',{}).get('ME_AddonHooks')
+        if addon is not None and cave.load_address<=addon<=(cave.load_address+cave.size-16):
+            start=addon-cave.load_address
+            blob[start:start+16]=b'\xff'*16
         if hashlib.sha256(blob).hexdigest()!=expected:
             raise AssertionError("mega_evolve phase1 cave hash mismatch")
     for edit in record.data[0]["edits"]:
@@ -421,5 +419,3 @@ def verify_phase1(rom,module_dir,manifest,record,metadata):
     if manifest['phase']>=6:
         from .mega_evolve_phase6 import verify
         verify(rom,record.data[0]['spring'])
-        from .mega_evolve_trial_tower import verify as verify_tower
-        verify_tower(rom,record.data[0]['trial_tower'])

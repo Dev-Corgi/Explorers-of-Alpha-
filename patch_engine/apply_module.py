@@ -165,6 +165,16 @@ def apply_module(
 
     armips_exe = armips or (_repo_root() / "tools" / "armips.exe")
 
+    if kind == "trial_tower":
+        from .trial_tower import install
+        record = AppliedModule(module_id, manifest.get("version", 1), [], [], [])
+        record.data.append(install(rom, module_dir, state, record))
+        state.upsert_module(record)
+        rom_out.write_bytes(_serialize_rom(rom, state))
+        if state_path:
+            save_state(state_path, state)
+        return state
+
     if kind == "luminous_evolution":
         from .apply_luminous_evolution import apply_luminous_evolution_module
 
@@ -453,6 +463,14 @@ def verify_module_applied(
 
         record = state.get_module(manifest["id"]) if state else None
         verify_mega_evolve_module(rom_path, module_dir, manifest, record)
+        return
+
+    if kind == "trial_tower":
+        from .trial_tower import verify
+        record = state.get_module(manifest["id"]) if state else None
+        if record is None or not record.data:
+            raise AssertionError("Trial Tower module record missing")
+        verify(NintendoDSRom(Path(rom_path).read_bytes()), record.data[0])
         return
 
     if kind == "luminous_evolution":

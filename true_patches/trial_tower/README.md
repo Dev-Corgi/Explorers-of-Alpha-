@@ -138,34 +138,35 @@ are selected by Trial Tower's extension, not assigned as256+ in MAPPA's u8 field
 Install/update the adapter, then restart SkyTemple:
 
 ```powershell
-.venv/Scripts/python.exe -B true_patches/mega_evolve/fixed_extension_plugin/install.py
+.venv/Scripts/python.exe -B true_patches/trial_tower/fixed_extension_plugin/install.py
 ```
 
-Version22 preserves the earlier `control_mode_enhance` SpawnTeam wrapper at
+The independent `trial_tower` module applies immediately after `mega_evolve`.
+It preserves the earlier `control_mode_enhance` SpawnTeam wrapper at
 0x022DF6A4. The payload captures the installed BL target during linking and calls
 that target before resolving Trial Tower rewards. Installation accepts the
 native call or the known control-mode wrapper prologue/native SpawnTeam call,
-rejects unknown targets, and checks that the compiled target matches. Its cave
-address is discovered on each build. This fixes version21's full-stack guard
-failure and retains control mode's leader/revival bookkeeping. The regression
-assembles the actual preceding module, applies Trial Tower afterward, and runs
+rejects unknown targets. Its cave address is discovered on each apply. The
+standalone payload retains control mode's leader/revival bookkeeping. The regression
+assembles the actual preceding wrapper and runs
 the patched call through native spawn, control leader synchronization and
 reward resolution, checking the original return value and unchanged prior cave.
 
 Read-only verification (no full-stack build, ROM or save output):
 
 ```powershell
-.venv/Scripts/python.exe -B -X utf8 -m true_patches.mega_evolve.verify_trial_tower
+.venv/Scripts/python.exe -B -X utf8 -m true_patches.trial_tower.verify
 ```
 
-The fixture clones the base ROM in memory and verifies data and hook guards.
+The fixture clones the base ROM in memory and supplies guarded synthetic Mega
+addon slots; it verifies Tower data and hook guards without producing a ROM.
 It also checks SkyTemple layout/property save-reopen and bank synchronization,
 all eight native SIR0/load/preload paths, exact reward counts, bag/held-item
 exclusions, branch/hatch/female/form candidates, uniform sampling and extended
 ID/property quicksave restoration. Filesystem services and GUI widgets are
 modeled; no playable emulator run or live SkyTemple UI session is claimed.
 Compiled ARM checks cover all 81 boss/level combinations, HP, moves, IQ, sprite
-selection, saved permutations, the complete phase-6 payload's linking/relocations
+selection, saved permutations, separate Mega/Tower payload linking and relocations
 and RAM budget, original dungeon queries, name aliases, native victory objectives,
 the original departure constructor through its real epilogue (including v16
 failure reproduction), selection through native SSB Case dispatch, the ROM's

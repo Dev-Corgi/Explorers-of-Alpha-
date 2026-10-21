@@ -204,6 +204,3 @@ entry ME_AbilitiesEqualHook
 #ifdef ME_PHASE5
 #include "phase5_hooks.S"
 #endif
-#ifdef ME_TRIAL_TOWER
-#include "trial_tower_hooks.S"
-#endif

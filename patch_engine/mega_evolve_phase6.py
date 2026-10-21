@@ -43,8 +43,6 @@ def header(rom,ov,data):
                'STR_REGRESSION':19701,'STR_FORM':19702,'STR_REG_CONFIRM':19703,'STR_FORM_CONFIRM':19704,
                'STR_REG_SUCCESS':19705,'STR_FORM_SUCCESS':19706,'STR_FORM_SELECT':19707}
     constants.update({'STR_'+r['key'].upper():r['index']+1 for r in data['strings']})
-    from true_patches.mega_evolve.trial_tower import load as tower
-    constants.update(TRIAL_TOWER_DUNGEON=tower()['dungeon_id'],TRIAL_TOWER_MARKER=tower()['dungeon_id']+1)
     out=''.join(f'#define {k} {v}\n' for k,v in constants.items())
     def array(name,values,typ='unsigned short'):
         return f'static const {typ} {name}[]={{'+','.join(map(str,values))+'};\n'
@@ -143,7 +141,11 @@ def install(rom,module,state,record):
 
 def verify(rom,info):
     ov=rom.loadArm9Overlays()[16];cave=info['cave']
-    if hashlib.sha256(ov.data[cave['file_offset']:cave['file_offset']+cave['size']]).hexdigest()!=info['sha256']:
+    blob=bytearray(ov.data[cave['file_offset']:cave['file_offset']+cave['size']])
+    addon=info['symbols'].get('ME_SpringCompletionAddon')
+    if addon is not None and cave['load_address']<=addon<=cave['load_address']+cave['size']-4:
+        blob[addon-cave['load_address']:addon-cave['load_address']+4]=b'\xff'*4
+    if hashlib.sha256(blob).hexdigest()!=info['sha256']:
         raise AssertionError('phase6 Spring runtime drift')
     for e in info['edits']:
         b,base=(rom.arm9,0x02000000) if e['binary']==0 else (ov.data,LOAD)

@@ -7,9 +7,13 @@ enum { QUICK_SIZE=0x1400, QUICK_MAIN=0x5800, QUICK_PAGE=488,
        QUICK_MAGIC=0x344b454d, QUICK_ROWS=1040, QUICK_STRIDE=192 };
 _Static_assert(28+sizeof(Extra)-12<=QUICK_STRIDE,"quicksave actor row overflow");
 _Static_assert(QUICK_ROWS+COUNT*QUICK_STRIDE+8<=QUICK_SIZE,"quicksave globals overflow");
-#ifdef ME_TRIAL_TOWER
-_Static_assert(4888+27<=QUICK_SIZE,"extended fixed-room quicksave overflow");
-#endif
+_Static_assert(4888+32<=QUICK_SIZE,"quicksave addon area overflow");
+/* Optional post-mega module callbacks. The nonzero sentinel keeps this table
+ * in the ROM image so a later module can bind it without relinking Mega. */
+volatile u32 ME_AddonHooks[4]={0xffffffffu,0xffffffffu,0xffffffffu,0xffffffffu};
+void ME_AddonReset(void) {
+    if(ME_AddonHooks[0]!=0xffffffffu)((void(*)(void))ME_AddonHooks[0])();
+}
 static u8 quick_pending[QUICK_SIZE];
 static int quick_loaded;
 static u32 quick_hash(u8 *p,int n,int skip) {
@@ -36,9 +40,8 @@ int ME_QuickWrite(u32 *position,u8 *main,int size) {
         quick_copy(row+28,(u8*)x+12,sizeof(Extra)-12);
     }
     U32(quick_pending,4880)=sunlight_serial;U32(quick_pending,4884)=movement_serial;
-#ifdef ME_TRIAL_TOWER
-    ME_TowerSave(quick_pending+4888);
-#endif
+    if(ME_AddonHooks[1]!=0xffffffffu)
+        ((void(*)(u8*))ME_AddonHooks[1])(quick_pending+4888);
     U32(quick_pending,12)=quick_hash(quick_pending,QUICK_SIZE,12);
     result=FN(0x0204a9c8,int(*)(int,u8*,int))(QUICK_PAGE,quick_pending,QUICK_SIZE);
     quick_loaded=0;
@@ -72,9 +75,8 @@ int ME_QuickRead(u32 *position,u8 *main,int size) {
         if(!U16(row,2))continue;
         for(int j=0;j<6;j++)if(!packed_valid(U32(row,4+j*4)))return 2;
     }
-#ifdef ME_TRIAL_TOWER
-    if(!ME_TowerLoad(quick_pending+4888))return 2;
-#endif
+    if(ME_AddonHooks[2]!=0xffffffffu &&
+       !((int(*)(const u8*))ME_AddonHooks[2])(quick_pending+4888))return 2;
     quick_loaded=1;return 0;
 }
 static void ME_QuickActor(u8 *e) {
@@ -91,11 +93,8 @@ static void ME_QuickActor(u8 *e) {
 }
 void ME_QuickReady(void) {
     if(!quick_loaded)return;
-#ifdef ME_TRIAL_TOWER
-    /* Native floor initialization can run after the sidecar read. Reapply the
-     * validated room ID/properties after that reset, before the first turn. */
-    ME_TowerLoad(quick_pending+4888);
-#endif
+    if(ME_AddonHooks[3]!=0xffffffffu)
+        ((void(*)(const u8*))ME_AddonHooks[3])(quick_pending+4888);
     for(int i=0;i<COUNT;i++)ME_QuickActor(entity(i));
     ME_ImportState(quick_pending+16,SNAPSHOT);
     sunlight_serial=U32(quick_pending,4880);movement_serial=U32(quick_pending,4884);
