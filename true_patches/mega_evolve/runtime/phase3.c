@@ -43,14 +43,17 @@ static int room(u8 *a,u8 *b) {return BYTE(a,0x25)!=255 && BYTE(a,0x25)==BYTE(b,0
 static int maxhp(u8 *e) {u8 *m=monster(e);return m?clamp((s16)U16(m,0x12)+(s16)U16(m,0x16),1,32767):1;}
 static int hp(u8 *e) {u8 *m=monster(e);return m?(s16)U16(m,0x10):0;}
 static int multiply(int value,int n,int d) {return clamp(divide(value*n,d),0,32767);}
-/* The native Atk/Def rank writers also publish the existing rank-change
- * presentation after storing the new value.  Speed is kept in the phase1
- * rank bank, so it cannot safely enter those writers without changing one of
- * the four monster stat fields.  Reuse the same native presentation service
- * instead; its two resource ids are the vanilla rank-up/rank-down variants.
+/* phase3_visual.py appends palette-swapped copies of the native stat effects.
+ * This is presentation only: the numeric Speed rank lives in the phase1 bank.
+ * Match the native 0x022e4e74/0x022e4d28 effect-player ABI, never a stat writer.
  */
-static void show_speed_stage(u8 *actor,u8 *target,int delta) {
-    FN(0x0234b350,void(*)(u8*,u8*,int))(actor,target,delta>0?0x0d8f:0x0dd8);
+#define SPEED_STAGE_DOWN_EFFECT 707
+#define SPEED_STAGE_UP_EFFECT 708
+static void show_speed_stage(u8 *target,int delta) {
+    int id=delta>0?SPEED_STAGE_UP_EFFECT:SPEED_STAGE_DOWN_EFFECT;
+    int token=FN(0x022bdeb4,int(*)(int))(id);
+    FN(0x022e35e4,int(*)(u8*,int,int,int,int,int,int,int))(
+        target,id,1,token&255,2,0,-1,0);
 }
 /* Floor-local state. The persistent profile is owned by the bank, never here. */
 typedef struct {u32 entity,monster,floor,once; u16 locked_move;u8 charged,pad;u32 sun_serial;
@@ -313,7 +316,7 @@ int ME_ChangeStat(u8 *actor,u8 *target,int stat,int delta) {
     if(old==value)return 0;
     if(stat==4) {
         ME_SetStoredSpeed(target,value);
-        show_speed_stage(actor,target,delta);
+        show_speed_stage(target,value-old);
     } else U16(m,off)=(u16)value;
     if(value<old && alive(actor) && !friends(actor,target)) {
         /* Reactive boosts belong to the holder; the triggering attack's

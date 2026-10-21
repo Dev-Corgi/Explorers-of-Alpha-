@@ -273,6 +273,8 @@ def apply_phase1(rom,module_dir,manifest,state,metadata):
         from .mega_evolve_phase3_data import prepare_data
         files,profile_edits=prepare_data(rom,strings)
         prepared_files.update(files)
+        from true_patches.mega_evolve.phase3_visual import prepare as prepare_speed_visual
+        prepared_files.update(prepare_speed_visual(rom))
     for path,content in prepared_files.items():rom.setFileByName(path,content)
     if manifest['phase']>=4:
         from .mega_evolve_phase4_data import prepare_files
@@ -297,6 +299,8 @@ def apply_phase1(rom,module_dir,manifest,state,metadata):
           "cave_hashes":[hashlib.sha256(ov36[c.file_offset:c.file_offset+c.size]).hexdigest() for c in caves],
           "base_profile_edits":profile_edits,
           **({"phase3_md_sha256":hashlib.sha256(prepared_files["BALANCE/monster.md"]).hexdigest()} if manifest["phase"]>=3 else {}),
+          **({"speed_visual_hashes":{path:hashlib.sha256(prepared_files[path]).hexdigest()
+              for path in ("EFFECT/effect.bin","BALANCE/anim.bin","UTILITY/anim.bin")}} if manifest["phase"]>=3 else {}),
           "base_stats_helpers":{"entity_speed":entity_speed,"from_monster":from_monster},
           "save_component_schema":2 if manifest["phase"]>=2 else 1,"automatic_save_codec_integration_phase":4}])
     if manifest['phase']>=4:
@@ -364,6 +368,10 @@ def verify_phase1(rom,module_dir,manifest,record,metadata):
             raise AssertionError('mega_evolve execution payload hash mismatch')
     if manifest['phase']>=3 and hashlib.sha256(rom.getFileByName('BALANCE/monster.md')).hexdigest()!=record.data[0].get('phase3_md_sha256'):
         raise AssertionError('mega_evolve phase3 MD hash mismatch')
+    if manifest['phase']>=3:
+        for path,digest in record.data[0]['speed_visual_hashes'].items():
+            if hashlib.sha256(rom.getFileByName(path)).hexdigest()!=digest:
+                raise AssertionError('mega_evolve Speed visual resource drift: '+path)
     caves=[c for c in record.caves if c.overlay=='ov36']
     hashes=record.data[0].get('cave_hashes') or [record.data[0].get('cave_sha256')]
     if len(caves)==1 and record.data[0].get('cave_sha256',hashes[0])!=hashes[0]:

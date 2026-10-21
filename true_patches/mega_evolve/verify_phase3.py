@@ -45,7 +45,7 @@ class World(PreviousWorld):
         # Patched native callers still go through actual persistent dispatchers.
         self.u.mem_write(info['bootstrap_symbols']['base'],struct.pack('<I',self.body_base))
         self.heap=0x02290000;self.allocations=[];self.freed=[];self.fail_alloc=False
-        self.stats=[];self.thorns=[];self.category=0;self.resolved_type=1
+        self.stats=[];self.thorns=[];self.effects=[];self.category=0;self.resolved_type=1
         self.prior_calls=[];self.probability=1
         # Scatter layout has code between BSS sections. Never clear state..end.
         for section in self.record.data[0]['bss_ranges']:
@@ -68,6 +68,10 @@ class World(PreviousWorld):
         elif address in (0x0231399c,0x02313b08,0x023135fc,0x02313814):
             # Native stored-stat routine is external to this service test.
             self.stats.append((address,a,b,c,d,struct.unpack('<2I',bytes(u.mem_read(sp,8)))));self.ret()
+        elif address==0x022bdeb4:self.ret(0x1234)
+        elif address==0x022e35e4:
+            self.effects.append((a,b,c,d,struct.unpack('<4I',bytes(u.mem_read(sp,16)))))
+            self.ret()
         elif address==0x0230d240:
             # Execute the actual CalcDamageFixedWrapper first; only its native
             # fixed-damage service is modeled, including all seven stack args.

@@ -93,6 +93,14 @@ ME_ChangeStat(actor,target,stat,delta)의 stat4/5/6(숫자 스피드/명중/회�
 UI/특수공격 처리 등은 기존 IncreaseAttackStage0x0231399c에 위임한다.
 verify_phase3_numeric_stats.py는 이 native writer 경계를 모델링하며,
 actor=target, physical/special index, amount2 및 stack 인자를 기록한다.
+
+숫자 스피드 랭크 연출은 공격 랭크 writer를 거치지 않는다. 기존 능력치
+하강/상승 효과(일반 애니메이션 686/687, effect.bin 257)를 복제하여 파란색
+팔레트의 파일 293 및 애니메이션 707/708을 추가한다. ME_ChangeStat의 스피드
+분기는 실제 저장 랭크가 변한 뒤에만 대상 엔티티로 PlayEffectAnimationEntity를
+호출한다. verify_phase3_visual.py가 효과 파일·테이블과 ARM 호출 인자, 공격
+랭크 불변 및 상한에서 연출이 없는 경우를 검사한다.
+
 최종 물리/특수 저장 값과 기존 native 반응 UI까지 인증하는 테스트는 아니다.
 
 기존 효과가 이 API로 들어오는 경로에 한정한다. 기존 기술의 별도
