@@ -4,6 +4,8 @@ region: US
 description: >
   Per-guild-member move mastery. Four current move slots keep independent
   mastery in a separate save block; levels are 0..3 at 0/100/300/700.
+  Saves predating this module load with zero mastery and gain a versioned
+  mastery block on their next normal save; malformed versioned blocks fail.
   Successful move actions add four mastery, while TM Read and Z-Move shell
   swaps are excluded from both synchronization and mastery gain.
 kind: move_level

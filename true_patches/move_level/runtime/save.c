@@ -31,6 +31,11 @@ typedef struct {
 
 static void zero(u8 *p,u32 n){while(n--)*p++=0;}
 static void copy(u8 *d,const u8 *s,u32 n){while(n--)*d++=*s++;}
+static int blank_block(const u8 *p,u32 n){
+    u8 erased=p[0];if(erased!=0&&erased!=0xFF)return 0;
+    while(n--)if(*p++!=erased)return 0;
+    return 1;
+}
 static u16 rd16(const u8 *p){return (u16)p[0]|((u16)p[1]<<8);}
 
 static int entity_id(u8 *e,u8 **mout){
@@ -139,7 +144,9 @@ static void block_make(u8 *b){
 }
 static int block_load(u32 page){
     u8 *b=alloc(BLOCK_BYTES,5);if(!b)return 2;int r=raw_read(page,b,BLOCK_BYTES);
-    if(r||invalid_checksum(b,BLOCK_BYTES)||((u32 *)b)[1]!=MAGIC||((u16 *)b)[4]!=1||((u16 *)b)[5]!=MEMBERS)r=2;
+    if(r)r=2;
+    else if(blank_block(b,BLOCK_BYTES))r=0; /* Save predates move_level (schema 0). */
+    else if(invalid_checksum(b,BLOCK_BYTES)||((u32 *)b)[1]!=MAGIC||((u16 *)b)[4]!=1||((u16 *)b)[5]!=MEMBERS)r=2;
     else copy((u8 *)state,b+16,RECORD_BYTES);
     free_mem(b);
     return r;
