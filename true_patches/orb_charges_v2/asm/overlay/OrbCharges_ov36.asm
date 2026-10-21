@@ -191,6 +191,13 @@ OrbCharges_AfterAddSubMenuOption:
 	cmp r4, #ACTION_USE_ORB_MENU_ALT
 	bne OrbCharges_AfterAddSubMenuOptionDone
 OrbCharges_AfterAddSubMenuOptionPatch:
+	ldrb r0, [r8]
+	tst r0, #ITEM_SHOP_UNPAID_FLAGS
+	beq OrbCharges_AfterAddSubMenuOptionString
+	mov r0, r4
+	bl RemoveDungeonSubMenuOption
+	b OrbCharges_AfterAddSubMenuOptionDone
+OrbCharges_AfterAddSubMenuOptionString:
 	mov r0, r8
 	bl OrbCharges_TryPatchLastSubMenuUseString
 OrbCharges_AfterAddSubMenuOptionDone:
@@ -200,8 +207,16 @@ OrbCharges_AfterAddSubMenuOptionDone:
 
 OrbCharges_AfterAddSubMenuOptionAlt:
 	push {r0-r4, lr}
+	ldrb r0, [r8]
+	tst r0, #ITEM_SHOP_UNPAID_FLAGS
+	beq OrbCharges_AfterAddSubMenuOptionAltString
+	mov r0, #ACTION_USE_ORB_MENU_ALT
+	bl RemoveDungeonSubMenuOption
+	b OrbCharges_AfterAddSubMenuOptionAltDone
+OrbCharges_AfterAddSubMenuOptionAltString:
 	mov r0, r8
 	bl OrbCharges_TryPatchLastSubMenuUseString
+OrbCharges_AfterAddSubMenuOptionAltDone:
 	pop {r0-r4, lr}
 	cmp r4, #0
 	b OrbUseMenuAfterAddAltResume

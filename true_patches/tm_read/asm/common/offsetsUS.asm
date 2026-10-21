@@ -27,6 +27,8 @@ STRING_ID_READ_MENU_1       equ 19076
 STRING_ID_READ_MENU_LAST    equ 19077
 STRING_ID_NOTHING_HAPPENED equ 3048
 ITEM_CATEGORY_TM          equ 5
+; item.flags: in shop (bit 1) or picked up but unpaid (bit 2).
+ITEM_SHOP_UNPAID_FLAGS    equ 0x06
 TM_MAX_READ_CHARGES       equ 3
 
 StatusMoveSlotsBase       equ 0x124

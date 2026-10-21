@@ -92,6 +92,9 @@ Boost_MenuHook:
 
 Boost_TryAppend:
 	push {r4, r5, r6, lr}
+	ldrb r0, [r8]
+	tst r0, #ITEM_SHOP_UNPAID_FLAGS
+	bne Boost_TryAppend_Skip
 	mov r0, r8
 	ldrsh r0, [r0, #4]
 	bl Boost_GroupForItem
@@ -138,6 +141,13 @@ Boost_TargetSelected:
 	cmp r0, #ACTION_BOOST
 	ldrne r1, [sp, #0x44]
 	bne ItemsMenuTargetSelectedResume
+	ldr r0, =BoostSavedItem
+	ldr r0, [r0]
+	cmp r0, #0
+	beq Boost_TargetSelectedBlocked
+	ldrb r0, [r0]
+	tst r0, #ITEM_SHOP_UNPAID_FLAGS
+	bne Boost_TargetSelectedBlocked
 	ldr r0, [sp, #0x44]
 	ldr r1, =DungeonPtr
 	ldr r1, [r1]
@@ -147,6 +157,11 @@ Boost_TargetSelected:
 	ldr r0, =BoostPendingUser
 	str r10, [r0]
 	str r1, [r0, #4]
+	add r0, r7, #StatusActionField
+	mov r1, #1
+	bl SetActionField
+	b ItemsMenuPlainExit
+Boost_TargetSelectedBlocked:
 	add r0, r7, #StatusActionField
 	mov r1, #1
 	bl SetActionField

@@ -1,5 +1,5 @@
 id: orb_charges_v2
-version: 19
+version: 20
 region: US
 description: >
   Multi-use orbs v2: charge=3 orbs; ov29 RemoveUsedItem consume +
@@ -16,6 +16,7 @@ description: >
   floor of the group.
   v19: Read DUNGEON_PTR_MASTER (the pointer DungeonFree frees). The working
   DUNGEON_PTR is often already null on escape.
+  v20: Hide both orb Use actions for Kecleon shop items before payment.
   v12: renamed orb effects. Move-id retargets cast the named move.
   Exclusive moves (PP-save, poison, Counter+Mirror Coat, Protect,
   stat drops, next-turn power x3) replace the loaded effect.

@@ -1,5 +1,5 @@
 id: tm_read
-version: 20
+version: 21
 region: US
 description: >
   TM Read action — dungeon TM submenu, charge tracking, slot-3 temp use.
@@ -17,6 +17,7 @@ description: >
   floor of the group.
   v20: Read DUNGEON_PTR_MASTER (the pointer DungeonFree frees). The working
   DUNGEON_PTR is often already null on escape.
+  v21: Hide Read for unpaid Kecleon shop TMs and reject stale Read actions.
 
 kind: tm_read
 rom_profile: us_vanilla
@@ -113,12 +114,12 @@ ov29_cave:
   export_symbols:
     # Offsets from TmReadOv29CodeAddress (ov36 cave). Keep in sync with TmRead.asm layout:
     # stubs 0x00-0x13, BSS through SlotBackup 0x14-0x2B, CheckReadString @ 0x2C,
-    # TryRestoreSlot @ 0x3C8 (push {r4-r8,lr} + PendingFlag). Wrong 0x28/0xE4 pointed into
+    # TryRestoreSlot @ 0x3E0 (push {r4-r8,lr} + PendingFlag). Wrong 0x28/0xE4 pointed into
     # SlotBackup / mid-TryAppend and executed move data as code (Shift menu / turn-end crash).
     # ForceRestorePending / LevelUp hooks are resolved post-armips in apply_tm_read.
     TmRead_CheckReadString: 0x2C
-    TmRead_TryRestoreSlot: 0x3C8
-    TmRead_PostValidateRestoreBl: 0x124
+    TmRead_TryRestoreSlot: 0x3E0
+    TmRead_PostValidateRestoreBl: 0x550
 
 asm:
   dir: asm

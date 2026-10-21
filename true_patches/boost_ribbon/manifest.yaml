@@ -1,5 +1,5 @@
 id: boost_ribbon
-version: 5
+version: 6
 region: US
 description: >
   Dungeon bag submenu Boost for listed held items.
@@ -9,6 +9,7 @@ description: >
   v4: the boost and its message run in the leader's pass-turn action after the bag
   menu closes, so no empty message window follows the message.
   v5: No-Slip Cap (13) is Def, Y-Ray Specs (14) is Hp, and Gaggle Specs (15) is Atk.
+  v6: Hide Boost for unpaid Kecleon shop equipment and reject stale selections.
   Submenu string codes are the display string id plus 1.
 
 kind: asm

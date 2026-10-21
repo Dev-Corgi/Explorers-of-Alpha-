@@ -31,6 +31,8 @@ ov_36 equ 0x023A7080
 .definelabel DungeonSubMenuStringIds, 0x0237C922
 
 ACTION_BOOST equ 43
+; item.flags: in shop (bit 1) or picked up but unpaid (bit 2).
+ITEM_SHOP_UNPAID_FLAGS equ 0x06
 BOOST_AMOUNT equ 3
 ; Display string 19121 is shown when the submenu code id is 19122.
 BOOST_STRING_DISPLAY_BASE equ 19121

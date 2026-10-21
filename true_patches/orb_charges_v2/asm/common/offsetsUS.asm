@@ -14,6 +14,7 @@ ov_11 equ 0x022DC240
 .definelabel GetSubMenuStringId_StairsBranch, 0x022EB2E8
 
 .definelabel AddDungeonSubMenuOption,     0x022EB81C
+.definelabel RemoveDungeonSubMenuOption,  0x022EB8F4
 .definelabel DungeonSubMenuCountPtr,       0x0237C918
 .definelabel DungeonSubMenuStringIds,     0x0237C922
 
@@ -37,6 +38,8 @@ RemoveUsedItemSavedLrOffset equ 12
 ACTION_USE_ORB              equ 0x31
 ; fp+7==0 orb bag path adds this action instead of GetItemAction (0x31).
 ACTION_USE_ORB_MENU_ALT     equ 0x38
+; item.flags: in shop (bit 1) or picked up but unpaid (bit 2).
+ITEM_SHOP_UNPAID_FLAGS      equ 0x06
 
 .definelabel DungeonEntryArm9SetupSite,    0x022DF280
 .definelabel DungeonEntryArm9SetupTarget,  0x020585D8

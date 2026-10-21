@@ -108,6 +108,9 @@ TmRead_PickReadMenuStringIdDone:
 
 TmRead_TryAppendReadOption:
 	push {r4, lr}
+	ldrb r0, [r8]
+	tst r0, #ITEM_SHOP_UNPAID_FLAGS
+	bne TmRead_TryAppendReadOption_Skip
 	mov r0, r8
 	ldrh r0, [r0, #4]
 	cmp r0, #0
@@ -173,6 +176,9 @@ TmRead_SetupReadAction:
 	cmp r0, #0
 	beq TmRead_SetupReadAction_Fail
 	mov r4, r0
+	ldrb r0, [r4]
+	tst r0, #ITEM_SHOP_UNPAID_FLAGS
+	bne TmRead_SetupReadAction_Fail
 	ldrh r0, [r4, #4]
 	cmp r0, #0
 	beq TmRead_SetupReadAction_Fail
