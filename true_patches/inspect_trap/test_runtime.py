@@ -12,6 +12,7 @@ from ndspy.rom import NintendoDSRom
 from skytemple_files.common.util import get_ppmdu_config_for_rom
 from unicorn import Uc, UC_ARCH_ARM, UC_MODE_ARM, UC_HOOK_CODE
 from unicorn.arm_const import *
+from capstone import Cs, CS_ARCH_ARM, CS_MODE_ARM
 from patch_engine.apply_asm import apply_asm_single
 from patch_engine.build_full_stack import FULL_STACK_MODULES
 from patch_engine.hook_registry import branch_target
@@ -38,6 +39,16 @@ class InspectTrapRuntimeTest(unittest.TestCase):
         cls.record, rom = cls.apply(rom, cls.manifest)
         cls.ov29 = bytes(get_rom_binary(rom, 'ov29'))
         cls.ov36 = bytes(get_rom_binary(rom, 'ov36'))
+        hook_off = 0x022F1E98 - 0x022DC240
+        hook_word, = struct.unpack_from('<I', cls.ov29, hook_off)
+        cls.r_action = branch_target(0x022F1E98, hook_word)
+        md = Cs(CS_ARCH_ARM, CS_MODE_ARM)
+        md.detail = True
+        cls.inspect_begin = next(
+            ins.operands[0].imm
+            for ins in md.disasm(cls.ov36[cls.r_action - 0x023A7080:cls.r_action - 0x023A7080 + 0x80], cls.r_action)
+            if ins.mnemonic == 'bl'
+        )
 
     @classmethod
     def apply(cls, rom, manifest):
@@ -57,6 +68,9 @@ class InspectTrapRuntimeTest(unittest.TestCase):
         self.tiles, self.entities = {}, {}
         self.lookups, self.calls = [], []
         self.effect_result = 0
+        self.stop_at_resume = False
+        self.uc.mem_write(0x0237C694, struct.pack('<H', 0))
+        self.uc.mem_write(0x0237C9A4, bytes(3))
         self.uc.hook_add(UC_HOOK_CODE, self.native_call)
 
     def put_object(self, x, y, kind=2, visible=0, room=3):
@@ -75,7 +89,11 @@ class InspectTrapRuntimeTest(unittest.TestCase):
             xy = tuple(v if v < 0x80000000 else v - 0x100000000 for v in xy)
             self.lookups.append(xy)
             result = self.tiles.get(xy, 0x0205f000)  # empty/default tile
+        elif address == 0x022F1ECC and self.stop_at_resume:
+            uc.reg_write(UC_ARM_REG_PC, STOP)
+            return
         elif address in [0x02337428, 0x02339CE8, 0x02336F4C,
+                         0x02017CCC,
                          0x02051D8C, 0x02051E60, 0x023026FC,
                          0x0234B350, 0x022E2CA0, 0x022EF154, 0x022EDE7C]:
             args = [uc.reg_read(r) for r in REGS[:4]]
@@ -108,13 +126,24 @@ class InspectTrapRuntimeTest(unittest.TestCase):
 
     def begin(self):
         args = {0: POSITION, 1: 5, 2: 0, 3: 1}
-        self.run_at(0x022F2FB0, 0x022F2FB4, args)
-        self.assertEqual(self.calls[-1], (0x02337428, list(args.values())))
+        self.run_at(self.inspect_begin, values=args)
         for i in range(4, 12):
             self.assertEqual(self.uc.reg_read(REGS[i]), 0x12340000 + i)
 
     def visible(self, xy):
         return self.uc.mem_read(self.entities[xy] + 0x20, 1)[0]
+
+    def test_r_reveals_traps_plays_warp_sound_and_spends_one_turn(self):
+        info = 0x02074000
+        self.uc.mem_write(ACTOR + 4, struct.pack('<hh', 10, 8))
+        self.uc.mem_write(ACTOR + 0xB4, struct.pack('<I', info))
+        self.put_object(10, 7)
+        self.uc.mem_write(0x0237C694, struct.pack('<H', 0x100))
+        self.stop_at_resume = True
+        self.run_at(self.r_action, values={6: ACTOR})
+        self.assertEqual(self.visible((10, 7)), 1)
+        self.assertEqual(self.uc.mem_read(info + 0x4E, 1), b'\x01')
+        self.assertIn(0x02017CCC, [a for a, _ in self.calls])
 
     def test_exactly_eight_neighbors_revealed_and_persist_after_y_release(self):
         for y in range(6, 11):
@@ -129,8 +158,7 @@ class InspectTrapRuntimeTest(unittest.TestCase):
         self.assertEqual(len(self.lookups), 8)
         for xy in self.entities:
             self.assertEqual(self.visible(xy), int(xy in expected))
-        self.assertEqual([a for a, _ in self.calls], [0x02339ce8, 0x02336f4c, 0x02337428])
-        self.run_at(0x0233779c)  # real HideTileGrid runs on Y release
+        self.assertEqual([a for a, _ in self.calls], [0x02339ce8, 0x02336f4c])
         for xy in expected:
             self.assertEqual(self.visible(xy), 1)
         self.assertEqual(bytes(self.uc.mem_read(0x022a37b6, 10)), blend)
@@ -165,7 +193,7 @@ class InspectTrapRuntimeTest(unittest.TestCase):
         self.begin()
         self.calls.clear()
         self.begin()
-        self.assertEqual([a for a, _ in self.calls], [0x02337428])
+        self.assertEqual([a for a, _ in self.calls], [])
 
     def test_consumption_after_each_effect_including_persistent_and_random_traps(self):
         for trap_id in range(0x21):
@@ -215,8 +243,8 @@ class InspectTrapRuntimeTest(unittest.TestCase):
         record, rom = self.apply(NintendoDSRom(self.source.read_bytes()), manifest)
         self.assertNotEqual(record.caves[0].load_address, self.record.caves[0].load_address)
         blob = get_rom_binary(rom, 'ov29')
-        word, = struct.unpack_from('<I', blob, 0x022f2fb0 - 0x022dc240)
-        target = branch_target(0x022f2fb0, word)
+        word, = struct.unpack_from('<I', blob, 0x022f1e98 - 0x022dc240)
+        target = branch_target(0x022f1e98, word)
         self.assertTrue(record.caves[0].load_address <= target < record.caves[0].load_address + 1024)
 
 

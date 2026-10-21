@@ -4,8 +4,8 @@
 .include "generated.inc"
 
 .open "overlay_0029.bin", ov_29
-.org InspectTrapBeginSite
-    bl InspectTrap_Begin
+.org InspectTrapRSite
+    bl InspectTrap_RAction
 ; ApplyTrapEffect has run. Force the caller's native removal decision true.
 ; Failed/avoided activation paths never reach this instruction.
 .org InspectTrapConsumeSite
@@ -17,8 +17,33 @@
 ; Keep the reservation size so following modules need not move.
 .area 1024, 0
 
-; Y input renderer only; the position-selection grid calls DrawTileGrid directly.
-; r0 points to the controlled actor's position.
+; R input action. r6 is the controlled actor at the original input site.
+; The original R diagonal-mode toggle is intentionally skipped by the wrapper.
+InspectTrap_RAction:
+    push {r0-r5, r7-r12, lr}
+    ldr r0, =ReadDungeonButtons
+    ldrh r0, [r0]
+    tst r0, #0x100
+    beq InspectTrap_RDone
+    ldr r0, =InspectTrapInputState
+    ldrb r0, [r0, #2]
+    cmp r0, #0
+    bne InspectTrap_RDone
+    add r0, r6, #4
+    bl InspectTrap_Begin
+    ; Sound-table entry 0x0B is the warp cue used by the game.
+    mov r0, #0x0B
+    bl PlayDungeonSound
+    ; The normal no-input action writes 1 to MonsterInfo+0x4E. Do the same
+    ; here so the engine advances exactly one turn after the R action.
+    ldr r0, [r6, #0xB4]
+    mov r1, #1
+    strb r1, [r0, #0x4E]
+InspectTrap_RDone:
+    pop {r0-r5, r7-r12, lr}
+    b 0x022F1ECC
+
+; r0 points to the controlled actor's position (x/y halfwords).
 InspectTrap_Begin:
     push {r0-r12, lr}
     ldrsh r4, [r0]
@@ -50,7 +75,7 @@ InspectTrap_Next:
     bl UpdateTrapsVisibility
 InspectTrap_Draw:
     pop {r0-r12, lr}
-    b DrawTileGrid
+    bx lr
     .pool
 .endarea
 .close

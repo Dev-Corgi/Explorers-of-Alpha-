@@ -1,19 +1,21 @@
 id: inspect_trap
-version: 2
+version: 3
 region: US
 description: >
-  Starting Y direction inspection permanently reveals hidden traps on the eight
-  tiles adjacent to the controlled actor, including corridors and room borders.
+  R immediately spends one turn and reveals hidden traps on the eight tiles
+  adjacent to the controlled actor. The vanilla R diagonal-movement toggle is
+  removed. The reveal uses the native visibility refresh and warp sound cue;
+  Y direction inspection is unchanged and does not reveal traps.
   All traps are consumed after their effect runs once, using native trap removal.
 kind: asm
 rom_profile: us_vanilla
 hooks:
-  - name: InspectTrapBegin
-    symbol: InspectTrapBeginSite
+  - name: InspectTrapR
+    symbol: InspectTrapRSite
     binary: ov29
-    vanilla_word: 0xEB01111C
+    vanilla_word: 0xE51F00B0
     chain: first
-    target_symbol: InspectTrap_Begin
+    target_symbol: InspectTrap_RAction
   - name: InspectTrapConsume
     symbol: InspectTrapConsumeSite
     binary: ov29
