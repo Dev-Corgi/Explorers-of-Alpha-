@@ -43,6 +43,15 @@ static int room(u8 *a,u8 *b) {return BYTE(a,0x25)!=255 && BYTE(a,0x25)==BYTE(b,0
 static int maxhp(u8 *e) {u8 *m=monster(e);return m?clamp((s16)U16(m,0x12)+(s16)U16(m,0x16),1,32767):1;}
 static int hp(u8 *e) {u8 *m=monster(e);return m?(s16)U16(m,0x10):0;}
 static int multiply(int value,int n,int d) {return clamp(divide(value*n,d),0,32767);}
+/* The native Atk/Def rank writers also publish the existing rank-change
+ * presentation after storing the new value.  Speed is kept in the phase1
+ * rank bank, so it cannot safely enter those writers without changing one of
+ * the four monster stat fields.  Reuse the same native presentation service
+ * instead; its two resource ids are the vanilla rank-up/rank-down variants.
+ */
+static void show_speed_stage(u8 *actor,u8 *target,int delta) {
+    FN(0x0234b350,void(*)(u8*,u8*,int))(actor,target,delta>0?0x0d8f:0x0dd8);
+}
 /* Floor-local state. The persistent profile is owned by the bank, never here. */
 typedef struct {u32 entity,monster,floor,once; u16 locked_move;u8 charged,pad;u32 sun_serial;
     u32 conversion_action,charge_action,moved_epoch,stake_used[COUNT];
@@ -196,6 +205,8 @@ int ME_RunAway(u8 *actor,u8 *holder,int previous_hp) {
     if(target_x<0)for(int py=1;py<31&&target_x<0;py++)for(int px=1;px<55;px++)
         if(safe_escape_tile(px,py)) {target_x=px;target_y=py;break;}
     if(target_x<0)return 0;
+    /* mode=1 is the vanilla warp presentation/path, so Run Away keeps the
+     * same warp effect as the native warp-when-attacked ability. */
     FN(0x022f85f0,void(*)(u8*,int,int,int))(holder,target_x,target_y,1);
     if((s16)U16(holder,4)!=target_x||(s16)U16(holder,6)!=target_y)return 0;
     x->once|=4;return 1;
@@ -300,7 +311,10 @@ int ME_ChangeStat(u8 *actor,u8 *target,int stat,int delta) {
     int old=stat==4?ME_GetStoredSpeed(target):U16(m,off);
     int value=clamp(old+delta,4,16);
     if(old==value)return 0;
-    if(stat==4)ME_SetStoredSpeed(target,value);else U16(m,off)=(u16)value;
+    if(stat==4) {
+        ME_SetStoredSpeed(target,value);
+        show_speed_stage(actor,target,delta);
+    } else U16(m,off)=(u16)value;
     if(value<old && alive(actor) && !friends(actor,target)) {
         /* Reactive boosts belong to the holder; the triggering attack's
          * Mold Breaker must not suppress these separate self effects. */
